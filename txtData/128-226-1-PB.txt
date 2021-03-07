@@ -1,0 +1,118 @@
+Abstrak
+Upah Minimum Kota (UMK) adalah sebuah standardisasi upah atau gaji karyawan atau pegawai untuk diterapkan diperusahaan baik itu BUMN, BUMS, maupun perusahaan lain yang berskala besar.
+Faktor yang mempengaruhi UMK sangat banyak dan beragam salah satunya adalah rata-rata inflasi pengeluaran dimana terdapat 8 kategori yang dipakai.
+Tulisan ini memaparkan penggunaan Backpropagation Neural Network (BPNN) untuk memprediksi besarnya UMK.
+Pada tahap uji coba data dibagi menjadi dua bagian yaitu data latih dan data uji, dimana data latih digunakan untuk mencari jumlah iterasi, jumlah hidden layer, dan nilai learning rate yang optimal.
+Pengujian data latih memberikan hasil yakni jumlah iterasi optimal diperoleh pada saat iterasi 80, sedangkan untuk jumlah hidden layer yang optimal adalah sebanyak satu hidden layer dan untuk nilai learning rate optimal yakni pada saat bernilai 0.8.
+Semua variabel yang diperoleh dikatakan optimal karena memiliki rata-rata MSE paling kecil dibandingkan dengan data lainnya.
+Hasil yang diperoleh saat data uji dengan menggunakan iterasi, jumlah hidden layer, dan nilai learning rate yang optimal didapatkan hasil MSE sebesar 0.07280534710552478.
+Kata kunci: UMK, Inflasi, Backpropagation Neural Network (BPNN), MSE
+1. PENDAHULUAN
+Kebijakan upah minimum adalah sistem penggajian yang banyak diterapkan hampir di semua negara, yang mana berdasarkan dua sisi.
+Sisi pertama, gaji minimum adalah alat perlindungan bagi karyawan atau pegawai untuk mempertahankan nilai gaji yang diterima agar tidak turun guna untuk memenuhi kebutuhan sehari-hari.
+Sedangkan untuk sisi kedua, adalah alat untuk perlindungan bagi perusahaan agar bisa mempertahankan produktivitas karyawan atau pegawai.
+Mayoritas tingkat gaji minimum rata-rata pertahun meningkat secara signifikan secara nasional (Sulistiawati, 2012).
+Lengkapnya masalah tentang gaji minimium menjadi penyebab terjadinya perbedaan antara pencari kerja dan peluang kerja sehingga jumlah pengangguran meningkat dan menyebabkan jumlah investasi berubah.
+Jumlah pengangguran dan investasi menjadi masalah utama dalam jangka pendek maupun panjang.
+Pengangguran berhubungan dengan pencari kerja dan peluang kerja yang ada yang mana kebanyakan terdapat perbedaan yang begitu besar (Anggrainy, 2013).
+Pengembangan industri dari waktu ke waktu mempunyai tujuan agar dapat menyerap pencari kerja yang semakin tinggi dengan semakin tinggi meningkatnya laju pertumbuhan penduduk.
+Teori industri secara aktual sangat luas konsepnya, yaitu dimulai dari memproses bahan mentah menjadi barang / bahan jadi.
+Mengenai investasi, ini sangat bergantung pada peluang kerja dan penghasilan.
+Besarnya investasi akan mempengaruhi besarnya pencari kerja.
+Secara teori, nilai investasi semakin besar maka semakin besar pula pencari kerja.
+Gaji juga memiliki efek pada peluang kerja.
+Gaji yang ditetapkan semakin tinggi akan mempengaruhi biayaproduksi meningkat, sehingga harus melakukan efisiensi, dimana pencari kerja dikurangi oleh perusahaan, yang berefek peluang kerja menjadi kecil (Lestari, 2012).
+Pada penelitian (Angga, 2014) jaringan syaraf tiruan digunakan untuk prediksi status dari permohonan hutang di salah satu perusahaan finance dan backpropagation sebagai prediksi jaminan motor.
+Selain itu pada (Liu, 2016), kombinasi antara backpropagation neural network (BPPN) dengan empirical mode decomposition (EMD) untuk model baru dari peramalan suhu air.
+Di paper (Gaxiola, 2015) dipaparkan mengenai perbandingan dari neural network yang ditujukan dengan memperluas 2 tipe bobot fuzzy (NNGT2FW) dengan menghubungkan neural network monolitik (NN) dan neural network dengan interval 2 tipe bobot fuzzy (NNIT2FW) diterangkan.
+Sebuah studi yang bertujuan membangun model prediksi resiko untuk dukungan tugas dalam kendaraan dengan pengemudi dengan menggunakan dua metode: analisis tugas (TA) dan backpropagation neural networks (BPNNs) telah dijelaskan pada paper (Ou, 2013).
+Pada paper (Babkin, 2015) didapatkan nilai minimum error dalam peramalan wilayah pengembangan sosialekonomi berdasarkan pada neural network menunjukkan derajat tertinggi dari hasil peramalan neural network dibandingkan dengan metode lainnya.
+Jadi, backpropagation neural network lebih akurat dan hasil yang didapatkan lebih bagus dibandingkan metode lainnya dan data yang dibutuhkan jga tidak harus banyak untuk menggunakan metode ini.
+Pada penelitian ini digunakan metode backpropagation neural network untuk memprediksi besarnya Upah Minimum Kota (UMK) berdasarkan inflasi (bahan makanan, pangan, tanggungan, sandang, kesehatan, pendidikan, transportasi, dan umum) menurut kelompok pengeluaran yang ada di Kota Malang data yang didapat diperoleh dari situs http://malangkota.bps.go.id/ dan harapannya penelitian memperoleh hasil yang optimal dalam memprediksi UMK.
+2. BACKPROPAGATION NEURAL NETWORK (BPNN) 
+Backpropagation neural network mempunyai kemampuan yang kuat dari interpolasi non-linear.
+Ini dapat berisi pencerminan pemetaan matematis hukum internal dari data eksperimen.
+Metode ini secara luas digunakan dalam aplikasi teknik untuk prediksi dan optimalisasi (Yin, 2011).
+BPNN disusun berdasarkan algoritma descent gradien, yang mana diusulkan oleh Rumelhart dan McClelland.
+Ini adalah model jaringan banyak layer, yang intinya adalah BPA (Backpropagation algorithm).
+Dengan interkoneksi yang tepat dari sejumlah node dalam cara yang cocok dan pengaturan bobot untuk menyesuaikan nilai, neural network dapat memperkirakan fungsi nonlinear apapun dengan presisi yang berubah-ubah.
+BPNN terdiri dari input layer, beberapa hidden layers dan output layer.
+Tiga layer dalam BPNN digambarkan pada Gambar 1 (Chen, 2013).
+Penentuan jumlah lapisan hidden layer dan neuronnya sangat penting serta berpengaruh pada kecepatan serta keakuratan hasil pembelajaran.
+Penggunaan satu hidden layer mampu menyelesaikan berbagai masalah.
+Sedangkan penentuan jumlah neuron pada hidden layer harus memenuhi aturan (Heaton, 2005): a.
+Berada dalam interval jumlah neuron input maupun output layer b.
+Jumlah neuron pada hidden layer adalah 2/3 dari jumlah neuron pada input layer, ditambah dengan jumlah neuron pada output layer c.
+Jumlah neuron pada hidden layer kurang dari dua kali jumlah neuron pada input layer.
+Normalisasi data adalah suatu proses yang menentukan nilai sehingga nilai berada pada range tertentu.
+Proses ini bertujuan untuk menghasilkan data yang baik dan berkualitas.
+Metode normalisasi data adalah minimum-maximum.
+Adapun rumus matematika untuk metode ini.
+Fungsi sigmoid digunakan untuk memenuhi beberapa syarat kontinu, terdeferensial dengan mudah dan merupakan fungsi yang tidak naik turun.
+Dalam metode backpropagation neural network terdapat 3 fase penting yang perlu diselesaikan terlebih dahulu.
+Fasenya dalah fase feedforward, back propagation, dan weight update.
+Dalam fase feedforward dibagi menjadi beberapa bagian.
+Setiap unit masukan (xi, i=1,n) menerima sinyal dan meneruskan xi ke unitunit lapisan tersembunyi.
+Hitung semua keluaran pada unit lapisan tersembunyi zj (j=1,2,,p).
+Fase dalam backpropagation sama halnya dengan fase sebelumnya juga dibagi menjadi beberapa bagian.
+Hitung faktor unit keluaran berdasarkan kesalahan pada setiap unit keluaran yk dimana k = 1,2,,m =()(_)=()(1) (8) Keterangan : k= faktor pengaturan nilai penimbang sambungan pada lapisan keluaran tk= nilai target data yk= unit kek pada lapisan keluaran y_netk = net masukan unit k k merupakan unit kesalahan yang dipakai dalam perubahan bobot layer dibawahnya.
+Dalam pengujian backpropagation neural network, ada proses yang dinamakan denormalisasi.
+Denormalisasi adalah sebuah proses yang mengubah nilai hasil normalisasi ke data asli.
+Rumus matematika untuk denormalisasi adalah : [13]: "=(maxmin) (0.1)0.8+min(16) Dimana : Max value= nilai maksimum Min value= nilai minimum x" = hasil denormalisasi 
+3. METODE 
+Dalam penelitian ini digunakan data yang diperoleh dari situs balai pusat statistik kota malang yang terdiri dari data UMK dan data rata-rata inflasi yang ada pada tahun 2005-2014.
+Data rata-rata inflasi terdapat 8 kategori yang dikelompokkan.
+Adapun data UMK yang digunakan juga sebagai data output dapat dilihat pada Tabel 1.
+Untuk besarnya ratarata inflasi, dimana terdapat 8 kategori yang digunakan dan sebagai input.
+Unuk kategori 1 (x1) adalah ratarata inflasi dari bahan makanan, kategori 2 (x2) adalah ratarata inflasi dari makanan jadi, minuman, rokok, dan tembakau, kategori 3 (x3) adalah rata- rata inflasi dari perumahan, air, listrik, gas, dan bahan bakar, kategori 4 (x4) adalah ratarata inflasi dari sandang, kategori 5 (x5) adalah rata - rata inflasi dari kesehatan, kategori 6 (x6) adalah ratarata inflasi dari pendidikan, rekreasi, dan olahraga, kategori 7 (x7) adalah ratarata inflasi dari transport, komunikasi, dan jasa keuangan, kategori 8 (x8) adalah ratarata inflasi umum dan hasilnya ditunjukkan oleh Tabel 2 berikut ini.
+Setelah itu adalah proses normalisasi data ratarata inflasi dengan data UMK dengan menggunakan metode minimummaximum.
+Salah satu hasil dari normalisasi data yang diperoleh dari data ratarata inflasi dan UMK dengan menggunakan Persamaan 1 ditunjukkan pada Tabel 3.
+Untuk proses selanjutnya setelah ditemukan nilai normalisasi dari data input dan output maka akan dibentuk nilai input ke hidden dimana nilai yang terbentuk mmpunyai panjang input x hidden.
+Misalnya hidden = 3, maka input ke hidden panjangnya adalah 8 x 3 = 24.
+Pada awalnya ditemukan secara random dengan batas bawah = -1, dan batas atas =1 serta menggunakan rumus random x (batas atasbatas bawah) + batas bawah.
+Setelah ditemukan nilai input ke hidden maka dapat mengitung nilai output dari masingmasing hidden dimana panjangnya adalah sejumlah hidden yang diberikan dan untuk menghitungnya dapat menggunakan Persamaan 4.
+Salah satu hasilnya ditunjukkan oleh Tabel 4.
+Untuk memperhalus hasil nilai output dari masingmasing hidden dan mengurangi nilai tingkat error maka dapat menggunakan fungsi aktivasi sigmoid biner seperti pada Persamaan 2 yang panjangnya adalah sebanyak panjang nilai yang diperhalus.
+Hasil yang didapatkan ditunjukkan pada Tabel 5.
+Proses berikutnya adalah mencari nilai output yang mana dihasilkan dari hasil random dan caranya sama seperti mencari nilai awal input ke hidden akan tetapi nilai output mempunyai panjang sejumlah hidden yang dimasukkan dengan batas bawah = 0, dan batas atas =1 serta menggunakan rumus random x (batas atasbatas bawah) + batas bawah.
+Setelah dibentuk atau ditemukan maka akan dihitung nilai output dengan menggunakan Persamaan 6.
+Jika hidden = 3 dan output = 1 maka nilai output yang dihasilkan adalah sebanyak 1 nilai output.
+Pada Tabel 6 adalah output dan nilai output.
+Nilai output yang dihasilkan harus diperhalus menggunakan fungsi aktivasi sigmoid biner seperti pada Persamaan 2.
+Dari data pada Tabel 6 diperoleh hasil dari fungsi aktivasi sigmoid biner seperti yang ditunjukkan pada Tabel 7.
+Proses selanjutnya menghitung faktorpada neuron output dengan menggunakan Persamaan 8.
+Hasil dari perhitungan faktorpada neuron output ditunjukkan pada tabel 8.
+Setelah itu, menghitung suku perubahan bobot dari output ke hidden dengan menggunakan nilai= 0.64 seperti yang ditunjukkan pada persamaan 9.
+Dan hasil dari perhitungannya disajikan pada Tabel 9.
+Persamaan 10 digunakan untuk menjumlahkan kesalahan di hidden neuron.
+Tabel 10 adalah hasil dari perhitungannya.
+Setelah ditemukan hasil dari perhitungan kesalahan di hidden neuron maka akan dihitung nilai faktor kesalahandi hidden network dengan Persamaan 11.
+Hasil dari proses ini ditunjukkan pada Tabel 11.
+Proses berikutnya adalah perubahan bobot hidden neuron yang dihitung dengan menggunakan persamaan 12.
+Setelah semua proses dijalankan dan menghasilkan nilai maka untuk proses selanjutnya adalah weight update yang mana memperbarui bobot baik itu bobot input maupun bobot output yang mana untuk bobot input menggunakan persamaan 13 dan untuk bobot output menggunakan persamaan 14 proses berlanjut kembali mulai dari persamaan 1-12 sampai dengan iterasi yang ditentukan dan untuk iterasi kedua bobot input dan output pada awal iterasi diambil dari bobot terakhir dari iterasi pertama kemudian prosesnya sama dengan proses sebelumnya.
+4. HASIL EKSPERIMEN 
+Hasil eksperimen terdiri dari pengujian jumlah hidden layer, pengujian nilai alpha dan pengujian iterasi.
+Pengujian jumlah iterasi bertujuan untuk mencari jumlah iterasi yang optimal yang digunakan untuk data uji backpropagation neural network nantinya.
+Jumlah iterasi yang ditetapkan mulai dari iterasi 10100 dengan kelipatan 10, dari hasil tabel 12 iterasi optimal ditunjukkan pada saat iterasi 80 karena ratarata MSE mulai stabil dan tidak terjadi penurunan atau kenaikan yang signifikan.
+Dari grafik pengujian jumlah iterasi mulai dari pengujian iterasi 80 nilai ratarata MSE sudah stabil tidak terjadi penurunan atau kenaikan yang signifikan.
+Pengujian yang kedua adalah pengujian jumlah hidden layer yang mana seperti dijelaskan pada bab 2 untuk penentuan hidden layer dapat memilih salah satu dari petunjuk yang dijelaskan.
+Dan pada penelitian ini, dipilih berada dalam interval jumlah neuron input dan output layer.
+Dan hasilnya ditunjukkan pada tabel 13.
+Dari hasil Tabel 13 karena memakai aturan yang pertama dalam memilih jumlah hidden layer maka rangenya adalah 1-9 dan satu hidden layer dicoba sebanyak 5 kali dan hasil yang optimal diperoleh pada saat hidden layer 1 karena nilai MSE lebih kecil dibandingkan dengan nilai MSE dari jumlah hidden layer lainnya maka nantinya akan digunakan hidden layer 1 untuk data uji backpropagation neural network.
+Dari grafik pengujian jumlah hidden layer pada (Gambar 3) dengan aturan yang pertama dapat dilihat pada saat sistem menggunakan jumlah hidden layer 1 nilai MSE lebih kecil dibandingkan dengan jumlah hidden layer lainnya sehingga untuk data uji menggunakan jumlah hidden layer sebanyak 1.
+Pengujian learning rate sama halnya dengan pengujian pertam dan kedua yang mana bertujuan untuk memperoleh nilai learning rate yang optimal yang nantinya digunakan pada data uji.
+Untuk hasil dari pengujian nilai learning rate ditunjukkan pada Tabel 14.
+Dapat dilihat pada learning rate 0.8 selam dilakukan 5 kali percobaan diperoleh nilai ratarata MSE terkecil dibandingkan dengan nilai learning rate lainnya sehingga nilai learning rate inilah yang akan digunakan sebagai data uji.
+Dari grafik pengujian learning rate (Gambar 4) mulai dari 0.90.1 seperti yang ada pada Tabel 14.
+Pada learning rate dari range tersebut hampir tidak terjadi penurunan ataupun kenaikan yang signifikan tetapi lebih kearah stabil.
+Dan dalam penelitian ini digunakan learning rate dengan nilai 0.8 yang mana nantinya akan digunakan untuk data uji.
+Setelah semua faktor atau variabel dalam backpropagation neural network dilakukan pengujian mulai dari iterasi, jumlah hidden layer dan learning rate didapatkan hasil optimal dari ketiga variabel dalam backpropagation neural network.
+Untuk iterasi optimal pada saat iterasi 80, untuk jumlah hidden layer optimal pada saat hidden layer yang digunakan adalah 1, dan untuk learning rate yang optimal pada saat nilainya adalah 0.8.
+Setelah pengujian dilakukan maka proses selanjutnya adalah data uji.
+Hasil dari pengujian sistem ditunjukkan pada Tabel 15.
+Dari hasil pengujian data uji pada Tabel 15 diperoleh nilai MSE sebesar 0.07280534710552478.
+5. KESIMPULAN DAN SARAN 
+Dari hasil penelitian diperoleh bahwa backpropagation neural network dapat diimplementasikan untuk studi kasus upah minimum kota berdasarkan tingkat inflasi.
+Dari hasil pengujian data uji diperoleh nilai MSE sebesar 0.07280534710552478.
+Penelitian berikutnya dapat menambahkan input dan outputnya.
+Selain itu, bisa dengan menggunakan dua metode yaitu backpropagation neural network dengan fuzzy.

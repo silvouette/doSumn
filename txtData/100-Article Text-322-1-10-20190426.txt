@@ -1,0 +1,194 @@
+Abstrak
+Sebuah dokumen berita seringkali terkait lebih dari satu kategori, untuk itu diperlukan pemanfaatan metode kategorisasi yang tidak hanya cepat tetapi juga dapat mengelompokkan sebuah berita kedalam banyak kategori.
+Banyak metode yang dapat digunakan untuk mengkategorisasi dokumen berita, salah satunya adalah ontologi.
+Pendekatan ontologi dalam kategorisasi sebuah dokumen berita didasarkan pada kemiripan fitur yang ada di dokumen dengan fitur yang ada di ontologi.
+Penggunaan ontologi dalam kategorisasi yang hanya didasarkan pada kemunculan term dalam menghitung relevansi dokumen menyebabkan banyak kemunculan fitur lain yang sebenarnya sangat terkait menjadi tidak terdeteksi.
+Dalam paper ini diusulkan metode baru untuk kategorisasi dokumen beritayang terkait dengan banyak kategori, metode ini berbasis domain specific ontology yang perhitungan relevansi dokumen terhadap ontologinya tidak hanya didasarkan pada kemunculan term tetapi juga memperhitungkan relasi antar term yang terbentuk.
+Uji coba dilakukan pada dokumen berita berbahasa indonesia dengan 2 kategori yaitu olahraga dan teknologi.
+Hasil uji coba menunjukkan nilai rata-rata akurasi yang cukup tinggi yaitu kategori olahraga adalah 93,85% sedangkan pada kategori teknologi adalah 96,32%.
+Kata Kunci: Dokumen berita, kategorisasi, multi-label, ontologi,domain-spesifik.
+I. PENDAHULUAN
+Berita telah menjadi kebutuhan pokok manusia seiring dengan berkembangnya teknologi dan internet.
+Perkembangan teknologi dan internet ini menyebabkan proses pendistribusian informasi pada berita beralih dari cara penyampaian era media cetak menuju era digital.
+Berita yang disajikan dalam bentuk teks pada media digital, biasanya dikelompok-kan berdasarkan isinya seperti berita olahraga, ekonomi, sains, dan lain sebagainya.
+Permasalahan yang muncul adalah penggunaan media digital dalam penyampaian informasi menyebabkan jumlah berita digital yang dirilis oleh portal berita tiap harinya menjadi sangat banyak.
+Hal ini berdampak pada ketersediaan berita yang jumlahnya sangat melimpah.
+Berdasar uraian tersebut dibutuhkan metode peng- organisasian yang baik dan cepat untuk memudahkan pengambilan informasi dari berita yang melimpah tersebut.
+Informasi ini yang nantinya akan digunakan sebagai dasar dari pengelompokan berita yang ada.
+Proses pengorganisasian teks tersebut adalah Text Mining.
+Salah satu kegunaan dari text mining adalah pengklasifikasian dan pengorganisasian dokumen berdasarkan isinya atau dalam bidang keilmuan data mining disebut text categorization[1].
+Berita memiliki aliran yang dinamis dimana informasi yang terkandung didalamnya memungkin-kan sebuah informasi baru yang tidak ada dalam dokumen sebelumnya.
+Berita juga seringkali terkait dengan lebih dari satu kategori (multi-label).
+Multi-label selalu terkait dengan data yang ambigu, dimana setiap satu objek berita merupakan anggota dari sejumlah kelas kategori (label) yang berbeda.
+Hal tersebut tentunya menambah tingkat kesulitan dalam memprediksi kategori dari sebuah berita, untuk itu diperlukan metode text categorization yang juga dapat mengkategorikan sebuah dokumen berita kedalam banyak kategori yang sesuai atau biasa disebut multi-label text categorization.
+Saat ini, metode atau algoritma yang sangat terkenal dalam text categorization adalah machine learning[2].
+Beberapa algoritma machine learning yang dapat digunakan dalam text categorization diantaranya adalah algoritma K-Nearest Neighbor, Nave Bayes Classifier, dan ID3.
+Implementasi dari algoritma-algoritma tersebut pada text categorization berdasar pada kemuculan kata atau morfologi kata.
+Konsep dari klasifikasi dokumen teks dengan menggunakan algoritma-algoritma tersebut adalah memasukkan teks baru yang belum diketahui kategorinya ke dalam kategori dengan melakukan pelatihan terhadap sekumpulan teks yang telah diketahui kategorinya.
+Proses pelatihan tersebut adalah menentukan kemiripan antara teks uji dengan setiap teks latih.
+Teks uji dan teks latih dikatakan mirip bila ada sekumpulan term yang muncul pada kedua dokumen tersebut.
+Term yang muncul tersebut adalah yang memiliki huruf penyusun yang sama.
+Semakin banyak term yang sama maka semakin mirip pula kedua teks tersebut.
+Proses penentuan kemiripan teks ini memiliki kelemahan karena apabila terdapat teks uji yang memiliki term yang berbeda dari term pada teks latih padahal kedua term tersebut memiliki makna yang sama maka kedua teks tersebut tidak dapat dikatakan mirip.
+Hal ini memungkinkan teks uji tersebut akan dikelompokkan ke dalam kategori yang berbeda dari kategori teks latih tersebut.
+Alternatif algoritma text-categorization yang dapat mengatasi masalah tersebut adalah algoritma yang menggunakan pendekatan ontologi.
+Ontologi adalah deskripsi formal tentang suatu konsep secara eksplisit dalam sebuah domain dan properti dari setiap konsep beserta dengan batasannya[3].
+Ontologi yang berdasar pada knowledge engineering disebut rule base karena pendekatan ini memanfaatkan keahlian manusia (human expert) untuk membuat aturan-aturan (rules) secara manual melalui proses pemahaman pada sebuah domain penelitian[4].
+Penelitian[5] melakukan klasifikasi dokumen berita teks bahasa indonesia dengan menggunakan ontologi yang dikombinasikan dengan pembobotan kata menggunakan metode Term Frequency-Inverse Document Frequency (TF-IDF), Penelitian [6] melakukan klasifikasi artikel berita berbahasa indonesia secara otomatis menggunakan ontologi dan Nave Bayes dengan recall adalah 97,03%, precision adalah 91,63%, dan f-measure adalah 94,02%.
+Penggunaan ontologi dalam penelitian [5] dan penelitian [6] memiliki kesamaan dalam cara penggunaan ontologinya, yaitu dalam kategorisasi yang dilakukan hanya didasarkan pada kemunculan term dalam menghitung relevansi dokumennya sehingga menyebabkan banyak kemunculan fitur lain yang sebenarnya sangat terkait menjadi tidak terdeteksi.
+Berdasarkan permasalahan-permasalahan yang disebutkan, diusulkan sebuah metode baru untuk kategorisasi dokumen beritayang terkait dengan banyak kategori, metode ini berbasis domain spesific ontology yang perhitungan relevansi dokumen terhadap ontologinya tidak hanya didasarkan pada kemunculan term tetapi juga memperhitungkan relasi antar term yang terbentuk.
+Domain spesific ontology dapat digunakan untuk melakukan kategorisasi dokumen berita dalam penelitian ini karena bersifat unik dan memiliki struktur hierarkis.
+Selain itu, sebuah model domain spesific ontology dapat menghilangkan makna ambigu, sehingga dapat menangani masalah yang muncul pada bahasa alami dimana sebuah kata memiliki lebih dari satu makna atau arti bergantung pada konteks kalimatnya.
+Metode usulan ini dalam pencarian kemunculan term ontologinya tidak lagi terpaku pada frase penuh yang tebentuk.
+Metode ini nantinya akan diuji untuk mengkategorisasi dokumen teks berita berbahasa indonesia dengan kategori yang berbeda-beda.
+II. KAJIAN LITERATUR
+Pada bab ini akan dijelaskan teori-teori terkait dengan metode penelitian yang akan dilakukan.
+Teori yang akan dijelaskan meliputi text mining, kategorisasi, dan domain spesific ontology.
+1. Text Mining 
+Text mining dapat didefinisikan sebagai proses pengolahan informasi yang terdapat pada data teks untuk menemukan pola ataupun model yang dapat menjelaskan isi dari dokumen teks tersebut.
+Kunci dari proses ini adalah menggabungkan informasi yang berhasil diekstraksi dari berbagai sumber [7].
+Sedangkan menurut [8] text mining didefinisikan sebagai data yang berupa teks yang biasanya sumber data didapatkan dari dokumen, dengan tujuan adalah mencari kata-kata yang dapat mewakili isi dari dokumen tersebut yang nantinya dapat dilakukan analisa hubungan antar dokumen.
+2. Kategorisasi Kategorisasi merupakan cabang keilmuan dari text mining untuk pengidentifikasian isi dalam dokumen teks terhadap sebuah kategori yang terkait.
+Pada kategorisasi dokumen teks, akan diberikan sekumpulan kategori (label) dan koleksi dokumen yang berfungsi sebagai data latih, yaitu data yang digunakan untuk membangun model, dan kemudian dilakukan proses untuk menemukan kategori yang tepat untuk dokumen test, yaitu dokumen yang digunakan untuk menentukan akurasi dari model.
+Jika terdapat sebuah dokumen x sebagai data masukan,maka data keluaran yang dihasilkan oleh model tersebuat adalah kelas atau kategori y dari beberapa kategori tertentu yang telah didefinisikan sebelumnya (y1,,yk).
+Beberapa contoh dari pemanfaatan kategorisasi dokumen teks adalah pengkategorisasian berita ke beberapa kategori,pengkategorisasian spam email, pengkategorisasian kilasan film, pengkategorisasian paper yang menarik dan tidak menarik, dan penggunaan dari kategorisasi teks yang paling umum adalah kategorisasi otomatis dari web pages yang dimanfaatkan oleh portal Internet seperti Yahoo dan Google.
+Kategorisasi otomatis ini memudahkan proses browsing artikel berdasarkan topik tertentu yang dilakukan oleh user.
+Metode utama yang digunakan sebagai acuan dalam kategorisasi dalam penelitian ini adalah domain spesific ontologi yang dapat digunakan sebagai klasifikasi kategori dalam dokumen teks yang terkait lebih dari satu kategori atau biasa disebut multi label.
+3. Domain Specific Ontology Ontologi adalah sebuah deskripsi formal tentang sebuah konsep secara eksplisit dalam sebuah wawasan dari setiap konsep beserta dengan batasannya [3], sehingga domain spesific ontology dapat diartikan sebagai sebuah ontologi yang spesifik pada sebuah domain of knowledge.
+Sebuah konsep di ontologi dapat memiliki objek (instances).
+Secara teknis, ontologi direpresentasikan dalam bentuk Class, property, facet, dan instances.
+Class menerangkan konsep atau makna dari suatu domain.
+Class adalah kumpulan dari elemen dengan sifat yang sama.
+Sebuah Class bisa memiliki sub Class yang menerangkan konsep yang lebih spesifik.
+Property merepresentasikan hubungan diantara dua individu.
+Property menghubungkan individu dari domain tertentu dengan individu dari range tertentu.
+Ada tiga jenis property, yaitu object property, data type property dan annotation property.
+Object property menghubungkan suatu individu dengan individu lain.
+Object property terdiri dari empat tipe, yaitu inverse property, functional property, transitive property, dan symmetric property.
+Data type property menghubungkan sebuah individu ke sebuah tipe data pada Resource Description Framework (RDF) literal atau pada Extensible Markup Language (XML).
+Annotation property digunakan untuk menambah informasi (metadata) kelas, individu dan object/data type property.
+Facet digunakan untuk merepresentasikan informasi atau batasan tentang property.
+Ada dua jenis facet, yaitu cardinality dan value type.
+Cardinality facet merepresentasikan nilai eksak yang bisa digunakan untuk slot pada suatu kelas tertentu.
+Cardinality facet dapat bernilai single dan multiple cardinality.
+Value type menggambarkan tipe nilai yang dapat memenuhi property, seperti string, number, boolean, dan enumerated.
+III. METODE PENELITIAN
+Pada bab ini akan dibahas metode penelitian yang akan dilakukan mulai persiapan data yang meliputi tahap preprocessing data dan persiapan ontologi, metode usulan berupa diagram alur fase training dan diagram alur fase testing serta metode evaluasi yang digunakan.
+1. Persiapan Dokumen Berita 
+Data berupa corpus berita online berbahasa Indonesia yang didapatkan dari berbagai situs berita online.
+Berita diunduh berdasar kategori yang telah ditetapkan.
+Kategori primitif dalam uji coba berguna untuk mengevaluasi hasil klasifikasi.
+Dokumen berita yang terkait dalam berbagai kategori juga diikutkan dalam ujicoba hal ini dilakukan untuk mengetahui keakuratan pada klasifikasi yang multi label.
+Preprocessing dilakukan terlebih dahulu sebelum dilakukan text categorization.
+Preprocessing sebagaimana terlihat pada Gambar 1 meliputi proses identifikasi kata (case folding dan filtering), dan pembuangan stopwords (stopping).
+Tujuan dari tahap preprocessing dokumen teks adalah untuk menghilangkan karakter-karakter selain huruf, menyeragamkan kata, mengurangi volume kosakata, dan mengubah kata kedalam bentuk aslinya.
+1.1 Identifikasi Kata 
+Proses identifikasi kata merupakan proses penghilangan angka, tanda baca dan konversi huruf kapital dan huruf kecil.
+Secara garis besar proses ini dapat dibagi menjadi dua proses, yaitu filtering dan case folding.
+Proses filtering merupakan proses yang berguna untuk menghilangkan karakter-karakter non-huruf seperti angka, tanda baca dan simbol, sedangkan dalam proses case folding variasi huruf harus diseragamkan (menjadi huruf kecil saja).
+Karakter selain huruf dihilangkan dan dianggap sebagai delimiter[9].
+1.2 Stopping 
+Proses pembuangan stopwords merupakan proses yang dilakukan setelah proses identifikasi kata.
+Stopwords adalah kata-kata yang sering muncul dan tidak dipakai di dalam pemrosesan bahasa alami[9].
+Stopwords dapat berupa kata depan, kata penghubung, dan kata pengganti.
+Contoh stopwords dalam bahasa Indonesia adalah yang, ini, dari, dan di.
+Ukuran kata dalam sebuah dokumen teks menjadi berkurang setelah dilakukan proses pembuangan stopwords sehingga hanya kata-kata yang penting terdapat dalam sebuah dokumen teks dan diharapkan memiliki bobot yang tinggi.
+2. Persiapan Ontologi 
+Setelah proses persiapan dokumen hal selanjutnya adalah pembentukan domain spesifik ontologi.
+Contoh pendekatan ontologi yang akan digunakan dalam penelitian ini terlihat pada Gambar 2 dan Gambar 3.
+Gambar 2 merupakan representasi ontologi dari kategori (Class) olahraga, sedangkan Gambar 3 merupakan representasi dari subClass (domain) dari Class olahraga yaitu angkat besi.
+Ontologi dapat digunakan untuk melakukan klasifikasi dokumen teks pada penelitian ini karena ontologi bersifat unik dan memiliki struktur hierarkis.
+Selain itu, sebuah model ontologi dapat menghilangkan makna ambigu, sehingga dapat menanggulangi masalah yang muncul pada bahasa alami di mana sebuah kata memiliki lebih dari satu makna atau arti bergantung pada konteks kalimatnya.
+Konsep atau Class merepresentasikan term atau kata dalam domain yang spesifik.
+Fitur (instance) atau dalam paper ini disebut dengan node merepresentasikan individu dari sebuah kelas.
+Relasi atau property merepresentasikan hubungan diantara konsep.
+Ada dua relasi yang digunakan dalam penelitian ini, yaitu relasi yang spesialisasi dan non spesialisasi.
+3. Metode Kategorisasi Usulan 
+Metode usulan yang diajukan tediri dari dua fase utama yakni fase training dan fase testing.
+Fase training atau fase pembelajaran merupakan fase yang digunakan untuk mencari nilai threshold yang optimal pada tiap domainnya.
+Nilai threshold yang optimal selanjutnya digunakan untuk mencari nilai relevansi suatu dokumen pada domain ontologinya atau pada kategorinya, sedangkan fase testing digunakan untuk mendapatkan nilai akurasi atau tingkat kebenaran dalam klasifikasi metode usulan ini.
+Dalam fase training semua dokumen berita akan di cocokkan dengan semua domain ontologi yang telah dibuat, hal ini digunakan untuk mencari nilai relevansi tiap dokumen terhadap semua domain ontologi.
+Nilai relevansi dihitung dari kemunculan node dan jarak antar node yang berelasi yang muncul didalam dokumen.
+Dua buah node dihitung sebagai sebuah relasi apabila node tersebut memiliki relasi dengan node tetangga, sebuah node disebut mempunyai relasi dengan node tetangga apabila memenuhi salah satu kriteria seperti pada Gambar 4, kriteria relasi tersebut merupakanrelasi antara node dan neighbour, relasi antara node dengan parentnya, relasi antara node dengan neighbour pada parentnya, dan relasi antara node dengan child dari neighbour pada parentnya.
+Jarak kemunculan node didapat dari selisih jarak kemunculan node pertama dengan node tetangga dimana node tersebut membentuk sebuah relasi baik itu relasi spesialisasi atau relasi non spesialisasi, kemudian jarak tersebut akan dikalikan dengan bobot (w).
+Nilai relevansi tiap domain ini disimpan dalam database sebagai acuan untuk mencari nilai threshold yang optimal.
+Setelah didapat nilai relevansi ditiap domain maka langkah selanjutnya adalah mencari threshold yang optimal.
+Threshold optimal didapat dengan cara meniru algoritma binary search untuk mencari threshold dengan akurasi tertinggi dengan interval dari nilai relevansi minimum adalah 0 hingga nilai relevansi maksimum.
+Diagram alur fase training metode usulan ditunjukkan pada Gambar 5, sedangkan diagram alur pencarian threshold optimal ditunjukkan Gambar 6.
+Ontologi direpresentasikan dengan kumpulan node yang saling terhubung dan membentuk sebuah jejaring.
+Untuk sebuah node N, himpunan kemunculan (O) node tersebut pada domaindalam sebuah dokumen (d) dirumuskan pada persamaan 1.
+P adalah indeks kemunculan node N tersebut didalam dokumen (d) dan k adalah banyak elemen dalam himpunan (O).
+Untuk menghitung relevansi (S) sebuah dokumen (d) terhadap sebuah domain () maka diusulkan persamaan 2.
+[2] merupakan jumlah kemunculan node tanpa relasi pada domainyang terdapat dalam sebuah dokumen (d), sedangkanmerupakan total score untuk seluruh relasi antar node yang terbentuk pada domainyang muncul pada dokumen (d).
+Nilai dari ditunjukkan pada persamaan 3, Dimana j adalah jumlah node yang muncul pada dokumen (d) , T adalah jumlah kata dalam dokumen (d) dan k(N) adalah jumlah frekuensi kemunculan node (N).
+Jika terdapat dua node M dan node Nyang memiliki relasi dalam domain () yang muncul pada dokumen (d) dan himpunan kemunculan (O) node M (persamaan 4) dan himpunan kemunculan (O) node N(persamaan 5), Maka score untuk relasi dua node tersebut pada domain () terhadap dokumen (d) dapat dipresentasikan pada persamaan 6.
+Untuk menghitung total score () seluruh relasi antar nodeyang terbentuk pada domainyang muncul pada dokumen (d) maka dapat digunakan persamaan 7, dimana T adalah jumlah kata dalam dokumen (d) dan R adalah jumlah relasi yang muncul.
+Jika relasi antar dua node M dan node N yang terbentuk adalah relasi spesialisasi maka score relasi () antar dua node pada domain () yang muncul pada dokumen (d) yang dihitung hanya score relasi node Mterhadap node N saja yaitu ),,,(NMd, sedangkan jika node M dan node N membentuk relasi non spesialisasi maka score relasi () antar dua node pada domain () yang muncul pada dokumen (d) yang dihitung adalah score relasi node M terhadap node N yaitu ),,,(NMd seperti pada persamaan 6 dan score relasi node Nterhadap node Myaitu ),,,(MNdseperti pada persamaan 8.
+Sehingga untuk menghitung total score seluruh relasi antar node yang terbentuk pada domain () yang muncul pada dokumen (d) maka dapat digunakan persamaan 9.
+Perhitungan relevansi dilakukan pada dokumen (d) terhadap seluruh domain dalam ontologi yang telah dibuat.
+Setelah didapat nilai relevansi (S) sebuah dokumen (d) terhadap seluruh domain () maka langkah selanjutnya adalah mencari threshold yang optimal.
+Threshold optimal didapat dengan cara meniru algoritma binary search dimana mencari threshold dengan akurasi tertinggi dengan interval dari nilai minimum nilai relevansi adalah 0 hingga nilai maksimal relevansi score, diagram alur pencarian threshold optimal ditunjukkan Gambar 6.
+Dalam fase testing step yang dilalui hampir sama dengan step-step pada fase training, yakni perhitungan kemunculan node dan jarak antar node yang berelasi serta scoring.
+Setelah nilai relevansi dokumen terhadap domain didapat maka akan dikomparasi dengan threshold hasil training yang telah dilakukan.
+Apabila nilai relevansi lebih besar dari threshold yang ada maka kategori dari domain tersebut merupakan kategori dari dokumen berita yang diklasifikasikan.
+Tahap perhitungan nilai relevansi dilakukan pada setiap domain sehingga dapat diketahui apakah sebuah dokumen hanya terikat pada satu domain saja atau lebih.
+Jika sebuah dokumen terikat lebih dari satu domain pada kategori yang berbeda maka dokumen tersebut memiliki multi kategori atau biasa disebut multi label.
+Diagram alur pada fase testing metode klasifikasi usulan ditunjukkan pada Gambar 7.
+4. Metode Evaluasi 
+Hasil Klasifikasi Pelaksanaan evaluasi uji coba menggunakan rumus precision, recall, F-Measure dan Accuration dengan pendekatan dokumen yang diretrieve dan relevan seperti pada Tabel 1.
+Tabel tersebut menunjukkan beberapa item yang diperlukan untk mengukur performa Classifier.
+Item-item tersebut akan digunakan untuk menghitung Precision, Recall, F-Measure dan Accuration dengan rumus sebagai berikut:Precision (P) = TP / (TP + FP)Recall (R) = TP / (TP + FN)F-Measure (F1) = 2 * P * R / (P + R)Accuration (A)= (TP +TN) /(TP + FP + FN + TN).
+IV. EKPERIMEN DAN HASIL 
+Data yang digunakan untuk menguji aplikasi ini adalah dokumen berita untuk training, dokumen berita untuk testing dan domain spesific ontology yang telah dibuat.
+Karakteristik dan jumlah data dijelaskan sebagai berikut.
+1. Data Domain Specific Ontology 
+Data ontologi berupa kumpulan kata yang terkait dengan domain tertentu.
+Domain-domain ini merupakan sub Class dari kategori.
+Kata-kata yang merepresentasikan domain tersebut disebut node, node satu dengan node yang lain dalam domain yang sama akan memiliki sebuah relasi.
+Relasi yang digunakan dalam penelitian ini adalah relasi spesialisasi dan nonspesialisasi.
+Kategori yang digunakan dalam percobaan ini adalah kategori olahraga dan teknologi, kategori olahraga memiliki 6 domain dan kategori teknologi memiliki 5 domain.
+Total node yang ada pada kategori olahraga adalah 300 node sedangkan pada kategori teknologi adalah 250 node.
+Relasi yang terbentuk 650 relasi pada kategori olahraga dan 340 pada kategori teknologi.
+Detail dari domain pada kategori olahraga dapat dilihat pada Tabel 2, sedangkan domain-domain yang terkait dengan kategori teknologi dapat dilihat pada Tabel 3.
+2. Data Dokumen Berita
+Data berupa corpus berita online berbahasa Indonesia didapatkan dari berbagai situs berita online.
+Berita diunduh berdasar kategori yang telah ditetapkan.
+Dokumen berita diambil berdasar kategori yang telah ditentukan yaitu kategori Olahraga dan kategori Teknologi.
+Dokumen berita yang terkait untuk kedua kategori juga diikutkan dalam ujicoba hal ini dilakukan untuk mengetahui keakuratan pada klasifikasi yang multi label.
+Terdapat data yang digunakan sebagai data pelatihan aplikasi.
+Data tersebut disebut data training dan memiliki karakter yang sama dengan data uji atau testing, hanya saja dalam pembuatan corpus, data tersebut telah dilabeli kategori sesuai dengan kategori yang diberikan oleh situs berita tersebut.
+Antara sebuah kategori dengan kategori lainnya memiliki jumlah dokumen uji yang berbeda-beda.
+Jumlah dokumen berita untuk setiap kategori dapat dilihat pada Tabel 4.
+Data yang digunakan untuk pelatihan atau training adalah 80% dari total dokumen sedangkan data uji atau testing adalah 20% dari seluruh dokumen.
+Pada uji coba yang telah dilakukan pada program ditemukan bahwa nilai bobot (w) berpengaruh pada akurasi dan fmeasure (F1) sebuah dokumen pada suatu domain.
+Sehingga untuk mendapatkan akurasi dan fmeasure (F1) terbaik atau untuk mendapatkan sebuah domain yang paling relevan terhadap sebuah dokumen dilakukan dengan mengubah-ubah nilai bobot (w) tersebut, selanjutnya jika terdapat nilai akurasi atau fmeasure (F1) terbaik dengan nilai yang sama pada bobot (w) yang berbeda maka nilai bobot yang dipilih adalah bobot yang nilainya lebih kecil.
+Dari hasil uji coba, didapatkan hasil ratarata nilai akurasi untuk kategori olahraga adalah 93,85% sedangkan fmeasure (F1) untuk kategori olahraga adalah 74,74%.
+Dengan tingkat akurasi tertinggi adalah 100% dengan bobot (w) = 15 yaitu domain balap mobil sedangkan yang terendah adalah 86, 84% yaitu domain loncat galah dengan bobot (w) = 5.
+fmeasure (F1) tertinggi adalah domain balap mobil dengan nilai 100% pada bobot (w) = 15, dan yang terendah adalah 54, 54% pada domain loncat galah pada bobot (w) = 5.
+Domain Angkat Besi mempunyai nilai akurasi dan fmeasure (F1) terbaik pada bobot (w) 5, 8, 10, 13, 15, 18, , 20, 23, dan 25, sehingga diambil nilai bobot (w) = 5 sebagai nilai yang paling kecil.
+Detail hasil ujicoba pada kategori olahraga dapat dilihat pada Tabel 5.
+Untuk ratarata nilai akurasi untuk kategori teknologi adalah 96,32% sedangkan fmeasure (F1) untuk kategori teknologi adalah 78,96%.
+Dengan tingkat akurasi tertinggi adalah 100% dengan bobot (w) = 20 yaitu domain komputer sedangkan yang terendah adalah 92,11% yaitu domain inovasi dengan bobot (w) = 5.
+fmeasure (F1) tertinggi adalah domain komputer dengan nilai 100% pada bobot (w) = 20, dan yang terendah adalah 40% pada domain inovasi pada bobot (w) = 5.
+Domain komputer mempunyai nilai akurasi terbaik pada bobot (w) 20, 23, dan 25, sehingga diambil nilai bobot (w) = 20 sebagai nilai yang paling kecil.
+Pada fmeasure (F1) terbaik untuk domain komputer juga mempunyai nilai bobot (w) = 20, sebagai nilai yang paling kecil.
+Detail hasil ujicoba pada kategori teknologi dapat dilihat pada Tabel 6.
+V. PEMBAHASAN 
+Berdasarkan uji coba yang telah dilakukan didapatkan hasil bahwa pada kategori olahraga nilai akurasi dan fmeasure yang terbaik adalah pada domain balap mobil, sedangkan nilai akurasi dan fmeasure terendah adalah pada domain loncat galah.
+Akurasi dan fmeasure tertinggi pada kategori teknologi terdapat pada domain komputer sedangkan akurasi dan fmeasure terendah terdapat pada domain inovasi.
+Pada kategori olahraga jumlah relasi node terbanyak pada domain loncat galah, sedangkan domain loncat galah memiliki nilai akurasi dan fmeasure terendah pada kategori olahraga.
+Sebaliknya pada kategori olahraga domain balap mobil memiliki jumlah relasi node yang paling sedikit tetapi justru memiliki nilai akurasi dan fmeasure tertinggi.
+Pada kategori teknologi hal tersebut tidak terjadi, jumlah relasi node yang memiliki nilai tinggi pada kategori ini adalah domain komputer dan gadget.
+Pada hasil uji coba nilai akurasi dan fmeasure tertinggi juga teradapat pada domain komputer dan gadget, begitu juga jumlah relasi node yang memiliki jumlah terendah adalah domain inovasi dan pada hasil uji coba nilai akurasi dan fmeasurenya juga merupakan yang terendah.
+Sehingga dapat dilihat bahwa tidak ada keterkaitan antara jumlah relasi node dengan nilai akurasi dan fmeasure yang diperoleh saat uji coba pada setiap domain, namun nilai akurasi dan fmeasure yang diperoleh sangat terkait dengan relasi antar node ontologi yang muncul pada dokumen hal ini dikarenakan hubungan kemunculan dan nilai relevansi dokumen adalah berbanding lurus.
+Berdasarkan uji coba yang telah dilakukan ditemukan bahwa untuk mencapai nilai akurasi dan fmeasure yang tinggi maka diperlukan pemilihan nilai threshold dan bobot (w).
+Mengubah-ubah nilai bobot dilakukan pada ujicoba untuk melihat perubahan yang terjadi pada tingkat akurasi dan fmeasure dimana didapatkan fakta bahwa setiap domain memiliki nilai bobot optimal yang berbeda-beda untuk mencapai tingkat akurasi dan nilai fmeasure yang tinggi hal ini dikarenakan nilai bobot (w) yang sangat mempengaruhi pada perhitungan nilai relevansi dokumen terhadap sebuah domain pada fase training dan testing.
+VI. KESIMPULAN
+Metode yang diusulkan terbukti mampu melakukan kategorisasi dengan sangat baik dimana hal ini dapat dilihat pada haasil uji coba yang dilakukan pada dokumen berita untuk kategori olahraga dan kategori teknologi.
+Akurasi yang dapat dicapai metode usulan pada kategori olahraga adalah 93, 85% sedangkan pada kategori teknologi adalah 96,32%.
+Nilai fmeasure (F1) yang dapat dicapai algoritma klasifikasi pada kategori olahraga adalah 74,74% sedangkan pada kategori teknologi adalah 78,96%.
+Metode usulan juga mampu mengkategorisasi dokumen berita yang terkait lebih dari satu kategori (multi label).
+Berdasar ujicoba yang telah dilakukan juga didapat kesimpulan bahwa keakurasian dalam kategorisasi dokumen berita tidak berkaitan dengan jumlah relasi node ontologi yang dibuat, namun sangat terkait dengan relasi antar node ontologi yang muncul pada dokumen hal ini dikarenakan hubungan kemunculan dan nilai relevansi dokumen adalah berbanding lurus.
+Threshold pada metode usulan ini telah dapat dioptimasi pada fase training sedangkan bobot masih dilakukan secara manual, untuk itu diperlukan penelitian lebih lanjut terkait cara penentuan paramater bobot (w) yang optimal sehingga tingkat keakurasian dalam mengkategorIsasi dokumen dapat ditingkatkan.
+Penentuan bobot yang optimal pada fase training dapat menghasilkan nilai threshold yang optimal pula, sehingga dapat disimpulkan bahwa kedua parameter tersebut sangat berkaitan dan mempengaruhi tingkat keakurasian metode usulan.
+Metode usulan juga sangat bergantung pada ontologi yang telah terbentuk, untuk itu diperlukan kombinasi metode usulan dengan penggunaan database leksikal, semisal Wordnet sehingga referensi term pada ontologi yang terbentuk menjadi fleksibel dan lebih luas.

@@ -1,0 +1,138 @@
+Abstrak
+Wilayah STO Pati terdapat lebih dari 500 Distribution Point (DP). 
+Jumlah DP yang banyak di wilayah STO Pati dan luasnya wilayah, membuat petugas kesulitan mengingat lokasi DP. Petugas sudah memiliki alat bantu Sistem Informasi Kastemer (SISKA) tetapi tidak dilengkapi peta sehingga petugas masih mengalami kendala dalam mencari lokasi DP. 
+DP juga berhubungan dengan RK dan rumah pelanggan. 
+Metodologi yang digunakan dalam penelitian ini yaitu pengumpulan data menggunakan metode kuisioner, wawancara, dan pengukuran fisik. 
+Kemudian dianalisis untuk menentukan kebutuhan user dan kebutuhan sistem. 
+Implementasi aplikasi memanfaatkan Android Development Tools (ADT), Google Maps API, dan web service. 
+Pengujian sistem dilakukan dengan 2 metode, yaitu Black Box dan pengujian lapagan. 
+Hasil dari penelitian ini adalah sebuah aplikasi android pencarian DP berbasis lokasi dengan memanfaatkan GPS dan konsep Location Based Service (LBS) yang dapat memberikan informasi lokasi DP, RK, rumah pelanggan, dan memberikan informasi rute yang dapat ditempuh serta dapat melakukan panggilan telepon kepada pelanggan. 
+Hasil pengujian sistem dengan metode Black Box didapatkan persentase 100% yang menyatakan bahwa aplikasi sudah berjalan sesuai dengan kebutuhan sistem. 
+Presisi GPS yang dimiliki aplikasi android pencarian Distribution Point(DP) berbasis lokasi kurang dari 7 meter, hasil ini diperoleh dengan membandingkan koordinat dari aplikasi yang dihasilkan dan GPS Garmin 785.
+Kata Kunci - Location Based Service, web service, Google Maps, GPS, Android.
+I. PENDAHULUAN
+PT. Telekomunikasi Indonesia (Telkom) adalah sebuah BUMN telekomunikasi dan jaringan terbesar di Indonesia[1].
+Telkom mempunyai Kandatel (kantor daerah telkom) yang menjadi perwakilan dari kantor pusat dimasing-masing wilayah Indonesia.
+Telkom Kandatel Pati menjadi perwakilan kantor pusat Telkom yang akan bertanggungjawab mengenai sistem telekomunikasi di wilayah Pati.
+Telkom Kandatel Pati terbagi menjadi 5 wilayah STO yaitu STO Pati, STO Juwana, STO Tayu, STO Rembang, dan STO Lasem.
+Sentral Telepon Otomatis (STO) merupakan suatu perangkat yang berfungsi sebagai sentral telepon dalam suatu lokasi tertentu.
+Wilayah STO Pati terdapat lebih dari 500 DP.
+DP berfungsi sebagai tempat terhubungnya kabel sekunder dari rumah kabel (RK) ke tiang DP yang akan digunakan untuk penyambungan ke sisi pelanggan.
+Struktur jaringan Telkom sendiri terdiri dari STO, setiap STO terdapat Main Distribution Frame(MDF) yang berfungsi sebagai tempat penyambungan antara kabel dari STO dengan kabel primer yang akan dihubungkan dengan RK, MDF terbagi menjadi beberapa RK.
+RK adalah tempat terminasi kabel primer dari MDF dengan kabel sekunder yang akan dihubungkan dengan DP.
+1 RK dapat terdiri dari 2070 DP.
+Jumlah DP yang banyak dan luasnya wilayah membuat petugas sulit untuk mengingat lokasi DP.
+Berdasarkan dari survei yang dilakukan, 5 dari 16 responden mengingat lebih dari 30 lokasi DP, 5 dari 16 responden mengingat 3015 lokasi DP dan 6 dari 16 responden hanya mengingat kurang dari 15 lokasi DP.
+Jumlah itu kurang dari 10% dari jumlah semua lokasi DP di wilayah STO Pati.
+Telkom Pati mempunyai Sistem Aplikasi Kastemer (SISKA), yaitu sebuah aplikasi sistem informasi untuk mengelola data jaringan, data pelanggan, dan data segmentasi layanan.
+Petugas dapat menggunakan aplikasi SISKA untuk mengetahui alamat DP, tetapi informasi yang diberikan tidak dilengkapi peta sehingga petugas masih kesulitan untuk menentukan rute menuju DP yang dicari.
+Beberapa kendala yang dihadapi petugas adalah DP berhubungan langsung dengan rumah pelanggan, dimana satu DP dapat mencakup 10 sampai 20 bahkan ratusan kabel telepon pelanggan sehingga membuat petugas banyak menghabiskan waktu, tenaga, dan juga biaya.
+Nomor rumah yang acak terkadang menjadi hambatan bagi petugas untuk mencari lokasi DP.
+Biasanya DP terpasang di dinding ataupun tiang dekat rumah warga.
+Location Based Service (LBS) adalah layanan TI untuk menyediakan informasi yang telah dibuat, disusun, dipilih, atau disaring dengan mempertimbangkan lokasi pengguna saat ini maupun benda bergerak[2].
+Aplikasi android yang disertai dengan teknologi LBS sangat sesuai untuk diterapkan dengan mengetahui permasalahan yang ada di kantor Telkom Kandatel Pati.
+Petugas yang selama ini hanya mengingat lokasi, mencari alamat lokasi DP dengan menggunakan aplikasi komputer tetapi pada prakteknya masih kesulitan dalam mencari lokasi DP, dapat dengan mudah mengetahui lokasi DP serta mendapatkan penunjuk rute untuk menuju lokasi DP dengan aplikasi android berbasis lokasi yang dibangun.
+II. KAJIAN PUSTAKA
+Budi Dwi Satoto dan Eza Rahmanita melakukan penelitian tentang pencarian rute untuk menuju suatu tempat berdasarkan dari permasalahan yang terjadi, yaitu pengguna merasa kesulitan dalam mencari rute untuk menuju suatu tempat yang diinginkannya.
+Penelitian ini menghasilkan aplikasi mobile virtual tour yang memanfaatkan teknologi Augmented Reality yang diimplementasikan untuk menyelesaikan masalah interaktifitas pada mobile virtual tour berbasis android yang mencakup pengintegrasian berbagai jenis konten seperti teks, gambar, dan video untuk menampilkan informasi kepada user [3].
+Gunita Mustika Hati melakukan penelitian tentang implementasi aplikasi Location Marker berdasarkan dari permasalahan yang terjadi, yaitu pada saat berkunjung ke tempat baru dalam kota maupun luar kota merupakan hal yang sangat wajar, tetapi beberapa orang kesulitan mengingat kembali letak suatu tempat ataupunarahrute menuju tempat tersebut.
+Aplikasi Location Marker yang memanfaatkan teknologibantuan Global Positioning System (GPS) yang berfungsi sebagai penunjuk lokasi, Location Based Service (LBS) yang menyediakan informasi berdasarkan letak geografis perangkat mobile, melalui visualisasi Google Map.
+Hasil akhir dari penelitian ini adalah sebuah aplikasi Location Marker atau penanda lokasi peta digital berbasis mobile GIS pada smartphone android [4].
+Mir Md.Saki Kowsari dan Ratna Halder melakukan penelitian tentang LBS di platform android.
+Salah satu masalah yang terjadi di Bangladesh adalah Google Maps tidak diperbarui, hal itu menyebabkan peneliti di Bangladesh harus memeliharadatabase berbasis web yang terpisah untuk menyimpan data lokasi yang dibutuhkan.
+Tentunya ini akan menjadi masalah jika seorang turis atau seseorang pergi ke lokasi tertentu di Bangladesh dan belum mengenal atau mengetahui letak lokasi tersebut.
+Hasil dari penelitian ini adalah aplikasi LBSyang dapat membantu dalam menemukan lokasiyang akan dituju dengan mudah melalui sebuah pesan/notifikasi dan dapat membantu untuk mencapai tujuannya menggunakan peta dan routing arah dan dapat memberikan alarm pengingatuntuk memperingatkan pengguna ketika pengguna melewati lokasi tertentu [5].
+Nur Fajaruddin melakukan penelitian tentang aplikasi pencarian hotel di Yogyakarta.
+Penelitian ini dilakukan berdasarkan permasalahan yang terjadi yaitu semakin banyaknya hotel yang ada di Yogyakarta, wisatawan sering kebingungan saat mencari lokasi hotel terdekat yang sesuai dengan selera, apalagi didaerah yang belum dikenal.
+Dari penelitian ini, dihasilkan sebuah sistem pencarian lokasi hotel berbasis mobile web di Yogyakarta yang dapat menampilkan rute yang dapat dituju, informasi hotel, dan fasilitas umum yang ada disekitar hotel dengan memanfaatkan geolocation pada smart phone, Google Maps Service, CodeIgniter framework, dan Foursquare API [6].
+Priyanka Gemet Arismoyo dkk melakukan penelitian tentang aplikasi LBS untuk Travelling Salesman Problem (TSP).
+Permasalahan yang terjadi adalahimplementasi TSP sudah banyak dilakukandan seringnya hanya memberikan rekomendasi rute terbaik, tetapi ketika sedang ditelusuri tidak diketahui mana saja titik yang sudah dikunjungi.
+Solusi yang sering digunakan adalah berkomunikasi dengan telepon genggam namun pada pelaksanaannya sering terkendala dengan situasi dimana pesan tidak tersampaikan.
+Berdasarkan permasalahan tersebut, maka dibuatlah sebuah aplikasi yang dapat memberikan solusi dengan memanfaatkan algoritma Ant Colony untuk penentuan urutan kunjungan dan perangkat lunak nantinya juga menampilkan titiktitik mana saja yang sudah dikunjungi.
+Selain itu, juga terdapat pengingat ketika pengguna berada di lokasi.
+Aplikasi akan memanfaatkan konsep LBS dan GPS.
+Hasil dari penelitian yang dikembangkan adalah dihasilkannya sebuah aplikasi yang dapat memberikan informasi mengenai rute terbaik yang dapat dilalui untuk menuju lokasi tujuan yang diinginkan pengguna serta dapat memberikan reminder bahwa pengguna sudah berada di lokasi yang dituju [7].
+III. METODE PENELITIAN
+A. Objek Penelitian
+Objek penelitian ini adalah PT. Telkom Indonesia Kandatel Pati Jawa Tengah dan petugas Divisi Mitra Akses Telkom serta divisi CTB.
+Divisi Mitra Akses Telkom bertugas untuk melakukan pengecekan apabila terjadi gangguan yang dikeluhkan oleh pelanggan.
+Divisi CTB bertugas melakukan carring dan visiting terhadap pelanggan yang memiliki tagihan tunggakan.
+Aplikasi yang akan dibangun tidak digunakan oleh masyarakat umum, tetapi hanya digunakan oleh petugas PT. Telkom Kandatel Pati khususnya Divisi Mitra Akses Telkom dan CTB, sehingga penelitian dilakukan di Telkom Kandatel Pati.
+B. Metode Pengumpulan Data
+Metode pengumpulan data yang dilakukan dalam penelitian ini antara lain.
+1. Metode Kuisioner Metode kuisioner dilakukan dengan menyebarkan kuisioner kepada 16 responden di kantor Telkom Kandatel Pati pada tanggal 20-22 Agustus 2014 dengan tujuan untuk memperoleh informasi secara langsung dan bersamaan mengenai masalah yang diteliti.
+Kuisioner yang diberikan berisi 15 pertanyaan dengan 2 bagian, bagian pertama adalah menggali permasalahan yang ada terkait dengan pencarian DP dan bagian kedua adalahmengukur tingkat pengetahuan petugas terkait perangkat android.
+2. Metode Wawancara Metode wawancara dilakukan dengan mengadakan tanya jawab dengan POH Kandatel Pati mengenaipermasalahan dalam pencarian DP dan mengenai lokasi DP di STO Pati, pertanyaan dikembangkan dari pertanyaan di kuisioner, termasuk keterangan dan saran.
+3. Pengukuran Fisik Pengukuran di lokasi DP untuk mengetahui koordinat latitude dan longitude dengan menggunakan alat bantu GPS Garmin 785.
+IV. HASIL DAN PEMBAHASAN
+A. Analisis Sistem
+1. Kebutuhan User Kebutuhan user yang ada pada Aplikasi Android Pencarian Distribution Point Berbasis Lokasi antara lain.
+a. Divisi Mitra Akses Telkom & CTB 1) Petugas melakukan login aplikasi android 2) Petugas melakukan pencarian lokasi DP atau RK3) Petugas menerima informasi rute yang dapat ditempuh menuju DP atau RK yang dicari 4) Petugas mendapatkan informasi lokasi DP terdekat 5) Petugas menerima informasi rute yang dapat ditempuh menuju DP yang dipilih 6) Petugas mendapatkan informasi rumah pelanggan dari DP yang dipilih 7) Petugas menerima informasi rute yang dapat ditempuh menuju rumah pelanggan yang dipilih 8) Petugas melakukan panggilan telepon ke pelanggan 9) Petugas memilih menu bantuan aplikasi apabila terjadi kesulitan dalam menggunakan aplikasi 10) Petugas melakukan logout aplikasi 
+b. Administrator (Pengelola Data Web) 1) Admin melakukan login Web 2) Admin melakukan olah data DP (tambah, ubah, dan hapus) 3) Admin melihat data DP wilayah STO Pati 4) Admin melakukan olah data RK (tambah, ubah, dan hapus) 5) Admin melihat data RK wilayah STO Pati6) Admin melakukan olah data rumah pelanggan (tambah, ubah, dan hapus) 7) Admin melihat data rumah pelanggan wilayah STO Pati 8) Admin melakukan logout Web 
+2. Kebutuhan Sistem 
+a. Kebutuhan fungsional 1) Divisi Mitra Akses Telkom & CTB a) Sistem dapat melakukan login aplikasi android b) Sistem dapat melakukan pencarian DP dan RK c) Sistem dapat menampilkan rute menuju DP atau RK yang dicari d) Sistem dapat menampilkan DP terdekat dari posisi user e) Sistem dapat menampilkan rute menuju DP yang dipilih f) Sistem dapat menampilkan rumah pelanggan dari DP yang dipilih g) Sistem dapat menampilkan rute menuju rumah pelanggan h) Sistem dapat melakukan panggilan telepon pelanggan i) Sistem dapat menampilkan menu bantuan j) Sistem dapat melakukan logout aplikasi android 2) Administrator (Pengelola Data Web) a) Sistem dapat melakukan login web b) Sistem dapat melakukan olah data DP c) Sistem dapat menampilkan informasi DP wilayah STO Pati d) Sistem dapat melakukan olah data RK e) Sistem dapat menampilkan informasi RK wilayah STO Pati f) Sistem dapat melakukan olah data rumah pelanggan g) Sistem dapat menampilkan informasi rumah pelanggan wilayah STO Pati h) Sistem dapat melakukan logout web 
+3. Use Case Diagaram 
+Use case diagram digunakan untuk menggambarkan proses yang dapat dilakukan oleh user.
+Pembuatan use case ini didasarkan pada analisis kebutuhan fungsional Aplikasi Android Pencarian Distribution Point Berbasis Lokasi.
+Gambar 1 merupakan Use Case Diagram pada Aplikasi Android Pencarian Distribution Point (DP) Berbasis Lokasi.
+Terdapat 2 klasifikasi user, yaitu Admin dan petugas Telkom Akses & CTB.
+B. Perancangan Sistem 
+1. Activity Diagram 
+Activity diagram digunakan untuk menggambarkan proses bisnis dan urutan aktivitas dalam sebuah proses yang telah dibuat dalam bentuk use case diagram.
+Pada sistem Aplikasi Android Pencarian Lokasi Distribution Point (DP) Berbasis Lokasi terdapat 13 activity diagram.
+2. Entity Relationship Diagram (ERD) 
+Entity Relationship Diagram (ERD) digunakan untuk memodelkan struktur data dan hubungan antar data yang ada pada Aplikasi Android Pencarian Distribution Point Berbasis Lokasi.
+Entitas pada ERD didasarkan pada tabel yang ada pada database.
+3. User Interface 
+User interface digunakan untuk memberikan gambaran aplikasi kepada user.
+User interface meliputi struktur menu, input dan output aplikasi, dan fungsi-fungsi yang adapada Aplikasi Android Pencarian Distribution Point (DP) Berbasis Lokasi.
+4. Arsitektur Sistem 
+Aplikasi Android Pencarian Distribution Point(DP) Berbasis Lokasi bergantung pada internet untuk menjalankan fungsinya.
+GPS dimanfaatkan untuk mengambil koordinat user pada saat menggunakan aplikasi.
+Peta dan rute didapatkan dengan memanfaatkan Google Maps.
+Web Service digunakan untuk menyediakan layanan dalam bentuk informasi kepada sistem lain, sehingga sistem tersebut dapat berinteraksi dengan sistem lain melalui layanan yang disediakan oleh web service.
+Web digunakan untuk menginputkan data DP, RK dan rumah pelanggan oleh admin, sedangkan database digunakan untuk menampung data DP, RK dan rumah pelanggan.
+Gambar 2 merupakan arsitektur sistem Aplikasi Android Pencarian Distribution Point (DP) Berbasis Lokasi.
+C. Implementasi
+1.Aplikasi Andoid Pencarian Lokasi Distribution Point Berbasis Lokasi
+Aplikasi Android Pencarian Lokasi Distribution Point(DP) Berbasis Lokasi diimplementasikan dengan menggunakan Android Development Tools (ADT).
+Bahasa pemrograman yang digunakan adalah Java Android.
+Gambar 3 merupakan tampilan splash screen, yaitu tampilan awal pada saat aplikasi dijalankan, halaman login agar pengguna dapat masuk ke dalam aplikasi, dan halaman menu aplikasi.
+Pada halaman menu terdapat pilihan Pencarian Lokasi DP atau RK, Lokasi DP Terdekat, Bantuan, dan Logout.
+Gambar 4 merupakan tampilan menu pencarian lokasi DP dan RK, terdapat 2 pilihan yaitu pengguna memilih DP dan RK terdekat yang ditampilkan di dalam daftar maupun menginputkan nama DP dan RK yang dicari.
+Ketika pengguna memilih dan mengklik nama DP atau RK yang dicari, akan muncul rute menuju DP atau RK yang dicari.
+Gambar 5 merupakan tampilan dari Lokasi DP Terdekat, dan ketika diklik salah satu marker maka akan muncul popup menu, ketika diklik Rute menuju DP maka akan muncul halaman rute menuju DP terdekat yang dipilih.
+Ketika memilih rumah pelanggan maka akan muncul tampilan Gambar 5.
+Gambar 6 merupakan tampilan rumah pelanggan, ketika pilihan rumah pelanggan pada Gambar 5 dipilih, ketika marker rumah pelanggan dipilih maka akan keluar popup menu dengan pilihan rute menuju rumah pelanggan atau telepon.
+Ketika memilih rute rumah pelanggan maka akan tampil halaman rute menuju rumah pelanggan dan ketika memilih telepon maka akan tampil halaman telepon.
+Gambar 7 merupakan tampilan halaman bantuan di Aplikasi Android Pencarian Distribution Point Berbasis Lokasi.
+Halaman ini akan dibutuhkan pengguna apabila belum mengerti tentang fungsifungsi yang ada di aplikasi Android Pencarian Distribution Point Berbasis Lokasi.
+2. Aplikasi Web Admin Distribution Point(DP) 
+Telkom STO Pati Aplikasi Web Admin Distribution Point(DP) Telkom STO Pati diimplementasikan menggunakan Macromedia Dreamweaver 8.
+Bahasa pemrograman yang digunakan adalah PHP.
+Gambar 8 merupakan halaman login Aplikasi Web Admin Distribution Point(DP) Telkom STO Pati.
+Gambar 9 merupakan tampilan halaman daftar Distribution Point(DP), Rumah Kebel (RK), dan rumah pelanggan.
+Ketika akan menambah data, admin akan memilih menu Tambah Data.
+Untuk mengubah data, admin mengklik tombol ubah pada tabel data DP, RK, dan rumah pelanggan.
+Untuk mengahapus data, admin mengklik tombol hapus pada tabel data DP, RK, dan rumah pelanggan.
+D. Pengujian Sistem
+1. Black Box 
+Pengujian dilakukan oleh user dengan berinteraksi langsung dengan aplikasi dalam bentuk tertulis.
+Hal ini bertujuan untuk mengetahui apakah fungsi-fungsi yang ada sudah berkerja dengan baik dan tepat.
+Pengujian dilakukan dengan memberikan lembar isian kepada tester, kemudian tester melakukan pengujian dan menuliskan hasil keluarannya kedalam lembar isian yang telah diberikan.
+Hal ini dilakukan untuk melihat apakah input yang dimasukkan sesuai dengan output yang dikeluarkan.
+Tabel 1 merupakan hasil pengujian Black Box.
+Hasil pengujian sistem dengan metode Black Box didapatkan persentase 100% yang menyatakan bahwa aplikasi sudah berjalan sesuai dengan kebutuhan sistem.
+2. Pengujian Lapangan 
+Pengujian lapangan dilakukan untuk menguji titik marker yang ada di aplikasi dan lokasi real berada di latitude dan longitude yang sama, dengan kata lain titik marker yang ditampilkan telah valid.
+Selain itu pengujian ini dilakukan untuk melihat akurasi dan kemampuan GPS dalam mendeteksi suatu lokasi.
+Untuk membanding titik latitude dan longitude digunakan GPS Garmin.
+Selisih atau jarak antara kedua titik koordinat didapat dengan menggunakan perhitungan Rumus Haversine.
+Rumus Haversine merupakan rumus yang digunakan untuk menghitung jarak antara 2 titik koordinat.
+Keterangan: x = Longitude (Lintang) y= Lattitude ( Bujur) d= Jarak R= Radius Bumi =6371 km 1 derajat= 0.0174532925 radian Hasil perbandingan koordinat pada aplikasi dan koordinat dari GPS Garmin dapat dilihat pada Tabel 2.
+Dari 17 titik yang diuji dan dihitung dengan rumus haversine diperoleh hasil presisi GPS kurang dari 7 meter, sehingga dapat dinyatakan presisi GPS pada aplikasi sudah cukup akurat dalam mendeteksi suatu lokasi.
+V. PENUTUP
+A. Kesimpulan 
+Berdasarkan hasil penelitian tentang Aplikasi Android Pencarian Distribution Point(DP) Berbasis Lokasi dapat diambil kesimpulan yaitu aplikasi yang dibangun dapat membantu petugas dalam mencari dan mengetahui lokasi DP serta menjadikan aplikasi android ini sebagai alat bantu dalam mencari lokasi DP.
+Setelah dilakukan pengujian Black Box dan pengujian lapangan, aplikasi yang sudah dihasilkan sudah dirasakan efisien dan ketepatannya.
+Hasil pengujian Black Box didapatkan persentase sebesar 100% sehingga dapat dinyatakan aplikasi sudah berjalan sesuai dengan kebutuhan sistem dan hasil presisi GPS kurang dari 7 meter.

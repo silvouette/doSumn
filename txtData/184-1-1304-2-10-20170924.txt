@@ -1,0 +1,153 @@
+Abstrak
+Penilaian koperasi berprestasi di Dinas Koperasi dan UKM Kota Samarinda masih dilakukan secara manual sehingga membutuhkan waktu yang lama serta kurangnya efektifitas pada hasil yang diperoleh.
+Sistem Pendukung Keputusan dengan metode Weighted Product (WP) merupakan metode yang efektif karena waktu yang dibutuhkan untuk perhitungan jauh lebih singkat.
+Tujuan penelitian ini adalah untuk menerapkan metode Weighted Product (WP) dalam membangun sebuah sistem pendukung keputusan berbasis web serta membandingkan hasilnya dengan perhitungan menggunakan metode Analytic Hierarchy Process (AHP).
+Berdasarkan hasil perbandingan, bahwa kedua metode memberikan hasil yang tidak berbeda dalam urutan perengkingan koperasi berprestasi di Kota Samarinda.
+Kata kunci Sistem Penunjang Keputusan, Metode Weighted Product, Metode Analytic Hierarchy Process, Koperasi Berprestasi.
+I. PENDAHULUAN
+Koperasi merupakan satu-satunya bentuk usaha yang termuat dalam Pasal 33 ayat (1) Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 ditegaskan bahwa perekonomian disusun sebagai usaha bersama berdasar atas asas kekeluargaan.
+Ketentuan tersebut sesuai dengan prinsip koperasi, karena itu koperasi mendapat misi untuk berperan nyata dalam menyusun perekonomian yang berdasar atas asas kekeluargaan dan demokrasi ekonomi yang mengutamakan kemakmuran masyarakat bukan kemakmuran orang-seorang.
+Koperasi tidak hanya merupakan satu-satunya bentuk perusahaan yang secara konstitusional dinyatakan sesuai dengan susunan 2 perekonomian yang hendakdibangun di negeri ini, tapi juga dinyatakan sebagai sokoguru perekonomian nasional.
+Dalam rangka melaksanakan pembangunan terhadap koperasi agar mampu berkembang menjadi koperasi yang berkualitas dan berprestasi maka berbagai program dan kegiatan telah dilaksanakan.
+Salah satu program kegiatan yang dilaksanakan setiap tahun adalah kegiatan penilaian koperasi berprestasi, Salah satu program kegiatan yang dilaksanakan setiap tahun adalah kegiatan penilaian koperasi berprestasi, untuk diberikan penghargaan dan diikutsertakan dalam ajang di tingkat nasional.
+Penilaian koperasi berprestasi di dinas koperasi dan UKM Kota Samarinda yang masih dilakukan secara manual membuat proses penilaian membutuhkan waktu yang lama dan tidak akurat, dikarenakan proses penilaian yang bersifat subyektif.
+Sehingga diperlukan analisis pengambilan keputusan untuk menentukan koperasi berprestasi tersebut.
+Penelitian ini menggunakan metode Weighted Product (WP) seperti yang dilakukan oleh Khairina, Ivando dan Maharani [1] untuk diterapkan pada pengambilan keputusan untuk koperasi berprestasi di dinas koperasi dan UKM Kota Samarinda, yang kemudian dibandingkan dengan perhitungan menggunakan metode Analytic Hierarchy Process(AHP) seperti yang dilakukan Rahmasari dan Purwanto [2] yang menjadikan metode AHP sebagai metode pembanding.
+II. METODE PENELITIAN
+A. Studi Referensi 
+Sistem Penunjang Keputusan adalah sebuah sistem yang mampu memberikan kemampuan pemecahan masalah maupun kemampuan komunikasi dengan kondisi semi terstruktur dan tidak terstruktur, dimana tak seorangpun tahu secara pasti bagaimana keputusan seharusnya dibuat [3].
+B. Koperasi Berprestasi 
+Penilaian koperasi berprestasi merupakan program kegiatan yang dilaksanakan setiap tahun yang dikaitkan dengan peringatan Hari Koperasi pada tanggal 12 Juli.
+Penilaian koperasi berprestasi adalah program kegiatan yang dilakukan dalam rangka memberikan apresiasi dan penghargaan atas pencapaian kinerja terbaik yang dicapai suatu koperasi.
+Ada beberapa item dalam hal penilaian koperasi yang menggunakan beberapa ketentuan yang di dapat dari wawancara dengan pihak terkait yang sudah ditetapkan oleh Dinas Koperasi & UKM Kota Samarinda [4], yaitu.
+a) Menentukan Rasio Peningkatan Jumlah Anggota (1) Keterangan :Ra = Realisasi Anggotax= Jumlah anggota tahun ini y = Jumlah anggota tahun sebelumnya b) Menentukan Realisasi Anggaran Koperasi 100xRencanaRealisasi=Ra (2) c) Menentukan Produktivitas 100xriModalSendisahaSisaHasilU (3) d) Menentukan Pelayanan 100xuhnyaUsahaSeluritAnggotaUsahaTerka (4) e) Menentukan Transaksi Usaha 100xTSTA=Tu (5) Keterangan :Tu = Transaksi Usaha Ta =Jumlah transaksi anggota kepada koperasi Ts =Jumlah transaksi koperasi seluruhnya f) Menentukan Pertumbuhan Tenaga Kerja 100xyyx=PTK (6) Keterangan :Ptk= Pertumbuhan Tenaga Kerja x= Jumlah tenaga kerja tahun ini y= Jumlah tenaga kerja tahun sebelumnya 
+C. Multiple Attribute Decission Making 
+Multiple Attribute Decission Making(MADM) adalah suatu metode yang digunakan untuk mencari alternatif paling optimal dari sejumlah alternatif optimal dengan kriteria tertentu.
+Inti dari MADM adalah menentukan nilai bobot untuk setiap atribut, kemudian dilanjutkan dengan proses perangkingan yang akan menyeleksi alternatif yang sudah diberikan [5].
+D. Weighted Product Method 
+Weighted Product (WP) adalah keputusan analisis multi kriteria yang popular dan merupakan metode pengambilan keputusan multi kriteria.
+Metode Weighted Pruduct (WP) adalah himpunan berhingga dari alternaif keputusan yang dijelaskan dalam istilah beberapa kriteria keputusan [6].
+Metode Weighted Product (WP) mengunakan perkalianrating atribut, di nama setiap rating atribut harus dipangkatkan dulu dengan bobot atribut yang bersangkutan [7].
+Preferensi untuk alternative Si diberikan oleh persamaan (7).
+(7) dimana : S : Preferensi alternatif dianologikan sebagai vektor S X : Nilai kriteria W : Bobot kriteria/subkriteria i : Alternatif j : Kriteria n : Banyaknya kriteria dimana Wj=1.
+Wj adalah pangkat bernilai positif untuk atribut keuntungan dan bernilai negatif untuk atribut biaya.
+Preferensi relatif dari setiap alternatif diberikan sebagai (8) dimana : V : Preferensi alternatif X : Nilai KriteriaW : Bobot kriteria/subkriteria i : Alternatif j : Kriteria n : Banyaknya kriteria * : Banyaknya kriteria yang telah dinilai
+E. Analytic Hierarchy Process (AHP) 
+Konsep dasar AHP adalah penggunaan matriks pairwise comparison (matriks perbandingan berpasangan) untuk menghasilkan bobot relatif antar kriteria maupun alternatif.
+Suatu kriteria akan dibandingkan dengan kriteria lainnya dalam hal seberapa penting terhadap pencapaian tujuan di atasnya [8].
+AHP mengurangi keputusan yang kompleks menjadi sebuah rangkaian satu-satu pada perbandingan yang kemudian memberikan hasil yang akurat [9].
+Penilaian dalam membandingkan antara satu kriteria dengan kriteria yang lain adalah bebas satu sama lain, dan hal ini dapat mengarah pada ketidak konsistensian.
+Saat [8] telah membuktikan bahwa indeks konsistensi dari matrik ber ordo n dapat diperoleh dengan rumus.
+(9)Dimana: CI = Indeks Konsistensi (Consistency Index) maks = Nilai eigen terbesar dari matrik berordo n Nilai eigen terbesar didapat dengan menjumlahkan hasil perkalian jumlah kolom dengan eigen vector.
+Batas ketidak konsistensian di ukur dengan menggunakan rasio konsistensi (CR), yakni perbandingan indeks konsistensi (CI) dengan nilai pembangkit random (RI).
+Nilai ini bergantung pada ordo matrik n.
+Rasio konsistensi dapat dirumuskan.
+(10) Bila nilai CR lebih kecil dari 10%, ketidak konsistensian pendapat masih dianggap dapat diterima.
+F. Metodologi Penelitian 
+a) Tahap Perencanaan 
+Studi literatur, wawancara dengan pihak terkait dan observasi penilaian koperasi berprestasi secara manual.
+b) Tahap Analisis 
+Mengidentifikasi sistem dengan penerapan metode yang dipilih sesuai seperti yang diharapkan atau tidak.
+Serta menganalisis alur fungsi sistem agar sesuai seperti yang diinginkan.
+c) Tahap Perancangan 
+Menentukan konfigurasi yang dibutuhkan oleh sistem dan metode yang digunakan dalam mengambil keputusan berdasarkan analisa permasalahan yang telah dilakukan sebelumnya 
+III. HASIL PENELITIAN 
+Berdasarkan hasil rekapitulasi kuisioner maka dibuat kriteria penilaian / bobot untuk masing-masing kriteria dengan nilai 1 (satu) sampai dengan nilai 5 (lima), seperti yang ditunjukkanpada Tabel 1 sampai Tabel 11.
+A. Keanggotaan 
+Rasio peningkatan jumlah anggota koperasi didasarkan kepada peningkatan jumlah anggota pada tahun penilaian, dengan menggunakan persamaan (1).
+B. Kinerja Pengurus 
+Kinerja pengurus meliputi 7 item: struktur dan uraian tugas, mekanisme pengambilan keputusan, rencana kerja jangka panjang, prosedur pengambilan keputusan, kompetensi pengurus dilihat dari pelaksanaan tugas dan kewenangan, loyalitas dan dedikasi serta budaya kerja yang dikembangkan.
+C. Realisasi Anggaran 
+Merupakan kemampuan koperasi dalam merealisasikan anggaran pendapatan yang telah dituangkan dalam Rencana Kerja (RK), dengan menggunakan persamaan (2).
+D. Sarana dan Prasarana Tersedianya sarana pokok yang diperlukan koperasi dalam rangka menunjang kelancaran kegiatan koperasi.
+E. Produktivitas 
+Perbandingan antara sisa hasil usaha yang diperoleh dengan modal sendiri pada tahun penilaian, dengan menggunakan persamaan (3).
+F. Pelayanan
+Perbandingan jumlah keterkaitan usaha koperasi dengan anggota terhadap jumlah usaha koperasi seluruhnya, dengan menggunakan persamaan (4).
+G. Transaksi Usaha 
+Merupakan perbandingan antara jumlah transaksi usaha dengan anggota terhadap jumlah transaksi seluruhnya.
+Dengan menggunakan persamaan (5).
+H. Pertumbuhan Tenaga Kerja 
+Kemampuan koperasi dalam menyerap tenaga kerja.
+Dengan menggunakan persamaan (6).
+I. Kerjasama Usaha
+Kerjasama usaha antar koperasi, koperasi primer dan sekunder serta antar koperasi dan badan usaha non-koperasi.
+J. Inovasi 
+Adanya produk/jasa baru yang ditawarkan koperasi dalam setahun terakhir.
+Dari 10 kriteria di atas diberi skala prioritas 15.
+Prioritas 1 menjadi yang terbaik dan seterusnya.
+Untuk prioritas 1 diberi bobot 5, prioritas 2 diberi bobot 4, prioritas 3 diberi bobot 3, prioritas 4 diberi bobot 2 dan prioritas 5 diberi bobot 1.
+Data dapat dilihat pada Tabel 11.
+Langkah-langkah yang dilakukan dalam menerapkan metode Weighted Product untuk pemilihan alternatif calon koperasi berprestasi terbaik, yaitu: a) Memasukkan data koperasi yang akan di daftarkan menjadi calon koperasi berprestasi b) Memasukan nilai koperasi berdasarkan kriteria yang telah ditetapkan c) Mengubah masukan data calon koperasi berprestasi menjadi nilai rating kecocokan d) Melakukan perbaikan bobot dari setiap kriteria dengan cara menjumlahkan bobot setiap kriteria yang dilanjutkan dengan setiap bobot awal kriteria dibagi dengan hasil penjumlahan bobot kriteria e) Menentukan nilai vektor S alternatif data calon koperasi berprestasi dengan cara mengalikan data nilai rating kecocokan yang berpangkat positif dari hasil perbaikan bobot kriteria f) Hasil akhir atau nilai vektor v diperoleh dari proses perangkingan yaitu penjumlahan dari perkalian nilai vektor S dikali dengan setiap alternatif nilai vektor S.
+K. Perancangan Sistem 
+Sistem adalah sekelompok komponen yang saling berhubungan, bekerja sama untuk mencapai tujuan bersama dengan menerima input serta menghasilkan output dalam transformasi yang teratur [10].
+Setelah analisa sistem mendapatkan gambaran jelas tentang apa yang dikerjakan, maka dilanjutkan dengan pengembangan rancangan sistem penentuan koperasi.
+a) Arsitektur Sistem Pada arsitektur sistem pendukung keputusan penentuan koperasi berprestasi di kota Samarinda ada lima komponen, yaitu: 1. Data Internal, data yang terdapat pada sistem pendukung keputusan penentuan koperasi berprestasi berasal dari data hasil wawancara ke responden.
+2. Data Management, pada sistem ini untuk mengolah data menggunakan database MySql.
+3. Model Management, dalam mengembangkan sistem ini menggunakan Unified Modelling Language (UML).
+4. Knowledge-Based Subsytem, sistem ini menggunakan metode weighted product (WP) dalam penilaian setiap kriteria penentuan koperasi berprestasi di Kota Samarinda.
+5. User Interface, sistem ini mempunyai beberapa halaman seperti halaman koperasi, halaman pendataan koperasi, halaman koperasi berprestasi, halaman laporan serta halaman pengguna.
+Referensi arsitektur sistem pendukung keputusan penentuan koperasi berprestasi dapat dilihat pada Gambar 1.
+b) Use Case Diagram 
+Sistem Perancangan use case diagram merupakan tahap awal dan utama dalam proses pengembangan sistem, dimana dalam tahapan ini dijelaskan dan didefinisikan fungsi-fungsi serta fitur-fitur yang dapat disediakan oleh sistem. 
+Menurut Rossa dan Salahudin, melalui diagram use case dapat diketahui fungsi-fungsi apa saja yang ada pada sistem [11]. Use case diagram pada program ini mempunyai dua aktor, yaitu administrator dan user.  
+Use Case Diagram Sistem menggambarkan alur aktifitas proses penentuan calon koperasi berprestasi seperti yang terlihat pada Gambar 2.   
+c) Activity Diagram Sistem 
+1. Activity Diagram Admin 
+Activity Diagram Admin menjelaskan mengenai alur-alur kegiatan yang dilakukan oleh admin terhadap sistem yang dikembangkan. 
+Bagaimana masing-masing alur berawal, decision yang mungkin terjadi, dan bagaimana masing-masing alur berakhir. 
+Activity Diagram Admin dapat dilihat pada Gambar 3. 
+2. Activity Diagram User 
+Activity diagram User memperlihatkan aktifitas dimana ketika user ingin mengakses halaman user, maka user harus melakukan login terlebih dahulu, apabila login berhasil, maka user akan diarahkan ke halaman dashboard user. 
+Apabila login gagal, maka user akan diarahkan kembali ke halaman login untuk melakukan login. 
+Activity Diagram User dapat dilihat pada Gambar 4. 
+d) Implementasi Sistem 
+Pada Gambar 5 ditunjukkan halaman Dashboard admin yaitu halaman yang dapat diakses oleh admin setelah melakukan login. 
+Pada halaman ini admin dapat melakukan perubahan maupun memanajemen data baru pada sistem.  
+Gambar 6 menampilkan halaman pendataan koperasi yang berisikan data koperasi yang ingin di daftarkan menjadi koperasi berprestasi pada hamalan ini admin harus mengisi seluruh data yang diminta oleh sistem untuk kemudian dihitung menggunakan metode WP. 
+Halaman koperasi berprestasi berisikan data halaman koperasi dan data halaman pendataan koperasi, pada halaman koperasi berprestasi koperasi dan nilai hasil perhitungan weighted product berdasarkan data yang sebelumnya telah di inputkan di halaman pendataan koperasi berprestasi. 
+Pada halaman ini terdapat 2 date picker yang dapat mem-filter data koperasi berprestasi berdasarkan tanggal. 
+Tampilan halaman koperasi berprestasi dapat dilihat pada Gambar 7.  
+Gambar 8 menampilkan halaman laporan yang berfungsi untuk menampilkan data perhitungan sistem penunjang keputusan menggunakan metode Weighted Product berdasarkan data yang sebelumnya telah di inputkan dihalaman pendataan koperasi berprestasi. 
+Data yang telah diiputkan dalam database pendataan koperasi akan secara otomatis masuk ke halaman koperasi berprestasi untuk dilakukan perhitungan, dengan tujuan mencari alternatif V rekomendasi terbaik koperasi berprestasi yang kemudian dapat dilihat detailnya pada halaman laporan. 
+II. PEMBAHASAN 
+A. Penggunaan Metode WP 
+Kriteria yang dipakai, yaitu keanggotaan, kinerja pengurus, realisas anggaran, sarana dan prasarana, produktivitas, transaksi usaha, pelayanan, penyerapan tenaga kerja, kerjasama dan inovasi. 
+Bobot kriteria untuk keanggotaan adalah 5, kinerja pengurus adalah 5, realisasi anggaran adalah 4, sarana dan prasarana adalah 4, produktivitas adalah 5, transaksi usaha adalah 3, pelayanan adalah 3, penyerapan tenaga kerja adalah 3, kerjasama adalah 2 dan inovasi adalah 2. 
+Data koperasi yang digunakan adalah: a) KPN Balaikota b) Koperasi Karyawan Tirta Dharma c) Koperasi TKBM Komura d) KSU Gemilang e) KUD KOPTA.
+Langkah pertama adalah dengan membuat tabel rating kecocokan (Tabel 12) dengan cara mengubah data yang telah di inputkan di database koperasi menjadi nilai bobot inputan sesuai dengan nama bobot di database.  
+Langkah kedua adalah perhitungan metode WP yang dimulai dengan cara  membuat perbaikan bobot kriteria. 
+Dari nilai data bobot W = 5,5,4,4,5,3,3,3,2,2 dilakukan perbaikan bobot. 
+Data perbaikan bobot secara manual dapat dilihat sebagai berikut.
+Langkah ketiga adalah menentukan nilai vektor S. 
+Dengan cara mengalikan data setiap nilai alternatif rating kecocokan yang berpangkat positif dari hasil perbaikan bobot. 
+Data perhitungan manual penentuan nilai vektor S dari setiap alternatif dapat dilihat seperti berikut.   
+Langkah keempat adalah hasil dari penentuan nilai vektor S kemudian digunakan untuk menentukan nilai vektor V untuk mendapatkan nilai alternatif tertinggi dari setiap nilai vektor V. 
+Proses pencarian nilai vektor V secara manual dapat dilihat sebagai berikut.
+Langkah kelima lalu mengurutkan nilai V dari yang terbesar dan mengambil alternatif yang memiliki V terbesar. 
+Pada data diatas menunjukan bahwa alternatif terbaik terdapat pada koperasi serba usaha gemilang dengan nilai V 0.2464.  
+Hasil perangkingan diperoleh : V1 = 0.1978; V2 = 0.195; V3 = 0.1858; dan V4 = 0.2605; V5 = 0.1608. 
+Nilai terbesar ada pada V4 sehingga alternative A4 adalah alternatif yang terpilih sebagai alternatif terbaik. 
+a) KPN Balaikota dengan nilai V 0.1978 b) KOPKAR Tirta Dharma dengan nilai V 0.195 c) KOPKAR TKBM Komura dengan nilai V 0.1858 d) KSU Gemilang dengan nilai V 0.2605 e) KUD KOPTA dengan nilai V 0.1608 
+B. Penggunaan Metode AHP 
+Langkah awal melakukan perhitungan dengan metode AHP adalah membuat matriks perbandingan berpasangan antar kriteria yang menghasilkan nilai total matriks perbandingan tiap kriteria, C1 dan C2 adalah 15,5; C3 dan C4 adalah 12,4; C5 adalah 15,5; C6, C7 dan C8 adalah 9,3 serta C9 dan C10 adalah 6,2.  
+Kemudian menentukan nilai prioritas kriteria Lalu, melakukan uji konsistensi indeks dan rasio menggunakan persamaan (3) sehingga didapatkan hasil 0,007457. 
+Karena CR  0,1, maka dilanjutkan dengan membuat matriks perbandingan berpasangan antar alternative untuk setiap kriteria. 
+Nilai Prioritas Alternatif Kriteria dapat dilihat pada Tabel 13 dan Tabel 14. 
+Maka rekomendasi yang di dapat dari perhitungan menggunakan AHP : ALT1 = 149.652; ALT2 = 148.874; ALT3 = 121.8802; dan ALT4 = 195.9723; ALT5 = 121.8433.
+Nilai terbesar ada pada V4 sehingga alternative A4 adalah alternatif yang terpilih sebagai alternatif terbaik. 
+a) KPN Balaikota dengan nilai hasil 149.652 b) KOPKAR Tirta Dharma dengan nilai 148.874 c) KOPKAR TKBM Komura dengan nilai 121.8802 d) KSU Gemilang dengan nilai 195.9723 e) KUD KOPTA dengan nilai 121.8433 
+C. Perbandingan Perhitungan WP dan AHP 
+Berdasarkan perhitungan diatas, maka didapatkan hasil perangkingan seperti pada tabel 15. 
+Pada hasil perhitungan meggunakan metode AHP dan WP menghasilkan rangking yang sama.       
+III. PENUTUP 
+A. Kesimpulan 
+Berdasarkan hasil penelitian mengenai penerapan metode weighted product (WP) untuk menentukan koperasi berprestasi di kota samarinda, dapat diambil kesimpulan sebagai berikut. 
+Penerapan metode weighted product dalam sistem koperasi berprestasi ini memberikan hasil yang efisien karena proses perhitungannya lebih singkat. 
+Berdasarkan hasil pengujian program, output yang dihasilkan bukan merupakan keputusan akhir. 
+Sistem ini hanya memberikan rekomendasi pemilihan koperasi berprestasi untuk dijadikan bahan pertimbangan, untuk keputusan akhir tetap berada pada pengguna. 
+Penentuan koperasi berprestasi menggunakan metode WP maupun AHP menghasilkan urutan alternatif yang sama. 
+KSU Gemilang urutan pertama, KPN Balaikota menempati urutan ke dua dan KOPKAR Tirta Dharma menempati urutan ke-tiga. 
+B. Saran 
+Menambahkan atau menggunakan kriteria lain sebagai pertimbangan dalam penentuan koperasi berprestasi.
+Menambahkan atau menggunakan metode lain sebagai pembanding dan dapat dijadikan model pengembangan sistem yang lebih baik.

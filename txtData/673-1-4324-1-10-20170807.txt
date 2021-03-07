@@ -1,0 +1,122 @@
+Abstrak
+Media untuk menyampaikan informasi dapat melalui televisi, radio, social media, dan website.
+Website merupakan karya tulis dari seseorang terletak pada sebuah domain yang mengandung informasi.
+Perkembangan website semakin banyak dan informasi semakin tidak terbendung sehingga muncul permasalahan sulitnya mencari informasi yang sesuai dengan kebutuhan pengguna internet, sehingga dibutuhkan klasifikasi dan ekstraksi informasi untuk informasi yang ada dalam website.
+Named Entity Recognition (NER) yang merupakan turunan dari ekstraksi informasi, bertujuan untuk memudahkan mencari informasi dengan cara pemberian nama entitas pada setiap kata dalam sebuah teks.
+Pada penelitian ini akan dilakukan pengenalan empat entitas yaitu NAMA, TEMPAT, ZAT, dan KEGUNAAN dari teks tanaman obat.
+Algoritma pada penelitian ini menggunakan Hidden Markov Model (HMM) dan algoritma Viterbi.
+Secara keseluruhan pengenalan entitas menghasilkan nilai yang paling rendah dengan f-measure 0.41, dan yang paling tinggi dengan f-measure 0.72.
+Kata Kunci: Hidden Markov Model, pengenalan entitas bernama, tanaman obat
+1. PENDAHULUAN
+Tahun 2017 merupakan tahun era informasi, informasi yang di sampaikan dari berbagai bidang keilmuan meliputi keuangan, politik, kesehatan, dan masih banyak lagi.
+Media untuk menyampaikan informasi dapat melalui televise, radio, social media, dan website.
+Website merupakan karya tulis dari seseorang terletak pada sebuah domain yang mengandung informasi, dengan harapan dapat di lihat oleh pengguna Internet (Winoto dan Irianto, 2012).
+Sejak pertama kali di temukannya World Wide Web tahun 1991, tahun inilah awal partam istilah website ditemukan, setelah tiga tahun website menjadi popular dikarenakan didirikannya perusahaan yahoo pertama kali tahun 1994, setelah itu website semakin popular dengan adanya google tahun 1998 dan paypal tahun 1999, hingga pada tahun 2014 jumlah website mencapai satu milyar, hingga tahun 2017 mencapai 1.151.441.000 website, penghitungan sudah di setujui oleh World Wide Web Consortium dan World Wide Web (FoundationInternet Live Stats, 2017).
+Dengan perkembangan website semakin banyak dan informasi semakin tidak terbendung sehingga muncul permasalahan sulitnya mencariFakultas Ilmu Komputer, Universitas Brawijaya informasi yang sesuai dengan kebutuhan pengguna internet, sehingga dibutuhkan klasifikasi dan ekstraksi informasi untuk informasi yang ada dalam website (Priyanta, Hartati, dan Harjoko, 2016).
+Ekstraksi informasi dalam teks memiliki struktur bahasa dan entitas kata, untuk mengidentifikasi entitas kata pada kalimat muncul istilah Named Entity Recognition NER bertujuan untuk memudahkan mencari informasi dengan cara pemberian nama entitas pada setiap kata dalam sebuah teks.
+Pada penelitian yang dilakukan oleh Todorovic, dkk, (2008) mengatakan dalam penelitian Named Entity Recognition (NER) menggunakan hidden markov model pada bahasa ingris dengan mengkategorikan teks pada data latih tanpa menggunakan grammer menemukan akurasi sistem tertinggi 91.71% (Todorovic, dkk, 2008).
+Penelitian Alfred, dkk, 2014 mengatakan mengenai named entity recognition menggunakan pendekatan ketetanggaan rule-based pada teks berita terbaru pada website mencapai akurasi sistem tertinggi 89.47%.
+Penelitian named entity recognition pada berita kesehatan menggunakan Support Vector Machine (SVM) mendapati akurasi tertinggi 90% (Suwarningsih, dkk, 2014).
+Hidden Markov Model (HMM) merupakan metode machine learning yang menggunakan model probalitas berurutan untuk menyelesaikan masalah, dan membutuhkan data latih, dimana setiap kata data latih membutuhkan penamaan entitas kata, proses penamaan entitas kata bisa di sebut POS-Tagging(Todorovic, dkk, 2008).
+Agusta (2015) mangatakan setidaknya ada 50 ribu jenis tumbuhan yang ada di Indonesia, diketahui ada 7500 tanaman yang sudah diteliliti dan dapat digunakan sebagai obat.
+Dari data tanaman 7500 yang dapat dijadikan sebagai obat mempunyai metode penyampaian informasi melalui teks paragraf pada halaman website, teks pada halaman website mengakibatkan kesulitan untuk menemukan data tanaman yang sesuai dengan kebutuhkan pengguna internet.
+Untuk mengurangi kesulitan pencarian informasi mengenai tanaman obat pada teks paragraf maka dapat dilakukan pembuatan named entity recognition pada teks paragraf tanaman obat, untuk metode yang digunakan dalam named entity recognition ada tiga pilihan yaitu Hidden Markov Model (HMM), rule-based, dan Support Vector Machine (SVM).
+Penelitian ini akan menggunakan Hidden Markov Model (HMM) dan algoritma Viterbi dalam mempermudah pencarian informasi pada teks paragraf tanaman obat.
+Pemilihan hidden markov model sebagai algoritma pada penelitian ini didasari karena pada penelitian yang dilakukan Todorovic, dkk, (2008) menggunakan hidden markov model mendapatkan akurasi tinggi yaitu 91.
+71%, dibandingkan dengan penelitian yang dilakukan oleh Suwarningsih, dkk, (2014) dengan menggunakan metode Support Vector Machine (SVM) mencapai akurasi 90% dan hidden markov model juga unggul oleh penelitian Alfred, dkk, (2014) dengan rule-based yang miliki akurasi sistem paling tinggi 89.47%.
+Untuk mengetahui nama entitas dari data uji pada sistem yang menggukan metode hidden markov model maka menggunakan algoritma Viterbi, oleh karena itulah algoritma Viterbi digunakan pada penelitian ini (Todorovic, dkk, 2008).
+2. DASAR TEORI 
+2.1 Ekstraksi Informasi 
+Ekstraksi informasi merupakan proses pengambilan informasi dari teks tidak terstruktur yang menghasilkan teks terstruktur dan rapi sekaligus mempermudah untuk menemukan informasi dari teks terstruktur (Ilyas & Khodra, 2015).
+Proses Ekstraksi Informasi bisa melakukan dua teknik pendekatan yaitu teknik berdasarkan aturan dan berdasar statistik, teknik berdasarkan aturan dibuat dan dirancang dengan keahlian seorang pakar, dimana pakar dengan keahlian sesuai dengan kumpulan teks yang digunakan, teknik berdasar statistik dibangun dan dibuat dengan menggunakan data latih, data latih sesuai dengan teks yang dijadikan sebagai object Ekstraksi Informasi (Ilyas & Khodra, 2015).
+2.2 Preprosesing 
+Indurkhya dan Damerau (2010) mengatakan ada dua jenis preprosesing yaitu document triage dan text segmentation, document triage merupakan pengambilan data dari digital yang kemudian di simpan ke dalam sebuah file teks, pengambilan data dalam document triage dapat di lakukan secara manual atau menggunakan sebuah fungsi.
+Proses document triage ada tiga langkah, pertama identifikasi karakter encoding untuk menentukan karakter dalam file tertentu, kedua deteksi bahasa yang digunakan dalam teks, ketiga melakukan penghapusan elemen, gambar, tabel, header, link, dan kode HTML (IndurkhyaFakultas Ilmu Komputer, Universitas Brawijaya dan Damerau, 2010).
+2.2.1 Tokenisasi
+Tokenization atau tokenisasi merupakan proses pada preprosesing yang bertujuan untuk menghapus tanda penghubung pada sebuah teks, angka, tanda baca berupa titik (.), petik(), tanda seru (!) dan masih banyak lainnya, pada tokenization juga merubah semua huruf besar menjadi huruf kecil (Sekarwati & Kurniawati, 2012).
+Proses tokenisasi pada saat penghapusan tidak memperhatikan susunan dari kalimat, tokenisasi hanya menghapus dan tidak perlu memperhatikan susunan kalimat.
+Tabel 1 merupakan contoh hasil dari tokenisasi.
+2.2.2 Filtering 
+Filtering atau stopword removal bertujuan untuk menghilangkan kata-kata yang tidak memiliki arti, seperti kata hubung (yang, di, dan, oleh), kata yang tidak memiliki arti sudah dikelompokan pada masing-masing bahasa yang ada didunia.
+Kata yang tidak memiliki arti disebut dengan stopword (Sekarwati & Kurniawati, 2012).
+Tabel 2 merupakan contoh hasil proses dari filtering.
+2.2.3 Stemming 
+Stemming merupakan proses presessing yang berguna untuk menghapus awalan dan juga akhiran pada setiap kata yang ada dalam teks yang menyisakan kata dasar dari kata tersebut dan masih memiliki arti yang sama seperti sebelumnya, sehingga stemming masuk ke dalam sistem temu kembali informasi (Maarif, 2015).
+Stemming menjadi cara yang efisien dalam meningkatkan peforma pemrosesan teks dikarenakan dapat mengubah kata menjadi bentuk kata dasarnya.
+Tabel 3 adalah contoh dari hasil stemming dari beberapa kata dasar yang memiliki awalan dan akhiran.
+2.3 Named entity recognition(NER) 
+Named entity recognition merupakan turunan dari ekstraksi informasi, yang berguna untuk mengidentifikasi jenis kata (entitas kata) dari setiap kata yang ada dalam sebuah teks.
+Dalam bahasa Indonesia memiliki susunan kata atau tipe kata, ada banyak tipe kata dalam bahasa Indonesia meliputi kata kerja, kata penghubung, objek, predikat, keterangan tempat dan lainnya, dari banyaknya tipe kata yang paling sederhana untuk menjadi idetentifikasi subjek, predikat objek, dan keterangan (Indurkhya & Damerau, 2010).
+Pada Gambar 1 kata aji yang dulunya subjek menjadi nama, jeruk menjadi buah, dan laboratorium menjadi tempat, oleh karena POS-Tagging inilah digunakan dalam proses named entity recognition untuk memudahkan mencari kategori atau jenis dari kata sehingga memudahkan untuk mencari informasi tertentu.
+2.4 Hidden Markov Model (HMM) 
+Hidden Markov Model (HMM) merupakan metode machine learning yang menggunakan model probalitas berurutan untuk menyelesaikan masalah dan data latih yang digunakan membutuhkan POS-Tagging untuk setiap kata, dan data latih di modelkan kedalam bentuk model hidden markov model (Todorovic, dkk, 2008).
+Dalam hidden markov model adaFakultas Ilmu Komputer, Universitas Brawijaya pemodelan umum yang dipakai dalam pemodelan permasalahan, Persamaan 1.
+merupakan permodelan umum yang digunakan dalam hidden markov model.
+Pada Persamaan 1 terdapat symbol lamda () sebagai model markov, A sebagai probabilitas transisi, B adalah probabilitas emisi, dan symbol phi () merupakan probalitas keadaan awal.
+Dalam penulisan pemodelan sebuah permasahan dengan Hidden Markov Model menggunakan lima tuple yaitu : (Lin dan Dyer, 2010) 1.Observed state () Pada observed state di buat dengan simbol O = O1, O2, O3, ... On observed state yaitu pemodelan permasalan yang dapat diamati.
+2. Hidden state () Hidden State merupakan state yang tersembunyi dan tidak dapat diamati, di simbolkan dengan= 1, 2, 3, n.
+3. Matrik Peluang Transisi (A) Peluang transisi merupakan peluang perpindahan dari state i menuju ke state j.
+Di simbolkan dengan A = a01, a02, an1,anm ; aij , banyaknya jumlah matrik peluang transisi yaitux .
+4. Matrik Peluang Emisi (B) Peluang emisi merupakan peluang perpindahan state i dengan syarat waktu Ot (Observed State).
+Di simbolkan dengan B = bi(Ot) banyaknya jumlah matrik peluang emisi yaitux O.
+5. Peluang Keadaan Awal () Peluang awal di simbolkan dengan .
+Pada named entity recognition yaitu jumlah nama entitas kata, jika peluang tiap nama entitas kata dijumlahkan maka akan bernilai satu.
+Untuk mengetahui peforma dari sistem named entity recognition menggunakan precision (P), recall (R), dan F-measure.
+Penghitungan recall (R) menggunakan Persamaan 2, precision (P) menggunakan Persamaan 3, dan F-measure menggunakan Persamaan 4.
+Pada Persamaan 2 untuk persamaan recall digunakan untuk menghitung seberapa besar pengenalan entitas yang dapat dilakukan oleh sistem dengan cara melakukan penghitungan antara jumlah pengenalan entitas yang benar dibagi dengan total jumlah entitas dalam teks yang digunakan untuk testing (Todorovic, dkk, 2008).
+Pada Persamaan 3 precision di hitung dengan jumlah pengenalan entitas yang benar oleh sistem NER dibagi dengan semua pengenalan entitas yang dilakukan oleh sistem NER (Todorovic, dkk, 2008).
+Pada Persamaan 4 f-measure merupakan peforma keseluruhan dari sistem named entity recognition.
+Penghitungan f-measure dilakukan sesuai Persamaan 4.
+dengan syarat (P) adalah precision dan (R) adalah recall (Indurkhya, dan Damerau, 2010).
+2.5 Algoritma Viterbi 
+Algoritma Viterbi merupakan algoritma yang digunakan untuk menemukan urutan Hidden State yang paling optimal dari permasalahan yang bisa diamati (Wibisono, 2008).
+Dalam menemukan urutan Hidden State paling optimal Algoritma Viterbi menggunakan viterbi trellis.
+Viterbi trellis yaitu penghitungan secara mundur atau rekrusif.
+Misalkan viterbi trellis pada state j melalui Ot dan t , maka viterbi trellis akan di hitung dengan Persamaan 5.
+viterbi trellis pada kasus ini di simbolkan dengan Vt (i).
+3. PERANCANGAN SISTEM 
+Penelitian ini akan menghasilkan program yang dapat mengenali nama entitas pada teks tanaman obat.
+Nama entitas yang dapat di kenali diantaranya nama tanaman, tempat tanaman, kandungan zat, dan kegunaan tanaman.
+POS-Tagging pada data latih untuk masing-masing entitas yaitu NAMA, TMP, ZAT, dan GUNA.
+Gambar 3 merupakan gambaran proses pengenalan entitas secara umum.
+Gambar 2 adalah gambaran umum tahapan untuk melakukan pengenalan nama entitas.
+Tahap preprosesing aka n dilakukan proses preprosesing sesuai kebutuhan, jadi tidak semua proses preprosesing di lakukan pada tahapan preprosesing.
+Tahap penghitungan HMM model akan melakukan penghitungan probabilitas awal, probabilitas transisi, dan probabilitas emisi.
+3.1 Data penelitian 
+Data pada penelitian ini di ambil dari tiga website yaitu mitalom.com dan alwib.net sebagai data laith, dan tanamtanaman.com sebagai data uji.
+Setiap satu teks tanaman obat, untuk 60 data adalah 60 teks tanaman obat, terdiri antara 4 sampai 16 kalimat, setiap kalimat minimal ada 9 kata.
+4. PENGUJIAN DAN ANALISIS 
+4.1 Pengujian data uji sesuai dengan data latih
+Pengujian dilakukan dengan menggunakan data uji sesuai dengan data latih, dimana 30 data uji di random dari 120 data latih yang digunakan dalam sistem.
+4.2 Pengujian data uji tidak sesuai dengan data latih
+Pengujian dilakukan dengan menggunakan data uji yang tidak dipakai sebagai data latih, dimana 30 data uji di random dari 36 data yang tersedia.
+4.3 Pengujian penambahan pos-tagging
+Pengujian dilakukan dengan data penambahan tiga pos-tagging pada data latih untuk membuat model HMM.
+Tiga pos-tagging yang di tambahkan yaitu preposisi, noun, dan verb.
+Setelah di lakukan pengujian dengan panambahan pos-tagging yang di harapkan dapat menambah akurasi ternyata setelah dilakukan pengujian tidak dapat nenambahkan nilai akurasi.
+4.4 Pengujian validasi 
+Pengujian validasi dilakukan untuk mengetahui apakah sistem name entity recognition menghasilkan pengenalan entitas yang valid dengan cara melakukan pengenalan entitas menggunakan 10 data latih dan 10 data uji.
+Data uji harus sama dengan data latih karena digunakan untuk valisasi sistem name entity recognition.
+Pengujian validasi menghasil nilai f-masure paling tinggi 0.9875 pada entitas guna, dan paling rendah 0.49 pada entitas nama.
+Paling tinggi mencapai 0.9875 ini membuktikan bahwa sistem termasuk pada kategori cukup bagus untuk melakukan pengenalan entitas pada teks tanaman obat.
+4.5 Analisis hasil pengujian 
+Nilai f-measure menunjukkan performance dari keseluruhan sistem.
+Pada pengujian dengan skenario data latih juga sebagai data uji menghasilkan nilai rata-rata f-measure tertinggi dari semua skenario pengujian dengan nilai 0.56064.
+Tingginya nilai itu di karenakan data latih juga digunakan sebagai data uji.
+Pengujian kedua dengan skenario data latih tidak sebagai data uji menghasilkan nilai rata-rata f-measure 0.5109.
+Pengenalan pada skenario dua sudah sangat bagus di lihat data uji bukan dari data latih, di lihat dari Tabel 6.2 yang menyumbang rata-rata paling banyak yaitu entitas guna, dikarenakan data pada teks tanaman obat entitas kegunaan bisa sama dengan teks tanaman obat lainya.
+Pada skenario tiga dengan penambahan tiga pos-tagging yaitu precision, noun, dan verb, yang menghasilkan nilai rata-rata f-measure 0.4908.
+Pada skenario tiga juga tidak dapat meningkatkan performance sistem dikarenakan semakin banyaknya entitas kata yang digunakan maka pada perhitungan viterbi peluang hasil pengenalan pada entitas yang tepat semakin berkurang dan penyebab lainnya adalah terlalu banyaknya kata noun dan verb di data latih menyebabkan probabilitas transisi terlalu besar nilainya sehingga berdampak pada pengenalan entitas lainnya.
+5. KESIMPULAN
+Untuk mengimplementasikan algoritma hidden markov model dan algoritma viterbi dibutuhkan data latih.
+Data latih yang digunakan harus di beri pos-tagging pada setiap kata yang termasuk dalam entitas yang akan digunakan dalam penelitian.
+Sebelum pemberian pos-tagging, data latih bisa dilakukan preprosesing (tokenisasi, filtering, dan stemming).
+Data latih yang sudah dilakukan pemberian pos-tagging akan di proses dan di jadikan model HMM.
+Model HMM ada tiga yaitu probabilitas awal, probabilitas emisi, dan probabilitas transisi.
+Model HMM akan digunakan untuk penghitungan pada algoritma viterbi.
+Algoritma viterbi menghitung probabilitas setiap kata pada data uji, probabilitas tertinggi akan dijadikan sebagai output dari sistem NER pada penelitian ini.
+Performance dari sistem NER dapat di hitung dengan menggunakan precision, recall, dan f-measure.
+Pada penelitian ini nilai tertinggi untuk rata-rata nilai precision 0.5447 yang didapat dari skenario pertama dengan data latih sebagai data uji.
+Nilai rata-rata recall tertinggi di dapat pada skenario pertama dengan nilai 0.7402.
+Nilai f-measure tertinggi pada skenario pertama dengan nilai 0.5606.
+Secara keseluruhan pengenalan entitas nilai yang paling rendah pada skenario ke tiga pada entitas nama dengan f-measure 0.4100, dan yang paling tinggi pada skenario pertama pada entitas guna dengan f-measure 0.72.

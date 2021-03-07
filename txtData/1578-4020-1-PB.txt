@@ -1,0 +1,227 @@
+Abstrak
+Perkembangan teknologi internet berdampak bertambahnya jumlah situs berita berbahasa Indonesia dan menciptakan ledakan informasi.
+Hal tersebut menuntut semua informasi bisa diakses dengan cepat dan tidak harus membutuhkan banyak waktu dalam membaca sebuah headline berita.
+Teknologi peringkas teks otomatis menawarkan solusi untuk membantu pencarian isi berita berupa deskripsi singkat (summary).
+Penelitian diawali dengan lima tahap text preprocessing: pemecahan kalimat,case folding, tokenizing, filtering, dan stemming.
+Proses selanjutnya menghitung bobot tf-idf, bobot query relevance dan bobot similarity.
+Ringkasan dihasilkan dari ekstraksi kalimat dengan menggunakan metode maximum marginal relevance.
+Metode ekstraksi maximum marginal relevance merupakan metode yang digunakan untuk mengurangi redudansi dalam perangkingan kalimat pada multi dokumen.
+Data uji coba diambil dari surat kabar berbahasa Indonesia online sejumlah berita.
+Hasil pengujian dibandingkan dengan ringkasan manual yang menghasilkan rata-rata recall 60%, precision 77%, dan f-measure 66%.
+Kata kunci: peringkasan, text preprocessing, tf-idf, query relevance, similarity, maximum marginal relevance 
+1. PENDAHULUAN
+Membaca merupakan bagian dari kebutuhan manusia, baik membaca buku, surat kabar, dan majalah.
+Perkembangan teknologi komunikasi berdampak pada penggunaan internet untuk mempublikasi artikel di situs-situs di internet.
+Demikian juga dengan artikel-artikel berita, berita banyak yang diunggah di situs-situs surat kabar online.
+Ringkasan dibutuhkan untuk mendapatkan isi artikel secara ringkas.
+Ringkasan merupakan ekspresi yang ketat dari isi utama suatu artikel, tujuannya untuk memberitahu pada pembaca inti dari suatu pikiran utama (Sartuni, Finoza dan Sundari, 1984:97).
+Konsep sederhana ringkasan adalah mengambil bagian penting dari keseluruhan isi dari artikel.
+Menurut Mani dan Maybury, ringkasan adalah mengambil isi yang paling penting dari sumber informasi yang kemudian menyajikannya kembali dalam bentuk yang lebih ringkas bagi penggunanya (Mani dan Maybury, 1999).
+Aplikasi peringkasan teks otomatis merupakan teknologi yang menawarkan solusi untuk mencari informasi dengan menghasilkan ringkasan (summary) berita.
+2. TINJAUAN PUSTAKA
+2.1 Peringkasan Teks Otomatis 
+Peringkasan teks otomatis (automatic text summarization) adalah pembuatan bentuk yang lebih singkat dari suatu teks dengan memanfaatkan aplikasi yang dijalankan dan dioperasikan pada komputer.
+Sedangkan menurut Hovy, ringkasan adalah teks yang dihasilkan dari sebuah teks atau banyak teks, yang mengandung isi informasi dari teks asli dan panjangnya tidak lebih dari setengah panjang teks aslinya (Hovy, 2001).
+Penelitian peringkasan teks otomatis dipelopori oleh Luhn sejak tahun 1958.
+Teknik-teknik yang digunakan dalam peringkasan: (1) teknik pendekatan statistika: teknik word frequency (Luhn, 1958), position in text (Baxendale, 1958), cue words and heading (Edmudson, 1969), sentence position (Lin dan Hoovy, 1997), (2) teknik pendekatan dengan natural language analysis: inverse term frequency and NLP technique (Aone, 1990), lexical chain (Mc Keown, 1997),maximal marginal relevance (Cabonell dan Goldstein, 1998).
+2.2 Maximum Marginal Relevance 
+Algoritma maximum marginal relevance (MMR) merupakan salah satu metode ekstraksi ringkasan (extractive summary) yang digunakan untuk meringkas dokumen tunggal atau multi dokumen.
+MMR meringkas dokumen dengan menghitung kesamaan (simlarity) antara bagian teks.
+Pada peringkasan dokumen dengan metode MMR dilakukan proses segmentasi dokumen menjadi kalimat dan dilakukan pengelompokan sesuai dengan gender kalimat tersebut.
+MMR digunakan dengan mengkombinasikan matrik cosine similarity untuk merangking kalimat-kalimat sebagai tanggapan pada query yang diberikan oleh user.
+Kebanyakan mesin pencarian information retrieval (IR) modern menghasilkan daftar perangkingan dari dokumen yang diukur dari penurunan relevansi terhadap permintaan user (user query).
+Penaksiran pertama untuk mengukur hasil peringkasan yang relevan adalah dengan mengukur hubungan antar informasi yang ada dalam dokumen dengan query yang diberikan oleh user dan menambah kombinasi linier sebagai sebuah matrik.
+Kombinasi linier ini disebut marginal relevance (Carbonell dan Goldstein, 1998).
+Sebuah dokumen dikatakan mempunyai marginal relevance yang tinggi jika dokumen tersebut relevan terhadap isi dari dokumen dan mempunyai kesamaan bobot term maksimum dibandingkan dengan query.
+Peringkasan dokumen dengan tipe ekstraktif, nilai akhir diberikan pada kalimat Si dalam MMR dihitung dengan persamaan 1.
+Si adalah kalimat di dokumen, sedangkan S adalah kalimat yang telah dipilih atau telah diekstrak (Shasha Xie, 2010).
+Koefisiendigunakan untuk mengatur kombinasi nilai untuk memberi penekanan bahwa kalimat tersebut relevan dan untuk mengurangi redudansi.
+Pada penelitian ini, Sim1 dan Sim2 merupakan dua fungsi similarity yang merepresentasikan kesamaan kalimat pada seluruh dokumen dan memilih masing-masing kalimat untuk dijadikan ringkasan.
+Sim1 adalah matrik similarity kalimat Si terhadap query yang diberikan oleh user sedangkan Sim2 adalah matrik similarity kalimat Si terhadap kalimat yang telah diekstrak sebelumnya (Shasa Xie, 2010).
+Nilai parameteradalah mulai dari 0 sampai dengan 1 (range [0,1]).
+Pada saat parametermaka nilai MMR yang diperoleh akan cenderung relevan terhadap dokumen asal.
+Ketika maka nilai MMR yang diperoleh cenderung relevan terhadap kalimat yang diekstrak sebelumnya.
+Oleh sebab itu sebuah kombinasi linier dari kedua kriteria dioptimalkan ketika nilai terdapat pada interval [0,1].
+Untuk peringkasan small dokumen, seperti pada berita (news), menggunakan nilai parameter atau , karena akan menghasilkan ringkasan yang baik (Jade Goldstein, 2008).
+Untuk mendapatkan hasil ringkasan yang relevan maka harus menetapkan nilaike nilai yang lebih dekat dengan .
+Kalimat dengan nilai MMR yang tertinggi akan dipilih berulang kali ke dalam ringkasan sampai tercapai ukuran ringkasan yang diinginkan.
+2.3 Cosine Similarity
+Cosine similarity digunakan untuk menghitung pendekatan relevansi query terhadap dokumen.
+Penentuan relevansi sebuah query terhadap suatu dokumen dipandang sebagai pengukuran kesamaan antara vektor query dengan vektor dokumen.
+Semakin besar nilai kesamaan vektor query dengan vektor dokumen maka query tersebut dipandang semakin relevan dengan dokumen.
+Saat mesin menerima query, mesin akan membangun sebuah vektor Q (wq1,wq2,wqt) berdasarkan istilah-istilah pada query dan sebuah vektor D (di1,di2,dit) berukuran t untuk setiap dokumen.
+Pada umumnya cosine similarity (CS) dihitung dengan rumus cosine measure (Grossman, 1998).
+2.4 Pembobotan TF-IDF
+Pembobotan dapat diperoleh berdasarkan jumlah kemunculan suatu term dalam sebuah dokumen term frequency (tf) dan jumlah kemunculan term dalam koleksi dokumen inverse document frequency (idf).
+Bobot suatu istilah semakin besar jika istilah tersebut sering muncul dalam suatu dokumen dan semakin kecil jika istilah tersebut muncul dalam banyak dokumen (Grossman, 1998).
+Nilai idf sebuah term (kata) dapat dihitung menggunakan persamaan sebagai berikut: (7)D adalah jumlah dokumen yang berisi term (t) dan dfi adalah jumlah kemunculan (frekuensi) term terhadap D.
+Adapun algoritma yang digunakan untuk menghitung bobot (W) masing-masing dokumen terhadap kata kunci (query), yaitu:Wd,t = tf d,t *IDFt(8)Keterangan : d = dokumen ked t = term ket dari kata kunci tf = term frekuensi/frekuensi kata W = bobot dokumen ked terhadap term ketSetelah bobot (W)masing-masing dokumen diketahui, maka dilakukan proses pengurutan (sorting) dimana semakin besar nilai W, semakin besar tingkat kesamaan (similarity) dokumen tersebut terhadap kata yang dicari, demikian pula sebaliknya.
+2.5 Text Preprocessing
+Text preprocessing adalah tahapan untuk mempersiapkan teks menjadi data yang akan diolah di tahapan berikutnya.
+Inputan awal pada proses ini adalah berupa dokumen.
+Text preprocessing pada penelitian ini terdiri dari beberapa tahapan, yaitu:proses pemecahan kalimat, proses case folding, proses tokenizing kata, proses filtering, dan proses stemming2.
+5.1 Pemecahan KalimatMemecah dokumen menjadi kalimat-kalimat merupakan langkah awal tahapan text preprocessing.
+Pemecahan kalimat yaitu proses memecah string teks dokumen yang panjang menjadi kumpulan kalimat-kalimat.
+Dalam memecah dokumen menjadi kalimat-kalimat menggunakan fungsi split(), dengan tanda titik ., tanda tanya ? dan tanda tanya ! sebagai delimiter untuk memotong string dokumen.
+2.5.2 Case Folding
+Case folding adalah tahapan proses mengubah semua huruf dalam teks dokumen menjadi huruf kecil, serta menghilangkan karakter selain a-z.
+2.5.3 Tokenizing
+Tokenizing adalah proses pemotongan string input berdasarkan tiap kata yang menyusunnya.
+Pemecahan kalimat menjadi kata-kata tunggal dilakukan dengan menscan kalimat dengan pemisah(delimiter) white space (spasi, tab, dan newline).
+2.5.4 Filtering 
+Filtering merupakan proses penghilangan stopword.
+Stopword adalah kata-kata yang sering kali muncul dalam dokumen namun artinya tidak deskriptif dan tidak memiliki keterkaitan dengan tema tertentu.
+Didalam bahasa Indonesia stopword dapat disebut sebagai kata tidak penting, misalnya di, oleh, pada, sebuah, karena dan lain sebagianya.
+2.5.5 Stemming
+Stemming merupakan proses mencari akar (root) kata dari tiap token kata yaitu dengan pengembalian suatu kata berimbuhan ke bentuk dasarnya (stem) (Tala, 2003).
+Pada penelitian ini menggunakan porter stemming untuk bahasa indonesia (Tala, 2003).
+Terdapat lima aturan pada proses stemming untuk bahasa Indonesia menggunakan porter stemmer, yaitu ada lima aturan tahap dalam proses stemming pada bahasa Indonesia, yaitu : 1) Penanganan terhadap partikel inflek sional, yaitu: lah, tah, kah.
+Contoh: duduklah, makanlah.
+2) Penanganan terhadap kata ganti infleksional, yaitu: ku, mu, dan nya.
+Contoh: sepedaku, bukunya.
+3) Penanganan terhadap prefiks derivasional pertama, yaitu : meng dan semua variasinya, peng dan semua variasinya, di, ter, dan ke.
+contoh : membakar, pengukur, kekasih.
+4) Penanganan terhadap prefix derivasional kedua, yaitu : ber dan semua variasinya serta per dan semua variasinya.
+Contoh: berlari, belajar, perkata.
+5) Penanganan terhadap Sufiks derivasional, yaitu kan, am dan i.
+Contoh: ambilkan, janjian dan dapati.
+Karena struktur morfologi bahasa Indonesia yang rumit maka kelima tahap aturan tidak cukup untuk menangani proses stemming bahasa Indonesia.
+Kesulitan membedakan kata yang mengandung imbuhan baik prefiks maupun sufiks dari kata dasar yang salah satu suku katanya merupakan bagian imbuhan, terutama dengan kata dasar yang mempunyai suku kata lebih besar dari dua.
+Contoh : - sekolahsekolah (kata dasar, tidak dilakukan stemming)  - duduklahduduk (dilakukan proses stemming)Berdasarkan urutan tahapan pada penanganan kata berimbuhan, maka terdapat beberapa kemungkinan dalam kesulitan membedakan suatu suku kata merupakan imbuhan atau bagian kata dasar : 1) Kata dasar mempunyai suku kata terakhir (partikel infleksional) serta kata tersebut tidak mendapat imbuhan apapun.
+Contoh: istilah.
+2) Kata dasar mempunyai suku kata terakhir (partikel infleksional) dan mempunyai prefiks.
+Contoh: bersalah.
+3) Kata dasar mempunyai suku kata terakhir (kata ganti infleksional) serta kata dasar tersebut tidak mendapatkan imbuhan apapun.
+Contoh : bangku.
+4) Kata dasar mempunyai suku kata terakhir (kata ganti infleksional) dan mengandung prefiks.
+Contoh: bertanya.
+5) Kata dasar mempunyai suku kata pertama (prefiks derivasional pertama) serta kata dasar tersebut tidak mendapatkan imbuhan apapun.
+Contoh: diagram, kenang.
+6) Kata dasar mempunyai suku kata pertama (prefiks derivasional pertama) dan mempunyai sufiks derivasional.
+Contoh: disiplinkan, pentungan.
+7) Kata dasar mempunyai suku kata pertama (prefiks derivasional kedua) serta kata dasar tersebut tidak mendapatkan imbuhan apapun.
+Contoh : pelangi, perban.
+8) Kata dasar mempunyai suku kata pertama (prefiks derivasional) dan mempunyai sufiks derivasional.
+Contoh: belakangan, pejamkan.
+9) Kata dasar mempunyai suku kata terakhir (sufiks derivasional).
+Contoh: koleksi, dominan.
+Berdasarkan dari permasalahan tersebut, maka dibuat kamus-kamus kecil untuk melengkapi proses stemming ini.
+Terdapat 9 kamus kecil, yaitu : 1) Kamus partikel.
+Seperti: masalah1392) Kamus partikel berprefiks.
+Seperti: menikah 3) Kamus milik.
+Seperti: bangku.
+4) Kamus milik berprefiks.
+Seperti: ber-suku.
+5) Kamus prefiks 1.
+Seperti: median.
+6) Kamus prefiks 1 bersufiks.
+Seperti: terapan.
+7) Kamus prefiks 2.
+Seperti : percaya.
+8) Kamus prefiks 2 bersufiks.
+Seperti: perasaan.
+9) Kamus sufiks.
+Seperti: pantai.
+Kondisi ukuran adalah jumlah minimum suku kata dalam sebuah kata.
+Karena dalam bahasa Indonesia, kata dasar setidaknya mempunyai 2 suku kata.
+Maka kondisi ukuran dalam proses stemming bahasa Indonesia adalah dua.
+Suku kata didefinisikan memiliki satu vokal.
+2.6 Tipe Evaluasi
+Metode untuk mengevaluasihasil ringkasan merupakan topik yang cukup sulit, baik evaluasi terhadap ringkasan yang dihasilkan dari mesin peringkas otomatis ataupun ringkasan yang manual dibuat oleh abstractor yang profesional, dikarenakan tidak terdapat definisi ringkasan ideal.
+Terdapat dua klasifikasi metode evaluasi (Sparck dan Galliers, 1996), yaitu : a. Ekstrinsik
+ Kualitas ringkasan diukur berdasarkan bagaimana ini membantu penyelesaian tugas user.
+b. Intrinsik
+Hanya diukur dari kualitas hasil (output) ringkasan yang dihasilkan.
+Evaluasi sistem peringkas yang ada saat ini adalah intrinsik.
+Pengevaluasi menciptakan sekumpulan ringkasan yang manual, masing-masing satu untuk menguji teks.
+Kemudian membandingkan hasil ringkasan sistem dengan ringkasan ideal.
+Yang diukur adalah overlap dari isi, seringkali disebut dengan recall dan precision kalimat atau frase, tapi kadang-kadang dengan overlap kata tunggal.
+Precision (persamaan 9) dan recall (persamaan 10) digunakan untuk mengukur kualitas sebuah ringkasan.
+Pengukuran precision dan recallini sangat dipengaruhi oleh panjang ringkasan manual dan juga panjang ringkasan yang dievaluasi.
+Akurasi menurun sejalan dengan bertambahnya panjang ringkasan.
+Sulit untuk mengambil kesimpulan terhadap performance sistem dari nilai precision dan recall.
+Untuk standarisasi proses evaluasi belum dieksplorasi.
+Masalah utama dari evaluasi ini adalah sangat nyata, yaitu tidak ada satupun ringkasan yang benar (Edmudson, 1969).
+Kombinasi antara nilai recall dan precision menghasilkan f-measure (persamaan 11).
+3. METODOLOGI
+Pada penelitian ini, peringkasan teks otomatis berita yang dibuat merupakan sistem peringkasan dengan inputan berupa single dokumen dan secara otomatis menghasilkan ringkasan (summary).
+Proses peringkasan teks otomatis pada penelitian ini terdiri dari: proses text preprosessing, pembobotan tf-idf kata, pembobotan relevance query, pembobotan similarity kalimat, pembobotan MMR dan ekstraksi ringkasan.
+Gambar 2 menunjukkan bagan proses peringkasan secara umum.
+Berikut ini alur proses peringkasan sistem: 1) User memasukkan teks dokumen yang akan diringkas dan memasukkan kalimat query.
+Proses awal peringkasan user memasukkan teks dokumen dan query sesuai Tabel 6.
+2) Sistem melakukan penyiapan teks (text preprosessing) dokumen yang terdiri dari tahap pemecahan kalimat, case folding, tokenizing kata, filtering dan stemming.
+3.1 Pemecahan Kalimat 
+Tahap pemecahan kalimat adalah memecah string dokumen menjadi kumpulan kalimat dengan menghilangkan tanda tanda akhir kalimat (delimiter).
+Tanda baca akhir kalimat seperti tanda titik., tanda tanya ?, dan tanda seru !.
+Gambar 3 adalahactivity diagram pemecahan kalimat.
+Tabel 7 merupakan hasil proses pemecahan dokumen menjadi kumpulan kalimat dengan inputan artikel (tabel 6).
+3.2 Case Folding 
+Tahap ini, kumpulan kalimat hasil pemecahan diubah menjadi huruf kecil (lower case), menghilangkan angka, tanda baca maupun simbo dan hanya menerima karakterUTF8dengan kode 0061- 007A).
+Alur activity diagram case folding pada Gambar 4. 
+Tabel 8 merupakan hasil case folding dari data di tabel 7.
+Huruf awal dari setiap kalimat diubah menjadi huruf kecil.
+Pada kalimat pertama dan kedua string angka, tanda baca titik dua :, tanda baca koma ,, tanda kurung buka dantutup () dihilangkan.
+3.3 Tokenizing 
+Kumpulan kalimat hasil dari case folding kemudian dilakukan proses tokenizing kata yaitu menghilangkan karakter pemisah (delimiter) yang menyusunnya berupa karakter spasi (UTF8 kode 0020).
+Alur activity diagram tokenizing dapat ditunjukkan pada Gambar 5. 
+Berdasarkan tabel 9, proses tokenizing menghasilkan token kata sejumlah 56 kata.
+3.4 Filtering Pada tahap ini, dilakukan pembuangan kata-kata yang dianggap kurang penting.
+Stopword adalah kata-kata yang kurang deskriptif yang dapat dibuang dalam pendekatan bag-of-words.
+Pembuangan stop-word dilakukan dengan mengecek kamus stopword.
+Jika terdapat kata yang sama dengan kamus maka akan dihapus.
+Alur activity filtering pada Gambar 5. 
+Kata hasil token dicek terlebih dahulu untuk dicocokkan dengan kamus stopword.
+Jika dalam pencocokan terdapat katayang sama dalam kamus maka kata tersebut dihilangkan.
+Berdasarkan Tabel 10 kata-kata yang termasuk dalam stopword adalah : antara, akan, dengan, hubungan, segera, itu, kemungkinan, akibat, yang, tidak, di, menurutnya, ini, dia, juga, setelah, dan, jelas, the, atas, telah, mungkin, bersama dan sejak.
+3.5 Stemming 
+Hasil filtering kemudian distemming untuk mendapatkan kata dasar (root).
+Proses stemming menggunakan bantuan kamus-kamus kecil dengan untuk membedakan suatu kata yang mengandung imbuhan baik prefiks maupun sufiks yang salah satu suku katanya merupakan bagian dari imbuhan, terutama dengan kata dasar yang mempunyai suku kata lebih besar dari dua.
+Alur activity diagram stemming sesuai Gambar 7. 
+Dari proses stemming terdapat kata-kata yang mengalami penghilangan imbuhan, baik prefiks maupun sufiks.
+Kata-kata yang telah dihilangkan prefiks maupun sufiks dapat dilihat pada Tabel 11.
+Di antara kata-kata tersebut adalah : aksi, main, panggil, pilih, bekap,143performa, dukung, akhir, minat, kritik, tunjuk dan terima.
+Hasil proses text preprosessing dilakukan pembobotan tf-idf.
+Pembobotan secara otomatis biasanya berdasarkan jumlah kemunculan suatu kata dalam sebuah dokumen (term frequency) dan jumlah kemunculannya dalam koleksi dokumen (inverse document frequency).
+Bobot kata semakin besar jika sering muncul dalam suatu dokumen dan semakin kecil jika muncul dalam banyak dokumen.
+Pembobotan tf-idf dilakukan untuk pembobotan tahap selanjutnya, yaitu untuk menghitung bobot query relevance dan bobot similarity kalimat.
+Alur activity pada bobot tf-idf untuk relevance query adalah sama seperti activity pada bobot tf-idf untuk similarity kalimat.
+Alur activity bobot tf-idf pada Gambar 8. 
+Perhitungan bobot query relevance merupakan bobot hasil perbandingan kemiripan (similaritas) antara query yang dimasukkan oleh user terhadap keseluruhan kalimat.
+Sedangkan bobot similarity kalimat, merupakan bobot hasil perbandingan kemiripan antar kalimat.
+Alur activity diagram bobot query relevance pada Gambar 9 dan bobot similarity pada Gambar 10.
+Tabel 12 adalah hasil perhitungan bobot query relevance yaitu menghitung bobot kemiripan antara query dengan kalimat dalam dokumen sesuai persamaan (6).
+Perhitungan bobot query relevance ini menggunakan metode cosine similarity dengan menghitung cosinus sudut dari dua vector, yaitu W, bobot dari tiap kalimat dan W (bobot) query.
+Tabel 13 adalah hasil pembobotan similarity kalimat menggunakan persamaan (6).
+Pembobotan MMR kalimat menggunakan algoritma maximum marginal relevance, kalimat dirangking sebagai tanggapan terhadap query yang diberikan oleh user.
+Perhitungan MMR dilakukan dengan perhitungan iterasi antara kombinasi dua matrik cosine similarity yaitu query relevance dan similarity kalimat.
+Pengguna yang menginginkan ruang sampel informasi disekitar query, maka harus menetapkanpada nilai yang lebih rendah.
+Sedangkan bagi pengguna yang ingin fokus untuk memperkuat dokumen-dokumen lebih relevan, maka harus menetapkanpada nilai yang lebih dekat dengan .
+Kalimat dengan nilai MMR tertinggi dari setiap perhitungan iterasi akan diambil, kemudian dipilih sebagai ringkasan.
+Iterasi berhenti pada saat hasil MMR maksimum sama dengan 0.
+Alur activity bobot MMR pada Gambar 11.
+Tahap terakhir adalah ekstraksi ringkasan dari hasilbobot MMR kalimat.
+Dari hasil perhitungan mmr diketahui kalimat yang menjadi ringkasan berdasarkan urutan bobot MMR kalimat tertinggi dapat dilihat pada tabel 16.
+4. HASIL UJI COBA
+Data yang digunakan sebagai uji coba sejumlah berita.
+Data uji coba diambil secara acak dari koran berita online Tempo Interaktif yang diunduh dari bulan Januari 2009 sampai Juni 2009.
+Uji coba dilakukan dengan menguji tiap teks berita.
+Pengujian dilakukan dengan memasukkan isi dari teks berita dan query.
+Query merupakan judul dari berita.
+Kalimatkalimat yang terambil sebagai ringkasan merupakan kalimat yang merepresentasikan query, karena memiliki kesamaan kata-kata pada kalimat query, dan memiliki bobot MMR maksimum antara nilai bobot maksimum 1 hingga bobot minimum 0.
+Semakin banyak kata-kata yang sama dengan query maka semakin besar peluang kalimat terambil sebagai ringkasan.
+Tabel 17 menunjukkan hasil keseluruhan uji coba yang dilakukan pada sistem peringkasan teks otomatis.
+Kualitas ringkasan sistem diukur dengan membandingkan dengan ringkasan manual.
+Ringkasan manual diperoleh dari mayoritas kalimat yang dipilih oleh enam orang responden.
+Kualitas ringkasan dihitung dengan nilai recall, precision dan f-measure menggunakan persamaan (9), (10) dan (11).
+Hasil perhitungan evaluasi diurutkan berdasarkan nilai recall, precision dan f-measure dari persentase yang tertinggi ke urutan terendah.
+Dari tabel tersebut menunjukkan bahwa berita ketiga belas memiliki nilai recall, precision dan f-measure persentase paling tinggi yaitu dengan nilai recall 100%, precision 100% dan f-measure 100%, sedangkan persentase terendah pada berita kedelapan dengan nilai recall 10%, precision 50% dan f-measure 17%.
+Berdasarkan hasil pengujian dan evaluasi ringkasan dapat diketahuibahwa hasil evaluasi antara ringkasan sistem dengan ringkasan manual menghasilkan nilai rata-rata recall sebesar 60%, precision 77%, dan f-measure sebesar 66%.
+Pada hasil evaluasi antara ringkasan sistem dengan ringkasan manual, terdapat lima berita dengan nilai persentase f-measure rendah dibawah 50% yaitu berita nomor9 dengan 46%, berita nomor5 dengan 46%, berita nomor6 dengan 31%, berita nomor15 dengan 25% dan nomor 8 dengan 17%.
+Hal ini disebabkan oleh jum-lah kalimat yang sama (overlap) adalah kecil atau sedikit sehingga menyebabkan hasil f-measurenya rendah.
+Jika semakin overlap kalimatnya yang terpilih banyak maka hasil dari f-measurenya tinggi.
+5. KESIMPULAN
+Kesimpulan yang didapat dari penelitian adalah : Metode maximum marginal relevance dapat digunakan untuk meringkas single dokumen secara otomatis dengan menggunakan judul artikel berita sebagai query, hasil dari uji coba yang dilakukan menghasilkan rata-rata recall 60%, precision 77%, dan f-measure 66% berdasarkan perbandingan sistem dengan ringkasan manual.
+6. SARAN 
+Hasil ringkasan merupakan kalimat yang memiliki kemiripan dengan query dan berdasarkan urutan bobot MMR.
+Hasil perbandingan terhadap ringkasan manual terdapat beberapa artikel berita yang memiliki nilai f-measure rendah, karena query yang dimasukkan tidak menggambarkan isi, sehingga kalimat yang terambil tidak sesuai urutan kalimat yang baik.
+Pengembangan lebih lanjut disarankan untuk menggunakan generator judul sebagai query untuk mendapatkan f-measure yang tinggi, kalimat ringkasan yang ditampilkan urut berdasarkan sistematika yang baik.

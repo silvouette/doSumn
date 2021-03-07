@@ -1,0 +1,234 @@
+Abstrak
+Kanker darah atau yang biasa disebut leukemia merupakan jenis penyakit yang berbahaya.
+Ada beberapa tipe leukemia, salah satunya yaitu tipe leukemia berjenis Acute Leukemia.
+Penyakit ini berdampak buruk hingga kematian jika tidak cepat diberikan penanganan oleh para ahli.
+Penyebab utama karena meningkatnya jumlah sel darah putih abnormal yang cepat ke dalam darah.
+Identifikasi tercepat yang dapat dilakukan yaitu dengan perhitungan dan analisa keseluruhan dari jenis sel darah putih.
+Akan tetapi, perhitungan dan analisa jenis sel darah putih yang masih dilakukan secara manual menyebabkan hasil yang didapatkan kurang akurat dan membutuhkan waktu banyak waktu.
+Oleh sebab itu diperlukan proses secara otomatis yang dapat membantu para ahli dalam mendapatkan hasil identifikasi yang lebih cepat dan akurat.
+Pada penelitian sebelumnya, proses perhitungan jumlah sel darah putih sudah dilakukan secara otomatis, namun perhitungan yang dihasilkan masih kurang akurat.
+Hal ini disebabkan karena adanya sel yang bersentuhan dan adanya ukuran dan bentuk sel yang bervariasi.
+Penelitian ini mengusulkan metode perhitungan sel darah putih pada citra sel Acute Leukemia menggunakan deteksi seed dengan metode Multi Pass Voting (MPV) dan K-Means.
+Keberadaan sel bersentuhan akan dipisahkan menggunakan metode K-Means yang memanfaatkan final seed dari metode MPV sebagai centroid awal.
+Selanjutnya dari hasil evaluasi yang diterapkan pada 40 dataset citra Sel Acute Leukemia, metode yang diusulkan dapat melakukan perhitungan dengan baik.
+Nilai akurasi perhitungan jumlah sel darah putih dengan menggunakan metode MPV yaitu sebesar 98,6%.
+Pada metode sebelumnya berbasis geometri hanya menghasilkan nilai akurasi perhitungan sebesar 90.6% dan metode watershed sebesar 92.75%.
+Kata Kunci: Sel Darah Putih, Acute Leukemia, Centroid, Multi Pass Voting, K-Means
+I. PENDAHULUAN
+Leukemia atau kanker darah adalah penyakit berbahaya yang dapat menimbulkan kematian.
+Penyakit ini biasa disebut sebagai kanker darah.
+Leukemia dibedakan menjadi dua jenis yaitu akut dan kronis.
+Jenis leukimia yang akan digunakan untuk penenlitian ini yaitu jenis leukemia akut.
+Jenis ini terdiri dibedakan menjadi 2 yaitu Acute Myelogenous Leukemia (AML) dan Acute Lymphoblastic Leukemia (ALL).
+Jenis penyakit ini dapat mengganggu fungsi sel lainnya karena peningkatan jumlah sel darah putih yang abnormal yang dapat menekan pembentukan sel darah yang normal.
+Penyakit ini akan sangat membahayakan apabila penderita tidak melakukan penanganan lebih lanjut pada penyakit ini, karena penyebaran dari sel darah putih yang cepat ke dalam darah.
+Usaha yang dapat dilakukan sebagai referensi untuk penanganan tahap lanjut yaitu dengan dilakukan diagnosa pada pasien.
+Diagnosa dilakukan sebagai bentuk penanganan awal untuk tindakan penyembuhan.
+Diagnosa terkait penyakit ini dapat dilakukan dengan cara observasi mikroskopik pada slide Ldarah.
+Observasi hanya dilakukan pada citra darah yang diperlukan para ahli untuk dapat menganalisa penyakit tersebut.
+Langkah selanjutnya yaitu dengan cara melakukan identifikasi dengan analisis dan perhitungan jenis sel darah secara menyeluruh.
+Jika hasil identifikasi yang didapatkan terlihat tidak normal, maka pasien harus mendapatkan tindakan selanjutnya dengan dilakukannya pemeriksaan di sumsum tulang untuk bisa didapatkan hasil yang lebih akurat [1].
+Hasil observasi pada slide darah akan dilanjutkan untuk dianalisis oleh seorang hematologi.
+Hasil analisa yang masih dilakukan secara manual akan membutuhkan banyak waktu dan mengurangi keakuratan dari hasil analisa yang dilakukan.
+Telah banyak penerapan teknik pengolahan citra yang sudah dilakukan untuk menganalisis citra sel kanker darah, salah satunya melalui proses segmentasi untuk memndapatkan area sel darah putih yang selanjutnya dilakukan perhitungan, baik pada citra sel tunggal maupun bersentuhan.
+Segmentasi merupakan satu proses yang paling banyak diterapkan dan dikembangkan untuk penelitian khususnya untuk citra.
+Segmentasi dilakukan dengan cara citra asli dipresentasikan dengan membagi objek citra menjadi beberapa region (wilayah).
+Tapi, pada penerapannya masih terdapat masalah yang ditemukan ketika diterapkan segmentasi pada citra sel kanker darah bersentuhan.
+Bentuk serta ukuran sel yang beragam menjadi sebuah masalah yang dihadapi ketika dilakukan proses segmentasi.
+Banyak penelitian yang dilakukan terkait kegiatan dalam meneliti sel darah putih bersentuhan atau bertumpuk, dimana metode yang digunakan oleh peneliti adalah pendekatan berdasarkan informasi bentuk [3][8].
+Pendekatan ini lebih cepat dilakukan, akan tetapi proses yang dilakukan masih sensitif pada bentuk sel darah putih yang beragam.
+Pada penelitian yang dilakukan Fatichah, C., dkk [3] menggunakan fitur geometri eccentricity dan area dalam mendeteksi keberadaan sel darah putih khususnya tipe sel bertumpuk.
+Area yang dimiliki oleh sel vertumpuk memiliki ukuran yang lebih besar daripada sel tunggal dan memiliki bentuk menyerupai elips.
+Selanjutnya, jika sel darah putih terdeteksi dalam keadaan bertumpuk maka selanjutnya dilakukan perhitungan objek sel, yaitu dengan pembagian area objek sel darah putih bertumpuk dengan rata-rata area objek sel darah putih tunggal.
+Penelitian serupa juga dilakukan Nazlibilek, S., dkk [8], dimana proses kuantisasi sel darah putih dilakukan dengan membandingkan ukuran area sel darah putih.
+Hal tersebut dilakukan dengan melakukan perhitungan dengan membandingkan nilai rata-rata panjang major axis dan minor axis objek sel darah putih terhadap nilai rata-rata panjang major axis dan minor axis seluruh objek sel darah putih pada citra.
+Kedua penelitian tersebut melakukan perhitungan sel darah putih bertumpuk yang didasarkan pada hasil koreksi ukuran perbandingan objek sel tersebut.
+Jika hasil ukur perbandingan bernilai 100%-200% maka jumlah sel darah putih akan dilakukan ppertambahan sebanyak satu dan akan dilakukan penambahan satu lagi pada tiap kenaikan ukuran objek sebesar 100%.
+Penelitian serupa juga dilakukan terkait sel bersentuhan, dimana peneliti menerapkan metode clustering.
+Seperti penelitian yang dilakukan oleh Effendy, F.[2], metode yang diusulkan adalah analisis klaster K-Means Clustering pada citra sel darah merah.
+Identifikasi dilakukan pada sel bertumpuk atau bersentuhan dengan menerapkan informasi fitur geometri.
+Penerapan metode clustering pada citra tersebut sudah mampu memisahkan sel lebih baik dibanding dengan metode watershed.
+Akan tetapi, hasil dari metode bergantung pada inisialisasi jumlah klaster.
+Penggunaan jumlah klaster dalam penelitian masih ditentukan secara manual sebelum proses analisis klaster.
+Di samping itu metode tersebut juga masih menggunakan penentuan awal centroid secara random, sehingga hal ini menyebabkan banyaknya iterasi yang dilakukan.
+Jumlah iterasi yang terlalu banyak juga mengakibatkan waktuyang dibutuhkan semakin lama dalam menentukan centroid yang tepat.
+Penelitian serupa juga dilakukan Lu Cheng, dkk [6] dalam menentukan centroid.
+Peneliti mendeteksi centroid sel yang didasarkan pada deteksi seed pada area voting sel.
+Metode yang dilakukan menggunakan informasi gradient dari contour objek untuk mendapatkan titik pusat (centroid) sel, sehingga variasi bentuk dan ukuran sel tidak begitu berpengaruh pada metode ini.
+Peneliti melakukan penelitian pada citra histopatologi payudara dan kulit.
+Metode yang menerapkan based voting adalah Multi Pass Voting [6].
+Metode tersebut melakukan pencarian titik pusat (centroid) sel yang didasarkan pada deteksi seed di area voting.
+Peneliti membuat multi area voting untuk melakukan deteksi seed yang dilakukan.
+Kemudian final seed yang akan didapatkan nantinya akan dijadikan titik pusat (centroid) yang diterapkan metode global thresholding [7].
+Berdasarkan penelitian yang telah diuraikan sebelumnya, langkah penting pada proses identifikasi penyakit leukemia adalah kuantisasi jumlah sel darah putih di citra mikroskopis kanker darah.
+Hasil akurasi dari proses ini akan menentukan langkah yang harus dilakukan pada tahap penyembuhan.
+Dalam proses perhitungan terdapat kendala yang dialami salah satunya adalah terdapatnya citra bertumpuk atau bersentuhan karena perhitungan masih menggunakan cara manual dan terbatas oleh waktu.
+Pada penelitian ini diusulkan metode perhitungan jumlah sel darah putih pada citra sel Acute Leukemia dengan menerapkan metode Multi Pass Voting berbasis deteksi seed (centroid) yang dilanjutkan dengan metode K-Means dalam pemisahan citra sel bersentuhan.
+Centroid yang dihasilkan pada metode Multi Pass Voting kemudian akan dipergunakan dalam perhitungan jumlah sel sekaligus akan menjadi titik pusat (centroid) awal pada metode analisis klaster K-Means.
+II. DATA DAN USULAN METODE 
+Pada tahapan ini selanjutnya akan dijelaskan tentang dataset yang akan digunakan dilanjutkan dengan pembahasan mengenai tahapan yang akan dilakukan dalam penelitian.
+A. Dataset 
+Penelitian ini menggunakan dataset citra dari penyakit leukemia tipe Acute, dimana tipe Acute Leukemia dikelompokkan ke dalam dua sub tipe, yaitu Acute Lymphoblastic Leukemia (ALL) dan Acute Myeloid Leukemia (AML) [1].
+ALL atau Acute Lymphoblastic Leukemia adalah jenis kanker yang sering menyerang anak usia dini.
+Dataset citra ALL yang digunakan dalam penelitian diambil dan disediakan oleh Labati, dkk [5] yang berupa citra sampel sediaan apus darah tepi (pheripheral blood smear).
+Citra sampel yang digunakan adalah citra dari individu yang positif menderita penyakit ALL.
+Acute Myeloid Leukemia (AML) atau acute myelogenous leukemia merupakan jenis kanker yang sering dialami oleh orang dewasa dan pengaruh dari penyakit ini akan meningkat seiring dengan umur penderita.
+Citra AML yang digunakan dalam penelitian diambil di Laboratorium Kesehatan Pemerintah Daerah Kalimantan Selatan, Banjarmasin.
+Dataset citra AML berupa citra sampel sediaan apus darah tepi (peripheral blood smear) yang di dalamnya terdapat sel darah putih normal dan abnormal (blast) dari pasien penderita AML [4].
+B. Metode Usulan 
+Penelitian ini melakukan deteksi seed pada area voting dengan memanfaatkan radial symmetry dalam membentuk area yang akan digunakan dalam proses deteksi seed.
+Selanjutnya seed terakhir yang dihasilkan menjadi titik pusat (centroid) sekaligus menjadi centroid awal pada metode K-Means.
+Tahap pertama yang dilakukan adalah dilakukan pemisahan area foreground dan background untuk menentukan region sel darah putih dengan menerapkan operator canny.
+Selanjutnya melakukan proses deteksi seed dengan diterapkan metode Multi Pass Voting.
+Tahapan terakhir yang dilakukan adalah melakukan pemisahan sel bersentuhan menggunakan metode K-Means.
+Rancangan metode ini diterapkan pada 40 dataset citra sel Acute Leukemia yang terdiri dari citra ALL dan AML.
+1) Deteksi Tepi Canny 
+Pada tahap awal akan dilakukan pemisahan area foreground dan background dengan menggunakan metode deteksi tepi Canny.
+Dalam tahapannya, metode deteksi tepi canny melakukan penghalusan pada citra untuk menghilangkan noise.
+Dalam hal ini, noise berupa citra atau bagian yang tidak diperlukan.
+Dalam hal ini digunakan filtering berupa Gaussian Filter.
+Kemudian dihitung gradient magnitude citra untuk melihat daerah-daerah yang memiliki turunan spasial yang tinggi.
+Perhitungan gradient magnitude ditentukan arah dari tepi dengan menggunakan invers tangen dari gradient magnitude Y (Gy) dibagi gradient magnitude X (Gx).
+Kemudian diterapkan metode Non Maximum Suppression, hal ini dilakukan untuk menghilangkan nilai yang tidak maksimum.
+Dilanjutkan dengan menerapkan Hysteresis.
+Hysteresis yang diterapkan menggunakan dua threshold yaitu T1 (threshold bawah) dan T2 (threshold atas).
+Jika magnitude ada di bawah T1, maka titik tersebut akan di set nol (dijadikan non-tepi) dan sebaliknya.
+2) Multi Pass Voting 
+Metode ini adalah metode berbasis voting yang dapat digunakan dalam pendeteksian titik pusat area berdasarkan deteksi seed yang dilakukan.
+Dalam penerapannya untuk mendapatkan final seed digunakan area voting dibentuk menjadi sebuah kerucut yang didasarkan pada kisaran radius yang dimiliki sel [10].
+Metode voting ini memanfaatkan kernel dalam penerapan area voting untuk mendeteksi final seed untuk dijadikan titik pusat (centroid).
+Kernel tersebut mengikuti radial symmetry dan gradien direction.
+Dimana, (,) adalah titik point sel yang akan dibnetuk area voting.
+Sedangkan (,) adalah titik point yang yang akan dijadikan titik pusat sel.
+Penentuan panjang area voting(,) didasarkan pada ukuran rerata sel.
+Panjang dariadalah 13 daridan panjang adalah 53 dari , dimanamerupakan jarak antara boundary point dengan local maxima.
+Pada tiap iterasi, peng-updatean kernel mengikuti gradient direction dan diikuti dengan pengurangan kisaran sudut dari area voting.
+Pada Gambar 1(a) ditunjukkan ilustrasi area voting yang akan digunakan dan Gambar 1(b) ditunjukkan ilustrasi orientasi kernel area voting area pada setiap iterasi [6].
+Pada Gambar 1 (b) menunjukkan bahwa point P diikuti dengan voting direction yang memiliki nilai votes tertinggi.
+Sudut =(1,2,,) untuk area voting akan ter-update mengikuti direction (point ).
+Pembentukan area voting sesuai dengan Persamaan (1).
+Area voting yang terbentuk akan menunjukkan seed yang diasumsikan terdapat nilai vote tertinggi.
+Seed dengan nilai vote tertinggiyang akan menjadi final seed atau titik pusat (centroid).
+Bentukarea voting dipilih menyerupai bentuk kerucut, pertimbangan ini mengikuti asumsi bahwa titik pusat sel jauh dari boundary objek, dengan begitu penempatan voting point P terletak di region terdekat dari titik pusat sel.
+Metode ini menggunakan parameter seperti ,,, dan.
+Dalam penjelasan sebelumya , adalah panjang area voting yang akan dipergunakan,adalah perkiraan sudutuntuk area voting yang terbentuk sejumlah N dengan = , sedangkanadalah nilai threshold yang dipergunakan sampai didapatkanseed terakhir.
+Setelah ditentunkan parameter, selanjutnya melakukan tahapan inisialisasi voting direction dan magnitude, nilai image gradient (,) dihitung terlebih dulu, dilanjutkan perhitungan gradient magnitude (,) dan gradient direction (,)= (,),(,)=(cos((,)),sin((,))), dimanaadalah sudut gradient direction antara positive sumbu x dengan vektor (,).
+Perhitungan tersebut mengikuti kernel pada Persamaan (2).
+Kemudian dilanjutkan dengan penentuan vote selanjutnya dengan mereset vote image (,,,,)=0 untuk semua piksel point (,).
+Vote image pada tiap piksel akan terupdate (,)mengikuti Persamaan (3).
+Fungsi kernel ditempatkan pada (,) di area voting, untuk update voting direction tiap piksel (,) mengikuti Persamaan (4).
+Pada tahapan terakhir diterapkan metode thresholding di voting image untuk mendapatkan seed terakhir (centroid) berdasarkan Persamaan (7).
+3) Pemisahan Sel Bersentuhan Metode K-Means 
+Pada proses ini, centroid awal yang digunakan tidak dihasilkan secara random melainkan menggunakan hasil dari metode sebelumnya yang berupa final seed.
+Pemisahan sel darah putih yang bersentuhan digunakan proses klasterisasi yaitu dengan menerapkan metode analisis klaster K-Means.
+Metode ini adalah metode analisis klaster non-hirarki dimana data dipartisi ke dalam satu atau lebih klaster yang didasarkan pada karakteristik masing-masing.
+Penentuan centroid pada analisis klaster K-Meansmenggunakan titik centroid dari final seed yang juga berupa (,), jarak Euclidien akan diterapkan dalam perhitungan jarak data dan centroid, penempatan data pada klaster terdekat dihitung dari titik tengah klaster.
+Penetapan centroid baru dilakukan apabila semua objek sudah ditempatkan dalamklaster terdekat.
+Tahapan penentuan centroid dan penempatan objek dalam klaster diulangi hingga nilai centroid konvergen.
+Perhitungan jarak antara data dan centroid digunakan Euclidean Distance sesuai pada Persamaan (8).
+III. HASIL DAN PEMBAHASAN 
+Uji coba penelitian dilakukan mempergunakanperangkat lunak Sistem Operasi Microsoft Windows 8 64 Bit dan MATLAB R2015a.
+Hardware yang dipergunakan adalah komputer dengan spesifikasiProsesor Intel Core i3 2. 30GHz dan RAM 4GB.
+Dataset yang digunakan dalam uji coba sebanyak 40 citra Acute Leukemia dengan citra yang tidak dan memiliki sel bersentuhan.
+Evaluasi dilakukan dengan menghitung jumlah centroid dari citra yang yang diasumsikan memiliki jumlah sel darah putih benar.
+Hasil perhitungan sel darah putih dari metode usulan (Multi Pass Voting) dibandingkan dengan citra dari hasil perhitungan secara manual (ground truth), fitur geometri [3][8] dan metode watershed.
+Perhitungan manual pada citra dijadikan acuan hasil perhitungan yang benar (ground truth).
+Perhitungan manual sel darah putih didasarkan pada arahan yang diberikan oleh ahli/dokter patologi.
+Evaluasi hasil perhitungan mengikuti Persamaan (9).
+A. Hasil Penentuan Area Sel Darah Putih Menggunakan Deteksi Tepi Canny 
+Pemisahan area foreground dan background sebagai tahap awal pada area sel darah putih dilakukan dengan memanfaatkan deteksi tepi canny.
+Selanjutnya dilakukan smoothing citra dengan menerapkan filter gaussian.
+Nilai ambang yang dipergunakan pada deteksi canny ditetapkan secara adaptif, pendapatan nilai optimal yang dipergunakan berdasarkan uji coba sebesar 0.60.
+Area yang diinginkan adalah citra biner semua bagian dari sel darah putih.
+Gambar 2 menunjukkan contoh hasil operasi deteksi tepi canny pada citra Acute Leukemia tipe ALL dan Gambar 3 pada citra AML.
+B. Hasil Deteksi Seed Menggunakan Metode Multi Pass Voting 
+Tahapan ini akan mendapatkan titik pusat (centroid) yang didasarkan pada deteksi seed dengan memanfaatkan metode Multi Pass Voting.
+Sebagai tahap permulaan, data dari hasil proses sebelumnya akan dilakuan perhitungan gradient direction-nya.
+Kemudian dilakukan inisialisasi parameter untuk membentuk area voting yang akan digunakan.
+Kemudian dilakukan perhitungan image gradient, gradient direction dan gradient magnitude.
+Area voting yang dibentuk menyerupai kerucut dengan radius panjang minimum () dan panjang maksimum yakni lebih dari setengah jari-jari area ().
+Nilai optimal yang digunakan pada= 1 dan= 25.
+Dilanjutkan iterasi (N) sebanyak 3 kali dan besar sudut area kerucut (= 4,7,28).
+Besar sudut yang diterapkan mulai dari = 4 dan = 28.
+Area voting yang dibentuk akan diperkecil mengikuti gradient direction sampai mendapatkan nilai seed yang optimal.
+Untuk selanjutnya final seed akan dihasilkan dengan penggunaan global threshold yang didasarkan pada nilai vote maksimal.
+Pada Gambar 4 ditunjukkan hasil uji coba dari metode Multi Pass Voting pada citra ALL dalam sel darah dan Gambar 5 pada citra AML.
+C. Hasil Pemisahan Sel Bersentuhan menggunakan Metode K-Means 
+Tahapan pemisahan sel bersentuhan ke sel tunggal dilakukan dengan menerapkan metode klaster K-Means.
+Perhitungan jumlah klaster didasarkan pada jumlah centroid dari metode Multi Pass Voting.
+Sebelum pada tahapan ini diterapkan connected labelling area.
+Proses ini menjadi penentuan area mana yang akan diterapkanmetode analisis K-Means.
+Jika pada satu area sel darah putih terdapat lebih dari satu titik pusat maka langsung diterapkan pemisahan mempergunakan analisis K-Means.
+Sedangkan untuk area yang memiliki satu centroid akan langsung masuk pada hasil akhir.
+Di samping dibutuhkan titik pusat (centroid) sebagai masukan k-means, citra yang digunakan sebagai objek pemisahan sel darah putih adalah citra biner.
+Citra biner yang dipergunakan didapatkan menggunakan metode Adaptive Thresholding dan sudah melalui proses cleaning.
+Tahapan ini dilakukan untuk menghapus area abnormal (cacat pewarnaan), area yang bukan termasuk sel darah putih danarea yang berada di tepi border.
+Penghapusan area abnormal dilakukan dengan dengan menerapkan perhitungan geometri antara luas area dan convex area yang diukur pada setiap objek.
+Kemudian hasilnya dipergunakan untuk perhitungansolidity.
+Nilai solidity inilah yang akan dijadikan dasar agar area yang mengalami cacat warna dapat terhapus.
+Solidity ini diterapkan untuk pengukuran kepadatan objek denga nilai yang digunakan adalah rasio dariarea objek dan area convex hull objek.
+Perhitungan solidity ditunjukkan pada Persamaan (10).
+Nilai solidity yang bernilai 1 mengartikan bahwa objek ini adalah solid, apabila nilai kurang dari 1 maka diasumsikan bahwa objek berbentuk boundary irregular (dengan hole).
+Nilai ambang solidity yang dipakai pada penelitian didasarkan pada metode usulan [9] yaitu 0,9.
+Semua objek bernilai solidity di bawah nilai ambang tersebut otomatis terhapus.
+Untuk menghapus area yang bukan objek sel darah putih digunakan perhitungan area rata-rata sel.
+Selanjutnya pada tahapan pemisahan sel bersentuhan ke sel tunggal, jumlah klaster k akan dihitung dengan acuan yang didasarkan pada titik pusat (centroid) yang didapatkan pada setiap area.
+Penentuan centroid awal untuk metode k-means ditentukan tanpa melalui proses random melainkan menggunakan hasil dari metode Multi Pass Voting.
+Dari metode tersebut didapatkan jumlah dan posisi dari setiap centroid.
+Perhitungan jarak yang dipergunakan pada pengukuran kedekatan klaster adalah euclidean distance.
+Gambar 6 menunjukkan hasil pemisahan sel bersentuhan pada citra ALL, dimana Gambar 6(a) merupakan citra biner yang berisi informasi sel yang akan dilakukan pemisahan dan 6(b) merupakan citra yang sudah dilakukan pemisahan menggunakan metode k-means yang sudah diberi label RGB.
+Untuk citra AML ditunjukkan pada Gambar 7. 
+D. Hasil Perhitungan Sel Darah Putih pada Citra Acute Leukemia 
+Proses kuantitasi atau perhitungan sel darah putih terhadap output akan dibandingkan terhadap metode usulan (Multi Pass Voting) dan perhitungan manual (groundtruth).
+Di samping itu juga akan dilakukan perbandingan dengan metode berdasarkan geometri yang diusulkan oleh [3] berdasarkan luasan rata-rata area sel tunggal, metode usulan [8] didasarkan pada rerata panjang major dan minor axis sel tunggal dan metode watershed.
+Hasil masing-masing metode ditunjukkan pada Tabel 1.
+Berdasarkan Tabel 1 perbandingan hasil perhitungan sel darah putih menggunakan metode usulan (Multi Pass Voting) didapatkan akurasi tinggi sebesar 98.6% dibandingkan dengan hasil perhitungan berdasarkan geometri dan watershed.
+Dari hasil tersebut masih didapatkan citra yang mengalami over counted dan not counted, hal ini terjadi karena pengaruh karakteristik dataset yang dipergunakan.
+Luas area dan bentuk yang bervariasi menjadi hambatan dalam penentuan threshold yang sesuai untuk perhitungan yang didasarkan pada geometri.
+Penentuan ukuran sel tunggal dalam suatu citra menjadi sulit ditentukan, ketika luas dan bentuk yang dimiliki citra bervariasi dan disertai dengan berkumpulnya sel tersebut.
+Oleh karena itu tidak cukup 1 kriteria geometri yang digunakan untuk hasil yang akurat dari jumlah sel tunggal dalam suatu citra.
+Pada metode watershed masih didapatkan citra yang mengalami over counted.
+Pada dasarnya metode tersebut memiliki kekurangan yaitu masih sering terjadi oversegmentation, sehingga hasil dari segmentasi tersebut didapatkan banyak citra yang mengalami over counted meskipun akurasi yang dihasilkan cukup bagus.
+Dari sini dapat terlihat bahwa hasil dari perhitungan dari metode usulan (Multi Pass Voting) hasilnya sudah bagus, meskipun masih adanya citra yang over counted dan not counted.
+Penyebab lain selain dari adanya bentuk dan ukuran sel yang beragam, hal ini juga disebabkan dari kurang akuratnya hasil yang didapakan pada proses identifikasi awal.
+Dimana, proses identifikasi awal yang dipergunakan sebelum masuk pada multi pass voting adalah deteksi tepi dengan menerapkan operator canny.
+Image dengan garis tepi citra akan dihasilkan pada tahapan deteksi tepi dilakukan, namun garis tepi citra yang ada masih terdapat edge yang tidak terhubung sempurna.
+Terdapat penelitian terkait segmentasi sel darah putih pada citra mikroskopis dengan menerapkan metode yang didasarkan pada tepi (boundary) [8].
+Metode yang diusulkan menerapkan segmentasi dengan melakukan pendeteksian tepi citra terlebih dahulu, kemudian dilakukan operasi morfologi untuk memperbaiki hasil segmentasi.
+Akan tetapi, metode usulan terdapat citra dengan garis tepi yang tidak terhubung sehingga batas dari region tidak bisa diketahui.
+Dalam hal ini wilayah sel darah putih yang dihasilkan dengan memanfaatkan deteksi tepi ini masih kurang sempurna, sehingga perlu penerapan metode yang tepat untuk mendapatkan area sel darah putih dengan tepi yang terhubung sempurna.
+Tahapan ini juga merupakan tahapan yang penting, karena citra dari deteksi tepi akan mempengaruhi tahapan pencarian centroid.
+Gradient direction dari citra tersebut menjadi dasar pembentukan area voting dimana final seed akan dihasilkan.
+Jika terdapat edge yang tidak terhubung maka tidak bisa didapatkanfinal seed terbaik dari iterasi kernel voting yang dilakukan.
+Selain terdapatnya pengaruh pada tahap identifikasi awal citra yang digunakan, penentuan nilai parameter yang tepat untuk panjang minimum dan maksimum dari area kernel voting menjadi satu poin yang penting juga.
+Berikut ditunjukkan Gambar 10, hasil pencarian centroid yang jumlah sel darah putih dengan benar dan Gambar 11 ditunjukkan hasil pencarian centroid yang menghasilkan over counted.
+E. Hasil Pemisahan Menggunakan K-Means 
+Pada pemisahan sel darah putih dari metode usulan akan dilakukan perbandingan hasil pemisahan antara metode usulan k-means dengan pemisahan menggunakan metode watershed, dimana hasil dapat dilihat dan dibandingkan secara visual.
+Pada Gambar 8(a) ditunjukkan hasil pemisahan secara visual sel bersentuhan menggunakan metode K-Means dan 8(b) watershed.
+Selanjutnya pada Tabel 2 ditunjukkan hasil iterasi terhadap metode k-means dengan menggunakan centroid awal dan random centroid.
+Berdasarkan Gambar 8, hasil pemisahan dengan menggunakan metode watershed 8(a) masih memiliki hasil yang kurang bagus dimana hasil yang didapatkan mengalami over counted.
+Sedangkan untuk pemisahan menggunakan analisis K-Means 8(b) sudah mendapatkan hasil pemisahan yang tepat sesuai dengan jumlah centroid yang dihasilkan.
+Jumlah dan posisi centroid yang didapatkan dari metode usulan (Multi Pass Voting) akan menjadi penentu proses pengklasteran pada metode analisis klaster K-means yang akan menjadi penentu dari banyaknya iterasi yang dilakukan.
+Sebagai contoh, apabila dalam 2 area sel darah putih hanya ada 1 centroid maka hasil pengelompokkan klaster akan tergabung menjadi 1.
+Inilah salah satu penyebab hasil pemisahan klaster k-means menjadi kurang sempurna seperti ditunjukkan Gambar 9(a).
+Pada citra tersebut ditunjukkan jumlah centroid sebanyak 7 sehingga jumlah klaster yang didapat adalah 7 klaster.
+Jika dihitung secara manual didapatkan jumlah centroid sebanyak 8, sehingga hasil pemisahan pada Gambar 9(b) yang terabel warna kuning hanya 1 klaster saja yang didapatkan.
+Di samping itu perhitungan kelompok klaster yang didasarkan pada jarak minimum dari setiap titik juga mempengaruhi hasil klaster K-means.
+Hasil kelompok klaster yang dihasilkan juga akan berpengaruh jika region sel darah putih yang bersentuhan mempunyai luasan yang bervariasi (kecil atau besar).
+Sebagai contoh, apabila pada citra terdapat 2 sel bersentuhan dan memiliki ukuran yang berbeda besar dan kecil, data yang terdapat di region dengan ukuran besar akan cenderung terklaster pada region yang berukuran lebih kecil.
+Kondisi tersebut ditunjukkan pada Gambar 10 yaitu area dengan garis hitam menunjukkan area yang masih terjadi kesalahan dalam pengelompokan klaster.
+Oleh karena itu hasil pemisahan dari citra menjadi kurang sempurna.
+IV. KESIMPULAN
+Pada penelitian ini telah dilakukan perhitungan jumlah sel darah putih pada citra leukemia akut dengan menerapkan metode Multi Pass Voting dan K-Means.
+Nilai akurasi yang didapat dari metode usulan menghasilkan persentase 98.6%.
+Nilai akurasi yang belum sempurna pada metode ini disebabkan oleh citra leukemia akut yang mengalami over counted dan not counted.
+Hal tersebut terjadi adanya karakteristik citra yang memiliki ukuran dan bentuk yang beragam.
+Selain itu, deteksi awal terhadap region sel darah putih juga menjadi salah satu penentu hasil perhitungan yang dihasilkan pada metode Multi Pass Voting.
+Pada deteksi tepi canny dihasilkan nilai threshold yang belum optimal, sehingga menyebabkan bagian edge pada citra terputus atau tidak terhubung sempurna.
+Hasil yang seperti ini akan berpengaruh pada proses selanjutnya yaitu keakuratan dari hasil jumlah centroid pada metode usulan.
+Penerapan metode k-means sudah mampu mendapatkan kelompok klaster yang baik pada pemisahan sel darah putih.
+Akan tetapi, apabila terdapat ukuran sel yang berbeda dan titik centroid belum berada pada lokasi yang tepat maka hasil pengklasteran juga tidak akan optimal.
+Hasil yang tidak optimal pada proses pengklasteran dipengaruhi karena adanya sel bersentuhan yang banyak.
+Penelitian selanjutnya yang dapat dikembangkan dari metode yang diusulkan adalah dengan menemukan metode yang tepat untuk mendeteksi region sel darah putih yang akan digunakan.
+Dimana pada dasarnya sel darah putih memiliki karakteristik sel dengan bentuk, ukuran dan warna yang beragam.
+Karena metode Multi Pass Voting juga tergantung pada tahapan ini.

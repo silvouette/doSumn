@@ -1,0 +1,178 @@
+Abstrak
+Diabetic Retinopathy adalah kelainan pembuluh darah retina pada mata yang diakibatkan komplikasi penyakit diabetes.
+Deteksi lebih dini diperlukan agar kelainan ini dapat ditangani secara cepat dan tepat.
+Kelainan ini ditandai dengan melemahnya bagian pembuluh darah tipis akibat tersumbatnya aliran darah kemudian menyebabkan bengkak pada mata bahkan kebutaan.
+Oleh karena itu diperlukan analisis pembuluh darah retina melalui proses segmentasi pembuluh darah terutama pada bagian penting yaitu pembuluh darah tipis.
+Peneliti mengusulkan penggabungan metode perbaikan pembuluh darah tipis atau Thin Vessel Enhancement dengan Fuzzy Entropy.
+Thin Vessel Enhancement berfungsi untuk memperbaiki citra agar dapat mengekstrak lebih banyak bagian pembuluh darah khususnya pembuluh darah tipis, sedangkan Fuzzy Entropy dapat menentukan nilai optimal threshold berdasarkan nilai entropy pada suatu level segmen atau kelas.
+Segmentasi yang dihasilkan dibagi menjadi 3 kategori yaitu pembuluh darah utama, medium, dan tipis.
+Uji coba dilakukan terhadap metode Thin Vessel Enhancement menggunakan 1 kernel dan Fuzzy Entropy dari nilai threshold ke-1 maka diperoleh nilai accuracy, sensitivity, dan specificity sebesar 94.81%, 66.83%, dan 97.51%.
+Kata Kunci: Diabetic Retinopathy, Fuzzy Entropy, Thin Vessel Enhancement.
+I. PENDAHULUAN
+Diabetic Retinopathy merupakan kelainan pembuluh darah retina pada mata yang terjadi akibat komplikasi penyakit diabetes.
+Sebanyak 13% Diabetic Retinopathy ditemukan pada penderita diabetes tipe I yang mengidap selama kurang dari 5 tahun dan meningkat hingga 90% setelah 10 tahun.
+Diabetic Retinopathy ditemukan pada penderita diabetes tipe II sebanyak 24-40% yang mengidap selama kurang dari 5 tahun dan meningkat hingga 48-53% setelah 15-20 tahun [1].
+Komplikasi dari diabetes yang dapat dideteksi melalui pem-buluh darah retina adalah darah tinggi (hypertension), penyempitan pembuluh darah retina (arteriosclerosis), car-diovascular, dan stroke [2].
+Deteksi kelainan pembuluh darah dapat dilakukan melalui segmentasi pembuluh darah pada citra fundus.
+Data screening yang begitu banyak akan membutuhkan waktu cukup lama apabila dilakukan segmentasi secara manual, sehingga dibutuhkan metode untuk melakukan segmentasi secara otomatis [3].
+Segmentasi pembuluh darah retina pada penelitian [4] menggunakan metode Mathematical Morphology dan Gradient Based Adaptive Thresholding (GBAT), metode GBAT digunakan untuk mengatasi oversegmentasi pada bagian exudates.
+Segmentasi pembuluh darah utama menggunakan high pass filtering dan bottom hat transform, sedangkan segmentasi pembuluh darah tipis menggunakan metode Region Growing.
+Segmentasi pembuluh darah tipis yang dihasilkan kurang signifikan jika dibanding pembuluh darah utama karena pemilihan seed point yang ditentukan secara manual.
+Nilai rata-rata akurasi yang dihasilkan dengan menggunakan dataset DRIVE sebesar 95.25%.
+Pada penelitian [5] segmentasi pembuluh darah dilakukan menggunakan metode Dense Conditional Random Field (CRF) yang komponennya terdiri dari discriminative unary feature dan pairwise term.
+Discriminative unary feature diperoleh melalui metode Convolutional Neural Network (CNN), sedangkan pairwise term diperoleh me-lalui proses Thin Vessel Enhancement untuk meningkatkan performa Dense CRF Model.
+Thin Vessel Enhancement berfungsi untuk mengurangi perbedaan intensitas antara pembuluh darah tebal dan tipis sehingga keduanya dapat terdeteksi dengan baik.
+Uji coba dilakukan pada dataset DRIVE, STARE, dan CHASEDB1 dengan nilai akurasi 94.69%, 95.85%, dan 95.20%.
+Segmentasi pembuluh darah pada penelitian [6] menggunakan metode Adaptive Filtering, Fuzzy Entropy, dan Skeletonization.
+Fuzzy Entropy dapat menghasilkan nilai optimum threshold berdasarkan nilai entropy pada masing-masing membership function.
+Skeletonization terakhir digunakan untuk memperbaiki hasil segmentasi.
+Nilai rata-rata akurasi yang dihasilkan sebesar 94.63% menggunakan dataset DRIVE dengan ketebalan pembuluh darah yang bervariasi.
+Peneliti melakukan perbaikan deteksi pembuluh darah tipis pada proses segmentasi karena gejala awal Diabetic Retinopathy dimulai pada bagian pembuluh darah tipis.
+Metode perbaikan pembuluh darah tipis yang akan digunakan yaitu Thin Vessel Enhancement.
+Sedangkan proses segmentasinya menggunakan Fuzzy Entropy karena dapat menghasilkan nilai optimum threshold berdasarkan nilai entropy pada suatu level segmen atau kelas.
+Namun, untuk mencegah terjadinya oversegmentasi pada area exudates, peneliti menggunakan metode GBAT seperti pada penelitian [4].
+II. METODE PENELITIAN
+Penelitian ini bertujuan memperbaiki bagian pembuluh darah tipis menggunakan Thin Vessel Enhancement untuk meningkatkan performa proses segmentasi menggunakan metode Fuzzy Entropy sehingga dapat mengekstrak lebih banyak pembuluh darah khususnya di bagian pembuluh darah tipis.
+Selain itu, peneliti menggunakan metode GBAT untuk menghindari adanya oversegmentasi di bagian exudates.
+Gambar 1 merupakan desain sistem penelitian.
+Tahap awal yaitu preprocessing citra fundus retina.
+Pada citra hasil preprocessing dilakukan segmentasi pembuluh darah dan segmentasi exudates.
+Pada segmentasi pembuluh darah, terletak kontribusi dari penelitian ini yaitu penggabungan metode Thin Vessel Enhancement dan Fuzzy En-tropy.
+Selanjutnya segmentasi exudates dilakukan menggunakan metode Gradient Based Adaptive Thresholding.
+Citra hasil postprocessing merupakan citra akhir segmentasi pembuluh darah yang sudah dihilangkan bagian over-segmentasi exudates apabila terdeteksi pada citra segmentasi pembuluh darah.
+Selanjutnya, dihitung nilai accuracy, sensitivity, dan specificity dari citra hasil postprocessing menggunakan bantuan citra groundtruth.
+A. Pre-processing 
+Tahap ini berfungsi untuk mempersiapkan citra agar terhindar dari noise yang dapat mengganggu performa metode yang digunakan.
+Tahap-tahap preprocessing yaitu melakukan filtering menggunakan filter Wiener yang dilakukan pada channel RGB.
+Filter ini mampu melakukan proses deblurring dan denoising [7].
+Selanjutnya pengambilan channel green dari citra, filtering menggunakan median filter, CLAHE, dan top hat transform untuk memperbaiki pencahayaan yang tidak merata pada citra gray level.
+Bagian terakhir adalah proses masking citra fundus agar area diluar FOV tidak mengganggu proses selanjutnya pada area di dalam FOV [8].
+B. Thin Vessel Enhancement 
+Thin Vessel Enhancement merupakan proses konvolusi citra menggunakan dua kernel, yaitu a bank of line op-erator dan a bank of edge filter secara berurutan.
+Metode ini berfungsi mengurangi perbedaan intensitas antara pembuluh darah tebal dan tipis sehingga keduanya dapat terdeteksi dengan baik.
+Metode ini diterapkan pada penelitian [5] dan terbukti dapat meningkatkan performa metode segmentasi pembuluh darah yang digunakan.
+Citra hasil preprocessing diambil bagian green channel kemudian dilakukan proses sesuai tahapan berikut: 1. Citra inversi dari green channel diperbaiki kontras dan pencahayaannya menggunakan Contrast Limited Adap-tive Histogrm Equalization (CLAHE) Ige = citra hasil CLAHE.
+2. Untuk memperbaiki kontras antara pembuluh darah dan background, dilakukan operasi morfologi Top-hat dan Bottom-hat seperti pada persamaan (1).
+If=(That(Ige) - Bhat(Ige)) + Ige(1)Tipe dari struktur elemen berupa disk dengan diameter lebih besar daripada ukuran pembuluh darah terlebar di dataset.
+Untuk dataset DRIVE, ukuran piksel pembuluh darah terlebar yaitu kurang lebih 10 piksel [9].
+3. Untuk mengekstrak struktur pembuluh darah yang memanjang digunakan template filter yang disebut a bank of line operator yang dikonvolusikan pada citra If .
+Persamaan (2) dan (3) berikut adalah rumus pembuatan kernel a bank of line operator:K(x,y)={1,if Round (x cos+y sin)=00, otherwise(2) (x,y) =(,) ((,)) 12(3) Dimana, (x,y) = koordinat template filter S= ukuran template filter K= template filter= orientasi sudut (0 - 165, interval 15) Round = pembulatan integer terdekat sum()= jumlah total nilai pada template Citra dengan garis terkuat (maximum response) diperoleh dengan persamaan (4):Il (p) =( ) (p) (4) Dimana p adalah posisi citra.
+Nilai parameter S sebaiknya ditentukan secara tepat untuk membedakan piksel pembuluh darah dengan piksel bukan pembuluh darah.
+4. Filter rerata dilakukan pada citra Il dengan ukuran M x M untuk mengestimasi kekuatan garis terhadap back-ground.
+Ukuran kernel filter harus lebih besar daripada lebar pembuluh darah untuk menghindari gangguan yang terjadi saat memproses bagian pembuluh darah.
+5. Mengurangi citra hasil filter rerata dengn citra Il untuk menekan struktur garis terhadap background sesuai dengan persamaan (5).
+Nilai intensitas piksel pembuluh darah pada citra Is bergantung pada kontrasnya dengan background pada citra If.
+Pembuluh darah tipis mempunyai kontras yang lebih rendah dimana terdapat selisih yang cukup besar antara138intensitas piksel pembuluh darah besar dan tipis.
+Untuk menyeimbangkan intensitas kedua piksel tersebut dilakukan operasi seperti pada tahap 3 menggunakan template filter yang disebut a bank of edge filters pada citra Is.
+6. Pembuatan template filter tepi atau a bank of edge filter T dengan orientasi sudut dengan ukuran S x S sesuai persamaan (6) dan (7).
+Dengan nilai mulai dari 0 - 170 derajat dengan interval 10 untuk memperoleh resolusi yang lebih baik.
+Maximum response untuk mendapatkan citra hasil filtering tepi It diperoleh melalui persamaan (8).
+7. Menambahkan citra Is dengan Itsesuai persamaan (9).
+8. Nilai Iv di dalam area FOV dinormalisasikan menjadi [0, 1]. 
+9. Citra Iv diperbaiki kontrasnya kembali menggunakan CLAHE.
+Citra hasil akhir dari perbaikan pembuluh darah tipis ini dinotasikan sebagai Ive.
+Beberapa parameter seperti ukuran struktur elemen r, ukuran template filter S dan window M cukup berpengaruh terhadap resolusi citra yang dihasilkan.
+Dalam penelitian ini ditentukan nilai S = 15, M = 69 sesuai pada penelitian [10].
+Citra yang dihasilkan dengan nilai kedua parameter tersebut tidak berpengaruh secara signifikan terhadap hasil segmentasi pembuluh darah tipis.
+Citra hasil uji coba metode Thin Vessel Enhancement pada setiap tahapnya dapat dilihat pada Gambar 2. 
+Pada Gambar 2, citra (a) merupakan citra input fundus retina, citra (b) merupakan perbaikan citra menggunakan CLAHE dan citra (c) merupakan hasil pengurangan Top Hat dan Bottom Hat transform.
+Citra (d) adalah hasil dari Line Filtering, citra (e) merupakan hasil pengurangan filter rerata dengan citra Il, citra (f) adalah citra hasil edge filtering.
+Citra (g) adalah penambahan antara citra Is dan It.
+Sedangkan citra (h) adalah hasil akhir dari proses Thin Vessel Enhancement.
+C. Fuzzy Entropy 
+Teori Fuzzy yang menggunakan entropi berperan untuk mengukur ketidakpastian dalam suatu set Fuzzy se-hingga disebut Fuzzy Entropy.
+Metode Fuzzy entropy sudah banyak diimplementasikan pada beberapa penelitian mengenai segmentasi pembuluh darah.
+Fuzzy entropy mempunyai kelebihan yaitu dapat menentukan nilai optimal threshold dengan perhitungan yang tidak terlalu kompleks berdasarkan membership function yang sudah diten-tukan [11].
+Fuzzy Entropy dapat menangani masalah multilevel thresholding dan pada umumnya hanya dapat dengan mudah diimplementasikan pada citra grayscale.
+Metode Fuzzy Entropy yang diterapkan dalam penelitian ini adalah fuzzy entropy dengan penambahan metode optimasi untuk mendapatkan parameter fuzzy entropy ancn yang lebih optimal.
+Metode optimasi tersebut adalah Differential Evolution dan Fuzzy entropy yang digunakan termasuk dalam kategori Multilevel Fuzzy Entropy [12].
+Persamaan (10-12) adalah aturan penentuan membership function pada setiap kelas.
+Dimana k adalah membership function pada kelas k, sedangkanancn merupakan parameter fuzzy entropy yang sudah dioptimasi.
+Kedua parameter ini digunakan untuk menentukan nilai threshold dimana nilai ini dipilih dalam rentang 011111.. dimana L merupakan jumlah intensitas grey level yaitu 256[13].
+Pada penelitian[6] segmentasi pembuluh darah dibagi menjadi 4 bagian yaitu pembuluh darah utama, medium, tipis, dan bukan pembuluh darah dengan jumlah threshold n-1 level segmen atau kelas.
+Maka pada penelitian juga membagi kategori pembuluh darah dengan jumlah yang sama dengan nilai input NThreshold = 3.
+Gambar 3 merupakan gambaran pembagian kelas atau partisi set fuzzy beserta membership function didalamnya sesuai pembagian kategori pembuluh darah.
+Bagian pembuluh darah utama dinotasikan sebagai 3, pembuluh darah medium 2, dan pembuluh darah tipis 1.
+Untuk sisanya yang lain adalah bukan pembuluh darah.
+Nilai tiap membership function berada dalam rentang 0-1, sedangkan l dan h adalah intensitas grey level dari terendah sama dengan 0 dan tertinggi sama dengan 255.
+Untuk menghitung nilai entropy pada setiap kelas digunakan persamaan (13 -15).
+Dimana adalah entropy pada setiap kelas, sedangkan adalah probabilitas fuzzy events.
+Pi, didefinisikan pada (16)1=1(),1=02=2(),,1=0=()1=0 (16) Nilai optimal parameter ancn dapat diperoleh dengan memaksimumkan total entropy seperti pada persamaan (17).
+Teknik optimasi global diperlukan untuk mengoptimalkan persamaan secara efisien dan dapat mereduksi kompleksitas waktu sehingga ditambahkan metode optimasi yaitu Differential Evolution sesuai pada penelitian[12].
+Dengan demikian nilai threshold dapat diperoleh menggunakan parameter fuzzy seperti pada persamaan (18).
+Pada persamaan 18,adalah nilai threshold ke-n danadalah parameter fuzzy entropy dengan nilai yang sudah dioptimumkan.
+Output yang diperoleh dari metode Fuzzy Entropy adalah nilai optimal parameter fuzzy entropy ancn untuk menentukan 3 nilai threshold, yaitu T1, T2, dan T3.
+T1 adalah nilai threshold untuk mendapatkan citra dengan kategori pembuluh darah utama, medium, dan kecil.
+T2 menghasilkan citra dengan kategori pembuluh darah utama dan medium, sedangkan T3 menghasilkan citra dengan kategori pembuluh darah utama.
+Citra hasil ui coba seg-mentasi pembuluh darah menggunakan fuzzy entropy sesuai dengan nilai masing-masing threshold dapat dilihat pada Gambar 4. 
+Gambar 4 merupakan hasil pembuluh darah dengan kategori yang sudah ditentukan dimana citra (b) merupakan hasil segmentasi menggunakan threshold 3 (T3) yaitu sebagai bagian pembuluh darah utama.
+Sedangkan citra (c) merupakan hasil segmentasi menggunakan threshold 2 (T2) sebagai bagian pembuluh darah utama dan medium.
+Citra (d) adalah hasil segmentasi menggunakan threshold 1 (T1) yaitu bagian pembuluh darah utama, medium, dan tipis.
+D. Post-processing 
+Tahap ini merupakan tahap akhir untuk memperoleh citra segmentasi pembuluh darah yang sudah dihapus bagian oversegmentasinya jika terdapat bagian exudates pada citra segmentasi pembuluh darah.
+Segmentasi exudates dil-akukan menggunakan metode GBAT.
+Pada tahap ini jika terdapat area yang terdeteksi sebagai exudates pada citra segmentasi pembuluh darah, maka dihilangkan menggunakan operator AND.
+Citra segmentasi pembuluh darah dikurangi dengan citra hasil operator AND, maka dihasilkan citra dengan segmentasi pembuluh darah saja.
+III. HASIL DAN PEMBAHASAN 
+Uji coba dibagi menjadi 2 macam yaitu uji coba segmentasimenggunakan Fuzzy Entropy dengan perbaikan pembuluh darah tipis atau Thin Vessel Enhancement menggunakan 2 kernel yaitu a bank of line operator dan a bank of edge filter danmenggunakan 1 kernel yaitu a bank of line operator saja.
+Citra yang dihasilkan kemudian dibandingkan untuk mengetahui perbedaannya secara visual.
+Selanjutnya dibandingkan pula dengan metode seg-mentasi pembuluh darah sebelumnya dari segi nilai accuracy, sensitivity, dan specificity.
+Akurasi merupakan rasio piksel yang diklasifikasikan benar sebagai pembuluh darah di dalam FOV[14].
+Sensitivitas atau bisa disebut juga Recall berfungsi mengukur kemampuan metode untuk mendeteksi piksel pembuluh darah.
+Sedangkan specificity adalah kemampuan metode untuk mendeteksi piksel non pembuluh darah [15].
+Output dari metode Fuzzy Entropy merupakan nilai parameter ancn dan 3 nilai threshold berdasarkan jumlah kategori yang ditentukan.
+Output metode Fuzzy Entropy dari beberapa citra input dapat dilihat pada Tabel 1.
+Tabel 1 merupakan output parameter fuzzy entropy ancn yang sudah dioptimumkan dan 3 nilai threshod yang dihasilkan digunakan untuk membagi segmentasi pembuluh darah menjadi kategori pembuluh darah utama, medium, dan tipis.
+Citra yang dihasilkan sesuai pada Gambar 6. 
+Tabel 1 juga merupakan hasil uji coba metode fuzzy entropy terhadap hasil Thin Vessel Enhancement menggunakan 1 kernel.
+Nilai parameter fuzzy entropy yang berasal dari citra input 01.jpg yaitu a1c1 sama dengan 10 dan 49, a2c2 adalah 49 dan 79, sedangkan a3c3 adalah 79 dan 255.
+Melalui hasil tersebut dapat disimpulkan bahwa nilai c1=a2, nilai c2=a3.
+Hal ini terjadi pula pada 4 data yang lain.
+A. Perbandingan Hasil Segmentasi Menggunakan Fuzzy Entropy dari Hasil Thin Vessel Enhancement 2 Kernel dan 1 Kernel 
+Tahap ini merupakan perbandingan antara citra yang dihasilkan dari proses segmentasi menggunakan Fuzzy En-tropy dari hasil Thin Vessel Enhancement menggunakan 2 kernel dan 1 kernel.
+Citra yang dibandingkan adalah citra hasil segmentasi menggunakan nilai Threshold 1 (T1) karena memuat seluruh kategori pembuluh darah yaitu pembuluh darah utama, medium, dan tipis.
+Citra 05.jpg dipilih untuk uji coba ini.
+Pada Tabel II, kolom ketiga dan keempat merupakan citra segmentasi pembuluh darah menggunakan fuzzy en-tropy.
+Citra pada kolom ketiga merupakan citra hasil segmentasi pembuluh darah dari hasil Thin Vessel Enhance-ment menggunakan 2 kernel sedangkan pada kolom keempat menggunakan 1 kernel.
+Dari kedua citra teresebut dapat dilihat bahwa tampak perbedaan yang begitu signifikan dimana citra pada kolom ketiga terdapat area tepi FOV yang ikut terdeteksi.
+Hal tersebut dapat diperjelas pada Gambar 5. 
+Selain itu, struktur percabangan pembuluh darah terputu-putus pada bagian tertentu atau tidak stabil.
+Sedangkan citra pada kolom keempat tidak terdapat area tepi FOV yang terdeteksi.
+Struktur pembuluh darah yang dihasilkan juga lebih stabil atau tidak terputus-putus.
+Citra hasil dari kedua percobaan tersebut mempunyai oversegmentasi pada area-area kecil di sekitar pembuluh darah.
+Pada Gambar 6 bagian yang ditandai dengan lingkaran warna merah merupakan contoh oversegmentasi pada area-area kecil di sekitar pembuluh darah.
+Citra yang dihasilkan dari kedua macam uji coba tidak memiliki area optic disk yang terdeteksi.
+Hal ini dapat disimpulkan bahwa metode yang diusulkan tidak menimbulkan oversegementasi pada area optic disk.
+B. Perbandingan Uji Coba pada Tiap Nilai Threshold
+Tahap ini melakukan perbandingan antara uji coba segmentasi dari hasil Thin Vessel Enhancement menggunakan 2 kernel dengan 1 kernel.
+Namun perbandingan ini dilihat dari citra yang dihasilkan pada tiap nilai thresholdnya yaitu threshold 1, 2, dan 3.
+Pada Tabel III, uji coba 2 kernel merupakan hasil segmentasi Fuzzy Entropy dari Thin Vessel Enhancement 2 kernel, sedangkan uji coba 1 kernel merupakan hasil segmentasi Fuzzy Entropy dari Thin Vessel Enhancement 1 kernel.
+Pada uji coba 2 kernel segmentasi yang dihasilkan pada threshold 3 (pembuluh darah utama) memunculkan sedikit bagian pembuluh darah atau hampir tidak terdeteksi, sedangkan pada uji coba 1 kernel bagian pembuluh darah utama yang terdeteksi lebih banyak.
+Hal ini terjadi sesuai dari hasil proses sebelumnya dimana Thin Vessel Enhacement menggunakan 1 kernel lebih banyak dalam mengekstrak pembuluh darah daripada Thin Vessel En-hancement menggunakan 2 kernel.
+Citra segmentasi yang dihasilkan oleh threshold 1 dan 2 tidak mengalami begitu banyak perbedaan baik pada uji coba 2 kernel ataupun 1 kernel.
+Hal ini akibat dari nilai-nilai parameter fuzzy entropy yang sudah dijelaskan pada Tabel I yang membuat threshold yang dihasilkan nilainya berdekatan atau selisih sedikit sehingga intensitas yang masuk dalam kelompok pembuluh darah tipis sebagian besar masuk kelompok pembuluh darah medium.
+Hal itu membuat pembuluh darah tipis terdeteksi hanya sebagian kecil.
+Oleh karena itu, citra yang dihasilkan oleh threshold 1 dan 2 cenderung atau hampir sama.
+Peneliti menghitung accuracy, sensitivity, dan specificity berdasarkan metode segmentasi dari hasil Thin Vessel Enhancement dengan 1 kernel karena mempunyai hasil yang lebih baik daripada menggunakan 2 kernel ditinjau secara visual.
+Grafik yang menampilkan nilai akurasi, sensitivity, dan specificity pada masing-masing citra fundus retina dapat dilihat pada Gambar 7, Gambar 8, dan Gambar 9. 
+Pada Gambar 7 dapat dilihat bahwa citra dengan nilai akurasi tertinggi diperoleh pada citra nomor 19 yakni 95.99% dan terendah pada nomor 23 yakni 92.03%.
+Gambar 8 menampilkan bahwa nilai sensitivity tertinggi di-peroleh pada citra nomor 40 sebesar 79.17% dan terendah pada citra nomor 25 sebesar 50.9%.
+Pada Gambar 9 nilai specificity tertinggi diperoleh pada citra nomor 25 sebesar 99.09% dan terendah pada citra nomor 23 sebesar 93.92%.
+Selanjutnya, peneliti menghitung nilai rata-rata akurasi yang dihasikan dari ke-40 citra dataset DRIVE dengan nilai yang dihasilkan mencapai 94.81% beserta nilai sensitivity dan specificity sebesar 66.83% dan 97.51%.
+Nilai ini dihitung berdasarkan citra hasil segmentasi oleh Fuzzy Entropy dengan Thin Vessel Enhancement 1 kernel dimana nilai threshold 1 (T1).
+B. Perbandingan Nilai Akurasi dan Sensitivity dari Metode yang Diusulkan dengan Metode Sebelumnya 
+Tahap ini membandingkan nilai akurasi, sentivity, dan specificity dari metode yang diusulkan dengan metode sebelumnya.
+Tabel IV merupakan perbandingan nilai akurasi dan sensitivity dari metode yang diusulkan dengan metode dari penelitian[4].
+Berdasarkan tabel tersebut nilai rata-rata akurasi dari metode yang diusulkan mempunyai nilai yang lebih rendah daripada penelitian yang dibandingkan yaitu sebesar 94.81% dan 95.29%.
+Namun jika ditinjau pada setiap citra maka beberapa diantaranya mempunyai nilai akurasi yang lebih tinggi yaitu citra 5, 7, 8, 9, 13, 16, 25, 30, dan 37.
+Untuk nilai rata-rata sensitivity dari metode yang diusulkan mempunyai nilai yang lebih tinggi daripada metode yang dibandingkan yaitu sebesar 66.83% dan 48.89%.
+Dalam hal ini maka dapat disimpulkan bahwa metode yang diusulkan dapat mendeteksi lebih banyak pembuluh darah daripada penelitian [4].
+Selain itu, peneliti juga membandingkan nilai akurasi, sensitivity, dan specificity dengan metode yang lain seperti pada Tabel V.
+Tabel V merupakan perbandingan metode yang diusulkan dengan 2 metode lainnya oleh [5][6].
+Berdasarkan tabel tersebut, nilai rata-rata akurasi metode yang diusulkan mempunyai nilai tertinggi yaitu 94.81%.
+Namun untuk nilai sensitivity mempunyai nilai paling rendah diantara kedua metode yang lain.
+Nilai specificity mendapat-kan urutan kedua setelah metode pada penelitian [6] yaitu sebesar 97.51%.
+IV. KESIMPULAN
+Beberapa kesimpulan yang didapatkan setelah melakukan uji coba terhadap metode yang diusulkan adalah se-bagai berikut: (1) Perbaikan pembuluh darah tipis atau Thin Vessel Enhancement dengan menggunakan 1 kernel yaitu a bank of line operator lebih baik dalam menghasilkan citra segmentasi pembuluh darah dibandingkan menggunakan 2 kernel yaitu a bank of line operator dan a bank of edge filter.
+(2) Penggabungan metode Thin Vessel Enhancement dan Fuzzy Entropy menghasilkan lebih banyak pembuluh darah yang terdeteksi dilihat dari nilai sensitivity yaitu 66.83% jika dibandingkan dengan metode GBAT dan Region Growing yaitu 48.89%.
+(3) Metode yang diusulkan mempunyai nilai akurasi yang lebih tinggi daripada metode yang dibandingkan pada uji coba yang dilakukan yaitu sebesar 94.81%.

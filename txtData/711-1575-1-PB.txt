@@ -1,0 +1,252 @@
+Abstrak
+Ikan memiliki bentuk dan ukuran tertentu yang berbeda antara ikan yang satu dengan yang lain.
+Permasalahan dalam mengenali jenis ikan lebih kompleks dibandingkan dengan mengenali wajah manusia.
+Perbedaan bentuk, warna, dan tekstur pada ikan lebih bervariasi dibandingkan manusia.
+Pengenalan jenis ikan pada umumnya masih dilakukan secara manual menggunakan pengamatan mata.
+Sehingga diperlukan adanya sistem yang dapat mengenali ikan secara otomatis.
+Penelitian sebelumnya juga sudah dapat mengenali jenis ikan namun sensitive terhadap berbagai transformasi atau deformasi dari sebuah objek, dan waktu komputasi yang tidak sedikit, sehingga kurang efektif untuk mengenali objek ikan.
+Dalam Penelitian ini, kami mengusulkan metode untuk mendeteksi dan mengenali jenis objek ikan menggunakan metode ORB dan KNN.
+Pengaplikasian dari metode ORB diterapkan untuk ekstraksi fitur dari gambar yang diambil.
+Kemudian hasil tersebut akan diklas-ifikasi menggunakan KNN untuk menentukan label kelas yang tepat dari input data ikan.
+ORB memiliki dua bagian utama yaitu FAST keypoint detector dan BRIEF rotation yang disempurnakan sedemikian rupa agar dapat meningkatkan kemampuannya dalam mendeteksi dan mendeskripsi fitur, misalnya pada fitur FAST yang mempunyai komputasi rendah yang kemudian dimodifikasi lagi untuk menambahkan orientasi centroid sehingga dapat mendeteksi objek secara akurat dengan waktu yang lebih singkat, dan fitur BRIEF yang didesain ulang agar dapat mendeskripsi fitur pada citra sehingga tahan terhadap perubahan transformasi/deformasi objek.
+Hasil uji coba menunjukkan bahwa metode yang diusulkan pada penelitian ini mencapai akurasi klasifikasi sebesar 97,5%.
+Kata Kunci: Deteksi ikan, klasifikasi, KNN, ORB, pengenalan ikan.
+I. PENDAHULUAN
+Ikan memiliki bentuk dan ukuran tertentu dan berbeda antara ikan yang satu dengan yang lain.
+Hal ini menunjukkan bahwa ada spesifikasi tertentu pada karakteristik, bentuk dan ukuran tubuh pada setiap ikan.
+Dari banyaknya keberagaman dan perbedaan karakteristik dari ikan, sehingga sangat sulit bagi kita untuk mengenali keberagaman ikan tersebut jika tidak mempunyai ilmu tentang perikanan.
+Padahal dengan mengklasifikasi jenis ikan, kita dapat mempelajari jenis ikan yang sangat beraneka ragam.
+Klasifikasi ikan juga mempunyai berbagai permasalahan nyata.
+Misalnya dalam perusahaan produksi pengalengan ikan, selama ini pengenalan jenis ikan masih dilakukan secara manual melalui pengamatan mata.
+Klasifikasi secara manual tersebut akan membutuhkan waktu yang lama, apalagi dalam jumlah yang sangat banyak.
+Permasalahan berikutnya yaitu pada badan pemantauan sungai yang bertugas untuk mengawasi pola migrasi ikan, industri ini menggunakan pemindaian inframerah untuk menghitung ikan, tetapi proses klasifikasi juga masih dilakukan secara manual berdasarkan gambar yang disimpan untuk setiap ikan yang dihitung.
+Tentu saja hal ini dapat menimbulkan permasalahan pada akurasi dan waktu klasifikasi.
+Sehingga diperlukan adanya sistem yang dapat mengenali dan mengklasifikasi keberagaman ikan secara otomatis.
+Ekstraksi fitur merupakan salah satu tahapan penting dalam proses klasifikasi.
+Sehingga diperlukan pemilihan metode yang tepat dalam mengekstraksi fitur agar proses klasifikasi lebih akurat.
+Seperti pada penelitian yang dilakukan [1] dengan judul ORB: an efficient alternative to SIFT or SURF.
+Penelitian ini membahas tentang feature matching antara beberapa metode ekstraksi fitur seperti Speeded-Up Robust Features (SURF), Scale-Invariant Feature Transform (SIFT), dan Oriented FAST and Rotated BRIEF (ORB).
+Penelitian tersebut melakukan pengujian terhadap keypoint dan deskriptor yang dihasilkan terhadap masing-masing metode.
+Uji coba yang dilakukan menunjukkan bahwa proses ORB lebih cepat dalam mendeteksi keypoint dari objek dibandingkan SIFT dan SURF diberbagai situasi, hal ini karena terdapat dua bagian utama pada ORB yaitu FAST keypoint detector dan BRIEF rotation yang disempurnakan sedemikian rupa sehingga dapat meningkatkan kemampuannya dalam mendeteksi dan mendeskripsi fitur.
+Misalnya pada fitur FAST yang sudah mempunyai komputasi rendah yang kemudian dimodifikasi lagi untuk menambahkan komponen orientasi centroid sehingga dapat mendeteksi objek secara akurat dengan waktu yang lebih efisien, dan fitur BRIEF yang didesain ulang agar dapat mendeskripsi fitur pada citra sehingga tahan terhadap perubahan transformasi/deformasi objek seperti tahan terhadap pencahayaan, blur, dan noise.
+Metode ORB juga telah diujicoba menggunakan aplikasi yang menggunakan deteksi objek dan patch tracking pada smartphone seperti yang diteliti oleh [3][5].
+Penelitian tersebut membuktikan bahwa ekstraksi fitur menggunakan ORB sangat handal dalam berbagai situasi seperti pencahayaan, blur, dan noise.
+Metode ORB juga mempunyai komputasi yang rendah dan tahan terhadap transformasi dan deformasi, misalnya perubahan rotasi atau pergerakan dari objek.
+Sehingga metode ini sangat cocok digunakan mengekstraksi fitur dalam klasifikasi.
+Penelitian dengan metode ekstraksi fitur terbaru, yang dilakukan [9] berjudul BRISK : Binary Robust Invariant Scalable Keypoints, seperti layaknya ORB, BRISK adalah sebuah metode baru untuk deteksi, deskripsi dan deteksi keypoint.
+BRISK memiliki biaya komputasi yang jauh lebih rendah (urutan besarnya lebih cepat dari pada SURF dalam beberapa kasus).
+Kunci untuk mempercepat terletak pada penerapan ruang skala baru berbasis FAST detektor yang dikombinasikan dengan perakitan deskriptor bit-string dari perbandingan intensitas yang diambil dengan sampling khusus dari setiap lingkungan pengetesan.
+Metode ini telah diuji coba dengan dibandingkan dengan metode lainnya, seperti SIFT dan SURF.
+Hasil menunjukkan bahwa kinerja BRISK dapat mendeteksi keypoint yang lebih akurat dan invarian terhadap rotasi.
+Dari penelitian tentang ekstraksi fitur tersebut, maka metode ini akan dijadikan metode pembanding dalam penelitian ini untuk membandingkan tingkat akurasi dan waktu komputasi yang dibutuhkan untuk mengklasifikasi ikan.
+Penelitian sebelumnya yang juga berkaitan dengan pengenalan objek dilakukan oleh [11].
+Penelitian tersebutmenerapkan metode Oriented FAST and Rotated BRIEF (ORB) dan Bruteforce Hamming Distance untuk mengenali citra ukiran Bali yang berbasis feature matching secara realtime.
+Penelitian tersebut menggunakan metode ORB sebagai ekstraksi fitur, dan metode Bruteforce Hamming Distance untuk pengambilan keputusan.
+Tahap pengambilan keputusan diambil berdasarkan jumlah scene corners yang didapat.
+Apabila jumlah scene corners lebih dari 4, maka citra ukiran akan terdeteksi.
+Namun hasil dari penelitian ini kurang memuaskan, Hasil uji coba pengenalan ukiran menunjukkan rasio yang masih rendah yakni 48% citra yang dikenali benar, sedangkan yang dikenali salah 52%.
+Persentase dikenali benar rendah disebabkan citra referensi yang tersimpan tidak memiliki nilai pencocokan yang cukup.
+Dalam kasus ini, pencocokan menggunakan Bruteforce Hamming distance menghasilkan keputusan yang kurang tepat.
+Hal ini dikarenakan metode Bruteforce Hamming distance yang tidak menghasilkan algoritma efisien dan membutuhkan banyak komputasi, sehingga masih belum bisa mengenali objek secara akurat.
+Beberapa penelitian sebelumnya juga sudah ada yang meneliti tentang klasifikasi ikan.
+Salah satunya penelitian dengan judul Ekstraksi Fitur Berdasarkan Deskriptor Bentuk dan Titik Salien untuk Klasifikasi Citra Ikan Tuna yang dilakukan [7].
+Penelitian tersebut mengusulkan suatu sistem ekstraksi fitur baru dengan menggabung deskriptor bentuk dan titik salien dalam mengklasifikasikan citra ikan tuna.
+Citra input dilakukan segmentasi dengan mengambil kanal Hue pada citra HSV dan diproses menggunakan operasi morfologi untuk menghilangkan noise.
+Pada citra biner, deskriptor bentuk diekstrak menggunakan Fourier Descriptor (FD) dan pada citra grayscale, ekstraksi titik-titik salien dilakukan dengan metode Speeded Up Robust Features (SURF) dan dilanjutkan dengan pemrosesan menjadi Bag of Feature (BOF).
+Dari fitur-fitur yang sudah didapatkan ini, dilakukan penggabungan dengan memberikan bobot pada tiap-tiap fitur.
+Dari hasil uji coba, dapat dikatakan bahwa dengan mengintegrasikan deskriptor bentuk dan titik salien, dapat menyelesaikan permasalahan klasifikasi ikan tuna dengan bentuk yang mirip.
+Metode ini berhasil mengklasifikasi ikan tuna dengan tingkat akurasi sebesar 83.33%.
+Namun penelitian tersebut masih belum bisa diterapkan untuk mengklasifikasi ikan pada penelitian ini, karenapenelitiantersebuthanyadapat mengklasifikasi ikan dengan background yang sama dan bergantung kepada hasil segmentasi, metode tersebut masih belum bisa mengenali ikan dengan dataset yang mempunyai perbedaan background yang berbeda pada setiap citra.
+Penelitian dengan judul Pengenalan Jenis-jenis Ikan Menggunakan Metode Analisis Komponen Utama yang dilakukan [10].
+Algoritma yang digunakan yaitu menggunakan Principal Component Analysis (PCA) yang digunakan untuk mendeteksi jenis ikan, kemudian menggunakan K-Nearest Neighbor (KNN) untuk proses mengklasifikasi ikan.
+Hasil dari metode KNN membuat tingkat keberhasilan pengenalan pada pengujian cukup tinggi.
+Namun hasil klasifikasi sangat ditentukan oleh kualitas gambar, seperti faktor cahaya, noise, blur, dan lain-lain.
+Namun dari penelitian tersebut, klasifikasi menggunakan KNN dapat menjadi pilihan yang tepat, karena terbukti dapat mengklasifikasi ikan dengan tingkat akurasi yang tinggi.
+Dari berbagai permasalahan dalam penelitian tentang klasifikasi ikan tersebut, sehingga diperlukan adanya metode yang tepat untuk dapat mengklasifikasi ikan yang invariant terhadap berbagai macam perubahan.
+Sehingga metode ORB sangat diperlukan untuk proses ekstraksi fitur karena terbukti tahan terhadap berbagai macam perubahan seperti ukuran, pencahayaan, atau noise.
+Sehingga dalam penelitian ini, metode yang digunakan yaitu menggunakan ORB dan KNN.
+II. KAJIAN PUSTAKA
+A. Klasifikasi Ikan 
+Untuk bisa mengenali jenis-jenis Ikan, pada umumnya bisa didapatkan berdasarkan ciri-ciri umum yang dimiliki antara jenis ikan yang satu dengan jenis ikan yang lain.
+Fitur-fitur yang mendeskripsikan sifat untuk pengenalan ikan antara lain, yaitu: fitur bentuk umum tubuh, sirip, mulut, ekor, dan fitur fisik lainnya.
+Klasifikasi ikan menetapkan jenis atau kategori ikan dimana tiap-tiap jenis ini meliputi satu atau beberapa ke-lompok yang terdekat.
+Pengenalan jenis ikan ini tidak lepas dari ciri fisik ikan mudah dilihat dan dikenali dalam membedakan jenis-jenis ikan.
+Bentuk fisik ikan ini juga sangat erat kaitannya dengan lingkungan ikan itu berada.
+Bagian-bagian tubuh ikan akan digunakan dalam proses identifikasi.
+B. Oriented FAST and Rotated BRIEF (ORB) 
+Fitur ini diusung atas detector keypoint yang dikenal dengan FAST, dan dikembangkan menggunakan descriptor BRIEF [4].
+Kedua teknik ini menarik karena memiliki kinerja yang baik dengan biaya yang rendah [8].
+Dan sebagai keuntungan tambahan yakni ORB tergolong gratis dari batasan lisensi dari SIFT dan SURF.
+FAST adalah pemili-han algoritma untuk menemukan keypoints dalam keadaan real-time yang cocok dengan fitur visual [2].
+Berbeda halnya dengan operator orientasi pada SIFT, yang dapat menggandakan nilai dalam satu keypoint, dimana operator pusat massa memberikan hasil yang dominan.
+Parameter yang diambil oleh FAST adalah inten-sitas permulaan antara tengah pixel dan yang berada dalam lingkaran.
+FAST tidak menghasilkan perhitungan uku-ran cornerness dan FAST memiliki repon besar di sepanjang tepi [2].
+Fitur deskriptor yang menggunakan simple binary test antara piksel dalam smoothed image patch.
+Kinerjanya mirip dengan SIFT dalam banyak hal, termasuk ketahanan untuk pencahayaan, blur, dan perspektif distorsi.
+Namun, sangat sensitif terhadap rotasi in-plane.
+Untuk membuat ORB descriptor, pendeteksian interest point pada gambar dan membandingkan pada setiap intensitas pixel yang berada antara interest point dan beberapa titik distribusi disekitar pixel (256 perbandingan pada 32 bit descriptor).
+Setiap satu bit dibutuhkan untuk mengembalikan hasil dari setiap perbandingan, dan setiap per-bandingan sangat cepat untuk dihitung.
+C. K-Nearest Neighbor (KNN) 
+Berbeda dengan metode klasifikasi yang lainnya yang membutuhkan proses pembelajaran untuk membuat suatu model prediksi, metode KNN merupakan suatu algortima untuk klasifikasi dengan proses pembelajaran secara langsung dengan menghitung kedekatan atau kemiripan dari data input dengan semua data, sehingga algoritma ini sering disebut juga lazy learning.
+Cara kerja algoritma ini sangat sederhana yaitu dengan mencari jarak terdekat antara data yang akan dievaluasi dengan K tetangga yang paling dekat dalam data latih.
+Tidak ada proses pembelajaran khusus yang menghasilkan suatu model, namun algoritma ini perlu menyimpan fitur-fitur dari sebuah data.
+Untuk proses klasifikasi data baru, fitur-fitur dari data yang dievaluasi (belum ada jenis kelasnya) dihitung kedekatannya kemiripannya dengan fitur-fitur yang ada dalam semua data latih sehingga de-dapatkan jarak dari vektor fitur yang baru ini terhadap seluruh vektor data latih.
+Dari perhitungan jarak kemiripan tersebut, dipilih k buah yang paling dekat dan klasifikasinya ditentukan dari jumlah kelas terbanyak dari titik-titik yang dipilih dalam k terdekat tersebut.
+Fitur-fitur dari data sangat mempengaruhi hasil klasifikasi, perlu analisa mendalam terhadap fitur-fitur yang dipilih untuk mengetahui fitur mana yang penting dan fitur mana yang tidak relevan.
+Bisa juga pemberian bobot yang berbeda pata setiap fitur agar mendapatkan hasil klasifikasi yang lebih baik.
+Selain itu, hal yang perlu diperhatikan lagi dalam KNN adalah menentukan jumlah parameter k.
+Semakin tinggi nilai k dapat mengurangi noise namun batasan antara setiap klasifikasi menjadi kurang tajam.
+Untuk itudiperlukan suatu metode dalam menentukan nilai k yang tepat, misalnya dengan menggunakan cross-validation untuk optimasi parameter, Pada kasus khusus dengan parameter k = 1, yang berarti klasifikasi data berdasarkan dari titik terdekatnya.
+Algoritma KNN kini juga sangat berkembang, walaupun ada banyak variasi dari KNN yang telah dimodifikasi untuk meningkatkan kinerja KNN, namun dalam penelitian ini kami tetap menggunakan algoritma KNN standar, karena setiap fitur yang dihasilkan oleh ORB memiliki jumlah fitur yang sama (500 fitur) sehingga tidak memer-lukan pembobotan secara manual untuk diproses melalui KNN.
+Seperti pada penelitian yang dilakukan oleh [6], KNN standar sudah memiliki poin yang menguntungkan terkait dengan kesederhanaan, komprehensibilitas, dan skalabilitas.
+Ini memberikan akurasi yang baik yang sebanding dengan hasil yang diberikan oleh metode lain yang digunakan untuk klasifikasi.
+III. METODOLOGI PENELITIAN
+Pada penelitian ini metode yang diajukan adalah klasifikasi citra ikan menggunakan Oriented FAST and Rotated BRIEF (ORB) dan K-Nearest Neighbor (KNN).
+Sehingga proses klasifikasi dalam penelitian ini diawali dari proses ekstraksi fitur untuk menghasilkan fitur rotasi invarian menggunakan ORB dan kemudian dari fitur tersebut akan dilakukan proses klasifikasi yang ditentukan dari urutan rank dari nilai ketetanggan terdekat.
+Gambar 1 adalah tahapan dari metode yang diusulkan.
+Tahap awal dari metode ini adalah input citra ikan dari dataset yang disediakan.
+Data ikan diproses dengan invariant, artinya data ikan yang akan dikenali tidak bergantung pada ukuran maupun warna pada citra.
+Citra input juga akan diuji pada citra yang memiliki background, maka penelitian ini tidak memerlukan tahap pre-processing untuk memisahkan objek dengan background.
+Citra dari input akan melalui proses ekstraksi fitur menggunakan metode ORB, tahapan ini merupakan tahapan inti dari penelitian ini.
+Pada tahapan ini, interest point akan terdeteksi berdasarkan tingkat keabuan setiap piksel yang akan membentuk kumpulan keypoint yang menandakan ciri dari objek tersebut.
+Dari kumpulan keypoint tersebut, kemudian akan dipilih lagi fitur keypoint terkuatberdasarkan intensitas piksel.
+Metode ini akan menghasilkan suatu citra dengan keypoint (fitur lokal) yang invariant terhadap berbagai macam perubahan, seperti rotasi, pencahayaan, dan noise.
+Kemudian, deskriptordarikeduagambarmasukan dan gambar yang dihasilkan oleh ORB tersebut akan dicocokkan dengan metode KNN (K-Nearest Neighbor) untuk mengklasifikasi jenis ikan dari citra masukan.
+Metode yang diusulkan akan dapat membedakan jenis ikan dari bentuk tubuh ikan yang bervariasi secara invariant.
+A. Data 
+Dalam penelitian ini, dataset yang digunakan yaitu dataset dari Robotics@QUT Channel.
+Data berupa file citra dengan ekstensi JPG dengan ruang warna RGB.
+Dataset ikan ini ini terdiri dari 165 citra yang dikumpulkan dari 15 jenis ikan.
+Tahapan pada penelitian ini tidak memerlukan tahapan pre-processing untuk mensegmentasi citra, karena data yang digunakan pada penelitian ini juga akan diuji dengan background yang berbeda untuk mengenali fitur yang dihasilkan.
+B. Ekstraksi Fitur 
+Tahap ekstraksi fitur yang digunakan pada penelitian ini adalah menggunakan ORB.
+ORB mengatasi beberapa kekurangan penting dari mekanisme yang ada sebelumnya seperti kurangnya komponen orientasi FAST dan kurangnya rotasi invarian pada BRIEF.
+Ini beroperasi dengan menambahkan komponen orientasi yang akurat ke FAST dengan memanfaatkan mekanisme Intensity Centroid Cloud dan membuat rotasi BRIEF yang invarian dengan membangun varian yang disebut steered BRIEF dan kemudian mengembangkannya menjadi r-BRIEF offstring, yang merupakan rotasi yang invarian.
+Orientasi Key-Point FAST yang dimodifikasi disebut oFAST dan diimplementasikan dengan mendeteksi titik FAST pada citra yang diberikan dan karena parameter yang dipertimbangkan FAST adalah intensitas threshold antara piksel tengah dan piksel pada lingkaran pusat (FAST-9 dengan radius melingkar 9 diikutsertakan di sini karena hal ini terbukti menguntungkan karena peningkatan kinerja yang ditawarkannya).
+FAST tidak memiliki kemampuan untuk memberikan ukuran sudut pandang namun cukup responsif sepanjang tepinya dan karenanya ukuran Harris Corner dapat digunakan untuk mendapatkan key-point FAST secara tepat.
+Untuk mencapai hal ini, mari kita anggap kita memiliki target titik kunci N, maka kita perlu menetapkan Threshold dengan cukup rendah sedemikian rupa sehingga kita mendapatkan lebih dari N poin kunci, yang kemudian dapat dipesan sesuai dengan Ukuran Hessian dan akhirnya kita bisa memilih titik N teratas.
+Lebih jauh lagi, karena FAST tidak menghasilkan jenis yang multi skala, piramida skala citra digunakan untuk menghasilkan fitur FAST yang cukup disaring menggunakan ukuran Harris di setiap tingkat di piramida.
+Komponen Orientasi ditambahkan pada FAST dengan menggunakan pendekatan Intensity Centroid (IC) yang menggunakan ukuran kuat pada orientasi sudut.
+Sebuah patch yang digunakan untuk menemukan centroid telah direpresentasikan pada persamaan (1) dimana m dinotasikan sebagai moment patch.
+p dan q adalah urutan momen yang merupakan analog dari momen mekanik.
+Kemudian x dan y adalah titik koordinat pixel dari image.
+Kemudian dengan mempertimbangkan momen pada persamaan l, sentroid akan diperoleh melalui persamaan (2) dimana centroid tersebut akan ditemukan dari matriks pixel pada gambar yang didefinisikan sebagai m00, m01, dan sebagainya.
+Kita bisa membangun sebuah vektor dari pusat sudut ke centroid, C.
+Secara sederhana orientasi dari patch menjadi persamaan (3).
+Mengingat pentingnya parameter iluminasi dari sudut tidak diperhitungkan karena ukuran sudut tetap sama terlepas dari jenis sudutnya.
+Invarian rotasi dapat ditingkatkan dengan memastikan bahwa momen dihitung terhadap x dan y yang berada di dalam daerah lingkaran radius r.
+Pilihan optimal untuk ukuran patch adalah r, dengan cara yang memastikan bahwa jalan dari x, y adalah dari [-r, r].
+Dengan ukuran Hessian, karena nilai C mendekati nol, maka cenderung menjadi tidak stabil namun ini tidak terjadi dengan sudut FAST, yang menguntungkan bagi efisiensi sistem.
+Kedua, ORB melibatkan penambahan komponen sadar rotasi yang disebut r-BRIEF yang merupakan versi evolusi dari steered BRIEF Deskriptor yang dikemudian ditambah dengan langkah pembelajaran terkait untuk menemukan fitur biner yang kurang berkorelasi.
+Untuk memastikan rotasi yang efisien dari operator BRIEF, deskripsi bit string dari patch citra dibangun dari satu set tes intensitas biner.
+Untuk mengilustrasikan operasi dari BRIEF konvensional yang lebih baik, sebelum menambahkan komponen orientasi oleh ORB, mari kita anggap ada yang merapikan patch gambar p.
+Kemudian untuk tes binernya direpresentasikan sebagai (4) dimana p(x) menunjukkan intensitas patch menutupi titik yang diberikan x, dan p(y) menunjukkan intensitas patch menutupi titik yang diberikan y.
+Selanjutnya, fitur yang merupakan fungsi dari patch yang dianggap kemudian dapat direpresentasikan sebagai vektor dari uji biner n pada persamaan (5).
+Dalam pertimbangan kami, kami menggunakan distribusi Gaussian di sekitar pusat patch beserta pilihannya.
+Alasan kenaikan kinerja tambahan yang disodorkan dengan metode yang kami ajukan.
+Karena, salah satu kontribusi penting ORB adalah inversi rotasi pada BRIEF, karena BRIEF mengalami penurunan tajam dalam adanya rotasi yang melebihi beberapa derajat.
+Langkah pertama dalam pendekatan mereka adalah mengarahkan BRIEF sesuai dengan orientasi poin-poin utama (langkah ini dijuluki steered-BRIEF).
+Steered BRIEF dilakukan sebagai berikut: Kita tentukan untuk rangkaian fitur tertentu dari tes biner n di lokasi tertentu (xi,yi), matriks 2 x n dapat digambarkan sebagai berikut: 11,....,x,....,nnSyxy (6) dimana, S merupakan nilai Steered, dan (x,y) adalah lokasi koordinat.
+Selanjutnya, dengan memanfaatkan(orientasi patch) dan R (matriks rotasi yang sesuai), versi steered S dari S dapat diperoleh dari persamaan (7) sehingga, operator steered BRIEF dapat ditulis sebagai persamaan (8).
+Sudut dibuat menjadi diskrit yaitu 2/30 (12 derajat) dan membangun tabel pencarian dari pola pre-computed BRIEF.
+Selama orientasi keypointkonsisten di seluruh tampilan, rangkaian poin S yang benar akan digunakan untuk menghitung deskriptornya.
+Selanjutnya, metode ini akan memperoleh deskriptor keypoint yang invariant terhadap perubahan intensitas cahaya atau perubahan sudut pandang tiga dimensi.
+Sehingga output yang dihasilkan yaitu berupa deskripsi fitur dari citra ikan yang telah terdeteksi dan keypoint fitur pada ikan tersebut yang akan dicocokkan dengan ikan yang paling mirip dengan jenis ikan yang ada pada dataset.
+C. Klasifikasi Tahap ini adalah proses pengenalan menggunaan algoritma K-Nearest Neighbor (KNN).
+Algoritma ini dioptimalkan untuk pencarian tetangga terdekat yang cepat untuk kumpulan data besar.
+Input dari metode ini adalah deskriptor fitur yang dihasilkan oleh ORB.
+Fitur berupa keypoint yang dihasilkan oleh ORB akan dihitung untuk mencari jarak ketetanggan terdekat antara data testing dan data training.
+Sehingga dibutuhkan nilai k yang tepat untuk mendapatkan label kelas yang lebih akurat.
+Persamaan (9) menunjukkan rumus perhitungan untuk mencari jarak terdekat dimana merupakan sampel data, p adalah dimensi data, d adalah jarak, i adalah variable data, dan merupakan data uji.
+Hasil dari tahapan ini yaitu berupa rank ketetanggan terdekat dengan nilai tertinggi hingga terendah.
+Label kelas yang paling tepat akan ditentukan berdasarkan jumlah kemunculan label kelas dan yang tertinggi pada urutan rank.
+Hasil akhir dari metode ini berupa citra ikan dengan label kelas berupa nama jenis ikan yang telah terdeteksi.
+IV. HASIL DAN PEMBAHASAN 
+A. Hasil 
+Berdasarkan skenario dan langkah-langkah yang telah dijelaskan pada bab sebelumnya, maka pada bab ini akan dibahas hasil dan pembahasan.
+Uji coba algoritma klasifikasi pada penelitian ini menggunakan 165 data citra ikan dari Robotics@QUT.
+Dataset tersebut akan dibagi menjadi 40 data testing dan 125 data training dengan 15 jenis ikan yang berbeda.
+Ukuran piksel pada setiap ikan bervariasi, sehingga data input tersebut akan diproses secara invarian.
+Dalam penelitian ini akan dilakukan beberapa pengujian.
+Pertama ialah pengujian metode yang diusulkan pada suatu objek ikan.
+Tahap berikutnya ialah pengujian proses klasifikasi dengan citra yang berbeda rotasi.
+Selanjutnya, pengujian dilakukan pada keseluruhan dataset.
+Tahap terakhir dari penelitian ini adalah membandingkan tingkat akurasi dan waktu komputasi yang dibutuhkan antara metode yang diusulkan dengan metode BRISK-PCA-KNN, dan BRISK-KNN.
+B. Pengujian 
+Dalam penelitian ini, dilakukan pengujian menggunakan metode yang diusulkan untuk mengklasifikasi jenis ikan dari seluruh data uji.
+Klasifikasi akan dilakukan pada seluruh bagian pada citra ikan dari objek maupun latar belakang dengan dua tahapan.
+Tahap pertama yaitu mendeteksi fitur atau keypoint dari ikan.
+Keypoint akan dideteksi dari keseluruhan lingkungan pada citra ikan dari objek ikan maupun latar belakang pada ikan, kemudian keypoint tersebut akan ditentukan berdasarkan ciri yang paling menonjol dari citra ikan tersebut.
+Tahap berikutnya yaitu klasifikasi berdasarkan rank yang ditentukan dari nilai ketetanggan terdekat dari keseluruhan data ikan.
+Berdasarkan hasil uji coba, setiap tahapan uji coba membuktikan bahwa metode yang diusulkan memperoleh hasil yang akurat dalam mengklasifikasi citra ikan.
+Pengujiantahappertamadilakukandengan cara memasukan input ikan seperti pada Gambar 2.
+Algoritma ORB akan mengkestraksi fitur citra tersebut dengan mendeteksi keypoint atau fitur pada citra.
+Fitur yang dihasilkan yaitu sebanyak 500 fitur untuk setiap citra.
+Keypoint yang terdeteksi pada citra masukkan dapat dilihat pada Gambar 3.
+Titik berwarna hijau pada Gambar 3 merupakan keypoint yang menandakan ciri pada citra ikan yang dimasukkan.
+Setelah tahap ekstraksi fitur selesai, tahap selanjutnya adalah membandingkan interest point menggunakan metode KNN.
+Dimana fitur KNN ini akan mencari nilai interest point terdekat dan yang paling banyak kecocokan diantara 500 fitur yang dihasilkan dari data testing dan data training.
+Metode KNN ini akan menghasilkan 5 rank citra dengan nilai ketetanggaan terbaik dari data training, dimana rank 1 merupakan hasil rank dengan nilai ketetanggan terdekat pertama, rank 2 merupakan ketetanggan terbaik kedua, hingga rank terakhir yang merupakan rank dengan nilai ketetanggaan terjauh.
+Hasil rank ditentukan dari jarak terdekat antar keypoint pada data testing dan data training, sehingga urutan rank tersebut merupakan kumpulan label kelas terbaik diantara citra data training lainnya.
+Kemudian hasil rank terbaik dari citra input dapat dilihat pada Gambar 4.
+Gambar 4 (a) hingga (e) menunjukan 5 rank terbaik untuk penentuan label kelas dari citra input.
+Ikan yang ditampilkan pada rank 1 hingga rank 5 merupakan jenis ikan yang sama seperti citra data yang diuji.
+Dari 5 rank tersebut, kemudian ditentukan label kelas yang tepat yang dimasukkan pada gambar input, seperti ditunjukkan pada Gambar 6 (d).
+Hasil rincian penentuan kelas, tingkat akurasi, dan waktu komputasi pengujian klasifikasi tersebut dapat dilihat pada Tabel I.
+Hasil klasifikasi menunjukkan label kelas yang tepat adalah cephalopholis sonerrati.
+Pemilihan label kelas tidak hanya diambil dari rank yang tertinggi saja, namun juga berdasarkan kemunculan jenis ikan terbanyak atau mayoritas dari semua rank tersebut.
+Nama label kelas diambil dari nama file pada data training maupun testing.
+Berdasarkan Tabel I, waktu komputasi yang dibutuhkan dalam ekstraksi fitur pada pengujian ini hanya sebesar 0,2 detik, dan waktu deteksi ikan hanya 0,8 detik.
+Sehingga tidak membutuhkan waktu komputasi yang banyak dalam pengujian ini.
+Pengujian tahap berikutnya yaitu uji klasifikasi dengan perbedaan rotasi.
+Data yang diuji merupakan citra dengan beberapa sudut rotasi yang berbeda, yaitu dengan sudut 25, 50, dan 80.
+Semua citra ikan pada data training merupakan citra yang tidak memiliki rotasi.
+Hasil pengujian rotasi tersebut dapat dilihat pada Tabel II.
+Hasil dari pengujian ini membuktikan bahwa fitur yang dihasilkan oleh metode ORB dapat dikenali walaupun rotasi berbeda antara data testing dan training.
+Sehingga perbedaan rotasi pada ikan tidak mempengaruhi waktu yang dibutuhkan dalam komputasi dalam mengekstraksi fitur maupun deteksi jenis ikan.
+Pengujian selanjutnya adalah pengujian metode yang diusulkan dalam mengklasifikasi keseluruhan dataset secara langsung.
+Data yang diujikan adalah dataset dengan total 165 citra, yang terdiri dari 40 data testing dan 125 data training, dimana ada 2-6 citra di setiap 15 jenis ikan dengan arah rotasi yang berbeda pada data testing, dan 7-10 citra di setiap jenis ikan pada data training.
+Hasil dari pengujian ini akan menampilkan semua jenis beserta jumlah ikan yang dapat dikenali dari semua dataset.
+Tabel hasil pengujian ini dapat dilihat pada Tabel III.
+Dari data yang dijelaskan pada Table III, hasil pengujian menunjukkan bahwa metode yang diusulkan dapat mengklasifikasi 39 citra ikan dari 40 data testing dengan tingkat akurasi total hingga 97,5%.
+Dari semua data yang diujikan, hanya satu citra yang mengalami kesalahan klasifikasi, yaitu pada jenis ikan Halichoeres chrysus.
+Kegagalan klasifikasi tersebut dikarenakan objek ikan pada citra yang diujikan serupa dengan jenis ikan yang lain, sehingga hasil klasifikasi menunjukkan kelas yang tidak tepat.
+Tingkat akurasi dan waktu komputasi yang dibutuhkan dalam mengekstraksi maupun mendeteksi jenis ikan ditampilkan pada Tabel IV.
+Total waktu komputasi yang dibutuhkan untuk mengekstraksi keseluruhan dataset adalah sebesar 13,1104 detik dengan rata-rata 0,32776 detik untuk setiap citra.
+Sedangkan waktu komputasi deteksi ikan, metode yang diusulkan dapat menghabiskan waktu sebesar 45,5157 detik dan rata-rata 1,21289 detik untuk setiap citra.
+Metode yang diusulkan dalam penelitian ini juga akan dibandingkan dengan beberapa metode lainnya.
+Metode yang dibandingkan juga perlu memiliki fitur yang tahan terhadap rotasi.
+Pada penelitian sebelumnya, seperti yang dikerjakan oleh [7] dan [10] tidak sesuai untuk dilakukan perbandingan dengan metode yang diusulkan karena karena metode tersebut tidak dapat mengklasifikasi ikan dengan perbedaan rotasi, dan memerlukan tahapan pre-processing untuk proses segmentasi, sedangkan metode yang diusulkan tidak membutuhkan tahap segmentasi untuk mengenali ikan dan membutuhkan metode yang juga tahan terhadap perubahan rotasi.
+Sehingga metode yang akan dijadikan perbandingan adalah metode BRISK-PCA-KNN dan BRISK-KNN karena metode tersebut juga merupakan metode yang tahan terhadap rotasi dan tidak membutuhkan tahapan pre-processing atau segmentasi untuk mengklasifikasi objek.
+Sedangkan Data yang digunakan pada pengujian yaitu semua dataset yang digunakan pada penelitian ini.
+Pengujian ini dilakukan dengan cara mengklasifikasi keseluruhan 165 dataset ikan secara langsung.
+Kemudian tingkat akurasi dan waktu komputasi yang dibutuhkan dalam klasifikasi citra akan diperbandingkan disetiap metode yang diuji.
+Setelah dilakukan pengujian perbandingan tingkat akurasi pada masing-masing metode.
+Hasil pengujian menunjukkan tingkat akurasi dengan perbedaan yang signifikan antara setiap metode.
+Hasil dari pengujian pengukuran tingkat akurasi ini ditunjukkan pada Gambar 5.
+Proses klasifikasi ikan menggunakan metode yang diusulkan dapat mencapai tingkat akurasi hingga 97,5%.
+Metode BRISK-PCA-KNN memiliki tingkat keberhasilan yang cukup tinggi, yaitu sebesar 80%.
+Sedangkan, metode BRISK-KNN memiliki tingkat keberhasilan terendah, yaitu sebesar 72,5%.
+Dalam pengujian tingkat akurasi ini, metode yang diusulkan lebih unggul dan mencapai nilai akurasi yang tertinggi.
+Pengujian selanjutnya adalah mengukur waktu komputasi yang dibutuhkan dalam mengekstraksi fitur dan mendeteksi ikan.
+Waktu komputasi diukur dengan menghitung waktu dari proses input hingga selesai mengekstraksi fitur dan mendeteksi ikan per detik.
+Hasil perbandingan tersebut dapat dilihat pada diagram yang ditunjukkan pada Gambar 6.
+Gambar 6 menunjukkan perbandingan antara waktu komputasi yang dibutuhkan oleh setiap metode dalam mengekstraksi fitur dan mendeteksi jenis ikan dari seluruh dataset.
+Waktu komputasi ekstraksi fitur adalah waktu komputasi yang dibutuhkan untuk mengekstraksi semua fitur pada keseluruhan citra ikan, sedangkan waktu komputasi deteksi ikan merupakan waktu komputasi yang dibutuhkan dalam mendeteksi keseluruhan ikan mulai dari proses ekstraksi hingga proses klasifikasi.
+Dari hasil pengujian tersebut, terlihat perbedaan yang signifikan antara waktu komputasi yang dibutuhkan dalam mengekstraksi fitur dengan waktu komputasi untuk mendeteksi ikan.
+Hal tersebut dikarenakan banyaknya dataset yang diuji dan ukuran dimensi yang besar, sehingga menyebabkan banyaknya proses perbandingan untuk menghitung jarak ketetanggaan terdekat antara setiap fitur dari setiap citra, sedangkan metode KNN masih memiliki kendala dalam dimensi yang besar, sehingga menyebabkan tingginya proses komputasi untuk mendeteksi keseluruhan data ikan.
+Dari berbagai metode yang diujikan, semakin kecil waktu komputasi yang dibutuhkan, maka semakin cepat proses yang dilakukan.
+Metode tercepat dalam memproses klasifikasi ikan dalam pengujian ini adalah metode BRISK-PCA-KNN dengan waktu komputasihanya 3,03686 detik untuk mengekstraksi fitur dan 9,58764 detik untuk mendeteksi jenis ikan.
+Disusul oleh metode BRISK-KNN yang memiliki waktu komputasi sebesar 3,2614 dan 10,1664 detik untuk mengekstraksi fitur dan mendeteksi jenis ikan dari seluruh dataset.
+Kemudian, metode yang diusulkan membutuhkan waktu yang lebih lama dalam mengklasifikasi ikan, dengan waktu komputasi masing-masing sebesar sebesar 13,110 dan 45,517 detik untuk mengekstraksi fitur dan mendeteksi jenis seluruh ikan pada dataset.
+Dari analisa yang dilakukan, maka dapat diambil kesimpulan, walaupun metode yang diusulkan membutuhkan waktu komputasi yang cukup lama, namun tingkat akurasi yang dihasilkan dalam klasifikasi ikan sangat tinggi, hingga mencapai 97,5%.
+Hal ini menunjukkan bahwa metode yang diusulkan lebih unggul dalam tingkat akurasinya.
+Dalam beberapa kasus, kecepatan juga sangat dibutuhkan dalam klasifikasi, namun tingkat akurasi tetap lebih diutamakan dibandingkan kecepatan dalam klasifikasi objek.
+Semakin besar tingkat akurasi yang dihasilkan, maka tingkat resiko kerugian dari sebuah industri akan semakin kecil.
+Sehingga, metode yang diusulkan akan sangat berguna untuk beberapa kasus yang memerlukan klasifikasi objek secara akurat.
+V. KESIMPULAN
+Berdasarkan uji coba dan analisis hasil pengujian pada metode klasifikasi ikan menggunakan ORB dan KNN, dapat diuraikan beberapa kesimpulan.
+Algoritma ORB dapat mendeteksi keypoint dan menghasilkan fitur yang invariant terhadap perubahan sudut rotasi pada citra ikan.
+Terbukti dengan pengujian klasifikasi ikan dengan perbedaan rotasi, hasil tetap menunjukkan nilai akurasi yang tinggi.
+Klasifikasi ikan menggunakan KNN dari hasil penelitian ini sangat akurat.
+Dari hasil uji coba pengujian, walaupun memiliki komputasi yang lebih lama, metode yang diusulkan memiliki tingkat keberhasilan dalam mengklasifikasi seluruh sampel data ikan dengan tingkat akurasi sebesar 97,5%.

@@ -1,0 +1,147 @@
+Abstrak
+Fuzzy C-Means (FCM) merupakan salah satu algoritma fuzzy clustering yang sangat populer.
+FCM tergolong lebih fleksibel dan adil dalam memperlakukan data jika dibandingkan dengan algoritma klustering konvensional.
+Selain kelebihan tersebut, kelemahan utama algoritma ini adalah sensitif terhadap pusat klaster.
+Pusat klaster yang sensitif mengakibatkan hasil akhir sulit di kontrol dan FCM mudah terjebak pada optimum lokal.
+Untuk mengatasi masalah tersebut, penelitian ini memperbaiki kinerja FCM dengan menerapkan Particle Swarm Optimization (PSO) untuk menentukan pusat klaster yang lebih baik.
+Penelitian ini diterapkan pada pengklasteran sentimen dengan menggunakan data berdimensi tinggi yaitu ulasan produk yang dikumpulkan dari beberapa situs toko online di Indonesia.
+Hasil penelitian menunjukkan bahwa penerapan PSO pada pembangkitan pusat klaster FCM dapat memperbaiki performa FCM serta memberikan luaran yang lebih sesuai.
+Performa pengklasteran yang menjadi acuanadalah Rand Index, F-Measure dan Objective Function Value (OFV).
+Untuk keseluruhan performa tersebut, FCM-PSO memberikan hasil yang lebih baik dari FCM.
+Nilai OFV yang lebih baik menunjukkan bahwa FCM-PSO tersebut membutuhkan waktu konvergensi yang lebih cepat serta penanganan noise yang lebih baik.
+Kata kunci: fuzzy c-means, pengklasteran sentimen, particle swarm optimization, ulasan produk
+1. PENDAHULUAN
+Pendekatan data miningdalam analisis sentimen menjadi pendekatan yang paling populer saat ini untuk menggali opini publik (Amolik, 2016).
+Beberapa peneitian terkait penerapan data mining pada sentimen analisis adalahpenerapan Naive Bayes Classifier (Fang & Zhang, 2015) pada analisis sentimen terhadap produk buku dan elektronik berdasarkan ulasan produk yang dikumpulkan dari situs jual beli Amazon.com.
+Penerapan metode K-Means Clustering(KMC) dan Decision Tree pada analisis sentimen untuk mengidentifikasi opini konsumen terhadap produk baru (Soni & Mathai, 2016).
+Metode Support Vector Machine (SVM) diterapkan pada analisis sentimen terhadap film box-office berdasarkan ulasan produk pada situs imdb.com (Nagamma,, 2015).
+Metode pengklasteran yang konvensional seperti KMC termasuk metode yang kaku dan sensitif dimana sebuah objek data hanya dapat dikelompokkan dengan satu klaster saja secara eksklusif, hubungan objek data dengan klaster lain tidak ada sama sekali, oleh karenanya disebut metode pengklasteran yang tegas atau hard clustering (Zhang & Shen, 2014).
+Pada pengklasteran kabur atau fuzzy clustering, seperti Fuzzy C-Means (FCM), sifat kekakuan ini dapat dihilangkan, sebuah objek data dapat memiliki hubungan dengan banyak klaster berdasarkan nilai keanggotaan data tersebut.
+Dalam banyak situasi, FCM menghasilkan kinerja dan luaran yang lebih baik dari metode pengklasteran konvensional (Cebeci & Yildiz, 2015).
+Masalah sensitifitas terhadap pusat klaster awal adalah kelemahan utama FCM (Ma, 2015).
+Sensitifitas terhadap pusat klaster dapat menghasilkan iterasi proses yang sangat rumit dan dapat mengakibatkan proses pengklasteran terjebak pada kondisi optimum lokal (Ye & Jin, 2016).
+Sensitifitas tersebut mengakibatkan hasil klasterisasi sulit dikontrol, hasil akhirsangat tergantung pada inisialisasi centroid (Patil, 2014).
+Pendekatan yang paling populer untuk menangani pusat klaster awal yaitu membangkitkan bilangan acak (Gayahtri & Vasanthi, 2017) membutuhkan waktu yang lama dan luaran sulit dikontrol, dimana dengan input data yang sama, luaran selalu berubah dari satu pengujian ke pengujian selanjutnya (Kumar, 2015).
+Beberapa penelitian terbaru berhasil membuktikan bahwa pendekatan teknik optimalisasi seperti Genetic Algorithm (GA) (Wikaisuksakul, 2014),(Ye & Jin, 2016b), Ant Colony Optimization (ACO) (Raghtate & Salankar, 2015) berhasil mengatasi kelemahan FCM.
+Hasil penelitian menunjukkan bahwa dengan menerapkan metode-metode tersebut, diperoleh algoritma yang lebih efisien dan performa pengklasteran yang lebih baik serta peningkatan stabilitas dan akurasi pengklasteran.
+Untuk mencari solusi terbaik terhadap masalah sensitifitas pusat klaster, penelitian ini difokuskan pada penerapan Particle Swarm Optimization (PSO).
+Ada dua alasan mendasar pada penerapan PSO.
+Pertama, PSO lebih sederhana dari pada GA serta mudah diterapkan karena PSO tidak memiliki banyak prosedur seperti seleksi, mutasi maupun pindah silang atau crossover (Sun & Xu, 2017).
+Kedua, PSO berhasil dikombinasikan dengan metode-metode machine learning sepertiSupport Vector Machine (SVM) pada pengujian usia tulang menggunakan dataset bone age data.
+Hasil yang dicapai adalah sebuah model SVM-PSO yang lebih efektif (Graksn et al., 2014),PSO berhasil mendisain jumlah layer, jumlah neuron dan jumlah bias pada Jaringan SyarafTiruan (Garro & Vzquez, 2015), kombinasiPSO dengan SOM (Self Organiing Map) telah menghasilkan metode baru yaitu SOSwarm (ONeill & Brabazon, 2008).
+Kombinasi PSO pada metode-metode machine learning tersebut menghasilkan perbaikan kinerja yang signifikan.
+Pada penelitian ini PSO (Particle Swarm Optimization) diterapkan pada inisialisasi pusat klaster FCM.
+Penelitian ini membangun sebuah model klasterisasi FCM-PSO untuk mengevaluasi sekaligus menganalisis sentimen masyarakat terhadap produk toko online.
+Pengoptimalan pusat klaster FCM dengan PSO diharapkan meningkatkan performa FCM pada tugas pengklasteran.
+2. FUZZY C-MEANS (FCM) 
+FCM merupakan salah satu algorima pengklasteran yang mengadaptasi konsep himpunanfuzzy.
+FCM merupakanalgoritma fuzzy clustering yang paling banyak digunakan.
+FCM adalah suatu teknik pengelompokandata dimana keberadaan atau letak suatu data dalam klaster tergantung pada derajat keanggotaan data tersebut.
+Nilai derajat keanggotaan berada pada rentang 0 dan 1.
+Semakin tinggi nilai derajat keanggotaan maka semakin besar kemiripan antara suatu data dengan kelompok yang ada (Ye and Jin, 2016).
+Jika diasumsikan bahwa kita hendak mengelompokkan sebanyak nbuah objek data ke dalam c kelompok atau klaster, maka fungsi obyektifFCM menggunakan persamaan (1) (Ma et al., 2015).
+Pada persamaan (1) di atas,={} adalah matrik derajat keanggotaan,[0,1] adalah derajat keanggotaan antara suatu datapada kluster vi.
+Komponen= ||vi-xj|| adalah merupakan jarak euclidean antara data xj dengan pusat klaster vi.
+Bobot fuzzy [1,] adalah intensitas fuzzy dan pada umumnya bernilai 2.
+Algoritma FCM dapat diterapkan dengan langkah-langkahsebagai berikut (Ye and Jin, 2016).
+Langkah 1 : Inisialisasi parameter jumlah klaster (c), bobotfuzzy (m), nilai obyektif awal (p0), error terkecil (), iterasi awal (t) dan jumlah iterasi maksimum (T).
+Langkah 2 : Inisialisasi matrik keanggotaan ={} secara acak.
+Langkah 3 : Tentukan pusat klaster (V) dimana elemen matrik adalah {} dapat ditentukan menggunakan persamaan (2).
+Langkah 4 : Tentukan perubahan matrik keanggotaan menggunakan persamaan (3).
+Langkah 5 : Hitung nilai obyektif(,) menggunakan persamaan (1).
+Langkah 6 : Periksa kondisi berhenti.
+Jika nilai selisih nilai obyektif |+1|< terkecil () atau (>) maka berhenti, Jika tidak =+1,kembali ke langkah 2.
+3. PATRICLESWARM OPTIMIZATION 
+Selain Genetic Algorithm (GA), Particle Swarm Optimization (PSO) merupakan salah satu teknik optimasi berbasis populasi yang populer.
+Metode ini dapat diterapkan pada pencarian solusi yang paling optimal diantara alternatif solusi-solusi yang sub optimal.
+Dalam proses pencarian lokasi optimal, partikel-partikel bergerak dengan kecepatan tertentu dan senantiasa mengubah posisinya sampai akhirnya menemukan lokasi optimal.
+Suatu partikel bergerak di ruang pencarian n-dimensi, vektor posisi partikel ke-i adalah =(1,,)dan vektor kecepatan partikel adalah =(1,,) dengan i adalah banyak partikel dan n adalah banyak anggota pada setiap partikel.
+Untuk menemukan lokasi optimumnya,partikel senantiasa memperbaharui posisi dan kecepatannya.
+Persamaan (4) diterapkan untuk memperbaharui kecepatan partikel, persamaan (5) diterapkan untuk memperbarui posisi partikel (Olusanya et al., 2015).
+Pada persamaan(4) dan (5),() adalah komponen kecepatan partikel ke-i pada iterasi ke-t, komponen Xi (t) adalah vektor posisi partikel ke-ipada iterasi ke-t, t+1 merupakan iterasi berikutnya setelah t, Pi adalah vektor posisi terbaik partikel ke-i, dan Pgadalah posisi terbaik secara global atau keseluruhan partikel, r1 dan r2adalah bilangan acak dengan interval [0,1].
+Konstanta c1 dan c2 merupakan bobot faktor pembelajaran (learning factor) yang menentukan sejauh mana sebuah partikel belajar dari lingkungan sosialnya.
+Parameter t merupakan indeks iterasi, parametermerupakan bobot inersia (inertia weigh) yang berfungsi untuk menentukan keseimbangan antara pencarian global dan pencarian lokal (Zhang et al., 2015).
+Biasanya, bobot inersia yang bagus adalah kurang sedikit dari satu.
+4. PENGUKURAN PERFORMA 
+Rand Index (RI) merupakan kriteria yang paling umum untuk mengukur kinerja pengklasteran.
+RI menyatakan persentasi keputusan yang tepat yang dihasilkan oleh algoritma pengklasteran serta seberapa identik hasil pengklasteran dengan data yang sebenarnya.
+RI dapat ditentukan menggunakan persamaan (8).
+Selain RI, ukuran performa yang lain adalah Recall (R) danPrecision (R) sebagaimana dijabarkan pada persamaan (6) dan (7).
+Jika terdapat dua label sentimen yaitu positif dan negatif maka R menggambarkan perbandingan banyaknya sampel data positif yang dikelompokkan dengan tepat sebagai data positif dengan jumlah keseluruhan data positif dalam data.
+Penggambarkan perbandingan antara banyaknya sampel positif yang dikelompokkan dengan tepat sebagai label positif dengan jumlah sampel yang dikelompokkan oleh sistem sebagai positif.
+Keseimbangan antara nilai P dan R dapat diperoleh melalui nilai F-measure.
+Nilai dari F-measure merupakan timbal balik atau bobot harmonic mean dari nilai R dan P.
+F-measure dapat ditentukan menggunakan persamaan (9).
+Pada persamaan (6), (7) dan (8), True positif (TP) adalah keputusan menempatkan dua data yang identik ke kelompok yang sama, True Negative (TN) adalah keputusan menempatkan dua data yang tidak identikke kelompok berbeda.
+Ada dua jenis kesalahan yang dapat terjadi pada proses pengklasteran yaituFalse positif (FP) dan False negative (FN).
+FP adalah keputusan menempatkan dua data yang tidak identik ke kelompok yang sama.
+FN adalahkeputusan menempatkan dua data yang identik ke kelompok yang berbeda.
+5. TERM FREQUENCY - INVERSE DOCUMENT FREQUENCY (TF-IDF)
+Frekuensi kemunculan sebuah term atau kata pada sebuah kalimat atau ulasan sangat menentukan jenis sentimen dari ulasan.
+TF-IDF adalah metode pembobotan term yang sangat populer pada analisis sentimen.
+TF merupakan frekuensi kemunculan kata atau termtertentu yang terdapat dalam suatu dokumen, sementara IDF adalah frekuensi kemunculan kata atau term pada keseluruhan dokumen (Khoirudin et al., 2018).
+TF-IDF dapat ditentukan menggunakan persamaan (10).
+Pada persamaan (10) di atas, Wdt merupakan bobot term ke-t pada dokumen d, TFdt merupakan frekuensi kemunculan term ke-t dalam dokumen d, N adalah banyaknya keseluruhan dokumen dan dft adalah banyaknya dokumen yang di dalamnya terdapat kata atau term t.
+Pada penelitian ini, TF digunakan untuk menentukan banyaknya kata atau term pada masing-asing, N merupakan banyaknya ulasan produk keseluruhan, sementara IDF dugunakan untuk menentukan frekuensi kemunculan kata atau term tertentu pada keseluruhanulasan produk.
+6. FUZZY C MEANS BERBASIS PSO 
+Penentuan pusat klaster FCM yang optimal menggunakan PSO dapat dijelaskan melalui flowchart pada Gambar 1. 
+Langkah 1 :Penentuan parameter PSO yang terdiri dari jumlah swarm = 500, jumlah partikel = 10, kecepatan (velocity) maksimum = 0,01, W1 = 2 dan W2= 1.
+Penentuan parameter FCM yang terdiri dari jumlah klaster (c) = 2, error terkecil () = 10-6, bobot (w) = 2, nilai obyektif awal (po) = 0, dan iterasi awal (t) = 1, dan iterasi maksimum (T) =500.
+Langkah 2 : Bangkitkan pusat klaster awal (V).
+Dalam penerapan PSO, pusat klasterharus diinisialisasi terlebih dahulu.
+Pusat klaster direpresentasikan dalam matrik V={}, dimana c adalah jumlah kelas, a adalah jumlah atribut ulasan.
+Skema penentuan pusat klaster dengan c = 2 dan a = 86 ditampilkan pada gambar 2.
+Langkah 3 : Bangkitkan partikel matrik keanggotaan ={}dengan nbanyak data, c banyak kelas.
+Skema pembangkitan partikel matrik keanggotaan dengan n =100 dan c = 2 ditampilkan pada gambar 3.
+Langkah 4 : Evaluasi partikel untuk memperoleh partikel terbaik setiap iterasi (pbest) dan partikel terbaik global (gbest).
+Pada persamaan (11), fungsi fitnesspartikel pada PSO dievaluasi berdasarkan nilai obyektif FCM yang dijelaskan pada persamaan (12) sebelumnya.
+Langkah 5 : Perbaharui posisi dan kecepatanpartikel untuk memperoleh (Xi + t) dan (Vi + t).
+Prosedur PSO mengharuskan posisi dan kecepatan setiap partikel dievaluasi berdasarkan persamaan (4) dan (5) Langkah 6 : Evaluasi partikel untuk memperoleh nilai pbest dan gbest yang baru.
+Langkah 7 : Evaluasi apakah error terkecil () yang disyaratkan telah diperoleh.
+Jika belum akan dilanjutkan pada langkah 3, jika telah diperoleh maka dilanjutkan pada langkah 8.
+Langkah 8 : Jika nilai gbest pada langkah 7 merupakan nilai yang diharapkan maka pada saat tersebut telah diperoleh pusat klaster yang optimal.
+Langkah 9 : Pusat kluster yang diperoleh pada langkah 8 diterapkan untuk pengklasteran ulasan produk.
+7. PENGUJIAN DAN ANALISIS KOMPARATIF 
+Penelitian ini menggunakan data ulasan produk yang dikumpulkan atau diperoleh secara online dari beberapa situs e-commerce di Indonesia.
+Data ulasan produk terdiri dari 1073 data yang terdiri dari 627 sentimen positif dan 445 sentimen negatif.
+Gambar 4 berikut ini adalah sampel ulasan produk yang digunakan.
+7.1 Pemrosesan awal data
+Setelah data ulasan produk berhasil di kumpulkan, maka tahap selanjutnya adalah tahap pemrosesan awal (pre-processing) agar data ulasan produk dapat diterapkan pada algoritma pengklasteran.
+Tahapan pre-processing yang diterapkan adalah Case Folding, Non Alpha Numeric Removal, Stop words Removal, dan Stemming.
+Daftar stop words Bahasa Indonesia terdiri atas 760 kata (Tala, 2003).
+Algoritma Stemming yang diterapkan adalah algoritma Nazief-Andriani (Adriani et al., 2007).
+Algoritma Nazief-Andriani merupakan algoritma stemming yang secara khusus diterapkan untuk dokumen yang menggunakan bahasa Indonesia.
+Untuk menentukan bobot setiap fitur pada data ulasan diterapkan algoritma TF-IDF.
+Hasil penerapan TF-IDF menghasilkan matrik data dengan dimensi 86 atribut x 1073 data.
+Dimensi data di atas masing sangat besar dan tidak efektif, sehingga atribut yang ada dievaluasi dan difilter.
+Seleksi atribut dilakukan dengan algortima Correlation-based Feature Selection (CFS) yang tersedia pada WEKA.
+Seleksi atribut menghasilkansebanyak 18 fitur.
+Berikut ini adalah 5 fitur terbaikberdasarkan bobot TF-IDF.
+7.3. Pengkodean PSO 
+Partikel PSO dikodekan dengan bilangan real dengan rentang 0 sampai 5.
+Pada tabel 2 ditampilkan bentuk pengkodean partikel serta nilai fitness yang dihasilkan.
+Partikel terbaik pada iterasi pertama (pbest) memiliki nilai fitness 1, 125, sedangkan partikel terbaik secara global (gbest) memiliki nilai fitness 0,065.
+7.2 Nilai fitness 
+Setiap partikel dievaluasi melalui nilai fitness.
+Proses penelusuran nilai fitness terbaik ditampilkan pada grafik gambar 6.
+Nilai fitness yang terkecil menggambarkan pusat klaster yang menghasilkan error terkecil.
+Melalui percobaan sebanyak 10 kali, maka pada tabel 3 ditampilkan indeks rata-rata efektifitas metode pengklasteran yang diuji pada penelitian ini, dimana performa terbaik ditandai dengan huruf tebal.
+Pada Tabel 3 ditunjukan bahwa perbaikan metode FCM melalui penerapan PSO menghasilkan kinerja FCM yang lebih baik dibandingkan dengan tanpa PSO.
+FCM-PSO memiliki nilai RI yang lebih baik dari FCM.
+Hal ini mengindikasikan bahwa pembangkitan pusat klaster FCM dengan PSO meningkatkan kemampuan FCM dalam mengenal pola sentimen yang tersembunyi di dalam data.
+Hal tersebut juga menjadi indikator bahwa FCM-PSO dapat bekerja dengan baik pada data berdimensi tinggi dan tidak terstruktur seperti data ulasan produk.
+Model FCM-PSO juga memiliki F-Measure yang lebih baik, hal tersebut menunjukkan bahwa FCM-PSO lebih efektif.
+Dari sisi OFV, metode FCM-PSO memiliki nilai yang lebih baik.
+Nilai OFV yang besar menunjukkan bahwa metode tersebut membutuhkan waktu yang lama untuk mencapai konvergen.
+Pada gambar 7 ditunjukkan bawa FCM memiliki waktu yang lebih lama untuk mencapai konvergen.
+Dengan nilai error terkecil 10-6 dan iterasi 100, FCM-PSO konvergen pada iterasi ke 26, sementara FCM konvergen pada iterasi ke 32.
+FCM-PSO memiliki harmonisa yang lebih baik daripada FCM sehingga FCM-PSO lebih baik dalam menangani noise pada data.
+8. Kesimpulan
+FCM merupakan algoritma pengklasteran yang sangat baik, tetapi algoritma ini sensitif terhadap pusat klaster.
+Penelitian ini menguji efektifitas penerapan Particle Swarm Optimization pada optimalisasi hasil pengklasteran sentimen pada FCM.
+Particle Swarm Optimization diterapkan untuk menentukan pusat klaster yang lebih baik.
+Penelitian ini diterapkan pada data berdimensi tinggi yaitu ulasan produk.
+Hasil penelitian menunjukkan bahwa PSO dapat memperbaiki kinerja FCM.
+Model FCM-PSO lebih baik jika dibandingkan dengan model FCM saja.
+Hal tersebut terbukti melalui perbaikan performa pengklasteran setelah menerapkan PSO.
+Penelitian ini menunjukkan bahwa FCM-PSO sangat cocok digunakan untuk tugas pengklasteran dalam rangka menemukan pola pada data berdimensi tinggi.

@@ -1,0 +1,104 @@
+Abstrak
+Saat ini pembaca e-magazine seperti majalah Kawanku semakin marak dan terus berkembang.
+Sehingga penggunaan data besar sangat dibutuhkan pada majalah Kawanku.
+Selain itu, dibutuhkan pengkategorian setiap bacaan ke dalam tujuh kategori judul pada majalah Kawanku.
+Sehingga dibutuhkan suatu pengolahan, pengelompokkan, dan pengkomunikasian antar data teks menggunakan text mining.
+Kombinasi text mining dengan Big Data dapat menjadi sebuah solusi yang menyediakan cara yang efisien dan reliabel untuk penyimpanan data dan infrastruktur yang efektif.
+Lalu pengkategorian teks denganclustering K-Means dirasa cukup meskipun menggunakan data besar karena hasilnya memiliki keakuratan yang tinggi.
+Dari hasil pengujian yang dilakukan, disimpulkan bahwa perbedaan dari banyaknya data tidak mempengaruhi waktu eksekusi karena perbedaan jumlah data yang digunakan tidak terlalu besar.
+Kata kunci: text mining, k-means, hadoop, big data, clustering, multi node cluster
+1. PENDAHULUAN
+Di era globalisasi seperti saat ini dimana teknologi semakin berkembang, hampir semua aktivitas dilakukan menggunakan internet.
+Adanya internet memudahkan berbagai kegiatan manusia, terutama komunikasi dan pencarian pengetahuan atau informasi.
+Penggunaan e-magazine di internet menjadi cara baru masyarakat dalam mencari informasi dan pengetahuan.
+Banyak masyarakat yang beralih menggunakan e-magazine karena kemudahan akses informasi yang ditawarkan dan lebih efisien.
+Selain meningkatnya pengguna e-magazine terdapat peningkatan juga pada penggunaan media sosial.
+Penggunaan sosial media telah meningkat dari tahun 2005 hingga tahun 2015.
+Pengguna media sosial merupakan pengguna yang berumur antara 18 hingga 29 tahun.
+Saat ini sebanyak 90% anak muda aktif di media sosial dimana sebelumnya tahun 2005 hanya sebesar 12% (akir and Gldamlasioglu, 2016).
+Berdasarkan fakta tersebut, banyak e-magazine yang memanfaatkan teknologi media sosial seperti Facebook, Twitter, dll dalam membuat akun dari media sosial yang terintegrasi dengan e-magazine.
+Manfaat integrasi dengan media sosial yaitu sebagai wadah untuk berinteraksi antara penerbit dengan pembaca maupun pembaca dengan pembaca lainnya.
+Semakin banyaknya pengguna internet berdampak pada banyaknya data berukuran besar yang dihasilkan setiap detik pada web.
+Dikarenakan meningkatnya pengguna internet terutama e-magazine dan media sosial, sejumlah data berukuran besar membanjiri setiap server penyimpanan.
+Untuk mengolah, mengelompokkan dan mengkomunikasi antar data teks yang didapatkan dari media sosial dibutuhkan teknik text mining.
+Namun, pemrosesan dan penganalisisan teks berjumlah besar menggunakan metode tradisional dinilai sulit dilakukan karena metode tradisional memiliki sumberdaya dan infrastruktur yang terbatas (Rathore and Shukla, 2015).
+Dengan adanya pengembangan teori Big Data ditemukan solusi yang menyediakan cara yang efisien dan reliabel untuk penyimpanan data dan infrastruktur yang efektif untuk perhitungan yang efisien.
+Namun, pada aplikasinya untuk mengenali berkas target yang dicari dari sejumlah data yang besar dibutuhkan metode untuk mengelompokkan data ke dalam beberapa kelompok data yang mudah dikenali.
+Salah satu metode yang efektif digunakan untuk mengelompokkan data (clustering) adalah K-Means.
+Sebelumnya terdapat penelitian oleh Rathore dan Shukla (2015) yang mengembangkan metode K-Means untuk mengolah Big Data pada 5 data set yang berbeda yaitu Laustralian dataset, Breast cancer dataset, Diabetes dataset, Iris dataset, dan Bupa dataset.
+Hasil penelitian menunjukkan bahwa pengembangan metode K-Means yang diusulkan lebih baik daripada K-Means tradisional dengan rata-rata akurasi meningkat sekitar 3.78% sampai 8.94%.
+selain itu terdapat juga penlitian yang dilakukan oleh akir dan Gldamlasioglu (2016) dengan topik clustering data teks berukuran besar dari media sosial berbahasa Turki menggabungkan penggunaan sistem Hadoop dengan Spark dan metode clustering menggunakan K-Means.
+Hasil menunjukkan bahwa metode yang digunakan mampu mengelompokkan data berukuran besar dengan benar.
+Pada penelitian ini, peneliti bermaksud untuk melakukan penelitian tentang analisis judul bacaan pada majalah Kawanku menggunakan metode yang sama dengan penelitian akir & Gldamlasioglu yaitu K-Means clustering pada Big Data environment.
+Peneliti berharap penggunaan teknologi Big Data dan K-Means clustering dapat memberikan akurasi yang tinggi untuk proses penentuan judul bacaan pada majalah Kawanku.
+2. DASAR TEORI 
+2.1 Data Yang Digunakan 
+Data yang digunakan adalah judul bacaan majalah Kawanku yang dikategorikan dalam 7 kategori judul, dan masing-masing kategori memiliki 10 buah dokumen yang akan digunakan sebagai data latih.
+Kategori judul yang digunakan yaitu: seleb dan entertainment, news, playground, fashion, beauty, love, dan life.
+Berikut ini adalah contoh dataset yang digunakan berdasarkan kategorinya ditunjukkan Tabel 1.
+2.2 Konsep Big Data 
+Big Data adalah kombinasi teknologi yang bisa memanajemen data yang bervariasi dalam jumlah besar, kecepatan yang tepat, dan memiliki ketepatan saat melakukan analisis dan reaksi.
+Tiga karakteristik yang dimiliki Big Data, yaitu volume, velocity, dan variety (Hurwitz et al., 2013).
+Dilihat pada bidang teknologi, banyak manfaat yang diperoleh dalam memproses Big Data seperti teknik akses dan penyimpanan data menggunakan Key-Value Store (KVS) dan teknik komputasi paralel menggunakan MapReduce (Sujana, 2013).
+2.2.1 Hadoop 
+Hadoop Distributed File System (HDFS) adalah sistem file terdistribusi yang dirancanguntuk mencegah adanya ledakan data dalam jumlah yang sangat besar (terabyte atau bahkan petabyte) dan memberikan akses informasi highthroughput.
+File disimpan di beberapa mesin untuk memastikan ketahanan terhadap kegagalan dan ketersediaan saat aplikasi dijalankan secara paralel.
+2.2.2 Map Reduce 
+Berdasarkan map LISP dan reduce primitif, bisa diciptakan sebagai cara untuk menerapkan pemrosesan paralel tanpa harus berurusan dengan semua komunikasi antara node, dan pembagian tugas (Vaidya, 2012), seperti MPI.
+Fungsi MapReduce terdiri dari menulis, map, dan reduce.
+Fungsi map digunakan dalam mengambil key, kombinasi nilai output antara nilai menengah dengan nilai key.
+Fungsi map ditulis sedemikian rupa sehingga dapat dijalankan sekaligus dengan membagi tugas-tugas.
+Fungsi reduce digunakan untuk mengambil nilai output dari fungsi map lalumenggabungkan nilai-nilai sehingga menghasilkan hasil yang diinginkan dalam file output.
+2.3 Text Mining 
+Analisis kata atau kalimat menggunakan proses text mining.
+Text mining memiliki dua proses antara lain preprocessing dan pengolahan data (clustering atau klasifikasi).
+Proses text preprocessing merupakan tahapan pertama yang dilakukan sebelum input dokumen diolah lebih lanjut menjadi kluster-kluster kalimat.
+Proses-proses yang dilalui antara lain menghilangkan tanda baca, angka, mengkoversi huruf besar, tokenizing (cari kata dalam kalimat), stemming (ubah kata ke kata dasar), dan menghapus kata sesuai stopword (akir and Gldamlasioglu, 2016).
+Setelah itu proses pengolahan data, hasilmya akan digunakan untuk pengkategorian dengan clustering atau klasifikasi.
+2.4 Clustering Text 
+Input yang digunakan dalam pembentukan sebuah cluster kalimat berasal dari hasil text processing.
+Proses ini mempunyai peranan yang sangat penting dalam meringkas secara otomatis.
+Setiap topik dalam dokumen harus diidentifikasi secara tepat untuk menemukan kesamaan (similarity) dan ketidaksamaan (dissimilarity) yang ada pada dokumen sehingga menjamin good coverage (Sarkar, 2009).
+Faktor koherensi cluster digunakan untuk menjamin kualitas hasil ringkasan.
+Koherensi cluster menunjukkan keterkaitan antar kalimat pada masing-masing cluster yang terbentuk dalam proses peringkasan banyak dokumen.
+Tingginya derajat koherensi cluster yang sangat sulit dicapai karena memerlukan pengetahuan tentang makna dan struktur kalimat (Sarkar, 2009).
+Tingginya derajat koherensi dalam sebuah cluster dapat dicapai dengan mempertahankan derajat similarity antar anggota tetap tinggi (Hammouda and Kamel, 2003).
+2.4.1 Metode K-Means 
+Algoritma K-Means dikenal sebagai algoritma yang sangat mudah dalam proses clustering data besar.
+Proses untuk melakukan clustering data outlier sangatlah cepat.
+Selain itu, metode ini juga memiliki kelemahan yaitu dapat dimungkinkan bagi setiap data cluster tertentu pada suatu tahapan dapat berpindah ke cluster yang lain pada tahapan selanjutnya (Larose et al., 2005).
+Berikut ini adalah persamaan dan langkah-langkah perhitungan menggunakan algoritma K-Means (Hung et al., 2005) antara lain: a. Inisialisasi dataset dari n titik data ={1,,} b. Masukkan jumlah k cluster c. Inisialisasi centroid untuk k cluster dari sejumlah dataset d. Letakkan setiap titik pada cluster terdekat dengan menggunakan rumus jarak Euclidean e.Hitung ulang mencari nilai centroid dari setiap k cluster dengan jumlah data m untuk menemukan nilai centroid cluster yang baru.
+f. Proses diulang hingga mendapatkan hasil yang konvergen.
+3. PERANCANGAN DAN IMPLEMENTASI 
+Pada penelitian ini terdapat beberapa tahapan yang harus dijalankan untuk menentukan cluster dari judul bacaan majalah Kawanku.
+Berikut ini pada Gambar 1 ditunjukkan alur proses clustering.
+Berdasarkan Gambar 1, proses penelitian ini diawali dengan memberi masukan pada sistem yaitu data judul bacaan yang diambil dari majalah Kawanku secara random sebanyak 40 dokumen.
+Setelah memasukkan data tersebut, dilakukan proses preprocessing.
+Preprocessing pada penelitian ini terdiri dari proses penghilangan tanda baca, simbol, angka, dan kata yang tidak penting.
+Setelah preprocessing selesai dilanjutkan dengan proses wordcount yaitu menentukan jumlah setiap kata yang ada pada setiap dokumen.
+Dari keseluruhan hasil proses wordcount diambil 10 kata yang paling sering muncul sebagai fitur data.
+Selanjutnya proses dilanjutkan dengan proses penentuan cluster dengan metode K-Means.
+Sebelum melakukan perhitungan, ditentukan nilai k atau jumlah cluster.
+Pada penelitian ini ditentukan jumlah cluster sebanyak 4.
+Hasil akhir dari penelitian ini yaitu nilai centroid dari setiap cluster.
+Berdasarkan alur penelitian yang sebelumnya telah dijelaskan, berikut ini ditunjukkan potongan kode program proses clustering pada Gambar 2. 
+Berikut ini merupakan tampilan keluaran dari sistem proses run file yang dijalankan ditunjukkan pada Gambar 3. 
+Selain itu, berikut tampilan keluaran dari sistem proses run clustering yang dijalankan ditunjukkan pada Gambar 4. 
+Keluaran dari sistem menunjukkan hasil dari proses clustering yaitu nilai centroid dari setiap cluster yang dibandingkan dengan nilai centroid awal dari setiap cluster.
+Pada proses clustering akan terus berulang hingga posisi centroid tidak berubah, pada penelitian ini iterasi dilakukan sebanyak 2 kali perubahan centroid.
+Hasil keluaran centroid untuk 40 dokumen yang dilakukan adalah ditunjukkan Tabel 2 sebagai berikut.
+Untuk 40 data yang digunakan selanjutnya di klusterkan kedalam 4 kluster dengan menghitung kedekatannya terhadap seluruh pusat centroid diatas menggunakan rumus eucledian.
+Berikut ini hasil klustering yang diperoleh ditunjukkan Tabel 3.
+4. PENGUJIAN DAN ANALISIS
+Pengujian ini dilakukan dengan membuat variasi dataset yang berbeda ukuran atau banyaknya data yang digunakan dari keseluruhan data dipecah-pecah menjadi beberapa bagian, misal dataset ke-1 20 data, dataset ke-2 25 data, dataset ke-3 30 data, dataset ke-4 35 data, dan data set ke-4 40 data.
+Dari variasi data yang digunakan selanjutnya dilihat waktu eksekusi yang diperlukan.
+Berikut ini hasil dari pengujian yang dilakukan ditunjukkan Tabel 4.
+Dari hasil pengujian yang dilakukan perbedaan banyaknya data tidak mempengaruhi waktu eksekusi karena perbedaan jumlah data yang tidak terlalu besar.
+5. KESIMPULAN DAN SARAN 
+Pada penelitian ini telah berhasil menjalankan KMeansHadoop.jar yang terdapat 5 class didalamnya yaitu Datapoint, KMeansHadoop, KMeansMapper, KMeansPartitioner dan KMeansReducer.
+Data input yang digunakan adalah data judul bacaan yang diambil dari majalah Kawanku secara random sebanyak 40 dokumen.
+Data centroid awal diambil secara acak dari dokumen input yang ada.
+Dan data output berupa centroid akhir (update) pada iterasi 2.
+Setelah melakukan 5 kali percobaan untuk pengujian banyak data, yaitu sebanyak 20, 25, 30, 35, dan 40 waktu eksekusi program hanya berbeda sedikit artinya perbedaan banyak data tersebut tidak terlalu mempengaruhi waktu eksekusi karena jumlah data yang tidak banyak.
+Untuk penelitian selanjutnya diharapkan bisa mengolah teks lebih baik dengan tahapan pre-processing yang lengkap sehingga bisa melakukan clustering dengan lebih baik.
+Untuk data input yang digunakan lebih banyak dan sangat banyak agar ketika melakukan pengujian bisa terlihat perbedaan waktu eksekusinya.

@@ -1,0 +1,105 @@
+Abstrak
+Sebuah algoritma berbasis filter Gabor dan Backpropagation (BPP) Neural Network diusulkan untuk pengenalan ekspresi wajah.
+Pertama, ciri emosi ekspresi wajah dinyatakan dengan filter Gabor.
+Kemudian ciri digunakan untuk melatih jaringan neural dengan algoritma pelatihan Backpropagation.
+Terakhir, ekspresi wajah diklasifikasi dengan jaringan neural.
+Menggunakan algoritma tersebut, diperoleh hasil pengenalan yang tinggi.
+Kata Kunci Pengenalan ekspresi wajah, filter Gabor, Jaringan Backpropagation.
+I. PENDAHULUAN
+Dalam tahun-tahun terakhir ini terjadi ketertarikan dalam interaksi antara manusia dan computer.
+Ekspresi wajah memainkan peranan yang mendasar dalam interaksi sosial dengan manusia lainnya.
+Sebagai mana diteliti oleh Mehrabian [1], dalam komunikasi dua orang manusia hanya 7% pesan komunikasi disebabkan bahasa linguistic, 38% dikarenakan paralanguage, sedangkan 55% ditransfer dengan ekspresi wajah.
+Oleh karena itu, untuk memfasilitasi antarmuka manusia-mesin yang lebih bersahabat pada produk multi media, analisis garis wajah berbasis vision diteliti pada sepuluh tahun terakhir.
+Beberapa teknik telah diusulkan.
+Ekman dan Friesen [2] mengembangkan system yang paling komprehensif untuk sintesa ekspresi wajah berbasis apa yang mereka sebut Action Units (AU).
+Mereka mendefinisikan system pengkodean aksi wajah (facial action coding system (FACS)).
+FACS terdiri atas 46 AU, yang menggambarkan gerakan wajah dasar.
+Ini berbasis pada aktivitas otot dan menggambarkan secara detail pengaruh masing-masing AU pada cirri wajah.
+Mereka mendefinisikan enam emosi dasar (bahagia, sedih, ketakutan, jijik, terkejut dan marah).
+Masing-masing enam emosi dasar ini memiliki ekspresi wajah yang unik.
+Di awal tahun 1990 komunitas engineering mulai menggunakan hasil-hasil ini untuk membuat metode otomatis untuk pengenalan emosi dari ekspresi wajah dalam gambar atau video [3].
+Essa dan Pentland [4] menyajikan hasil pengenalan dan pengklasifikasian emosional tunggal dari ekspresi wajah berbasis metode aliran optic yang dihubungkan dengan geometris, fisik dan model wajah berbasis gerakan.
+Mereka menggunakan energy gerakan 2 dimensi dan template sejarah yang mengkodekan keduanya, magnitude dan arah gerakan.
+Dengan pembelajaran pandangan gerakan 2 dimensi ideal untuk empat ekspresi emosional (marah, jijik, bahagia dan terkejut), mereka mendefinisikan spatial-temporal template untuk ekspresi-ekspresi tersebut.
+Walaupun pendekatan yang diusulkan oleh Essa dan Pentland belum sepenuhnya divalidasi, perlu dicatat bahwa spatial-temporal template ekspresi wajah dari metode unik untuk klasifikasi emosional ekspresi wajah Kobayashi dan Hara [5] berhasil untuk pengenalan real time, pengklasifikasian emosional dan sistesis untuk ekspresi emosional dasar.
+Mereka merealisasikannya pada robot wajah 3 dimensi yang dapat mengenali dan menghasilkan ekspresi emosional.
+Mereka menggunakan data distribusi kecerahan citra wajah dan neural network back-propagation 3 lapis untuk klasifikasi dan sintesis ekspresi wajah.
+N. Sebe, dkk.[6] mengusulkan metode pengenalan emosi menggunakan model Naive Bayes (NB).
+Mereka mengusulkan kerangka kerja untuk memilih distribusi model untuk masing-masing emosi.
+Penggunaan kerangka kerja ini mereka menunjukkan bahwa penggunaan asumsi model Cauchy memberikan hasil klasifikasi yang lebih baik daripada menggunakan asumsi model Gaussian.
+Weimin [7] mengusulkan pengenalan wajah berbasisciri citra wajah dari filter Gabor dengan pengklasifikasian menggunakan support vector machine (SVM).
+Untuk memperkecil dimensi vector ciri dari 163840 yang dihasilkan dari filter Gabor, Weimin menggunakan principle component analysis (PCA) terhadap hasil filter Gabor, sehingga diperoleh 106 komponen dasar.
+Dari hasil penelitiannya, tingkat kebenaran pengenalan mencapai lebih dari 80% bila jumlah data pelatihan lebih dari 70.
+Penggunaan PCA memberikan tingkat kebenaran yang tinggi dan berarti bila jumlah data pelatihannya besar.
+Dalam paper ini, fokus penelitiannya adalah penerapan ciri untuk mesin pengklasifikasi ekspresi wajah dari citra statis dengan pengklasifikasian menggunakan jaringan backpropagation.
+Walaupun ekspresi wajah bersifat dinamis dan kedinamisan adalah penting untuk pengertian hubungan antara akibat dan ekspresi, photo statis masih sering digunakan dalam penelitian dasar.
+Penelitian ini menggunakan respons filter wavelet Gabor 2-D [8] sebagai ciri dasar.
+Representasi ciri untuk ekspresi wajah berbasis filter Gabor diberikan dalam bagian 2.
+Pengklasifikasi jaringan backpropagation dijelaskan dalam bagian 3.
+Percobaan pengenalan ekspresi wajah dijelaskan dalam bagian 4, dan terakhir bagian 5 adalah kesimpulan dan pekerjaan mendatang.
+II. REPRESENTASI CIRI UNTUK EKSPRESI WAJAH 
+Filter Gabor adalah pemodelan yang baik dari bidang penerima sel sederhana di mata kucing [9] dan ia memberikan dasar yang bagus untuk pengenalan objek dan pengenalan wajah [10,11,12].
+Dalam penelitian ini digunakan filter Gabor 2-D untuk mengambil perubahan ketampakan wajah sebagai himpunan koefisien multi skala dan multi orientasi.
+Filter Gabor mungkin diterapkan pada lokasi tertentu pada wajah atau keseluruhan citra wajah.
+Filter Gabor 2-D diperoleh dengan memodulasi gelombang sinus 2-D pada frekuensi dan orientasi tertentu dengan Gaussian envelope.
+Persamaan dasar filter Gabor 2-D ditunjukkan dalam persamaan (1), dimana x dan y adalah standard deviasi dari Gaussian envelope pada dimensi x dan y, dan k adalah panjang gelombang dan orientasi dari gelombang sinus 2-D.
+Penyebaran dari Gaussian envelope didefinisikan dalam bentuk dari gelombang sinus .
+Rotasi dari x-y sebesar sudut k menghasilkan filter Gabor pada orientasi k.
+Jika semua filter Gabor dengan variasi panjang gelombang () dan orientasi ( k) diterapkan pada satu titik tertentu (x,y), maka didapatkan banyak respon filter untuk titik tersebut, misal: digunakan empat panjang gelombang ( = 3, 5, 7, 10) dan delapan orientasi, maka akan dihasilkan 32 respon filter untuk tiap titik citra yang dikonvolusikan dengan filter tersebut.
+Citra database dan citra yang akan dikenali dikonvolusi lebih dahulu dengan Filter Gabor.
+Konvolusi tersebut akan menghasilkan titik-titik dengan nilai tertentu yang disebut sebagai Gabor Jet Response.
+Titik-titik gabor jet response dari citra database dan citra yang akan dikenali dibandingkan dengan menerapkan prosedur graph matching pada citra yang akan dikenali, yaitu dengan memaksimalkan kemiripan magnitude Gabor antara graph model wajah yang sudah ditransformasi dengan representasi graph dari citra yang akan dikenali tersebut.
+Penerapan graph matching tersebut dapat didefinisikan dengan persamaan (2), dimana J adalah gabor jet model dari citra database dan J adalah gabor jet model dari citra yang akan dikenali.
+III. PENGKLASIFIKASI JARINGAN BACKPROPAGATION
+Metode pelatihan perambatan-balik secara sederhana adalah metode gradient descent untuk meminimalkan total galat kuadrat keluaran.
+Aplikasi yang memakai jaringan ini untuk masalah yang melibatkan pemetaan sekumpulan masukan terhadap sekumpulan target keluaran; jadi masuk kategori jaringan dengan pelatihan terbimbing [13,14,15].
+Tujuan pelatihan jaringan ini adalah mendapatkan keseimbangan antara kemampuan tanggapan yang benar terhadap pola masukan yang dipakai untuk pelatihan jaringan (memorization) dan kemampuan memberikan tanggapan yang layak untuk masukan yang sejenis namun tidak identis dengan yang dipakai pada pelatihan (generalization).
+Pelatihan jaringan perambatan balik melibatkan tiga tahap.
+Umpan-maju pelatihan pola masukan, komputasi dan perambatan-balik galat, serta perubahan bobot.
+Setelah pelatihan, aplikasi jaringan hanya melibatkan tahap komputasi umpan-maju.
+Walau pun pelatihan jaringan lambat, jaringan yang telah dilatih dapat menghasilkan keluaran dengan sangat cepat.
+Beragam variasi perambatan-balik telah banyak dikembangkan untuk meningkatkan kecepatan proses pelatihan.
+Aplikasi dengan jaringan lapisan tunggal dapat dilakukan dengan pemetaan yang terbatas, sehingga jaringan lapis-jamak dengan satu atau lebih lapisan tersembunyi dapat diaplikasikan untuk pemetaan kontinyu dengan keakuratan tertentu.
+Jaringan neural lapis-jamak dengan satu lapisan tersembunyi (unit Z) diperlihatkan pada Gambar 1.
+Unit keluaran (unit Y) dan unit-unit tersembunyi serta bias diperlihatkan.
+Bias pada unit keluaran Yk dilambangkan dengan w0k, bias pada unit tersembunyi Zj dilambangkan dengan v0j.
+Istilah bias-bias ini berlaku sebagai bobot pada hubungan unit-unit dengan keluaran selalu satu.
+Hanya aliran informasi umpan-maju yang diperlihatkan pada Gambar 1.
+Selama fase pelatihan perambatan-balik, sinyal dikirim pada arah yang berlawanan.
+IV. PRINCIPAL COMPONENT ANALYSIS 
+PCA memungkinkan kita menghitung transformasi linier yang memetakan data dari ruang dimensi yang besar ke ruang dimensi yang lebih kecil.
+Analisis ini bertujuan untuk mentransformasikan suatu variabel menjadi variable baru (yang disebut sebagai komponen utama atau faktor) yang tidak saling berkorelasi.
+Variabel hasil konvolusi filter Gabor dilambangkan dengan : Xj (j=1, 2, ..., p) Di mana Xj = variabel pada sudut orientasi ke-j dan p = jumlah sudut orientasi.
+Selanjutnya dengan format seperti itu akan dianalisis dengan PCA terlebih dahulu distandarisasi menjadi variabel baku Yj (j=1,2, ..., p) dimana yij = (xij - j)/ sj, sehingga rataan masing-masing sama dengan nol, simpangan baku dan ragam masing-masing dengan satu, dan koefisien korelasi sebesar rjj0.
+PCA akan dilakuan ortogonalisasi terhadap variabel-variabel Yj tersebut sehingga diperoleh Z (= 1,2, ..., qp) yang memiliki karakteristik: korelasi r=0, rataan masing-masing sama dengan nol dan ragam Z sama dengan 0 dimana= p.
+Bentuk umum perkalian matriks menjadi: Z = Yb Selanjutnya dalam PCA juga dilakukan standarisasi terhadap variabel-variabel ortogonal tersebut menjadi variabel baru F (= 1,2, ..., qp) yang memiliki karakteristik: korelasi r=0, rataan masing-masing sama dengan nol dan nilai ragam masing-masing F sama dengan satu.
+V. PERCOBAAN SISTEM PENGENALAN 
+Diagram blok aplikasi system ini ditunjukkan dalam Gambar 2.
+A. Database ekspresi wajah 
+Penelitian ini menggunakan 100 sample foto ekspresi wajah untuk mengevaluasi teknik klasifikasi ekspresi statis.
+Database ini terdiri atas citra-citra subjek manusia individu dengan berbagai ekspresi wajah.
+database ini dengan empat ekspresi prototype: takut, santai, senang dan terkejut.
+Untuk masing-masing subjek dan ekspresi, database berisi urutan citra wajah yang diawali dengan ekspresi netral dan berakhir dengan ekspresi target.
+Urutan cita didigitalisasi ke dalam array 640480 pixel dengan 8-bit nilai grayscale.
+Dalam masing-masing percobaan pengenalan, 200 citra dipilih secara acak sebagai data pelatihan, lainnya untuk data pengujian.
+B. Pemrosesan awal citra 
+Sebelum segmentasi daerah local dan global, semua citra diputar, diskala dan ditranslasi sehingga mata dan mulut diatur pada lokasi yang sama dalam masing-masing citra.
+Kemudian disegmentasi masing-masing citra ke 6464 pixel.
+Contoh citra tersegmentasi dari database ditunjukkan dalam Gambar 3.
+C. Representasi Ciri
+Untuk memperoleh vector Gabor-wajah, lima frekuensi spasial dan delapan orientasi digunakan dalam study ini.
+Masing-masing citra tersegmentasi dikonversi ke dalam representasi Gabor menggunakan himpunan 40 filter Gabor dengan beda skala dan beda orientasi.
+Maka vector Gabor-wajah membentuk 646458=163840 dimensi ciri.
+Vektor dimensi ini terlalu besar, maka digunakan PCA untuk mengurangi vector dimensi.
+Setelah komputasi analisis, 106 komponen dasar pertama berisi 94% energy total.
+Sehingga 106 komponen ini digunakan sebagai vector ciri untuk representasi wajah.
+Kernel filter Gabor dengan lima frekuensi spasial = 0.6, 0.7, 0.8, 0.9, 1.0 dan delapan orientasi =90o, 67o, 45o, 25o, 0o, -25o, -50o, -75o dengan standard deviasi Gaussian= 3 ditunjukkan dalam Gambar 4.
+Hasil konvolusi filter Gabor dengan sebuah citra wajah ditunjukkan dalam Gambar 5.
+D. Klasifikasi
+Klasifikasi yang digunakan dalam penelitian ini adalah backpropagation neural network.
+Hasil beberapa percobaan untuk menentukan jumlah neuron tersembunyi, diperoleh arsitektur jaringan yang digunakan adalah 106 neuron masukan, 20 neuron tersembunyi dan 6 klasifikasi keluaran.
+Kurva pembelajaran untuk 200 citra pelatihan ditunjukkan dalam Gambar 6.
+VI. KESIMPULAN
+Paper ini menjelaskan system pengenalan ekspresi wajah, dengan menggunakan wavelet Gabor untuk ekstraksi cirri wajah dan backpropagation neural network untuk pengenalan ekspresi wajah.
+Ciri untuk representasi wajah diseleksi menggunakan PCA.
+Dari hasil penelitian menunjukkan PCA dapat digunkan untuk seleksi ciri dengan sample yang cukup, dan backpropagation neural network baik untuk pengenalan ini.

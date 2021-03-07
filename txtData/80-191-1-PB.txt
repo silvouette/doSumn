@@ -1,0 +1,164 @@
+Abstrak
+Biometrik merupakan sebuah teknik pengenalan individu berdasarkan ciri fisik manusia.
+Wajah merupakan salah satu biometrik yang bersifat non-intrusive dan tidak bergantung terhadap resiko kesehatan.
+Adapun fitur pengenalan wajah sangat dipengaruhi faktor instrinsik dan ekstrinsik.
+Ekstraksi fitur merupakan salah satu bagian terpenting dalam proses pengenalan wajah.
+Penelitian ini mengusulkan sebuah pendekatan baru pengenalan wajah menggunakan metode ekstraksi fitur Two Dimensional Linear Discriminant Analysis (TD-LDA) berbasis fungsi diskriminan Feature Fussion Strategy (FFS).
+Pada fungsi diskriminan FFS terdapat fitur global dan fitur lokal yang keduanya digabungkan secara simultas dalam sebuah eigen system.
+Metode TD-LDA mengambil proyeksi eigen system dua dimensi dari citra wajah.
+Penelitian yang telah dilakukan menunjukkan bahwa Metode TD-LDA berbasis FFS menunjukkan performa yang lebih baik dibandingkan metode TD-LDA, khususnya pada jumlah data training dan jumlah fitur yang lebih sedikit.
+Hasil penelitian menunjukkan performa akurasi pengenalan wajah dengan tingkat akurasi sebesar 66,96% - 98,89% pada jumlah data training dan 71,94%-95,00% pada jumlah fitur.
+Kata Kunci Face recognition, Two Dimensional Linear Discriminant Analysis, Feature Fusion Strategy 
+1. PENDAHULUAN
+Biometrik merupakan sebuah teknik mengenali individu berdasarkan ciri fisik.
+Adapun jenis biometrik yang terkenal adalah sidik jari, wajah, mata, suara, dll.
+Dari berbagai macam biometrik, wajah merupakan biometrik non-intrusive dan tidak bergantung pada resiko kesehatan (Jafri & Arabnia 2009).
+Pengenalan wajah dewasa ini telah menjadi salah satu bidang yang banyak diteliti dan juga dikembangkan oleh para pakar pattern recognition, hal ini disebabkan karena semakin luasnya penggunaan teknik identifikasi wajah dalam aplikasi yang digunakan oleh masyarakat.
+Pengenalan wajah merupakan suatu objek yang diidentifikasi.
+Hal ini disebabkan oleh berbagai macam fitur yang mempengaruhi dalam pengenalan wajah.
+Adapun faktor yang berpengaruh dalam hasil pengenalan wajah adalah faktor intrinsik (seperti umur, ekspresi, etnis dan jenis kelamin) dan faktor ekstrinsik (seperti iluminasi, pose dan skala citra).
+Permasalahan pada identifikasi wajah adalah proses ekstraksi fitur dari sampel wajah yang dimana fitur-fitur tersebut akan dipilih sebagai informasi awal.
+Ekstraksi fitur adalah proses untuk mendapatkan ciri-ciri pembeda yang membedakan suatu sampel wajah dari sampel wajah yang lain.
+Kebanyakan metode ekstraksi fitur bertujuan untuk mencari proyeksi yang optimal dari gambar wajah menjadi fitur low-dimensional (Belhumeur dkk, 1997).
+Metode Linear Discriminant Analysis (LDA) untuk pengenalan wajah pertama kali dikenalkan oleh Cheng dkk pada tahun 1991 yang mencoba menemukan subruang linear yang memaksimalkan perpisahan dua kelas pola menurut Fisher Criterion JF (Swets, 1996).
+Namun metode ini secara intrinsik mengharuskan mempunyai fungsi yang non-singular pada salah satu scatter matrix-nya (Ye dkk, 2005).
+Pada tahun 2005, Ye dkk memperkenalkan Two Dimensional Linear Discriminant Analysis (TD-LDA).
+Metode ini bertujuan untuk mengatasi permasalahan penghitungan dekomposisi eigenfacepada pengenalan wajah.
+Secara umum, fitur terbagi menjadi 2(dua) yaitu fitur global dan fitur lokal.
+Fitur global sangat baik dalam mengatasiperubahan iluminasi, sedangkan fitur lokal sangat baik dalam mengatasi local appearance.
+Pada penelitiannya (Chen dkk, 2015) penggabungan fitur lokal dan fitur global pada wajah manusia membantu dalam mendapatkan fitur-fitur yang bersifat euclidean structure dan manifold structure secara simultan yang disebut sebagai fungsi diskriminan Feature Fusion Strategy (FFS).
+Performa metode LDA-FFS lebih baik dibanding metode ekstraksi lainnya, seperti Principal Component Analysis (PCA), LDA, Unsupervised Discriminant Projection (UDP) dan Locality Preserving Projection (LPP).
+Secara instuisi, penggunaan fungsi diskriminan FFS kedalam TD-LDA dimungkinkan untuk dapat meningkatkan performa pengenalan wajah.
+Penelitian ini melakukan perbaikan performa akurasi pengenalan wajah menggunakan metode ekstraksi fitur TD-LDA dengan sebuah fungsi diskriminan berbasis FFS.
+Efektifitas performa pengenalan wajah akan diujikan dengan menggunakan tiga database populer (BERN, YALE dan ORL) serta dibandingkan dengan TD-LDA dengan fungsi diskriminan Fisher.
+2.PENELITIAN TERKAIT 
+2.1 Two-Dimensional Linier Discriminant Analysis 
+TDLDA bertujuan untuk mencari proyeksi optimal L dan R dimana struktur kelas space berdimensi tinggi disajikan dalam space berdimensi rendah (Ye dkk, 2005).
+Jika Airxc, untuk i = 1,...,n adalah citra dalam dataset, terklaster kedalam kelas 1, ..., k, dimana setiap i terdapat mi citra.
+Maka diberikan adalah mean kelas ke-i dan adalah mean global.
+Dalam TDLDA, citra dianggap sebagai sinyal dua dimensi dan bertujuan untuk mencari dua matriktransformasi Lrxl1 dan Rcxl2 yang memetakan setiap Airxc, untuk i = 1,...,n menjadi matrik Bil1xl2 dimana Bi = LTAi R .
+Dalam analisis diskriminan, terdapat dua scatter matrik, yaitu scatter matrik within-class Sw dan scatter matrik between-class Sb, didefinisikan sebagai berikut (Chen dkk, 2015) : ...
+Pencarian transformasi optimal adalah dengan caramemaksimalkan Sb dan meminimalkan Sw.
+Penyelesaian proyeksi optimal dan generalized eigen-system adalah sebagai berikut (Chen dkk, 2015) : ....
+Komputasi dekomposisi eigen lebih stabil dengan mengaplikasikan Singular Value Decomposition (SVD) pada scatter matriknya (Ye dkk, 2005).
+Dalam space dimensi rendah hasil transformasi L dan R, scatter matrik within-class Sw dan scatter matrik between-class Sb menjadi (Ye dkk, 2005) : ...
+Umumnya komputasi matrik transformasi L dan R sulit dilakukan secara simultan, sehingga dilakukan secara iteratif.
+Untuk R yang tetap, dilakukan komputasi penyelesaian matrik transformasi L.
+Setelah L terkomputasi, dilakukan update matrik transformasi R.
+Prosedur ini dapat dilakukan berulang beberapa kali (Ye dkk, 2005).
+2.2 Fungsi Diskriminan Feature Fussion Strategy 
+Terdapat dua macam jenis ekstraksi fitur, yaitu ekstraksi fitur yang bersifat global (euclidian structure) dan ekstraksi fitur yang bersifat lokal (manifold structure).
+Jenis ekstraksi fitur dapat ditinjau dari jenis scatter matrik yang digunakan.
+scatter matrik within-class Sw dan scatter matrik between-class Sb merupakan scatter matrik yang bersifat global seperti yang ditunjukkan pada persamaan (1) dan (2).
+PCA maupun LDA merupakan jenis ekstraksi fitur ini.
+LPP dan UDP merupakan merupakan jenis ekstraksi fitur yang bersifat lokal.
+Dalam pendekatannya menggunakan scatter matrik lokal SL dan scatter matrik non-lokal SN, didefinisikan sebagai berikut (Yang dkk, 2007) : ...
+Hij merupakan matrik adjacency pembobotan, yang didefinisi-kan sebagai berikut (Chen dkk, 2015):... (9) dimana t > 0 dan Nk(A) adalah k nearest neighbor dari data A.
+FFS merupakan penggabungan dari keempat scatter matrik yang membentuk struktur gabungan.
+Fungsi diskriminan dari penggabungan tersebut sebagai berikut (Chen dkk, 2015) :...
+Sehingga penyelesaian permasalahan matrik proyeksi optimal serta generali-zed eigen-system adalah sebagai berikut (Chen dkk, 2015) :...
+2.3 Pendekatan TDLDA-FFS 
+Kunci permasalahan kombinasi TDLDA dengan FFS adalah dengan menyelesaikan fungsi diskriminan pada persamaan (10).
+Seperti halnya penyelesaian space dimensi rendah TDLDA, scatter matrik lokal SL (7) dan scatter matrik non-lokal SN(8) didefinisikan sebagai berikut :..
+Matrik transformasi L dan R diperoleh dari penyelesaian generalized eigen-system pada persamaan (12).
+Komputasi dekomposisi eigen diaplikasikan dengan menggunakan SVD.
+Dalam penelitian ini, nilai a dan b yang merupakan rasio perimbangan struktur euclidian dan manifold, ditentukan melalui pengaturan secara manual dengan range 01 (Chen dkk, 2015).
+3. METODOLOGI PENELITIAN
+Penelitian ini mengevaluasi performa pengenalan wajah menggunakan metode ekstrasi TD-LDA berbasis FFS serta beberapa metode ekstrasi lainnya, seperti TD-LDA-Fisher, TD-PCA dan TD-LPP.
+Database wajah yang dievaluasi dalam penelitian ini terdiri dari 3 (tiga) database yaitu BERN facedatabase, YALE facedatabase, dan ORL facedatabase.
+Adapun desain penelitian yang seperti ditunjukkan pada gambar 1.
+Dalam penelitian ini, sistem pengenalan wajah menggunakan aplikasi interface grafis yang dibangun dengan Matlab 2012a.
+3.1 Sampel Database Wajah 
+Untuk BERN face database terdapat 280 citra wajah dari 28 individu.
+Dimana pada 10 citra wajah setiap individu terdapat perbedaan berupa ekspresi wajah, aksesoris, ras, dan orientasi.
+Resolusi yang digunakan pada BERN database adalah sebesar 64 x 88 pixel.
+Gambar 2 mengilustrasikan variasi-variasi citra wajah pada setiap individu dalam BERN database.
+Dalam YALE face database, digunakan 165 citra wajah dari 15 individu.
+Dimana 11 citra wajah pada setiap individu terdapat berbagai perbedaan seperti ekspresi wajah, aksesoris, ras, dan orientasi.
+Resolusi yang digunakan pada YALE database adalah sebesar 64 x 88 pixel.
+Gambar 3 mengilustrasikan variasi-variasi citra wajah pada setiap individu dalam YALE database.
+Pada ORL face database, citra wajah yang digunakan adalah sebanyak 400 citra wajah dari 40 individu yang berbeda.
+Dimana 10 citra wajah pada setiap individu terdapat berbagai perbedaan seperti ekspresi wajah, aksesoris, ras, dan orientasi.
+Resolusi yang digunakan pada ORL database adalah sebesar 92 x 112 pixel.
+Gambar 4 mengilustrasikan variasi-variasi citra wajah pada setiap individu dalam ORL database.
+3.2 Preprosesing Citra 
+Dalam penelitian ini, database wajah akan dilakukan perlakukan awal berupa preprosessing citra.
+Jenis citra yang akan digunakan dalam sistem pengenalan wajah penelitian ini adalah citra dengan tingkat keabu-abuan.
+Untuk itu perlu dilakukan konversi citra pada database wajah menjadi citra wajah dengan tingkat keabu-abuan.
+3.3 Ekstraksi Fitur 
+Ekstraksi fitur wajah dilakukan dengan menggunakan metode TDLDA berbasis fungsi diskriminan FFS.
+Penyelesaian komputasi TDLDA-FFS dilakukan secara iteratif.
+Untuk R yang tetap, dilakukan komputasi penyelesaian matrik transformasi L.
+Kemudian dilakukan update matrik transformasi R setelah diperoleh matrik transformasi L (Ye dkk, 2005).
+Adapun diagram alir penyelesaian TDLDA-FFS seperti ditunjukkan pada gambar 5.
+3.4 Klasifikasi dan Evaluasi
+Pada penelitian ini, kami menggunakan salah satu metode supervised yaitu Support Vector Machine (SVM).
+Metode SVM ini akan digunakan sebagai classifier dalam pengenalan wajah manusia.
+Pendekatan yang digunakan dalam proses klasifikasi Multi Kelas SVM adalah OneAgaintsAll.
+Untuk menguji performa pengenalan wajah dilakukan pengukuran akurasi terhadap dataset testing pada setiap database wajah yang digunakan.
+Adapun pengukuran akurasi seperti ditunjukkan pada persamaan (15) berikut: ...
+4. HASIL DAN PEMBAHASAN
+Performa pengenalan wajah diuji cobakan dengan variasi jumlah data training dan data testing.
+Jumlah data training yaitu sebanyak 2,3,4, dan 5 pada setiap database dan sisanya sebagai data testing.
+Selain itu, performa pengenalan wajah juga akan diuji cobakan dengan menggunakan variasi jumlah fitur wajah.
+Ukuran fitur wajah divariasikan sebesar 5x5, 10x10 dan 15x15.
+Setiap pengujian performa pengenalan wajah akan dibandingkan menggunakan dua metode ekstrasi fitur, TDLDA dan TDLDA-FFS.
+Adapun hasil screenshot aplikasi interface grafis yang dibangun dengan Matlab 2012a seperti ditunjukkan pada gambar 6.
+Beberapa parameter yang harus ditentukan terlebih dahulu dalam penggunaan fitur diskriminan FFS adalah nilai normalisasi pembobotan (t) dan rasio Euclidean dan manifold structure (nilai a dan b) (Chen dkk, 2015).
+Dari hasil penelitian pendahuluan kami,parameter yang digunakan tersebut adalah sebagai berikut:Normalisasi pembobotan (t) sebesar 1000.
+Inisialisasi a dan b sebesar 0,5 pada database BERN dan YALE serta 0,3 pada database ORL.
+4.1 Hasil Penelitian 
+Pembagian jumlah data training BERN merupakan salah satu cara untuk mengukur performance ekstraksi fitur TD-LDA berbasis FFS.
+Pada database BERN diujicobakan data training sebanyak n gambar (n=2,3,4,5) dari setiap individu yang dipilih secara berurutan untuk masuk pada proses training.
+Sedangkan sisanya akan digunakan dalam proses testing.
+Hasil eksperimen terhadap variasi jumlah training ditunjukkan pada gambar 7.
+Penggunaan jumlah fitur terhadap akurasi database BERN juga diamati pada penelitian ini.
+Hasil eksperimen terhadap variasi jumlah fitur ditunjukkan pada gambar 8.
+Pembagian jumlah data training YALE merupakan salah satu cara untuk mengukur performance ekstraksi fitur TD-LDA berbasis FFS.
+Pada database YALE diujicobakan data training sebanyak n gambar (n=2,3,4,5) dari setiap individu yang dipilih secara berurutan untuk masuk pada proses training.
+Sedangkan sisanya akan digunakan dalam proses testing.
+Hasil eksperiment terhadap variasi jumlah training ditunjukkan pada gambar 9.
+Penggunaan jumlah fitur terhadap akurasi database YALE juga diamati pada penelitian ini.
+Hasil eksperimen terhadap variasi jumlah fitur ditunjukkan pada gambar 10.
+Pembagian jumlah data training ORL merupakan salah satu cara untuk mengukur performa ekstraksi fitur TD-LDA berbasis FFS.
+Pada database ORL diujicobakan data training sebanyak n gambar (n=2,3,4,5) dari setiap individu yang dipilih secara berurutan untuk masuk pada proses training.
+Sedangkan sisanya akan digunakan dalam proses testing.
+Hasil eksperimen terhadap variasi jumlah training ditunjukkan pada gambar 11.
+Penggunaan jumlah fitur terhadap akurasi database ORL juga diamati pada penelitian ini.
+Hasil eksperimen terhadap variasi jumlah fitur ditunjukkan pada gambar 12.
+Performa akurasi pengenalan wajah dengan variasi jumlah data training menunjukkan hasil yang baik pada semua database wajah, seperti ditunjukkan pada tabel 1.
+Akurasi terkecil terdapat pada database BERN dengan jumlah citra training sebanyak 3, yaitu dengan tingkat akurasi sebesar 66,96%.
+Sebanyak 196 citra wajah testing BERN, terdapat 131 citra yang teridentifikasi benar.
+Akurasi terbesar terdapat pada database YALE dengan jumlah training sebanyak 5, yaitu dengan tingkat akurasi sebesar 98,89%.
+Dari 90 citra testing YALE, 89 citra teridentifikasi benar.
+Performa akurasi pengenalan wajah dengan variasi jumlah fitur jugamenunjukkan hasil yang baik pada semua database wajah, seperti ditunjukkan pada tabel 2.
+Akurasi terkecil terdapat pada database BERN dengan jumlah fitur wajah sebanyak (5x5), yaitu dengan tingkat akurasi sebesar 71,94%.
+Sebanyak 196 citra wajah testing BERN, terdapat 141 citra yang teridentifikasi benar.
+Akurasi terbesar terdapat pada database YALE dengan jumlah fitur wajah sebanyak 100 (10x10) , yaitu dengan tingkat akurasi sebesar 95,00%.
+Dari 120 citra testing YALE, 114 citra teridentifikasi benar.
+4.2 Pembahasan 
+Pada bagian ini, akan dijelaskan mengenai hasil penelitian yang membandingkan 2 (dua) metode ekstraksi fitur yaitu metode TD-LDA berbasis FFS dan TD-LDA.
+Performa akurasi pengenalan wajah dengan variasi jumlah data training seperti ditunjukkan pada gambar 7, 9 dan 11.
+Hasil ini didapatkan dari perhitungan akurasi menggunakan persamaan 15, seperti ditunjukkan pada tabel 1.
+Hasil tersebut menunjukkan pengenalan wajah dengan variasi jumlah data training menggunakan metode TDLDA-FFS lebih baik dibanding menggunakan metode TDLDA.
+Permasalahan dalam penggunaan euclidean structure tunggal, seperti fisher diskriminan dalam TDLDA, pada jumlah sampel yang kecil akan menghasilkan performa yang kurang baik (Lu dkk 2005; Li dkk, 2006 ;Huang dkk, 2009 ).
+Hal tersebut berkaitan dengan pembentukan euclidean structure yang tidak optimal pada jumlah training yang kecil.
+Sebaliknya, pembentukan manifold structure lebih baik pada jumlah data traning yang kecil (Chen dkk, 2015).
+Hal inilah yang menyebabkan nilai akurasi pengenalan wajah cukup tinggi, khususnya pada jumlah data training yang kecil.
+Performa akurasi pengenalan wajah dengan variasi jumlah fitur wajah seperti ditunjukkan pada gambar 8, 10, dan 12.
+Hasil ini didapatkan dari perhitungan akurasi menggunakan persamaan 15, seperti ditunjukkan pada tabel 2.
+Pada variasi jumlah fitur, hasil penelitian menunjukkan performa akurasi pengenalan wajah dengan metode TDLDA-FFS lebih baik dibandingkan metode TD-LDA.
+Jumlah fitur dihasilkan dari pencarian proyeksi optimal yang bergantung pada fungsi diskriminan yang digunakan.
+Jumlah fitur yang banyak akan merepresentasi citra wajah yang lebih optimal, begitu pula sebaliknya.
+Salah satu tujuan metode ekstraksi fitur TDLDA adalah me-reduce fitur high dimensional menjadi fitur yang low dimensional tanpa mengurangi representasi dari citra wajah itu sendiri.
+Pada TDLDA-FFS, fitur tersebut di proyeksikan baik dari struktur euclidian danstruktur manifold secara simultan.
+Sehingga struktur gabungan FFS membentuk proyeksi fitur low dimensional lebih cepat dibandingkan struktur tunggal.
+Proyeksi Manifold ikut mempercepat pembentukan proyeksi fitur (Chen dkk, 2015).
+Hal inilah yang menyebabkan nilai akurasi pengenalan wajah cukup tinggi, khususnya pada jumlah fitur wajah yang lebih sedikit.
+Hasil penelitian menunjukan bahwa performa TDLDA berbasis FFS memiliki performa akurasi lebih baik dibandingkan dengan TDLDA berbasis fungsi diskriminan fisher.
+Terlebih lagi, Performa pengenalan wajah metode TDLDA-FFS lebih efisien dalam penggunaan jumlah training dan jumlah fitur yang lebih sedikit.
+5. KESIMPULAN
+Performa pengenalan wajah menggunakan metode TDLDA dapat ditingkatkan dengan penggunaan fungsi diskriminan FFS.
+Hasil penelitian menunjukkan bahwa performa TDLDA ber-basis FFS lebih baik dibanding TDLDA khususnya jumlah data training dan jumlah fitur wajah yang lebih sedikit.
+Hasil uji coba menggunakan database BERN, YALE dan ORL, perhitungan akurasi pengenalan wajah berkisar antara 66,96% - 98,89% pada variasi jumlah training, dan berkisar antara 71,94% - 95,00% pada variasi jumlah fitur.
+Adapun harapan yang dapat dilakukan pada penelitian selanjutnya adalah dengan menggunakan fungsi diskriminan lainnya atau menggunakan data Real Time dalam sistem pengenalan wajah.

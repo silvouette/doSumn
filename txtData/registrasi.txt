@@ -1,0 +1,246 @@
+Abstrak
+Di bidang periodontal, registrasi citra yang telah dikembangkan berfokus pada evaluasi terhadap tulang alveolar.
+Salah satu proses yang dilakukan saat evaluasi adalah tahapan ekstraksi fitur.
+Masalah yang disebabkan oleh kesalahan saat ekstraksi fitur bisa timbul pada proses selanjutnya, yaitu pencocokan fitur.
+Selain itu, teknik registrasi citra yang didasarkan pada fitur seperti titik, identifikasi tepian (edges), kontur, atau fitur yang lain yang biasa digunakan untuk membandingkan citra dan kemudian memetakannya merupakan teknik yang sangat sensitif terhadap keakuratan pada tahap ekstraksi fitur.
+Dari kedua argumen ini, maka diperlukan teknik ekstraksi fitur yang tangguh untuk mencegah terjadinya kesalahan pada proses pencocokan fitur sehingga mendapatkan hasil registrasi citra yang akurat.
+Penelitian ini mengusulkan metode baru pada proses registrasi citra.
+Metode yang diusulkan menggunakan metode ekstraksi fitur yang efektif terhadap akurasi dengan menerapkan Learning Features, yaitu Feature from Accelerated Segment Test (FAST) dan pengembangan terhadap proses pencocokan fitur dengan menerapkan Local Gabor Texture (LGT) pada algoritma Iterative Point Correspondence (IPC).
+Uji coba dilakukan terhadap 8 citra grayscale dan hasil yang diperoleh menunjukkan bahwa metode yang diusulkan berhasil melakukan registrasi dengan nilai akurasi rata-rata diatas 93% dengan jumlah iterasi minimal mulai dari 400 iterasi.
+Kata kunci: registrasi citra, learning feature, local gabor texture, iterative point correspondence, citra dental periapikal
+1. PENDAHULUAN
+Dalam bidang kedokteran gigi, periodontitis dapat diartikan sebagai penyakit infeksi, yang mengakibatkan inflamasi (peradangan) lokal di dalam struktur-struktur pendukung gigi.
+Periodontitis menjurus pada kerusakan yang progresif pada ligamen periodontal dan tulang alveolar sehingga terbentuk pocket periodontal (Draidi, 2009).
+Tingkat keparahan kehilangan tulang (bone loss) umumnya berhubungan dengan kedalaman pocket.
+Kedalaman pocket merupakan jarak antara dasarpocket dan puncak margin gingiva (Carranza dkk., 2006).
+Diagnosis periodontitis umumnya didasarkan pada pemeriksaan klinis, temuan-temuan radiografik dan data riwayat.
+Radiografik intraoral periapikal merupakan alat yang berguna untuk membantu dalam diagnosis penyakit periodontal, penentuan prognosis, dan evaluasi hasil perawatan.
+Alat tersebut umumnya digunakan untuk mendeteksi kehilangan tulang alveolar yang terkait dengan penyakit periodontal (Khocht, 2010).
+Perawatan penyakit periodontal meliputi terapi anti infeksi, terapi rekonstruksi dan terapi pemeliharaan.
+Dalam fase rekonstruksi diharapkan terjadinya regenerasi jaringan yang mengalami kerusakan.
+Sistem bantu komputer telah dikembangkan untuk melakukan proses registrasi citra medis (Modersitzki dkk., 2009; Plishker dkk., 2010; dan Klein dkk., 2010).
+Registrasi citra adalah proses pencarian nilai-nilai transformasi optimal dari dua data citra berbeda sedemikian sehingga bagian obyek yang sama akan menempati lokasi yang sama (Ou dkk., 2010).
+Semua tugas-tugas analisis citra seperti fusi citra, deteksi perubahan, dan pemulihan citra dilakukan melalui langkah-langkah penting dalam proses registrasi citra (Zitov dkk., 2003).
+Citra yang diperoleh dari hasil registrasi selanjutnya digunakan untuk melakukan proses subtraksi citra.
+Subtraksi citra adalah alat analisis bantu komputer radiografi yang dapat digunakan untuk deteksi dan visualisasi perubahan awal penyakit periodontal atau sekitar implants serta untuk pemantauan dan evaluasi prosedur terapi atau agen dalam uji klinis (Zacharaki dkk., 2004).
+Penelitian di bidang periodontal terkait proses registrasi dan subtraksi citra telah diusulkan untuk mengevaluasi perubahan pada tulang alveolar.
+Sebagai contoh, Okano dkk.(1990) telah mengusulkan metode subtraksi citra digital untuk melakukan analisis terhadap terapi periodontal.
+Selain itu, Byrd dkk.(1998) telah mengevaluasi kesamaan citra secara semi-otomatis terhadap setiap perubahan kecil tulang alveolar dan mengoreksi perbedaan geometrik dari dua citra berbeda.
+Lebih jauh, identifikasi terhadap struktur anatomi gigi telah diusulkan oleh Ettinger (1994) dan dilanjutkan dengan koreksi geometrik citra untuk melakukan perhitungan terhadap tinggi tulang alveolar.
+Di sisi lain, Yi dkk. (2006) melakukan identifikasi tersebut untuk memperbaiki tingkat akurasidari proses registrasi.
+Meskipun demikian, metode-metode registrasi yang telah diusulkan belum diimbangi dengan optimasi terhadap proses ekstraksi fitur (feature extraction), dalam hal ini titik-titik yang memiliki ciri khas khusus (distinctive points).
+Hal optimasi untuk mendapatkan fitur yang tangguh tersebut menjadi penting karena masalah yang disebabkan oleh kesalahan saat ekstraksi fitur atau oleh degradasi citra dapat menimbulkan masalah pada proses selanjutnya di dalam registrasi citra, yaitu pada proses pencocokan fitur (feature matching) (Zitov dkk., 2003).
+Karybali dkk. (2008) menyampaikan bahwa teknik registrasi citra yang didasarkan pada fitur seperti titik, identifikasi tepian (edges), kontur, atau fitur yang lain yang biasa digunakan untuk membandingkan citra dan kemudian memetakannya merupakan teknik yang sangat sensitif terhadap keakuratan pada tahap ekstraksi fitur.
+Dari kedua argumen ini, maka diperlukan teknik ekstraksi fitur yang tangguh untuk mencegah terjadinya kesalahan pada proses pencocokan fitur sehingga mendapatkan hasil registrasi citra yang akurat.
+Salah satu penelitian yang melakukan proses ekstraksi fitur terhadap titik-titik yang memiliki ciri khas khusus telah diusulkan oleh Markaki dkk. pada tahun 2009.
+Markaki dkk. (2009) mengusulkan ekstraksi fitur menggunakan konsep disparity measure yang diusulkan oleh Likar dkk untuk memberikan bobot pada setiap titik dan kemudian dilanjutkan dengan proses registrasi citra dengan menemukan titik-titik bersesuaian secara iteratif.
+Markaki dkk. menjelaskan bahwa suatu titik dinyatakan sebagai fitur apabila memiliki jumlah informasi yang tinggi ketika dibandingkan dengan neighborhood-nya.
+Neighborhood dari suatu titik didefinisikan oleh suatu area lingkaran dengan radius tertentu.
+Supianto dkk. (2011) mengusulkan ekstraksi fitur menggunakan Nonsubsampled Contourlet Transform (NSCT) yang diperkenalkan oleh Cunha dkk. tahun 2006 dan dikembangkan oleh Serief dkk. di tahun 2007 untuk registrasi.
+Pada penelitian ini akan diusulkan metode ekstraksi fitur dengan pendekatan lain, yaitu pendekatan machine learning untuk mendeteksi corner dari suatu obyek dalam citra, dalam hal ini obyek gigi dalam citra dental periapikal.
+Metode learning untuk memperoleh fitur didasarkan atas penelitian yang dilakukan oleh Rosten dkk. di tahun 2010.
+Rosten dkk. mengusulkan konsep Feature from Accelerated Segment Test (FAST) untuk menemukan titik-titik fitur secara efektif.
+Penggunaan FAST pada penelitian ini dilatarbelakangi atas tiga keunggulan yang dimiliki oleh FAST.
+Pertama, FAST menyajikan teknik heuristik baru untuk deteksi fitur dan dengan menggunakan machine learning.
+Kedua, FAST mengeneralisasi pendeteksi yang memungkinkan untuk dioptimalkan pada proses.
+Ketiga, FAST melakukan perbandingan yang sangat ketat pada saat pembelajaran terhadap pendeteksi sudut (Rosten dkk.2010).
+Di sisi lain, Supianto dkk.(2011) dalam melakukan pencocokan fitur menggunakan IterativePointCorrespondence (IPC) yang menggunakan fitur nilai intensitas keabuan (graylevel value).
+Nilai derajat keabuan rentan terhadap intensitas cahaya dari suatu citra.
+Perbedaan tingkat kecerahan antara citra sebelum dan sesudah dilakukan terapi dapat mempengaruhi tingkat keakuratan proses pencocokan fitur kedua citra tersebut.
+Oleh karena itu, pada penelitian ini akan digunakan fitur yang didasarkan pada tekstur citra, dalam hal ini akan digunakan fitur Local Gabor Texture (LGT).
+Dari uraian di atas, penelitian ini mengusulkan suatu metode ekstraksi fitur yang efektif terhadap akurasi dengan menerapkan FAST sebagai metodeekstraksi fitur dan pengembangan fitur tekstur dengan menerapkan LGT pada algoritma IPC untuk melakukan registrasi pada citra dental periapikal.
+2. REGISTRASI CITRA 
+Registrasi citra merupakan kegiatan penemuan parameter-parameter nilai transformasi korespondensi spasial yang optimal dari dua citra berbeda, sehingga struktur anatomi obyek pada kedua citra berbeda tersebut menempati lokasi spasial yang sama (Ou dkk., 2010).
+Tujuan registasi citra adalah menemukan titik-titik yang bersesuaian antara citra pertama (reference) dan citra kedua (floating) sehingga struktur objek yang sama antara kedua citra tersebut dapat menempati pada posisi yang sama.
+Secara umum, metode registrasi citra terdiri dari pendeteksian fitur, pencocokan fitur, dan estimasi model transformasi dan transformasi citra (Zitov dkk.2003).
+Proses pendeteksian objek yang menonjol dan merupakan ciri khas khusus, seperti batas area, tepian, kontur, persimpangan garis baik secara manual maupun otomatis adalah langkah awal untuk melakukan deteksi fitur.
+Selanjutnya, fitur ini dapat direpresentasikan oleh titik-titik yang dapat mewakilinya, seperti titik pusat gravitasi, akhir dari suatu garis, maupun titik-titik dengan nilai intensitas yang tinggi.
+Tahap selanjutnya adalah pencocokan fitur.
+Pada tahap ini dilakukan proses membangun korespondensi antara fitur yang terdeteksi pada citra reference dengan citra floating.
+Citra floating adalah citra reference yang mengalami transformasi geometri berupa translasi, rotasi, dan skala perbesaran.
+Measure of Match yang merupakan ukuran kesamaan (similarity measure) hubungan spasial antara fitur-fitur terdeteksi digunakan untuk tujuan ini.
+Selanjutnya tahap estimasi model transformasi dan transformasi citra.
+Pada tahap estimasi model transformasi, akan dilakukan estimasi terhadap parameter-parameter geometri yaitu translasi, rotasi, dan skala perbesaran.
+Dan pada tahap transformasi citra akan digunakan fungsi pemetaan yang dihitung dengan teknik interpolasi yang sesuai.
+2.1. Features From Accelerated Segment Test (FAST) 
+Pendeteksi sudut (corner detector) FAST merupakan metode yang ideal untuk melakukan ekstraksi fitur pada lingkungan dengan sumber yang terbatas.
+Metode ini telah mendapatkan perhatian beberapa tahun terakhir dari para peneliti dan FAST dijadikan sebagai metode ekstraksi fitur pada penelitian mereka.
+Sebagai contoh penelitian yang dilakukan oleh Jeong dkk.(2011) yang menggunakan FAST untuk mendeteksi obyek pada smartphone.
+Algoritma pendeteksi corner, Harris corner detector, digunakan dalam metode SIFT mampu menghasilkan performa yang bagus tetapi tidak efektif untuk deteksi obyek secara real-time (Jeong dkk., 2011).
+FAST corner detector didefiniskan dengan ketentuan sebagai berikut:Kriteria segmen yang akan diuji (segment test) akan beroperasi dengan menganggap sebuah lingkaran dengan keliling 16 piksel yang berpusat pada piksel kandidat corner (p).
+Pikselp akan menjadi corner jika terdapat sekumpulan n piksel yang saling terhubung dalam lingkaran yang semua nilai intensitas pikselnya lebih cerah daripada intensitas kandidat corner Ip + threshold t, atau semua nilai intensitas pikselnya lebih gelap daripada intensitas kandidat corner Ipt.
+Sebuah piksel pada posisi yang relatif terhadap p (dinotasikan dengan px) memiliki salah satu dari tiga kondisi yang ditunjukkan pada Persamaan (1).
+FAST corner detector telah digunakan untuk mendeteksi obyek oleh Jeong dkk.
+Pada penelitian tersebut, FAST corner detector digunakan untuk melakukan ekstraksi fitur dari obyek.
+Fitur tersebut dijadikan sebagai input untuk Support Vector Machine dan Back Propagation based Neural Network sebagai algoritma untuk pengenalan obyek.
+Pada penelitian ini, kami menggunakan FAST corner detector yang diusulkan oleh Rosten dkk. untuk memperoleh fitur yang akan kami jadikan sebagai titik referensi untuk mengkorespondensikan fitur antara citra reference dan citra floating.
+2.2. Fungsi Gabor Texture 
+Fungsi Gabor telah banyak digunakan dan sukses dalam memberikan kontribusi terhadap penelitian di bidang computer vision, seperti pengenalan wajah, pengenalan sidik jari, dan pengenalan retina.
+Penggunaan fungsi gabor dikarenakan adanya relevansi biologis dan karakteristik komputasi (Yu dkk., 2010).
+Fungsi Gabor 2-Dimensi merupakan product dari sebuah elips fungsi gaussian dan sebuah plan wave yang kompleks, yang dinyatakan dengan Persamaan (2) (Yongxin dkk., 2013):,()=,22(,2222)[,22](2) dimana u dan v masing-masing merupakan arah dan skala dari kernel Gabor.
+z=(x,y) adalah variabel dalam domain spasial,adalah standar deviasi dari fungsi gaussian yang menentukan jumlah osilasi, .
+merupakan notasi dari operator norm, dan vektor gelombang , didefiniskan pada Persamaan (3).,= (3) dimana =/dan=/8 adalah frekuensi maksimum danadalah spacing factor antara kernel-kernel dalam domain frekuensi.
+Pada penelitian ini, kami menggunakan fungsi Gabor untuk mendapatkan fitur yang akan kami jadikan sebagai fitur untuk mencocokkan antara citra reference dan citra floating pada proses pemetaan titik fitur menggunakan algoritma Iterative Point Correspondence.
+2.3. Iterative Point Correspondence (IPC) 
+Asumsi yang diungkapkan oleh penggunaan fitur titik (piksel) pada proses registrasi citra adalah bahwa titik-titik yang berkorespondensi pada citra reference dan citra floating akan ditandai dan disimpan sebagai titik-titik yang sesuai.
+Selanjutnya, proses estimasi parameter menggunakan pasangan titik-titik yang bersesuaian tersebut dilakukan dengan model transformasi yang ditentukan.
+Dalam hal ini, transformasi yang digunakan adalah transformasi geometri, yaitu proses translasi, rotasi, dan skala perbesaran.
+Kemudian, metode iteratif dilakukan untuk memetakan titik-titik fitur pada citra reference ke titik-titik pada citra floating.
+Metode iteratif yang digunakan pada penelitian ini didasarkan pada algoritma IPC yang diusulkan oleh Markaki dkk.
+Algoritma IPC terdiri dari dua langkah utama.
+Pertama, proses inisialisasi yang bertujuan untuk menemukan nilai MoM (Measure of Match) awal.
+Proses pencarian nilai MoM tersebut dilakukan dengan membandingkan area persegi tertentu pada citra reference dengan area hasil proses transformasi di dalam citra floating.
+Perhitungan nilai MoM dilakukan sesuai dengan Persamaan (4): =((0)(),((0))()) (4) dimana IR dan IF masing-masing adalah citra reference dan citra floating.
+() adalah nilai batasan dari citra I pada area 2 dan()2 merupakan transformasi dari area A dengan parameter =(1,2,,), k adalah jumlah parameter yang dibutuhkan untuk transfomasi T.
+Area persegi yang dibentuk oleh setiap titik-titik fitur pada citra reference dilakukan menggunakan Persamaan (5): ()=[(),+()][(),+()] (5) dimana r(n) = side length.
+Nilai r(n) pada persamaan di atas berubah-ubah tergantung pada iterasi yang didapatkan dari Persamaan (6): ()=+()(/) (6) dimana Ri adalah nilai awal dari side length, Rf adalah nilai akhir dari side length, cr adalah decay constant yang merupakan konstanta rasio antara iterasi sekarang dengan iterasi maksimum, nmax merupakan jumlah iterasi maksimum, n adalah iterasi sekarang, danadalah fungsi floor.
+Langkah kedua setelah mendapatkan nilai awal MoM adalah melakukan proses update parameter transformasi sampai dengan iterasi maksimum.
+Proses dimulai dengan melakukan pembangkitan bilangan acak terhadap parameter-parameter transformasi yang kemudian disebut sebagai Weight Perturbation (WP).
+Nilai WP acak tersebut dibangkitkan pada setiap titik fitur.
+Hasilnya, titik-titik fitur akan memiliki 4 nilai acak yang terdiri dari nilai WP untuk pergeseran terhadap posisi horizontal, nilai WP untuk pergeseran terhadap posisi vertikal, nilai WP untuk sudut rotasi, dan nilai WP untuk skala perbesaran.
+Keempat nilai acak tersebut selanjutnya digunakan sebagai nilai parameter untuk mendapatkan titik-titik korespondensi antara citra reference dan citra floating.
+Kemudian dihitung nilai kemiripan berdasarkan fitur tekstur antara area pada kedua citra menggunakan fungsi Gabor.
+Nilai kemiripan tersebut direpresentasikan oleh nilai MoM.
+3. METODE YANG DIUSULKAN 
+Seperti yang disampaikan oleh Khocht melalui hasil penelitiannya di tahun 2010, bahwa radiografik intraoral periapikal umumnya digunakan untuk mendeteksi kehilangan tulang alveolar yang terkait dengan penyakit periodontal.
+Pada penelitian ini, kami juga menggunakan citra medis jenis yang sama dengan Khocht, yaitu radiografik intraoral periapikal.
+Tujuan penelitian ini adalah merancang metode baru untuk melakukan registrasi citra dan melakukan evaluasi uji akurasi terhadap metode tersebut.
+Untuk mencapai tujuan yang diharapkan dari penelitian ini, maka terdapat beberapa tahapan yang dilakukan, yaitu (i) ekstraksi fitur menggunakan FAST untuk menghasilkan titik-titik yang dijadikan sebagai fitur sekaligus masukan pada proses Ekstraksi fitur menggunakan FAST Deteksi titik-titik yang bersesuaian menggunakan LGT-IPC Registrasi menggunakan transformasi geometriselanjutnya, (ii) deteksi titik-titik yang bersesuaian menggunakan LGT-IPC untuk menemukan korespondensi titik-titik dengan tingkat kecocokan tertinggi berdasarkan nilai pengukuran Measure Of Match, dan (iii) registrasi menggunakan transformasi geometri.
+Alur metode registrasi citra pada penelitian ini dapat dilihat pada Gambar 1.
+3.1. Ekstraksi Fitur Menggunakan Teknik Learning Features 
+Proses ekstraksi fitur bertujuan untuk mendapatkan titik-titik fitur yang memiliki karakteristik tangguh, yaitu titik yang memiliki ciri khas khusus.
+Titik-titik tersebut biasanya terletak di tepian atau di pojok suatu objek.
+Titik-titik tersebut diharapkan mampu menemukan nilai kecocokan tinggi ketika dilakukan proses registrasi.
+Pada penelitian ini digunakan metode FAST corner detector.
+FAST akan menemukan titik-titik fitur dengan melacak setiap corner object untuk kemudian dilakukan evaluasi melalui proses pembelajaran.
+Dalam proses pembelajaran FAST corner detector akan mencari corner dengan memeriksa piksel-piksel yang ada disekitar sebuah kandidat corner.
+Kami menggunakan area piksel sejauh 16 piksel yang melingkar dengan pusat kandidat corner.
+3.2. Deteksi Titik-Titik yang Bersesuaian Menggunakan LGT-IPC 
+Proses deteksi titik-titik yang bersesuaian menggunakan IPC dilakukan secara iteratif.
+Iteratif dimaksudkan untuk melakukan update parameter transformasi.
+Update parameter ini ditujukan untuk mendapatkan titik-titik correspondence pada setiap iterasi.
+Parameter transformasi ini nantinya akan digunakan untuk menentukan nilai estimasi pada transformasi geometri.
+Proses deteksi menggunakan metode LGT-IPC diawali dengan memberikan inisialisasi terhadap parameter transformasi.
+Parameter transformasi yang digunakan pada penelitian ini ada 4, yaitu parameter pergeseran horizontal, parameter pergeseran vertikal, parameter sudut rotasi, dan parameter skala perbesaran, dengan masing-masing pemberian nilai inisialisasi parameter w adalah w1=0,w2=0,w3=0, danw4=1 untuk setiap titik fitur.
+Dengan nilai w yang telah ditentukan, selanjutnya dilakukan penghitungan nilai MoM awal pada setiap titik fitur.
+Nilai MoM dihitung dengan membandingkan nilai fitur tekstur dengan fungsi Gabor yang terdapat pada citra reference dengan hasil transformasi menggunakan nilai w terhadap citra floating.
+Nilai MoM awal ini dijadikan sebagai nilai MoM maksimum untuk setiap titik fitur yang dinotasikan dengan MoMmax.
+Langkah selanjutnya adalah memperbarui nilai w yang dilakukan secara iteratif sampai dengan iterasi maksimum yang ditentukan.
+Penentuan jumlah iterasi maksimum diujikan untuk mendapatkan jumlah iterasi maksimum yang optimal dalam penelitian ini.
+Prosedur iteratif diawali dengan melakukan generate random weight perturbation.
+Pada tahap ini nilai weight perturbation dihasilkan oleh fungsi pembangkit bilangan acak yang mengikuti sebaran bilangan berdistribusi normal dengan mean=0 dan standar deviasi=1.
+Proses dilanjutkan dengan menghitung nilai MoM menggunakan parameter hasil penjumlahan antara nilai-nilai parameter transformasi dan weight perturbation yang didapatkan pada langkah sebelumnya.
+Hasil perhitungan nilai MoM kemudian disimpan dan dinotasikan dengan MoM1.
+MoM1 ini dijadikan sebagai nilai masukan pada tahap berikutnya yaitu update nilai w.
+Selanjutnya, dilakukan perhitungan kembali nilai MoM menggunakan parameter w yang telah diupdate.
+Hasil perhitungan nilai MoM kemudian disimpan dan dinotasikan dengan MoM2.
+Kemudian langkah selanjutnya adalah membandingkan nilai MoM antara MoM2 dan MoMmax.
+Untuk setiap titik fitur i,jika nilai MoM2 lebih besar daripada MoMmax maka MoMmax akan diubah dengan nilai yang ada pada MoM2 beserta dengan parameter w yang menyertainya.
+Proses ini dilakukan sampai pada iterasi maksimum yang ditentukan.
+Hasil akhir yang diperoleh pada algoritma LGT-IPC ini berupa korespondensi titik-titik fitur yang terdapat pada citra reference dan titik-titik hasil transformasi pada citra floating.
+3.3. Registrasi Menggunakan Transformasi Geometri 
+Lensa pada radiografi gigi umumnya memiliki ukuran lebih kecil dari 1 mm2.
+Ukuran tersebut mengasumsikan bahwa sinar X berasal dari satu titik sumber.
+SInar X dan pasien diasumsikan berada pada posisi tetap, namun sensor digeser dan diputar pada semua arah dalam ruang 3D.
+Dampaknya, setiap piksel pada citra yang didapatkan sebelum pemindahan sensor di posisi (x,y) berubah pada posisi (x',y') setelah sensor dipindahkan.
+Transformasi geometri ini dikenal sebagai transformasi proyeksi perspektif (Lehmann dkk., 1998).
+Pada pendekatan registrasi citra ini, memungkinkan lebih dari empat pasangan titik dihasilkan dari proses sebelumnya.
+Pada penelitian ini, kami menggunakan metode least square untuk melakukan pendekatan optimal dalam mendapatkan kumpulan parameter transformasi.
+Dengan pendekatan ini, nilai-nilai paramater transformasi didapatkan dari titik-titik korespondensi antara citra reference dengan citra floating.
+Titik-titik koordinat pada citra reference dinotasikan dengan (x,y), sedangkan (x,y) merupakan titik-titik koordinat yang didapatkan dari hasil transformasi pada citra floating.
+4. HASIL DAN PEMBAHASAN 
+4.1. Lingkungan Uji Coba 
+Pada penelitian ini, data yang digunakan adalah 8 citra dental periapikal.
+Data tersebut didapatkan dari penelitian yang telah dilakukan oleh Supianto dkk.(2011).
+Adapun cara perolehan data didapatkan melalui pasien yang telah melakukan terapi periodontal.
+Untuk setiap pasien diambil dua sampel data.
+Data pertama adalah citra sebelum dilakukan tindakan bedah periodontal dan yang kedua adalah data citra setelah dilakukan tindakan bedah periodontal.
+Spesifikasi perangkat keras yang digunakan dalam implementasi uji coba terdiri dari prosesor berjenis Intel(R) Core(TM) 2 Duo 2.20 GHz, memori berkapasitas 2.5 GB dan kapasitas harddisk 120 GB.
+Sedangkan untuk spesifikasi perangkat lunak yang digunakan yakni Matlab 7.8.0 (R2009a).
+4.2. Pelaksanaan dan Hasil Uji Coba 
+Tahap uji coba dibagi menjadi dua bagian utama; (1) uji coba penentuan parameter internal sistem, dan (2) Uji coba performa yang dilihat dari akurasi terhadap registrasi menggunakan metode yang diusulkan dan diterapkan pada semua data pasien.
+Kami mengambil salah satu data citra dental untuk mlakukan uji coba dalam penentuan parameter-parameter algoritma, yaitu penentuan batas threshold pada Persamaan (1) dan jumlah iterasi maksimum pada algoritma IPC.
+Uji Coba Penentuan Parameter Algoritma 
+Uji ini ditujukan untuk menentukan parameter-parameter yang optimal yang terdapat pada proses tahapan algoritma yang diusulkan.
+Parameter-parameter optimal yang dimaksudkan adalah parameter-parameter yang menghasilkan tingkat akurasi registrasi yang terbaik.
+Uji coba dibagi menjadi dua bagian sesuai dengan jumlah parameter uji, yaitu: (1) Uji coba penentuan batas threshold pada proses ekstraksi fitur sebagai parameter untuk penentuan titik-titik corner, dan (2) Uji coba penentuan iterasi maksimum pada proses pencocokan fitur untuk mengetahui jumlah iterasi maksimum yang dilakukan untuk mendapatkan akurasi yang optimal.
+Penentuan transformasi geometri yang dilakukan pada kedua uji coba adalah translasi terhadap sumbu x sebesar 4 piksel, translasi sumbu y sebesar 6 piksel, rotasi sebesar 3, dan skala perbesaran sebesar 1,1 (Supianto dkk., 2011).
+Uji coba dilakukan sebanyak 10 kali untuk setiap nilai parameter uji coba yang diberikan.
+Hal ini dilakukan karena setiap uji coba menghasilkan nilai parameter transformasi yang berbeda-beda.
+Nilai parameter yang berbeda tersebut dipengaruhi oleh hasil generate random weight perturbation pada proses pencarian titik-titik fitur yang bersesuaian antara citra reference dan citra floating.
+Setiap uji coba yang dilakukan akan dipilih citra yang menghasilkan titik-titik fitur yang baik denganrata-rata akurasi terbaik berdasarkan hasil dari proses registrasi.
+Pengujian pertama adalah penentuan batas threshold yang ditujukan untuk menentukan nilai parameter t pada Persamaan (1).
+Parameter t yang digunakan pada lingkungan uji coba adalah nilai 1 sampai dengan 15 dengan beda 1 nilai, yaitu 1, 3, 5, 7, 9, 11, 13, dan 15.
+Hasil uji coba pada tahap pertama ini secara detail dapat dilihat pada Tabel 1 dimana untuk setiap parameter t dilakukan 10 kali uji coba untuk mendapatkan nilai rata-rata akurasinya.
+Berdasarkan Tabel 1 tampak bahwa rata-rata akurasi mulai menurun ketika parameter t bernilai lebih dari 5.
+Sedangkan ketika parameter t bernilai 1, 3, dan 5 menghasilkan akurasi yang relatif sama.
+Banyaknya jumlah titik fitur yang dihasilkan disebabkan oleh semakin rendahnya nilai parameter t yang diberikan.
+Dengan jumlah titik fitur yang banyak menyebabkan semakin lamanya waktu proses yang dibutuhkan.
+Oleh sebab itu, dengan nilai rata-rata akurasi yang relatif sama maka ditentukan nilai parameter t = 5 untuk pengujian berikutnya.
+Penentuan parameter t sebesar 5 tersebut akan menghasilkan nilai rata-rata akurasi yang baik dengan waktu proses lebih cepat.
+Pengujian selanjutnya bertujuan untuk menentukan jumlah iterasi maksimum untuk menghasilkan nilai akurasi yang optimal.
+Uji coba yang dilakukan pada tahap ini didasarkan atas hasil pada tahap uji coba sebelumnya.
+Titik-titik fitur yang akan digunakan adalah titik-titik fitur pada citra dengan hasil tingkat akurasi yang tertinggi berdasarkan parameter batas threshold yang terpilih, yaitu t=5.
+Hasil uji coba dapat dilihat pada Tabel 2 dimana untuk setiap penentuan iterasi maksimum dilakukan 10 kali uji coba untuk mendapatkan nilai rata-rata akurasinya.
+Tabel 2 menunjukkan bahwa nilai rata-rata akurasi yang dihasilkan relatif bernilai stabil mulai iterasi 400 kali.
+Meskipun pada penentuan jumlah iterasi sebanyak 600 kali nilai rata-rata akurasimenunjukkan angka menurun, namun nilai rata-rata akurasinya masih diatas 90%.
+Oleh sebab itu, dapat dikatakan bahwa penentuan jumlah iterasi mulai dari 400 kali relatif menghasilkan nilai rata-rata akurasi yang baik.
+Semakin besar jumlah iterasi maksimum yang ditentukan, maka semakin banyak proses iterasi yang dilakukan.
+Hal ini menjadikan waktu proses menjadi semakin lama.
+Oleh sebab itu, pada penelitian ini ditentukan jumlah iterasi maksimum sebanyak 400 kali.
+Penentuan jumlah iterasi maksimum sebanyak 400 iterasi tersebut akan menghasilkan nilai rata-rata akurasi yang baik dengan waktu proses lebih cepat.
+Uji Coba Tingkat Akurasi Uji coba dilakukan pada delapan data citra dental periapikal, 4 citra dental anterior dan 4 citra dental posterior.
+Langkah pengujiannya adalah pada setiap citra dental akan dilakukan transformasi geometri dan proses registrasi dengan parameter transformasi yang ditentukan pada uji coba sebelumnya, yaitu parameter t=5 dan iterasi maksimum=400.
+Setelah citra registrasi didapat, maka akan dihitung nilai akurasi berdasarkan citra biner yang telah ditentukan oleh pakar kedokteran gigi.
+Gambar 2 adalah contoh citra biner untuk salah satu citra dental anterior dan posterior.
+Uji coba dilakukan dengan melakukan registrasi dengan translasi, rotasi dan skala perbesaran yang ditentukan sebelumnya.
+Translasi ditentukan secara acak dengan pergeseran terhadap sumbu x sebesar 4 piksel dan pergeseran terhadap sumbu y sebesar 6 piksel untuk setiap rotasi dan skala perbesaran yang berbeda-beda.
+Rotasi yang ditentukan adalah 1, 2, 3, 4, 5, 6, 7, 10, 20, 30, dan 60.
+Rotasi terurut yang dimulai dari 1 sampai dengan 7 ditujukan untuk mengetahui pengaruh rotasi mulai dari yang terkecil sampai yang terbesar.
+Kemudian dilanjutkan dengan pengujian terhadap rotasi yang lebih besar yang ditentukan secara acak sampai pada batas rotasi dengan nilai 60.
+Skala perbesaran citra floating terhadap citra reference sebesar s1.
+Skala terpilih yang dianggap mewakili kondisi pada citra dental periapikal adalah 1,1; 1,2; dan 1,3.
+Skala perbesaran maksimal dipilih 1,3 karena skala perbesaran 1,3 dianggap skala perbesaran yang besar pada citra dental periapikal.
+Masing-masing citra uji dilakukan 10 kali uji coba untuk mendapatkan nilai rata-rata akurasinya.
+Uji coba digunakan sampel dari citra dental anterior 1, anterior 2, anterior 3, anterior 4, posterior 1, posterior 2, posterior 3, dan posterior 4.
+Salah satu contoh uji coba pada citra dental anterior pada transformasi sudut rotasi 3 dan skala perbesaran 1,1 dapat dilihat pada Gambar 3. 
+Gambar 3(a) dan (b) masing-masing adalah citra reference dan citra floating.
+Gambar 3(c) merupakan citra reference yang ditambahkan dengan citra hasil registrasi.
+Dari hasil perhitungan didapatkan nilai akurasi sebesar 95,86%.
+Hasil uji coba pada salah satu citra dental anterior secara detail dapat diamati pada Tabel 3.
+Nilai akurasi terbaik untuk skala perbesaran 1,1 didapatkan pada saat sudut rotasi sebesar 3.
+Pada uji coba ini akurasi bernilai kurang dari 90% dihasilkan pada sudut rotasi sebesar 5 dan 20 atau lebih besar.
+Hal ini disebabkan oleh faktor nilai pembangkit bilangan acak pada proses iterasi untuk menemukan titik-titik yang bersesuaian.
+Pada tingkat skala perbesaran 1,2 nilai akurasi tertinggi mencapai 90,16%.
+Nilai tersebut dicapai pada penentuan sudut rotasi sebesar 4.
+Pada skala perbesaran 1,3 hanyamampu mencapai 70,15% dengan sudut rotasi sebesar 7.
+Dari nilai akurasi tersebut tampak bahwa semakin besar skala perbesaran yang ditentukan, maka semakin menurun nilai akurasi yang dihasilkan.
+Kondisi tersebut juga terjadi pada 3 citra dental anterior lain.
+Nilai akurasi terrendah pada citra uji ini terjadi pada skala perbesaran 1,1 adalah 73,95% dengan sudut rotasi sebesar 60.
+Sedangkan nilai akurasi terrendah padaskala perbesaran 1,2 adalah 64,78% juga dengan sudut rotasi sebesar 60.
+Hal yang sama juga terjadi pada skala perbesaran 1,3 dengan sudut rotasi sebesar 10 yaitu 63,86%.
+Pada uji coba citra dental posterior, salah satu contoh uji coba dilakukan dengan transformasi sudut rotasi 4 dan skala perbesaran 1,1 yang dapat dilihat pada Gambar 4.
+Gambar 4(a) dan (b) masing-masing adalah citra reference dan citra floating.
+Gambar 4(c) merupakan citra reference yang ditambahkan dengan citra hasil registrasi.
+Dari hasil perhitungan didapatkan nilai akurasi sebesar 93,18% (lihat Tabel 4).
+Hasil uji coba pada salah satu citra dental posterior secara detail dapat diamati pada Tabel 4 dimana nilai akurasi terbaik untuk skala perbesaran 1,1 diperoleh pada saat sudut rotasi 4 dengan akurasi sebesar 93,18%.
+Skala perbesaran 1,2 dan 1,3 masing-masing diperoleh pada saat sudut rotasi 3 dan 5 dengan akurasi masing-masing sebesar 91,54% dan 72,61%.
+Pada uji coba ini dapat diketahui bahwa semakin tinggi skala perbesaran yang ditentukan, nilai akurasi yang didapatkan semakin menurun.
+Untuk setiap skala perbesaran yang ditentukan, perolehan nilai akurasi tertinggi pada sudut rotasi yang berbeda-beda.
+Hal itu menunjukkan bahwa meningkatnya nilai akurasi tidak dipengaruhi oleh besar kecilnya sudut rotasi yang ditentukan.
+Kondisi tersebut juga terjadi pada citra dental posterior yang lain.
+Hasil uji coba untuk semua citra dental anterior dan posterior dapat dilihat pada Tabel 5.
+Dari hasil uji akurasi tersebut tampak bahwa kondisi akurasi tertinggi tercapai pada tingkat akurasi antara 93.18% sampai dengan 96.53%.
+Kondisi tersebut tercapai pada skala perbesaran 1.1 dengan rotasi antara 3 sampai dengan 6.
+Dibandingkan dengan penelitian terdahulu yang diusulkan oleh Supianto dkk.(2011), hasil tingkat akurasi yang ditunjukkan pada Tabel 5 memperlihatkan bahwa metode yang diusulkan telah berhasil melakukan proses registrasi dengan tingkat akurasi yang lebih tinggi.
+Hal ini menunjukkan bahwa pengembangan terhadap proses pencocokan fitur dengan menerapkan Local Gabor Texture (LGT) pada algoritma Iterative Point Correspondence (IPC) memiliki prospek yang baik dalam proses registrasi pada citra dental periapikal.
+5. KESIMPULAN DAN SARAN 
+Metode kombinasi baru untuk registrasi citra yang memanfaatkan konsep Learning Feature diusulkan dalam penelitian ini.
+Metode yang diusulkan menggunakan metode ekstraksi fitur yang efektif terhadap akurasi dengan menerapkan Feature from Accelerated Segment Test sebagai metode ekstraksi fitur.
+Selain itu, pengembangan terhadap proses pencocokan fitur dilakukan dengan menerapkan Local Gabor Texture pada algoritma Iterative Point Correspondence untuk melakukan registrasi pada citra dental periapikal.
+Registrasi citra dengan penambahan metode morfologi pada Feature from Accelerated Segment Test untuk ekstraksi fitur menghasilkan titik-titik fitur yang berada pada obyek gigi dan tidak menyebar ke area yang bukan obyek gigi.
+Berdasarkan hasil uji coba, metode yang kami usulkan telah berhasil melakukan registrasi citra pada delapan citra dental periapikal dengan nilai akurasi rata-rata diatas 93%.
+Registrasi citra dengan metode yang diusulkan secara iteratif melakukan penemuan titik-titik fitur yang bersesuaian antara citra reference dan citra floating dan mampu menghasilkan nilai akurasi yang optimal dengan jumlah iterasi minimal 400.
+Berdasarkan metode penelitian dan hasil uji coba yang dilakukan, pekerjaan yang mungkin dapat dilakukan di masa mendatang adalah perbaikan pada proses pembangkitan bilangan acak untuk mendapatkan nilai parameter transformasi yang memiliki sifat konvergen yang lebih cepat.
+Proses pembangkitan tersebut bisa dilakukan dengan Markov Chain Algorithm.
+Algoritma tersebut akan menghitung probabilitas bilangan untuk memperoleh nilai parameter transformasi yang diprediksi akan menghasilkan tingkat akurasi yang lebih tinggi.

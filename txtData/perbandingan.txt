@@ -1,0 +1,150 @@
+Abstrak
+Penelitian ini membandingkan dua algoritma klasifikasi yaitu K-Nearest Neighbour dan Naive Bayes Classifier pada data-data aktivitas status gunung berapi yang ada di Indonesia.
+Sedangkan untuk validasi data menggunakan k-fold cross validation.
+Dalam penentuan status gunung berapi, pusat vulkanologi dan mitigasi bencana geologi melakukan dengan dua hal yaitu pengamatan visual dan faktor kegempaan.
+Pada penelitian ini dalam melakukan klasifikasi aktivitas gunung berapi menggunakan faktor kegempaan.
+Ada 5 kriteria yang digunakan dalam melakukan klasifikasi yaitu empat faktor kegempaan diantaranya gempa vulkanik dangkal, gempa tektonik jauh, gempa vulkanik dalam, gempa hembusan dan ditambah satu kriteria yaitu status sebelumnya.
+Ada 3 status yang di yang diklasifikasi yaitu normal, waspada dan siaga.
+Hasil penelitian yang dibagi kedalam 3 fold disetiap metode klasifikasi diperoleh perbandingan akurasi sistem rata-rata tertinggi pada k-nn 63,68% dengan standar deviasi 7,47%.
+Sedangkan dengan menggunakan naive bayes diperoleh rata-rata akurasi sebesar 79,71% dengan standar deviasi 3,55%.
+Selain itu, penggunaan naive bayes jaraknya akurasi lebih dekat dibandingan dengan k-nn.
+Kata kunci: Gunung berapi, knn, naive bayes,k-fold cross validation
+1. PENDAHULUAN
+Bencana letusan gunung Api Di Indonesia dapat dikatakan hampir setiap tahun terjadi, hal ini dikarenakan banyak terdapat gunung api aktif di Indoensia.
+Tak hanya itu, posisi geografis Indonesia yang terletak di lempeng Asia dan Australia juga menjadi salah satu faktor sering terjadinya bencana tektonik yang diakibatkan dari letusan gunung berapi.
+Menurut Kepala Pusat Vulkanologi dan Bencana Geologi, Kementerian Energi dan Sumber Daya Mineral, dari 127 gunung api aktif di Indonesia, hanya 69 yang terpantau.
+Dan itupun masih jauh dari keadaan ideal, baik dari segi peralatan maupun dari segi Sumber Daya Manusia (Pratomo, 2006).
+Dengan begitu, resiko bencana gunung berapi ketika terjadi letusan gunung dampaknya kepada masyarakatmasih sangat besar, mengingat masih banyak gunung yang belum terpantau dengan baik.
+Selain itu, masih banyak warga yang menetap didaerah gunung berapi aktif.
+Dalam era digital saat ini, sebagian besar permasalahan yang terjadi dalam kehidupan diselesaikan dengan pemanfaatan teknologi, tak terkecuali dalam hal bencana gunung berapi.
+Penelitian-penelitian dalam hal penanganan bencana gunung berapi juga sangat bervariasi ada yang membuat sistem peringatan dini, ada yang sebatas pengujian algoritma.
+Tergantung setiap kepakaran dari peneliti.
+Misalnya (Reath, et al., 2016) memprediksi erupsi gunung berapi dengan penginderaan jauh untuk menguji kefektifan menggunakan thermal infrared (TIR) dengan data-data yang diterapkan dari (Lara-Cuve, et al.
+2016) tujuannya untuk menyeleksi fitur bentuk gelombang seismik untuk deteksi kejadian periode panjang di Gunung Api Cotopaxi.
+(Pratomo, 2006) melakukan klasifikasi gunung api di Indonesia agar dapat dilihat karakteristik dari setiap gunung berapi tanpa penerapan teknologi.
+Di Indonesia yang sering mengeluarkan rekomendasi status gunung berapi adalah Pusat Vulkanologi dan mitigasi Bencana Geologi (PVMBG).
+PVMBG dalam mengeluarkan rekomendasi status aktivitas gunung berapi berdasarkan dengan data-data yang terpantau dari aktivitas setiap gunung.
+Ada dua cara pemantauan yang dilakukan yaitu berdasarkan pengamatan visual dan faktor kegempaan.
+Proses penentuan keputusan status gunung berapi berdasarkan faktor kegempaan pernah dilakukan oleh (Tempola, dkk., 2017) dengan metode yang diterapkan untuk penentuan keputusan status gunung berapi dengan menggunakan metode CBR dengan hasil akurasi sistem mencapai 80, 91% ketika tanpa menggunakan validasi data, namun ketika diterapkan dengan validasi data k-fold cross validation akurasi sistem menurun, dimana yang semula akurasi sistem 80,91% menurun menjadi 66,64%.
+Penelitian ini membandingkan dua metode pada machine learning yaitu k-nearest neighbour (k-nn) dan naive bayes classifier.
+Kedua metode ini memiliki ciri khas masing-masing dalam proses klasifikasi ataupun prediksi.
+Begitupun dengan metode machine learning yang lain, sebagaimana yang dilakukan oleh (Sihananto dan Mahmudy, 2017) melakukan prediksi curah hujan dengan menerapkan jaringan saraf tiruan backpropagation.
+Implementasi K-NN pernah dilakukan oleh (Kurnianingtyas.Dkk, 2017) untuk melalukan diagnosis penyakit sapi potong, akurasi sistem yang dihasilkan sebesar bahkan mencapai 100%.
+Berbeda dengan (Puspito, dkk. 2017) membangun sistem pendukung keputusan untuk diagnosa penyakit tanaman jeruk dengan menerapkan metode machine learning yang diterapkan yaitu naive bayes classifier, akurasi sistem dalam penelitian ini mencapai 90%.
+Untuk itu pada penelitian akan dilakukan perbandingan antara K-NN dan Naive Bayes pada data-data aktivitas gunung berapi.
+Selain itu, akan dilakukan proses validasi data dengan k-fold cross validation.
+Tujuannya agar hasil prediksi atau klasifikasi tidak hanya akurasi tinggi melainkan juga valid.
+2. METODE PENELITIAN
+Metode penelitian yang digunakan dalam penelitian ini adalah metode klasifikasi yang mana membandingkan dua metode yaitu metode K-Nearest Neighbor(K-NN) dan Naive Bayes Classifier (NBC).
+kedua metode ini adalah bagian dari metode supervised learning (Harrington, 2012).
+K-nn dikenal dengan metode yang paling sederhana sedangkan naive bayes classifier adalah salah satu metode yang dapat menampilkan keyakinan dengan label kelas terkait meskipun dengan data training yang sedikit (Aggarwal, 2015).
+Hasil dari setiap metode kemudian divalidasi dengan k-fold cross validation.
+Gambaran dari alur penelitian ini seperti pada Gambar 1. 
+2.1 Naive Bayes Classifier
+Naive Bayesian Classifier (NBC) merupakan salah satu metode pada probabilistic reasoning, yang menghitung sekumpulan probabilitas dengan menjumlahkan frekuensi dan kombinasi nilai dari dataset yang diberikan.
+NBC merupakan algoritma klasifikasi yang sangat efektif (mendapatkan hasil yang tepat) dan efisien (proses penalaran dilakukan memanfaatkan input yang ada dengan cara yang relatif cepat).
+Algoritma NBC bertujuan untuk melakukan klasifikasi data pada kelas tertentu.
+Unjuk kerja pengklasifikasi diukur dengan nilai predictive accuracy (kusumadewi, 2009).
+Kelebihan lain dari NBC dapat menangani data baik yang bersifat diskrit maupun continue.
+Dalam proses mencari kelas terbaik ketika data berbentuk diskrit dan apabila diberikan k atribut yang saling bebas (independence), nilai probabilitas dapat diberikan seperti pada Persamaan 1.
+Jika atribut ke-i bersifat diskrit atau kategori, maka P (xi|C) di estimasi sebagai frekuensi relatif sampel yang memiliki nilai xi sebagai atribut ke-i dalam kelas C.
+Namun, jika data yang nilai ke-i berisfat kontinu atau numerik, maka P (xi|C) dicari dengan menggunakan densitas gauss seperti pada Persamaan 2.
+Berikut ini adalah contoh penerapan naive bayes dengan menggunakan data training berjumlah 23 data.
+Maka tahapan awal adalah dihitung mean dan standar deviasi setiap fitur numerik.
+Hasil perhitungan ditunjukkan pada Tabel 1.
+Selanjutnya dihitung probabilitas fitur kategori, dimana dalam kasus ini hanya terdapat satu fitur kategori yaitu status sebelumnya.
+Hasil perhitungan ditunjukkan pada Tabel 2.
+Kemudian tahapan selanjutnya adalah dihitung probabilitas setiap rekomendasi status gunung.
+Hasil perhitungan probabilitas dari fitru kategori dan rekomendasi status di tunjukkan pada Tabel 2.
+Berdasarkan hasil perhitungan dari data continue atau data numerik maupun data diskrit.
+kemudian ada data inputan baru aktivitas gunung api dengan gempa vulkanik dangkal 37 kali, gempa tektonik jauh 15 kali, gempa vulkanik dalam 35 kali, gempa hembusan 45 kali dan status sebelumnya waspada.
+Maka langkah awal untuk mengklasifikasi gunung tersebut adalah menghitung densitas gauss masing-masing fitur.
+Fitur vulkanik dangkal = 37 maka berdasarkan Persamaan (2).
+Langkah kedua hitung likelihood dari setiap kategori status gunung yang direkomendasi.
+Langkah ketiga menghitung nilai probabilitas dengan cara menormalisasi likelihood tersebut sehingga jumlah nilai yang diperoleh=1.
+Langkah terakhir adalah memilih nilai probabilitas tertinggi dari hasil perhitungan probabilitas setiap status gunung yang direkomendasi, dihasilkan nilai probabilitas tertinggi ada pada status siaga sehingga gunung lawu dapat direkomendasikan sebagai gunung dengan status siaga.
+2.2 Algoritma K-NN 
+Algoritma K-nearest neighbor (k-nn) merupakan salah satu algoritma paling populer dalam machine learning hal ini karena prosesnya mudah dan sederhana (Harrington, 2012).
+Selain itu k-nn juga salah satu dari algoritma supervised learning dengan proses belajar berdasarkan nilai dari variabel target yang terasosiasi dengan nilai dari variabel prediktor.
+Dalam algoritma k-nn semua data yang dimiliki harus memiliki label, sehingga ketika ada data baru yang diberikan kemudian dibandingkan dengan data yang telah ada dan diambil data yang paling mirip dan melihat label dari data tersebut.
+Adapun langkah-langkah dari algoritma K-NN adalah: 1. Tentukan parameter K 
+2.Hitung jarak antara data uji dengan data latih.
+Jika data berbentuk numerik maka menggunakan euclidean distance seperti pada Persamaan 3.
+(,)= ()2=1 (3) Keterangan : Xi= data training Yi = data testing D (xi,, yi) = jarak i = variabel data n = Dimensi data.
+3. Jarak tersebut kemudian diurutkan secara descending 
+4. Memilih jarak terdekat sampai pada parameter k 
+5. Memilih jumlah kelas terbanyak lalu diklasifikasikan Berikut ini adalah contoh penerapan K-NN pada klasifikasi status gunung berapi.
+Misalkan data training ada 5 data sebagaimana ditunjukkan pada Tabel 3.
+Diberikan data baru aktivitas gunung api dengan gempa vulkanik dangkal 37 kali, gempa tektonik jauh 15 kali, gempa vulkanik dalam 35 kali, gempa hembusan 45 kali dan status sebelumnya waspada.
+Maka langkah awal untuk mengklasifikasi gunung tersebut adalah menghitung densitas gauss masing-masing fitur.
+Fitur vulkanik dangkal = 37.
+Tahapan awal untuk mengklasifikasi dengan k-nn adalah menentukan nilai K.
+Untuk simulasi ini ditentukan K=3.
+Selanjutnya dihitung jarak setiap data dengan data testing, untuk data numerik maka menggunakan Persamaan 3
+Setelah diperoleh jarak setiap data training dengan data testing selanjutnya diurutkan secara desecending, kemudian dipilih 3 data teratas similaritasnya, hal ini karena ditentukan nilai k= 3.
+Nilai similaritas 3 teratas yaitu ada pada data ke-5 (52,01).
+Data ke-4 (55,31) dan data ke-2 (68,48).
+Langkah terakhir adalah memilih kelas terbanyak, berdasarkan 3 data teratas similaritas kelas terbanyak yaitu ada pada status waspada, sehingga data testing di klasifikasikan sebagai waspada.
+2.3 K-fold cross validation 
+Cross-validasi atau dapat disebut estimasi rotasi adalah sebuah teknik validasi modeluntuk menilai bagaimana hasil statistik analisis akan menggeneralisasi kumpulan data independen.
+Teknik ini utamanya digunakan untuk melakukan prediksi model dan memperkirakan seberapa akurat sebuah model prediktif ketika dijalankan dalam praktiknya.
+Salah satu teknik dari validasi silang adalah k-fold cross validation, yang mana memecah data menjadi k bagian set data dengan ukuran yang sama.
+Penggunaan k-fold cross validation untuk menghilangkan bias pada data.
+Pelatihan dan pengujian dilakukan sebanyak k kali.
+Pada percobaan pertama, subset S1 diperlakukan sebagai data pengujian dan subset lainnya diperlakukan sebagai data pelatihan, pada percobaan kedua subset S1, S3,Sk menjadi data pelatihan dan S2 menjadi data pengujian, dan setererusnya ( Bramer, 2007).
+Pada Gambar 2 merupakan penggunaan 3-fold cross validation.
+Dimana setiap data akan di eksekusi sebanyak 3 kali dan setiap subset data akan mempunyai kesempatan sebagai data testing atau data training.
+model pengujian seperti berikut dengan diasumsikan nama setiap pembagian data yaitu D1, D2, dan D3: 1. Percobaan pertama data D1 sebagai data testing sedangkan D2 dan D3 sebagai data training 2. Percobaan kedua data D2 sebagai data testing sedangkan data D1 dan D3 sebagai data training. 3. Pada percobaan terakhir atau percobaan ketiga data D3 sebagai data testing sedangkan D1 dan D2 sebagai data training.
+Untuk pengukuran performance klasifikasi yaitu dengan cara membandingkan seluruh data uji yang diklasifikasi benar dengan banyaknya data uji.
+Persamaan 4 adalah model yang digunakan untuk mengukur kinerja klasifikasi.
+Selain itu, simpangan baku (standar deviation) juga akan dihitung, simpangan baku adalah ukuran penyebaran data yang menunjukkan jarak rata-rata dari nilai tengah ke suatu titik nilai.
+Semakin besar simpangan baku yang dihasilkan, maka penyebaran dari nilai tengahnya juga besar, begitu pula sebaliknya.
+Tujuan dihitung simpangan baku dalam penelitian ini yaitu untuk melihat jarak antara rata-rata akurasi dengan akurasi setiap percobaan.
+Untuk menghitung simpangan baku menggunakan Persamaan 5 (Brown, 1982).
+2.4 Dataset 
+Dataset yang digunakan pada penelitian ini adalah dataset bersifat publik yang tersedia secara online di website pusat vulkanologi dan mitigasi bencana geologi (PVBMG).
+Data-data tersebut kemudian di uji pada metode klasifikasi yang telah diterapkan pada sistem.
+Dan dilanjutkan dengan validasi data.
+3. HASIL DAN PEMBAHASAN 
+Pada penelitian ini dibagi menjadi dua model pengujian yaitu pengujian dengan metode k-nearest neighbour (k-nn) dan metode naive bayes.
+Kemudian setelah hasil klasifikasi data dari masing-masing metode dilakukan proses validasi data.
+Dan dilanjutkan dengan menghitung standar deviasi dari setiap metode.
+Sistem ini berbasis web dengan bahasa pemograman yang digunakan adalah bahasa PHP.
+Pada Gambar 3 ada hasil implementasi sistem dengan menggunakan bahasa pemograman.
+3.1 Pengujian dengan K-NN 
+Pengujian dengan KNN dilakukan dengan menginisialisasi nilai k pada beberapa angka hasil akurasi tertinggi kemudian dipilih untuk dilakukan proses validasi data dengan k-fold cross validation.
+Flow chart dengan K-NN seperti terlihat pada Gambar 4. 
+Hasil pengujian sistem dengan menggunakan metode klasifikasi KNN dimana terdapat 5 kriteria yaitu gempa vulkanik dangkal, gempa tektonik jauh, gempa vulkanik dalam, gempa hembusan dan status sebelumnya.
+Sedangkan status yang diklasifikasi ada 3 data yaitu status normal, waspada, dan siaga.
+Dalam penelitian ini dataset yang dikumpulkan berjumlah 69 dataset.
+Sebelum diuji dengan validasi data, pertama diuji dengan menerapkan parameter k yang bervariasi, akurasi parameter k tertinggi kemudian dipilih untuk diuji dengan menggunakan validasi data.
+Dalam pengujian dengan variasi k, data dibagi kedalam 46 data latihdan 23 data uji.
+Hasil pengujian diperoleh akurasi sistem dari masing-masing nilai k yaitu k = 2 dengan akurasi 43,48%, k = 3 dengan akurasi 52,17%, k = 5 dengan akurasi 73,91% dan k = 7 dihasilkan akurasi sebesar 52,17%.
+Grafik dari masing-masing akurasi sistem setiap parameter k seperti pada Gambar 5. 
+Berdasarkan pengujian dengan variasi nilai k akurasi tertinggi yaitu ketika nilai k = 7 sehingga ketika di uji dengan validasi data parameter di inisialisasi sama dengan 7.
+Berdasarkan hasil penentuan parameter K diperoleh akurasi tertinggi ketika nilai k di inisialisasi sama dengan 5 yaitu sebesar 73,91%.
+Sehingga parameter k=5 yang dilanjutkan pada tahapan validasi data.
+Dalam penelitian ini dibagi kedalam 3-fold sesuai dengan karaketeristik dari k-fold cross validasi yaitu membagi data sama banyak.
+Pada pembagian data setiap data memiliki masing-masing 23 data.
+Model validasi telah diilustrasikan seperti pada Gambar 2. 
+Pada pengujian pertama yaitu D1 sebagai data testing maka data trainingnya D2 dan D3 diperoleh akurasi sistem sebesar 60,87%, kemudian pengujian kedua dengan data testing D2 dan data training D1 dan D3 dihasilkan akurasi sistem 73,91%.
+Selanjutnya pada pengujian ketiga dengan data testing D3 dan training D1 dan D2 diperoleh akurasi sistem sebesar 56,27%.
+Dari ketiga percobaan pada metode KNN kemudian dihitung rata-rata dari akurasi sistem, maka diperoleh 63,68%.
+Selanjutnya dihitung standar deviasi menggunakan Persamaan 5, gunanya untuk melihat jarak akurasi setiap percobaan dengan rata-rata akurasi.
+3.2 Pengujian dengan naive bayes classifier 
+Dua metode klasifikasi memiliki ciri khas masing-masing sehingga berbeda didalam langkah-langkah untuk proses klasifikasi data.
+Pada Gambar 6 merupakan langkah-langkah atau algoritma yang diterapkan dalam melakukan klasifikasi data status aktivitas gunung berapi dengan menggunakan metode Naive Bayes classifier.
+Sesuai dengan langkah-langkah dari klasifikasi data dengan naive bayes, maka tahapan pertama yang dilakukan dalam proses training data adalah menghitungmean dan standar deviasi bagi kriteria atau atribut yang datanya berbentuk numerik dan menghitung probabilitas setiap kategori bagi fitur yang data berbentuk kategori.
+Simulasi perhitungan telah ditunjukkan pada bagian 2.1.
+ Hasil pengujian dengan naive bayes classifier dan pengukuran kinerja klasifikasi berdasarkan akurasi sistemnya dengan menggunakan Persamaan 4, dan dilanjutkan validasi data dengan 3-fold cross validation, yang mana jumlah data sama banyak yaitu 23 data.
+Ilustrasi validasi data seperti pada Gambar 2. 
+Pada percobaan pertama dengan D1 sebagai data testing maka D2 dan D3 sebagai data training diperoleh akurasi sistem sebesar 78,26%.
+Untuk percobaan kedua dengan D2 sebagai data testing maka D1 dan D3 sebagai data training dihasilkan akurasi sistem sebesar 82,61%.
+Sedangkan pada percobaan ketiga dengan D3 sebagai data testing maka D1 dan D2 sebagai data training dihasilkan akurasi sistem sebesar 78,26%.
+Dari masing-masing akurasi sistem kemudian dihitung rata-rata akurasi sistem dengan cara jumlah seluruh data kemudian dibagi dengan banyaknya pembagian data dihasilkan rata-rata akurasi 79,71%.
+Selanjutnya dihitung standar deviasi, tujuannya untuk melihat jarak akurasi setiap eksperimen dengan rata-rata akurasi menggunakan Persamaan 5 dihasilkan sebagai berikut.
+4. KESIMPULAN
+Berdasarkan pengujian dari dua metode machine learning yang telah diterapkan pada sistem tersebut, diperoleh rata-rata akurasi sistem ketika menggunakan k-nn sebesar 63,68% dan standar deviasi 7,47.
+Sedangkan ketika diterapkan naive bayes classifier dihasilkan rata-rata akurasi sistem sebesar 79,71% dan standar deviasi 3,55%.
+Dengan demikian ketika diterapkan dengan naive bayes classifier akurasi sistem dalam melakukan klasifikasi lebih baik dibandingkan dengan k-nn.
+Selain itu, Jarak akurasi setiap eksperimen dengan rata-rata akurasi lebih dekat ketika menggunakan naive bayes dibandingkan dengan KNN hal ini sesuai dengan nilai standar deviasi yang dihasilkan dari masing-masing metode.

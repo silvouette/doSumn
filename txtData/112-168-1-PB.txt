@@ -1,0 +1,129 @@
+Abstrak
+Penggunaan review produk sebagai suatu sumber untuk mendapatkan informasi dapat dimanfaatkan untuk mengoptimalkan pemasaran suatu produk.
+Situs belanja online merupakan salah satu sumber yang dapat digunakan untuk pengambilan review produk.
+Analisa terhadap produk dapat dilakukan dengan membandingkan antara dua buah produk berbeda berdasarkan fitur produk tersebut.
+Fitur dari suatu produk didapatkan melalui ekstraksi fitur dengan metode double propagation.
+Fitur yang terdapat dalam sebuah review sangat banyak serta terdapat beberapa kata yang memiliki arti yang sama yang mewakili suatu fitur tertentu, sehingga diperlukan suatu pengelompokan terhadap fitur tersebut.
+Pengelompokan suatu fitur produk dapat dilakukan secara otomatis tanpa memperhatikan kamus kata, yaitu dengan menggunakan teknik clustering.
+Hierarchical clustering merupakan salah satu metode yang dapat digunakan untuk pengelompokan terhadap fitur produk.
+Pengujian dengan metode hierarchical clustering untuk pengelompokan fitur menunjukkan bahwa metode average linkage memiliki nilai recall dan f-measure yang paling tinggi.
+Sementara untuk pengujian pelabelan menunjukkan bahwa semantic similarity antar fitur lebih berpengaruh dari pada kemunculan fitur di dokumen.
+Kata kunci: clustering, fitur produk, pelabelan
+1. PENDAHULUAN
+Pesatnya perkembangan World Wide Web dan teknologi informasi telah mempengaruhi perkembangan dalam bidang usaha seperti usaha rumahan, industri, dan perusahaan dengan melalui review produk (KUMAR, 2011).
+Review produk dapat dimanfaatkan untuk mendapatkan informasi dan mengoptimalkan pemasaran produk oleh produsen maupun konsumen.
+Situs belanja online menjadi salah satu sumber untuk menganalisis data reviewdari suatu produk.
+Data review produk dapat dianalisa dengan membandingkan dua produk yang berbeda, sehingga dapat diketahui produk mana yang lebih bagus.
+Pengekstrakan fitur produk perlu dilakukan sebelum membandingkan dua produk.
+Permasalahan dalam mendapatkan fitur dari suatu produk cukup kompleks.
+Hal ini dikarenakan tidak semua kata benda pada kalimat opini adalah fitur dari produk.
+Salah satu cara untuk mendapatkan fitur produk dari kalimat opini adalah menggunakan metode Double Propagation (DP).
+Metode Double Propagation pertama kali diusulkan oleh Qiu (2011).
+Metode ini merupakan metode semi unsupervised karena masih membutuhkan kamus kata yang berisi sedikit kata sifat.
+Metode ini dapat melengkapi kamus kata secara otomatis saat proses ekstrasi fitur produk berlangsung.
+Setiap orang selalu menggunakan kata-kata yang berbeda dalam mendeskripsikan sebuah fitur dari produk yang direview tersebut.
+Misalnya, photo dan picture adalah fitur yang sama atau satu kesatuan dalam kamera (ZHAI, 2011).
+Penggunaan sebuah kamus kata dapat memperoleh sinonim antar fitur.
+Akan tetapi, dalam penggunaan sinonim terdapat beberapa permasalahan, misalnya appearance dan design.
+Kedua kata tersebut bukan sinonim tapi dua kata tersebut adalah satu kesatuan dalam fitur design.
+Masalah tersebut dapat diselesaikan dengan semantic lexical similarity berdasarkan wordnet.
+Pengelompokan terhadap fitur produk sangatlah penting dalam analisa fitur pada review produk karena fitur yang sama bisa memiliki lebih dari satu kata.
+Pengelompokan fitur dapat dilakukan secara manual, sehingga hasil pengelompokan bersifat subjektif yang berbeda antar pakar (AZHAR, 2013).
+Oleh karena itu diperlukan pengelompokan secara otomatis dan tidak berdasarkan kamus kata yang besar.
+Salah satu cara mengelompokansecara otomatis adalah denganmenggunakan teknik clustering.
+Hierarchical clustering merupakan salah satu metode yang dapat digunakan untuk pengelompokan terhadap fitur produk.
+Hierarchical clustering diperlukan untuk menghitung nilai ukuran kesamaan atau kedekatan fitur produk.
+Hierarchical clustering sangat cocok untuk data dokumen teks yang cukup besar dan dapat mempermudah pelabelan klaster fitur (TERRATIPUK, 2006).
+Label dengan kata-kata yang paling sering muncul dilakukan pengelompokkan terlebih dahulu.
+Algoritma hierarchical clustering dapat mendeteksi penggunaan kata yang berbeda di seluruh kategori.
+Algoritma tersebut lebih unggul dan efektif dalam membanding dokumen yang abstrak (POPESCUL, 2001).
+Setelah melakukan proses pengelompokan fitur, permasalahan yang lain adalah bagaimana menentukan label yang dapat mereprentasikan anggota dalam klaster tersebut.
+Penentuan sebuah label biasanya dapat menggunakan teknik klasifikasi, sedangkan pengelompokan fitur produk menggunakan semantic lexical similarity dan sharing word untuk menghitung kedekatan antar kalimat (ZHAI, 2011).
+Akan tetapi pelabelan menggunakan teknik klasifikasi tersebut memerlukan sebuah dataset sebagai training data.
+Terdapat beberapa peneliti yang melakukan pelabelan secara otomatisantara lain dengan menggunakan probabilitas kemunculan (LAU, 2010), menggunakan idf (inverse document frequency) untuk term weighting based ranking dan statistical significance based ranking untuk perhitungannya (MAO, 2012), selain itu ada juga yang menggunakan nilai tf (term frequency) dan idf dalam perhitungannya (TERRATIPUK, 2006).
+Pelabelan menggunakan tf dan idf tidak dapat digunakan dalam pelabelan fitur dikarenakan label harus dapat merepresentasikan semua fitur dalam anggota klaster.
+Karena tidak dapat menggunakan tf dan idf maka pelabelan menggunakan nilai semantic similarity antar fitur.
+Berdasarkan permasalahan tersebut, dalam penelitian ini diusulkan suatu metode untuk pelabelan klaster secara otomatis pada perbandingan fitur review produk.
+Dalam melakukan pelabelan klaster untuk fitur, diperlukan bobot dari masing-masing fitur produk.
+Perhitungan nilai bobot dari masing-masing fitur perlu dipertimbangkan nilai similarity antar fitur produk dan frekuensi kemunculan fitur di dokumen review.
+Dengan mempertimbangkan kedekatan antar fitur dan frekuensi kemunculan fitur diharapkan dapat merepresentasikan hasil semua fitur anggota klaster.
+2. METODE YANG DIUSULKAN 
+Perancangan sistem yang dibangun dalam penelitian ini adalah sistem pemberi rekomendasi produk setelah dilakukan klasterisasi dan pelabelan secara otomatis pada fitur produk dengan memanfaatkan perbandingan review produk.
+Sistem ini memiliki input yang berupa semua dokumen review yang dimiliki oleh suatu produk dan output yang dihasilkan merupakan pemberian rekomendasi yang dimiliki oleh setiap produk.
+Pada sistem ini terdapat delapan tahapan proses yang akan dilakukan.
+Secara umum, masing-masing tahapan dapat dilihat pada Gambar 1.
+2.1. Preprocessing 
+Pada tahap ini,dataset yang berupa review produk diperoleh dari situs Amazon (www.amazon.com).
+Situs ini dipilih karena merupakan salah satu situs jual beli online terbesar dan memiliki customer yang tersebar hampir seluruh dunia.
+Dokumen review ini akan diolah menggunakan aplikasi POS tagger dan dependency parser untuk mendapatkan jenis kata dan relasi ketergantungan tiap katanya.
+Keduanya menggunakan library yang tersedia di stanford.edu untuk mengolah data teks.
+Library ini dapat diunduh secaragratis dihttp://nlp.stanford.edu/software/.
+Hasil review dokumen ini akan digunakan dalam tahap ekstraksi fitur.
+2.2. Ekstraksi Fitur 
+Tahap ekstraksi fitur digunakan untuk mengakstrasi ciri-ciri dari suatu review dokumen.
+Ekstraksi fitur produk yang terdapat pada dataset menggunakan metode double propagation (QUI, 2011).
+Metode ini tidak hanya akan mengekstrak fitur produk saja tetapi juga dapat mengekstrak kata sifat yang dapat dianggap sebagai kata opini.
+Jika pada iterasi pertama terdapat beberapa fitur produk yang tidak dapat diekstrak, diharapkan dengan adanya penambahan kata opini baru, fitur tersebut dapat diekstrak pada iterasi berikutnya.
+2.3. Pembobotan Fitur 
+Tahap ini merupakan perhitungan pembobotan fitur dari masing-masing fitur produk dokumen sebelum dilakukan proses klasterisasi.
+Bobot dari masing-masing fitur didapatkan melalui persamaan (1) dimana adalah bobot dari fitur f ke-i yang didapatkan melalui penjumlahan n skor polaritas kata opiniyang mengomentari fitur f ke-i.
+Skor polaritas suatu kata opini akan bernilai 1 jika kata tersebut adalah kata opini positif, dan bernilai -1 jika kata tersebut adalah kata opini negatif.
+2.4. Filtering Fitur 
+Tahap filtering fitur bertujuan untuk menghilangkan fitur yang tidak digunakan dan bisa menjadi pencilan dalam sebuah klaster.
+Biasanya fitur yang demikian memiliki komentar yang sedikit.
+Filtering fitur dilakukan berdasarkan jumlah kemuculan fitur tersebut dalam semua review produk.
+2.5. Klasterisasi Fitur 
+Setelah dilakukan filtering fitur produk terhadap semua dokumen, langkah selanjutnya adalah proses pengklasteran dokumen menggunakan hierarchical clustering.
+Hierarchical clustering dimulai dengan menjadikan tiap obyek menjadi sebuah klaster dan secara iterasi menggabungkan tiap klaster yang mirip.
+Terdapat beberapa kriteria lingkage umum yang digunakan, seperti single linkage clustering, average linkage clustering, dan complete linkage clustering (TAN, 2006).
+Pengukuran jarak similarity dalam hierarchical clustering ini menggunakan model dari Wu and Palmers (SHENOY, 2012) seperti persamaan (2).
+Perhitungan (,) adalah nilai semantic similarity fitur ke-i dengan fitur ke-j dengan mempertimbangkaninformation content (IC) dari least common subsume (LSC) untuk dua konsep.
+Dalam metode modifikasi ini nilai similarity antara 0 sampai 1, sedangkan dalam penelitian ini menggunakan dissimilarity maka dissimilarity dihitung 1(,).
+2.6. Pelabelan Klaster 
+Pelabelan klaster fitur dihitung berdasarkan total semantic similarity antar fitur dan frekuensi kemunculan fitur dari dokumen.
+Semakin banyak fitur tersebut muncul pada suatu dokumen maka fitur tersebut dianggap penting (AZHAR, 2013).
+Perhitungan total semantic similarity antar fitur didapatkan melalui persamaan (3) dimana adalah total nilai semantic similarity fitur ke-i dan (,) adalah nilai semantic simlirity fitur ke-i dengan fitur ke-j.
+Perhitungan frekuensi kemunculan fitur dalam fitur dokumen review didapatkan melalui persamaan (4) dimana adalah frekuensi dokumen review kemunculan fitur ke-i, adalah total dokumen yang memiliki fitur ke-i, dan adalah total semua dokumen review.
+Dengan kedua rumus dapat diperolehperhitunganbobot dari masing-masingfitur dengan persamaan (5), dimana adalah bobot dari fitur ke-i,adalah total nilai semantic similarity fitur ke-i, adalah frekuensi dokumen review kemunculan fitur ke-i, dan adalah konstanta pertimbangan nilai kemunculan fitur di dokumen.
+Setelah didapatkan bobot masing-masing fitur anggota klaster, lalu dipilih bobot tertinggi untuk dijadikan label.
+2.7. Pembobotan Klaster 
+Tahap ini merupakan perhitungan pembobotan klaster, bobot tersebut di dapat dari masing-masing bobot fitur produk dokumen yang ada di klaster tersebut.
+Bobot dari masing-masing klaster ini didapatkan melalui persamaan (6), ==1, (6) dimana adalah bobot dari klaster ke-i yang didapatkan melalui penjumlahan n skorfitur anggota klaster tersebut.
+2.8. Pemberian Rekomendasi 
+Tahap pemberian rekomendasi tiap produk dengan membandingkan bobot klaster dari kedua produk.
+Bobot klaster yang didapatkan oleh setiap produk harus dibandingkan untuk mengetahui fitur dari produk mana yang lebih unggul.
+Sehingga tiap produk akan memiliki n buah fitur unggul.
+Setelah itu dihitung skor masing-masing produk tersebut dengan menggunakan persamaan (7), dimana adalah skor dari produk p,adalah bobot dari klaster ke-i, dan n adalah jumlah klasteryang dimiliki oleh produk p.
+3. HASIL UJI COBA DAN PEMBAHASAN 
+Uji coba dilakukan dengan menggunakan dataset dari situs amazon.com.
+Sebanyak 6 buah produk dari 3 kategori yaitu smartphone, tablet, dan camera.
+Masing-masing produk memiliki rata-rata 100 komentar.
+Komentar untuk tiap produk tersebut nantinya disebut sebagai dokumen review yang berisi teks opini.
+Uji coba pertama dilakukan menggunakan precision, recall, dan f-measure untuk melihat seberapa baik performa kriteria lingkage dari hierarchical clustering dalam mengelompokan fitur produk.
+Nilai precision yang dimaksud disini adalah proporsi dari suatu set yang diperoleh yang relevan, nilai recall adalah proporsi dari semua dokumen yang relevan di koleksi termasuk dokumen yang diperoleh, sedangkan nilai f-measure adalah harmonic mean dari precision dan recall (TAN, 2006).
+Tabel 1 menunjukkan bahwa metode yang paling bagus untuk clustering fitur produk adalah Avarage linkage clustering karena nilai recall = 77% dan f-measure = 70% dari metode Avarage linkage clustering tertinggi dari pada metode lainnya.
+Jadi algoritma tersebut digunakan dalam uji coba selanjutnya.
+Sedangkan untuk hasil dendogram dari klaster fitur produk menggunakan metode average lingkage clustering dapat dilihat pada Gambar 2, 3, dan 4.
+Uji coba kedua dilakukan untuk melihat seberapa baik hasil dari pelabelan kelompok fitur produk dan menentukan nilai .
+Untuk evaluasi kebenaran pelabelan fitur yang dihasilkan, penelitian ini menggunakan definisi exact match pelabelan yang benarseperti Gambar 5(TERRATIPUK, 2006).
+Definisi dari label yang benar, dihitung kinerjanya menggunakan Match at top N (Macth@N) menunjukkan hasil top N mengandung label yang benar ini adalah indikator biner dan monoton meningkat sebagai peningkatan N (TERRATIPUK, 2006).
+Tabel 2 menunjukkan bahwa nilai 𝛼 yang terbaik dari beberapa uji coba yang dilakukan adalah 0.75, yang berarti nilai semantic simalirty lebih besar pengaruhnya dari pada nilai kemunculan di dokumen.
+Hasil Match @N dari nilai =0.75 dan =1 adalah sama.
+Nilai =0.75 dipilih karena dalam penelitian ini masih mempertimbangkan nilai kemunculan fitur di dokumen tersebut.
+Jika memilih nilai =1 maka kemunculan fitur di dokumen tidak dipertimbangkan.
+Tabel 3 menunjukkan bahwa skor pemberian rekomendasi label phone anggota klaster camera, processor, dan phone dari Samsung Tab 3 adalah negatif sebesar -2.0 yang mengartikan bahwa Samsung Tab 3 memiliki opini yang negatif terhadap fitur phone dan memiliki skor label screen anggota klaster screen dan mini tertinggi sebesar 206.0.
+Sedangkan hampir semua skor pemberian rekomendasi label fitur dari Ipad Mini rata-rata bernilai positif dan lebih unggul daripada yang dimiliki Samsung Tab 3.
+Tabel 4 menunjukkan bahwa skor pemberian rekomendasi label signal dengan anggota klaster signal dari Samsung Galaxy 4 adalah negatif sebesar -8.5 yang mengartikan bahwa Samsung Galaxy 4 memiliki opini yang negatif terhadap fitur signal.
+Sedangkan skor label yang lainnya dari Samsung Galaxy 4 bernilai positif dan lebih unggul skornya di label time, label software, label photo, label device, dan label feature daripada yang dimiliki Iphone 5.
+Sebaliknya Iphone 5 juga lebih unggul di dalam label signal, label design, label phone, dan label thing.
+Skornya Iphone 5 tertinggi di dalam label phone sebesar 1.
+Tetapi skornya Iphone 5 di label device anggota klaster battery, button, dan device bernilai -7.5.
+Tabel 5 menunjukkan bahwa skor pemberian rekomendasi label feature anggota klaster review, feature, dan performance dari Canon EOS sebesar -49.0 yang menyatakan bahwa Canon EOS memiliki opini buruk terhadap label fitur feature.
+Sedangkan skor tertinggi untuk label camera anggota klaster camera, lens, dan set adalah Nikon D3200 sebesar 501.0 dan hampir semua skor label fiturnyalebih unggul daripada yang dimiliki Canon EOS.
+Penelitian ini memiliki kelemahan untuk nilai semantic similarity belum optimal dari fitur produk karena ada beberapa hasil yang tidak sesuai untuk klasterisasi fitur produk.
+Misalnya camera dan phone jaraknya lebih dekat dari pada camera dan photo atau picture padahal seharusnya camera , photo dan picture adalah satu fitur yang sama, hal itu dapat menjadikan hasil klasterisasi tidak sesuai.
+4. KESIMPULAN
+Hasil percobaan dari penelitian ini menunjukkan bahwa metode yang diusulkan dapat melakukan pelabelan klaster fitur secara otomatis.
+Metode yang bagus untuk pengelompokan menggunakan hierarchical clustering adalah avarege linkage, dan nilai 𝛼 untuk metode pelabelan yang diajukan adalah 0.75.
+Pengelompokan dan pelabelan secara otomatis dapat mempermudah dalam melakukan analisa fitur produk smartphone, tablet, dan camera seperti pada Tabel 3, 4, dan 5.
+Penelitian selanjutnya adalah memperbaiki nilai dari semantic simaliry untuk fitur produk.

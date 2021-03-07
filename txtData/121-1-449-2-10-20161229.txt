@@ -1,0 +1,136 @@
+Abstrak
+Pelaksanaan proses penjurusan siswa menggunakan cara manual menyebabkan pengolahan data belum dilaksanakan secara maksimal.
+Hal ini mendorong perlunya mengembangkan sistem berbasis komputer untuk memudahkan proses penjurusan.
+Tujuan penelitian ini adalah menerapkan metode profile matching untuk evaluasi potensi akademik penjurusan siswa.
+Metode profile matching digunakan dengan menganalisa kriteria penilaian akademik dan non akademik.
+Kriteria nilai akademik meliputi nilai rata-rata rapor dan nilai Ujian Nasional sedangkan data nilai non akademik siswa meliputi minat siswa, minat orang tua, tes IQ dan catatan prestasi siswa.
+Adapun rekomendasi jurusan meliputi jurusan IPA, IPS dan Bahasa.
+Selanjutnya kriteria penilaian disesuaikan dengan nilai gap kompetensi jurusan berdasarkan kategori core factor dan secondary factor.
+Perancangan aplikasi menggunakan bahasa pemrograman java dan database mySQL.
+Hasil penelitian berupa aplikasi yang dapat menunjukkan rekomendasi jurusan siswa di Madrasah Aliyah Negeri 2 Kediri.
+Kata kunci evaluasi potensi siswa, profile matching, penjurusan siswa
+I. PENDAHULUAN
+Sesuai peraturan Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor 31 tahun 2014 tentang kerja sama penyelenggaraan dan pengelolaan pendidikan, menyebutkan bahwa pendidikan adalah usaha sadar dan terencana untuk mewujudkan suasana belajar dan proses pembelajaran agar peserta didik secara aktif mengembangkan potensi dirinya untuk memiliki kekuatan spiritual keagamaan, pengendalian diri, kepribadian, kecerdasan, akhlak mulia.
+serta keterampilan yang diperlukan dirinya, masyarakat, bangsa, dan negara [1].
+Adanya kurikulum 2013 memberikan kesempatan kepada siswa khususnya tingkat SMA/MA memilih mata pelajaran yang diminati dan sesuai kemampuan belajarnya.
+Selain itu memberikan peluang dalam mengembangkan potensi yang dimiliki siswa sesuai dengan kemampuan dasar umum (kecerdasan), bakat, minat, dan karakteristk kepribadian [2].
+Proses penjurusan siswa di Madrasah Aliyah Negeri (MAN) 2 Kota Kediri masih menggunakan sistem manual.
+Pengolahan data untuk proses penjurusan belum dilaksanakan secara maksimal maka penulis ingin mengembangkan sistem berbasis komputer.
+Berdasarkan kondisi tersebut maka penelitian ini bertujuan untuk membuat rancangan sistem agar memudahkan user melaksanakan evaluasi potensi akademik yaitu penjurusan bagi siswa Madrasah Aliyah Negeri 2 Kota Kediri.
+Dengan dukungan sistem berbasis komputer, diharapkan cara kerja sistem yang sebelumnya manual dapat dirubah menjadi lebih cepat, tepat, dan efisien.
+Dengan perkembangan sarana teknologi modern yang lebih baik maka akan tercipta suatu lingkungan sistem kerja yang lebih produktif dalam pengambilan keputusan.
+Penelitian ini dilakukan di Madrasah Aliyah Negeri 2 Kota Kediri dengan mengambil data calon siswa kelas X angkatan 2014/2015.
+Adapun rekomendasi jurusan yang digunakan meliputi jurusan IPA, IPS dan Bahasa menggunakan dua kriteria penilaian yang disesuaikan dengan nilai gap kompetensi jurusan berdasarkan kategori core factor dan secondary factor.
+Sedangkan bahasa pemrograman yang digunakan adalah java dan menggunakan database mySQL.
+Beberapa permasalahan dari penelitian terdahulu yang diselesaikan menggunakan metode profile matching antara lain tentang pengangkatan jabatan karyawan [3] dan evaluasi kinerja karyawan untuk promosi jabatan [4].
+Analisa terhadap aspek kapasitas intelektual, aspek sikap kerja dan aspek perilaku yang dikategorikan dalam core factor dan secondary factor menggunakan metode GAP Analysisdikombinasikan dengan metode profile matching mampu menghasilkan sebuah sistem evaluasi kinerja pegawai yang akan dipromosikan [3-4].
+Sistem promosi jabatan ini merupakan rekomendasi pegawai yang cocok menduduki suatu jabatan tertentu [4].
+Selanjutnya penelitian yang membahas tentang penentuan jurusan pada sekolah menengah atas dengan fokus pemilihan jurusan IPA menggunakan metode Simple Additive Weighting (SAW) [5].
+Pemilihan sesuatu benda menggunakan metode tertentu dengan menghasilkan rekomendasi pilihan juga ditunjukkan pada aplikasi pemilihan smartphone menggunakan metode weighted product [6].
+Penelitian sebelumnya tentang peminatan peserta didik pernah dilakukan dengan menggunakan kriteria nilai rapor, nilai ujian nasional, nilai ujian akhir sekolah, catatan prestasi, pilihan peminatan dan hasil psikotest [7].
+Adapun penelitian ini mengevaluasi potensi siswa untuk memberikan rekomendasi jurusan dengan memperhatikan kriteria penilaian akademik dan non akademik menggunakan metode profile matching.
+Penelitian ini menggunakan standar setiap jurusan sebagai acuan evaluasi untuk mengetahui potensi siswa.
+Menurut Kusrini menyebutkan bahwa profile matching merupakan mekanisme pengambilan keputusan dengan mengasumsikan adanya beberapa tingkat variabel predictor ideal yang harus dimiliki oleh pelamar [8].
+Dalam hal ini adalah siswa peserta penjurusan.
+Aspek-aspek penilaian sistem pendukung keputusan tersebut dirancang sedemikian rupa sehingga pengguna yang dalam hal ini adalah manajer bagian sumber daya manusia bisa menentukan aspek-aspek penilaian sendiri secara dinamis sehingga sistem pendukung keputusan tersebut bisa dipakai lebih luas [8].
+Gap kompetensi merupakan proses mencari selisih antara nilai aktual dari suatu profil dengan nilai profil yang diinginkan.
+Sehingga dapat diketahui bahwa semakin besar nilai selisih maka kesempatan lebih besar untuk alternatif tertentu.
+II. METODOLOGI PENELITIAN
+Alur penelitian menguraikan langkah-langkah kegiatan dalam melaksanakan penelitian.
+Langkah penelitian dilakukan mulai dari pengumpulan data, analisa kebutuhan sistem, perancangan sistem, implementasi dan uji coba.
+Adapun alur dalam melaksanakan penelitian, antara lain.
+A. Pengumpulan Data 
+Pada tahap ini dilakukan proses pengumpulan data dengan cara melakukan studi pustaka, wawancara, observasi dan dokumentasi mengenai datadata siswa yang diperlukan.
+Wawancara dilakukan terhadap Guru BK (Bimbingan Konseling) selaku guru yang membantu dalam mendampingi proses penjurusan siswa.
+Observasi dilakukan untuk mendukung kegiatan wawancara yaitu pada bulan April 2016 di Madrasah dengan mengumpulkan data siswa meliputi data minat siswa, data nilai dan catatan prestasi siswa serta data minat orang tua/wali siswa yang diperoleh dari guru BK.
+Dokumentasi data yang diperoleh selanjutnya dikumpulkan dan diolah untuk kemudian dihitung dengan metode profile matching.
+B. Analisa Kebutuhan Sistem 
+Tahap ini meliputi identifikasi masalah yang ada, mendefinisikan masalah menjadi kebutuhan sistem serta melakukan pemahaman teori profile matching untuk melakukan evaluasi potensi akademik siswa.
+Tahapan ini akan menghasilkan dokumen user requirement atau data yang berhubungan dengan keinginan user dalam pembuatan sistem.
+Dokumen ini yang akan menjadi acuan dalam tahap desain sistem C.
+Perancangan Sistem Tahap perancangan sistem akan menerjemahkan syarat kebutuhan dalam sebuah perancangan perangkat lunak sebelum tahap pengkodean.
+Pada proses ini dibuat perancangan arsitektur perangkat lunak, perancangan proses, struktur data, representasi interface, dan algoritma prosedural.
+D. Implementasi Sistem 
+Pada tahap ini dilakukan penerjemahan dari proses desain kedalam bahasa yang bisa dikenali oleh komputer.
+Dalam proses ini dilakukan pembuatan program (pengkodean) sesuai dengan sistem.
+Bahasa pemrograman yang digunakan dalam sistem ini adalah java, dandatabase yang digunakan dalam MySQL.
+E. Pengujian Sistem 
+Pada tahap ini dilakukan pengujian terhadap program yang telah dibuat dengan cara melakukan uji coba terhadap semua fungsi dan modul pada sistem.
+III. HASIL DAN PEMBAHASAN 
+A. Tahapan Perhitungan Profile Matching 
+a) Kriteria penilaian 
+Kriteria penilaian untuk mengevaluasi potensi siswa terdiri dari nilai akademik, yaitu nilai rata-rata raport Sekolah Menengah Pertama/ Madratsah Tsanawiyah dan nilai ujian nasional, sedangkan nilai non akademik terdiri dari nilai tes IQ, minat siswa, minat orang tua/ wali dan catatan prestasi siswa.
+Penjelasan kriteria penilaian ditunjukkan pada Tabel 1.
+b) Standar Jurusan 
+Standar jurusan merupakan pedomen untuk profil ideal yang diharapkan.
+Setiap jurusan memiliki profil ideal yang digunakan untuk menghitung selisih anatara nilai kompetensis siswa dengan standar jurusan.
+Standar jurusan ditunjukkan pada Tabel 2 dan Tabel 3.
+c) Bobot Nilai GAP 
+Pedoman tabel bobot nilai GAP digunakan untuk memberikan bobot nilai GAP masing-masing siswa.
+Tabel 4 menguraikan bobot nilai gap.
+d) Perhitungan Core Factor dan Secondary Factor 
+Nilai core factor kriteria akademik diperoleh dari rata-rata nilai sub kriteria core factor yaitu nilai mata pelajaran Matematika, IPA dan IPS.
+Sedangkan nilai secondary factor kriteria akademik diperoleh dari rata-rata nilai sub kriteria secondary factor yaitu nilai mata pelajaran agama, bahasa Indonesia dan bahasa Inggris.
+Begitu pula untuk kriteria non akademik bahwa nilai core factor kriteria non akademik diperoleh dari rata-rata nilai sub kriteria core factor yaitu tes IQ dan minat siswa, sedangkan nilai kriteria non akademik secondary factor diperoleh dari rata-rata nilai sub kriteria secondary factor yaitu minat orang tua dan catatan prestasi siswa.
+e) Perhitungan Nilai Total 
+Perhitungan nilai total dilakukan setelah masing-masing kriteria penilaian sudah terisi.
+Langkah berikutnya adalah memasukkan nilai x% dari masing-masing kriteria tiap jurusan sesuai core factor dan secondary factor untuk selanjutnya dijumlahkan sehingga diperoleh nilai N1 dan N2 setiap jurusan.
+Nilai untuk core factor sebesar 60% sedangkan nilai secondary factor adalah 40%.
+Nilai x diperoleh sesuai aturan Madrasah.
+f) Hasil Rekomendasi Jurusan 
+Langkah terakhir untuk menentukan nilai ranking pada jurusan tertentu maka setiap rekomendasi jurusan siswa diperoleh dengan menggunakan rumus.
+Misalkan terdapat contoh data siswa seperti ditunjukkan pada Tabel 5.
+Tabel 5 menunjukkan nilai kompetensi siswa.
+Sedangkan nilai gap masing-masing siswa terdiri dari selisish nilai kompetensi siswa dengan profil tiap jurusan, ditunjukkan pada Tabel 6 sampai dengan Tabel 8.
+Nilai bobot tiap siswa pada masing-masing jurusan ditunjukkan pada Tabel 9 sampai dengan Tabel 11.
+Perhitungan nilai core factor dan secondary factor pada pada masing-masing kriteria ditunjukkan pada Tabel 12 sampai dengan Tabel 14.
+Perhitungan nilai total dari seluruh contoh data siswa selanjutnya dihitung untuk memperoleh nilai ranking tiap rekomendasi jurusan, ditunjukkan pada Tabel 15.
+B. Alur Penjurusan 
+Alur penjurusan menunjukkan tahapan siswa dalam melakukan proses evaluasi potensi siswa.
+Alur penjurusan ditunjukkan Gambar 1.
+Siswa mulai mengisi formulir penjurusan, kemudian menyerahkan kepada petugas selanjutnya terdapat jadwal tes untuk siswa sebagai peserta penjurusan.
+Hasil tes diolah dan dimasukkan ke dalam aplikasi oleh operator, yaitu guru Bimbingan Konseling.
+Sesuai dengan metode profile matching dalam aplikasi maka hasil perhitungan menunjukkan rekomendasi jurusan siswa.
+C. Use Case Diagram 
+Use case diagram mendeskripsikan sistem yang sedang berjalan.
+Use case diagram ditunjukkan dengan simbol actor, use case dan asosiasi.
+Aktor merupakan operator yang menjalankan sistem, dalam penelitian ini yaitu guru bimbingan konseling.
+Use case digambarkan dengan simbol elips menunjukkan aktifitas sistem yang disediakan untuk dilakukan oleh aktor.
+Pada Gambar 2 ditunjukkan use case diagram untuk mendeskripsikan sistem rekomendasi jurusan siswa.
+D. Activity Diagram
+Activity diagram menggambarkan alur kegiatan pada use case.
+Pada Gambar 3 ditunjukkan activity diagram pada proses input kompetensi siswa.
+Proses dimulai dengan memasukkan nomor pendaftaran kemudian cek kesesuaian nomor pendaftaran yang telah disimpan, jika ada maka aplikasi dapat menampilkan nama dan jenis kelamin siswa dan jika tidak maka kembali memasukkan nomor pendaftaran.
+Langkah selanjutnya memasukkan nilai akademik dan non akademik siswa, kemudian aplikasi menampilkan standar kompetensi jurusan yang telah tersimpan.
+Nilai kompetensi siswa dan nilai standar jurusan dihitung untuk menghasilkan nilai gap kompetensi.
+Activity diagram untuk menghitung nilai core factor dan secondary factor ditunjukkan pada Gambar 4 berikut.
+E. User Interface 
+User Interface menunjukkan tampilan aplikasi yang disedikan untuk user.
+User interface terdiri dari menu utama, menu untuk input data, menu proses dan menu untuk memberikan informasi rekomendasi jurusan siswa.
+a) Menu Utama 
+Menu Utama berisi modul-modul yaitu data, perhitungan dan laporan.
+Masing-masing modul memiliki tampilan sesuai tujuan modul.
+Pada Gambar 5 ditampilkan menu utama aplikasi rekomendasi jurusan.
+b) Form Profil Jurusan 
+Form profil jurusan digunakan untuk memasukkan standar kriteria penilaian masing-masing jurusan.
+Pada Gambar 6 ditunjukkan tampilan profil jurusan yang dapat diisi sesuai aturan standar jurusan yang digunakan dalam menghitung evaluasi potensi siswa.
+Standar jurusan memiliki nilai dari penggabungan kode jurusan dengan nilai kriteria serta sub kriteria.
+c) Form Kompetensi Siswa
+Form kompetensi siswa digunakan untuk memasukkan nilai siswa tiap kriteria penilaian.
+Selanjutnya mencari selisih atau gap antara nilai siswa dengan standar tiap jurusan.
+Form kompetensi siswa ditunjukkan pada Gambar 7.
+d) Form Hasil Evaluasi 
+Hasil evaluasi potensi siswa untuk rekomendasi jurusan tampak pada Gambar 8.
+Hasil evaluasi menunjukkan rekomendasi jurusan bagi siswa sesuai perhitungan metode profile matching.
+Pengujian sistem dilakukan secara fungsional dengan menguji fungsi-fungsi yang ada pada aplikasi.
+Aplikasi dijalankan secara standalone dengan menjalankan menu utama.
+Selanjutnya masuk menggunakan hak akses dan menjalankan aplikasi untuk mengetahui apakah fungsi-fungsi sudah dapat berjalan.
+Pengujian ini dilakukan pada tahapan perhitungan metode profile matching aplikasi rekomendasi jurusan yaitu menu perhitungan yang terdiri dari form kompetensi siswa, form Pembobotan nilai GAP,form perhitungan factor, form perhitungan nilai total dan form evaluasi hasil sebagaimana ditunjukkan Tabel 16.
+IV. PENUTUP 
+A. Kesimpulan 
+Evaluasi siswa menggunakan metode profile matching dengan kriteria akademik dan non akademik dapat menghasilkan rekomendasi jurusan dengan menghitung nilai gap kompetensi siswa dan standar jurusan sesuai bobot kriteria masing-masing jurusan serta memperhatikan core factor dan secondary factor.
+Nilai total tertinggi dari hasil penjumlahan kriteria akademik dan non akademik menjadi jurusan yang direkomendasikan.
+Dengan adanya aplikasi rekomendasi jurusan dapat membantu pihak Madrasah dalam mengevaluasi potensi siswa.
+B. Saran 
+Pengembangan lebih lanjut dapat dilakukan dengan menambahkan kriteria penilaian maupun pilihan rekomendasi jurusan sesuai identitas sekolah serta dapat menggunakan metode lain sebagai perbandingan.
+Aplikasi ini dapat dikembangkan dengan sistem berbasis web ataupun mobile.

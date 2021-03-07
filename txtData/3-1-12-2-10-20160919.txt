@@ -1,0 +1,154 @@
+Intisari
+Sistem pengenalan identitas personal berdasarkan ciri biometrika adalah suatu sistem pengenalan seseorang berdasarkan pada ciri biometrika yang melekat pada orang tersebut.
+Iris mata merupakan salah satu ciri biometrik yang handal untuk sistem pengenalan identitas personal.
+Bagian sistem pengenalan identitas personal berdasarkan biometrik iris yang dianggap paling krusial adalah deteksi lokasi iris, karena akurasi deteksi iris berpengaruh pada tingkat akurasi sistem secara keseluruhan.
+Lokasi iris pada citra mata dibatasi oleh dua buah lingkaran yang memisahkan antara bagian irisdengan pupil dan sklera.
+Telah banyak metode-metode yang diusulkan oleh para peneliti untuk menghasilkan deteksi lokasi iris dengan akurat dan cepat.
+Masalah akurasi, kecepatan waktu eksekusi dan ketahanan terhadap noise merupakan bidang penelitian yang menantang pada deteksi iris.
+Makalah ini menyajikan metode deteksi iris menggunakan metode black hole dan circle curve fitting.
+Langkah pertama, mencari batas dalam lingkaran iris yang memisahkan antara daerah iris dan pupil.
+Dengan metode black hole yang bekerja berdasarkan fakta bahwa lokasi pupil merupakan daerahlingkaran yang paling hitam dan memiliki distribusi nilai intensitas yang seragam, maka lokasi pupil dapat ditentukan dengan teknik pengambangan.
+Batas lingkaran pupil dapat ditentukan dengan circle curve fitting dari parameter lingkaran daerah pupil.
+Langkah kedua,mencari batas luar lingkaran iris yang memisahkan antara iris dan sklera.
+Peta tepi citra iris dicari dengan menggunakan deteksi tepi Canny, kemudian diambil satu komponen tepi arah vertikal yang dapat mewakili batas lingkaran luar iris.
+Dari komponen tepi tersebut, dihitung jari-jari iris yang berpusat di pusat pupil.
+Dengan jari-jari iris dan pusat iris maka dapat ditentukan batas luar iris menggunakan circle curve fitting.
+Kata Kunci -Sistem pengenalan identitas personal, biometrik iris, metode black hole, circle curve fitting 
+I. PENDAHULUAN
+Kebutuhan akan rasa aman merupakan hal yang menjadi prioritas utama pada beberapa tahun terakhir ini.
+Fenomena ini diakibatkan oleh meningkatnya angka kejahatan yang terjadi di semua sendi kehidupan.
+Tidak hanya perseorangan, tapi juga instansi swasta maupun pemerintah rentan akan tindak kejahatan yang membahayakan kepentingan atau bahkan nyawa mereka.
+Dengan demikian, perlu adanya sistem keamanan handal yang dapat bekerja secara otomatis dan dapatmelindungi setiap kepentingan dan nyawa manusia.
+Salah satu sistem keamanan tersebut adalah sistem pengenalan identitas personal yang mampu mengenali dan mengidentifikasiseseorang secara otomatis berdasarkan sesuatu yang dapat dikenal dan diketahui.
+Dulu, pengenalan identitasdilakukan dengan menggunakan metode tradisional yang masih banyak digunakan sampai sekarang.
+Pada metode tradisional, pengenalan identititasbanyak menggunakan PIN, password, kartu pengenal atau kunci.
+Terdapat beberapa kelemahan dari metode tradisional , diantaranya adalah dapat hilang atau dicuri, dapat digunakan bersama-sama, mudah di duplikasi, dan dapat terlupakan.
+Berbagai kelemahan metode tradisional tersebut menjadi salah satu pemicu perkembangan teknologi biometrika.
+Pengertian biometrika itu sendiri adalah mengukur karakteristik pembeda pada fisik atau perilaku seseorang yang dilakukan untuk melakukan pengenalan secara otomatis terhadap identitas orang tersebut[1].
+Kelebihan dari sistem biometrika adalah seseorang tidak akan lupa atau kehilangan sifat fisik atau perilaku , tidak seperti ketika mereka kehilangan password atau kartu identitas.
+Biometrika berdasarkan karakteristik fisik seperti DNA, telinga, jejak panas pada wajah, geometri tangan, wajah, sidik jari, iris, gigi dan bau dari keringat tubuh.
+Sedangkan biometrika berdasar karakteristik perilaku seperti gaya berjalan,hentakan tombol, tanda tangan dan suara[1].
+Diantara ciri biometrika yang telah banyak dikembangkan, maka ciri biometrika iris mata termasuk ciri yang paling handal dilihat dari beberapa sisi, diantaranya iris mata terlindungi dari area luar dan untuk mengambil citra iris tidak membutuhkan sentuhan fisik sehingga sulit dipalsukan dan tidak dapat dicuri, iris terbentuk sejak awal kehidupan dan teksturnya tidak berubah seumur hidup serta memiliki struktur fisik yang sangat kaya akan informasi [2].
+Deteksi iris merupakan salah satu tahap yang paling penting dalam sistem pengenalan identitas personal berdasarkan iris mata.
+Bagian citra mata tidak hanya terdiri dari iris saja, tetapi di dalamnya terdapat pupil, sklera, kelopak mata, bulu mata atau bahkan noise karena pengaruh cahaya seperti ditunjukkan pada Gambar 1.
+Untuk dapat mendeteksi dan memisahkanlokasi iris dari bagian-bagian citra mata yang lain, diperlukan metode deteksi iris yang akurat.
+Akurasi pada deteksi iris akan berpengaruh terhadap proses selanjutnya seperti proses ekstraksi ciri, dan bahkan akan berpengaruh secara langsung terhadap tingkat akurasi sistem secara keseluruhan.
+Topik utama penelitian pada deteksi iris terutama masalah keakurasian penentuan lokasi iris, kecepatan waktu eksekusi dan ketahanan terhadap noise.
+Pada penelitian ini, diusulkan metode deteksi iris berbasis informasi distribusi nilai aras keabuan dan nilai gradien tepi setiap piksel pada citra iris.
+Penentuan batas-bataslingkaran dalam dan luar iris menggunakan parameter-parameter kurva lingkaran dengan teknik circle curve fitting.
+Dengan mengasumsikan bahwa letak titik pusat iris dan pupil adalah sama dan bentuk geometris keduanya adalah lingkaran maka metode yang kami usulkan bekerja secara akurat dengan komputasi yang ringan sehingga waktu eksekusipun menjadi cepat.
+Tidak semua bagian iris diambil untuk proses ekstraksi ciri, karena beberapa bagian iris terutama bagian atas iris banyak yang tertutup noise berupa kelopak mata dan bulu mata, sehingga kami hanya mengambil setengah bagian bawah iris dengan jarak sebesar 75%jari-jari iris dihitung mulai dari titik pusat iris seperti yang ditunjukkan pada Gambar 2.
+Makalah penelitian ini disusun sebagai berikut : Pada bab I, dijelaskan mengenai pendahuluan penelitian.
+Pada bab II, adalahtinjauan pustaka yang menjelaskan mengenai review beberapa penelitian di bidang deteksi iris yang telah ada.
+Bab III adalah metodologi penelitian yang diusulkan.
+Bab IV adalah hasil pengujian yang menunjukkan unjuk kerja metode yang diusulkan dibandingkan dengan beberapa metode yang telah ada.
+Bab V adalah kesimpulan.
+II. TINJAUAN PUSTAKA
+Setelah akuisisi citra mata, bagian selanjutnya yang sangat penting pada sistem pengenalan identitas personal berdasarkan iris adalah deteksi lokasi iris.
+Deteksi iris bertujuan untuk mencari lokasi iris yang terletak diantara pupil dan sklera dibawah kondisi kualitas citra iris yang beragam, adanya noise pada citra iris seperti kelopak mata, bulu mata, dan specular reflection.
+Telah banyak metode-metode yang diusulkan para peneliti untuk dapat mendeteksi lokasi iris secara akurat dan cepat.
+Diantara metode-metode tersebut, yang paling terkenal dan banyak digunakan untuk teknologi utama dari metode-metode deteksi iris lainnya adalah metode yang diusulkan oleh Daugman[3][4] dan Wildes[5].
+Daugman mengusulkan sebuah operator integro-diferensial untuk mencari batas-batas lingkaran iris, batas kelopak mata bagian atas dan bawah.
+Operator integro-diferensial yang diusulkan Daugman didefiniskan sebagai berikut : (1)Dimana I(x,y) adalah citra keabu-abuan, s sebagai kontur lingkaran dengan jari-jari r dan titik pusat (xo,yo), serta G adalah tapis Gaussian.
+Operator bekerja dengan mencari batas lingkaran iris dimana terjadi perubahan maksimum nilai piksel pada kontur lingkaran dengan mengubah-ubah nilai jari-jari r dan titik pusat (xo,yo).
+Wang et.al [6] menggunakan operator Daugman untuk mencari lokasi lingkaran luar iris dengan membatasi daerah pencarian iris pada jangkauan sudut (- p/12, p/12) dan (11p/12, 13p/12) dan menghitung panjang langkah terbaiknya sehingga waktu pencarian dapat dipercepat.
+Dalam beberapa kasus, titik pusat iris tidak selalu sama dengan titik pusat citra sehingga Shamsi et.al [7] mengusulkan pendekatan Average Square Shrinking untuk mencari titik pusat dan jari-jari potensial untuk kontur lingkaransebelum operator integro-diferensial dikerjakan.
+Sedangkan Nsaef [8] menggunakan satu titik pusat untuk pupil dan iris pada metode Daugman.
+Radman et.al [9] mencari titik pusat kasar pupil terlebih dulu dengan menggunakan tapis Gabor lingkaran, lalu lingkaran iris dan pupil dicari menggunakan operator integro diferensial dengan anggapan bahwa titik pusat iris dan pupil yang sebenarnya terletak disekitar titik pusat kasar pupil.
+Metode deteksi iris berdasarkan transformasi Hough pertama kali diusulkan oleh Wildes [5].
+Langkah pertama pada metode ini yaitu dengan menentukanpeta tepi yang dicari dari nilai derivatif pertama pada nilai intensitas citra mata dan kemudian melakukan pengambangan terhadap hasilnya.
+Berdasarkan peta tepi tersebut, dilakukan pemungutan suara pada ruang Hough untuk parameter lingkaran yang melewati setiap titik tepi.
+Parameter lingkaran tersebut yaitu titik pusat (xc,yc) dan jari-jari (r) yang sesuai dengan persamaan berikut :(2) Nilai maksimum dari parameter lingkaran yang diperoleh melalui pemungutan suara merupakan koordinat lingkaran terbaik yang mewakili lingkaran iris.
+Kelemahan metode transformasi Hough ini adalah komputasinya berat dan waktu eksekusi menjadi lama.
+Peningkatan metode transformasi Hough berkisar pada pengurangan beban komputasi dan waktu eksekusi.
+Beberapa peneliti yang mengusulkan peningkatan metode berbasis transformasi Hough diantaranya seperti: Chuan[10] menggunakan teori himpunan Fuzzy untuk menentukan titik-titik tepi yang tepat dari titik-titik tepi yang tidak pasti yang dihasilkan dari deteksi tepi Canny, sebelum menerapkan transformasi Hough pada titik-titik tepi tersebut.
+Huan et.al [11], Li et.al [12], Mahadeo et.al [13], Sundaram et.al [14], dan Masek[15] membatasi daerah citra mata yang akan dicari peta tepinya hanya pada daerah tertentu saja yang berisi iris atau pupil.
+Transformasi Hough dikerjakan pada titik-titik tepi yang dihasilkan dari daerah tersebut untuk menentukan batas luar atau dalam lingkaran iris.
+Karena tidak semua daerah citra mata digunakan untuk mencari titik tepi, maka komputasi menjadi lebih ringan dan waktu eksekusi lebih cepat.
+Metode lain yang banyak digunakan untuk deteksi lokasi iris adalah model active contour [16][17][18][19].
+Kontur didefinisikan sebagai himpunan n buah simpul yang saling terhubung sebagai suatu kurva tertutup.
+Pergerakan kontur diakibatkan oleh daya luar dan dalam yang bekerja pada simpul.
+Daya dalamakan mendorong kontur mengembang ke arah luar (menuju sklera) sedang daya luar mendorong kontur ke arah dalam (pupil).
+Pergerakan kontur akan terus terjadi sampai mencapai kondisi equilibrium.
+Nilai rata-rata dari jari-jari dan titik pusat kontur adalah batas lingkaran iris.
+Gook Ko et.al[20] menggunakan metode pencocokan template untuk mendapatkan batas lingkaran iris.
+Untuk mencari batas dalam lingkaran iris, digunakan 8 masksedangkan untuk mencarai batas luar lingkaran iris digunakan 6 mask.
+Setiap mask tersebut dikalikan dengan setiap daerah lingkaran pencarian dengan mengatur titik pusat dan radiusnya.
+Lingkaran yang mempunyai nilai terbesar ditetapkan sebagai batas lingkaran iris.
+Zuo et.al[21] menggunakan metode ellip curve fitting untuk menentukan batas lingkaran iris.
+Parameter ellip yang dicari seperti titik pusat, panjang axis mayor dan axis minor serta sudut rotasi.
+Zhaofeng He et.al[22] menggunakan detektor adabost-cascade untuk mencari lokasi kasar pusat iris, lalu titik-titik tepi batas iris ditentukan.
+Sebuah model elastis dengan nama pulling dan pushing dibangun, dengan model elastis ini, titik pusat dan jari-jari batas lingkaran iris secara iteratif disempurnakan dengan hukum Hooke.
+Metode lain yang dapat dipertimbangkan untuk deteksi iris seperti metode berdasarkan nilai statistika[23] dan pertumbuhan lingkaran pupil[24].
+III. METODOLOGI PENELITIAN
+Pada penelitian ini, diasumsikan bahwa letak titik pusat pupil dan iris adalah sama serta kontur iris dan pupil berbentuk lingkaran.
+Ada tiga tahapan pada deteksi iris, yaitu pertama, mencari lokasi batas lingkaran iris; kedua, menentukan daerah iris target; ketiga, melakukan normalisasi daerah iris yang ditarget.
+A. Bahan dan Alat Penelitian 
+Pada penelitian ini, digunakan bahan penelitian berupa citra iris yang didapatkan dari database citra iris CASIA-IrisV4 tipe interval.
+Deskripsi CASIA-IrisV4 adalahsebagai berikut : citra grayscale 8 bit dengan resolusi 320x280 dan berekstensi file JPEG.
+Citra iris diambil dari 249 orang dalam2 sesi waktu yang berbeda.
+Alat yang digunakan pada penelitian yaitu sebuah komputer dengan spesifikasi; prosesor Intel Core i3-350M , kecepatan clock 2,26 Ghz dan DDR3 memori 2 GB.
+Perangkat lunak Matlab 2009b.
+B. Deteksi Batas Lingkaran Pupil 
+Umumnya, pada citra iris terdapat distribusi nilai intensitas yang seragam pada bagian pupil.
+Selain distribusi intensitas yang seragam, bagian pupil yang berbentuk bulat cenderung lebih gelap dibandingkan dengan bagian lain dari citra iris.
+Metode black hole adalah suatu metode yang bekerja dengan memanfaatkan informasi diatas, untuk mendapatkan batas lingkaran pupil dapat dilakukan dengan teknik pengambangan dengan nilai ambang 25.
+Tetapi karena pada database CASIA-IrisV4 tipe interval, setiap citra memiliki tingkat kekontrasan yang berbeda-beda, maka perlu dilakukan penyesuaian kekontrasan dengan ekualisasi histogram seperti pada Gambar 3b.
+Sebelum dilakukan teknik pengambangan dengan nilai ambang 25, citra iris hasil ekualisasi histogram dihaluskan melalui tapis Gaussian seperti ditunjukkan pada Gambar 3c.
+Citra biner yang dihasilkan oleh pengambangan dengan nilai ambang 25, ternyata masih memiliki noise seperti bulu mata atau kelopak mata yang memiliki nilai intensitas kurang dari 25 serta lubang-lubang pada pupil akibat specular reflection, Untuk menghilangkan noise-noise tersebut, dilakukan proses filling untuk menutup lubang-lubang hitam pada pupil serta penapisan dengan tapis median untuk menghilangkan atau mengurangi noise bulu mata dan kelopak mata.
+Daerah pupil ditentukan dengan mencari daerah non-zero terbesar pada citra biner dan menghilangkan daerah lainnya.
+Proses operasi morpologi untuk mendapatkan daerah pupil pada citra biner seperti ditunjukkan pada Gambar 4.
+Dengan asumsi bahwa bentuk geometris pupil dapat dimodelkan dalam geometris lingkaran, maka teknik circle curve fitting dapat diterapkan untuk menentukan batas-batas lingkaran pupil.
+Parameter-parameter lingkaran pupil yang harus dicari adalah titik pusat dan jari-jari.
+Langkah pertama adalah menentukan jari-jari pupil dengan cara mencarinilai minimal dan maksimal baris serta kolom daerah pupil, lalu diameter dan jari-jari pupil arah baris dan kolom dapat diperoleh, seperti ditunjukkan pada Gambar 5.
+Setelah jari-jari pupil didapatkan, maka titik pusat lingkaran pupil dapat dicari dengan persamaan berikut ini :
+Batas lingkaran pupil dapat dicari dengan menggunakan parameter lingkaran diatas sesuai persamaan berikut ini : 
+Hasil deteksi batas lingkaran pupil menggunakan metode black hole dan circle curve fitting seperti ditunjukkan pada Gambar 6.
+C. Deteksi Batas Luar Lingkaran Iris 
+Untuk menentukan batas luar lingkaran iris tidak semudah seperti menentukan batas lingkaran pupil.
+Hal ini disebabkan karena kekontrasan warna sklera dan iris tidak terlalu tajam sehingga batas antara keduanya tidak begitu jelas.
+Noise berupa kelopak mata dan bulu mata biasanya menutupi sebagian daerah atas atau bawah iris sehingga akan mengganggu penentuan batas luar lingkaran iris.
+Metode yang diusulkan untuk menentukan batas luar lingkaran iris adalah dengan teknik circle curve fitting, yaitu mencari satu sisi dari batas luar lingkaran iris pada arah vertikal yang terbebas dari noise.
+Karena diasumsikan bahwa titik pusat lingkaran iris dan pupil adalah sama, maka jari-jari lingkaran iris dapat diperoleh dengan menghitung jarak titik pusat iris dengan salah satu batas luar lingkaran iris.
+Langkah-langkah untuk mendapatkan batas luar lingkaran iris seperti ditunjukkan pada Gambar 7.
+Mencari peta tepi citra iris menggunakan deteksi tepi Canny dengan nilai ambang 0.15 dan deviasi 3.
+Nilai ambang dan deviasi tersebut diperoleh dengan metode eksperimen pada beberapa sampel citra.
+Hilangkan titik-titik tepi pada daerah persegi yang melingkupi daerah pupil, dengan tujuan untuk menghilangkan titik-titik tepi pada batas lingkaran pupil.
+Lakukan penapisan dengan tapis sobel arah vertikal untuk memperoleh batas luar lingkaran iris arah vertikal.
+Ambil piksel tepi yang memiliki komponen terhubung paling banyak sebagai salah satu sisi batas luar lingkaran iris.
+Menentukan jari-jari lingkaran iris dengan menghitung jarak titik pusat iris dengan batas luar lingkaran iris.
+Pada Gambar 8 ditunjukkansalah satu sisi batas luar lingkaran iris yang diperoleh dari proses Gambar 7.
+Untuk menentukan jari-jari iris, jarak titik pusat dengan tiga titik pada batas luar lingkaran iris harus dicari terlebih dulu, yang masing-masing dinotasikan dengan R1, R2 dan R3.
+Nilai deviasi standar dari ketiga variabel tersebut lalu dicari dengan persamaan (11) dan berdasarkan deviasi standar tersebut, jika menunjukkan simpangan datanya jauh, maka dicari dua nilai dari tiga variabel tersebut yang memiliki selisih nilai kecil untuk dirata-ratakan nilainya sebagai jari-jari iris.
+(11)(12)Untuk menentukan batas luar lingkaran iris dari nilai titik pusat iris dan jari-jari iris digunakan teknik circle curve fitting sesuai persamaan (13) dan (14) dan hasilya seperti yang ditunjukkan pada Gambar 7f .
+(13)(14) Beberapa contoh hasil deteksi batas luar lingkaran iris seperti yang ditunjukkan Gambar 9 berikut ini.
+D. Menentukan Daerah Iris Target
+Daerah iris dapat tertutupi oleh kelopak mata atau bulu mata sehingga akan menghilangkan informasi pola tekstur pada iris.
+Penelitian-penelitian deteksi iris sebelumnya juga berusaha mendeteksi adanya bulu dan kelopak mata dan menghilangkan pengaruhnya agar tidak mengganggu tahap pengenalan pola iris, tetapi tentunya cara tersebut akan menambah beban komputasi dan waktu eksekusi.
+Untuk itu, kami membatasi daerah iris yang akan diekstraksi pola teksturnya hanya pada daerah yang tidak tertutupi kelopak mata atau bulu mata, yaitu setengah daerah irisbagian bawah sepanjang sudut 00 - 1800 dengan panjang jari-jari sebesar 0,75% dari pusat iris.
+Beberapa contoh daerah iris target seperti yang ditunjukkan pada gambar 10.
+E. Normalisasi Daerah Iris Target 
+Pada proses normalisasi, citra iris target hasil deteksi diubah ke dalam bentuk persegi panjang dengan ukuran yang tetap.
+Hal ini dilakukan untuk mengatasi kemungkinanperubahan ukuran dimensi iris yang dapat berubah karena pengaruh perubahan pada daerah pupil.
+Seperti yang telah diketahui bahwa ukuran dimensi pupil dapat membesar dan mengecil sebagai akibat dari variasi pencahayaan pada pupil.
+Normalisasi dilakukan dengan memetakan ulang setiap titik pada daerah iris (koordinat kartesian) kedalam koordinat polar seperti yang ditunjukkan pada Gambar 11.
+Nilai r adalah tinggi daerah persegi panjang yang besarnya selisih antara jari-jari iris dengan jari-jari pupil sesuai dengan persamaan (15).
+(15) Sedangkanadalah panjang daerah persegi panjang yang besarnya merupakan keliling lingkaran daerah iris.
+Untuk memetakan ulang setiap titik pada daerah iris ke dalam koordinat polar seperti pada Gambar 11, maka perlu dicari nilai setiap piksel pada koordinat kartesian (x,y) pada jarak r dan panjangsesuai persamaan (16a dan 16b).
+Karena daerah iris target hanya setengah keliling lingkaran iris, maka besarnyaantara sudut 00 sampai 1800 dan besarnya rn bervariasi dengan nilai nimimal sebesar jari-jari pupil dan nilai maksimal sebesar jari-jari iris.
+IV. HASIL PENGUJIAN 
+Pengujian metode yang diusulkan dilakukan pada citra iris CASIA-IrisV4 interval yang memiliki banyak noise , di antaranya yaitu tingkat kekontrasan setiap citra berbeda-beda, adanya kelopak mata dan bulu mata, serta adanya specular reflection.
+Parameter-parameter yang diamati adalah akurasi deteksi iris dibawah kondisi kualitas citra irisyang tidak ideal, serta waktu eksekusi deteksi iris.
+Hasil pengujian metode kami terhadap 100 citra iris menunjukkan bahwa akurasi deteksi lingkaran pupil sebesar 100% sedangkan akurasi deteksi lingkaran luar iris sebesar 99%.
+Sehingga akurasi deteksi daerah iris secara keseluruhan sebesar 99%.
+Data ini dapat dilihat pada Tabel 1.
+Waktu eksekusi deteksi iris untuk setiap citra iris dari 100 citra seperti yang ditunjukkan pada Gambar 13 dengan waktu rata-rata sebesar 0,917 detik.
+Untuk mengukur kinerja metode deteksi iris yang kami usulkan, yaitu dengan membandingkan kinerja metode kami dengan beberapa metode lain, parameter-parameter yang dibandingkan seperti tingkat akurasi dan waktu eksekusi.
+Pada Tabel 2 ditunjukkan perbandingan kinerja tingkat akurasi dan waktu eksekusi antara metode yang kami usulkan dengan metode yang diusulkan oleh Mahadeo[13] dan Masek[15].
+Sedangkan perbandingan waktu eksekusi ketiga metode diatas ditunjukkan pada grafik Gambar 14.
+Kesalahan deteksi iris sebesar 1% pada metode yang diusulkan terjadi karena titik-titik tepi yang digunakan untuk menentukan jari-jari iris bukan batas luar lingkaran iris, jadi terjadi kesalahan pemilihan titik tepi karena kami memilih titik-titik tepi yang mempunyai komponen terhubung paling besar sebagai salah satu batas luar lingkaran iris.
+Pada Gambar 15a ditunjukkan peta tepi citra iris , dimana metode yang diusulkan melakukan kesalahan pendeteksian lingkaran iris.
+Pada Gambar 15b ditunjukkan titik tepi yang mempunyai komponen terhubung paling besar dan Gambar 15c ditunjukkan kesalahan deteksi batas luar lingkaran iris.
+V. KESIMPULAN
+Berdasarkan analisis hasil pengujian metode yang diusulkan terhadap 100 citra iris serta membandingkan kinerjanya dengan metode lain, maka dapat disimpulkan bahwa metode deteksi iris berdasarkan black hole dan circle fitting menunjukkan kinerja yang baik dengan tingkat akurasi 99% dan rata-rata waktu eksekusi sebesar 0,917 detik, dibandingkan dengan metode Mahadeo yang hanya memperoleh akurasi 84% dengan rata-rata waktu eksekusi 2,55 detik, serta metode Masek dengan akurasi 91% dan waktu eksekusi 11,547 detik.
+Pada metode Mahadeo dan Masek, waktu untuk mendeteksi daerah iris menjadi lebih lama dibandingkan dengan metode yang diusulkan pada penelitian ini karena kedua metode tersebut menggunakan transformasi Hough untuk menentukan batas-batas lingkaran iris sehingga dibutuhkan waktu lama untuk proses voting.

@@ -1,0 +1,138 @@
+Abstrak
+Thresholding merupakan metode yang cukup populer untuk segmentasi suatu gambar.
+Untuk mensegmentasi suatu gambar grayscale menjadi gambar biner, bi-level thresholding bisa digunakan.
+Sedangkan untuk mensegmentasi citra grayscale ke dalam beberapa varian digunakanlah multi-level thresholding.
+Metode Maximum Tsallis Entropy (MTT) adalah salah satu metode yang bisa digunakan.
+untuk pencarian multi threshold pada suatu citra grayscale.
+Akan tetapi metode ini memiliki waktu komputasi yang sangat besar jika jumlah threshold yang dicari semakin banyak.
+Oleh karena itu, suatu metode baru diusulkan dalam penelitian ini yang merupakan penggabungan antara metode Maximum Tsallis Entropy dan algoritma Honey Bee Mating Optimization (HBMO) untuk mendapatkan multilevel threshold dari suatu citra grayscale dalam waktu yang relatif singkat.
+Metode penggabungan yang diusulkan ialah dengan memfungsikan algoritma MTT sebagai alat untuk mencari nilai fitness dari suatu individu dalam algoritma HBMO.
+Semakin baik nilai fitness yang dimiliki oleh individu, semakin baik pula threshold yang ditemukan.
+Hasil yang didapat dari ujicoba menunjukkan bahwa algoritma hybrid ini mampu mencari multi threshold dengan tingkat akurasi mencapai 98% dan waktu komputasi hingga 10 kali lebih cepat dibandingkan dengan waktu komputasi dari metode MTT untuk mencari 3 level threshold.
+Kata Kunci: Thresholding, Maximum Tsallis Entropy, Honey Bee Mating Optimization 
+1 PENDAHULUAN
+Thresholding merupakan metode yang cukup populer untuk segmentasi suatu citra.
+Untuk mensegmentasi suatu citra grayscale menjadi citra biner, bi-level thresholding bisa digunakan.
+Sedangkan untuk mensegmentasi citra grayscale ke dalam beberapa varian digunakanlah multi-level thresholding.
+Thresholding banyak digunakan pada aplikasi pemrosesan citra seperti pengenalan tulisan tangan, diagnosa suatu penyakit, pengenalan wajah dan yang lainnya.
+Ada banyak literatur yang membahas tentang image thresholding.
+Pada dasarnya metode thresholding bisa diklasifikasikan menjadi dua, yaitu metode parametric dan nonparametric.
+[1] Untuk pendekatan parametric, distribusi gray-level dari suatu citra diasumsikan mematuhi distribusi gaussian, kemudian pendekatan ini akan mencari nilai suatu parameter dari distribusi gaussian yang paling sesuai untuk histogram tersebut.
+Pendekatan nonparametric akan berusaha menemukan threshold yang paling optimal yang memisahkan fraksi-fraksi dalam suatu histogram berdasar pada beberapa kriteria diskriminan.
+Kriteria Otsu [2] adalah salah satu metode pencarian thresholding dengan pendekatan nonparametric yang paling populer.
+Otsu mencoba untuk mencari thresholding dari suatu histogram dengan cara memaksimalkan jarak antar varian kelas.
+Akan tetapi, formula yang digunakan untuk memaksimalkan jarak ini masih terlalu kompleks sehingga membutuhkan waktu komputasi yang cukup lama Huang dkk [3], memodifikasi metode Otsu untuk mengoptimasi pencarian multi-level threshold pada suatu citra.
+Di samping memaksimalkan jarak antar class variance, pengoptimasian pencarian thresholding juga menggunakan kriteria-kriteria yang lain Para peneliti pada umumnya sependapat bahwa teknik pencarian menggunakan entropi maksimum adalah teknik pencarian yang tradisional, oleh karena itu banyak teknik lain dicoba untuk dikembangkan.
+Metode entropi maksimum tradisional pada umumnya merujuk pada konsep entropi yang diperkenalkan oleh Shannon [4].
+Entropi Shannon secara umum banyak digunakan untuk mengevaluasi entropi dari distribusi densitas sebuah probabilitas.
+Namun, Entropi Shannon mempunyai kelemahan terhadap penanganan data yang mempunyai ketidakseimbangan dalam frekuensi data.
+Dalam kasus pencarian thresholding, Entropi Shannon akan menemui kesulitan saat terdapat suatu warna foreground yang memiliki frekuensi jauh lebih sedikit dari pada warna background yang ada di sekitarnya.
+Tsallis mengajukan entropi yang lebih bersifat umum untuk memperbaiki kelemahan Entropi Shannon dengan menambahkan suatu parameter (q) yang mampu menjadikan distribusi probabilitas menjadi lebih sensitif.
+Metode Maximum Tsallis Entropy (MTT) ini cukup efisien untuk memecahkan permasalahan bi-level thresholding [5].
+Akan tetapi, permasalahan muncul ketika metode ini dihadapkan pada kasus multi-level thresholding.
+Waktu komputasinya akan semakin meningkat secara signifikan dengan semakin banyaknya threshold yang harus ditemukan.
+Yudhong, dkk [1] mengaplikasikan teknik Maximum Tsallis Entropy (MTT) dengan menggunakan algoritma Artificial Bee Colony yang terinspirasi oleh perilaku lebah dalam mencari makanan.
+Horng, dkk [6], mengaplikasikan teknik Maximum Entropy (MET) untuk pemilihan thresholding yang paling optimal dan menggunakan algoritma honey bee mating optimization (HBMO) untuk mempercepat proses pencariannya.
+Metode HBMO sendiri terinspirasi oleh perilaku koloni lebah ketika bereproduksi.
+Kelebihan dari algoritma HBMO dibandingkan dengan algoritma Artificial Bee Colony adalah adanya dua kali evaluasi pencarian individu yang terbaik, sehingga bisa mencapai nilai threshold yang lebih optimal.
+[7] Oleh karena itu, dalam penelitian ini diusulkan suatu algoritma baru yang menggabungkan metode Maximum Tsallis Entropy dan Honey Bee Mating Optimization (MTHBMOT) untuk pencarian multilevel threshold pada suatu citra grayscale untuk mendapatkan nilai threshold yang lebih optimal dan lebih cepat.
+2 METODE THRESHOLDING 
+2.1 Maximum Tsallis Entropy 
+Dalam pemrosesan citra, metode Maximum Tsallis entropy dapat dimanfaatkan untuk pencarian threshold.
+Pencarian threshold ini pada umumnya dipergunakan untuk pemisahan bagian background dan foreground dari suatu citra.
+Cara yang umum dipakai adalah mengubah citra tersebut terlebih dahulu menjadi citra grayscale kemudian menyusun histogram dengan menghitung berapa banyak jumlah pixel dari citra tersebut yang memiliki graylevel x.
+Tiap graylevel x kemudian akan diuji untuk menentukan threshold yang paling optimal.
+Diasumsikan suatu citra memiliki graylevel i, dengan i = {1,2,3,,L}.
+Probablitas dari graylevel i direpresentasikan sebagai p.
+Jika citra tersebut dibagi menjadi 2 kelas, yaitu CA dan CB oleh threshold di graylevel t, maka bisa dikatakan bahwa CA memiliki graylevel 1 sampai t, dan CB memiliki graylevel t+1 sampai L.
+Akumulasi dari probabilitasnya, dapat dirumuskan sebagai berikut:, [1] (1) .[1](2) 
+Akumulasi dari probabilitas sebagaimana pada persamaan (1) dan (2), dapat dinormalisasi untuk mendapatkan probabilitas dari tiap graylevel dalam CA dan CB sebagai berikut:, [1](3) .[1](4) 
+Maka untuk masing-masing kelas, persamaan tsallis entropy dapat dirumuskan sebagai berikut:, [1](5) .[1](6) 
+Sehingga untuk mendapatkan tsallis entropy dari keseluruhan citra dengan menggunakan metode Maximum Tsallis entropy, dapat ditulis sebagai berikut: .[1] (7) 
+Dengan menggunakan persamaan (7), nilai Sq yang paling maksimal akan dicari untuk mendapatkan nilai threshold yang paling optimal.
+Pencarian ini dilakukan secara berulang pada tiap graylevel yang terdapat pada citra.
+Untuk pencarian 1 buah threshold (bi-level thresholding), metode Maximum Tsallis entropy ini dirasa cukup efisien dengan waktu komputasi yang tidak terlalu lama.
+Akan tetapi, masalah muncul ketika metode ini diterapkan pada multi-level thresholding.
+Fungsi tsallis entropy untuk kesuluruhan citra akan menjadi semakin kompleks.
+Sebagai contoh untuk mencari 2 buah threshold saja, fungsinya akan terdefinisi sebagai berikut: .[1](8) 
+Dari contoh pada persamaan (8), dapat diambil kesimpulan bahwa semakin banyak threshold yang akan dicari, maka semakin kompleks pula fungsi yang akan didefinisikan.
+Hal ini akan membuat waktu komputasinya juga akan semakin lama.
+Oleh karena itu, dalam penelitian ini algoritma HBMO diusulkan untuk mengoptimasi pencarian thresholding yang menggunakan metode maximum tsallis entropy.
+2.2 Algoritma HBMO 
+Suatu koloni lebah madu biasanya terdiri atas seekor ratu yang dikelilingi oleh ribuan lebah jantan dan lebah pekerja.
+Biasanya dalam 1 koloni terdapat 10.000 hingga 60.000 ekor lebah pekerja.
+Satu koloni lebah bisa memiliki seekor atau lebih lebah ratu dalam daur hidupnya.
+Seekor lebah ratu bisa hidup hingga 6 tahun, dan hanya bertugas untuk bertelur.
+Sedangkan lebah jantan dan lebah pekerja tidak akan mempunyai usia lebih dari 6 bulan.
+Lebah ratu mendapatkan telurnya setelah proses pembuahan oleh lebah jantan.
+Akan tetapi, lebah jantan ini akan mati setelah proses perkawinan tersebut.
+Sedangkan lebah pekerja, selain bertugas untuk memberi makan anggota koloni, juga bertugas untuk menjaga dan memelihara bayi lebah.
+Dari beberapa bayi lebah ini, jika terdapat bayi yang memiliki unsur genetik sama atau lebih baik dari ratu lebah, akan dipersiapkan untuk menjadi ratu berikutnya.
+Dalam proses perkawinan, ratu lebah akan terbang menjauh dari sarang dengan diikuti oleh beberapa ekor lebah jantan.
+Dalam penerbangan ini, ratu lebah akan melakukan tarian yang menandakan bahwa ia siap untuk dibuahi.
+Lebah jantan yang mampu mengikuti kecepatan terbang ratu lebah kemudian akan melakukan proses perkawinan di udara.
+Dalam setiap perkawinan, sperma dari lebah jantan akan disimpan dalam spermatheca.
+Proses perkawinan ini sendiri akan berakhir ketika energi ratu untuk terbang telah habis atau jumlah sperma yang tersimpan dalam spermatheca telah cukup.
+Nantinya, setiap kali ratu akan bertelur, akan diambil salah satu sperma yang ada di spermatheca untuk membuahi sel telur milik ratu.
+Setelah telur-telur tersebut dilahirkan, lebah pekerja akan merawatnya sekaligus melihat apakah ada telur yang pantas untuk menjadi ratu berikutnya.
+Dari penjelasan di atas, dapat dibentuk suatu algoritma dengan urutan sebagai berikut: 1. Algoritma dimulai dengan mengisialisasi genotype yang dimiliki oleh lebah ratu dan lebah jantan; 
+2. Dilanjutkan dengan proses perkawinan yang dilakukan oleh lebah ratu dan lebah jantan di udara, dimana lebah ratu (best solution) akan memilih lebah jantan secara probabilistik untuk membentuk spermatheca.
+Sebuah sel sperma kemudian akan dipilih dari spermatheca secara acak untuk dilakukan proses pembuahan; 
+3. Proses pembuahan dilakukan dengan cara perkawinan silang (crossover) antara sel telur ratu dan sel sperma lebah jantan; 
+4. Setelah individu baru dilahirkan, gunakan lebah pekerja untuk melakukan pencarian terhadap setiap individu baru, jika memungkinkan lakukan proses mutasi terhadap individu baru dengan memanfaatkan royal jelly yang dimiliki oleh lebah pekerja sebagai katalis; 
+5. Jika terdapat individu baru yang lebih baik dari ratu, ganti ratu yang lama (best solution) dengan individu baru tersebut dan lakukan proses perkawinan mulai dari awal kembali.
+2.3 Algoritma MTHBMOT 
+Dalam algoritma yang ditawarkan, metode Maximum Tsallis Entropy (MTT) akan difungsikan untuk pencarian nilai fitness pada tiap individu dengan langkah-langkah yang sama seperti telah dijelaskan pada bagian sebelumnya.
+Sedangkan graylevel dari suatu citra yang disangka sebagai threshold berperan sebagai gen dari suatu individu lebah.
+Artinya jumlah threshold yang akan dicari menentukan jumlah gen yang dimiliki oleh setiap lebah.
+Secara umum algoritma yang ditawarkan dapat dilihat dalam Gambar 1.
+Algoritma HBMO akan menjalankan peran sebagai algoritma optimasi dengan tahapan sebagai berikut: 1. Inisialisasi genotype 
+Pada tahap ini, inisialisasi suatu matriks D=[D1,D2,, Dm], dimana D adalah individu lebah jantan yang akan melakukan proses perkawinan dengan ratu.
+Masing-masing lebah jantan memiliki genotype dengan panjang c.
+Sehingga didapatkan Di = (di1,di2,,dic), dimana d adalah satu buah gen dari individu D.
+Sedangkan seekor lebah ratu akan didefinisikan dengan suatu matriks Q = (q1,q2,,qc), dimana q adalah satu buah gen milik lebah ratu.
+2. Flight Mating 
+Di tahap 2 ini, lebah jantan terbaik akan dipilih dengan menggunakan metode simulated annealing dan memasukkan genotype dari lebah jantan tersebut ke dalam list sperma yang ada di spermatheca melalui proses flight mating.
+Proses flight mating ini akan berlangsung terus menerus sampai jumlah sperma yang tertampung dalam spermatheca mencapai batas n.
+Variable n ini sendiri adalah kapasitas sperma yang mampu ditampung di spermatheca yang akan didefinisikan oleh user dan besarnya tidak boleh lebih dari jumlah individu lebah jantan yang ikut terbang selama proses perkawinan.
+Matriks yang mendefinisikan spermatheca didefinisikan oleh persamaan (9)..
+[6](9) dimana Sp(cid:173)i adalah sel sperma ke i dari suatu individu lebah jantan yang terdapat dalam spermatheca lebah ratu.
+3. Proses Pembuahan Pada tahap pembuahan ini, satu sel sperma yang terdapat dalam spermatheca akan diambil secara acak untuk kemudian dikawinkan dengan sel telur ratu yang disebut dengan proses crossover.
+Proses pembuahan ini sendiri akan menggabungkan gen yang dimiliki oleh lebah jantan dan lebah betina berdasarkan pada persamaan (10)., [6] (10) dimana variableadalah bilangan real antara 0 dan 1 yang dibangkitkan secara random selama proses pembuahan terjadi.
+Individu yang baru ini (Brood) akan memiliki jumlah gen yang sama seperti yang dimiliki oleh induknya..[6] (11) 
+4. Mutasi Bayi Lebah Untuk setiap individu baru yang dihasilkan.
+Bilangan acak R akan di-generate.
+Jika nilai dari R kurang dari nilai Pm yang didefinisikan oleh pengguna, maka proses mutasi akan dilakukan pada individu tersebut.
+Proses mutasi dilakukan dengan mengubah salah satu gen yang dimiliki oleh individu tersebut berdasarkan persamaan (12) ... [6] (12) dimana adalah sebuah bilangan acak, sedangkanmerupakan royal jelly milik lebah pekerja sebagai katalis yang digunakan untuk meningkatkan kualitas genotype dari suatu individu baru hasil dari mutasi yang nilainya didefinisikan oleh user.
+5. Pemilihan ratu baru 
+Individu baru yang dihasilkan melalui proses pembuahan dan mutasi, akan dibandingkan nilai fitness-nya dengan lebah ratu yang sekarang.
+Jika individu baru ini memiliki nilai fitness yang lebih baik, maka individu baru tersebut akan menggantikan ratu lebah.
+Langkah selanjutnya kembali ke tahap pertama hingga sejumlah iterasi yang ditentukan oleh user.
+3 SKENARIO UJI COBA
+Algoritma MTHBMOT akan diujicoba untuk memecahkan masalah pencarian multilevel thresholding pada beberapa buah citra yang telah disiapkan.
+Metode Maximum Tsallis Entropy(tanpa optimasi) akan diujicoba pula untuk masalah yang sama sebagai perbandingan.
+Sebagai data uji akan digunakan 3 buah citra seperti yang dapat dilihat pada Gambar 2.
+Dalam uji coba ini, 3 buah skenario telah disiapkan.
+Pada masing-masing skenario, algoritma MTHBMOT akan mencari threshold dari ketiga buah citra tersebut dengan jumlah threshold yang berbeda-beda, yaitu 2, 3 dan 4 buah threshold, dengan parameter untuk proses ujicoba seperti diperlihatkan dalam Tabel 1 yang didasarkan pada parameter uji coba yang dilakukan oleh Horng[7].
+Hasil threshold yang didapatkan oleh MTHBMOT akan dibandingkan dengan hasil threshold yang didapatkan oleh algoritma Maximum Tsallis Entropy (MTT).
+4 HASIL UJI COBA
+Dari Tabel 2, dapat dilihat bahwa algoritma MTHBMOT mampu melakukan pencarian multilevel threshold dari sebuah citra grayscale dengan hasil yang akurat.
+Hal ini dapat dilihat dari threshold yang didapatkan, dimana MTHBMOT mampu menemukan threshold yang sebagian besar sama dengan yang ditemukan oleh metode Maximum Tsallis Entropy (MTT).
+MTHBMOT memiliki tingkat akurasi sebesar 98% terhadap algoritma MTT.
+Waktu komputasi yang diperlukan oleh algoritma MTHBMOT 10 kali lipat lebih cepat jika dibandingkan dengan algoritma MTT sebagaimana ditunjukkan oleh Tabel 3.
+Hal ini disebabkan waktu yang diperlukan oleh algoritma MTT untuk mencari threshold meningkat secara eksponensial sesuai denganjumlah threshold yang dicari.
+Berbeda dengan algoritma MTT, algoritma MTHBMOT memiliki waktu komputasi yang cenderung stabil berapapun jumlah threshold yang dicari.
+Dari hasil ujicoba implementasi metode MTHBMOT untuk pencarian multilevel threshold pada suatu citra grayscale, dapat dilihat bahwa metode ini memerlukan banyak inisialisasi parameter yang harus didefinisikan sendiri oleh user.
+Hal ini dapat berakibat pada menurunnya performa metode.
+Sebagai contoh untuk pendefinisian kapasitas spermatheca yang dimiliki oleh ratu.
+Jika user memberikan nilai yang terlalu besar, ada kemungkinan tidak memerlukan iterasi yang terlalu banyak untuk menemukan threshold yang paling optimal.
+Akan tetapi waktu yang dibutuhkan pada setiap iterasi akan cenderung meningkat karena jumlah pembuahan akan semakin banyak.
+Demikian pula jika user mendefinisikan nilai kapasitas spermatheca ini terlalu kecil.
+Waktu yang dibutuhkan untuk setiap iterasi memang cukup singkat, tapi kemungkinan akan dibutuhkan banyak iterasi untuk menemukan threshold yang paling baik.
+Oleh karena itu, harus ada suatu metode yang dapat mengukur tingkat efisiensi suatu nilai yang didefinisikan oleh user agar performa dari metode MTHBMOT ini tetap terjaga.
+5 KESIMPULAN
+Penelitian ini mengusulkan suatu metode baru untuk pencarian multilevel thresholding dari suatu citra grayscale, yaitu dengan menggabungkan metode Maximum Tsallis Entropy (MTT) dan Metode Honey Bee Mating Optimization (HBMO).
+Ujicoba dilakukan dengan cara membandingkan algoritma tersebut dengan algoritma MTT tanpa optimasi.
+Hasil yang didapat adalah algoritma MTHBMOT mampu mendapatkan threshold yang kurang lebih sama dengan algoritma MTT, akan tetapi dengan waktu komputasi yang jauh lebih singkat.
+Algoritma MTHBMOT hanya kalah dari algoritma MTT dalam hal waktu komputasi jika jumlah threshold yang dicari kurang dari 3.
+Ini membuktikan bahwa penggunaan metode HBMO secara efektif mampu mengoptimalkan penggunaan metode MTT dalam pencarian multilevel thresholding pada suatu citra grayscale.

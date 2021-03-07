@@ -1,0 +1,139 @@
+Abstrak
+Sistem pakar dapat berfungsi sebagai konsultan yang memberi saran kepada pengguna sekaligus sebagai asisten bagi pakar.
+Salah satu cara untuk mengatasi dan membantu mendeteksi tingkat resiko penyakit JK seseorang, yaitu dengan membuat sebuah sistem pakar sebagai media konsultasi dan monitoring terhadap seseorang sehingga dapat meminimalkan terjadinya serangan jantung yang mengakibatkan kematian.
+Metode Dempster-Shafer merupakan metode penalaran non monotonis yang digunakan untuk mencari ketidakkonsistenan akibat adanya penambahan maupun pengurangan fakta baru yang akan merubah aturan yang ada, sehingga metode Dempster-Shafer memungkinkan seseorang aman dalam melakukan pekerjaan seorang pakar.
+Penelitian ini bertujuan menerapkan metode ketidakpastian Dempster-Shafer pada sistem pakar untuk mendiagnosa tingkat resiko penyakit JK seseorang berdasarkan faktor serta gejala penyakit JK.
+Manfaat penelitian ini adalah untuk mengetahui keakuratan mesin inferensi Dempster-Shafer.
+Hasil diagnosa penyakit JK yang dihasilkan oleh sistem pakar sama dengan hasil perhitungan secara manual dengan menggunakan teori mesin inferensi Dempster-Shafer.
+Sehingga dapat disimpulkan bahwa sistem pakar yang telah dibangun dapat digunakan untuk mendiagnosa PJK.
+Kata kunci Dempster-Shafer, Jantung Koroner, Sistem Pakar
+1. PENDAHULUAN
+Penyakit Jantung koroner (JK) menjadi kasus terbanyak pemicu kematian di negara-negara maju, Jumlah penderita penyakit ini tiap tahun semakin meningkat, data WHO menyebutkan bahwa 17,3 juta orang diperkirakan meninggal karena kardiovaskular pada tahun 2008, mewakili 30% dari semua kematian global.
+Dari data kematian tersebut, diperkirakan 7,3 juta yang disebabkan oleh penyakit jantung koroner [1].
+Penyebab timbulnya penyakit JK tidak lepas dari gaya hidup yang kurang sehat yang banyak dilakukan seiring dengan berubahnya pola hidup.
+Diketahui dari para ahli bahwa faktor-faktor pemicu serangan jantung antara lain yaitu: kebiasaan merokok, alkohol, tekanan darah tinggi, diabetes, riwayat keturunan penyakit JK, usia lebih dari 40 tahun, obesitas, kurang aktivitas, jenis kelamin dan stres.
+Gejala yang juga dijadikan penyebab penyakit JK diantaranya yaitu: nyeri dada, sesak napas, jantung berdebar-debar, keringat dingin, mual, pusing, pingsan, muntah, batuk-batuk, dan lemas [2].
+Beberapa penelitian yang melakukan riset mengenai penyakit JK menggunakan metode penelitian serta basis pengetahuan yang beragam diantaranya yaitu penelitian [3] dan [4] dalam pendeteksian penyakit jantung koroner menggunakan metode Jaringan Syaraf Tiruan Backpropagation serta dengan statistik analisis bivariat dan analisis multivariat multiple logistic regretion, untuk basis pengetahuannya menggunakan Faktor-faktor risiko penyakit JK, Pelatihan tersebut menggunakan data rekamedis penderita penyakit jantung dan orang sehat.
+Penelitian [5], dan [6] menggunakan metode Dempster-shafer yang menyimpulkan bahwa sistem pakar yang dibangun dapat memberikan hasil beserta tingkat kebenarannya berdasarkan nilai kepercayaan yang dimiliki oleh gejala tiap masing-masing kasus.
+Penelitian [7] menjelaskan bahwa sistem pakar dapat dibangun dengan metode non monotonis selain Dempster-shafer yaitu dengan metode Certainty Factor yang juga digunakan untuk alat Bantu pendiangnosa penyakit.
+Penelitian yang pernah dilakukan tersebut memiliki kelebihan dan kekurangan yang berbeda.
+kelebihan suatu komponen dapat melengkapi kekurangan komponen lainnya.
+Terlebih lagi, masalah diagnosa penyakit JK tiap individu memiliki beragam kemungkinan yang seringkali menjadi suatu masalah yang kompleks, sehingga untuk mendiagnosa penyakit JK memerlukan suatu model penyelesaian yang dinamis agar dapat mengatasi masalah tersebut dengan baik.
+Salah satu cara untuk mengatasi dan membantu mendeteksi tingkat resiko penyakit JK seseorang, yaitu dengan membuat sebuah sistem pakar sebagai media konsultasi dan monitoring terhadap seseorang yang diharapkan dapat membantu dalam mendiagnosa resiko penyakit JK.
+Proses pelacakan kesimpulan untuk memperoleh suatu keputusan terkadang sering mengalami faktor penghambat.
+Hal ini disebabkan karena adanya perubahan terhadap pengetahuan yang menyebabkan proses penentuan kesimpulan juga mengalami perubahan.
+Peristiwa ini dalam sistem pakar disebut sebagai faktor ketidakpastian.
+Metode Dempster-Shafer merupakan metode penalaran non monotonis yang digunakan untuk mencari ketidakkonsistenan akibat adanya penambahan maupun pengurangan fakta baru yang akan merubah aturan yang ada, sehingga metode Dempster-Shafer memungkinkan seseorang aman dalam melakukan pekerjaan seorang pakar, sekaligus dapat mengetahui probabilitas atau prosentase dari penyakit yang mungkin diderita.
+Pemanfaatan sistem pakar ini untuk mendeteksi tingkat resiko penyakit JK dengan teorema Dempster-Shafer untuk mencari besarnya nilai kepercayaan gejala dan faktor resiko tersebut terhadap kemungkinan tingkat resiko terkena penyakit JK.
+2. METODE PENELITIAN
+2.1 Analisis Sistem 
+Sistem pakar menggunakan metode Dempster-shafer untuk mendeteksi tingkat resiko penyakit JK adalah sistem pakar yang dapat menentukan tingkat resiko penyakit JK berdasarkan faktor resiko serta gejala yang mempengaruhi tingkat resiko penyakit JK tiap pasien.
+Sistem juga dapat memberikan informasi prognosis yang mungkin dimiliki pasien berdasarkan faktor dan gejala yang dimiliki pasien serta memberikan informasi berupa tindakan secara umum berdasarkan tingkat resiko penyakit JK yang diderita pasien.
+Sesuai dengan struktur system pakar menurut [8], model arsitektur sistem pakar menggunakan metode Dempster-shafer untuk mendeteksi tingkat resiko penyakit JK dapat digambarkan seperti Gambar 1. 
+Sistem yang dirancang dan dibangun dalam penelitian ini adalah sistem pakar untuk membantu paramedis dalam menganalisa tingkat resiko penyakit JK yang diderita oleh pasien.
+Proses analisa/diagnosa penyakit Jantung Koroner menggunakan metode dempster-shafer dengan pengetahuan pakar yang akan menghasilkan nilai ketidakpastian dalam mencari kemungkinan faktor-faktor resiko, gejala, maupun riwayat penyakit yang akan mempengaruhi tingkat resiko penyakit Jantung Koroner tiap pasien.
+Sistem pakar ini selain berguna untuk menganalisa kemungkinan tingkat resiko penyakit Jantung Koroner yang diderita pasien juga memberikan output berupa prognosis penyakit lainnya yang memungkinkan diderita pasien, hasil prognosis berdasarkan gejala-gejala maupun faktor-faktor resiko yang diderita pasien.
+Paramedis yang memberi input berupa data pasien yang berupa hasil labolatorium yaitu kolesterol, gula darah, tekanan darah, serta hasil pemeriksaan dokter berupa nilai BMI berdasarkan berat badan dan tinggi badan, usia serta jenis kelamin, Hasil inferensi akan diberikan kepada paramedis untuk mendapatkan hasil keluaran berupa tingkat resiko penyakit Jantung Koroner serta penangganan secara umum.
+sistem pakar yang dibuat diharapkan memiliki kemampuan sebagai berikut: a. Sistem dapat digunakan oleh paramedis yang sudah terdaftar, pakar/dokter spesialis jantung dan admin.
+b. Sistem dapat digunakan oleh paramedis untuk menambah, merubah dan menghapus data pasien, dan juga bisa mencetak hasil pemeriksaan pasien.
+c. Sistem dapat digunakan pakar/dokter spesialis jantung untuk menambah, merubah, dan menghapus data seperti data rekamedis pasien, aturan, faktor resiko maupun gejala, tingkatan diangnosa penyakit Jantung Koroner, prognosis, tindakan, table keputusan serta nilai densitas yang ada, selain itu pakar juga bisa mencetak data pasien yang terdaftar serta hasil pemeriksaannya.
+d. Sistem dapat digunakan oleh admin untuk menambah, merubah dan menghapus data paramedis serta pakar, dan juga bisa memodifikasi data help.
+e. Untuk menambah, merubah dan menghapus data, dokter spesialis jantung/pakar maupun paramedis harus melewati proses otentifikasi.
+f. Sistem dapat memberikan hasil diagnosa penyakit jantung koroner pasien serta memberikan penanganan secara umum sesuai dangan hasil diagnosa.
+Berat badan ideal didapat dari rumus BMI, serta prognosis penyakit Jantung yang dihasilkan dari gejala dan faktor yg diderita pasien.
+g. Sistem juga dapat memberikan hasil prognosis penyakit yang diderita pasien berdasarkan faktor serta gejala yang dimiliki pasien.
+2.2 Teori Dempster Shafer
+Metode Dempster-Shafer pertama kali diperkenalkan oleh Dempster, yang melakukan percobaan model ketidakpastian dengan range probabilities dari pada sebagai probabilitas tunggal.
+Kemudian pada tahun 1976 Shafer mempublikasikan teori Dempster itu pada sebuah buku yang berjudul Mathematical Theory Of Evident [8].
+Dempster-Shafer Theory Of Evidence, menunjukkan suatu cara untuk memberikan bobot kenyakinan sesuai fakta yang dikumpulkan.
+Pada teori ini dapat membedakan ketidakpastian dan ketidaktahuan.
+Teori Dempster-Shafer adalah representasi, kombinasi dan propogasi ketidakpastian, dimana teori ini memiliki beberapa karakteristik yang secara instutitif sesuai dengan cara berfikir seorang pakar, namun dasar matematika yang kuat.
+Secara umum teori Dempster-Shafer ditulis dalam suatu interval: [Belief,Plausibility] [9].
+Belief (Bel) adalah ukuran kekuatan evidence dalam mendukung suatu himpunan proposisi.
+Jika bernilai 0 maka mengindikasikan bahwa tidak ada evidence, dan jika bernilai 1 menunjukkan adanya kepastian.
+Plausibility (Pls) akan mengurangi tingkat kepastian dari evidence.
+Plausibility bernilai 0 sampai 1.
+Jika yakin akan X, maka dapat dikatakan bahwa Bel(X) = 1, sehingga rumus di atas nilai dari Pls(X) = 0.
+Menurut Giarratano dan Riley fungsi Belief dapat diformulasikan dan ditunjukkan pada persamaan (1): Bel (X) = XYYm)( (1) Dan Plausibility dinotasikan pada persamaan (2):Pls (X) = 1Bel (X) = 1XYXm)( (2) Dimana : Bel (X) = Belief (X)Pls (X)= Plausibility (X)m (X)= mass function dari (X)m (Y)= mass function dari (Y)Teori Dempster-Shafer menyatakan adanya frame of discrement yang dinotasikan dengan simbol ().
+Frame of discrement merupakan semesta pembicaraan dari sekumpulan hipotesis sehingga sering disebut dengan environment yang ditunjukkan pada persamaan (3) : = { 1, 2,N} (3) Dimana := frame of discrement atau environment 1,,N = element/ unsur bagian dalam environment.
+Environment mengandung elemen-elemen yang menggambarkan kemungkinan sebagai jawaban, dan hanya ada satu yang akan sesuai dengan jawaban yang dibutuhkan.
+Kemungkinan ini dalam teori Dempster-Shafer disebut dengan power set dan dinotasikan dengan P (), setiap elemen dalam power set ini memiliki nilai interval antara 0 sampai 1.
+Sehingga dapat dirumuskan pada persamaan (4) : )(1)(PXXm(4) Dengan : P ()= power set m (X) = mass function (X)Mass function (m) dalam teori Dempster-shafer adalah tingkat kepercayaan dari suatu evidence (gejala), sering disebut dengan evidence measure sehingga dinotasikan dengan (m).
+Tujuannya adalah mengaitkan ukuran kepercayaan elemen-elemen .
+Tidak semua evidence secara langsung mendukung tiap-tiap elemen.
+Untuk itu perlu adanya probabilitas fungsi densitas (m).
+Nilai m tidak hanya mendefinisikan elemen-elemen saja, namun juga semua subsetnya.
+Sehingga jikaberisi n elemen, maka subset adalah 2n.
+Jumlah semua m dalam subsetsama dengan 1.
+Apabila tidak ada informasi apapun untuk memilih hipotesis, maka nilai :m{} = 1,0 Apabila diketahui X adalah subset dari , dengan m1 sebagai fungsi densitasnya, dan Y juga merupakan subset daridengan m2 sebagai fungsi densitasnya, maka dapat dibentuk fungsi kombinasi m1 dan m2 sebagai m3, yaitu ditunjukkan pada persamaan (5) :(5) Dimana : m3(Z) = mass function dari evidence (Z) 1m(X) = mass function dari evidence (X), yang diperoleh dari nilai keyakinan suatu evidence dikalikan dengan nilai disbelief dari evidence tersebut.
+2m(Y)= mass function dari evidence (Y), yang diperoleh dari nilai keyakinan suatu evidence dikalikan dengan nilai disbelief dari evidence tersebut.
+() = merupakan nilai kekuatan dari evidence Z yang diperoleh dari kombinasi nilai keyakinan sekumpulan evidence.
+2.3 Representasi Pengetahuan 
+Representasi dilakukan setelah proses akuisisi pengetahuan dilakukan.
+Tujuan representasi adalah untuk mengembangkan suatu struktur yang akan membantu pengkodean pengetahuan ke dalam program.
+Representasi pengetahuan menggunakan aturan produksi.
+2.3.1 Himpunan aturan 
+Aturan-aturan yang dapat dibentuk berdasarkan studi kasus Rekamedis RS.
+PKU Muhammadiyah Yogyakarta ada sebanyak 30 rule diantaranya adalah sebagai berikut: 1. IF Kolesterol Tinggi AND Gula Darah Normal AND Tekanan Darah Normal AND BMI Kurus AND Usia > 40 thn AND Jenis kelamin Pria AND Batuk-batuk AND Sesak nafas (sangat) THEN JK Berat.
+2. IF Kolesterol Normal AND Gula Darah Normal AND Tekanan Darah Rendah AND BMI Kegemukan AND Kurang aktifitas AND Usia > 40 thn AND Jenis kelamin Pria AND Nyeri dada (sangat) THEN JK Sedang.
+2.4 Perancangan mesin inferensi
+Pada sistem ini inferensi dilakukan untuk menentukan tingkat resiko penyakit JK berdasarkan sekumpulan fakta-fakta tentang suatu gejala dan faktor resiko penyakit JK (g1) yang memiliki nilai densitas g1 (m1) berdasarkan hasil pemeriksaan pasien.
+Kemudian dilakukan perhitungan mass function (m) berdasarkan nilai densitas g1 (m1) (2).
+Selanjutnya dilakukan pengecekkan banyaknya gejala dan faktor resiko yang ada, jika = 1 maka akan langsung ditemukan diagnosa penyakit {x}, tapi jika jawaban 2 maka makan dilakukan perhitungan untuk tiap gejala & faktor resiko (gi) dan dengan nilai densitas gi (mi {y}).
+Setelah diketahui kemungkinan gejala & faktor resiko = 2 maka dilakukan proses (5), untuk X adalah subset dari , dengan m1 sebagai fungsi densitasnya dan Y juga merupakan subset daridengan m2 sebagai fungsi densitasnya.
+Dilakukan pengecekan gejala & faktor resiko sampai habis, jika selesai maka (m) akan dipilih dari nilai maksimal diantara nilai (m) yang lainya dan berikutnya pencarian hasil diagnosa akan didapat berdasarkan nilai densitas terbesar, tapi jika tidak maka akan dilakukan pengecekan lagi terhadap gejala & faktor resiko yang ada sampai selesai proses pengecekan.
+3. HASIL DAN PEMBAHASAN
+Pembahasan dilakukan terhadap 10 kasus dengan input yang berbeda.
+Pembahasan meliputi perbandingan output dari 10 kasus yang telah diuji melalui sistem dengan perhitungan manualnya.
+Kasus pertama yang diuji melalui sistem terlihat pada Gambar 2. 
+Output yang dihasilkan : 1. Klasifikasi nilai Kolesterol, berdasarkan nilai input yang diberikan yaitu 201 mg/dl maka termasuk kedalam nilai Kolesterol Tinggi (> 200 mg/dl).
+2. Klasifikasi nilai Gula Darah, berdasarkan nilai input yang diberikan yaitu 126 mg/dl maka termasuk kedalam nilai Gula Darah Normal (70-190) mg/dl.
+3. Klasifikasi nilai Tekanan Darah, berdasarkan nilai input yang diberikan yaitu 126/80 mmHg maka termasuk kedalam nilai Tekanan Darah Normal (100/70130/80 mmHg).
+4. Klasifikasi nilai Berat Badan, perhitungan Nilai BMI untuk orang Asia Tenggara dihitung dengan menggunakan rumus perhitungan (3.6) yaitu : Input Berat Badan = 45 Kg, Tinggi Badan = 165 Cm = 1.65M, maka BMI = 16,529 , => termasuk ke dalam kategori BMI Kurus (15-18,4).
+5. Umur = 58 Tahun => Usia > 40 Tahun.
+6. Gejala yang dimiliki: Batuk-batuk dan sesak nafas (sangat).
+1. Faktor-1: Kolesterol Tinggi (>200 Mg/Dl) 
+Langkah pertama hitung nilai dari belief dan Plausability dari faktor Kolesterol Tinggi (G02), yang merupakan diagnosa dari penyakit JK Berat (JKB) dengan rumus (1) dan (2): 1m(G02)= 0.82 1m {}= 11m(G02) = 10.82 = 0.18.
+2. Faktor-2: Gula darah normal (70-140 mmHg) 
+Kemudian apabila diketahui adanya fakta baru, yaitu adanya faktor Gula darah normal(G03), yang merupakan diagnosa dari penyakit JK Berat (JKB), JK Sedang (JKS) dan JK Ringan (JKR) dengan mengacu rumus (1) dan (2), maka nilai keyakinannya adalah: 2m (G03)= 0.7 2m{}= 12m (G03) = 10.7 = 0.3.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5), maka:3m{JKB}=01)3.0*82.0()7.0*82.0(= 012460.05740.0= 0.820 3m{JKB,JKS,JKR} =017.0*18.0= 0.1260 3m{}= 013.0*18.0= 0.0540.
+Nilai keyakinan paling kuat adalah terhadap penyakit {JKB} yaitu sebesar 0.820, yang didapatkan dari dua gejala yang ada yaitu G02 dan G03.
+3. Faktor-3: Tekanan darah Normal (100/70130/80 mmHg) 
+Kemudian apabila diketahui adanya fakta baru, yaitu adanya faktor Tekanan Darah Normal (G06), yang merupakan diagnosa dari penyakit JKS, dan JKR dengan rumus (1) dan (2): 4m (G06)= 0.67 4m{}= 14m(G06) = 10.67 = 0.33.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5), maka : 5m{JKB}=0.549410.2706= 0.60053 5m{JKS,JKR} =0.549410.031160.08442= 0.26764 5m{JKB,JKS,JKR} =0.549410.04158= 0.09228 5m{}= 5494.010.01782= 0.03955.
+Nilai keyakinan paling kuat adalah terhadap penyakit {JKS} yaitu sebesar 0.60053, yang didapatkan dari tiga gejala yang ada yaitu G02, G03 dan G06.
+4. Faktor-4 : BMI Kurus (1518.4) 
+Kemudian apabila diketahui adanya fakta baru, yaitu adanya faktor BMI Kurus (G11), yang merupakan diagnosa dari penyakit JKR dengan mengacu rumus (1) dan (2), maka : 6m (G11)= 0.5 6m{}= 16m(G11) = 10.5 = 0.5.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5), maka: 7m{JKB}=0.3002710.5*0.60053= 0.42912 7m{JKR}=0.3002710.046140.046140.13382= 0.28544 7m{JKS, JKR} =0.3002710.13382= 0.19125 7m{JKB,JKS,JKR} =0.3002710.04614= 0.065947m{}= 0.3002710.01977= 0.02826. 
+Nilai keyakinan paling kuat adalah terhadap penyakit {JKB} yaitu sebesar 0.42912, yang didapatkan dari empat gejala yang ada yaitu G02, G03, G06 dan G11.
+5. Faktor-5: Usia > 40 Thn 
+Kemudian apabila diketahui adanya fakta baru, yaitu adanya faktor Usia > 40 thn (G21), yang merupakan diagnosa dari penyakit JKB, JKS dan JKR dengan rumus (1) dan (2): 8m (G21)= 0.75 8m{}= 18m(G21) = 10.75 = 0.25.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5), maka: 9m{JKB}=010.107280.32184= 0.9m{JKR}=010.071360.21408= 0.28544 9m{JKS, JKR} =010.047810.14343= 0.19125 9m{JKB,JKS,JKR} =010.021190.016480.04945= 0.08713 9m{}= 010.00706= 0.00706.
+Nilai keyakinan paling kuat adalah terhadap penyakit {JKB} yaitu sebesar 0.42912, yang didapatkan dari lima gejala yang ada yaitu G02, G03, G06, G11 dan G12.
+6. Jenis Kelamin Pria 
+Kemudian apabila diketahui adanya fakta baru, yaitu faktor Jenis Kelamin Pria (G22), merupakan diagnosa dari penyakit JKB, JKS dan JKR dengan rumus (1) dan (2) maka: 10m (G22)= 0.7 10m{} = 110m(G22) = 10.7 = 0.3.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5), maka: 11m{JKB}=010.128730.30038= 0.42912 11m{JKR}=010.085630.19981= 0.28544 11m{JKS, JKR} =010.057370.13387= 0.19125 11m{JKB,JKS,JKR} =010.004950.026140.06099= 0.09208 11m{}= 010.00212= 0.00212.
+Nilai keyakinan paling kuat adalah terhadap penyakit {JKB} yaitu sebesar 0.42912, yang didapatkan dari enam gejala yang ada yaitu G02, G03, G06, G11, G12 dan G22.
+7. Batuk-batuk 
+Kemudian apabila diketahui adanya fakta baru, yaitu adanya gejala batuk-batuk (G24), yang merupakan diagnosa dari penyakit JKS dan JKR dengan rumus (1) dan (2), maka: 12m (G24)= 0.6 12m{} = 112m(G24) = 10.6 = 0.4.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5), maka: 13m{JKB}=0.2574710.17165= 0.23116 13m{JKR}=0.2574710.171270.11418= 0.38442 13m{JKS,JKR} =0.2574710.076500.11475= 0.33368 13m{JKB,JKS,JKR} =0.2574710.001270.036830.05525= 0.04960 13m{}= 0.2574710.00085= 0.00114.
+Nilai keyakinan paling kuat adalah terhadap penyakit {JKB} yaitu sebesar 0.38442, yang didapatkan dari tujuh gejala yang ada yaitu G02, G03, G06, G11, G12, G22 dan G24.
+8. Sesak Nafas (Sangat) 
+Kemudian apabila diketahui adanya fakta baru, yaitu adanya gejala Sesak nafas (sangat) G43, yang merupakan diagnosa dari penyakit JKB dengan mengacu rumus (1) dan (2): 14m (G43)= 0.78 14m{} = 114m(G43) = 10.78 = 0.22.
+Selanjutnya menghitung tingkat keyakinan(m) combine dengan rumus (5): 15m{JKB}=0.26027))0.29985(1(0.000890.038690.050860.18031= 0.61548 15m{JKR}=0.26027))0.29985(1(0.08457= 0.19226 15m{JKS,JKR} =0.26027))0.29985(1(0.07341= 0.16688 15m{JKB,JKS,JKR} =0.26027))0.29985(1(0.01091= 0.15m{}= 0.26027))0.29985(1(0.00025= 0.00057.
+Dengan adanya kedelapan gejala atau disebut frame of discrement (5) yaitu G02, G03, G06, G11, G12, G22 G24 dan G43 maka diperoleh nilai keyakinan paling kuat adalah terhadap penyakit JK Berat yaitu sebesar 0.61548.
+Jika ada kasus yang tercover oleh lebih dari satu rule maka untuk kasus diatas akan tetap melakukan perhitungan dengan mencari irisan dari kedua rule tersebut menggunakan rumus combine (5), yang akan mencari nilai keyakinan dari kedua rule tersebut.
+Jika didapatkan nilai yang tertinggi maka rule itu yang akan dipilih untuk menentukan keputusan diagnosa penjakit Jantung Koroner pasien.
+Jika ada kasus yang tidak tercover dalam rule yang ada di sistem maka, sistem akan otomatis melakukan perhitungan dengan menentukan rule baru yang akan terbentuk dengan melihat faktor resiko maupun gejala penyakit yang dimiliki pasien dengan memperhatikan nilai densitas untuk tiap kemungkinan faktor/gejala yang ada menggunakan rumus combine (5), yang juga akan mencari nilai keyakinan tertinggi dari kemungkinan diagnosa yang ada.
+Sehingga jika sudah ditemukan rule baru yang terbentuk maka sistem akan otomatis menyimpan kedalam tabel keputusan.
+Tabel 8 merupakan rincian input dan hasil perhitungan Faktor resiko 10 data rekamedis pasien RS. PKU Muhammadiyah Yogyakarta.
+Dari hasil ujicoba 10 kasus data dari rekamedis RS. PKU Muhammadiyah Yogyakarta didapatkan hasil bahwa kasus tersebut menggunakan rule serta hasil diagnosa yang sesuai dengan yang ditentukan oleh Pakar yaitu Dokter Spesialis Jantung.
+Hasil dari uji 10 kasus ini dapat dijadikan persentase bahwa dengan pengetahuan pakar yang dipergunakan didapatkan hasil 100% nilai kebenaran, jika dengan faktor dan gejala yang dimiliki pasien dihitung dengan sistem maka akan memberikan prediksi diagnosa yang sesuai dengan pengetahuan yang dimiliki oleh pakar yaitu Dokter Spesialis Jantung.
+4. KESIMPULAN
+Dari penelitian yang dilakukan dan pembahasan bab-bab sebelumnya, maka dapat disimpulkan bahwa: 1. Sistem pakar dengan mesin inferensi Dempster-Shafer dapat dipergunakan untuk mendiangnosa tingkat resiko penyakit Jantung Koroner dengan masukkan berupa gejala serta faktor resiko yang dimiliki pasien, dari beberapa kasus yang diujicobakan diperoleh hasil diagnosa yang sama antara perhitungan sistem dengan menggunakan teori mesin inferensi Dempster-Shafer dan pengetahuan pakar yaitu Dokter Spesialis Jantung.
+2. Hasil ujicoba 10 kasus yang didapatkan dari data Rekamedis RS. PKU Muhammadiyah Yogyakarta, maka didapatkan persentase sebesar 100% nilai kebenaran dari prediksi diagnosa yang sesuai dengan pengetahuan yang dimiliki oleh pakar.
+5. SARAN
+Berdasarkan pada pengujian yang dilakukan berupa sistem pakar yang digunakan paramedis untuk mendiagnosa penyakit JK, masih banyak kekurangan dan kelemahan, oleh karena itu maka saran yang diberikan adalah sebagai berikut: 1. Tindakan yang diberikan kepada pasien masih bersifat umum, maka sebaiknya untuk tindakan lebih spesifik yang sesuai dengan diagnosa tingkat PJK dan juga sesuai dengan Prognosis.
+2. Hasil prognosis yang ada sebaiknya diberikan saran yg lebih spesisik dari pakar masing-masing kemungkinan prognosis.
+3. Penelitian lebih lanjut diharapkan dapat mengembangkan model sistem pakar yang lebih interaktif dan dinamis seperti yang berbasis web.
+4. Penelitian lebih lanjut diharapkan dapat mengunakan metode penalaran non monotonis yang berbeda misalnya menggunakan metode Bayes, atau Certainty Factor (CF), serta bisa membandingkan efisiensi serta akurasi dengan metode Dempster-Shafer.

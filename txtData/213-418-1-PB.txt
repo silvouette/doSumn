@@ -1,0 +1,151 @@
+Abstrak
+Status gizi balita dapat ditentukan berdasarkan indeks berat badan terhadap umur (BB/U)dengan menggunakan standar baku WHO-NCHS.
+Penelitian ini bertujuan membangun model jaringan syaraf tiruan menggunakan algoritma perceptron, sehingga dapat mengenali pola dan mampu mengklasifikasikan status gizi balita ke dalam gizi kurang, gizi normal, dan gizi lebih.
+Variabel-variabel yang digunakan dalam klasifikasi ini adalah jenis kelamin, umur (bln), berat badan (Kg), tinggi badan (cm) dan aktifitas.
+Sampel dalam penelitian ini adalah data gizi balita berumur dibawah lima tahun (7-60 bulan) sebanyak 166.
+Dalam proses testing menggunakan 23 data dengan parameter epoch maksimum 100, learning rate 0,1 dan nilai threshold 0,5 diperoleh nilai ketepatan sebesar 82,609%.
+Dengan demikian dapat disimpulkan bahwa JST mampu mengenali pola dan mampu mengklasifikasikan status gizi balita.
+Untuk menentukan menu makanan yang sesuai dengan kebutuhan kalori digunakan rule based system.
+Kata Kunci JST, klasifikasi status gizi balita, menu makanan, perceptron, rule based system.
+I. PENDAHULUAN
+ASA balita adalah masa yang paling penting dalam siklus kehidupan, karena pada usia 0 sampai 5 tahun, balita mengalami perkembangan baik fisik, mental dan perilaku.
+Oleh karena itu di usia tersebut balita perlu mendapatkan perhatian dari orang tua termasuk dalam hal asupan makanan.
+Balita yang kurang mendapatkan perhatian tentang asupan makanannya akan berdampak pada masalah gizi atau status gizi yang kemudian akan mempengaruhi perkembangannya di masa mendatang.
+Tingkat status gizi optimal akan tercapai apabila kebutuhan gizi terpenuhi, namun sebaliknya gizi yang tidakseimbang dapat menyebabkan beberapa penyakit antara lain Kurang Energi Protein (KEP) [1].
+Protein (KEP) atau biasanya dikenal dengan gizi kurang dapat disebabkan beberapa faktor, antara lainkurangnya pengetahuan orang tua tentang status gizi dan banyak juga orang tua yang hanya memperhatikan kuantitas pangan saja tanpa memperhatikan kualitas pangan yang diasup anaknya.
+Untuk dapat mengetahui kualitas pangan, seseorang harus mengetahui kandungan gizi yang terdapat pada makanan tersebut.
+Selain itu untuk mencegah penyakit Kurang Energi Protein, seseorang harus memiliki pengetahuan mengenai bahan makanan, jumlah kalori yang dikandung setiap makanan, kebutuhan energi harian balita serta pengetahuan hidangan.
+Pada saat ini untuk mengetahui status gizi balita di masyarakat menggunakan Kartu Menuju Sehat (KMS).
+Metode ini membutuhkan ketelitian yang lebih untuk menentukan status gizi balita.
+Kartu Menuju Sehat hanya dipergunakan untuk menentukan status gizi balita tanpa memberikan informasi tentang kebutuhan kalori dan menu makanan yang sesuai.
+Penelitian terkait tentang status gizi telah banyak dilakukan oleh beberapa peneliti dengan berbagai algoritma dan parameter data yang berbeda, antara lain penelitian yang membuat suatu sistem untuk mendeteksi gizi buruk dengan cara membuat divais otomatis yang mempunyai kelemahan membutuhkan banyak peralatan untuk menentukan status gizi antara lain sensor SRF04 untuk mengukur tinggi, load cell untuk timbangan, dan mikrokontroller untuk pengolahan data dari sensor dan alat ini juga terhubung dengan internet.
+Penelitian tersebut memiliki nilai rata-rata error 0.61% [2].
+Penelitian lain untuk menentukan status gizi balita dengan menggunakan jaringan syaraf tiruan algoritma backpropagation.
+Sampel dalam penelitian tersebut adalah data gizi balita berumur 0-59 bulan sebanyak 130.
+Hasil uji coba menunjukkan nilai optimal yang diperoleh 93,8642 % dengan parameter jumlah neuron lapisan tersembunyi 8,dan learning rate 0,9.
+Kelemahan dari jaringan syaraf tiruan algoritma backpropagation adalah membutuhkan banyak waktu untuk menentukan output [3].
+Pada penelitian ini untuk mengetahui status gizi balita digunakan jaringan syaraf tiruan algoritma perceptron.
+Jaringan syaraf tiruan algoritma perceptron ini cocok untuk mengklasifikasikan suatu tipe pola tertentu dan pada jaringan syaraf tiruan algoritma perceptron juga terdapat proses training.
+Penelitian yang terkait dengan jaringan syaraf tiruan algoritma perceptron dilakukan oleh Fatkhiyah (2012) yang merancang proses training untuk mendukung penentuan kualitas air minum kemasan dengan jumlah input ada 20 dan 1 output.
+Penelitian tersebut hanya merancang proses training, sehingga masih dapat dikembangkan ke rancangan proses penentuan [4].
+Metode yang tepat untuk menentukan menu makanan adalah dengan menggunakan rule based system.
+Penelitian tentang rule based systemyang merancang suatu sistem untuk menentukan jumlah kalori dan menu diet bagi penderita diabetes dengan masukan tinggi badan, berat badan, jenis kelamin, usia, dan aktifitas yang menghasilkan output jumlah kalori dan menu diet.
+Pada penelitian tersebut tidak dilengkapi fitur atau kemampuan sistem untuk menambahkan aturan (rule) [5].
+Berdasarkan pembahasan diatas, maka pada penelitian ini akan digunakan jaringan syaraf tiruan algoritma perceptron untuk menentukan status gizi balita yang mana pada algoritma perceptron ini terdiri dari dua proses yaitu proses training dan proses testing.
+Sedangkan untuk menentukan kebutuhan kalori dan menu makanan yang dibutuhkan menggunakan rule based system yang dilengkapi fitur untuk menambahkan aturan.
+II. LANDASAN TEORI 
+A. Jaringan Syaraf Tiruan Algoritma Perceptron 
+JST adalah sistem komputasi dimana arsitektur dan operasi diilhami dari pengetahuan tentang sel syaraf biologis dalam otak.
+Istilah JST digunakan karena jaringan syaraf ini diimplementasikan dengan menggunakan program komputer yang mampu menyelesaikan sejumlah proses perhitungan selama proses pembelajaran, cara kerja jaringan syaraf tiruan meniru cara kerja otak manusia.
+JST tidak diprogram untuk menghasilkan keluaran tertentu.
+Semua keluaran atau kesimpulan yang ditarik oleh jaringan didasarkan pada pengalamannya selama mengikuti proses pembelajaran.
+Algoritma pelatihan dengan metode perceptron [6] adalah :Inisialisasi semua bobot dan bias ( biasanya = 0 ).
+Set learning rate .
+Untuk penyederhanaan set sama dengan 1.
+Set nilai threshold untuk fungsi aktivasi.
+Untuk setiap pasangan pembelajaran s-t,kerjakan : o Set aktivasi unit input Xi = Si o Hitung respons untuk unit output:y_in = b+ xi wi1(1) o Masukkan kedalam fungsi aktivasi : (2) o Bandingkan nilai output jaringan y dengan target Jika yt, lakukan perubahan bobot dan bias dengan cara berikut:() =() +(3)() =() +(4) jika y = t, tidak ada perubahan bobot dan bias() =()(5)() =()(6) Lakukan iterasi terus menerus hingga semua pola memiliki output jaringan yang sama dengan targetnya dan iterasi dihentikan.
+Algoritma pelatihan perceptron digunakan baik untuk input biner maupun bipolar, dengan threshold tertentu, dan bias yang dapat diatur.
+Satu siklus pelatihan yang melibatkan seluruh data input disebut satu epoch.
+B. Rule Based System 
+Sistem berbasis aturan (Rule Based System)adalah suatu program komputer yang memproses informasi yang terdapat di dalam working memory dengan sekumpulan aturan yang terdapat di dalam basis pengetahuan menggunakan mesin inferensi untuk menghasilkan informasi baru [7].
+C. Transformasi Data 
+Proses transformasi ini sering disebut dengan pemetaanyang bertujuan agar konvergensi lebih cepat tercapai, jika nilai rata-rata dari input data training mendekati nol.
+Pemetaan ini dilakukan untuk menyiapkan input dan target dengan menggunakan min-max normalization.
+Cara min-max normalisasi dipilih, agar data berada pada interval 0-1, hal ini berkaitan dengan fungsi aktivasi yang digunakan yaitu fungsi threshold bipolar.
+Data-data yang ada dalam faktor tersebut sebelum menjadi input pada jaringan terlebih dahulu dilakukan normalisasi,agar data-data tersebut berada pada interval 0-1.
+Cara ini menunjukkan bahwa konvergensi umumnya akan lebih cepat tercapai jika nilai rata-rata dari input data training mendekati nol 
+D. Status Gizi 
+Pengertian status gizi adalah keadaan yang diakibatkan oleh status keseimbangan antara jumlah asupan (intake) zat gizi dan jumlah yang dibutuhkan (requirement) oleh tubuh untuk berbagai fungsi biologis antara lain pertumbuhan fisik, perkembangan, dan aktivitas, pemeliharaan kesehatan [8].
+Di Indonesia cara yang paling umum dan sering digunakan untukpenilaian status gizi adalah dengan menggunakan antropometri, karena lebih praktis dan mudah dilakukan.
+Untuk mengetahui status gizi seseorang dapat digunakan berbagai cara, salah satunya yaitu dengan cara Z-Skor terhadap nilai median.
+Z-Skor merupakan index antropometri yang digunakan secara internasional untuk penentuan status gizi dan pertumbuhan, yang diekspresikan sebagai satuan standar deviasi (SD) populasi.
+Z-Skor digunakan untuk menghitung status gizi secara antropometri pada berat badan terhadap umur (BB/U), tinggi badan terhadap umur (TB/U), dan berat badan terhadap tinggi badan (BB/TB).
+Jika y_in >y = 0Jika - y_in -1 Jika y_in < -Rumus untuk menentukan status gizi dengan cara Z-Skor adalah :Bila nilai real hasil pengukuran berat badan per umur (BB/U), tinggi badan per usia (TB/U) atau berat badan menurut tinggi badan (BB/TB) lebih besar atau sama dengan nilai median maka dapat dilihat pada persamaan= (7)Bila nilai real hasil pengukuran berat badan per usia (BB/U), tinggi badan per usia (TB/U) atau berat badan menurut tinggi badan (BB/TB) lebih kecil dari nilai median maka maka dapat dilihat pada persamaan=(8).
+III. PENGOLAHAN DATA 
+Data balita yang akan digunakan pada tahap training sejumlah 166 balita dengan usia 7-60 bulan dan untuk tahap testing sejumlah 23 balita.
+Data awal yang didapat akan mengalami proses transformasi.
+Proses transformasi ini digunakan pada tahap training dan tahap testing.
+Transformasi data ini dilakukan agar data berada pada interval 0-1, sehingga konvergensi lebih cepat tercapai.
+Pada penelitian ini data di transformasi menjadi data terkecil 0.1 dan data terbesar 0.9. 
+Proses transformasi data dihitung dengan menggunakan rumus sebagai berikut [9].
+IV. PERANCANGAN SISTEM 
+Prosedur perancangan akan dibagi menjadi dua tahap yaitu prosedur training dan prosedur testing.
+Prosedur training dilakukan sebagai proses pembelajaran terhadap pola-pola yang akan dikenali.
+Sedangkan prosedur testingdilakukanuntuk menguji validasi data yang telah dilakukan pada proses training dengan memasukkan data baru yang belum pernah dilatih sebelumnya.
+Langkah-langkah untuk membangun JST algoritma perceptron adalah :Menentukan parameter pembelajaran, yaitu epoch maksimum dengan nilai 100, learning rate dengan nilai 0,1 dan nilai threshold senilai 0,5.
+Untuk nilai bobot awal dan bias awal masing-masing bernilai 0.
+Penentuan nilai bobot akan mempengaruhi nilai output.
+Jika hasil output tidak sama dengan nilai target, maka penentuan nilai bobot akan diganti sampai nilai output sama dengan target.
+Jika nilai output sudah sesuai dengan target maka bobot yang terakhir digunakan akan disimpan untuk digunakan dalam menentukan status gizinya.
+Proses iterasi ini akan terus dilakukan sampai semua pola memiliki output jaringan yang sama dengan target.
+Tahap testing dilakukan untuk menguji validasi data yang telah dilakukan pada proses training/pelatihan dengan memasukkan data baru yang belum pernah dilatih sebelumnya.
+Untuk menentukan menu makanan sesuai dengan kalori yang dibutuhkan menggunakan rule based system, danuntuk menentukan menu makanan untuk balita kita perlu mengetahui kalori yang dibutuhkan balita perhari.
+Jika umur balita antara 7-12 bulan kita dapat menentukan kalori yang dibutuhkan perhari dengan menggunakan Persamaan (10).
+Jika umur balita 13-36 bulan kalori yang dibutuhkan dapat dihitung dengan Persamaan (11) Angka 89, 78, dan 80 merupakan nilai tetapan yang menjadi standart internasional.
+Jika umur balita 37-60 bulan kalori yang dibutuhkan tergantung dengan tingkat aktivitas balita dan tinggi badan.
+Kita dapat mengetahui kalori yang dibutuhkan oleh balita perhari dengan Persamaan.
+Untuk laki-laki : 108,8(61,9) + (26,7 ) + (903 ) (12)Untuk perempuan : 155,3 30,8 + 10+934(13) Berat ringan aktifitas ditetapkan sebagai berikut [10]:Sangat ringan : tetapan nilai untuk laki-laki dan perempuan adalah 1.00.
+Contoh : kondisi balita yang hanya bisa duduk atau tiduran saja.
+Ringan : tetapan nilai untuk laki-laki 1.13 dan perempuan 1.16.
+Contoh : kondisi balita yang bisa berjalan tetapi tidak terlalu sering.
+Aktif : tetapan nilai untuk laki-laki 1.26 dan perempuan 1.31.
+Contoh : kondisi balita yang bisa berjalan dan bermain normal layaknya balita sehat.
+Sangat Aktif : tetapan nilai untuk laki-laki 1.42 dan perempuan 1.56.
+Contoh : kondisi balita yang sangat hiperaktif.
+V. HASIL DAN PEMBAHASAN 
+Penentuan status gizi balita dengan menggunakan JST algoritma perceptron, maka terlebih dahulu ditentukan targetnya.
+Dalam hal ini target adalah status gizi sesuai dengan standar antropometri penilaian status gizi anak.
+A. Tahap Training 
+Untuk proses selanjutnya adalah proses pembelajaran terhadap pola data yang akan dikenali.
+Proses ini dilakukan menggunakan data training.
+Program ini berhenti jika semua output sama dengan target atau iterasi (epoch) telah mencapai nilai maksimum (100).
+Contoh data ke-1 sampai dengan data ke-6 untuk tahap trainingditunjukkan dalam Tabel 1.
+Dari data tersebut langkah selanjutnya adalah menghitung nilai output.
+Setelah diketahui nilai output kemudian dimasukkan ke fungsi aktifasi dan dibandingkan dengan nilai target.
+Perhitungan bobot dan bias yang baru dilakukan jika nilai output tidak sama dengan nilai target.
+Jika nilai target sudah sama dengan nilai output, maka nilai bobot dan bias yang digunakan adalah nilai bobot dan bias dari data sebelumnya.
+Pada proses pelatihan ini nilai bobot dan bias pada epoch ke-76 sampai epoch ke 100 tidak mengalami perubahan, maka proses pelatihan dapat dihentikan dan didapatkan nilai bobot (w) dan bias terbaik sebagai berikut :w umur : -2,5830w berat badan: 5,5645w tinggi badan: 4,0404w jenis kelamin : 0,0600bias: -2,6.
+Nilai bobot terbaik untuk tiap masukan dan nilai bias terbaik digunakan untuk data pada tahap testing.
+Pada tahap training telah dilakukan beberapa kali percobaan untuk mendapatkan nilai bobot dan bias terbaik yang dapat digunakan untuk proses testing.
+Pada Tabel 2 dapat diketahui nilai learning rate dan threshold berpengaruh pada performansi jaringan.
+Semakin besar harga , maka semakin sedikit iterasi yang diperlukan nilai bobot dan bias untuk mencapai stabil.
+Akan tetapi jika nilaiterlalu besar, maka akan merusak pola yang sudah benar atau jika nilai terlalu besar kemungkinan nilai error juga besar.
+Pada percobaan dengan menggunakan learning rate 1, nilai bobot dan bias stabil pada epoch ke-8, akan tetapi nilai error yang didapatkan sebesar 31,579% .
+Pada tahap training ini dengan menggunakan 166 data, learning rate = 0,1 dan threshold = 0,5 didapatkan nilai error sebesar 4,762%.
+B. Tahap Testing 
+Data yang digunakan pada tahap testing ini berjumlah 23 data.
+Tahap testing digunakan untuk menguji validasi data yang telah dilakukan pada proses training dengan memasukkan data baru yang belum pernah dilatih sebelumnya untuk menguji apakahnilai bobot terakhir merupakan bobot yang terbaik.
+Contoh data yang digunakan pada tahap testing dengan unit input (x1,x2,x3,x4) dan unit target (t) yang ditunjukkan dalam Tabel 3.
+Pada Tabel 3 data yang digunakan masih merupakan data mentah dan pada Tabel 4 data mentah tersebut sudah sudah mengalami proses transformasi.
+Setelah data ditransformasi, data tersebut digunakan untuk tahap testing dengan jumlah total data 23 pola data.
+Tahap testing menggunakan learning rate () = 0,1, threshold = 0,5, dan maksimum epoch = 100.
+Pada tahap testing nilai ketepatan mencapai 82,609%.
+C. Penentuan Menu Makanan Balita Sesuai Dengan Kalori Yang Dibutuhkan 
+Setelah diketahui status gizi balita dengan menggunakan JST algoritma perceptron langkah selanjutnya adalah menentukan kebutuhan kalori balita, sehingga kita bisa menentukan menu makanan yang sesuai.
+Dalam penelitian ini untuk menentukan menu makanan balita menggunakan rule based system.
+Untuk menentukan kebutuhan kalori dan menentukan menu makanan digunakan kaidah aturan if-then.
+karena bentuk ini merupakan representasi pengetahuan yang paling sesuai.
+Pada umumnya kebutuhan kalori balita umur 7-12 bulan dengan tinggi badan antara 40-85 cm dan dengan berat badan antara 4-13 kg berkisar antara 200-1100 kal.
+Untuk perhitungan kebutuhan kalori makanan untuk balita usia 7-12 bulandapat ditunjukkan pada Tabel 5.
+Gambar 1 menunjukkan grafik berat badan terhadap kebutuhan kalori pada balita umur 7-12 bulan.
+Pada grafik ini menunjukkan bahwa kebutuhan kalori pada balita umur 7-12 bulan dipengaruhi oleh berat badan.
+Semakin besar berat badan balita maka semakin besar pula kebutuhan kalori yang dibutuhkan.
+Kebutuhan kalori balita umur 13-36 bulan, dengan tinggi badan antara 70-110 cm dan berat badan antara 9-20 kg berkisar antara 700-1700 kal.
+Perhitungan kebutuhan kalori makanan untuk balita usia 13-36 bulandapat ditunjukkan pada Tabel 6.
+Sedangkan pada Gambar 2 menunjukkan grafik berat badan terhadap kebutuhan kalori pada balita umur 13-36 bulan.
+Pada grafik ini menunjukkan bahwa kebutuhan kalori pada balita umur 13-36 bulan dipengaruhi oleh berat badan.
+Perhitungan kebutuhan kalori balita dengan umur 37-60 bulan dapat ditunjukkan pada Tabel 7.
+Gambar 3 menunjukkan grafik berat badan terhadap kebutuhan kalori pada balita umur 37-60 bulan.
+Pada grafik ini menunjukkan bahwa kebutuhan kalori pada balita umur 37-60 bulan tidak hanya dipengaruhi oleh berat badan dan tinggi badan.
+tetapi juga dipengaruhi oleh tingkat aktifitas balita.
+Kebutuhan kalori balita umur 37-60 bulan dengan berat badan antara 13-35 kg dan tinggi badan antara 95-130 cm berkisar antara 1140-1780.
+Setelah kita mengetahui kebutuhan kalori tiap-tiap balita, langkah selanjutnya adalah menentukan menu makanan yang sesuai dengan kebutuhan kalori balita.
+Dalam penelitian ini terdapat beberapa menu makanan dengan kandungan kalorinya.
+Untuk menu makanan dibagi menjadi 5 bagian sesuai dengan kandungan kalorinya,yaitu :menu makanan dengan kandungan kalori <900 kal = menu makanan 1, menu makanan dengan kandungan kalori 901-1100 kal = menu makanan 2, menu makanan dengan kandungan kalori 1101-1300 kal = menu makanan 3, menu makanan dengan kandungan 1301-1500 kal = menu makanan 4, menu makanan dengan kandungan >1501 kal = menu makanan 5.
+VI. KESIMPULAN
+Pada proses pelatihan dengan menggunakan 166 data dengan nilai bobot awal = 0, nilai bias = 0, threshold = 0,5 dan learning rate = 0,1 didapatkan nilai bobot dan bias yang stabil padaepoch ke- 100 yaitu dengan nilai bobot umur = -2,5830, bobot berat badan = 5,5645, bobot tinggi badan = 4,0404, bobot jenis kelamin = 0,0600 dan nilai bias = -2,6.
+Pada proses pelatihan diperoleh error sebesar 4,762%.
+Sedangkan pada proses testing dengan menggunakan 23 data didapatkan nilai ketepatan sebesar 82,609%.
+Semakin besar berat badan balita maka semakin besar pula kebutuhan kalori yang dibutuhkan dan pada balita umur 7-36 bulan secara umum prosentase kebutuhan kalori 1% - 2% lebih besar dibandingkan prosentase dengan berat badan.
+Pada proses penentuan kebutuhan kalori balita dipengaruhi beberapa faktor, antara lain : berat badan, usia, tinggi badan, jenis kelamin, dan aktifitas.
+Khusus untuk aktifitas hanya berpengaruh untuk balita umur 37-60 bulan.

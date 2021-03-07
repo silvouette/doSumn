@@ -1,0 +1,123 @@
+Abstrak
+Informasi mengenai kondisi atmosfer yang cepat, akurat, dan terperinci sangat diperlukan oleh berbagai sektor.
+Salah satu metode yang dapat digunakan untuk melakukan prediksi dan peramalan model yang kompleks dengan akurasi yang tinggi adalah Adaptive Neuro Fuzzy Inference System (ANFIS).
+Dengan kemampuan metode ini untuk melakukan prediksi dan peramalan, pada penelitian ini dilakukan perbandingan kinerja dari kedua kemampuan ANFIS tersebut pada data time series cuaca berdasarkan parameter-parameter atmosfir yang mempengaruhinya.
+Pada penelitian ini, metode ANFIS baik untuk proses prediksi maupun peramalan diimplementasi dengan struktur standar ANFIS yaitu lima layer.
+Namun pada proses peramalan dilakukan penggabungan dengan metode moving average untuk meramalkan nilai parameter input pada saat pengujian.
+Pengujian dilakukan pada data latih 40%, 50% dan 60% dari total data.
+Selain itu, pengujian juga dilakukan dengan mengelompokkan data berdasarkan musim, yaitu kemarau dan penghujan.
+Hasil uji coba menunjukkan bahwa metode ANFIS cukup baik diterapkan untuk proses prediksi jika tanpa pengelompokan data berdasarkan musim.
+Namun jika dilakukan pengelompokan berdasarkan musim, kemampuan ANFIS dalam melakukan peramalan memiliki tingkat akurasi yang lebih tinggi dengan nilai error yang cukup rendah.
+Kata kunci: prediksi cuaca, peramalan cuaca, data time series
+1. PENDAHULUAN
+Cuaca merupakan suatu kondisi udara di suatu tempat pada waktu yang relatif singkat, yang dinyatakan dengan nilai berbagai parameter seperti suhu, tekanan udara, kecepatan angin, kelembaban udara, dan berbagai fenomena atmosfer lainnya.
+Pemilihan metode yang tepat untuk menentukan kondisi cuaca adalah kegiatan yang akhir-akhir ini sering dilakukan oleh beberapa peneliti atmosfer atau cuaca (Arifin, 2007 dan Kresnawan, 2008).
+Hal ini dikarenakan banyaknya tuntutan dari berbagai pihak yang menginginkan informasi mengenai kondisi atmosfer yang lebih cepat, akurat, dan terperinci.
+Bahkan beberapa pihak lain menuntut tersedianya prediksi atau bahkan ramalan mengenai kondisi atmosfer dengan rentang waktu yang cukup kecil seperti waktu harian, jam, bahkan dalam waktu menit.
+Dengan adanya kebutuhan ini, mendorong peneliti atmosfer untuk terus melakukan penelitian-penelitian terkait atmosfer cuaca dan juga mengembangkan metode-metode untuk menentukan kondisi cuaca sehingga mampu mendapatkan hasil yang baik dan akurat.
+Kegiatan untuk menentukan kondisi cuaca telah banyak dilakukan dengan menggunakan berbagai teknik pemodelan dan penerapan metode-metode tertentu, mulai dari pemodelan yang sederhana hingga pemodelan yang sangat kompleks.
+Dewi, dkk, Prediksi Cuaca pada data time series 19 Pemanfaatan model prakiraan cuaca dengan teknik modern baru memiliki ketepatan sekitar 70%, sedangkan untuk prakiraan iklim masih dibawah 50% (Adiningsih, 2000).
+Adapun Badan Meteorologi dan Geofisika menggunakan metode probabilitas, metode deret harmonis, metode analogi untuk meramalkan cuaca dan iklim di Indonesia (Gunawan, 2001).
+Pada penelitian sebelumnya telah dilakukan peramalan cuaca dengan menggunakan metode fuzzy clustering (Arifin, 2007) yang dapat menghasilkan ketepatan sebesar 69%.
+Selanjutnya prediksi cuaca maritim menggunakan jaringan saraf tiruan (Kresnawan, 2008) mampu menghasilkan ketepatan tingkat akurasi sebesar 60,7% untuk prediksi arus laut, 72,4% untuk prediksi ketinggian gelombang laut, dan 26,122% untuk prediksi curah hujan.
+Adaptive Neuro Fuzzy Inference System (ANFIS) merupakan salah satu metode yang sering digunakan untuk prediksi atau diagnosis, dengan akurasi yang cukup bagus (Singla dkk, 2011).
+ANFIS merupakan gabungan antara konsep Backpropagation Neural Network dengan konsep logika fuzzy.
+Sistem berbasis fuzzy bisa dinyatakan dengan pengetahuan berbentuk if-then yang memberikan keuntungan tidak memerlukan analisis matematik untuk pemodelan, selain itu sistem fuzzy juga bisa memproses penalaran dan pengetahuan manusia yang berorientasi pada aspek kualitatif (Shing dan Jang, 1993).
+Sedangkan jaringan saraf tiruan mempunyai keuntungan yang memudahkan dalam mengklasifikasikan suatu objek berdasarkan sekumpulan fitur yang menjadi masukan sistem, karena hanya dengan memasukkan sejumlah fitur dan kemudian melakukan pelatihan dengan data tersebut, mampu membedakan satu objek dengan objek lain (Duda, 2001).
+Metode ANFIS terdiri dari 5 lapisan yang mana tiap lapisan memiliki perlakuan yang berbeda.
+Pada ANFIS, proses pelatihan pada jaringan neural yang terdapat pada beberapa lapisan dengan sejumlah pasangan data berguna untuk memperbaharui parameter-paramater sistem inferensi fuzzy (Fariza, 2007).
+Pada penelitian ini dilakukan pembandingan kinerja dari kemampuan ANFIS dalam memprediksi cuaca berdasarkan parameter-parameter atmosfir yang mempengaruhi dan kemampuan ANFIS untuk meramalkan cuaca untuk jangka waktu tertentu pada masa yang akan datang.
+Dengan demikian akan diketahui kemampuan ANFIS manakah yang lebih unggul, melakukan prediksi ataukah peramalan cuaca.
+2.METODE PENELITIAN
+Proses implementasi kedua aplikasi dan pembandingan akurasi dari kedua kemampuan ANFIS secara garis besar ditunjukkan pada Gambar 1.
+Rincian kegiatan dari proses ini dijelaskan sebagai berikut: 1. Persiapan dan penentuan parameter cuaca yangakan digunakan dalam prediksi.
+Pada proses ini dilakukan studi literatur dan diskusi dengan pakar mengenai parameter cuaca yang digunakan dalam proses prediksi cuaca, dalam hal ini pihak BMKG Karangploso, Kabupaten Malang.
+Setelah itu dilakukan pengumpulan dan persiapan data sesuai dengan kebutuhan prediksi dan peramalan.
+2. Implementasi ANFIS untuk Prediksi dan Peramalan cuaca
+Sistem prediksi/peramalan cuaca ini memilikibeberapa bagian yaitu rancanganpengelompokan data (clustering data), danrancangan sistem ANFIS.
+Secara umum rancangan kedua bagian tersebut dapat dibuatdengan menggunakan beberapa tahapan danlangkah-langkah sebagai berikut: a. Tahap pertama adalah meng-input-kan dataunsur cuaca yang berupa data suhu,kelembaban, tekanan udara, dan kecepatanangin.
+b. Tahap selanjutnya adalah melakukanpelatihan dengan menggunakan algoritmapembelajaran ANFIS.
+c. Setelah dilakukan pelatihan dan didapatkankondisi jaringan yang optimal, dilakukanpengujian dengan menggunakan nilaiparameter jaringan dari hasil pelatihan.
+d. Menampilkan keluaran akhir dariperhitungan ANFIS berupaprediksi/ramalan cuaca.
+Uraian tahapan dan langkah-langkah diatasdapat digambarkan dalam flowchart pada Gambar 2.
+3. Perhitungan akurasi.
+Data-data yang ada dibagi menjadi dua bagian,dimana bagian pertama digunakan sebagai datapelatihan, sedangkan bagian kedua digunakansebagai data pengujian.
+Pada pengujian dilakukan perhitungan RMSE dan akurasi dengan menggunakan persamaan 1 dan 2 dimana n adalah banyaknya data, yi adalah target jaringan dan iy adalah ouput jaringan.
+4. Perbandingan akurasi
+Dari hasil pengujian dengan memperhatikan beberapa kombinasi jumlah data latih yang berbeda-beda, dilakukan proses pembandingan RMSE dan akurasi sehingga akan diketahui kemampuan ANFIS dalam melakukan prediksi berdasarkan parameter cuaca dan peramalancuaca untuk jangka waktu tertentu ke depan menggunakan data time series.
+Rancangan arsitektur jaringan ANFIS yang digunakan dalam penelitian ini ditunjukkan pada Gambar 3.
+3.DATA
+Data yang digunakan dalam penelitian ini berupa data sekunder dari data pengamatan Badan Meteorologi, Klimatologi, dan Geofisika (BMKG) dari Kecamatan Karangploso, Kabupaten Malang, dari bulan Januari 2011 sampai dengan Mei 2012.
+Data yang digunakan meliputi data harian suhu, kelembaban udara, kecepatan angin dan tekanan udara.
+Sedangkan untuk perhitungan akurasi digunakan data kelas hujan yang tersedia dalam data.
+4. HASIL DAN PEMBAHASAN
+Pada aplikasi yang dibangun terdiri dari form pelatihan dan pengujian.
+Pengujian dilakukan setelah dilakukan pelatihan pada sistem dengan berbagai kombinasi antara data latih dan data uji.
+Pengujian bertujuan untuk menghitung nilai RMSE dan tingkat akurasi sistem (perbandingan target aktual dengan hasil output jaringan).
+4.1. Hasil pengujian prediksi cuaca dengan ANFIS 
+Sebelum dilakukan pengujian terhadap kombinasi jumlah data latih dan data uji, terlebih dahulu dilakukan pengujian terhadap laju pembelajaran (learning rate) untuk mengetahui nilai laju pembelajaran yang optimal.
+Pengujian laju pembelajaran dilakukan pada jumlah data latih sebanyak 50% dari total data.
+Hasil pengujian laju pembelajaran ditunjukkan pada Tabel 1.
+Berdasarkan Tabel 1 dapat diketahui bahwa rata-rata nilai RMSE untuk semua nilai learning rate yang diujikan cukup bagus yaitu dibawah satu.
+Dari Dewi, dkk, Prediksi Cuaca pada data time series 21 nilai tersebut, RMSE terkecil diperoleh pada hasil pengujian dengan laju pembelajaran 0,001.
+Nilai laju pembelajaran ini selanjutnya digunakan untuk pengujian RMSE dan akurasi dengan kombinasi data latih dan data uji yang lain.
+Untuk pengujian RMSE dan akurasi, pelatihan dilakukan pada jumlah data latih sebanyak 40%, 50% dan 60% dari total data yang ada.
+Sedangkan pengujian dilakukan pada sisa data pelatihan yang terdiri dari persentase 30%, 40% dan 50%.
+Pada masing-masing kombinasi data dilakukan pengujian sebanyak lima kali dan selanjutnya diambil rata-rata nilai RMSE dan akurasi dari kelima hasil pengujian tersebut.
+Hasil pengujian ditunjukkan pada Tabel 2.
+Berdasarkan Tabel 2 dapat diketahui bahwa nilai RMSE terkecil ditemukan pada kombinasi data latih 50% dan data uji 30%.
+Sedangkan nilai akurasi tertinggi ditemukan pada kombinasi data latih 60% dan data uji 30%.
+Semakin banyak data latih menunjukkan semakin tinggi tingkat akurasi.
+Namun tidak demikian dengan nilai RMSE yang nilainya bervariasi pada setiap kombinasi data latih dan data uji.
+Dari Tabel 2 juga terlihat bahwa semakin kecil nilai RMSE, maka semakin besar nilai akurasi sistem.
+Disamping itu, hasil pengujian juga menunjukkan bahwa sebagian besardata yang sulit dikenali adalah cuaca cerah, yang mana dikenali dengan hujan atau mendung.
+Untuk cuaca hujan, sebagian besar bisa dikenali dan hanya sebagian kecil yang kadang dikenali mendung.
+Hal ini dimungkinkan karena range kelas hujan dan mendung memiliki batas nilai yang cukup dekat.
+Faktor lainnya yang juga menjadi penyebab kesalahan adalah proses clustering yang mana beberapa data masuk ke dalam cluster yang berbeda dengan kelas data target sehingga range nilai output jaringan akan masuk ke dalam cluster yang sesuai dengan hasil dari proses clustering.
+Selanjutnya sistem diuji dengan membagi data menjadi dua berdasarkan musim.
+Data pertama adalah data musim penghujan yaitu antara bulan Nopember sampai April, dan data kedua adalah data pada musim kemarau yaitu antara bulan Juni sampai September.
+Hasil pengujian data pada musim kemarau ditunjukkan pada Tabel 3, sedangkan hasil pengujian pada musim penghujan ditunjukkan pada Tabel 4.
+Berdasarkan hasil uji coba dapat diketahui bahwa ANFIS memiliki kemampuan cukup bagus dalam proses prediksi cuaca, dimana rata-rata nilai akurasi adalah diatas 85% untuk musim kemarau dan diatas 80% untuk musim penghujan.
+4.2. Hasil Pengujian Peramalan Cuaca dengan ANFIS 
+Pengujian pada peramalan ini menggunakan nilai learning rate yang sama dengan proses prediksi.
+Pada skenario pertama, pengujian RMSE dan akurasi dilakukan pada latih sebanyak 40%, 50% dan 60% dari total data yang ada serta dengan data uji yang terdiri dari persentase 30%, 40% dan 50%.
+Pada masing-masing kombinasi data dilakukan pengujian sebanyak lima kali dan selanjutnya diambil rata-rata nilai RMSE dan akurasi dari kelima hasil pengujian tersebut.
+Hasil pengujian ditunjukkan pada Tabel 5.
+Berdasarkan Tabel 5 dapat diketahui bahwa nilai RMSE terkecil ditemukan pada kombinasi data latih 50% dengan data uji 30% dan 50%.
+Sedangkan nilai akurasi tertinggi ditemukan pada kombinasi data latih 40% dan data uji 50%.
+Semakin banyak data latih tidak menunjukkan semakin tinggi tingkat akurasi.
+Dari tabel terlihat nilai RMSE kecil belum tentu memiliki nilai akurasi yang lebih baik.
+Hasil pengujian dengan menggunakan persentaseperbandingan data latih dan data uji menunjukkan akurasi yang buruk jika dibandingkan dengan proses prediksi.
+Oleh karena itu, untuk proses pengujian kemampuan ANFIS dalam melakukan peramalan dilakukan pengujian dengan skenario yang lain.
+Pada skenario kedua, dilakukan pengujian dengan memisahkan data musim penghujan dan musim kemarau.
+Disamping itu, pengujian dilakukan untuk jangka waktu yang pendek yaitu satu sampai lima bulan.
+Tabel 6 menunjukkan hasil pengujian yang dilakukan dengan menggunakan data latih selama dua sampai lima bulan, sedangkan data uji adalah satu sampai tiga bulan.
+Berdasarkan Tabel 6 dapat diketahui bahwa semakin sedikit data uji menunjukkan akurasi pengujian yang lebih baik.
+Akurasi yang cukup baik ditemukan pada pengujian dengan jumlah data latih sebanyak dua bulan.
+Untuk data latih tiga bulan dengan data uji satu bulan masih menunjukkan hasil yang cukup bagus.
+Hal ini dikarenakan data uji yang digunakan berada pada musim yang sama.
+Sedangkan pengujian sisanya menunjukkan hasil yang buruk, terutama pada pengujian dengan data latih sebanyak lima bulan.
+Hal ini dikarenakan sebagian data uji berada pada musim yang berbeda dengan data latih.
+Tabel 7 menunjukkan hasil pengujian dengan menggunakan data pada musim kemarau.
+Hasil pengujian menunjukkan akurasi yang bagus dimana rata-rata diatas 90%.
+Tabel 8 menunjukkan hasil pengujian dengan menggunakan data pada musim penghujan.
+Berdasarkan hasil pengujian dapat diketahui bahwa akurasi pengujian untuk data antara bulan JanuariDewi, dkk, Prediksi Cuaca pada data time series 23 sampai April cukup bagus yaitu rata-rata diatas 80%, sedangkan hasil pengujian untuk data antara bulan Nopember sampai Desember menunjukkan hasil yang tidak bagus.
+Berdasarkan pengujian diatas dapat diketahui bahwa kemampuan ANFIS dalam melakukan peramalan menghasilkan akurasi yang bagus apabila dilakukan pada data yang berada pada musim yang sama.
+Namun pengecualian terjadi untuk pengujian dengan menggunakan data pada bulan Nopember dan Desember dimana menghasilkan akurasi yang rendah.
+4.1. Perbandingan hasil prediksi dan peramalan 
+Pada penelitian ini dilakukan pembandingan hasil pengujian prediksi dan peramalan cuaca dengan ANFIS.
+Dari Tabel 2 sampai dengan Tabel 8 terlihat bahwa nilai RMSE untuk proses prediksi lebih rendah daripada pada proses peramalan.
+Dengan demikian, nilai akurasi pada proses prediksi lebih tinggi dari pada proses peramalan.
+Hal ini menunjukkan bahwa metode ANFIS lebih baik digunakan untuk proses prediksi daripada peramalan jika data latih dan data uji diambil secara acak berdasarkan persentase total data.
+Disamping itu terlihat bahwa nilai RMSE untuk proses prediksi lebih tinggi daripada pada proses peramalan.
+Namun, jika diperhatikan akurasi baik untuk prediksi maupun peramalan memiliki nilai tinggi dan bahkan bisa mencapai 100%.
+Dari tabel juga dapat dilihat bahwa nilai RMSE dan akurasi pada musim penghujan.
+Dari grafik terlihat bahwa nilai RMSE untuk proses prediksi lebih tinggi daripada pada proses peramalan.
+Namun akurasi memiliki nilai yang hampir sama yaitu rata-rata diatas 75%.
+Akan tetapi kondisi anomali juga terjadi untuk peramalan, dimana akurasi untuk data latih dua bulan memiliki nilai akurasi yang rendah.
+5.KESIMPULAN
+Berdasarkan proses dan analisa hasil yang dilakukan dapat diambil kesimpulan sebagai berikut: 1. ANFIS diimplementasikan dengan menggunakan standar arsitektur ANFIS yang terdiri dari 5 lapisan yang terdiri dari 12 input neuron, 3 neuron pada hidden layer dan 1 output neuron.
+Untuk meng-cluster data yang digunakan sebagai input digunakan metode K-Mean.
+Disamping itu, untuk proses peramalan dilakukan penggabungan dengan metode moving average untuk meramalkan nilai keempat parameter input yang akan diramalkan kondisi cuacanya.
+2. Berdasarkan hasil uji coba menunjukkan ANFIS memiliki kemampuan yang lebih baik untuk prediksi jika data yang digunakan tidakdikelompokkan berdasarkan musim tertentu.
+Namun jika data dikelompokkan berdasarkan musim, ANFIS memiliki kemampuan yang lebih baik untuk meramalkan cuaca.

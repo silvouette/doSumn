@@ -1,0 +1,85 @@
+Abstrak
+Pemilihan tempat pendidikan yang bagus dan sesuai dengan kemampuan anak merupakan hal yang harus dikombinasikan untuk menunjang kemampuan perkembangan seorang anak.
+Apalagi pada masa pemilihan sekolah setelah lulus jenjang Sekolah Menengah Pertama (SMP) merupakan suatu keputusan yang harus dilakukan sambil mempertimbangkan masa depan.
+Dalam memilih sekolah lanjutan banyak hal yang biasanya dipertimbangkan, seperti Nilai Ujian Nasional (NUN) yang di dapat oleh siswa, jarak antar rumah siswa dan sekolah, fasilitas sekolah, bahkan prestasi-prestasi sekolah yang dianggap bisa menunjang kemampuan siswanya.
+Dari permasalahan tersebut, maka dirancang sebuah sistem untuk memberikan rekomendasi sekolah menengah atas sederajat di Kota Malang.
+Penelitian ini menerapkan metode Analytical Hierarchy Process (AHP) - Elimination Et Choix Tranduisant La Realit (ELECTRE) - Technique for Order Preference by Similarity to Ideal Solution (TOPSIS).
+AHP melakukan perhitungan pembobotan kriteria, ELECTRE melakukan klasifikasi alternatif favourable, dan TOPSIS melakukan perankingan terhadap alternatif sehingga muncul rekomendasi sekolah yang sesuai dengan kriteria pengguna.
+Untuk pengujian, dilakukan uji akurasi pada metode TOPSIS dengan membandingkan data rekomendasi yang dikeluarkan oleh sistem dengan data yang didapat dari pakar.
+Pengujian akurasi pada metode TOPSIS mendapatkan nilai akurasi sebesar 82,98%.
+Kata kunci: Pendidikan, SMA, AHP, ELECTRE, TOPSIS
+1. PENDAHULUAN
+Pemilihan tempat pendidikan yang tepat merupakan hal yang harus dilakukan untuk menunjang kemampuan perkembangan seorang anak.
+Apalagi pada masa pemilihan Sekolah Menengah Atas (SMA) sederajat yang harus mempertimbangkan masa depan anak itu sendiri.
+Sekolah yang dapat dipilih oleh seorang anak adalah Sekolah Menengah Atas (SMA) atau Sekolah Menengah Kejuruan (SMK) ataupun yang lainnya.
+Dalam melakukan pemilihan sekolah lanjutan banyak hal yang biasanya dipertimbangkan, seperti Nilai Ujian Nasional (NUN) yang di dapat oleh siswa, jarak antar rumah siswa dan sekolah, fasilitas sekolah, bahkan prestasi-prestasi sekolah yang dianggap bisa menunjang kemampuan siswanya.
+Maka dari itu penulis memberikan sebuah solusi yaitu dengan membuat sistem rekomendasi pemilihan sekolah menengah atas sederajat Kota Malang menggunakan metode AHP ELECTRE TOPSIS.
+AHP digunakan untuk melakukan pembobotan terhadap kriteria sehingga didapatkan pembobotan yang sesuai, ELECTRE digunakan untuk mengklasifikasikan alternatif yang ada berdasarkan kriteria dan pembobotan kritera yang didapatkan dari metode AHP.
+Sementara TOPSIS melakukan perankingan terhadap alternatif solusi yang diperolehdari klasifikasi metode ELECTRE, hal ini dikarenakan ELECTRE tidak dapat melakukan proses perangkingan sehingga penggunaan metode TOPSIS diharapkan dapat menemukan alternatif yang terbaik.
+Diharapkan dengan menggabungkan metode tersebut dapat memberikan rekomendasi kepada orang tua wali murid ataupun pengguna lainnya dalam pemilihan Sekolah Menengah Atas (SMA) Sederjat di Kota Malang.
+Penggunaan metode AHP Electre TOPSIS sebagai rekomendasi dari pemilihan telah dibahas penelitian sebelumnya, penelitian pertama yang dilakukan oleh Arinta Asesanti (2015) yang menggunakan metode ELECTRE dan TOPSIS pada Seleksi Penerimaan Peserta Didik Baru SMP Brawijaya Smart School (BSS) Kota Malang.
+Peda penelitiannya, asesanti menghasilkan akurasi sebesar 88,06%.
+Penelitian yang lain dilakukan oleh Jakti K. Prasojo (2016) yang menggunakan metode AHP dan TOPSIS untuk seleksiatlit pencak silat.
+Penelitian yang dilakukan oleh Jakti menghasilkan akurasi sebesar 83%.
+Penelitian yang dilakukan oleh Bramanti P. Pamungkas, (2016) yang menggunakan metode AHP dan ELECTRE untuk melakukan pemilihan pemain bola voli.
+Penelitian yang dilakukan oleh Bramanti menghasilkan akurasi sebesar 85,71%.
+2. ANALYTICAL HIERARCHY PROCESS (AHP) 
+AHP adalah sebuah hierarki fungsional dengan input utamanya persepsi manusia.
+Model AHP memakai persepsi manusia yang dianggap pakar sebagai input utamanya.
+Kriteria pakar disini bukan berarti bahwa orang tersebut haruslah jenius, pintar, bergelar doktor dan sebagainya tetapi lebih mengacu pada orang yang mengerti benar permasalahan yang diajukan, merasakan akibat suatu masalah atau punya kepentingan terhadap masalah tersebut (Suryadi, et al., 1998).
+Flowchart jalannya metode AHP dapat dilihat pada Gambar 1.
+Pada awal proses AHP hal yang dilakukan adalah memasukkan prioritas elemen, prioritas elemen didapat dari inputan pengguna dengan mengurutkan 5 kriteria yang digunakan yaitu kriteria nilai, jarak antara sekolah dan tempat tinggal, prestasi sekolah, ekstrakulikuler yang ada di sekolah dan fasilitas yang dimiliki oleh sekolah.
+5 kriteria tersebut diurutkan oleh pengguna dari yang paling penting ke prioritas yang kurang penting menurut pengguna.
+Kemudian, setelah prioritas elemen kriteria telah ditentukan, proses berikutnya adalah melakukan normalisasi matriks kriteria, lalu menghitung nilai bobot kriteria, dan menghitung konsentrasi.
+Setelah itu muncul nilai CR, apabila nilai CR lebih besar dari 0,1 maka proses dilakukan lagi mulai dari awal, yakni menentukan prioritas elemen kriteria.
+Tetapi apabila nilai CR kurang dari atau sama dengan 0,1, maka nilai bobot masing-masing kriteria dapat digunakan untuk proses berikutnya.
+3. ELIMINATION ET CHOIX TRANDUISANT LA REALITE (ELECTRE) 
+Electre adalah singkatan dari Elimination Et Choix Traduisant la Realite atau dalam Bahasa inggris berarti Elimination and Choice Expressing Reality.
+Menurut Janko dan Bernoider (2005:11), Electre merupakan salah satu metode pengambilan keputusan multikriteria berdasarkan pada konsep outranking dengan menggunakan perbandingan berpasangan dari alternarif-alternatif berdasarkan setiap kriteria yang sesuai.
+Flowchart jalannya metode Electre dapat dilihat pada Gambar 2.
+Pada awal proses ELECTRE hal yang dilakukan adalah memasukkan seluruh data sekolah yang digunakan dan telah disesuaikan dengan kriteria yang telah dimasukkan oleh pengguna.
+Kemudian, setelah data sekolah telah dimasukkan, dilakukan proses perhitungan electre, yaitu mulai dari normalisasi matriks keputusan, pembobotan normalisasi matriks keputusan, menentukan himpunan concordance dan discordance, menghitung matriks concordance dan discordance, menghitung matriks domain concordance dan discordance,menghitung aggregate dominance matriks, dan yang terkahir adalah melakukan eliminasi alternatif yang less favourable.
+Setelah proses ELECTRE telah dilakukan, hasil keluaran proses ELECTRE adalah sekolah yang masuk rekomendasi berdasarakan kriteria yang telah diinputkan oleh pengguna.
+4. TECHNIQUE FOR ORDER PREFERENCE BY SIMILARYTY TO IDEAL SOLUTION (TOPSIS) 
+TOPSIS adalah akronim dari Technique for Order Preference by Similarity of Ideal Solution.
+TOPSIS merupakan salah satu metode pengambilan keputusan multikriteria yang pertama kali diperkenalkan oleh Yoon dan Hwang tahun 1981 (Juliyanti, et al., 2011).
+TOPSIS juga biasa digunakan untuk melakukan perangkingan dari beberapa alternatif yang ada.
+Flowchart jalannya metode TOPSIS dapat dilihat pada Gambar 3.
+Pada awal proses TOPSIS, hal pertama yang dilakukan adalah memasukkan sekolah yang sesuai dengan kriteria yang telah dimasukkan oleh pengguna.
+Kemudian melakukan proses-proses yang terjadi dalam metode TOPSIS, yakni normalisasi matriks keputusan, pembobotan normalisasi matriks keputusan, menghitung nilai solusi ideal positif dan negatif, menghitung jarak antara nilai setiap alternatif dengan matriks solusi ideal positif dan matriks solusi ideal negatif, dan menghitung nilai preferensi.
+Setelah semua proses pada metode TOPSIS telah dilakukan, muncul 5 rekomendasi sekolah lanjutan yang dapat digunakan oleh pengguna sebagai pertimbangan memilih sekolah lanjutan.
+5. METODE 
+Implementasi sistem menjalankan 3 proses metode, yaitu metode AHP, metode Electre, dan metode TOPSIS.
+Flowchart jalannya sistem secara umum dapat dilihat pada Gambar 4.
+Proses-proses yang terjadi pada sistem adalah sebagai berikut :Memasukkan data pengguna.
+Pertama yang dilakukan oleh sistem adalah menerima masukan data pengguna.
+Data pengguna yang dimasukkan adalah berupa : - Nama - Alamat - Pilihan lanjutan sekolah (SMA Negeri, SMA Swasta, SMK Negeri, SMK Swasta atau MA) - Jurusan (apabila memilih SMK Negeri atau SMK Swasta) - Nilai (nilai ujian nasional dan nilai dari semester 1 sampai dengan semester 5 dari mata pelajaran matematika, bahasa indonesia, bahasa inggris, ilmu pengetahuan alam dan ilmu pengetahuan sosial) - Prestasi sekolah yang diinginkan - Ekstrakulikuler yang diinginkan - Fasilitas sekolah yang diinginkan - Pilihan prioritas yang diinginkan oleh pengguna.
+Proses pada metode AHP Pada proses metode AHP adalah proses pemberian bobot tiap kriteria yang diberikan kepada pengguna.
+Kriteria-kriteria yang digunakan adalah jarak dari rumah ke sekolah, nilai, prestasi sebuah sekolah, ekstrakulikuler yang dimiliki sekolah, dan fasilitan yang dimiliki sekolah.
+Pembobotan diisikan langung oleh pengguna, karena pengguna memiliki bobot tersendiri mengenai kriteria-kriteria tersebut.
+Proses pada metode Electre Pada proses metode electre adalah proses pengelompokan data.
+Data yang dikelompokkan adalah data pilihan sekolah.
+Data dikelompokkan sesuai kriteria yang telah dimasukkan oleh pengguna.
+Proses pada metode TOPSIS Pada proses metode topsis adalah proses perangkingan sekolah-sekolah yang telah dikelompokkan dan sesuai dengan kriteria dari pengguna.
+Dan hasil dari perangkingan tersebut adalah berupa rekomendasi sekolah yang direkomendasikan untuk pengguna sesuai dengan kriteria yang telah diinputkan.
+6. PENGUJIAN DAN ANALISIS 
+Pengujian yang dilakukan pada penelitian ini adalah pengujian akurasi.
+Pengujian dilakukan pada tahap hasil perankingan metode TOPSIS.
+Pengujian akurasi digunakan untuk mengetahui tingkat kesesuaian hasil keluaran sistem dengan data hasil survey yang didapat oleh penulis.
+Data uji yang digunakan adalah sebanyak 47 data.
+Pengujian dilakukan dengan membandingkan data rekomendasiyang dikeluarkan oleh sistem dengan data yang didapatkan oleh penulis.
+Apabila sekolah yang ditempati oleh pengguna muncul pada halaman rekomendasi sekolah dan menempati posisi 5 besar, maka rekomendasi sistem bisa dikatakan sesuai.
+Setelah pengujian dilakukan, diperoleh data yang sesuai sebesar 39, sedangkan data yang tidak sesui sebesar 8.
+Berdasarkan data tersebut akurasi sistem dapat diperoleh dengan perhitungan berikut :(478)47 100%=82,98%
+Berdasarkan hasil pengujian, nilai akurasi yang didapatsebesar 82,98%.
+Pada pengujian hasil akurasi tidak mencapai 100% karena sistem dalam melakukan pengelompokan yang menggunakan metode electre hanya mendapatkan akurasi sebesar 85,11%, dan juga hasil akurasi tidak mencapai 100% karena sistem dalam memberikan rekomendasi mempertimbangkan fasilitas yang dimiliki oleh sekolah, prestasi yang dimiliki oleh sekolah, dan ekstrakulikuler yang dimiliki oleh sekolah.
+Sedangkan dalam kenyataannya tiap sekolah memiliki fasilitas, prestasi dan ekstrakulikuler yang berbeda-beda.
+7. KESIMPULAN
+Berdasarkan hasil perancangan, implementasi, dan pengujian yang telah dilakukan pada bab sebelumnya, maka dalam penelitian ini dapat diambil kesimpulan : 1. Sistem rekomendasi dibangun dengan menggunakan metode AHP ELECTRE TOPSIS.
+Metode AHP digunakan untuk memberikan bobot pada tiap kriteria.
+Metode electre digunakan untuk mengkelompokkan sekolah yang sesuai dan tidak sesuai dengan kriteria yang telah dimasukkan oleh pengguna.
+Metode TOPSIS digunakan untuk melakukan perangkingan sekolah-sekolah yang sesuai dengan dengan kriteria yang dimasukkan oleh pengguna.
+2. Sistem rekomendasi pemilihan sekolah menengah atas sederajat kota malang menggunakan metode AHP ELECTRE TOPSIS setelah dilakukan pengujian, ternyata memiliki akurasi sebesar 82,98%.
+Akurasi yang dimiliki sistem tidak dapat menacapai lebih dari 82,98% karena pada metode electre yang dilakukan pengelompokan data, juga memiliki akurasi yang tidak lebih dari 82,98%.
+Hal ini dapat terjadi karena sistem dalam memberikan rekomendasi mempertimbangkan fasilitas yang dimiliki oleh sekolah, prestasi yang dimiliki oleh sekolah, dan ekstrakulikuler yang dimiliki oleh sekolah.
+Sedangkan dalam kenyatannya tiap sekolah memiliki fasilitas, ektrakulikuler, dan prestasi yang berbeda-beda.

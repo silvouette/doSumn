@@ -1,0 +1,175 @@
+Abstrak
+Keberadaan Twitter telah digunakan secara luas oleh berbagai lapisan masyarakat dalam beberapa tahun terakhir.
+Kebiasaan masyarakat mem-posting tweet untuk menilai tokoh publik adalah salah satu media yang merepresentasikan tanggapan masyarakat terhadap tokoh publik.
+Menjelang pemilihan umum, biasanya ada pihak-pihak tertentu yang ingin mengetahui sentimen dan tanggapan terhadap tokoh publik.
+Tokoh publik yang dinilai adalah tokoh yang dianggap layak dan memiliki kemampuan untuk dipilih menjadi pemimpin.
+Oleh karena itu, penelitian ini mencoba menganalisis tweet berbahasa Indonesia yang membicarakan tentang tokoh publik.
+Analisis dilakukan dengan melakukan klasifikasi tweet yang berisi sentimen masyarakat tentang tokoh tertentu.
+Metode klasifikasi yang digunakan dalam penelitian ini adalah Naive Bayes Classifier.
+Naive Bayes Classifier dikombinasikan dengan fitur untuk dapat mendeteksi negasi dan pembobotan menggunakan term frequency serta TF-IDF.
+Klasifikasi tweet pada penelitian ini diperoleh berdasarkan kombinasi antara kelas sentimen dan kelas kategori.
+Klasifikasi sentimen terdiri dari positif dan negatif sedangkan klasifikasi kategori terdiri dari kapabilitas, integritas, dan akseptabilitas.
+Hasil pengujian pada aplikasi yang dibangun dan pada tools RapidMiner memperlihatkan bahwa akurasi dengan term frequency memberikan hasil akurasi yang lebih baik daripada akurasi dengan fitur TF-IDF.
+Metode Support Vector Machine menghasilkan akurasi performansi yang lebih baik daripada metode Naive Bayes baik dalam klasifikasi sentimen maupun dalam klasifikasi kategori.
+Namun demikian, secara keseluruhan penggunaan metode Support Vector Machine dan Naive Bayes sama-sama memiliki performansi yang cukup baik untuk melakukan klasifikasi tweet.
+Kata Kunci : Analisis sentimen, Klasifikasi kategori, Naive Bayes , Support Vector Machine 
+1. PENDAHULUAN
+Media jejaring sosial seperti Twitter, Facebook, dan Youtube merupakan beberapa media perangkat komunikasi terpopuler di masyarakat saat ini (Aliandu, 2012; Kumar dan Sebastian, 2012).
+Menjelang pemilihan umum, para politisi atau tokoh publik sering memanfaatkan media sosial untuk berkampanye dan meningkatkan popularitas mereka.
+Salah satu media jejaring sosial yang telah dimanfaatkan dalam pemilihan umum adalah Twitter.
+Twitter telah dimanfaatkan dalam pemilihan umum di beberapa negara sepertiSingapura, Jerman, dan Amerika (Sang dan Bos, 2012; Choy dkk, 2012; Choy dkk, 2011).
+Penelitian ini mencoba memanfaatkan Twitter dengan menganalisis tweet berbahasa Indonesia yang membicarakan tentang tokoh publik menjelang pemilihan umum 2014 di Indonesia.
+Tokoh publik yang dianalisis merupakan tokoh publik dengan popularitas tertinggi hasil survei yang telah dilakukan dari beberapa lembaga survei seperti Lembaga Survei Indonesia (LSI), Lembaga Survei Nasional (LSN), Sogeng Sarjadi Syndicate (SSS), Centre for Strategic and International Studies (CSIS) dan Saiful Mujani Research and Consulting (SMRC).
+Analisis dilakukan dengan mengklasifikasikan tweet menggunakan Naive Bayes Classifier.
+Naive Bayes Classifier dikombinasikan dengan fitur untuk dapat mendeteksi negasi dan pembobotan menggunakan term frequency serta TF-IDF.
+Klasifikasi tweet pada penelitian ini diperoleh berdasarkan kombinasi antara kelas sentimen dan kelas kategori.
+Kelas sentimen terbagi menjadi dua polaritas yaitu sentimen positif dan negatif.
+Kelas kategori dipilih berdasarkan indikator yang telah digunakan oleh LSI (Lembaga Survei Indonesia) untuk menilai tokoh yang dianggap layak maju dalam pilpres 2014.
+Ketiga dimensi tersebut adalah kapabilitas, integritas, dan akseptabilitas.
+Dimensi kapabilitas mencakup kepandaian, wawasan, visi, kepemimpinan, ketegasan, dan keberanian dalam pengambilan keputusan.
+Integritas mencakup aspek moral, kejujuran, satu dalam kata dan perbuatan, serta bersih dari cacat moral, etik, dan hukum.
+Akseptabilitas adalah sikap penerimaan masyarakat terhadap seorang tokoh (Mujani, dkk, 2012).
+2. TINJAUAN PUSTAKA
+Sunni dan Widyantoro (2012) telah melakukan analisis sentimen pada Twitter untuk mengetahui opini atau sentimen terhadap tokoh publik dari tweet berbahasa Indonesia.
+Penelitian ini menggunakan F3 (F3 is Factor Finder) untuk menangani permasalahan model bahasa yang ditemukan.
+F3 menggunakan metode Naive Bayes untuk melakukan analisis sentimen.
+Fitur TF-IDF dengan discounted-cumulative digunakan untuk menangani karakter topik yang muncul di Twitter yang berkelanjutan.
+Penggunaan TF-IDF dengan discounted cumulative untuk mengekstrak topik mampu meningkatkan jumlah topik terekstrak yang sesuai.
+Naive Bayes juga digunakan oleh Aliandu (2012) untuk menentukan sentimen publik yang disampaikan melaluitweetberbahasa Indonesia.
+Penelitian ini menggunakan term objek tertentu hasil query user.
+Data yang terkumpul akan mengalami preprocessing sebelum dilakukan proses training.
+Data training dikumpulkan dengan memanfaatkan fasilitascrontabdenganquery emoticondan akun media nasional yang terhubung ke Twitter API.
+Penelitian ini menggunakan emoticon untuk memudahkan melakukan anotasi terhadap kelas sentimen dari data training.
+Emoticondianggap dapat menunjukkan emosi tweetyang disampaikan.
+Setelah itu, Naive Bayes Classifier digunakan untuk klasifikasi sentimen dari data tweet yang telah diperoleh.
+Penelitian lain menggunakan algoritma Naive Bayes juga dilakukan oleh Groot (2012).
+Selain Naive Bayes, penelitian ini juga menggunakan Support Vector Machine untuk membuat model prediksi klasifikasi opini data Twitter.
+Dalam penelitian tersebut, data opini yang berasal dari data tweet diklasifikasi menjadi tiga buah kelas yaitu kelas positif, negatif, dan netral.
+Preprocessing dilakukan terlebih dahulu terhadap data sebelum pembuatan model prediksi.
+Preprocessing dilakukan untuk mengubah data teks menjadi fixed-length feature vector.
+Fitur penelitian ini terdiri dari sentiment-words dan frekuensi kemunculan kata yang digunakan untuk memprediksi kelas sentimen.
+Romelta (2012) juga menggunakan dua buah algoritma pembelajaran yaitu Support Vector Machine dan Naive Bayes untuk menggali opini customer terhadap produk smartphone di Twitter.
+Penelitian ini mencoba membangun sistem pembelajaran mesin untuk mengklasifikasikan opini bedasarkan sentimennya.
+Sistem mengekstraksi kata menggunakan n-multigram pada tahap ekstraksi fitur.
+Tiga buah percobaan dilakukan untuk mendapatkan sebuah pembelajaran mesin yang memiliki akurasi terbaik.
+Hasil percobaan menyimpulkan bahwa SVM dengan pemrosesan casefolding, normalisasi Twitter, POS tagger, tokenisasi produk dan ekstraksi fitur 1-gram memiliki akurasiyang terbaik sebesar 70%.
+Hal ini lebih baik dibandingkan tanpa pemrosesan awal dimana akurasi yang dicapai adalah 63.9%.
+Berdasar penelitian yang telah ada sebelumnya, penelitian ini mencoba melakukan klasifikasi tweet berdasarkan sentimen dan kategori yang berasal dari fitur yang dimiliki oleh tokoh publik.
+Berdasarkan kombinasi kelas sentimen dan kategori, penelitian ini akan mengklasifikasikan tweet menjadi enam kelas yaitu tweet yang membicarakan tentang kapabilitas-positif, kapabilitas-negatif, integritas-positif, integritas-negatif, akseptabilitas-positif, dan akseptabilitas-negatif.
+Klasifikasi tweet dilakukan menggunakan metode Naive Bayes Classifier.
+Model klasifikasi pada penelitian ini menambahkan fitur untuk dapat mendeteksi negasi yang terdapat dalam tweet.
+Ekstraksi fitur pada penelitian ini menggunakan fitur unigram.
+Model klasifikasi dan pembobotan kata (term weighting) dihitung menggunakan term frequency (laplace smoothing) serta TF-IDF (term frequency inverse document frequency).
+3. METODE PENELITIAN
+3.1 Rancangan Sistem 
+Rancangan sistem yang akan dibangun dalam penelitian terbagi menjadi beberapa bagian diantaranya retrieval module, preprocessing, feature selection, dan classification module.
+Gambar 1 memperlihatkan sistem yang dibangun secara lebih rinci.
+Bagian sistem yang berinteraksi dengan pengguna aplikasi secara langsung akan memberikan pilihan kepada user untuk memilih salah satu darinama tokoh publik sebagai query.
+Query akan memberikan hasil berupa grafik tokoh yang menggambarkan berapa banyak tanggapan positif dan negatif.
+Selain itu, dapat diketahui pula konten tweet yang dicari apakah berbicara tentang integritas, kapabilitas, atau kapabilitas yang bernilai positif atau negatif dari tokoh tersebut.
+3.1.1 Retrieval Module 
+Tweet dikumpulkan dengan memanfaatkan fasilitas cron job di sistem operasi Windows.
+Query untuk mendapatkan data tweet berasal dari kombinasi nama tokoh dengan kata dalam kamus yang telah dikelompokkan berdasarkan sentimen dan kategorinya.
+Proses pencarian tweet dilakukan secara berkala dengan bantuan Twitter Search API v1.1. 
+Proses autentikasi dan akses data ke Twitter diperoleh dengan memanfaatkan library Oauth yang merupakan suatu authorization framework.
+Library lain yang digunakan dalam sistem ini adalah library Twitter yang bertugas mengirimkan pesan kepada Twitter dan menerima status update.
+3.2.1 Preprocessing 
+Preprocessing dilakukan untuk menghindari data yang kurang sempurna, gangguan pada data, dan data-data yang tidak konsisten (Hemalatha, dkk, 2012).
+Tahapan text preprocessing pada penelitian ini diantaranya : 1. Menghapus URL 
+URL (http://www.situs.com) dan email (nama@situs.com) dihapus di tahapan ini.
+2. Mengganti Emoticon 
+Proses convert emoticon mengganti emoticon yang terdapat pada tweet dengan kata yang mencerminkan emoticon.
+Daftar konversi emoticon dapat dilihat pada Tabel 1.
+3. Menghapus Karakter Khusus Twitter 
+Proses ini dilakukan dengan menghapus karakter khusus Twitter seperti hashtag (#hashtag), username (@username), dan karakter khusus (misal : RT, yang menunjukkan bahwa user melakukan retweet).
+4. Menghapus Simbol
+Tahapan ini dilakukan untuk membuang simbol dan tanda baca dalam tweet.
+5. Tokenisasi 
+Tokenisasi yaitu tahap pemotongan string input berdasarkan kata yang menyusunnya (Nugroho, 2011).
+6. Cek Nama Tokoh 
+Proses pengecekan nama tokoh dilakukan untuk mengecek keberadaan nama tokoh pada tweet dimana nama tersebut terdapat dalam daftar kamus.
+7. Case folding
+Proses case folding menyeragamkan bentuk huruf menjadi huruf besar atau huruf kecil.
+8. Mengganti Kata Tidak Baku (Slangword) 
+Proses ini mengganti kata-kata dalam tweet yang tidak baku menjadi kata baku yang telah dikenal dalam bahasa Indonesia.
+9. Stemming 
+Stemming adalah tahap mencari akar kata dengan menghilangkan imbuhan pada sebuah kata.
+10. Membuang Stopword 
+Stopword merupakan kata-kata yang tidak berpengaruh terhadap proses klasifikasi.
+11. Menggabungkan Kata Negasi 
+Proses ini dilakukan untuk mendeteksi negasi yang terdapat dalam tweet.
+3.3.1 Pemilihan dan Ekstraksi Fitur Proses pemilihan dan ekstraksi fitur yang digunakan dalam penelitian ini diantaranya : 1. Unigram 
+Unigram feature extractor merupakan cara paling sederhana dalam mendapatkan fitur dari tweet (Go, dkk, 2009).
+Proses ekstraksi unigram dilakukan dengan mengekstrak kata per kata dalam dokumen.
+Model unigram digambarkan dengan persamaan (3.1).
+2. Negation 
+Negasi merupakan sesuatu yang dikenal dalam semua bahasa dan biasanya negasi digunakan untuk mengubah polaritas dari suatu pernyataan (Blanco dan Moldovan, 2011).
+3. Term Frequency (Laplace Smoothing) 
+Term frequency adalah gagasan standar frekuensi dalam corpus-based pengolahan bahasa alami (Yamamoto dan Church, 2001).
+4. TF-IDF (Term Frequency-Inverse Document Frequency) 
+Pembobotan TF-IDF memberikan bobot pada term t dalam dokumen d ditunjukkan oleh persamaan (3.2) (Manning, dkk, 2009).
+Nilai merupakan bobot suatu term t pada dokumen d sedangkan adalah inverse document frequency dari term t.
+Persamaan (3.3) adalah persamaan untuk mencari nilai .
+Nilai diperoleh dari hasil logaritma N dibagi dengan .
+N merupakan jumlah dokumen keseluruhan sedangkanadalah banyaknya dokumen yang memuat term t.
+3.4.1 Classification Module 
+Klasifikasi menggunakan Naive Bayes Classifier dan term frequency dilakukan berdasar persamaan (3.4).
+Nilai dan diperoleh dari data pelatihan sedangkan nilaiuntuk fitur term frequency diperoleh dari persamaan (3.5).
+Nilai pada persamaan (3.5) mewakili jumlah dokumen dalam kelas c dan N adalah jumlah dokumen keseluruhan dalam data pelatihan.
+Perhitungan probabilitas kondisional frekuensi relatif term t dalam dokumen kelas c ataudihitung menggunakan persamaan (3.6) (Manning, dkk, 2009).
+Nilai pada persamaan merupakan jumlah kemunculan suatu term dalam dokumen pada kelas c dalam data pelatihan.
+Tct adalah jumlah kemunculan semua term pada kelas c dalam data pelatihan.
+Nilai B pada persamaan di atas merupakan jumlah term dalam vocabulary.
+Klasifikasi dengan Naive Bayes Classifier dan TF-IDF dilakukan berdasarkan persamaan (3.7).
+Nilai prior adalah bobot yang menunjukkan frekuensi relatif kelas c.
+Probabilitas prior untuk fitur TF-IDF diperoleh melalui persamaan (3.8).
+Nilai diperoleh dari persamaan (3.9).
+3.2 Metode Evaluasi dan Model Klasifikasi
+Metode evaluasi model klasifikasi yang digunakan pada penelitian ini adalah Holdout dimana sebanyak setengah atau dua per tiga dari data keseluruhan untuk keperluan proses training sedangkan sisanya digunakan untuk keperluan testing (Kantardzic, 2003).
+Metode lain yang digunakan untuk evaluasi adalah confusion matrix.
+Confusion matrix merupakan salah satu tools penting dalam metode visualisasi yang digunakan pada mesin pembelajaran yang biasanya memuat dua kategori atau lebih (Manning, dkk, 2009; Horn, 2010).
+Tabel 2 menggambarkan contoh hasil confusion matrix prediksi dua kelas.
+Nilai true positive (TP) dan true negative (TN) adalah hasil klasifikasi yang benar.
+Nilai false positive (FP) adalah nilai dimana hasilnya diprediksi sebagai class-1 namun sebenarnya merupakan class-2 sedangkan false negative (FN) adalah nilai dimana prediksi mengklasifikasikan sebagai class-2 namun faktanya termasuk dalam klasifikasi class-1.
+Nilai akurasi confusion matrix berdasarkan Tabel 2 diperoleh dengan persamaan (3.10).
+4. HASIL DAN PEMBAHASAN 
+4.1 Perhitungan Akurasi Classifier pada Aplikasi
+Sebanyak 1329 data tweet hasil pencarian dilabeli secara manual untuk diklasifikasikan dengan Naive Bayes.
+Proses pengujian dimulai dengan tahap preprocessing untuk membersihkan tweet dan menyiapkan tweet untuk proses klasifikasi.
+Proses dilanjutkan dengan menghitung probabilitas masing-masing kata dalam tweet berdasarkan data training menggunakan fitur term frequency dan fitur TF-IDF.
+Hasil pengujian klasifikasi tweet ditunjukkan oleh Gambar 2. 
+Akurasi pengujian klasifikasi dengan fitur term frequency diperoleh sebesar 79,91%.
+Pengujian klasifikasi dengan fitur TF-IDF didapatkan sebesar 79,68.
+Berdasarkan hasil tersebut diketahui bahwa penggunaan fitur term frequency menghasilkan performasi dengan akurasi lebih baik sebesar 0,23% daripada klasifikasi kategori dengan fitur TF-IDF.
+4.2 Perhitungan Akurasi dengan RapidMiner 
+Penelitian ini menggunakan tools RapidMiner versi 5.2.008.
+Perhitungan akurasi menggunakan RapidMiner dilakukan dengan metode Naive Bayes dan Support Vector Machine.
+4.2.1 Perhitungan Akurasi dengan Naive Bayes pada RapidMiner 
+Gambar 3 memperlihatkan proses training dan testing untuk menghitung akurasi dengan metode Naive Bayes pada RapidMiner.
+Tahapan ini mengaplikasikan model dari data training ke dalam data testing menggunakan operator apply model dan melakukan evaluasi dengan operator performance.
+Gambar 3 Proses Training dan Testing dengan Naive BayesPerhitungan akurasi klasifikasi menggunakan metode Naive bayes dengan fitur term frequency diperoleh sebesar 73,81%.
+Gambar 4 merupakan table view yang memperlihatkan performance vector pada RapidMiner.
+Gambar 4 Akurasi dengan Metode Naive Bayes dan Fitur Term Frequency pada RapidMiner Hasil perhitungan akurasi klasifikasi dengan metode Naive Bayes dan fitur TF-IDF diperlihatkan pada Gambar 5. 
+Tabel view performansi pada RapidMiner menunjukkan bahwa akurasi diperoleh sebesar 71.11%.
+Hasil akurasi yang diperoleh dengan fitur term frequency pada RapidMiner memiliki selisih 6,1% dengan hasil pada aplikasi yang dibangun sedangkan hasil akurasi dengan TF-IDF mempunyai selisih 8,57%.
+Adapun selisih akurasi dengan fitur term frequency an TF-IDF pada RapidMiner didapatkan sebesar 2,7%.
+4.2.2 Perhitungan Akurasi dengan Support Vector Machine pada RapidMiner 
+Proses training dan testing metode Support Vector Machine diperlihatkan oleh Gambar 6. 
+Operator pada proses training yang digunakan pada perhitungan akurasi ini adalah LibSVM.
+Hasil perhitungan klasifikasi menggunakan metode Support Vector Machine dan fitur term frequency diperoleh sebesar 83,14% sebagaimana diperlihatkan pada Gambar 7. 
+Gambar 8 memperlihatkan performansi akurasi metode Support Vector Machine dengan fitur TF-IDF yaitu sebesar 82,69%.
+4.2.3 Perbandingan Hasil Pengujian 
+Perbandingan hasil perhitungan akurasi antara aplikasi yang dibangun dengan tools RapidMiner diperlihatkan oleh Tabel 3.
+Hasil akurasi dengan Naive Bayes pada aplikasi yang dibangun memperlihatkan bahwa penggunaan fitur term frequency menghasilkan akurasi yang sedikit lebih baik daripada penggunaan fitur TF-IDF.
+Hal ini juga diperlihatkan pada tools RapidMiner dengan metode Support Vector Machine dan Naive Bayes dimana penggunaan fitur term frequency menghasilkan akurasi yang lebih baik.
+Hasil akurasi pada aplikasi menggunakan Naive Bayes dan fitur term frequency memiliki selisih sebesar 6,1% dengan hasil pada RapidMiner.
+Penggunaan fitur TF-IDF dan Naive Bayes antara aplikasi dan RapidMiner memiliki selisih sebesar 8,57%.
+Penggunaan Naive Bayes dan Support Vector Machine pada RapidMiner memperlihatkan adanya perbedaan dimana Support Vector Machine menghasilkan akurasi lebih baik.
+5. KESIMPULAN
+Penelitian ini telah berhasil membangun model untuk melakukan klasifikasi tweet berdasarkan sentimen dan kategori dengan Naive Bayes Classifier.
+Hasil akurasi pengujian klasifikasi dengan fitur term frequency diperoleh sebesar 79,91% sedangkan fitur TF-IDF didapatkan akurasi sebesar 79,68%.
+Klasifikasi menggunakan tools RapidMiner dengan Naive Bayes dan fitur term frequency diperoleh sebesar 73,81% sedangkan dengan fitur TF-IDF diperoleh sebesar 71.11%.
+Klasifikasi dengan Support Vector Machine menghasilkan akurasi 83,14% untuk fitur term frequency dan 82,69% untuk fitur TF-IDF.
+Hasil pengujian pada aplikasi yang dibangun dan pada tools RapidMiner memperlihatkan bahwa akurasi dengan fitur term frequency memberikan hasil akurasi yang lebih baik daripada akurasi dengan fitur TF-IDF.
+Metode Support Vector Machine menghasilkan akurasi performansi yang lebih baik daripada metode Naive Bayes.
+Penggunaan metode Support Vector Machine dan Naive Bayes sama-sama memiliki hasil akurasi yang cukup baik untuk klasifikasi tweet.	

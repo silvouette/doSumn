@@ -1,0 +1,129 @@
+Abstrak
+Dampak yang ditimbulkan stroke diantaranya kelumpuhan sebagian atau keseluruhan organ tubuh sampai kematian.
+Tingginya angka kematian akibat stroke disebabkan karena penanganan yang lambat.
+Diagnosis stroke harus dilakukan dengan cepat dan tepat agar segera mengetahui tipe klasifikasi patologinya termasuk dalam stroke infark atau hemorrhagic guna pemberian tindakan medis dan obat yang tepat pula.
+Prosedur wajib atau Gold Standart Procedure untuk klasifikasi stroke menggunakan Computed Tomograph Scan atau Magnetic Resonance Imaging, permasalahannya di Indonesia terkendala biaya yang mahal dan tidak semua rumah sakit memilikinya.
+Jika prosedur standar tidak dapat dilakukan maka diagnosis stroke dapat dilakukan melalui analisis terhadap data klinis pasien.
+Data klinis terdiri dari 32 fitur berisi tentang hasil pemeriksaan fisik, gejala yang dirasakan pasien, riwayat penyakit dan pemeriksaan laboratorium darah.
+Dalam penelitian ini diusulkan sebuah klasifikasi stroke secara komputerisasi menggunakan metode Learning Vector Quantization yang merupakan pengembangan dari Kohonen Self-Organizing Map, bersifat supervised dan competitive learning, struktur jaringannya single layer-net.
+Hasil dari penelitian ini tingkat akurasinya mencapai 96%.
+Uji diagnosis ditunjukkan dengan nilai Area Under Curve (AUC) sebesar 0,952 yang tergolong dalam kategori excellent.
+Kata Kunci Klasifikasi, Stroke, Learning Vector Quantization.
+I. PENDAHULUAN
+Stroke atau Cerebrovascular disease menurut World Health Organization (WHO) adalah tanda-tanda klinis yang berkembang cepat akibat gangguan fungsi otak fokal atau global karena adanya sumbatan atau pecahnya pembuluh darah di otak dengan gejala-gejala yang berlangsung selama 24 jam atau lebih.
+Klasifikasi penyakit stroke terdiri dari beberapa kategori, diantaranya: berdasarkan kelainan patologis, secara garis besar stroke dibagi dalam 2 tipe yaitu: ischemic stroke disebut juga infark atau non-hemorrhagic disebabkan oleh gumpalan atau penyumbatan dalam arteri yang menuju ke otak yang sebelumnya sudah mengalami proses aterosklerosis.
+Ischemic stroketerdiri dari tiga macam yaitu embolic stroke, thrombotic stroke dan hipoperfusi stroke.
+Tipe kedua adalah hemorrhagic stroke merupakan kerusakan atau "ledakan" dari pembuluh darah di otak, perdarahan dapat disebabkan lamanya tekanan darah tinggi dan aneurisma otak.
+Ada dua jenis stroke hemorrhagic: subarachnoid dan intraserebral[1].
+Akibat yang ditimbulkan oleh serangan stroke diantaranya kelemahan (lumpuh sebagian atau menyeluruh) secara mendadak, hilangnya sensasi berbicara, melihat, atau berjalan, hingga menyebabkan kematian.
+Di Indonesia berdasarkan riset kementerian kesehatan Indonesia tahun 2007 prevalensi penyakit tidak menular (PTM) khususnya stroke mencapai 8,3% urutan keempat.
+Penderita stroke yang meninggal diusia muda mulai memprihatinkan, direntang usia 45-54 tahun kematian karena stroke mencapai 15,9% diantara penyebabnyanya lambannya penanganan terhadap penderita[2].
+Penanganan terhadap pasien stroke terutama pasien baru seharusnya dilakukan dengan cepat dan tepat.
+Kepastian penentuan tipepatologi stroke secara dini sangat penting untuk pemberian obat yang tepat guna mencegah dampak yang lebih fatal [3].
+Prosedur utama diagnosis stroke (Gold Standart) menggunakan Computed Tomography ( CT ) scan, Magnetic Resonance Imaging (MRI) dan Elektrokardiogram (EKG atau ECG).
+Kendala-kendala penerapan gold standart diatas karena ada pasien yang tidak memungkinkan untuk berpindah tempat, mahalnya biaya, tidak semua rumah sakit memiliki peralatan tersebut, memakan waktu lebih lama dan efek radiasi[4].
+Diagnosis penyakit stroke dapat juga dilakukan melalui pemeriksaan klinis mulai dari menanyakan gejala yang dirasakan pasien, anamnesis atau pengambilan data riwayat penyakit pasien dan keluarganya, dan pemeriksaan neurologi[5].
+Banyak berkembang berbagai penelitian tentang pemanfaatan teknologi komputer untuk membantu diagnosis penyakit dalam dunia kesehatan diantaranya untuk deteksi kanker payudara[6], klasifikasi untuk deteksi citra histologi kanker serviks [7], diagnosis penyakit melalui rekam aktivitas jantung[8].
+Duen-Yian Yeh mengusulkan teknik klasifikasi untuk memperbaiki prediksi penyakit stroke dengan menggunakan 29 fitur dari pemeriksaan klinis dengan tiga metode klasifikasi.
+Hasilnya Decision tree mendapatkan hasil terbaik dengan Sensitivity 99,48% dan Accuracy 99,59% [9].
+Mayoritas penelitian-penelitian diatas menggunakan metode klasifikasi dalam pengambilan kesimpulan, seperti yang dilakukan Tabrizi untuk klasifikasi lima tipe sel darah putih terbukti pemakaian metode Learning Vector Quantization (LVQ) sangat memuaskan karena komputasi yang sangat ringan dan konvergensi baik[10], penelitian LVQ juga diterapkan untuk mengklasifikasikan sekumpulan data Electrocardiogram (ECG) penyakit arrhythmia.
+Datasets ECG arrhythmia terdiri dari 452 kasus dengan 279 atribut, namun 0,33% data atributnya tidak lengkap.
+Data dikelompokan kedalam 16 kelas.
+LVQ dinyatakan lebih baik dan cepat daripada Backpropagation [11].
+Untuk itu dalam penelitian ini diusulkan sebuah pendekatan baru untuk klasifikasi stroke secara terkomputerisasi berdasarkan data klinis pasien menggunakan metode Learning Vector Quantization Neural Network.
+II. LEARNING VECTOR QUANTIZATION 
+Neural Network (jaringan saraf tiruan) termasuk salah satu metode klasifikasi yang populer.
+Metode ini merupakan suatu generalisasi model matematis dari cara kerja otak manusia (sistem saraf) yang didasarkan atas asumsi pemrosesan informasi terjadi pada elemen sederhana yang disebut neuron, sinyal mengalir diantara sel saraf/neuron melalui suatu sambungan dimana setiap sambungan memiliki bobot yang bersesuaian.
+Bobot ini akan digunakan untuk menggandakan/mengalikan sinyal yang dikirim melaluinya.
+Setiap sel saraf akan menerapkan fungsi aktivasi terhadap sinyal hasil penjumlahan berbobot yang masuk kepadanya untuk menentukan sinyal keluarannya.
+Model pembelajaran jaringan saraf tiruan memiliki 3 paradigma, yaitu: supervised learning artinya kumpulan masukan berusaha membentuk target luaran yang sudah diketahui sebelumnya (mengacu pada learning data).
+Perbedaan antara luaran yang masih salah dengan luaran yang diharapkan harus sekecil mungkin.
+Biasanya lebih baik daripada unsupervised.
+Kelemahan: pertumbuhan waktu komputasi eksponensial, data banyak berarti semakin lambat.
+Kedua adalah unsupervised learning jika jaringan mengorganisasikan dirinya untuk membentuk vektor-vektor masukan tanpa menggunakan data atau contoh-contoh pelatihan, pada umumnya ada umpan balik.
+Terakhir adalah gabungan antara unsupervised dan supervised.
+Sedangkan berdasarkan aturan pembelajaran dalam Neural Network digolongkan dalam: correlation learning disebut juga hebbian, competitive learning, dan feedback-based weight adaptation[12].
+Learning Vector Quantization (LVQ) termasuk jenis Neural Network yang dikembangkan oleh Teuvo Kohonen tahun 1989.
+LVQ adalah algoritma klasifikasi prototipe supervised dengan aturan Competitive Learning versi dari algoritma Kohonen Self-Organizing Map (SOM).
+Model pembelajaran LVQ dilatih secara signifikan agar lebih cepat dibandingkan algoritma lain seperti Back Propagation Neural Network.
+LVQ merupakan single-layer net pada lapisan masukan yang terkoneksi secara langsung dengan setiap neuron pada lapisan keluaran.
+Koneksi antar neuron tersebut dihubungkan dengan bobot/weight.
+Struktur jaringan LVQ ditunjukan pada Gambar 1, dimana xi adalah masukan (input), yi sebagai luaran (output) dan wii adalah bobot.
+Neuron-neuron keluaran pada LVQ menyatakan suatu kelas atau kategori tertentu.
+Vektor bobot untuk suatu unit keluaran sering dinyatakan sebagai sebuah vektor referens menggunakan klasifikasi target yang diketahui untuk setiap pola masukan.
+Apabila beberapa vektor masukan tersebut memiliki jarak yang sangat berdekatan, maka vektor-vektor masukan tersebut akan dikelompokkan dalam kelas yang sama.
+Pemilihan vektor referensi dengan cara kuantisasi vektor pada data learning.
+Secara umum algoritma LVQ sebagai berikut[13]: 1. Inisialisasi vektor referensi, learning rate () 2. While (stop == false) kerjakan langkah 3-1 3. Untuk masing-masing traning input, kejakan langkah 4-9. 4. Hitung J minimum dari || x-wj || (1) 5. Update bobot wj dengan syarat: 6. if T = Cj, then  7. wj(baru) = wj(lama) + [x - wj(lama)];(2) 8. if TCj, then 9. wj(baru) = wj(lama) - [x - wj(lama)]; (3) 10. Kurangi learning rate 11. Hentikan pada iterasi tertentu atau learning rate mendekati 0 Dimana, x = training vector (x1,x2,,xn) T= Kelas dari training vector wj = bobot vektor untuk luaran ke-j Cj = Kategori atau kelas yang dihasilkan dariluaran ke-j || x-wj || = Jarak Euclidean antara vektor masukan dan bobot vektor ke-j.
+III. METODE PENELITIAN
+Sistem dibangun dengan skema seperti pada Gambar 2 di bawah ini.
+Data yang digunakan pada penelitian ini adalah data sekunder dari dokumen rekam medis pasien rawat inap Rumah Sakit Bina Sehat dan Rumah Sakit Umum Kaliwates Jember.
+Data-data tersebut berisi data pemeriksaan fisik (anamnesis), data riwayat penyakit dan data hasil pemeriksaan laboratorium darah pasien.
+Data pasien yang diambil telah melalui pemeriksaan tim medis dan memiliki diagnosis dokter spesialis saraf sebagai acuan dan validasi hasil klasifikasi.
+A. Karakteristik Data 
+Data berjumlah 373 data yang terdiri dari penderita laki-laki 52,28% dan perempuan 47,72%.
+Berdasarkan klasifikasi Penderita stroke infark sebesar 71,31% dan hemorrhagic 28,69% sesuai dengan literatur maupun keterangan pakar melalui wawancara langsung angka kejadian stroke infark di Indonesia lebih banyak dibanding stroke hemorrhagic.
+Dilihat dari usia, pasien yang pernah stroke kurang dari 45 tahun sebanyak 26 pasien, usia 45-55 tahun 105 pasien, usia 56-65 tahun 126 pasien sedangkan usia diatas 65 tahun ada 116 tahun.
+B. Dataset 
+Dataset adalah kumpulan data yang ada dalam basisdata.
+Sesuai kebutuhan sistem, data dibagi menjadi dua untuk pembalajaran (training) jaringan saraf tiruan learning vector quantization dan untuk ujicoba agar tidak saling intervensi.
+Data yang digunakan untuk training sebanyak 323 data sedangkan untuk ujicoba 50 data.
+Data ujicoba harus benar-benar berbeda dari data pembelajaran untuk memenuhi aspek obyektifitas.
+Pembagian ini dilakukan secara acak dimana masing-masing terdiri dari data dengan klasifikasi stroke infark (70% ) dan hemorrhagic(30% ).
+C. Pembelajaran LVQ 
+Pada tahap ini merupakan tahap dimana jaringan saraf tiruan LVQ melakukan proses belajar dengan sendirinya berdasarkan data pembelajaran oleh karena itu proses pembelajaran ini dikenal sebagai model terawasi (supervised learning).
+Proses klasifikasi dengan LVQ dari dataset dicari ideal vector dengan mengambil nilai rata-ratanya untuk masing-masing fitur dan kelas luaran.
+Apabila beberapa vektor masukan tersebut memiliki jarak yang sangat berdekatan, maka vektor-vektor masukan tersebut akan dikelompokkan dalam kelas yang sama.
+Dari proses pembelajaran ini akan didapatkan bobot-bobot terbaik seperti pada Gambar 3 untuk tiap hubungan antara node masukan dan luaran.
+Bobot-bobot ini yang akan disimpan dan digunakan dalam proses pengujian.
+Proses pembelajaran dibatasi dengan nilai learning rate atau iterasi tertentu.
+Jika learning rate mendekati nol atau iterasi telah mencapai iterasi maksimum maka proses pembelajaran dihentikan.
+D. Pengujian dan Hasil Klasifikasi 
+Setelah mendapatkan bobot-bobot terbaik, maka untuk mengetahui keberhasilan dan performa sistem harus dilakukan pengujian.
+Pengujian meliputi tingkat akurasi, sensitifitas jumlah data training dan waktu.
+Tahap ini menggunakan dataset ujicoba.
+Hasil akhir dari proses klasifikasi adalah keputusan pasien menderita stroke infark atau hemorrhagic, hasil ini akan di-crossceck dengan diagnosis dokter spesialis saraf (neurology).
+IV. HASIL DAN PEMBAHASAN 
+A. Program Aplikasi 
+Sistem dalam penelitian ini dikembangkan berbasis web dengan bahasa pemrograman PHP dan perangkat lunak basisdata menggunakan MySQL.
+Antarmuka merupakan elemens sistem yang penting karena sebagai alat komunikasi antara pengguna dan sitem.
+Antarmuka pertama adalah untuk melakukan inisialisai parameter training seperti pada Gambar 4 diantaranya memasukkan nilai maksimum epoch yang digunakan untuk menghentikan program jika telah menghasilkan nilai luaran yang sama.
+Learning rate() adalah laju pembelajaran, semakin besarmaka semakin besar langkah pembelajaran.
+Decrement besaran nilai yang akan digunakan untuk mengurangi nilaiagar mendekati bobot ideal.
+Minimum adalah nilai terkecil dari yang diinginkan.
+Hasil dari training ini adalah diperolehnya nilai bobot-bobot terbaik untuk setiap hubungan antara node masukan dan kelas luaran.
+Diakhir proses akan ditampilkan masing-masing bobot untuk tiap fitur masukan.
+Setiap pembelajaran dicatat waktu komputasinya.
+Ujicoba Multi Data dimaksudkan untuk mempermudah pengujian dengan banyak data masukan sekaligus, pada percobaan kali ini data uji berjumlah 50 data.
+Gambar 5 merupakan hasil klasifikasi multidata.
+Dalam tampilan hasil klasifikasi ini ada dua kolom yaitu nilai klasifikasi yang sebenarnya berdasarkan diagnosis dokter spesialis saraf dan luaran dari sistem.
+Ditampilkan juga jumlah data yang benar/sesuai klasifikasinya serta yang salah.
+B. Pengujian Akurasi 
+Fitur yang digunakan berdasarkan data pasien yang terdapat dalam dokumen rekam medis rumah sakit sebanyak 32 seperti pada Tabel 1.
+Ujicoba dilakukan dengan dua skenario yang berbeda masing-masing dengan nilai learning rate () untuk skenario 1 = 0,5 dan skenario 2 nilai= 0,1.
+Hasil akurasi klasifikasi Skenario 1 hanya 70% dan Tahap selanjutnya yaitu melakukan validasi terhadap tingkat akurasi yang dihasilkan program dengan analisis uji diagnosis.
+Penilaian suatu uji diagnosis akan memberikan empat kemungkinan hasil yaitu hasil positif benar, positif semu, negatif benar dan negatif semu.
+Keempat hasil tersebut disusun didalam sebuah Tabel 2x2 [14].
+Mengacu pada Tabel 2 dihitung nilai sensitivitas, spesifitas, nilai prediksi positif dan nilai prediksi negatife.
+Sensitivitas adalah proporsi subyek dengan klasifikasi infark dengan hasil uji diagnosis positif dibanding total subyek infark.
+Spesifitas adalah proporsi subyek dengan klasifikasi hemorrhagic dengan hasil uji diagnosis negatif dibanding total subyek Hemorrhagic.
+Nilai-nilai sensitifitas dan spesifisitas tersebut digambarkan dalam kurva Receiver Operating Characteristic (ROC) [15] seperti ditunjukkan Gambar 6. 
+Untuk menilai tingkat keberhasilan diagnosis yang dihasilkan program dilihat dari Nilai Area Under Curve (AUC) sebesar 0,5, hal ini berarti bahwa pengujian tergolong dalam kondisi gagal (fail/F) dan tidak dapat dijadikan sebagai alat bantu diagnosis stroke.
+Sensitivitas = 35 / (35 + 0) x 100% = 1 (100%) Spesifisitas= 0 / (0 + 15) x 100% = 0 (0%) Nilai prediksi positif= 35 / (35 + 15) x 100% = 0,7 (70%) Nilai prediksi negatif = 0 / (0+ 0) x 100% = -.
+Sedangkan hasil ujicoba skenario 2 akurasinya sebesar 96%, lebih rinci dapat dilihat pada Tabel 3.
+Berdasarkan Tabel 3 seperti pada skenario 1 selanjutnya dihitung nilai sensitivitas, spesifisitas, nilai prediksi positif dan nilai prediksi negatif.
+Nilai-nilai sensitifitas dan spesifisitas tersebut digambarkan dalam kurva Receiver Operating Characteristic (ROC) seperti ditunjukkan Gambar 7. 
+Sekali lagi untuk menilai tingkat keberhasilan diagnosis yang dihasilkan program dilihat dari Nilai Area Under Curve (AUC) dan dari perbobaan skenario 2 diperoleh hasil yang lebih baik yaitu sebesar 0,952, hal ini berarti bahwa pengujian tergolong dalam kondisi sangat baik (excellent/A).
+C. Pengujian Data Training 
+Data training dalam penelitian ini digunakan untuk proses pembelajaran Learning Vector Quantization hingga mendapatkan bobot-bobot terbaik.
+Didalam data training terdapat hasil diagnosis dokter sebagai target untuk melatih jaringan LVQ yang bersifat supervised.
+Percobaan ini dilakukan dengan jumlah data berbeda-beda, mulai 100 data, 150 data, 200 data, 250 dan 323 data yang dipilih secara acak.
+Hal ini untuk mengetahui pengaruh jumlah data training terhadap waktu pembelajaran/training klasifikasi.
+Waktu training dihitung dari awal inisialisasi bobot, proses perbaikan bobot hingga mendapatkan bobot-bobot terbaik.
+Hasil pengujian waktu disajikan dalam Tabel 4.
+Perbedaan waktu training untuk 2 skenario divisualisaikan dalam bentuk grafik seperti pada Gambar 7 dibawah ini.
+Semakin banyak jumlah data training maka semakin banyak pula waktu yang dibutuhkan.
+Hal ini dapat diartikan jika keterbatasan jumlah data tidak menjadi kendala bagi proses pembelajaran LVQ.
+V. KESIMPULAN
+Berdasarkan uraian permasalahan hingga hasil penelitian, maka dapat disimpulkan beberapa hal sebagai berikut: 1. Sistem yang dibangun berhasil mengklasifikasi stroke berdasarkan kelainan patologis dengan tingkat akurasi 96% dengan nilai AUC termasuk dalam kategori excellent (A).
+2. Metode Learning Vector Quantization ternyata mampu melakukan klasifikasi dengan akurasi tinggi hanya dengan 100 data training.
+Hal ini sebuah indikasi baik jika disuatu wilayah kasus pasien stroke belum banyak maka dengan keterbatasan data tetap bisa dijadikan sebagai data training.

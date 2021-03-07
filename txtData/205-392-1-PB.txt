@@ -1,0 +1,162 @@
+Abstrak
+Kecepatan angin dan curah hujan merupakan faktor yang sangat penting dalam penerbangan.
+Penelitian ini bertujuan untuk memprakirakan kecepatan angin dan curah hujan di Bandara Abdulrahman Saleh Malang menggunakan neural network multilayer dengan algoritma backpropagation.
+Parameter yang digunakan dalam penelitian ini terdiri dari tiga input yakni suhu udara, kelembaban udara, tekanan udara dan dua output yakni kecepatan angin dan curah hujan.
+Proses training menghasilkan arsitektur terbaik dengan hidden layer 5 dan learning rate 0,9.
+Dari grafik hasil prakiraan diketahui bahwa output prakiraan sudah mendekati nilai target.
+Model telah berhasil melakukan proses prakiraan dengan baik dengan nilai MSE prakiraan kecepatan angin sebesar 0,0086 dan nilai MSE prakiraan curah hujan sebesar 0,004846.
+Kata Kunci neural network, backpropagation, curah hujan, kecepatan angin.
+I. PENDAHULUAN
+Dalam dunia penerbangan, keselamatan adalah prioritas yang paling utama.
+Keselamatan dalam penerbangan berkaitan dengan berbagai faktor, dan salah satunya adalah faktor cuaca.
+Salah satu unsur yang mempengaruhi cuaca dan iklim adalah suhu, kelembaban, tekanan udara, kecepatan angin dan curah hujan.
+Mengingat pentingnya prakiraan cuaca, penelitian mengenai hal tersebut semakin berkembang.
+Oleh karena itu, dibutuhkan prakiraan cuaca sebagai langkah antisipasi untuk memperkecil dampak yang akan terjadi.
+Prediksi tersebut harus memiliki keakurasian tinggi terhadap cuaca agar aktivitas manusia terutama penerbangan yang sangat bergantung terhadap cuaca menjadi lancar.
+Prediksi cuaca dan iklim merupakan bagian dari sistem informasi yang digunakan untuk melihat kondisi alam untuk waktu mendatang.
+Pada hakekatnya, sistem informasi cuaca atau iklim merupakan cara yang dilakukan untuk mengoptimalkan usaha pemantauan, pengumpulan, analisis data, hingga menjadi bentuk evaluasi atau prediksi cuaca dan iklim.
+Prediksi cuaca merupakan suatu usaha manusia untuk melihat perkembangan kondisi udara yang lalu, sekarang, dan yang akan datang khususnya dalam kaitan mengantisipasinya.
+Beberapa metode yang digunakan untuk prakiraan secara statistik diantaranya adalah Auto Regressive (AR), AR - Integrated Moving Average (ARIMA) kedua metode tersebut telah digunakan untuk prakiraan suhu udara.
+Metode konvensional tersebut banyak ditemui beberapa kelemahan.
+Dalam prakiraan dengan metode statistik, terdapat beberapa kelemahan salah satunya adalah prosentase ketidak tepatan ramalan pada saat kondisi cuaca yang sangat sulit untuk diprediksi secara matematis [1].
+Salah satu metode prakiraan yang dapat diaplikasikan dengan baik adalah neural network.
+Sistem kepakaran neural network mampu menyederhanakan sistem kompleks dan mempunyai kelebihan dalam pembelajaran dan mampu beradaptasi.
+Salah satu metode pembelajaran (training) pada neural network adalah algoritma backpropagation.
+Algoritma backpropagation bekerja berdasarkan pada pola data yang ada pada masa lalu.
+Dari sini dapat diketahui tren yang paling mirip dengan sekarang.
+Jika datanya cukup, maka prediksinya semakin bagus, dan tingkat akurasinya lebih baik.
+Backpropagation melatih jaringan untuk mendapatkan keseimbangan antara kemampuan jaringan untuk mengenali pola yang digunakan selama pelatihan serta kemampuan jaringan untuk memberikan respon yang benar terhadap pola masukan yang serupa (tapi tidak sama) dengan pola yang dipakai selama pelatihan [2].
+Septima Ernawati (2009) melakukan penelitian cuaca menggunakan data analog dan arsitektur single layer [3].
+Didapatkan hasil penelitian pada kriteria cerah [1 -1 1 1], output yang dihasilkan adalah nilai-nilai mendekati cerah, demikian juga pada kriteria hujan [-1 1 -1 1], output yang dihasilkan adalah nilai-nilai atau jarak menuju atau mendekati hujan.
+Arsitektur single-layer sangat terbatas sehingga hanya digunakan pada kasus yang sederhana.
+Pada arsitektur multilayer memiliki hidden layer yang bersifat variabel dan dapat digunakan pada sistem yang kompleks.
+Oleh karena itu, pada penelitian ini digunakan aristektur multilayer yang memiliki proses perubahan bobot sehingga dapat memperkecil error.
+Lokasi penelitian adalah di Bandara Abdulrahman Saleh Malang.
+Sistem prakiraan cuaca di Bandara tersebut masih menggunakan metode intuisi yang memiliki beberapa kelemahan yaitu ketidaktepatan ramalan.
+Verifikasi prakiraan hujan Februari 2012 sesuai dengan observasi sekitar 65,2%, nilai inimenyimpang dari observasi sekitar 34,8% [4].
+Proses prakiraan cuaca dilakukan dengan metode statistik oleh Badan Meteorologi Klimatologi dan Geofisika (BMKG) pusat yang masih memiliki prosentase error yang besar.
+II. PENGOLAHAN DATA 
+Data penelitian yang digunakan adalah lima data penelitian tahun 2007-2012 yang akan memprediksi kecepatan angin dan curah hujan untuk periode tahun 2013.
+Data penelitian berasal dari Bandara Abdulrahman Saleh Malang.
+Input data terdiri dari suhu udara (oC), kelembaban udara (%), tekanan udara (mb).
+Sedangkan output data terdiri dari kecepatan angin (m/s), curah hujan (milimeter).
+Diagram pengolahan data prakiraan yang digunakan di Bandara Abdulrahman Saleh Malang tampak pada Gambar 1. 
+Pengukuran data dilakukan di Bandara Abdulrahman Saleh Malang menggunakan instrumen terkait.
+Data yang telah diperoleh dikirimkan ke BMKG Karangploso Malang secara berkala untuk dikumpulkan dengan data dari beberapa tempat yang berbeda.
+Data yang sudah diperoleh BMKG Karangploso dikirimkan ke BMKG Pusat Jakarta untuk diolah menjadi suatu prakiraan cuaca menggunakan metode statistik.
+BMKG Pusat Jakarta mengolah data dan menerbitkan buku prakiraan cuaca yang dikirimkan ke stasiun BMKG Karangploso dan Bandara Abdulrahman Saleh Malang.
+Data awal yang didapat akan ditransformasi dan dibagi.
+Transformasi data dilakukan sesuai fungsi aktivasi yang digunakan.
+Pada penelitian ini menggunakan fungsi aktivasi sigmoid biner yang memiliki rentang nilai 0 hingga 1.
+Pada penelitian ini data di transformasi menjadi data terkecil 0.1 dan data terbesar 0.9.
+Proses transformasi data dihitung menggunakan rumus sebagai berikut [2]:x= Nilai data setelah transformasi linearx= Nilai data aktualxmin = Nilai minimum data aktual keseluruhanxmax = Nilai maksimum data aktual keseluruhan= Nilai transformasi data terkecil b= Nilai transformasi data terbesar 
+Pembagian data dilakukan dengan membagi data menjadi dua bagian yaitu 80% atau 1753 data pelatihan dan 20% atau 439 data validasi.
+III. NEURAL NETWORK BACKPROPAGATION 
+Langkah-langkah untuk membangun algoritma sistem prakiraan adalah sebagai berikut [5]:1. Menentukan jumlah neuron pada lapisan tersembunyi.
+Banyaknya jumlah neuron yang digunakan pada lapisan tersembunyi akan menentukan kinerja sistem ketika memprakirakan cuaca.
+Pada penelitian ini dibangun arsitektur awal 3-7-2 yaitu 3 input, 7 hidden layer, 2 output.
+Penentuan hidden layer dilakukan secara trial and error.
+Jika hasil output masih memiliki nilai error yang besar maka penentuan hidden layer dapat diganti sampai mendapatkan nilai output error yang kecil (error<0,01).
+2. Menentukan parameter pembelajaran, yaitu epoch maksimum, besar galat, dan learning rate.
+Epoch maksimum dengan nilai 100, galat dengan nilai 0,01 , dan koefisien learning rate 0,5.
+Semakin besar nilai learning rate akan berimplikasi pada semakin besarnya langkah pembelajaran.
+3. Inisialisasi nilai bobot.
+Nilai bobot awal dipilih secara random antara -0,50,5 atau -1 sampai 1.
+Pada penelitian ini menggunakan fungsi sigmoid biner dengan jangkauan 0 sampai 1.
+4. Propagasi maju pola input hingga responmencapai lapisan output meliputi langkah-langkah berikut [6]: a. Setiap unit input (Xi, i=1,2,,n) menerima sinyal input dan meyebarkannya pada seluruh hidden unit.
+b. Setiap hidden unit (Zj, j= 1,2,,p) akan menghitung sinyal-sinyal input dengan bobot dan biasnya.
+Kemudian dengan menggunakan fungsi aktivasi yang telah ditentukan diperoleh sinyal output dari hidden unit tersebut.
+c. Setiap unit output (Yk, k= 1,2,,m) akan menghitung sinyal-sinyal dari hidden unit dengan bobot dan biasnya.
+Kemudian dengan menggunakan fungsi aktivasi yang telah ditentukan diperoleh sinyal output dari unit output tersebut.
+5. Propagasi balik dari lapisan output ke lapisan input dan melakukan penyesuaian bobot meliputi langkah-langkah berikut[6]: a. Dihitung kesalahan antara target output dengan output yang dihasilkan.
+Jika masih belum memenuhi syarat, dilakukan perhitungan faktor koreksi error (k).
+Faktor koreksi error digunakan untuk menghitung koreksi error ( wjk) untuk memperbaruhi wjk .
+Setiap hidden unit ( Zj , j = 1,2,,p) akan menghitung bobot yang dikirimkan output unit.
+Kemudian hasilnya dikalikan dengan fungsi aktivasinya untuk menghitung galatnya (j = _injf(z_inj)), dihitung koreksi bobotnya ( vij = j xi)dan koreksi biasnya ( voj = )j 
+c. Untuk setiap unit keluaran( Yk , k =1,2,,m) bias dan bobotnya diubah (j =1,2,,p) wjk (new) = wjk (old) +wjk.
+Untuk setiap unit tersembunyi ( Zj , j = 1,2,,p) bobot dan biasnya diubah (i =1,2,,p) vij (new) = vjk (old) +vij.
+6. Respon yang dihasilkan pada lapisan output akan dibandingkan dengan nilai target dan dihitung MSE.
+Proses akan berhenti jika nilai MSE<0,01 atau sudah mencapai epoch maksimal.
+Nilai bobot yang optimum dengan nilai MSE terkecil akan disimpan untuk pembentukan struktur jaringan yang akan digunakan dalam proses prakiraan.
+7. Tahap validasi dilakukan untuk menguji validasi data yang telah dilakukan pada proses training/pelatihan dengan memasukkan data baru yang belum pernah dilatih sebelumnya untuk mengetahui nilai error yang dihasilkan.
+8. Tingkat keakuratan prakiraan akan dinilai setelah jaringan dibangun.
+Jaringan yang optimum dinilai dengan melihat nilai MSE (Mean Square Error) terkecil.
+Jaringan dengan nilai MSE terkecil tersebut digunakan dalam proses prakiraan [6].
+9. Dalam melakukan prakiraan cuaca tahun mendatang data yang digunakan sebagai input adalah data tahun prakiraan cuaca menggunakan neural network dengan metode backpropagation dilakukan dengan membagi data terlebih dahulu menjadi dua bagian yaitu 80% untuk data training (1753) dan 20% untuk data testing(439).
+IV. HASIL DAN ANALISA 
+Prakiraan Cuaca menggunakan neural network dengan metode backpropagation dilakukan dengan membagi data terlebih dahulu menjadi dua bagian yaitu 80% untuk data training (1753) dan 20% untuk data testing(439).
+Proses perhitungan algoritma neural network backpropagation dijalankan menggunakan bahasa C.
+Nilai learning rate 0,9, arsitektur (3-5-2) yaitu 3 input, 5 hidden layer dan 2 output dengan maksimum iterasi 100 dan toleransi error 0,01.
+Program akan selesai jika toleransi error < 0,01 atau iterasi (epoch) telah mencapai nilai maksimum 100.
+Proses yang ditempuh untuk membangun prakiraan cuaca neural network backpropagation adalah tahap training, tahap testing dan tahap prakiraan.
+A. Tahap Training 
+Tahap training merupakan proses pembelajaran terhadap pola data yang akan dikenali.
+Proses ini dilakukan menggunakan data training.
+Proses ini berhenti jika MSE lebih kecil dari error yang ditetapkan (0,01) atau epoch (iterasi) yang telah ditentukan (100).
+Pada tahap training dilakukan beberapa kali percobaan untuk mendapatkan parameter hidden layer dan learning rate yang baik.
+Tabel I menunjukkan bahwa perubahan nilai hidden layer sangat berpengaruh terhadap performansi jaringan.
+Semakin besar nilai hidden layer maka kecepatan untuk mendapatkan MSE terkecil semakin lama dan MSE yang dihasilkan semakin besar.
+Dari perubahan nilai hidden layer tersebut didapatkan nilai terbaik arsitektur jaringan adalah 3-5-2 yaitu 3 input, 5 hidden layer, dan 2 output dengan nilai MSE0,009926 yang berhenti pada epoch ke-12.
+Tabel II menunjukkan bahwa perubahan nilai learning rate dapat mempengaruhi performansi jaringan.
+Semakin besar nilai learning rate maka jaringan akan semakin cepat mencapai epoch terkecil (epoch ke-13) dan nilai MSE terkecil (0,009946).
+Dari perubahan nilai learning rate tersebut maka didapatkan nilai terbaik adalah 0,9.
+B. Tahap Testing 
+Tahap testing digunakan untuk menguji validasi data yang telah dilakukan pada proses training dengan memasukkan data baru yang belum pernah dilatih sebelumnya untuk mengetahui nilai error yang dihasilkan.
+Data yang digunakan pada tahap testing adalah data ke-1754 sampai data ke-2192.
+Data tersebut digunakan untuk tahap testing dengan jumlah total data 439 pola data.
+Tahap testing menggunakan metode feedforward (langkah maju) dengan arsitektur 3-5-2, learning rate () = 0,9.
+Tahap testing tersebut menghasilkan nilai kuadrat error sebesar 0.011685.
+Nilai error yang mendekati 0 tersebut menunjukkan bahwa jaringan yang dirancang dapat diaplikasikan untuk proses prakiraan.
+C. Tahap Prakiraan 
+Tahap prakiraan menggunakan metode feedfordward tanpa menghitung nilai kuadrat error jaringan.
+Data yang digunakan sebagai input adalah data tahun sebelumnya.
+Prakiraan tahun 2008 menggunakan data input tahun 2007.
+Prakiraan tahun 2009 menggunakan data input tahun 2008.
+Prakiraan tahun 2010 menggunakan data input tahun 2009.
+Prakiraan tahun 2011 menggunakan data input tahun 2010.
+Prakiraan tahun 2012 menggunakan data input tahun 2011.
+Prakiraan tahun 2013 menggunakan data input tahun 2012.
+Gambar 2 menunjukkan prakiraan curah hujan harian 2011.
+Nilai curah hujan 2011 terbesarterjadi pada tanggal 3 Januari 2011 sebesar 0,432 (95,86 mm) dan nilai prakiraan curah hujan 2011 terbesar terjadi pada tanggal 4 Juli 2011 sebesar 0,353 (66,99 mm).
+Gambar 3 menunjukkan prakiraan kecepatan angin harian 2011.
+Nilai kecepatan angin 2011 terbesar terjadi pada tanggal 12 Januari 2011 sebesar 0,806 (15,12 m/s) dan nilai prakiraan kecepatan angin 2011 terbesar terjadi pada hari yang berbeda yaitu pada tanggal 5 Januari 2011 sebesar 0,806 (15,12 m/s).
+Gambar 4 menunjukkan prakiraan curah hujan harian 2012.
+Nilai curah hujan 2012 terbesarterjadi pada tanggal 9 Desember 2012 sebesar 0,606 (146 mm) dan nilai prakiraan curah hujan 2012 terbesar terjadi pada hari yang berbeda yaitu pada tanggal 19 November 2012 sebesar 0,606 (146 mm).
+Gambar 5 menunjukkan prakiraan kecepatan angin harian 2012.
+Pada prakiraan curah hujan maupun kecepatan angin 2012, jaringan sudah berhasil mengikuti pola data asli namun masih terjadi selisih ketidaktepatan prakiraan.
+Selisih tersebut menghasilkan error yang dapat digunakan untuk menentukan tingkat keakuratan prakiraan.
+Secara umum terlihat bahwa grafik data sebenarnya dan grafik data perkiraan tidak terlihat berhimpitan.
+Hal ini menandakan masih terjadi error.
+Akan tetapi pola data grafik prakiraan sudah berhasil mengikuti pola data grafik sebenarnya sehingga model jaringan ini dapat diaplikasikan dengan baik.
+Kondisi curah hujan di Indonesia mengalami kondisi trend (musim) yaitu musim hujan dan musim kemarau.
+Pada saat musim kemarau pola data curah hujan cenderung statis (tetap) yaitu bernilai 0,1 (0 mm).
+Kondisi ini mengakibatkan jaringan sulit untuk melakukan proses training karena data input jaringan adalah pola acak.
+Dalam penelitian ini digunakan dua pola input data curah hujan.
+Pola pertama menggunakan output curah hujan dalam satu tahun (musim kemarau dan musim hujan).
+Pola pertamaini mengalami kekurangan yaitu nilai prosentase error yang masih besar.
+Karena itulah digunakan pola kedua menggunakan dua proses prakiraan.
+Proses prakiraan dibagi menjadi dua macam yaitu prakiraan musim kemarau dan prakiraan musim hujan.
+Pola input kedua menghasilkan nilai prosentase error yang lebih kecil dari pola pertama.
+Berikut hasil perbandingan pola pertama dan pola kedua yang ditampilkan dalam grafik.
+Tabel III menunjukkan perbandingan nilai MSE pola 1 dan pola 2.
+Proses prakiraan pada pola 1 (output 1 tahun) menghasilkan nilai MSE tertinggi pada tahun 2011 sebesar 0,012964 dan nilai MSE terendah pada tahun 2012 sebesar 0,009454.
+Proses prakiraan pada pola 2 (output musim kemarau dan musim hujan) menghasilkan nilai MSE tertinggi pada tahun 2010 sebesar 0,013354 dan nilai MSE terendah pada tahun 2011 sebesar 0,004846.
+Secara umum nilai pola data 2 memiliki nilai yang lebih kecil daripada pola data 1 sehingga pada penelitian ini digunakan proses prakiraan menggunakan pola 2.
+Ukuran tingkat keakuratan prakiraan diperoleh dengan perhitungan MSE (Mean Square Error):Tabel IV menunjukkan nilai MSE sebagai parameter keakuratan prakiraan curah hujan dan kecepatan angin.
+Nilai MSE terbaik prakiraan kecepatan angin terjadi pada tahun 2012 sebesar 0,0086.
+Nilai MSE terkecil prakiraan curah hujan terjadi pada tahun 2011 sebesar 0,004846.
+Dari parameter nilai MSE tersebut dapat disimpulkan bahwa jaringan yang dibangun dapat diaplikasikan dengan baik karena nilai MSE sudah mendekati nilai 0.
+Jaringan tersebut dapat digunakan untuk memprakirakan kecepatan angin dan curah hujan 2013, yang ditunjukkan pada Gambar 6 dan Gambar 7 berikut.
+Gambar 7 menunjukkan prakiraan kecepatan angin tahun 2013.
+Pada prakiraan kecepatan angin 2013 kecepatan angin tertinggi sebesar 0,9 (17 m/s) terjadi pada hari ke 215 dan prakiraan kecepatan angin terendah sebesar 0,1(1 m/s) terjadi pada hari ke 277 dengan rata-rata kecepatan angin pertahun sebesar 0,28 (4,6 m/s).
+Gambar 8 menunjukkan prakiraan curah hujan tahun 2013.
+Pada prakiraan curah hujan 2013 curah hujan tertinggi sebesar 0,602 (144,95 mm) terjadi pada hari ke 60 dan prakiraan curah hujan terendah sebesar 0,1(0 mm) terjadi pada saat musim kemarau.
+Musim kemarau di Indonesia terjadi pada bulan April-September.
+Meskipun sedang berlangsung musim kemarau pada bulan April-September, sistem memprakirakan bahwa pada bulan Juli-Agustus terjadi hujan dengan intensitas ringan.
+V. KESIMPULAN
+Proses training menghasilkan arsitektur jaringan terbaik dengan hidden layer 5 dan nilai learning rate 0,9.
+Nilai MSE sebesar 0,009946 didapatkan pada epoch ke-13.
+Jaringan dirancang dengan menggunakan tiga variabel input yaitu suhu udara, kelembaban udara, tekanan udara dan dua variabel output yaitu kecepatan angin dan curah hujan.
+Pada prakiraan curah hujan digunakan output musim hujan dan musim kemarau yang bersifat trend.
+Jaringan tersebut dapat digunakan dengan baik untuk prakiraan dengan nilai MSE terbaik prakiraan kecepatan angin pada tahun 2012 sebesar 0,0086 dan nilai MSE terbaik prakiraan curah hujan pada tahun 2011 sebesar 0,004846.
+Penelitian ini dapat dikembangkan dengan menggunakan hibridisasi neural network dengan algoritma genetika.

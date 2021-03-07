@@ -1,0 +1,167 @@
+Abstrak
+Breast Cancer merupakan jenis kanker yang sangat berbahaya di dunia.
+Setiap tahun 506.000 penduduk di dunia meninggal akibat breast cancer.
+Indonesia merupakan salah satu negara berkembang dengan penderita breast cancer yang banyak.
+Hal ini dibuktikan dengan data Sistem Informasi Rumah Sakit (SIRS) 2007 yang menunjukkan breast cancer menempati urutan pertama pada pasien rawat inap di rumah sakit seluruh Indonesia (16.85%).
+Tingginya kasus penyakit ini di Indonesia mengharuskan penderita breast cancer untuk melakukan pemeriksaan tingkat keganasan breast cancer dengan memperhatikan jenis stadium breast cancer.
+Pada penelitian ini dilakukan analisis tingkat keganasan breast cancer dengan menggunakan regresi logistik ordinal dan support vector machine (SVM).
+Berdasarkan hasil penelitian dengan metode regresi logistik ordinal, menunjukkan variabel yang berpengaruh terhadap tingkat keganasan breast cancer adalah ukuran tumor dan nodus dengan ketepatan klasifikasi tertinggi 56.60%.
+Sedangkan ketepatan klasifikasi dengan menggunakan SVM ketepatan klasifikasi tertinggi dengan menggunakan kernel RBF dan polynomial mencapai 98.11%.
+Kata Kunci Breast Cancer, Regresi Logistik Ordinal, Support Vector Machine, Klasifikasi.
+I. PENDAHULUAN
+Breast cancer merupakan jenis kanker yang sangat berbahaya didunia, baik di negara maju atau negara berkembang.
+Setiap tahun 12 juta orang di seluruh dunia menderita kanker dan 7,6 juta di antaranya meninggal dunia, dari jumlah tersebut 506.000 disebabkan oleh breast cancer [1].
+Hal ini menunjukkan bahwa breast cancer adalah salah satu kanker ganas di dunia.
+Saat ini 16 % dari semua jenis kanker pada wanita didunia adalah breast cancer.
+Berdasarkan data WHO, 69 % dari kematian breast cancer didunia terjadi di negara berkembang [1].
+Indonesia merupakan salah satu negara berkembang dengan penderita breast cancer yang banyak.
+Berdasarkan data Sistem Informasi Rumah Sakit (SIRS) tahun 2007, breast cancer menempati urutan pertama pada pasien rawat inap di seluruh RS di Indonesia (16,85%).
+Breast cancer merupakan kanker tertinggi yang diderita perempuan Indonesia yaitu 26 per 100.000 perempuan [2].
+Hal ini menunjukkan bahwa breast cancer adalah penyakit yang sangat berbahaya di Indonesia.
+Berdasarkan fakta tersebut dibutuhkan suatu langkah strategis untuk deteksi dini breast cancer di Indonesia.
+Breast cancer merupakan penyakit yang sangat ganas dan diketahui secara pasti penyebabnya.
+Tingginya kasus breast cancer Indonesia mengharuskan penderita breast cancer untuk melakukan pemeriksaan intensif terkait identifikasi penyakitnya.
+Untuk wanita yang positif terjangkit breast cancer, dan sudah melakukan tahap pengobatan, maka deteksi keganasan breast cancer secara berkala sangat penting.
+Salah satu cara untuk mendeteksi tingkat keganasan breast cancer adalah dengan prognosis.
+Prognosis adalah "tebakan terbaik" tim medis dalam menentukan sembuh atau tidaknya pasien dari penyakit breast cancer.
+Prognosis memiliki manfaat membantu memilih terapi yang tepat, memungkinkan komparasi berbagai terapi di antara sejumlah pasien dengan resiko kekambuhan atau morbiditas yang serupa dan meningkatkan pengetahuan tentang breast cancer guna mengembangkan strategi-strategi baru untuk penanganannya [3].
+Secara umum tingkat keganasan breast cancer diukur dengan memperhatikan stadium penderita breast cancer yaitu stadium I, II, III, dan IV.
+Berdasarkan uraian tersebut salah satu metode yang bisa digunakan untuk deteksi tingkat keganasan breast cancer adalah SVM (Support Vektor Machine), metode ini merupakan metode statistik yang bisa digunakan untuk menetukan identifikasi breast cancer setelah dilakukantreatment, dengan memperhatikan faktor-faktor identifikasi.
+Penelitian sebelumnnya oleh Maglogiannis dan Zafiropolous (2007) melakukan diagnosis dan prognosis breast cancer dengan menggunakan SVM [4].
+Hasil penelitian tersebut menunjukkan bahwa ketepatan klasifikasi menggunakan SVM mencapai 97%.
+Sedangkan pada penelitian lain oleh Chen, Yang, dan Lie (2011) yang melakukan diagnosis breast cancer menunjukkan bahwa ketepatan klasifikasi mencapai 99.1% [5].
+Sedangkan pada penelitian lain tentang diagnosis breast cancer dengan menggunakan SSVM memiliki tingkat akurasi 97.22% [6].
+Berdasarkan latar belakang di atas maka penelitian ini akan menganalisis tingkat keganasan breast cancer dengan menggunakan metode regresi logistik ordinal dan Support Vektor Machine (SVM).
+II. LANDASAN TEORI 
+A. Model Regresi Logistik Ordinal 
+Secara umum regresi logistik ordinal merupakan salah satu metode statistika untuk menganalisis variabel respon yang mempunyai skala data ordinal yang memiliki 3 kategorik atau lebih.
+Pada regresi logistik ordinal model berupa kumulatif logit model.
+Sedangkan untuk variabel prediktor yang digunakan berupa data kategorik dan atau kuantitatif.
+Sifat ordinal dari respon Y pada model logit ini dituangkan dalam peluang kumulatif sehingga kumulatif logit model merupakan model yang didapat dengan membandingkan peluang kumulatif yaitu peluang kurang dari atau sama dengan kategori respon ke-j pada p variabel prediktor yang dinyatakan dalam vektor xi adalah P()|xijY, dengan peluang lebih besarkategori respon ke-j yaitu P(xi)|jY [3].
+Sedangkan untuk nilai variabel X=Tpxxx],...,,[21dan parameterTp],...,,[21dan kumulatif ke-j sebagai berikut: )(ckx)(jYP = 1 + 2 ++ r.
+Setelah dilakukan transformasi logistik menjadi model regresi logistik (logit) ordinal atau logit kumulatif: pkkkojxjYPLogit1)]([ Dengan nilai kuntuk k=1,2,p pada setiap model regresi logistik ordinal adalah sama.
+Selanjutnya dilakukan penaksiran parameter.
+Bentuk umum dari fungsi likelihood untuk sampel dengan n independen observasi (yi , xi) adalah ()(Dengan nilai i=1,2,nPersamaan 3 ini dengan mengggunakan iterasi Newton Rhapshon, akan didapatkan taksiran parameter.
+Untuk pengujian parameter dilakukan dua kali yaitu uji serentak dan uji parsial.
+Uji serentak digunakan untuk memeriksa kemaknaan koefisiensecara keseluruhan sebagai berikut. 
+Statistik uji yang digunakan adalah statistik uji G atau likelihood ratio. 
+Pada pengujian ini (cid:2163)(cid:2779) menyebar mengikuti distribusi Chi square dengan derajat bebas p [3].
+Uji parsial dilakukan untuk menguji signifikansiparameter terhadap variabel respon.
+Pengujian signifikansi parameter menggunakan uji Wald [6] dengan menggunakan hipotesis sebagai berikut: H0: 0k H1:0k.
+Perhitungan uji Wald adalah sebagai berikut)(kkSEW Untuk daerah penolakan H0 adalah jika 2/ZW Setelah dilakukan uji serentak dan parsial, maka dilakukan uji kesesuaian model denan menggunakan uji devians.
+Uji hipotesis yang digunakan sebagai berikut: H0: iiy atau Model sesuai (tidak ada perbedaan yang nyata antara hasil observasi dengan kemungkinan hasil prediksi model) H1: iiyatau Model tidak sesuai (ada perbedaan yang nyata antara hasil observasi dengan kemungkinan hasil prediksi model).
+Statistik uji diatas adalah: (ln2Dengan i=)(ixmerupakan peluang observasi ke-i pada kategori ke-j.
+Derajat bebas uji ini adalah (J-(p+1) ) dimana J merupakan jumlah kovariat dan p merupakan jumlah variabel predictor.
+Interpretasi regresi logistik ordinal dapat dijelaskan dengan odd ratio.
+Nilai odd ratio yaitu nilai yang menunjukan perbandingan tingkat kecenderungan dari dua kategori dalam satu variabel prediktor dengan salah satu kategorinya dijadikan pembanding atau kategori dasar.
+B. Support Vector Machine
+Support Vektor Machine(SVM) melakukan suatu teknik untuk menemukan fungsi pemisahyang bisa memisahkan dua set data dari dua kelas yang berbeda [7].
+Metode ini merupakan metode learning machine yang bekerja atas prinsip Sructural Risk Minimazation (SRM) dengan tujuan menemukan hyperplane terbaik yang memisahkan dua buah kelas pada input space [8].
+Pada dasarnya SVM bekerja dengan prinsip linier clasifier,kemudian dikembangkan untuk dapat bekerja pada kasus non linear dengan menggunakan konsep kernel pada ruang kerja berdimesi tinggi [8].
+Pada klasifikasi linear SVM dibagi menjadi 2 jenis yaitu separable dan nonseparable.
+Misalkan X memiliki pola tertentu, yaitu apabila xi termasuk ke dalam kelas maka xi diberi label (target) yi =+1 dan yi = -1.
+Untuk itu, label masing-masing dinotasikan yi{-1,+1}, i=1,2,..l.
+Sehingga data berupapasangan (x1,y1), (x2,y2),..,(xl,yl).
+Kumpulan data pasangan ini merupakan data bagi SVM.
+Support Vector Machine (SVM) bisa menentukan pola generalisasi dari x X.
+Pada dasarnya SVM merupakan metode untuk melakukan klasifikasi himpunan vektor training dari dua kelas (x1,y1), (x2,y2),..,(xl,yl), dengan xRn ,y {-1,1}.
+Pada pemisahan hyperplane dengan bentuk canonical harus memenuhi constraint atau bisa disebut fungsi kendala.
+Untuk optimasi pada persamaan 8, fungsi lagrange yang digunakan adalah : (2) (3) (4) (5) (6) (7)(8)(9)(1).
+Pada persamaan tersebut, nilai i adalah pengganda fungsi lagrange.
+Solusi dari fungsi Lagrange ini dapat diperoleh dengan meminimalkan L terhadap primal variables dan memaksimalkan L terhadap (dual variables) dan penyelesaian dari persamaan sebagai berikut: liiljijijijiyy11,.
+Sehingga persamaan klasifikasi menggunakan persamaan : bsignxfTxw.
+Untuk mengatasi misclassification, formulasi yang telah dilakukan sebelumnnya, akan diperluas sehingga dapat digunakan data non-separable.
+Masalah optimasi sebelumnnya baik pada fungsi obyektif maupun kendala dimodifikasi dengan mengikuti slack variabel >0 yang merupkan sebuah ukuran kesalahan klasifikasi.
+Berikut ini merupakan constraint yang sudah dimodifikasi untuk kasus non separable: libyiTi,...
+Hyperplane atau pemisah yang optimal ditentukan dengan vektor w, yaitu dengan meminimumkan fungsi: liiC1221,ww dimana C adalah parameter regulasi yang digunakan untuk mengontrol hubungan antara variabel slack dengan 2w.
+Nilai K(x,y) merupakan fungsi kernel yang menunjukkan pemetaan non linear pada feature space.
+Persamaan ini memberikan hard classifierpada pemisahan hyperplane di feature space, dengan persamaan: bxxx,signiSVsiiKyf Dengan nilai : SVsiiiTKyxxxw, dan isiriiKKybxxxx,,21.
+Untuk fungsi kernel yang dapat dipakai pada SVM adalah : 1. Polynomial 2. Radial basic function.
+C. SVM Multiclass 
+Pada kasus SVM multiclass dapat menggunakan beberapa metode yaitu satu lawan semua (SLA), satu lawan satu (SLU) dan one optimization problem.
+Metode yang digunakan pada penelitian ini adalah satu lawan semua (SLA).
+Pada metode ini untuk klasifikasi k-kelas, menemukan k fungsi pemisah, dimana k adalah banyaknya kelas.
+Misalkan fungsi pemisah disebut (cid:2025).
+Dalam metode ini (cid:2025)i ditrain dengan semuadata dari kelas-i dengan label +1 dan semua data dari kelas lain dengan label -1.
+Jika kita memiliki data untuk training (x1,y1),,( xi,yi) dimana xiRn, i= 1,2,..,adalah data input dan yiS={1,,k} kelas dari xi yang bersangkutan, fungsi pemisah ke-i menyelesaikan persoalan optimasi berikut: })(21{min1,,jijiTibwCwwijii.
+Setelah menyelesaikan persamaan 20, ada k fungsi pemisah yaitu w1x+b1,w2x+ b2,, wkx+bk..
+Kemudian kelas dari suatu data/obyek baru x ditentukan berdasarkan nilai terbesar dari fungsi pemisah j= kelas x= arg ki,..,1maxwix+bi, dimanaSjD.
+Breast Cancer Breast cancer merupakan kanker tertinggi yang diderita perempuan Indonesia yaitu 26 per 100.000 perempuan [2].
+Pemeriksaan payudara sejak dini berguna untuk memastikan bahwa payudara seseorang masih normal.
+Bila ada kelainan seperti infeksi, tumor, atau kanker dapatditemuakan lebih awal.
+Breast cancer yang diobati pada stadium dini kemungkinan sembuh mendekati 90%.
+Secara keseluruhan faktor yang berpengaruh pada stadium dibagi menjadi tiga bagian yaitu ukuran tumor (T) yang dapat dilihat dari ukuran diameter tumor, yang kedua nodus (N) yang berhubungan dengan keadaan metastase kalenjer aksila, dan yang ketiga adalah metastase (M) yang menunjukkan atau tidak metastase.
+Usia merupakan salah satu faktor resiko breast cancer.
+Pada hasil mamografi malignant dan benign merupakan faktor yang menunjukkan jinak atau tidaknya breast cancer.
+Disamping itu pada penelitian Yuh-jye lee (2011) menerangkkan bahwa chemoterapi sangat menentukan sembuh atau tidaknya breast cancer [9].
+Dalam penentuan tingkat keganasandapat dilihat dengan stadium penderita breast cancer yaitu Stadium I dengan peluang untuk hidup dalam waktu 5 tahun sebesar 87%, stadium II peluang untuk hidup dalam waktu 5 tahun sebesar 75%, dan stadium III peluang untuk hidup dalam waktu 5 tahun sebesar 46%.
+III. METODOLOGI PENELITIAN
+A. Sumber Data dan Variabel Penelitian 
+Sumber data yang digunakan penelitian ini adalah data pasienpenderita breast cancer di Rumah Sakit X pada tahun 2011 berjumlah 178.
+Data ini merupakan data pasien yang telah melakukan biopsy.
+Variabel yang digunakan dalam penelitian ini terdiri atas variabel respon (Y) dan variabel prediktor (X).
+Variabel respon yang digunakan adalah kategori jenis stadium penderita breast cancer, yang terdiri dari 3 kategori yaitu: Y = (1) Stadium I Y = (2) Stadium II Y = (3) Stadium III 
+Pada penentuan variabel prediktor, terlebih dahulu dilakukan konsultasi dengan dokter dan bidang riset di rumah sakit X sehingga didapatkan beberapa variabel prediktor pada tabel 1.
+Variabel-variabel yang didapatkan pada penelitian ini, merupakan hasil dari biopsy pasien penderita breast cancer.
+Berikut ini merupakan variabel predictor tingkat keganasan breast cancer.
+Variabel yang tercantum dibawah ini sudah tercantum di form biopsy.
+B. Langkah Analisis 
+Dalam melakukan penelitian harus dilakukan analisis yang tepat.
+Berikut ini merupakan langkah-langkah penelitian: 1. Melakukan pengumpulan data sekunder penderita breast cancer di rumah saikit X sesuai variabel prediktor dan variabel respon: a. Menerjemahkan variabel dari bahasa medis menjadi variabel pada tabel 1, dengan dokter dan tim riset rumah sakit b. Melakukan pengkodingan data 
+2. Melakukan interpretasi statistika deskriptif pasien penderita breast cancer.
+3. Melakukan klasifikasi tingkat keganasan penderita breast cancer dengan menggunakan analisis regresi logistik ordinal: a. Melakukan estimasi parameter b. Melakukan pengujian parameter secara serentak dan individu untuk mengetahui variabel berpengaruh dalam model. c. Membuat model logit d. Melakukan pengujian kesesuaian model yang telah diperoleh. e. Menghitung ketepatan klasifikasi regresi logistik ordinal. 
+4. Melakukan klasifikasi tingkat keganasan penderita breast cancer dengan metode Support Vektor Machine.
+Berikut ini merupakan algoritma metode SVM: a. Melakukan transformasi data sesuai dengan metode SVM multi kelas. b. Menentukan fungsi pemisah dengan metode multi kelas satu lawan banyak (SLA). c. Menentukan nilai-nilai parameter C= 10, 100, dan 1000, sekaligus menentukanfungsi kernel RBF dengan=1, 2, 3 dan fungsi kernel polynomial dengan p=1, 2, 3 d. Memilih nilai parameter C terbaik e. Menghitung nilai ketepatan klasifikasi terbaik 5. Melakukan perbandingan ketepatan klasifikasi antara analisis regresi logistik ordinal dan SVM .
+IV. HASIL DAN PEMBAHASAN 
+A. Pemodelan Breast Cancer Menggunakan Regresi Logistik Ordinal 
+Pasien breast cancer pada penelitian ini berjumlah 178.
+Rata-rata usia pasien breast cancer adalah 51 tahun.
+Pasien yang mengalami stadium I sebanyak 6%, stadium II sebanyak 41% dan staium III sebanyak 53%.
+Pada analisis dengan menggunakan regeresi logistik ordinal, terlebih dahulu dilakukan uji serentak dan uji individu semua variabel prediktor yaitu ukuran tumor (X1), Nodus (X2), Chemoterapy (X3), Malignant/benign (X4), letak Kanker (X5), dan Usia pasien (X6).
+Hasil dari uji ini akan diadapatkan variabel yang siginifikant.
+Berdasarkan uji signifikansi serentak dan individu, diadapatkan variabel yang siginifikant yaitu variabel X1, X2, dan X4.
+Variabel-variabel ini akan digunakan untuk membentuk model akhir regresi logistik ordinal secara serentak.
+Analisis regresi logistik secara serentak terlihat pada Tabel 2.
+Adapun uji hipotesis adalah sebagai berikut:H0 : 1= 2=...= 6= 0 H1 : minimal ada satu k0; k = 1, 2, ..., 6 Daerah kritis: Tolak H0 jika nilai G > )7%,5(2 = (14.067)
+Berdasarkan Tabel 2 menunjukkan bahwa nilai G sebesar 39.129 yang berarti nilai G> ),(2df kesimpulan yang dihasilkan tolak H0.
+Hal ini menunjukkan bahwa variabel bebas ukuran tumor, nodus, dan malignant/benign paling tidak ada satu yang berpengaruh secara signifikan terhadap tingkat keganasan breast cancer.
+Langkah selanjutnya dilihat secara parsial signifikansi variabel-variabel tersebut.
+Berdasarkan hasil pada Tabel 3 menunjukkan variabel-variabel yang signifikan.
+Hasil pada Tabel tersebut juga menunjukkan bahwa variabel X1 (ukuran tumor) pada kategori kedua tidak signifikan.
+Sehingga model logit yang dihasilkan adalah Logit 1 : 1g (x) = -30.1468.585X1(0) - 3.813X1(1)22.448X2(0) -20.171X2(1) Logit 2 : 2g (x) = -23.291- 8.585X1(0) - 3.813X1(1)22.448X2(0) -20.171X2(1).
+Logit 1 untuk penderita breast cancer yang menderita stadium I dan Logit 2 untuk penderita breast cancer yang menderita stadium II dan stadium I.
+Berdasarkan logit diatas dapat diketahui bahwa nilai odd ratio sebesar 0.00018, hal ini menunjukkan bahwa pasien breast cancer yang ukuran tumornya berada pada T1 peluang mengalami stadium I lebih kecil jika dibandingkan dengan pasien dengan ukuran tumor bertipe T4.
+Sedangkan breast cancer dengan ukuran tumor T2 memiliki peluang mengalami stadium I lebih kecil jika dibandingkan tumor bertipe T4,.
+Sedangkan untuk penderita breast cancer yang nodusnya N0 memiliki peluang mengalami stadium I lebih kecil dibandingkan nilai nodus N2.
+Penderita breast cancer yang nodusnya N1 memiliki peluang mengalami stadium I lebih kecil dibandingkan nilai nodus N2Untuk nilai peluang pada pasien pertama, dengan menggu-nakan fungsi logit dan fungsi peluang dengan rumus diatas didapatkan nilai x1=1.43 x 10-23, x2=1.22 x 10-20, dan nilai x3=0.999.
+Nilai tersebut menunjukkan bahwa untuk pasien pertama, mengalami breast cancer stadium I memiliki peluang sebesar 1.43 x 10-23, sedangkan peluang menderita breast cancer stadium III sebesar 0.99.
+Berdasarkan nilai tersebut menunjukkan bahwa peluang tertinggi pasien pertama akan menderita breast cancer stadium III.
+Berdassarkan uji, model tersebut sudah sesuai dengan nilai P-value sebesar 0.37> (0.05).
+Berikut ini merupakan ketepatan klasifikasi dengan menggunakan regresi logistik ordinal untuk data testing.
+Berdasarkan Tabel 4.9 menunjukkan bahwa semua data deviance stadium I dan stadium II diprediksi salah ke stadium III, sedangkan stadium II diprediksi benar stadium III sebanyak 30 data.
+Secara keseluruhan hasil dari prediksi dengan mengguna-kan regresi logistik ordinal, dimana data training yang digunakan sebanyak 125 dan data testing yang digunakan sebanyak 53 menghasilkan ketepatan klasifikasi sebesar 56.60%.
+B. Klasifikasi Tingkat Keganasan Breast Cancer Dengan Menggunakan Support Vector Machine 
+Analisis SVM pada tingkat keganasan breast cancer menggunakan dua fungsi kernel yaitu Polynomial dan Radial Basis Function.
+Pada fungsi polynomial menggunakan parameter p sebanyak 3 jenis yaitu p=1, p=2, dan p=3.
+Sedangkan pada radial basis function=1, =2, dan =3.
+Untuk nilai C yang dibandingkan yaitu C=10, C=100, dan C=1000.
+Pada analisis tingkat keganasan breast cancer inimenggunakan nilai C yang berbeda.
+Dengan memasukkan beberapa nilai p pada fungsi kernel menggunakan polynomial dan beberapa nilaipada fungsi kernel radial basis function (rbf).
+Sehingga dapat dibandingkan ketepatan klasifikasi terbaik pada analisis tingkat keganasan breast cancer.
+Berdasarkan Tabel 5menunjukkan bahwa nilai akurasi tertinggi terdapat pada pengelompokan SVM menggunakan data Training dan Testing 70:30, dengan fungsi kernel yang dipakai polynomial dengan nilai p=3 danfungsi kernel radial basis function dengan nilai =1.
+Pada pengelompokan ini tingkat akurasi mencapai 98.11 %.
+Tabel 6 menunjukkan bahwa nilai akurasi tertinggi pada C=100 sama dengan pengelompokan C=10 yaitu akurasi tertinggi terdapat pada pengelompokan SVM menggunakan data Training dan Testing 70:30, dengan fungsi kernel yang dipakai polynomial dengan nilai p=3, fungsi kernel radial basis function dengan nilai =1 dan nilai =2 .
+Pada kedua jenis pengelompokan ini tingkat akurasi mencapai 98.11 %.
+Tabel 7 menunjukkan bahwa nilai akurasi tertinggi pada C=1000 sama dengan pengelompokan C=10 yaitu akurasi terting-gi terdapat pada pengelompokan SVM menggunakan data Training dan Testing 70:30, dengan fungsi kernel yang dipakai polynomial dengan nilai p=3, fungsi kernel radial basis function dengan nilai =1,=2, =3.
+Keempat jenis pengelompokan ini tingkat akurasinya sama yaitu mencapai 98.11 %.
+Selanjutnya membandingkan metode regresi logistik ordinal dan metode Support Vector Machine.
+Nilai prediksi tingkat keganasan breast cancer pada regresi logistik didapatkan dari nilai peluang tertinggi pada masing-masing kategori.
+Dan klasifikasi pada support vector machine (SVM) diperoleh dari hyperplane yang memisahkan kategori tingkat keganasan breast cancer.
+Tabel 8 menunjukkan bahwa ketepatan klasifikasi dengan menggunakan support vector machine (SVM) lebih baik jika dibandingkan dengan regresi logistik ordinal.
+Hal ini bisa dilihat dari nilai ketepatan klasifikasi breast cancer, pada regresi logistik ordinal ketepatan klasifikasi tertinggi 56.60% dengan proporsi data training dan testing 70:30.
+Untuk SVM ketepatan klasifikasi rata-rata tertinggi mencapai 98.1% yaitu pada data training dan testing 70:30 dengan menggunakan kernel polynomial p=1 dan RBF 1.
+V. KESIMPULAN / RINGKASAN 
+Berdasarkan hasil klasifikasi tingkat keganasan breast cancer dengan menggunakan regersi logistik ordinal dan Support Vector Machine (SVM) menghasilkan kesimpulan bahwa Model Logit dari regresi logistik ordinaladalah1g (x) = -30.1468.585X1(0) - 3.813X1(1)22.448X2(0)-20.171X2(1)dan 2g (x) = -23.291- 8.585X1(0) - 3.813X1(1)22.448X2(0) -20.171X2(1).
+Dari model tersebut didapatkan ketepatan klasifikasi tingkat keganasan breast cancer tertinggi 56.60%.
+Klasifikasi dengan menggunakan SVM menggunakan fungsi kernel radial basis function (RBF) dan Polynomial menghasilkan ketepatan klasifikasi tertinggi mencapai 98.11%.
+Hasil tersebut menunjukkan bahwa SVM memiliki ketepatan klasifikasi lebih baik jika dibandingkan dengan regresi logistik ordinal.

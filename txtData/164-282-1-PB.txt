@@ -1,0 +1,205 @@
+Abstrak
+Sentiment analysis atau opinion mining merupakan topik riset yang penting dan sedang marak dilakukan saat ini.
+Opinion mining merupakan cabang penelitian dari text mining.
+Fokus dari opinion mining adalah melakukan analisis opini dari suatu dokumen teks.
+Terdapat tiga buah subproses dari opinion mining yaitu, document subjectivity, opinion orientation dan target detection.
+Dalam dunia bisnis, opinion mining banyak digunakan untuk menganalisis secara otomatis opini pelanggan tentang produk dan pelayanannya.
+Pada penelitian ini dikembangkan sistem opinion mining untuk menganalisis opini publik pada perguruan tinggi.
+Pada subproses document subjectivity dan target detection digunakan Part-of-Speech (POS) Tagging menggunakan Hidden Makov Model (HMM).
+Pada hasil proses POS Tagging kemudian diterapkan rule untuk mengetahui apakah suatu dokumen termasuk opini atau bukan, serta untuk mengetahui bagian kalimat mana yang merupakan objek yang menjadi target opini.
+Dokumen yang dikenali sebagai opini selanjutnya diklasifikasikan ke dalam opini negatif dan positif (subproses opinion orientation) menggunakan Naive Bayes Classifier (NBC).
+Dari pengujian didapatkan nilai precission dan recall untuk subproses document subjectivity adalah 0.99 dan 0.88, untuk subproses target detection adalah 0.92 dan 0.93, serta untuk subproses opinion orientation adalah 0.95 dan 0.94.
+Kata Kunci Analisis Sentimen, Opinion Mining, POS Tagging, Hidden Markov Model, Naive Bayes Classifier.
+I. PENDAHULUAN
+Analisis sentimen atau opinion mining merupakan proses memahami, mengekstrak dan mengolah data tekstual secara otomatis untuk mendapatkan informasi sentimen yang terkandung dalam suatu kalimat opini.
+Analisis sentimen dilakukan untuk melihat pendapat atau kecenderungan opini terhadap sebuah masalah atau objek oleh seseorang, apakah cenderung berpandangan atau beropini negatif atau positif.
+Salah satu contoh penggunaan analisis sentimen dalam dunia nyata adalah identifikasi kecenderungan pasar dan opini pasar terhadap suatu objek barang.
+Besarnya pengaruh dan manfaat dari analisis sentimen menyebabkan penelitian dan aplikasi berbasis analisis sentimen berkembang pesat.
+Bahkan di Amerika terdapat sekitar 20-30 perusahaan yang memfokuskan pada layanan analisis sentimen [1].
+Penelitian di bidang opinion mining mulai marak pada tahun 2002.
+Turney pada tahun 2002 melakukan penelitian dengan tema opinion mining dengan menggunakan data berupa data review konsumen atas suatu produk.
+Metode yang digunakan adalah Semantic Orientation (Orirentasi Semantik) menggunakan Pointwise MutualInformation (SO-PMI).
+Hasilterbaik yang dicapai adalah 84%akurasinya terhadap data review kendaraan bermotor dan 66% untuk data reviewfilm [2].
+Pang et.al. pada tahun 2002 mengklasifikasikan review dari film pada level dokumen yang memiliki pendapat positif atau negatif dengan menggunakan teknik supervised learning.
+Sekumpulan dari review film yang sebelumnya telah ditentukan menjadibaik positifataupun negatifdigunakan sebagaidata latihan untuk beberapa algoritma machine learning yang sudah ada.
+Akurasi yang didapatkan berkisar antara 72% sampai 83% [3].
+Opinion mining bisa dianggap sebagai kombinasi antara text mining dan natural language processing.
+Salah satu metode dari text mining yang bisa digunakan untuk menyelsaikan masalah opinion mining adalah Naive Bayes Classifier (NBC).
+NBC bisa digunakan untuk mengklasifikasikan opini ke dalam opini positif dan negatif.
+NBC bisa berfungsi dengan baik sebagai metode pengklasifikasi teks.
+Penelitian tentang penggunaan NBC sebagai metode pengklasifikasi teks telah dilakukan oleh SM Kamaruzzaman dan Chowdury Mofizur Rahman [4] serta Ashraf M Kibriya et.al. [5] pada tahun 2004.
+Dari proses pengujian secara kualitatif disebutkan bahwa teks bisa diklasifikasikan dengan akurasi yang tinggi.
+Sedangkan dari natural language processing, salah satu metode yang bisa digunakan untuk menyelesaikan masalah opinion mining adalah Part-of-Speech (POS) Tagging.
+POS Tagging digunakan untuk memberikan kelas kata (tag) secara gramatikal ke setiap kata dalam suatu kalimat teks.
+Beberapa penelitian yang ditujukan untuk mengembangkan sistem POS Tagging dalam bahasa Indonesia, diantaranya dilakukan oleh Femphy Pisceldo et.al. pada tahun 2009 [6] menggunakan Maximum Entropy dan Alfan Farizki et.al.[7] pada tahun 2010 menggunakan Hidden Markov Model.
+Akurasi yang didapatkan berkisar antara 85% hingga 96%.
+Penelitian ini ditujukan untuk mengembangkan sistem opinion mining untuk mengolah data opini berbahasa Indonesia pada suatu perguruan tinggi.
+Sistem dirancang memiliki tiga subproses yaitu, subroses document subjectivity, opinion orientation dan target detection.
+Subproses document subjectivity ditujukan untuk mengenali subyektifitas suatu dokumen teks (dokumen teks mana yang termasuk opini dan tidak termasuk opini).
+Subproses opinion orientation digunakan untuk menentukan orientasi suatu kalimat opini, apakah termasuk ke dalam orientasi positif atau negatif.
+Subrpses target detection digunakan untuk mengenali objek yang menjadi target opini dalam suatu dokumen.
+Dalam subproses document subjectivity dan target detection digunakan Hidden Markov Model (HMM) based POS Tagging.
+Hasil dari POS Tagging akan selanjutya akan dianalisis menggunakan rule untuk menentukan dokumen mana yang termasuk opini dan untuk menentukan objek yang menjadi target opini.
+Dalam subproses target detection digunakan Naive Bayes Classifier (NBC).
+II. DASAR TEORI 
+A. Hidden Markov Model (HMM) based Part-of-Speech (POS) Tagging
+Dalam proses POS Tagging ini, data yang akan diobservasi adalah kumpulan kata atau kalimat, dan dari kalimat tersebut akan ditentukan tiap kata penyusunnya akan masuk ke dalam klas kata atau tag apa yang tepat.
+Untuk ilustrasi proses HMM dalam POS Tagging, diberikan contoh kalimat Secretariat is expected to race tomorrow.
+Dari kalimat tersebut akan ditentukan rangkaian tag yang paling tepat.
+Dengan menggunakan teori Bayessian interpretation, proses dimulai dengan mempertimbangkan semua urutan tag yang mungkin untuk kalimat tersebut.
+Dari semua kemungkinan urutan tersebut, kemudian akan dipilih urutan tag yang paling mungkin berdasar data observasi yang diberikan, dalam hal ini data observasi adalah kata (words) sejumlah n.
+Dengan kata lain, dari semua kemungkinan urutan tag sejumlah n, dipilih sebuah urutan tag yang menghasilkan (cid:1868)(cid:4666)(cid:1872)(cid:2869)(cid:3041) | (cid:1875)(cid:2869)(cid:3041)(cid:4667) yang tertinggi.
+Seperti ditunjukkan dalam persamaan (1).
+Dari persamaan (1) dengan diberikan rangkaian tag ((cid:1872)(cid:2869)(cid:3041)) dan rangkaian kata ((cid:1875)(cid:2869)(cid:3041)), nilai (cid:1868)(cid:4666)(cid:1872)(cid:2869)(cid:3041) | (cid:1875)(cid:2869)(cid:3041)(cid:4667) masih belum bisa dihitung secara langsung.
+Dengan menggunakan teorema Bayes maka persamaan (1) menjadi (3).
+Penyebut dari persamaan (3) yaitu (cid:1868)(cid:4666)(cid:1875)(cid:2869)(cid:3041)(cid:4667) bisa dihilangkan.
+Hal ini dikarenakan dalam proses pencarian sebuah rangkaian tag yang paling sesuai dari semua kemungkinan rangkaian tag, perhitungan(cid:3043)(cid:4666)(cid:3050)(cid:3117)(cid:3289) | (cid:3047)(cid:3117)(cid:3289)(cid:4667)(cid:3043)(cid:4666)(cid:3047)(cid:3117)(cid:3289)(cid:4667)(cid:3043)(cid:4666)(cid:3050)(cid:3117)(cid:3289)(cid:4667)akan dilakukan pada setiap rangkaian tag.
+Dan nilai (cid:1868)(cid:4666)(cid:1875)(cid:2869)(cid:3041)(cid:4667) akan bernilai tetap untuk setiap rangkaian tag.
+Setelah penyebut dihilangkan, maka persamaan (3) menjadi (4)
+Dari persamaan (4) bisa dikatakan bahwa rangkaian tag yang paling mungkin (cid:1872)(cid:2869)(cid:3041)(cid:3554) untuk suatu string (cid:1875)(cid:2869)(cid:3041) merupakan hasil perkalian antara dua buah nilai probabilitas.
+Probabilitas yang pertama adalah prior probability (cid:1868)(cid:4666)(cid:1872)(cid:2869)(cid:3041)(cid:4667) yang merupakan nilai probabilitas transisi suatu state dari state sebelumnya.
+Probabilitas yang kedua adalah words likelihood (cid:1868)(cid:4666)(cid:1875)(cid:2869)(cid:3041) | (cid:1872)(cid:2869)(cid:3041)(cid:4667), yang menunjukkan nilai kemiripan atau kemungkinan suatu kata sebagai suatu state.
+Untuk memudahkan perhitungan, HMM POS Tagger menggunakan dua buah asumsi.
+Asumsi yang pertama adalah probabilitas kemunculan suatu kata hanya tergantung pada tag nya, dan tidak tergantung dengan kata lain di sekitarnya atau tag lain di sekitarnya (persamaan (5)).
+Asumsi yang kedua adalah probabilitas suatu kemunculan tag hanya bergantung dari tag sebelumnya (persamaan (6)).
+Asumsi yang disebut sebagai bigram.
+Dengan menggunakan dua buah asumsi pada persamaan (5) dan (6) maka persamaan (4) akan menjadi (7)
+Untuk melakukan perhitungan probabilitas transisi tag (cid:1868)(cid:4666)(cid:1872)(cid:3036) | (cid:1872)(cid:3036)(cid:2879)(cid:2869)(cid:4667) dan probabilitas kemiripan kata (word likelihood) (cid:1868)(cid:4666)(cid:1875)(cid:3036) | (cid:1872)(cid:3036)(cid:4667) diperlukan koleksi data teks yang telah diberikan tag sebelumnya (corpus).
+Untuk menghitungnya bisa digunakan persamaan (8) dan (9).
+B. Naive Bayes Classifier (NBC) 
+NBC merupakan algoritma pengklasifikasi yang sering digunakan permasalahan klasifikasi teks.
+Sebagai ilustrasi, misal data training dikategorikan menjadi beberapa k kategori (cid:1829)(cid:3037)(cid:3404)(cid:4668)(cid:1829)(cid:2869),(cid:1829)(cid:2870),(cid:1829)(cid:2871),,(cid:1829)(cid:3038)(cid:4669), dan prior probability untuk masing-masing kategori adalah (cid:1868)(cid:3435)(cid:1829)(cid:3037)(cid:3439), dimana j = 1,2,3,,k.
+Koleksi data disimbolkan (cid:1856)(cid:3036)(cid:3404) (cid:4666)(cid:1875)(cid:2869),,(cid:1875)(cid:3037),,(cid:1875)(cid:3040)(cid:4667), dan kata atau fitur yang ada dalam dokumen adalah (cid:1875)(cid:3037), dimana j = 1,2,3,m, akan masuk ke dalam kategori (cid:1829)(cid:3037).
+Untuk mengklasifikasikan dokumen (cid:1856)(cid:3036), dilakukan dengan menghitung nilai probabilitas dari semua dokumen (posterior probability).
+Posterior probability suatu dokumen pada suatu kategori dapat dihitung dengan menggunakan persamaan (10).
+Klasifikasi teks menggunakan NBC dilakukan dengan memaksimalkan nilai dari persamaan (10).
+Karena untuk semua kategori yang diberikan, nilai penyebut (cid:1868)(cid:4666)(cid:1856)(cid:3036)(cid:4667) bernilai sama atau konstan, maka bisa dihilangkan.
+Sehingga persamaan untuk menghitung nilai maksimal dari persamaan (10) menjadi (11) .
+Berdasarkan pada hipotesis Bayesian yang menyebutkan bahwa setiap kata atau fitur w1,wj , wmdari di = w1,wj , wm adalah tidak saling terkait, maka distribusi probabilitas total merupakan hasil perkalian (product) dari distribusi probabilitas tiap fitur atau kata, seperti ditunjukkan pada persamaan (12).
+Dengan memasukkan persamaan (12) ke persamaan (11), maka persamaan (11) menjadi (13).
+Persamaan (13) ini yang disebut sebagai Formula Pengklasifikasi.
+Nilai(cid:4666)(cid:1829)(cid:3037)(cid:4667)dapat dihitung dengan cara membagi jumlah dokumen training yang masuk ke dalam kategori (cid:1829)(cid:3037) dengan jumlah total semua dokumen training (cid:1866)( (cid:1868)(cid:4666)(cid:1829)(cid:3037)(cid:4667) = (cid:3015)(cid:3278)(cid:3285)(cid:3015) ,dimana (cid:1840)(cid:3030)(cid:3037) adalah jumlah dokumen yang masuk kedalam kategori (cid:1829)(cid:3037) dan (cid:1840) adalah jumlah total dokumen).
+Sedangkan untuk menghitung nilai (cid:1868)(cid:3435)(cid:1875)(cid:3036)(cid:3627)(cid:1829)(cid:3037)(cid:3439), cara yang paling mudah adalah (cid:1868)(cid:3435)(cid:1875)(cid:3036)(cid:3627)(cid:1829)(cid:3037)(cid:3439)(cid:3404) (cid:3015)(cid:3278)(cid:3298)(cid:2878) (cid:2869)(cid:3015)(cid:3278)(cid:2878)(cid:3023), dimana (cid:1840)(cid:3030)(cid:3050) jumlah kata (cid:1875)(cid:3036) yang ada dalam dokumen training yang masuk ke dalam kategori (cid:1829)(cid:3037), (cid:1840)(cid:3030) adalah jumlah semua kata yang ada dalam dokumen training yang masuk kedalam kategori (cid:1829)(cid:3037) (tanpa menghiraukan ada kata yang sama atau tidak), V adalah jumlah total jenis kata yang ada dalam dokumen training (kata yang sama hanya dihitung 1).
+Untuk menghindari nilai 0 maka pembilang ditambahkan 1, ini yang disebut Laplace Smoothing [13].
+C. Precision dan Recall 
+Precision adalah rasio jumlah dokumen relefan yang ditemukan dengan total jumlah dokumen yang ditemukan oleh sistem.
+Recall adalah rasio jumlah dokumen relevan yang ditemukan kembali dengan total jumlah dokumen dalam kumpulan dokumen yang dianggap relefan.
+Nilai keduanya biasanya ditunjukkan dalam satuan persen (%).
+Persamaan untuk precision ditunjukkan pada persamaan (14) dan recall pada persamaan (15) [11].
+Dengan memperhatikan Tabel I, persamaan (14) dan (15) dapat disederhanakan menjadi (17) 
+III. METODE PENELITIAN
+A. Data 
+Pada penelitian ini digunakan data sekunder, yaitu data yang berasal dari referensi atau penelitian sebelumnya.
+Data sekunder yang digunakan dalam penelitian ini sebagai berikut: 1) Data kelas kata (tag) 
+Data ini digunakan sebagai acuan tag atau kelas kata yang akan digunakan dalam proses POS Tagging.
+Data kelas kata (tag) ini diperoleh dari hasil penelitian yang telah dilakukan sebelumnya [7].
+2) Data training POS Tagging 
+Data training POS Tagging ini berupa tagged corpus yang di dalamnya terdapat kumpulan kalimat, dimana masing-masing kata yang menyusun kalimat tersebut telah diberikan tag atau kelas kata.
+Data ini digunakan dalam proses training Hidden Markov Model (HMM) dalam proses POS Tagging.
+Data ini didapatkan dari hasil penelitian yang telah dilakukan oleh Universitas Indonesia (UI) sebagai salah satu wakil dari Indonesia dalam proyek Pan Localization (PANL10N) [10].
+Tagged Corpus berbahasa Indonesia untuk proses POS Tagging yang disediakan dari PANL10N merupakan hasil adaptasi dari tagged corpus Penn Treebank yang berbahasa Inggris.
+Selain menggunakan tagged corpus UI, pada penelitian ini juga digunakan tagged corpus hasil modifikasi peneliti terhadap tagged corpus yang digunakan pada penelitian tahun 2010 [7].
+3) Data training POS Tagging 
+Data training yang digunakan dalam proses klasifikasi opini merupakan corpus opini yang telah dikategorikan dalam opini positif maupun negatif.
+Data ini didapatkan dengan mengumpulkan data opini melalui media online.
+Data tersebut kemudian dikategorikan ke dalam kategori opini negatif atau positif secara manual.
+Data ini digunakan dalam proses training Naive Bayes Classifier (NBC).
+B. Metode Pengolahan Data 
+Sistem yang akan dikembangkan terdiri dari tiga subproses yaitu document subjectivity, opinion orientation dan target detection.
+1) Document Subjectivity 
+Untuk mengetahui apakah suatu kalimat termasuk kalimat opini atau bukan, pertama kali dilakukan POS Tagging untuk menentukan tag atau kelas kata pada setiap kata yang menyusun suatu kalimat.
+Kemudian hasil POS Tagging akan dianalisis menggunakan aturan kebahasaan (rule) untuk mengetahui susunan kata dalam kalimat yang mencerminkan opini.
+Proses POS Tagging dilakukan dengan menggunakan metode HMM.
+2) Opinion Orientation
+Penentuan apakah suatu kalimat termasuk kedalam opini positif atau negatif bisa digolongkan sebagai proses pengklasifikasian.
+Dalam hal ini adalah pengklasifikasian suatu dokumen termasuk kedalam kelas positif atau kelas negatif.
+Dalam penelitian ini digunakan salah satu metode dari supervised machine learning yaitu NBC.
+3) Target Detection 
+Pada subproses ini digunakan metode POS Tagging dan rule seperti pada subproses document subjectivity.
+Perbedaanya terletak pada susunan rule yang digunakan, yaitu aturan kebahasaan untuk menentukan objek yang menjadi target opini.
+C. Metode Pengujian 
+Skenario pengujian dalam penelitian ini diantaranya:Pengujian subproses : pengujian ini diterapkan pada masing-masing subproses analisis sentimen, yaitu document subjectivity, opinion orientation dan target detection.
+Pengujian integrasi: pengujian ini dilakukan pada hasil penggabungan subproses document subjectivity, opinion orientation dan target detection.
+Pengujian ditujukan untuk mendapatkan nilaiprecision dan recall.
+Baik pada pengujian subproses maupun pengujian integrasi, keduanya akan dicari nilai precission dan recall.
+IV. PERANCANGAN 
+A. Perancangan Diagram Alur Sistem 
+Alur proses sistem secara global ditunjukkan pada Gambar 1. 
+Sistem akan menyimpan data training POS Tagging dan data training klasifikasi opini di dalam basisdata.
+Proses inti di dalam sistem ini adalah POS Tagging menggunakan HMM dan klasifikasi orientasi opini menggunakan NBC.
+Baik HMM based POS Tagging maupun NBC, keduanya diawali oleh proses training menggunakan training dataset.
+Proses training pada HMM based POS Tagging dilakukan dengan menghitung nilai emission probability dan transition probability.
+Hasil perhitungan dari proses training tersebut yang digunakan sebagai model acuan untuk menentukan tag atas suatu kata dalam suatu kalimat dari data testing.
+Untuk menentukan hasil akhir subproses document subjectivity dan target detection, hasil dari proses POS Tagging selanjutnya akan diproses menggunakan ruleuntuk mendeteksi struktur kalimat opini dan mendeteksi objek yang menjadi target dari suatu kalimat opini.
+Proses training pada NBC dilakukan dengan menghitung nilai prior probability dan posterior probability.
+Hasil tersebut yang dijadikan model acuan pada saat proses klasifikasi suatu data testing.
+B. Perancangan Tag (Kelas Kata) 
+Tag yang digunakan dalam penelitian ini ditunjukkan pada Tabel II.
+Tag tersebut mengacu pada daftar tag yang telah digunakan pada penelitian sebelumnya [7].
+Gambar 1. Diagram alir proses sistem 
+C. Perancangan Rule
+Untuk menentukan kalimat mana yang termasuk opini atau bukan, diperlukan rule untuk mengolah data hasil proses POS Tagging.
+Rule opini yang digunakan dalam penelitian ini ditunjukkan pada Tabel III.
+Sedangkan rule untuk mendeteksi kata atau frasa yang menjadi objek dari suatu kalimat opini ditunjukkan pada Tabel IV.
+Kedua rule tersebut dirancang berdasarkan hasil observasi yang dilakukan oleh peneliti.
+V. PENGUJIANDAN PEMBAHASAN 
+A. Pengujian 
+Pengujian subproses document subjectivity dan target detection dilakukan dengan menggunakan 575 data teks dan 2 macam tagged dataset (dataset POS Tagging).
+Data teks yang digunakan dalam pengujian document subjectivity dan target detection dikumpulkan dengan mengunakan kuisioner online.
+Tagged dataset yang digunakan dalam pengujian ini yaitu:Dataset yang dikeluarkan oleh Universitas Indonesia yang pernah digunakan pada penelitian tahun 2009 [6].
+Dataset yang dirumuskan sendiri oleh peneliti, yang merupakan hasil modifikasi dataset yang telah digunakan pada penelitian tahun 2010 [7].
+Hasil pengujian document subjectivity menggunakan dataset hasil modifikasi yang dilakukan oleh peneliti ditunjukkan pada Tabel V.
+Tabel VI merupakan hasil pengujian menggunakan dataset dari UI.
+Dari Tabel V nilai precission dan recall sebagai berikut: precision = 501 / (501+2) = 0.99 Recall = 501/ (501+70) = 0.88 Dari Tabel VI nilai precission dan recall sebagai berikut: precision = 411 / (411+2) = 0.99 Recall = 411/ (411+160) = 0.72 Hasil pengujian target detection menggunakan dataset hasil modifikasi peneliti ditunjukkan pada Tabel VII.
+Dan hasil pengujian target detection menggunakan dataset UI ditunjukkan pada Tabel VIII.
+Dari Tabel VII nilai precission dan recall sebagai berikut: precision = 219 / (219+1) = 0.99 Recall = 219/ (219+5) = 0.97.
+Dari Tabel VIII nilai precission dan recall sebagai berikut: precision = 209 / (209+18) = 0.92 Recall = 209 / (209+15) = 0.93.
+Pengujian opinion orientation dilakukan dengan menggunakan 87 data yang dikumpulkan melalui kuisioner online.
+Dataset yang digunakan dalam proses training berasal dari data opini yang juga dikumpulkan menggunakan kuisioner online sejumlah 575 data.
+Hasil pengujian ditunjukkan pada Tabel IX.
+Dari Tabel IX nilai precission dan recall sebagai berikut: precision = 60 / (60+3) = 0.95 Recall = 60 / (60+4) = 0.94.
+B. Pembahasan 
+Tagged dataset digunakan dalam proses training atau learning pada HMM.
+HMM sendiri digunakan sebagai algoritma dalam proses POS (Part-of-Speech) Tagging.
+Pada sistem yang dikembangkan dalam penelitian ini, POS Tagging digunakan pada subproses document subjectivity dan target detection.
+Dari hasil yang didapatkan dari proses pengujian subproses document subjectivity, nilai precission dari Tabel V sama dengan precission Tabel VI sedangkan recall dari Tabel V berbeda dengan recall dari Tabel VI.
+Tabel V merupakan data hasil pengujiandocument subjectivity menggunakan dataset yang pernah digunakan sebelumnya [7], yang telah dimodifikasi oleh peneliti, sedangkan Tabel VI merupakan data hasil pengujian menggunakan dataset dari Universitas Indonesia.
+Penggunaan 2 dataset tersebut berakibat pada perbedaan nilai recall.
+Recall Tabel V (0.88) lebih besar daripada recall Tabel VI (0.72).
+Hal ini menunjukkan bahwa akurasi sistem akan lebih baik jika menggunakan dataset hasil modifikasi peneliti.
+Meskipun dataset yang didapatkan dari hasil penelitian Universitas Indonesia berisi lebih banyak data daripada dataset hasil modifikasi peneliti, tetapi akurasi tag yang dihasilkan lebih kecil.
+Sebagai contoh, dari penggunaan dataset UI didapatkan hasil tagging terlalu/rb berbelit/nn dan/cc kurang/rb transparan/nn sedangkan dengan menggunakan dataset hasil modifikasi peneliti didapatkan terlalu/RB berbelit/VBT dan/CC kurang/RB transparan/JJ.
+Perbedaan terjadi pada tag kata berbelit dan transparan.
+Dari rule opini yang digunakan, suatu frasa akan dideteksi sebagai indikator opini jika terdapat urutan tag RB VBT dan RB JJ.
+Oleh karena itu, hasil tagging yang menggunakan dataset UI untuk kalimat yang bersangkutan tidak dideteksi sebagai kalimat opini.
+Pengaruh dataset yang digunakan juga ditunjukkan dari hasil pengujian subproses target detection.
+Perhitungan nilai recall dan precission dari Tabel VII, dan VIII menjadi indikasi pengaruh penggunaan dataset.
+Nilai precission dan recall untuk Tabel VII masing-masing adalah 0.99 dan 0.97.
+Sedangkan nilai precission dan recall untuk Tabel VIII masing-masing adalah 0.92 dan 0.93.
+Sebagai contoh, dengan menggunakan dataset hasil modifikasi didapatkan menurut/VBT saya/PRP wifi/NN di/IN polinema/NN itu/DT agak/JJ lambat/JJ, sedangkan menggunakan dataset UI didapatkan menurut/nn saya/prp wifi/NN di/in polinema/nn itu/dt agak/rb lambat/nn.
+Dari hasil yang didapatkan dengan menggunakan dataset UI, kata benda (NN) yang didapatkan pertama adalah menurut, dan setelah itu dideteksi munculnya tag PRP.
+Karena dalam rule target, jika terdapat urutan tag NN PRP, maka jika setelah tag PRP masih terdapat tag NN, maka tag tersebut tidak akan diambil.
+Jadi yang diambil sebagai target adalah tag NN sebelum PRP yaitu kata menurut.
+Dan kata menurut ini tidak termasuk ke dalam kata kunci untuk kategori Sarana dan Prasarana.
+Dari hasil pengujian opinion orientation pada Tabel IX didapatkan nilai precission dan recall yang tinggi.
+Ini menunjukkan bahwa NBC sebagai metode pengklasifikasi dapat berfungsi dengan baik untuk menyelesaikan masalah opinion orientation pada opinion mining terutama pada kasus dataset yang digunakan dalam proses training dan testing NBC pada penilitian ini.
+VI. PENUTUP 
+A. Kesimpulan 
+Dari proses pengujian dan analisis yang telah dilakukan, kesimpulan yang dapat diambil antara lain: 1. Implementasi HMM pada proses POS Tagging yang digunakan dalam subproses document subjectivity dan target detection dapat berfungsi dengan baik.
+Nilai precission dan recall untuk proses document subjectivity adalah 0.99 dan 0.88.
+Sedangkan nilai precission dan recall untuk proses target detection adalah 0.92 dan 0.93.
+2. Nilai precission dan recall tertinggi didapatkan pada saat tagged dataset yang digunakan dalam proses learning HMM adalah dataset hasil modifikasi yang dilakukan sendiri oleh peneliti.
+Sehingga penggunaan tagged dataset yang baik dan representatif berperan penting pada akurasi hasil POS Tagging.
+3. NBC dapat berfungsi dengan baik pada subproses opinion orientation.
+Akurasi NBC dalam mengklasifikasikan opini ke dalam opini negatif dan positif sangat baik.
+Hal ini bisa dilihat dari nilai precission dan recall yang didapatkan yaitu 0.95 dan 0.94.
+4. Rule yang diterapkan pada subproses document subjectivity dan target detection memiliki peran yang sangat penting.
+Pada dua subproses tersebut, rule digunakan untuk mengolah data hasil POS Tagging.
+Pada subproses document subjectivity misalnya, jika rule yang digunakan tidak representatif, maka akan berpengaruh pada akurasi opini yang terdeteksi.
+B. Saran 
+Dari hasil pengujian, analisis dan kesimpulan yang telah dirumuskan, terdapat beberapa hal yang disarankan untuk penelitian selanjutnya.
+Saran tersebut diantaranya: 1. Pada subproses opinion orientation bisa digunakan metode selain NBC seperti Support Vector Machine (SVM) sebagai metode pengklasifikasi.
+SVM dianggap sebagai metode pengklasifikasi yang memiliki akurasi lebih baik daripada NBC, meskipun lebih kompleks dari segi implementasi.
+2. Perlu dilakukan pengamatan lebih lanjut terhadap struktur kalimat yang memilikinuansa sentimen atau opini.
+Hasil pengamatan tersebut digunakan sebagai referensi untuk merumuskan rule yang akan digunakan pada subproses document subjectivity.
+3. Perlu ditambahkan dataset baik dataset yang digunakan pada proses learning HMM (tagged dataset) maupun dataset yang digunakan pada proses learning NBC (dataset yang berisi kalimat opini yang telah diklasifikasikan).

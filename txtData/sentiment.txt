@@ -1,0 +1,134 @@
+Abstrak
+Setiap pelanggan pasti menginginkan sebuah pendukung keputusan dalam menentukan pilihan ketika akan mengunjungi sebuah tempat makan atau kuliner yang sesuai dengan keinginan salah satu contohnya yaitu di Kota Tegal.
+Sentiment analysis digunakan untuk memberikan sebuah solusi terkait dengan permasalahan tersebut, dengan menereapkan model algoritma Support Vector Machine (SVM).
+Tujuan dari penelitian ini adalah mengoptimalisasi model yang dihasilkan dengan diterapkannya feature selection menggunakan algoritma Information Gain (IG) dan Chi Square pada hasil model terbaik yang dihasilkan oleh SVM pada klasifikasi tingkat kepuasan pelanggan terhadap warung dan restoran kuliner di Kota Tegal sehingga terjadi peningkatan akurasi dari model yang dihasilkan.
+Hasil penelitian menunjukan bahwa tingkat akurasi terbaik dihasilkan oleh model SVM-IG dengan tingkat akurasi terbaik sebesar 72,45% mengalami peningkatan sekitar 3,08% yang awalnya hanya 69.36%.
+Selisih rata-rata yang dihasilkan setelah dilakukannya optimasi SVM dengan feature selection adalah 2,51% kenaikan tingkat akurasinya.
+Berdasarkan hasil penelitian bahwa feature selection dengan menggunakan Information Gain (IG) (SVM-IG) memiliki tingkat akurasi lebih baik apabila dibandingkan SVM dan Chi Squared (SVM-CS) sehingga dengan demikian model yang diusulkan dapat meningkatkan tingkat akurasi yang dihasilkan oleh SVM menjadi lebih baik.
+Kata kunci: Sentiment Analysis, Support Vector Machine (SVM), feature selection, Information Gain (IG), Chi Square 
+1. PENDAHULUAN
+Salah satu ciri khas yang dimiliki oleh Indonesia adalah keberagaman akan makananan kuliner yang dimilikinya, dimana hampir setiap daerah memiliki ciri khas makanan kuliner yang berbeda-beda dan hal ini tentunya menjadikan banyak para penikmat makanan kuliner yang berasal dari negara-negara lain maupun Indonesia sendiri untuk mencari referensi terkait dengan tempat terbaik yang direkomendasikan oleh orang-orang atau pelanggan yang pernah singgah ditempat tersebut yang menjajakan makanan kuliner ciri khas pada setiap daerah di Indonesia.
+Tempat-tempat yang direkomendasikan adalah berbagai macam restoran serta warung-warung kuliner yang menjual makanan ciri khas daerah tersebut, salah satunya adalah daerah Kota Tegal.
+Kota ini merupakan sebuah daerah yang berada dikawasan wilayah pantura provinsi Jawa Tengah yang memiliki banyak sekali makanan kuliner yang menjadi ciri khas kota ini.
+Perkembangan teknologi saat ini memungkinkan orang untuk dapat dengan mudah mendapatkan sebuah informasi, baik itu dari media sosial, website maupun yang lainnya.
+Salah satu informasi yang bisa didapatkan terkait dengan rekomendasi warung dan restoran kuliner terbaik di Indonesia disetiap daerah termasuk di Kota Tegal adalah dengan membaca komentar-komentar yang ditulis oleh orang-orang yang terindikasi pernah singgah ditempat tersebut pada halaman website maupun media sosial.
+Melalui komentar-komentar dan pendapat orang-orang yang pernah merasakan makanan kuliner ditempat yang pernah disinggahi maka dapat dijadikan sebagai pendukung keputusan para pelanggan yang dalam hal ini penikmat kuliner untuk datang ketempat tersebut serta dijadikan pula sebagai pendukung keputusan para pemilik warung dan restoran kuliner untuk dijadikan sebagai acuan tingkat keberhasilan bentuk pelayanan terhadap pelanggannya (Reyes and Rosso, 2012).
+Permasalahan yang terjadi adalah terkadang para pelanggan tidak mungkin untuk dapat membaca komentar-komentar yang terlalu banyakuntuk mendapatkan sebuah keputusan rekomendasi pilihan tempat mana yang terbaik, selain itu permasalahanpun terjadi dari pihak pemilik warung dan restoran kuliner yang ingin mandapatkan sebuah data terkait dengan komentar-komentar para penikmat kuliner terhadap tempatnya untuk dapat menentukan sebuah keputusan terkait dengan pelayanan yang diberikan sesuai dengan keinginan pelanggan atau masih perlu adanya sebuah peningkatan pelayanan baik itu dari segi rasa makanan, kenyamanan tempat, maupun pelayanan ditempat tersebut.
+Terkait dengan permasalahan yang ada, diperlukan sebuah metode yang dapat membantu untuk menganalisis terkait dengan komentar-komentar tersebut.
+Solusi yang dilakukan adalah diterapkannya model sentiment analysis (SA).
+Metode sentiment analysis (SA) adalah sebuah proses dalam memahami, meng-ekstrak, dan mengolah sebuah data yang berupa tekstual yang didapatkan dari kalimat opini-opini yang berkerja secara otomatis sehingga didapatkan informasi sentiment yang terkandung didalamnya.
+Sentiment analysis dilakukan sebagai upaya untuk melihat sebuah pendapat atau opini terhadap sebuah objek atau permasalahan oleh seseorang yang akhirnya nanti mempunyai nilai kecenderungan apakah menilai positif atau negatif.
+Sentiment analysis mengacu pada aplikasi dari Natural Language Processing (NLP), Computational Linguistic dan text analytics untuk mengidentifikasi dan mengekstrak informasi subjektif dari materil sumber (Liu, 2010).
+Sesuai dengan kelebihan yang dimiliki oleh SA, berbagai macam penelitian dan review telah dilakukan mengenai penggunaan SA ini untuk mendapatkan sebuah pendukung keputusan diantaranya mengarah pada hal subjectivity classification, klasifikasi sentiment, deteksi opini spam, dan review mengukur kegunaan, aspect extraction serta lexicon creation (Ravi and Ravi, 2015).
+Dalam penerapan Sentiment Analysis terdapat beberapa metode machine learning yang sering digunakan, diantaranya adalah Decision Tree classifier, Neural Network (NN), dan Nave bayes (NB) serta Bayesian Network, selain itu Support Vector Machines (SVM) dan Maximum Entropy (Medhat, Hassan and Korashy, 2014).
+Diantara beberapa teknik metode yang digunakan, SVM adalah salah satu metode terbaikyang sering digunakan karena tingkat akurasinya menghasilkan lebih baik (Tripathy, Agrawal and Rath, 2015).
+Metode SVM memiliki beberapa kelebihan salah satunya adalah dapat diterapkan pada data yang berdimensi tinggi, disisi lain selain kelebihannya kekurangan yang dimiliki SVM adalah masih sulit digunakan untuk data yang jumlah besar.
+Permasalahan yang terjadi pada sebuah klasifikasi sentiment analysis berbasiskan text adalah begitu banyaknya atribut yang digunakan pada dataset yang digunakan.
+Umumnya atribute dari sentiment teks sangatlah besar sehingga apabila seluruh atribut yang ada digunakan maka hal tersebut akan mengurangi kinerja dari classifier sehingga akan menjadikan tingkat akurasi yang dihasilkan menjadi rendah (Wang dkk., 2013).
+Untuk mengatasi permasalahan tersebut maka perlu sebuah cara yang dapat mengoptimalkan kinerja sistem classifier yang dibuat yaitu dengan feature selection seperti salah satunya dilakukan oleh (Somantri and Khambali, 2017) pada text mining, serta klasifikasi dokumen teks seperti yang dilakukan oleh (Aminudin, SN and Ahmad, 2018; Wijoyo dkk., 2017).
+Feature selection bekerja berdasarkan proses pengurangan ruang-ruang fitur yang tidak relevan dengan cara mengeliminir setiap atribute yang tidak relevan tersebut (Koncz and Paralic, 2011).
+Information Gain (IG) dan Chi- Square merupakan salah satu metode algoritma digunakan untuk feature selection.
+Kedua algoritma tersebut merupakan algoritma feature selection yang mempunyai kemampuan meningkatkan hasil lebih baik apabila dibandingkan dengan metode lainnya(Tan and Zhang, 2008).
+Terdapat beberapa penelitian sebelumnya terkait dengan analisis opini yang dilakukan oleh para peneliti.
+Salah satunya adalah (Kang, Yoo and Han, 2012) melakukan penelitian terkait dengan sentiment analysis yang digunakan untuk review restoran dengan menggunakan Senti-lexicon dan algoritma Nave bayes (NB) yang telah di-improved.
+Pada penelitian ini diusulkan sebuah improved algoritma Nave Bayes sebagai metode yang digunakan kemudian hasilnya dikomparasi dengan SVM, dari hasil penelitian menyimpulkan bahwa NB-Improved menghasilkan tingkat presisi yang lebih baik.
+Penelitian dilakukan oleh (Zhang dkk., 2011) dengan melakukan proses review terhadap restoran yang bertuliskan nama Canton atau mandarin di internet, pada penelitian ini komparasi nilai hasil yang dihasilkan oleh Support Vector Machine (SMV) dan Naive Bayes (NB) untuk melakukan sentiment classification.
+Hasil penelitian menunjukan bahwa NB lebih baik dibandingkan dengan SVM.
+Penelitian selanjutnya dilakukan oleh (Di Caro and Grella, 2013), dalam penelitian ini sentiment analysis dilakukan dengan melalui dependency parsing.
+Hasil eksperimen yang telah dilakukan kemudian hasilnya dievaluasi menggunakan sebuah dataset review restoran.
+Selanjutnya penelitian dilakukan oleh (Robaldo and Di Caro, 2013), melakukan penelitian terkait dengan opinion mining.
+Pada penelitian ini mengusulkan OpnionMining ML, yaitu sebuah formulasi berbasis XML baru untuk menandai ekspresi tekstual yang menyampaikan pendapat tentang objek yang dianggap relevan.
+Penelitian dilakukan dengan menggunakan data yang berasal dari website restoran makanan spageti yang terdapat review didalamnya.
+Pada penelitian yang akan dilakukan ini sedikit berbeda dengan apa yang sudah dilakukan oleh beberapa peneliti sebelumnya, pada penelitian ini proses analisis sentiment dilakukan untuk menganalisis tingkat kepuasan pelanggan terhadap pelayanan warung dan restoran kuliner di Kota Tegal dengan cara mengklasifikasikannya antara yang beropini positif dan negatif dengan menerapkan Support Vector Machines (SVM) sebagai model yang digunakan.
+Pada penelitian ini istilah positif dan negatif diganti menjadi dua kategori klasifikasi yaitu rata-rata dan bagus.
+Berdasarkan kelemahan yang terdapat pada algoritma tersebut, maka untuk dapat meningkatkan tingkat akurasi yang dihasilkan dilakukan optimasi dengan menggunakan feature selection.
+Algoritma yang diusulkan adalah dengan menggunakan Information Gain (IG) dan chi-square, sehingga diharapkan adanya peningkatan tingkat akurasi.
+Tujuan dari penelitian ini adalah diperolehnya sebuah model terbaik untuk sentiment analysis dari diterapkannya metode optimasi feature selection yang diterapkan pada Support Vector Machine (SVM) digunakan untuk mengklasifikasi sentiment tingkat kepuasan para pelanggan terhadap warung dan restoran kuliner Kota Tegal sehingga terjadinya peningkatan akurasi dari model yang dihasilkan.
+2. SUPPORT VEKTOR MACHINE & FEATURE SELECTION 
+2.1. Support Vector Machine (SVM) Sebagai salah satu algoritma klasifikasi yang sering digunakan, Support Vector Machine (SVM) bekerja dengan cara mencari sebuah hyperline atau garis pembatas pemisah antar kelas yang mempunyai margin atau jarak antar hyperlane dengan data paling terdekat pada setiap kelas yang paling besar.
+Algoritma SVM sebenarnya dasarnya digunakan untuk proses klasifikasi antara dua kelas atau binary classification, sesuai dengan perkembangannya SVM digunakan untuk klasifikasi multi-class yaitu dengan cara kombinasi antara beberapa binary classifier (Jiu-Zhen Liang, 2004).
+Sejak pertama kali dikembangkan oleh Boser, Guyon & Vapnik pada tahum 1992, SVM saat ini banyak yang menggunakannya.
+Konsep SVM pada dasarnya adalah upaya pencarian nilai hyperline yang terbaik pemisah antara dua buah class dalam input space, gambaran proses pemisahan tersebut seperti digambarkan pada Gambar 1.
+Pada Gambar 1 memperlihatkan terdapat pattern-pattern sebagai bagian dari anggota patern lain yang terdiri dari dua buah class yang mempunyai nilai +1 dan -1.
+Dalam menentukan suatu nilai pembobotan kelas positif dan negatif atau sebaliknya, dalam SVM ditentukan berdasarkan jika nilai bobot lebih dari 0 maka diklasifikasikan kedalam positif dan sebaliknya jika nilai bobot kurang dari 0 maka diklasifikasikan kedalam kelas negatif.
+2.2. Feature Selection 
+Feature selection merupakan sebuah cara untuk dapat menjadikan sebuah pengklasifikasi lebih efektif dan efisien serta lebih baik dengan cara mengurangi jumlah data-data yang dianalisis, atau dengan mengidentifikasi fitur-fitur yang sesuai sebagai bahan pertimbangan pada proses pembelajaran (Moraes, Valiati and Gavio Neto, 2013).
+Pada feature selection ini terdapat dua jenis tipe utama dala melakukan proses seleksi fitur pada machine learning, diantaranya adalah metode wrapper dengan menggunakan beberapa algoritma sebagai pengukuran akurasi klasifikasi, dan metode filter (Chen dkk., 2009).
+a. Information Gain (IG) 
+IG merupakan salah satu algoritma terbaik yang digunakan sebagai feature selection.
+Untuk menghitung Information Gain dihitung dengan menggunakan persamaan: ()= =12()(1)dimana: c:jumlah nilai yang ada pada atribut target (jumlah kelas klasifikasi) pi:jumlah sample untuk kelas i()= ()=1 () (2)Untuk mengukur efektifitas suatu atribut dalam pengklasifikasin data dapat dihitung dengan persamaan:Gain(A) = | Info(D)InfoA(D) | (3) b.
+chi-square Chi-square adalah satu metode yang masuk kedalam tipe dari seleksi fitur supervised, dimana mampu menghilangkan fitur-fitur dengan tanpa mengurangi dari tingkat akurasi yang dihasilkan.
+Untuk mengukur sebuah nilai dependence dari dua variable digunakan persamaan (4) dimana: A: jumlah kali fitur t dan ketegori c terjadi, B: jumlah kali t terjadi tanpa c, C: jumlah kali c terjadi tanpa t, C: jumlah berapa kali c terjadi tanpa c, D: jumlah kali tidak c atau c terjadi, N: jumlah kasus.
+3. METODE PENELITIAN
+3.1. Dataset 
+Dataset pada penelitian ini menggunakan data yang diambil dari situs www.tripadvisor.co.id berupa data teks yang berisi komentar-komentar pengunjung web terhadap warung dan restoran kuliner di kota Tegal antara tahun 2017 s.d 2018 (TripAdvisor LLC, 2017).
+Data penelitian adalah data teks berbahasa Indonesia yang berisi hasil review para pelanggan warung kuliner yang sudah pernah mengunjungi tempat tersebut.
+Pada penelitian ini studi literatur bersumber dari jurnal-jurnal penelitian, buku, serta internet terkait dengan topik penelitian yang dilakukan untuk mendukung keberhasilan dari penelitian yang dilakukan.
+Data yang telah didapatkan kemudian diklasifikasikan secara manual menjadi 2 kategori sesuai dengan rating yang diberikan oleh pelanggan, yaitu kategori Bagus dan kategori Rata-rata.
+3.2.Preprocessing Data
+Tahapan ini adalah tahapan yang dilakukan sebelum dataset dimasukan kedalm model yang akan dihasilkan sehingga data yang masuk merupakan data yang sesuai dengan model yang akan dihasilkan.
+Sebelum dilakukannya proses preprocessing terhadap data text yang telah didapatkan, terlebih dahulu dilakukan kalsifikasi data text berdasarkan kategori.
+Dari seluruh dataset yang digunakan, untuk menentukan kategori klasifikasi data, maka ketentuan yang digunakan adalah seperti Tabel 1.
+Pada Tabel 1, penentuan jumlah rating yang sesuai dengan teks diklasifikasikan menjadi dua kategori, yaitu rata-rata dan bagus.
+Tahapan selanjutnya adalah proses pengolahan text menjadi input kedalam model yang akan digunakan.
+Adapun tahapan dalam proses ini diantaranya sebagai berikut: 1) Transform Cases: yaitu tahapan seluruh text yang akan dimasukan kedalam model dirubah menjadi huruf kecil semua.
+2) Tokenize: yaitu sebuah proses pemisahan teks menjadi beberapa bagian atau yang disebut juga token dengan batasan spasi dan tanda baca.
+3) Filter Tokens (by Length): yaitu pembatasan jumlah minimal dan maksimal karakter.
+Nilai parameter filter tokens untuk penelitian ini di setting adalah min chars = 4, dan mac chars = 20.4) Stopword: yaitu proses menghilangkan teks yang bersesuaian dengan teks pada daftar yang terdapat pada stopword yang sudah ditentukan, untuk tahapan ini menggunakan stopword text yang isisnya adalah teks berbahasa indonesia.
+5) Weighting: yaitu proses pembobotan setiap term, pada tahapan ini menggunakan model Term Frequency-Inverse Document Frequency atau TF- IDF.
+TD-IDF ini adalah sebuah pemberian bobot dengan menggunakan pola term frequency atau jumlah term dalam setiap dokumen, dan inverse document frequency atau invers dari jumlah dokumen yang memuat suatu term(Chen dkk., 2016).
+3.3. Penentuan Data Training dan Testing 
+Pada tahapan ini adalah dilakukannya pembagian dataset yang akan digunakan, jumlah dataset yang didapatkan kemudian data dokumen terbagi menjadi data training dan data testing.
+Dataset dokumen dari jumlah keseluruhan di split menjadi 90% ini digunakan sebagai data training, dan sisanya yaitu 10% digunakan untuk data testing karena menggunakan cross validation (Van der Gaag dkk., 2006).
+Data dokumen yang digunakan adalah sejumlah 80 dokumen teks yang berisi komentar-komentar dengan ditentukan 39 data masuk dalam kategori Bagus, dan 40 data lagi masuk dalam kategori Rata-rata.
+3.4. Metode Yang Diusulkan 
+Pada tahapan ini adalah dilakukannya proses ekperimen untuk mencari model terbaik yang diinginkan sesuai dengan dataset yang telah diperoleh sebelumnya.
+Pada penelitian ini diusulkan sebuah metode untuk menghasilkan model terbaik untuk mengukur tingkat kepuasan pelanggan terhadap pelayanan warung dan restoran kuliner di Kota Tegal.
+Metode pada penelitian ini mengusulkan sebuh metode dengan menggunakan algoritma Suppor Vector Machine (SVM) berbasis feature selection, diharapkan model yang nantinya dihasilkan adalah model terbaik serta memiliki tingkat akurasi yang lebih baik, digambarkan pada Gambar 2.
+Proses pelaksanaan evaluasi model diperlihatkan pada Gambar 2, model yang telah diperoleh akan di evaluasi dengan cara di komparasi dengan model yang lain yaitu SVM klasik dan SVM dengan feature eslection yaitu SVM-IG dan SVM-CS.
+Setelah dilakukan komparasi diharapkan mendapatkan model terbaik dengan tingkat akurasi yang tertinggi.
+Pada tahapan analisis data, data yang telah diperoleh dilakukan analisis dengan memasukannya kedalam model yang dihasilkan untuk memperoleh model yang terbaik.
+Pada tahapan ini, ekperimen dilakukan terus-menerus untuk mendapatkan hasil yang terbaik dengan menggunakan tools RapidMiner Studio sebagai pendukung untuk mendapatkan hasil penelitian yang diharapkan.
+3.5. Validasi dan Evaluasi Sistem 
+Pada tahapan ini dilakukan untuk mengetahui model yang diusulkan sesuai dengan yang diharapkan maka dilakukan proses validasi, validasi model pada penelitian ini menggunakan Cross K-Fold Validation untuk mengetahui nilai akurasi yang dihasilkan.
+Setelah didapatkan nilai akurasi yang diharapkan maka dilakukan evaluasi yaitu dengan cara membantingkan tingkat akurasi yang dihasilkan oleh VALIDASICross K-Fold ValidationMODELSupport Vector Machine (SVM) Feature Selection Information Gain (IG)Chi-Square (CS) Praprocessing Data Transform Cases Tokenize Stopword TF-IDF EVALUASISVM SVM + CS SVM + IG RESULT Model Terbaik dengan Tingkat Akurasi Tertinggi (%)Dataset www.tripadvisor.co.id model lain yaitu SVM tanpa Feature selection, dengan model SVM + feature selection.
+4. HASIL DAN PEMBAHASAN 
+Setelah dilakukan ekperimen untuk mencari model terbaik dengan tingkat akurasi yang lebih baik terhadap sentiment analisis kepuasan pelanggan terhadap warung dan restoran kuliner di Kota Tegal, maka didapatkan beberapa hasil penelitian pada ekperimen tersebut.
+Pada penelitian ini menggunakantools Rapidminer studio sebagai software untuk analisis data, dengan Sistem Operasimenggunakan SO Windows7 32Bit, dengan processor Core i5, dan memori 4Gb sebagai pendukung dalam melakukan eksperimen.
+4.1. Eksperimen Support Vector Machine (SVM)
+Dengan menggunakan dataset yang telah diperoleh, ekperimen dilakukan untuk mencari model terbaik dengn menggunakan Support Vector Machine (SVM).
+Menentukan nilai parameter SVM pada penelitian ini dilakukan secara manual berbeda dengan adanya optimasi nilai parameter (Friedrichs and Igel, 2005).
+Sebelum dilakukannya ekserimen, parameter SVM di-setting sebagai berikut:Tipe kernel= dot, radial, polynomial;Kernel cache = 200;C = 0;Convengence epsilon = 0.001;Nilai max iterations = 100000; Hasil eksperimen didapatkan dan diperlihatkan pada Tabel 3.
+Pada Tabel 2 diperlihatkan hasil eksperimen yang dilakukan dengan menerapkan SVM sebagai algoritma yang digunakan, menghasilkan model dengan tingkat akurasi tertinggi adalah SVM dengan menggunakan kernel = dot dan k-Fold = 10 yaitu sebesar 69.36%.
+Selain itu didapatkan pula tingkat akurasi teringgi dengan menggunakan parameter k-fold=10 dan kernel radial sebesar 68,59%, dan tertinggi dengan k-fold=10 menggunakan kernel polynomial sebesar 68,59%.
+Hasil yang didapatkan seperti diperlihatkan pada Gambar 3.
+Hasil tertinggi yang tampak pada Gambar 3 menunjukan pada k-Fold =10 pada penerapan SVM ini merupakan parameter dengan menghasilkan tingkat akurasi tertinggi yaitu SVM dengan menggunakan kernel = dot dan k-Fold = 10 dengan tingkat akurasi sebesar 69.36%.
+4.2. Eksperimen SVM & Information Gain (IG) 
+Setelah didapatkannya model terbaik yang didapatkan dengan menggunakan SVM, selanjutnya adalah melakukan eksperimen dengan menerapkan feature selection untuk mengoptimalisasi tingkat akurasi klasifikasi yang telah diperoleh oleh SVM.
+Pada tahapan eksperimen ini dilakukan dengan menggunakan Information Gain (IG).
+Pemilihan atribut k dipilih dengan bobot tertinggi (top k), nilai parameter k yang ditentukan = 10, dan hasil yang didapatkan pada eksperimen ini diperlihatkan pada Tabel 4 dan Tabel 5, serta Tabel 6 dan Tabel 7, selain itu diperlihatkan pula pada Tabel 8.
+Hasil eksperimen memperlihatkan nilai yang berbeda dari setiap tahapan yang dilakukan, pada Tabel 8 terlihat bahwa tingkat akurasi yang paling tertinggi adalah model SVM-IG dengan tingkat akurasi sebesar 72.45%.
+Penggambaran grafik atas nilai tertinggi dari model SVM-IG seperti diperlihatkan pada Gambar 4.
+Berdasarkan hasil yang didapatkan, untuk nilai akurasi tertinggi seperti tampak pada Tabel 9.
+Pada Tabel 9 memperlihatkan bahwa tingkat akurasi yang tertinggi untuk model SVM-IG adalah dengan menggunakan k-Fold = 2, dan kernel = dot yaitu sebesar 72,45%.
+4.3. Eksperimen SVM + Chi Squared Statistic 
+Untuk optimalisasi tingkat akurasi dengan menggunakan feature selection selanjutnya, eksperimen berikutnya dilakukan percobaan dengan menerapkan Chi Squared (CS) pada model SVM.
+Pemilihan atribut k dipilih dengan bobot tertinggi (top k), nilai parameter k yang ditentukan = 10.
+Hasil penelitian tersebut diperlihatkan seperti pada Tabel 10 dan Tabel 11, serta Tabel 12 dan Tabel 13, selain itu pada Tabel 14.
+Pada Gambar 6 memperlihatkan grafik penggambaran tingkat akurasi tertinggi yang dihasilkan dari model SVM-CS.
+Hasil eksperimen mendapatkan nilai tertinggi akurasi adalah sebesar 70,09% dengan type kernel dot dan menggunakan Shuffled sampling.
+Berdasarkan hasil yang telah didapatkan, maka hasil nilai akurasi tertinggi model SVM-CS adalah seperti ditampilkan pada Tabel 15.
+Pada Tabel 15 dan Gambar 7 menunjukan bahwa tingkat akurasi model SVM dan Chi Squared (SVM-CS) tertinggi adalah sebesar 70,09% dengan k-Fold = 6 dan type kernel dot.
+Dari hasil yang didapatkan terlihat bahwa tingkat akurasi yang didapatkan dengan menggunakan type kernel yang berbeda memiliki tingkat akurasi yang berbeda pula.
+3.2. Evaluasi 
+Berdasarkan hasil eksperimen yang telah diperoleh, maka dihasilkan model dengan tingkat akurasi tertinggi pada setiap tahapan.
+Berdasarkan hasil penelitian seluruhnya, tampak pada Tabel 16 hasil nilai tingkat akurasi yang dihasilkan, tampak bahwa nilai akurasi tertinggi untuk SVM adalah sebesar 69,36% dengan k-Fold = 10, untuk model SVM + Information Gain adalah sebesar 72,45% dengan k=Fold = 2, sedangkan tingkat akurasi dengan model SVM + Chi Squared adalah sebesar 70,09%.
+Dari hasil yang didapatkan, pada Tabel 17 diperlihatkan evaluasi perbedaan dari tingkat akurasi yang didapatkan dari perbandingan model SVM klasik dan SVM-IG.
+Untuk perbandingan tingkat akurasi SVM dan SVM-CS ditunjukan pada Tabel 18 dan Gambar 9.
+Pada Tabel 16 dan Gambar 10 diperlihatkan bahwa tingkat akurasi yang sebelumnya didapatkan oleh SVM kemudian dioptimasi dengan menggunakan feature selection SVM-IG dengan rata-rata selisih kenaikan tingkat akurasi sebesar 2.514%.
+Hal yang sama pada Tabel 18 memperlihatkan adanya keanikan tingkat akurasi setelah dilakukan optimasidengan menggunakan model SVM-SC yaitu dengan kenaikan rata-rata sebesar 0.586%.
+Berdasarkan hasil yang telah didapatkan terlihat bahwa optimasi yang dilakukan dengan menggunakan feature selection pada SVM mengalami sebuah peningkatan akurasi dan tingkat akurasi yang terbaik adalah dengan menggunakan model SVM-IG.
+5.KESIMPULAN
+Penerapan feature selection dalam pengoptimalisasi tingkat akurasi dalam sentiment analysis klasifikasi rekomendasi pelayanan restoran dan warung kuliner di Kota Tegaltelah dapat dilakukan dan telah dapat memberikan sebuah peningkatan akurasi terhadap model SVM yang dihasilkan.
+Information Gain merupakan model yang lebih baik dibandingkan Chi Squared Statistic dalam meningkatkan tingkat akurasi SVM, yaitu dengan menghasilkan rata-rata kenaikan tingkat akurasi sebesar 2,514% dengan tingkat akurasi terbaik sebesar 72,45%.
+Pada penelitian selanjutnya perlu mempertimbangan penelitian lanjutan untuk menemukan model terbaik lagi sehingga tingkat akurasi yang dihasilkan menjadi lebih baik lagi.

@@ -1,0 +1,144 @@
+Abstrak
+Ilmuwan biologi terutama di bidang biodifersitas, terus melakukan penelitian tentang spesies hewan yang ada di dunia.
+salah satu hewan yang spesiesnya memiliki banyak variasi adalah burung.
+Tiap jenis burung memiliki perbedaan-perbedaan, mulai dari bentuk anggota tubuhnya, prilakunya, makanannya hingga suaranya.
+Ilmuwan sering juga mengalami kesulitan untuk melakukan pengamatan di alam.
+Misalnya, untuk mengetahui spesies burung apa saja yang ada di suatu daerah, mereka harus hadir di suatu wilayah, dan menelusuri setiap pelosok.
+Kadang kala kehadiran mereka di tempat tersebut dalam jangka waktu lama, malah mengusik burung yang ada, dan burung-burung malah pergi meninggalkan tempat, sebelum berhasil diamati.
+Salah satu cara untuk mendeteksi burung apa saja yang ada di suatu wilayah, tanpa harus mengusik keberadaan burung adalah dengan menggunakan alat bantu.
+Bisa dengan menggunakan kamera video untuk mengambil gambar lingkungan sekitar, atau dengan perekam suara, untuk merekam suara burung yang ada di sana.
+Untuk itu penelitian ini ditujukan untuk membuat sebuah pengklasifikasi suara burung secara otomatis.
+Fitur yang digunakan adalah rhythm, pitch, mean, varian, min, max, dan delta dari suara burungnya.
+Metode klasifikasi yang digunakan adalah Ekstreme learning Machine (ELM).
+Dari hasil klasifikasi 4 jenis burung, didapatkan hasil rata-rata akurasi terbaik sebesar 88.82%.
+Kata Kunci: suara burung, klasifikasi, rhythm, pitch
+1. Pendahuluan 
+Ilmuwan biologi terutama di bidang biodifersitas, terus melakukan penelitian tentang spesies hewan yang ada di dunia.
+salah satu hewan yang spesiesnya memiliki banyak variasi adalah burung.
+Tiap jenis burung memiliki perbedaan-perbedaan, mulai dari bentuk anggota tubuhnya, prilakunya, makanannya hingga suaranya.
+Ilmuwan sering juga mengalami kesulitan untuk melakukan pengamatan di alam.
+Misalnya, untuk mengetahui spesies burung apa saja yang ada di suatu daerah, mereka harus hadir di suatu wilayah, dan menelusuri setiap pelosok.
+kadang kala kehadiran mereka di tempat tersebut dalam jangka waktu lama, malah mengusik burung yang ada, dan burung-burung malah pergi meninggalkan tempat, sebelum berhasil diamati.
+Salah satu cara untuk mendeteksi burung apa saja yang ada di suatu wilayah, tanpa harus mengusik keberadaan burung adalah dengan menggunakan alat bantu.
+Bisa dengan menggunakan kamera video untuk mengambil gambar lingkungan sekitar, atau dengan perekam suara, untuk merekam suara burung yang ada di sana.
+Permasalahan selanjutnya adalah, jika kita menggunakan perekam suara, maka sistem yang kita pasang juga harus bisa mengenali bahwa suatu suara kicauan burung adalah milik burung spesies tertentu.
+Untuk itu perlu dibuat sebuah sistem dengan menggunakan algoritma tertentu, untuk mengenali suara kicauan burung dengan baik.
+Penelitian sebelumnya sudah pernah dilakukan, misalnya: Somervuo (2004) menggunakan analisishistogram pada syllable (suku kata) dari kicauan burung.
+Pada tahun 2011, Wei Chu menganalisa syllable kicauan burung dengan menggunakan Hidden Markov Model.
+Dan di tahun 2013, Sha-sha Chen menganalisa tekstur dari frekuensi berbasis waktu dari syllable kicauan burung.
+Dari beberapa penelitian yang sudah dilakukan, sebagian besar menggunakan syllable untuk dianalisis.
+Penelitian ini akan menggunakan analisis frekuensi dari setiap syllable kicauan burung, menganalisa jarak antara gelombang pada syllable, serta keberadaan perubahan pitch dari jenis burung tertentu.
+Pengamatan dan analisis ini ditekankan pada penggunaan fitur-fitur, yaitu rhythm, pitch, mean,varian,max, min, dan delta.
+Penelitian ini diharapkan menjadi langkah awal dalam membuat tool otomatis untuk dapat mendeteksi jenis burung.
+Dari latar belakang tersebut, dapat dirumuskan rumusan masalah sebagai berikut: 1.
+Fitur apa saja yang digunkan untuk dapat membedakan jenis burung melalui pengenalan suaranya.
+2. Seberapa baik akurasi yang dihasilkan dengan menggunakan kombinasi fitur dan metode tersebut.
+2. Kajian Pustaka 
+Studi dan penelitian mengenai pengenalan suara burung sudah banyak dilakukan.
+Metode yang digunakan juga bervariasi.
+Sebagian besar meneliti suara burung berdasarkan Syllable.
+Untuk memecah suara burung menjadi syllable dilakukan segemntasi.
+Cara yang pertama untuk memisahkan syllable ini dengan menggunakan change piont detectionyang melihat perubahan bentuk gelombang dari suara burung (Wang et al., 2013).
+Cara lainnya dengan menggunakan time-frequency segmentation pada lingkungan suara dengan banyak noise.
+metode ini menrubah gelombang suara burung ke dalam bentuk spektogram dengan Short-time FFT dan kemudian melakukan segmentasi untuk memisahkan noise dan suara burung (Neal et al., 2011).
+Dari Syllable yang didapatkan, kemudian dilakukan analisis dengan berbagai metode.
+Salah satunya adalah dengan menggunakan metode pengenalan kata dari suara manusia, yaitu dengan menggunakan Hidden Markov Model (Chu & Blumstein, 2011).
+dari penelitian tersebut diperoleh nilai Presition terbesar yaitu 75,2% dan Recal terbesar yaitu 76%.
+Metode lain yang digunakan yaitu dengan menganalisis tekstur dari spektogram tiap syllable.
+Akurasi yang diperoleh sebesar 96,5% dari 10 spesies burung yang dipelajari (Chen & Li, 2013).
+Di tahun 2004 syllable yang didapatkan dianalisis dengan menggunakan histogramnya, dan menghasilkan akurasi terbesar yaitu 80% (Somervuo & Harma, 2004).
+Penelitian kali ini akan metode untuk mengambil syllable akan menggunakan metode change point detection (Wang et al., 2013).
+Dan analisis syllable-nya menggunakan analisis tekstur.
+Untuk meningkatkan akurasi, akan diamati pula fitur lainnya, yaitu ritme suara burung.
+Hal ini dilakukan dengan mengamati tempo.
+Selain itu juga akan mengamati tinggi rendahnya nada (pitch), pengulangan syllable dan nadanya.
+3. Suara Burung 
+Jika didengarkan, variasi suara burung lebih sederhana jika dibandingkan dengan suara manusia.
+Namun demikian, suara burung juga dibagi menjadi beberapa bagian, yaitu frasa, suku kata (syllable) dan elemen (Catchpole & Slater, 1995).
+Frasa adalah kumpulan syllable yang biasanya muncul membentuk pola tertentu.
+Setiap burung memiliki bentuk kumpulan syllable dan frasa yang berbeda.
+Syllable adalah suara yang dikeluarkan oleh burung dalam satu kali tiupan udara dari paru-parunya(Somervuo et al., 2006).
+Syllableini yang biasa didengarkan sebagai satu siulan.
+Jika digambarkan dalam gelombang, syllabele bisa dilihat seperti pada gambar 1.
+4. Ritme 
+Ritme menggambarkan tempo ketukan dari suara burung.
+Ada yang bertempo cepat, dan ada yang bertempo lambat.
+Ritme dapat diartikan waktu yang dibutuhkan untuk membunyikan 1 sylablle.
+Ritme diukur dengan menghitung rasio waktu dengan jumlah sylable yang muncul pada saat itu.
+5. Pitch 
+Beberapa jenis burung memiliki pitch yang khas.
+ada yang memiliki pitch sangat tinggi sampai yang sangat rendah.
+Ada jenis burung yang pitch-nya rata/datar, dan bahkan ada jenis burung, yang pitch-nya berubah-ubah dalam satu kali siulan.
+Untuk mengambil nilai pitch, digunkaan metode Harmonic Product Spectrum(HPS).
+Prinsip kerja HPS adalah: 1. Masukan yang berupa sample suara, dibagi menjadi beberapa window.
+Pada penelitian ini, isi dari tiap window adalah syllable.
+2. Tiap window, ditranformasi dengan menggunakan Fast Fourier Transform (FFT) untuk mencari frequensi penyusun gelombang suara tiap window.
+3. Tiap window, hasil FFT tadi dilakukan downsampling 2 kali, dan 3 kali 4.
+Mengalikan magnitude dari setiap frekuensi yang bersesuaian antara hasil FFT awal, hasil downsapling 2 kali, dan hasil downsampling 3 kali.
+Ilustrasinya bisa dilihat pada gambar 2.
+Bagian kiri adalah masukan yang ditranformasi dengan menggunakan FFT, bagian tengah adalah proses downsampling dan perkalian magnitude dari frequensi yang bersesuaian, dan bagian kanan adalah hasilnya.
+Dari contoh didapatkan magnitude tertinggi sebesar 109200 yaitu terletak pada frequensi 40 Hz.
+dengan demikian pitchnya adalah 40 Hz.
+6. Extreme Learning Machine (ELM) 
+Metode ELM ini pertama kali diperkenalkan oleh Huang (2004).
+ELM merupakan jaringan syaraf tiruan (JST) feedforward dengan single hidden layer atau disebut dengan Single Hidden Layer Feedforward Neural Networks (SLFNs) (Sun et al., 2008).
+Metode pembelajaran ELM dibuat untuk mengatasi beberapa kelemahan dari jaringan syaraf tiruan feedforward, terutama dalam hal learning speed.
+Menurut Huang (2004), JST feedforward masih memiliki kelemahan dalam learning speed karena: 1. Menggunakan slow gradient based learning untuk melakukan training 2. Semua parameter pada jaringan ditentukan secara iteratif dengan menggunakan metode pembelajaran satu persatu untuk setiap data.
+Pada proses pembelajaran JST, semua parameternya harus ditentukan secara manual (Huang et al., 2005), yaitu input weight dan hidden bias yang menghubungkan antara layer yang satu dengan yang lain untuk setiap data training, sehingga membutuhkan learning speed yang lama.
+Sedangkan pada ELM parameter-parameter tersebut dipilih secara acak, sehingga ELM memiliki learning speed yang cepat dan mampu menghasilkan good generalization performance.
+Hal itu menjadikan ELM cepat dari algoritma feedforward BP.
+Struktur ELM dapat dilihat pada gambar 3.
+Berikut model matematis dari ELM pada data (xi,yi).
+Persamaan (1) dapat disederhanakan menjadi persamaan (2), yang kemudian menggunakan Moore-Penrose (MPinv(HT)) = (inv((HT*H))* HT) sebagai generalized inverse.
+7. Metode Penelitian
+Penelitian ini dilakukan dengan beberapa tahapan.
+Dimulai dari pengumpulan data, hingga proses ujicoba.
+Diagramnya dapat dilihat pada Gambar 4.
+8. Hasil dan Pembahasan 
+8.1. Hasil Preprosesing dan Smoothing
+Hasil dari preprosesing adalah dapat menemukan bagian-bagian dari gelombang yang merupakan syllable.
+Pada gambar 5, bentuk gelombang asli di bagian atas diproses dengan proses smoothing dengan menggunakan metode robust lowest yang menggunakan regresi linier.
+Hasil Preprosesing
+8.2. Hasil deteksi syllable
+Setelah itu, sinyal hasil smoothing gelombang dengan simpangan tertentu dijadikan syllable.
+Hasilnya dapat dilihat pada gambar 6.
+8.3. Hasil Ekstraksi Fitur 
+8.3.1. Fitur RitmeSetelah syllable terdeteksi, memungkinkan untuk menghitung jumlah syllable yang muncul dan ritmenya.
+Hasilnya bisa dilihat pada gambar 7.
+8.3.2. Fitur Pitch
+Untuk mendapatkan fitur pitch, gelombang suara ditranformasi dahuluke dalam domain frekuensi menggunakan transformasi FFT.
+Hasilnya bisa dilihat pada gambar 8.
+Setelah ditransformasi, dilakukan downsampling sebanyak 4 kali.
+Kemudian hasil downsampling dan hasil FFT dikalikan semua, untuk mendapatkan Harmonic Product Spectrum (HPS).
+Nilai Frekuensi terbesar dalam HPS ini yang kemudian dijadikan nilai pitch.
+grafik HPSnya bisa dilihat pada gambar 9.
+Dari situ, didapatkan nilai pitch berupa frekuensi dengan nilai HPS tertinggi.
+8.4. Lingkungan Uji Coba Pada penelitian ini, data suara yang digunakan berupa file (.wav).
+Data diunduh dari internet (youtube) dengan panjang 13129 sample.
+Data yang digunakan sebanyak 175 file *.wav dengan 4 kelas (Burung Blackthroat, Celilin, Cendet, dan Kutilang).
+Spesifikasi dari perangkat keras yang digunakan dalam implementasi perangkat lunak terdiri dari prosesor berjenis Intel(R) Core(TM) i7, memori berkapasitas 4 GB dan kapasitas harddisk 750 GB.
+Sedangkan untuk spesifikasi perangkat lunak yang digunakan dalam implementasi perangkat lunak yakni Matlab 2009.
+8.5. Hasil Uji Coba 
+8.5.1. Pengujian Akurasi terhadap K-Fold (K=2, Fold Ke-1) 
+Pengujian akurasi digunakan untuk mengetahui performa dari sistem klasifikasi suara burung menggunakan algoritma Extreme Learning Machine (ELM).
+Pengujian ini dilakukan dengan cara membandingkan kelas aktual dengan kelas prediksi.
+Data hasil dari nilai rata-rata akurasi dari keseluruhan pengujian dan jumlah iterasinya dapat dilihat pada grafik Gambar 10 dan 11.
+Berdasarkan hasil pengujian akurasi pada Gambar 5.14 menggunakan K=2 Fold Ke-1 memiliki nilai akurasi ratarata yakni 88.12%.
+Dari hasil ini disimpulkan bahwa algoritma ELM mampu melakukan klasifikasi dengan baik.
+8.5.2. Pengujian Akurasi terhadap K-Fold (K=2, Fold Ke-2) 
+Data hasil dari nilai rata-rata akurasi dari keseluruhan pengujian dan jumlah iterasinya, dapat dilihat pada Gambar 12 dan 13.
+Didapatkan nilai akurasi ratarata sebesar 86.01%.
+8.5.3. Pengujian Akurasi terhadap K-Fold (K=3, Fold Ke-1) Data hasil dari nilai rata-rata akurasi dari keseluruhan pengujian ini dan rata-rata iterasinya dapat dilihat pada Gambar 14 dan Gambar 15.
+Berdasarkan hasil pengujian akurasi pada Gambar 5.18 memiliki nilai akurasi ratarata yakni 88.82%.
+8.5.4. Pengujian Akurasi terhadap K-Fold (K=3, Fold Ke-2) Gambar 16 menunjukkan grafik hasil dari nilai rata-rata akurasi dari keseluruhan pengujian.
+Dan gambar 17 menunjukkan rata-rata iterasi yang dilakukan.
+Berdasarkan hasil pengujian akurasi pada Gambar 5.20 memiliki nilai akurasi ratarata yakni 86.07%.
+Dari hasil ini disimpulkan bahwa algoritma ELM mampu melakukan klasifikasi dengan baik.
+8.5.5. Pengujian Akurasi terhadap K-Fold (K=3, Fold Ke-3) Gambar 18 menunjukkan grafik hasil dari nilai rata-rata akurasi dari keseluruhan pengujian, dan gambar 19 menunjukkan rata-rata iterasinya.
+Berdasarkan hasil pengujian ini diketahui nilai akurasi ratarata yakni 85.96%.
+Dari hasil ini disimpulkan bahwa algoritma ELM mampu melakukan klasifikasi dengan baik.
+9. Kesimpulan 
+1. Implementasi Extreme Learning Machine (ELM) dapat digunakan untuk mengklasifikasikan suara burung dengan melakukan proses ekstraksi fitur dari ritme, pitch, mean, varian, min, max dan delta.
+Hasil ekstraksi fitur tersebut kemudian dilakukan proses pelatihan dan pengujian terhadap dataset yang sudah disediakan.
+2. Hasil rata-rata akurasi terbaik dari klasifikasi suara burung dengan menggunakan ELM sebesar 88,82% dari 3-Fold ke-1 dengan banyaknya iterasi yang dibutuhkan sebesar 6 iterasi.
+Kemudian sistem sempat mampu menghasilkan nilai akurasi tertinggi 100% saat beberapa percobaan pada 3-Fold ke-1 dan pada 3-Fold ke-3.

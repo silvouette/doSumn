@@ -1,0 +1,108 @@
+Abstrak
+Pada binerisasi dokumen, variasi intensitas lokal sering muncul dan merupakan akibat dari berbagai faktor seperti pencahayaan yang tidak merata, noise, dan tekstur dari kertas.
+Salah satu cara untuk mengatasi permasalahan tersebut adalah dengan metode local thresholding berdasarkan informasi bentuk.
+Akan tetapi proses komputasi yang lama diperlukan pada metode local thresholding citra dokumen yang memanfaatkan informasi bentuk.
+Hal ini disebabkan, setiap local window akan ditentukan nilai threshold-nya berdasarkan informasi bentuk.
+Paper ini mengusulkan penggabungan metode global thresholding dan local thresholding berdasarkan bentuk.
+Sehingga didapatkan kualitas thresholding yang lebih baik dengan proses komputasi yang lebih cepat.
+Pada local window yang memiliki intensitas rendah akan dilakukan proses thresholding secara global, sedangkan local window yang memiliki intensitas tinggi dilakukan local thresholding berdasarkan bentuk.
+Dari hasil uji coba didapatkan kualitas thresholding yang lebih baik dengan proses komputasi yang lebih cepat.
+Rata-rata keakuratan thresholding yang dicapai adalah 96,42%.
+Kata Kunci: thresholding, local thresholding, thresholding berdasarkan bentuk.
+1 PENDAHULUAN
+Thresholding memainkan peranan penting dalam proses segmentasi citra dokumen.
+Tujuan dari thresholding ini adalah menemukan nilai threshold yang tepat untuk memisahkan objek dari background.
+Hasil thresholding merupakan citra biner, dimana semua piksel dengan tingkat keabu-abuan yang lebih tinggi daripada nilai threshold akan diklasifikasikan sebagai objek dan sisa piksel diklasifikasikan sebagai background.
+Teknik thresholding dapat digunakan dalam berbagai aplikasi, seperti analisis citra biodemis dan identifikasi karakter tulisan tangan.
+Pada binerisasi dokumen, thresholding merupakan pendekatan yang paling banyak digunakan.
+Sudah banyak pendekatan thresholding yang telah dikembangkan.
+Metode Otsu [1] merupakan salah satu contoh algoritma global thresholding, dimana metode ini memilih nilai threshold yang optimum dengan memaksimalkan between-class variance dari gray level pada bagian objek dan background.
+Metode lain adalah algoritma local thresholding.
+Dibandingkan dengan algoritma global thresholding, algoritma local thresholding lebih unggul dalam memilih nilai threshold berdasarkan pada variasi intensitas lokal.
+Khusus untuk thresholding citra dokumen, variasi intensitas lokal sering muncul dan merupakan akibat dari berbagai faktor seperti pencahayaan yang tidak merata, noise, dan tekstur dari kertas.
+Algoritma local thresholding, bertujuan untuk menangani kesulitan yang disebabkan oleh intensitas variasi, dimana nilai threshold ditentukan dari setiap piksel berdasarkan nilai grayscale-nyasendiri dannilai grayscale tetangga.
+Beberapa algoritma local thresholding telah dikembangkan, diantaranya adalah metode Niblack [2].
+Metode Niblack tidak efektif ketika background berisi tekstur berupa cahaya.
+Liu dan Srihari [3] mengusulkan algoritma untuk menghitung nilai threshold global dengan memanfaatkan informasi bentuk, sehingga diperoleh kualitas keluaran yang baik dengan memperhitungkan tekstur background dan intensitas cahaya.
+Metode ini mengukur lebar goresan dengan memanfaatkan run-length histogram.
+Terinspirasi dari metode tersebut, Jichuan Shi dkk [4] mengusulkan metode baru yang melakukan segmentasi semua karakter dari background dengan berbagai intensitas menggunakan seleksi nilai threshold lokal berdasarkan lebar goresan / karakter.
+Meskipun menawarkan hasil yang memuaskan untuk citra dokumen, thresholding dengan pendekatan lokal yang diusulkan oleh Jichuan Shi dkk memiliki waktu komputasi yang tinggi.
+Hal ini disebabkan oleh proses penggunaan informasi bentuk untuk memperkirakan kandidat nilai threshold pada setiap local window.
+Pada paper ini diusulkan penggabungan algoritma global thresholding dan local thresholding berdasarkan bentuk untuk mengatasi permasalahan tersebut.
+2 LOCAL THRESHOLDING BERDASARKAN BENTUK 
+Metode thresholding yang diusulkan dalam paper ini dibagi menjadi empat proses, yaitu proses pengambilan sample, proses partisi/pembentukan local window, proses local thresholding dan proses penggabungan local window.
+Proses sampling (lihat Gambar 1) dilakukan oleh pengguna dengan memilih satu bagian terbaik dari citra yang berisi tulisan.
+Kemudian pada proses partisi, citra dokumendibagi menjadi beberapa local window.
+Proses local thresholding dilakukan dengan cara mencari kandidat nilai threshold terbaik pada local window.
+Standar deviasi pada local window digunakan sebagai penentu metode thresholding yang akan digunakan, yaitu dengan global thresholding atau local thresholding berdasarkan bentuk.
+Proses terakhir adalah penggabungan masing-masing local window menjadi satu citra dokumen utuh yang telah dilakukan thresholding.
+Proses dari localthresholding berdasarkan bentuk tersebut, dapat dilihat pada Gambar 2.
+2.1 Sampling 
+Distribusi lebar goresan karakter pada citra dokumen merupakan satu-satunya informasi yang digunakan dalam proses pengambilan sampel, dimana pengambilan sampel dilakukan dengan cara memotong sebagian kecil dari dokumen yang berisi karakter (Gambar 1(a)) dan memilih nilai threshold yang optimal dengan menggunakan metode Otsu (Gambar 1(b)).
+Selanjutnya, citra hasil threshold Otsu di hitung distance transform-nya dengan menggunakan metode Borgefors [5].
+Setelah itu dibuat distance histogram hsampling (Gambar 1(c)) untuk potongan citra dokumen yang diambil.
+2.2 Pembentukan Local Window 
+Langkah selanjutnya adalah melakukan partisi untuk membentuk local window.
+Proses ini membagi citra dokumen menjadi ukuran 3x3, sehingga didapatkan 9 local window citra dokumen seperti pada Gambar 3.
+Citra dokumen dibagi menjadi ukuran 3x3 agar proses pemotongan lebih cepat.
+Selain itu juga menghasilkan local window yang merata untuk dapat dievaluasi variasi intensitasnya.
+Sehingga dapat ditentukan local window mana yang akan di-threshold menggunakan metode otsu dan local window mana yang akan di-threshold menggunakan local thresholding berdasarkan bentuk.
+2.3 Thresholding pada Local Window 
+Proses selanjutnya dalam metode local thresholding berdasarkan bentuk adalah melakukan thresholding pada masing-masing local window.
+Proses ini membutuhkan inisialisasi nilai standardeviasi yang digunakan sebagai parameter penentuan metode thresholding yang akan digunakan.
+Langkah pertama yang dilakukan terhadap citra dokumen yang telah terbagi menjadi beberapa local window adalah menghitung nilai standar deviasi lokal seperi pada Gambar 4.
+Jikanilai standar deviasi lokal lebih rendah daripada standar deviasi global maka local window tersebutdi-threshold menggunakan metode Otsu.
+Jika sebaliknya, proses thresholding dilakukan dengan metode local thresholding berdasarkan bentuk.
+2.4 Thresholding berdasarkan Bentuk Untuk setiap local window, sebuah kandidat nilai threshold dihasilkan oleh analisis sederhana dari intensitas histogram citra.
+Lembah yang dominan dipilih sebagai calon nilai threshold [3].
+Untuk menghindari lembah yang tidak dominan akibat noise, maka perlu dilakukan proses smoothing yang diterapkan dalam analisis intensitas histogram.
+Metode estimasi Probability Density Function [4] diadopsi untuk mengatasi permasalahan tersebut.
+Metode ini secara otomatis menghasilkan distribusi kontinyu dari data histogram diskrit.
+Probability Density Function ditentukan dengan metode Silverman [6]: (1)dimanadalam kasus ini adalah nilai intensitas piksel dalam sebuah local window dari citra dokumen.
+n adalah jumlah pixel dalam local window, dan K adalah kernel Gaussian.
+w adalah hasil ukuran smoothingdari local window yang didapat dari persamaan (2), dimanaadalah standar deviasi dan IQR merupakan nilai intensitas citra dokumen pada local window.
+Setelah intensitas histogram dihasilkan, lembah (minimum) yang ditemukan akan dianggap sebagai kandidat nilai thershold.
+Untuk setiap kandidat nilaithreshold, histogram pada local window dihitung kemiripannya dengan histogram sampling.
+Bhattacharyya Coefficient (BC) [7] digunakan untuk mengukur kemiripan antara histogram hsampling dan histogram test h(t).
+Semua histogram dinormalisasi.
+BC digunakan untuk mengevaluasi derajat kedekatan dari dua probability density function.
+Diantara semua kandidat nilai threshold yang dihasilkan dari satu local window, kandidat nilai threshold yang menghasilkan nilai BC yang maksimum akan dipilih sebagai nilai threshold pada local window, yaitu: (3)abcdefghi 
+2.5 Penggabungan Local Window 
+Setelah mendapatkan nilai local threshold yang optimum untuk setiap local window, tahap terakhir dari metode yang diusulkan adalah menggabungkan local window tersebut untuk mendapatkan citra dokumen yang utuh.
+Seperti yang terlihat pada Gambar 5.
+3 UJI COBA DAN PEMBAHASAN
+Pada tahap uji coba, dataset yang digunakan berisi citra dokumen yang terdiri dari citra dokumen tulisan tangan dan citra dokumen tulisan cetak.
+Pada masing-masing citra dokumen terdapat sebuah ground truth dan citra dokumen terdegradasi, yang akan diuji dengan metode thresholding yang diusulkan.
+Dalam pengujian digunakan lima citra dokumen seperti yang ditunjukkan pada Gambar 6.
+Untuk mengevaluasi performa darialgoritma yang diusulkan, metode yang diusulkan akan dibandingkan dengan metode Jichuan [4].
+Uji coba perbandingan metode dilakukan untuk mengetahui seberapa unggul metode local thresholding berdasarkan bentuk yang diusulkan dibandingkan dengan metode yang telah dikembangkanJichuan.
+Citra dokumen hasil thresholding metode yang diusulkan dapat dilihat pada Gambar 7, sedangkan citra dokumen hasil thresholding metode Jichuan dapat dilihat pada Gambar 8.
+Kualitas secara kuantitas dari thresholding citra dokumen juga dievaluasi menggunakan dua metode yaitu,misclassification error (ME) dan peak signal to noise ratio (PSNR).
+ME didefinisikan sebagai hubungan antara citra dokumenhasil thresholdingdengan ground truth.
+ME secara sederhana diformulasikan sebagai berikut: , (4)dimana background dan foreground untuk ground truth dinotasikandan , sedangkandanmerupakan background dan foreground hasil thresholding citra dokumen.
+Semakin kecil nilai ME menunjukkan bahwa hasil thresholding citra dokumen semakin baik.
+Selain ME untuk mengukur kualitas hasil thresholding citra dokumen digunakan Peak signal to noise ratio (PSNR).
+Semakin tinggi nilai PSNR menunjukkan bahwa hasil thresholding citra dokumen semakin baik.
+Untuk mengetahui kompleksitas komputasi dari metode yang diusulkan, dapat dilihat dari jumlah penggunaan local thresholding berdasarkan bentuk.
+Semakin sedikit penggunaan local thresholding berdasarkan bentuk, menunjukkan kompleksitas komputasi metode semakin cepat.
+Hasil pengujian kedua metodetersebut dapat dilihat pada Tabel 1.
+Hasil thresholding pada citra 1, 2 dan 5 dengan menggunakan metode yang diusulkan menghasilkan nilai ME relatif lebih besar dibandingkan dengan metode Jichuan.
+Hal ini terjadi karena karakteristik citra dokumen 1, 2 dan 5 memiliki jenis font yang sama.
+Pada metode yang diusulkan tidak semua local window di-threshold menggunakan thresholding berdasarkan bentuk.
+Sedangkan pada metode Jichuan semua local window di-threshold dengan thresholding berdasarkan bentuk.
+Pada citra 1, 2 dan 5, selisih ME antara metode yang diusulkan dengan metode Jichuan relatif kecil, yaitu sebesar 0.55, 1.01, dan 0.04.
+Akan tetapi jika dilihat dari kompleksitas komputasi antara metode Jichuan dan metode yang diusulkan terhadap citra 1 dan 2, metode yang diusulkan lebih rendah dalam kompleksitas komputasi.
+Sementara pada citra 5, kedua metode memiliki kompleksitas komputasi yang sama dengan selisih ME sebesar 0.04.
+Hasil thresholding pada citra 3 dan 4, nilai ME metode yang diusulkan jauh lebih kecil dari metode Jichuan.
+Hal ini terjadi karena pada citra 3 dan 4 terdapat perbedaan jenis dan ketebalan font.
+Perbedaan jenis dan ketebalan font mengakibatkan performa thresholding berdasarkan bentuk menurun.
+Karena pada metode yang diusulkan tidak semua local window di-threshold berdasarkan bentuk maka hasilnya jauh lebih baik.
+Untuk kompleksitas komputasi pada citra 4 metode yang diusulkan lebih rendah sementara pada citra 3 dengan kompleksitas komputasi yang sama nilai ME metode yang diusulkan lebih baik sebesar 4,62.
+Dari Tabel 1 terlihat bahwa kompleksitas komputasi metode yang diusulkan lebih rendah dari metode Jichuan.
+Dari uji coba yang dilakukan, menunjukkan bahwa hasil thresholding metode yang diusulkan memiliki kualitas yang hampir sama atau lebih baik dari metode Jichuan serta memiliki kompleksitas komputasi yang lebih rendah.
+Rata-rata nilai ME dari metode yang diusulkan sebesar 3,58%, dengan kata lain akurasi yang didapatkan sebesar 96,42%.
+4 KESIMPULAN
+Dari hasil uji coba dapat diambil kesimpulan sebagai berikut : 1. Metode yang diusulkan dapat melakukan proses thresholding lokal berdasarkan bentuk terhadap citra dokumen dengan baik, sehingga menghasilkan citra yang dapat dikenali secara visual.
+2. Rata-rata akurasi dari metode yang diusulkan mencapai 96,42% dengan rata-rata jumlah local window yang di-threshold menggunakan local thresholding berdasarkan bentuk sebanyak 4.
+Sedangkan pada metode jichuan rata-rata jumlah local window yang menggunakan local thresholding berdasarkan bentuk sebanyak 5,6.
+Hal ini menunjukkan metode yang diusulkan memiliki waktu komputasi yang lebih rendah daripada metode sebelumnya.

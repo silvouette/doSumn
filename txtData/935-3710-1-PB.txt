@@ -1,0 +1,110 @@
+Abstrak
+Masyarakat modern dengan kesibukan sehari-harinya tentu akan mendapat tekanan emosional yang cukup tinggi.
+Hal yang dilakukan untuk meredakan emosi tersebut adalah salah satu dengan mendengarkan musik.
+MOODSIC merupakan sebuah aplikasi yang dapat memutar musik sesuai dengan ekspresi wajah pengguna.
+Aplikasi MOODSIC dibangun menggunakan mesin pengenalan ekspres wajah berbasis DCT dan LDA serta algoritma klasifikasi statistik.
+Berdasarkan hasil pengujian secara off-line mesin pengenalan ekspresi wajah berhasil memberikan performa yang baik, dengan akurasi sebesar 100% untuk data masukkan terdiri atas fitur DCT 144 elemen, 6 eigen vektor LDA dan klasifikasi statistik jenis LDA.
+Mesin pengenalan ekspresi wajah memerlukan waktu pengenalan yang pendek yaitu 1 milidetik.
+Secara real-time MOODSIC memberikan hasil yang cukup baik dengan akurasi pengenalan ekspresi sebesar 91.51% atau dengan tingkat kesalahan pengenalan 9.49%.
+Kata kunci: ekspresi wajah, LDA, DCT, pengenalan citra, dan MOODSIC
+1. PENDAHULUAN
+Emosi dari segi etimologi yang berasal dari akar kata bahasa Latin yaitu movere yang berarti menggerakkan, bergerak.
+Lalu ditambah awalan e- untuk memberi arti bergerak menjauh.
+Definisi emosi yaitu suatu gejala psiko-fiologis yang menimbulkan efek pada persepsi, sikap maupun tingkah laku, dan dikeluarkan dalam ekspresi tertentu.
+Wajah yang merupakan bagian kepala dengan wilayah dari dahi hingga dagu, mata, alis, hidung dan lain lain menjadi indikator pengenalan ekspresi.
+Adapun bentuk dari ekspresi emosi dari emosi-emosi dasar yang biasa kita temui dalam kehidupan sehari-hari yaitu: ekspresi emosi/marah, sedih, takut, jijik dan muak, dan senang (Latifa, 2012).
+Masyarakat modern dengan kesibukan sehari-harinya tentu akan mendapat tekanan emosional yang cukup tinggi, kebiasaan masyarakat modern tersebut menyebabkan perubahan kondisi emosional yang signifikan.
+Hal yang dilakukan untuk meredakan emosi tersebut salah satu cara yang dilakukan yaitu mendengarkan musik.
+Hal ini karena musik mampu mempengaruhi seseorang secara psikologis baik itu menenangkan ataupun membuat gejolak emosi.
+Sehingga sangat dibutuhkan sarana untuk menentukan musik sesuai keadaan emosi yang dialami.
+Oleh karena itu, perlu dikembangkan sebuah aplikasi pemutar musik berdasarkan kondisi emosional yang didapat dari ekspresi wajah yang bernama MOODSIC.
+Untuk dapat mewujudkan aplikasi MOODSIC, diperlukan sistem pengenalan ekspresi wajah yang optimal dengan fitur yang minim agar dapat diaplikasikan pada perangkat mobile yang memiliki sumber daya yang terbatas.
+Pada paper ini disajikan suatu pengenalan ekspresi wajah dengan fitur minim menggunakan Discrete Cosine Transforms (DCT) dan Linear Discriminant Analysis (LDA) yang selanjutnya diimplementasikan pada aplikasi MOODSIC.
+Hal ini sangat mungkin dilakukan mengingat kemampuan DCT dalam meng-kompak-tasi energi suatu sinyal ke elemen frekuensi rendahnya.
+Melalui kemampuan ini, sinyal dapat direpresentasikan dengan sebagian kecil koefisien transformasinya.
+Perkembangan teknologi saat ini telah mendorong ilmuwan untuk menciptakan inovasi- inovasi yang sangat membantu dalam mengenali emosi seseorang.
+Ada penelitian pengenal emosi manusia dengan metode eigenface yang menggunakan titik-titik tertentu pada wajah.
+Para peneliti sebelumnya banyak mengembangkan pengenalan wajah seperti yang berbasis PCA, LDA, DCT, DWT, dan kombinasinya (Pratiwi & Harjoko 2013; Wijaya et al. 2013; Wijaya et al. 2015; Zhang 2004; Chen et al. 2005).
+Pada MOODSIC versi pertama dikembangkan menggunakan metode eigenface dengan performa yang belum optimal dengan akurasi dibawah 90%.
+Metode eigenface merupakan suatu representasi wajah menggunakan Principal Component Analysis (PCA) yang banyak diaplikasikan untuk pengenalan wajah karena mudah diaplikasikan (Pratiwi & Harjoko, 2013), (Wijaya dkk,2013).
+Metode yang populer untuk pengenalan ekspresi wajah berbasis pada informasi geometri dan appearance (Kumari ddk, 2015) yang fiturnya diekstraksi menggunakan metode PCA, Independent Component Analysis (ICA), Linear Discriminant Analysis (LDA), Local Gradient Code (LGC), Local Directional Pattern (LDP), Gabor filters, dan Local Binary Patterns (LBP).
+Teknik klasifikasi yang populer digunakan adalah tetangga terdekat (Nearest Neighbor ) dan SVM (Support Vector Machine).
+Diantara metode tersebut, metode pengenalan ekspresi wajah terbaik adalah metode yang berbasis LGC dan kNN dengan akurasi sebesar 88,78% (Kumari, 2015).
+Selain itu, pengenalan ekspresi/emosi kategori bahagia, netral, dan marah yang berbasis data ucapan memakai metode HMM (Hidden Markov Model) telah berhasil dilakukan dengan akurasi rata-rata sebesar 86,66% dan waktu komputasi 21.6ms (Prasetio et al. 2017).
+Oleh karena itu, penelitian mengenai pengenalan ekspresi wajah masih sangat menantang mengingat belum optimalnya akurasi dari metode sebelumnya.
+2. METODE PENELITIAN
+Secara sederhana penelitian ini terdiri atas 2 modul utama yaitu modul pengenalan ekspresi wajah dan modul MOODSIC.
+Untuk modul pengenalan ekspresi wajah dikembangkan berbasis fitur holistis DCT dan LDA dengan klasifikasi menggunakan mesin klasifikasi statistik.
+Hasil dari model ini ditanamkan pada modul MOODSIC yang dibangun untuk perangkat mobile ber-os Android.
+2.1 Pengenalan Wajah 
+Skema pengenalan wajah dibangun berbasis DCT-LDA dan mesin klasifikasi berbasis statistik, seperti pada Gambar 1. 
+Skema pengenalan wajah terdiri atas 3 modul utama yaitu ekstraksi fitur DCT, proyeksi ke LDA sub-space, dan pembuatan model mesin klasifikasi.
+Untuk ekstraksi fitur menggunakan metode DCT telah banyak dilakukan dengan berbagai variasinya, namun pada paper ini proses ekstraksi fitur DCT dilakukan dengan Algoritma 1.
+Fungsi RGB ke Grayscale yang digunakan dalam penelitian ini adalah komponen Y dari ruang warna YCbCr yaitu Y=0.1481*r0.2908 *g+0 :4390*b +128, dimana r=fIm(:,:,1), g =fIm(:,:,2), dan b=fIm(:,:,3).
+Fungsi DCT 2 dimensi yang dalam hal ini disingkat dengan DCT2D dilakukan dengan memanfaatkan transformasi Fourier cepat (Fast Fourier Transforms, FFT (Gonzalez & Woods 2006)) seperti dituangkan dalam Algoritma 2.
+Contoh hasil dari proses ekstraksi fitur DCT dapat disajikan pada Gambar 2. 
+Sekumpulan vektor luaran fitur DCT yang merepresentasikan citra ekspresi wajah (eF=[dF1 dF2 dF3DFn]) dan Vektor kategori ekspresi (kE=[1 1 2n), selanjutnya dilatih pada LDA (Chen et al. 2005; Wijaya et al. 2013) untuk mendapat eigen vektor proyeksi (W) yang digunakan untuk mendapatkan LDA sub-space.
+Algoritma dari proyeksi LDA sub-space secara lengkap disajikan pada Algoritma 3.
+Untuk pembuatan model klasifikasi dilakukan dengan memasukkan sekumpulan data proyeksi LDA sub-space ke model mesin statistik untuk mendapatkan matriks pembobot klasifikasi (Wcls)dan bias (b).
+Sehingga klasifikasi vektor fitur query (HFq) vedapat dilakukan menggunakan persamaan berikut.
+2.2 MOODSIC 
+Prinsip kerja dari skema MOODSIC secara sederhana dapat diilustrasikan pada Gambar 3. 
+MOODSIC ditanamkan (embedded) pada telepon pintar ber-os Android dengan kamera sebagai sensor citra masukkan.
+Untuk mendapat wajah pengguna sebelum kenali ekspresinya diperlukan modul sistem deteksi wajah.
+Sistem deteksi wajah yang diimplementasikan sistem deteksi wajah berbasis haar-like (Viola & Jones 2001).
+Sistem ini dipilih karena memiliki kecepatan dan ketepatan yang tinggi dalam deteksi wajah.
+Selanjutnya proses pengenalan ekspresi dilakukan dengan cara yang sama dengan proses pengenalan ekspresi pada desktop.
+Agar proses pengenalan ekspresi MOODSIC dapat berjalan dengan lancar (cepat) maka sistem pengenalan ekspresi pada Android akan memanfaatkan hasil matriks proyeksi LDA (WLDA) dari matriks klasifikasi (Wcls) hasil pelatihan dilakukan pada Desktop.
+Kedua matriks tersebut ditanamkan pada Android.
+Implementasi dari blok diagram MOODSIC pada Gambar 3 ke dalam aplikasi mobile ber-os Android dapat ditunjukkan pada Gambar 4. 
+Alur kerja dari sistem pada Android dimulai dari dibukanya aplikasi pada smartphone.
+Kemudian pengguna diharuskan untuk membuka kamera terlebih dahulu untuk mengambil/merekam citra sebagai input proses pengenalan.
+Citra masukkan selanjutnya diproses untuk mengenali ekspresinya menggunakan mesin pengenalan wajahseperti yang tergambar pada Gambar 1. 
+Hasil pengenalan ekspresi digunakan untuk men-trigger fungsi pemilihan lagu sesuai untuk ekspresi yang dikenali dan dilanjutkan dengan memutarnya.
+3. PENGUJIAN DAN ANALISA HASIL 
+Pengujian dalam penelitian ini terdiri atas pengujian secara off-line dan pengujian secara real-time.
+Pengujian secara off-line dilakukan pada dataset The Japanese Female Facial Expression (JAFFE)(Lyons et al. 1998), yang bertujuan untuk mengetahui apakah sistem pengenalan ekspresi wajah usulan menghasilkan performa yang tinggi dibandingkan dengan metode yang telah ada sebelumnya, seperti metode PCA, SVM, Naive Bayes.
+Dataset JAFFE berisi 213 citra yang terdiri dari 7 ekspresi wajah (6 ekspresi wajah dasar + 1 netral, lihat Gambar 5) yang diambil dari wajah 10 model wanita Jepang.
+Citra-citra wajah penyusun dataset diambil di Departemen Psikologi, Universitas Kyushu, Jepang.
+Parameter yang dijadikan ukuran dalam pengujian ini adalah akurasi pengenalan dan waktu pengenalan, yang dapat dihitung dengan menggunakan persamaan: =100% (2) dimana T adalah jumlah sampel yang dapat dikenali secara benar dan N adalah jumlah sampel data yang diuji.
+Waktu pengenalan dihitung dari saat citra masukkan diberikan hingga hasil pengenalan ekspresi diberikan.
+3.1 Performa Sistem Pengenalan Wajah 
+Pada pengujian ini, 70% dari citra sampel dari dataset JAFFE dipilih secara acak untuk pelatihan atau pembuatan model dan 30% sisanya digunakan untuk pengujian.
+Beberapa variabel yang akan diujikan pada pengujian ini adalah pengaruh jumlah fitur, pengaruh jumlah eigen, dan pengaruh teknik klasifikasi terhadap performa pengenalan wajah.
+Tahap pertama, pengujian dilakukan untuk mengetahui pengaruh jumlah fitur terhadap akurasi yang dilakukan dengan memilih fitur dari ukuran 9 elemen hingga 225 elemen dengan dipadukan dengan teknik klasifikasi model statistik.
+Hasil pengujian disajikan pada Gambar 6.
+Gambar 6 menunjukkan bahwa jumlah fitur yang baik untuk pengenalan ekspresi wajah adalah lebih dari 100 Elemen.
+Hal ini berarti bahwa tidak semua koefisien DCT mengandung informasi dominan dari suatu objek.
+Hasil ini sejalan dengan hasil beberapa peneliti sebelumnya bahwa informasi dominan dari transformasi DCT terletak pada beberapa koefisien merepresentasikan frekuensi rendah atau terletak di sekitar indeks 0,0 untuk data spasial/citra.
+Selanjutnya jumlah fitur 144 elemen hasil pengujian pertama digunakan untuk pengujian berikutnya yaitu pengujian untuk menentukan jumlah eigen-vektor yang cocok untuk klasifikasi ekspresi wajah.
+Pada pengujian ini, nilai eigen divariasikan dari rentang 2 hingga 24 dengan langkah penambahan 2.
+Hasil pengujian disajikan pada Gambar 7. 
+Gambar 7 mengindikasikan bahwa dengan jumlah eigen vektor 6 saja telah memberikan hasil pengenalan ekspresi wajah yang sangat baik yaitu berakurasi sebesar 100%.
+Hasil ini serupa dengan hasil pada pengujian pertama bahwa tidak semua eigen-vektor diperlukan untuk mengenali ekspresi wajah.
+Hasil ini juga sejalan dengan teorinya bahwa nilai eigen-vektor yang mengandung diskriminan hanyalah eigen-vektor yang berkorelasi dengan nilai eigen-value terbesar saja.
+Pengujian berikutnya dilakukan untuk mengetahui teknik klasifikasi statistik yang terbaik untuk pengenalan ekspresi wajah.
+Pada penelitian ini teknik klasifikasi yang diujikan ada tiga yaitu SVM (Wang et al. 2010), LDA (Chen et al. 2005; Wijaya et al. 2015), Naive Bayes Classifier (NBC (Zhang 2004)), dan Quadratic Discriminant Analysis (QDA (Duda et al. 2012)).
+Hasil pengujian sajikan pada Gambar 8 yang menunjukkan bahwa teknik klasifikasi SVM kurang cocok digunakan untuk pengenalan ekspresi wajah dibandingkan dengan LDA, NBC, dan QDA.
+SVM yang dibandingkan disini adalah SVM berkernel linear, sehingga kurang optimal dalam pengklasifikasian.
+Umumnya SVM berkernel linear digunakan untuk mengklasifikasi data 2 kelas saja.
+Ditinjau dari aspek kemudahan dan kesederhanaan implementasi klasifikasi, maka teknik klasifikasi yang paling cocok untuk pengenalan ekspresi wajah pada perangkat Android adalah teknik klasifikasi statistik LDA, karena implementasi teknik klasifikasi hanya memerlukan algoritma perkalian vektor dengan matriks saja.
+Implikasi dari kesederhanaan implementasi ini adalah proses klasifikasi dapat dilakukan dengan cepat dibawah 1 milidetik.
+3.2 Performa Sistem MOODSIC 
+Pengujian secara real-time dilakukan di Laboratorium Sistem Cerdas, Prodi Teknik informatika Universitas Mataram dengan tujuan untuk mengetahui performa dari MOODSIC.
+Pada penelitian ini jumlah sampel yang dilibatkan untuk pengujian sebanyak tujuh orang, dengan rincian empat pria dan tiga wanita.
+Citra training diambil sebanyak 7 citra untuk setiap orang dan setiap ekspresi dan pengujiannya dilakukan sebanyak 3 kali untuk masing-masing ekspresi.
+Untuk aplikasi MOODSIC hanya menggunakan 5 ekspresi yang dikaitkan dengan jenis musik yang akan diputar.
+Contoh ekspresi wajah yang digunakan pada MOODSIC dapat dilihat pada Gambar 9.
+Hasil pengujian real-time dari MOODSIC hanya memberikan akurasi sebesar 91.51%.
+Hasil ini belum optimal yang disebabkan oleh pengaruh perubahan cahaya saat perekaman citra masukkan.
+Jika dibandingkan dengan hasil akurasi pengujian secara off-line pada dataset JAFFE terdapat perbedaan sebesar 9,49%.
+Hal ini disebabkan karena variabilitas citra wajah JAFFE yang rendah akibat perubahan pencahayaan dibandingkan dengan dataset uji real-time (Gambar 5 versus Gambar 9) yang diindikasikan dengan rata-rata MSE JAFFE jauh lebih kecil dibandingkan dengan rata-rata MSE dataset real-time, yaitu 1643,76 berbanding 7009,91 secara berurutan.
+Kerendahan variabilitas citra wajah dataset JAFFE terjadi karena perekaman citra dilakukan dengan pencahayaan yang seragam.
+Walaupun histogram equalization telah diimplementasikan untuk mengurangi pengaruh pencahayaan namun hasilnya belum optimal, oleh karena itu MOODSIC memerlukan algoritma normalisasi pencahayaan selain histogram equalization.
+4. KESIMPULAN DAN SARAN
+Secara umum mesin pengenalan ekspresi wajah menggunakan berbasis DCT-LDA dan mesin klasifikasi berbasis statistik telah memberikan hasil yang baik, dengan akurasi sebesar 100% dengan kombinasi fitur DCT 144 elements, 6 eigen vektor LDA dan klasifikasi statistik LDA dengan waktu pengenalan yang pendek yaitu 1 milidetik.
+Mesin pengenalan ini sangat potensial digunakan untuk aplikasi MOODSIC untuk perangkat mobile.
+Secara real-time MOODSIC memberikan hasil yang cukup baik dengan akurasi pengenalan ekspresi sebesar 91.51% atau dengan tingkat kesalahan pengenalan 9.49%.
+Hal ini berarti performa MOODSIC masih belum optimal.
+Selanjutnya untuk mengoptimalisasi MOODSIC diperlukan algoritma normalisasi pencahayaan selain histogram equalization, seperti normalisasi berbantuan local binary pattern (LBP) atau Different of Gaussian (DoG).
+Disamping itu diperlukan juga teknik meta heuristic search seperti GA atau PSO untuk seleksi fitur.

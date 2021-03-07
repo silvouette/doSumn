@@ -1,0 +1,159 @@
+Abstrak
+Permasalahan kategorisasi dokumen berperan penting dalam sistem temu kembali informasi.
+Kategorisasi dokumen teks yang telah ada biasanya hanya dapat melakukan klasifikasi dengan satu label saja untuk satu dokumen.
+Padahal dalam kenyataannya, sebuah artikel dapat memuat lebih dari satu kategorisehingga label dokumen yang diberikan dapat berjumlah lebih dari satu.
+Untuk itulah, penelitian ini mengusulkan sebuah metode baru untuk kategorisasi dokumen teks secara multi label dengan menggunakan fuzzy c-means dan k-nearest neighbors.
+Fuzzy c-means melakukan pengelompokan dokumen yang serupa terlebih dahulu sebelum proses pemberian label.
+Kemudian, penentuan label dokumen ditentukan oleh k-dokumen terdekat pada kelompok dokumen yang serupa.
+Uji coba dilakukan terhadap dokumen berita online sejumlah 175 dokumen yang terdiri atas tiga kategori label.
+Hasil uji coba menunjukkan bahwa metode yang diusulkan memberikan performa lebih baik dibanding metode lain.
+Hal ini ditunjukkan dengan nilaiF1 sebesar 73,39% dan BEP sebesar 75,22%.
+Kata Kunci: Fuzzy c-means, Kategorisasi multi-label, K-nearest neighbors.
+1. PENDAHULUAN
+Kategorisasi dokumen teks secara multi-label adalah masalah yang berperan penting dalam sistem temu kembali informasi.
+Klasifikasi multi label berbeda dengan klasifikasi single label.
+Klasifikasi single label akan mengklasifikasikan suatu dokumen ke dalam satu kategori dokumen saja.
+Sedangkan klasifikasi multi label dapat mengelompokkan suatu dokumen ke lebih dari satu kategori.
+Sebagai contoh, sebuah artikel ilmiah yang didalamnya membahas secara rinci mengenai deteksi dini kanker ovarium dengan pendekatan bioinformatika dapat memiliki lebih dari satu label dokumen yaitu: kesehatan, bioinformatika dan wanita.
+Telah banyak penelitian sebelumnya yang membahas mengenai klasifikasi dokumen teks seperti [1] yang menggunakan algoritma k-nearest neighbors, menggunakan informasi ketetanggaan untuk menentukan label dokumen.
+Metode lain menggunakan konsep probabilitas diusulkan oleh Joachim pada [2] yakni dengan menggunakan pendekatan probabilistik bayesian.
+Selain itu, ada juga penelitian yang diajukan oleh [3] dengan menggunakan algoritma decision rule dan [4] dengan menggunakan metode support vector machine (SVM).
+Namun penelitian diatas berfokus pada kategorisasi dokumen teks yang single label.
+Untuk mengklasifikasikan artikel ke dalam multi label, Tsoumakas & Katakis melakukan pendekatan dengan mentransformasikan klasifikasi multi label menjadi beberapa kasus klasifikasi single label [5].
+Dengan melakukan transformasi single label maka tiap-tiap data dilakukan pengecekan terhadap semua label yang ada.
+Pengecekan yang dilakukan akan menentukan apakah data tersebut termasuk atau tidak termasuk pada suatu label.
+Hal ini kurang efisien karena memerlukan waktu komputasi yang cukup lama untuk mengecek suatu dokumen ke semua label.
+Selain itu, metode ini tidak memperhitungkan korelasi antara label yang satu dengan label yang lain.
+Beberapa pendekatan klasifikasi multi label yang lain telah diusulkan.
+Zhang dan Zhou menggunakan back propagation neural network (BP-MLL) yang digunakan untuk klasifikasi single label dengan memperhitungkan kriteria tiap-tiap label [6].
+Penelitian lain yang dilakukan oleh Zhang dengan menggunakan algoritma MLKNN untuk klasifikasi dokumen teks berbahasa Inggris secara multi label dengan menggunakan metode k-nearest neighbors.
+Sebuah dokumen dalam koleksi dokumen akan dicari k-tetangga terdekatnya, kemudian digunakan metode maximum a posteriori (MAP) untuk menentukan label dokumen tersebut [7].
+Penelitian kategorisasi dokumen teks secara multi label pada artikel berbahasa Indonesia cukup jarang dijumpai.
+Untuk itu, penelitian ini mengusulkan sebuah metode baru untuk kategorisasi dokumen teks berbahasa Indonesia dengan menggunakan FCM-KNN.
+Prinsip dari metode ini adalah dengan melakukan pengelompokan dokumen yang serupa terlebih dahulu sebelum proses pemberian label.
+Pengelompokkan dokumen dilakukan dengan menggunakan algoritma fuzzy c-means.
+Fuzzy C-Means (FCM) merupakan salah satu metodeclustering yang merupakan bagian dari HardK-Means[8].
+FCM menggunakan konsep pendekatan fuzzy sehingga sebuah data dapat menjadi anggota dari semua cluster yang ada.
+Matriks keanggotaan terbentuk dengan tingkat keanggotaan masing-masing data pada setiap cluster yang ada yang bernilai antara 0 hingga 1.
+Tingkat keberadaan data pada suatu cluster ditentukan oleh derajat keanggotaannya.
+Dengan adanya pengelompokkan dokumen serupa terlebih dahulu diharapkan nantinya dapat meningkatkan performa kategorisasi dokumen teks serta lebih menghemat waktu komputasi untuk memilih k-tetangga terdekat dokumen.
+Hal ini dikarenakan pencarian k-dokumen terdekat hanya cukup dicari pada lingkup anggota kelompok dokumen yang serupa saja dan tidak perlu dibandingkan terhadap keseluruhan koleksi dokumen.
+Setelah itu, maximum a posteriori(MAP) digunakan sebagai penentu label suatu dokumen.
+Tulisan ini dibagi menjadi 5 bagian.
+Latar belakang permasalahan dikemukakan pada bagian 1.
+Pada bagian 2 dipaparkanpenelitian terkait mengenai kategorisasi dokumen teks secara multi-label.
+Kategorisasi dokumen teks denganFCM-KNN dan uji coba dijelaskan pada bagian 3 dan 4.
+Pada akhir tulisan diuraikan kesimpulan yang diambil dari hasil penelitian.
+2. PENELITIAN TERKAIT
+2.1 Representasi Dokumen Teks 
+Dokumen teks termasuk kedalam jenis data yang tidak terstruktur.
+Untuk itu, sebelum dilakukan proses kategorisasi teks perlu dilakukan proses transformasi yang dapat mengubah teks-teks menjadi bentuk yang lebih efisien dan lebih siap untuk diproses ke proses selanjutnya.
+Prinsip dari proses transformasi ini adalah mengubah bentuk teks dan merepresentasikannya ke dalam konsep Vector Space Model (VSM).
+Pada tahap transformasi ini dilakukan proses tokenizer, yakni pemecahan dokumen teks menjadi beberapa tokenatau kata berdasarkan pembatas berupa spasi atau tanda baca.
+Selanjutnya dilakukan proses penghapusan kata-kata yang bersesuaian dengan kata pada daftar stopword.
+Stopword adalah kata-kata yang dianggap tidak dapat merepresentasikan konten dari suatu dokumen teks.
+Kemudian,kata-kata yang tersisa setelah penghapusan stopword dilakukan stemming.
+Stemming adalah proses pengubahan kata menjadi bentuk dasar[9].
+Selanjutnya, setiap kata tersebut disebut sebagai term.
+Untuk setiap term yang berbeda satu sama lain didaftar dan diberi bobot term.
+Pembobotan tiap term dihitung dengan menggunakan TF-IDF dengan rumusan berikut [10]:,= 1+log10, log10/, (1) dimana, n adalah jumlah dokumen dalam keseluruhan koleksi dokumen, tft,d merupakan jumlah kemunculan termt pada dokumen d dan dft adalah jumlah dokumen yang memuat termt pada keseluruhan dokumen.
+Sebuahdokumen direpresentasikan sebagai sebuah vektor yang berisi term-term pada dokumen tersebut disertai dengan bobot TF-IDF-nya.
+Bagan proses dari tahap transformasi ini dapat dilihat pada Gambar 1.
+2.2 Kategorisasi Teks Secara Multi-Label 
+Permasalahan kategorisasi dokumen secara multi-label secara matematis terdiriatas tiga vektor yaitu (D,T,C).
+D adalah kumpulan vektor dokumen yang dapat ditulis sebagai=1,1 , 2,2 ,.
+Sebuah vektor dokumen terdiri atas vektor di dan yi yakni vektor bobot tiap kata dan label dokumen tersebut.
+C merupakan kumpulan kategori label yang ada dan dapat dinotasikan kedalam= 1,2dimana r menyatakan jumlah kategori.
+Sedangkan, T adalah term-term dari seluruh dokumen yang dinyatakan oleh = 1,2 , dimana m merupakan jumlah term.
+Perbedaan mendasar antara kategorisasi dokumen secara single label dan multi-label terletak pada vektor yi.
+Jika pada single label vektor yi berukuran 1.
+Sedangkan pada multi-label vektor yiberukuran p, dimana p>1.
+Hal tersebut dapat dilihat pada vektor label dokumen yji berikut: = 1,0, (2)
+3. FCM-KNN
+Secara garis besar studi ini terdiri atas dua tahapan.
+Tahap pertama adalah tahap pengelompokkan dokumen dengan menggunakan fuzzy c-means.
+Kemudian tahap selanjutnya adalah tahap kategorisasi dokumen teks dengan menggunakan k-nearest neighbors.
+3.1 Fuzzy C-Means Clustering 
+Fuzzy C-Means mengelompokkan dokumen teks berdasarkan prinsip dari fuzzy.
+Metode ini pertama kali diperkenalkan oleh Dunn pada tahun 1973 dan dikembangkan lagi oleh Bezdek di tahun 1981[8].
+Pengelompokkan ke dalam cluster ditentukan melalui nilai keanggotaan fuzzy.
+Jika nilai keangggotaan dokumen di pada cluster cj melebihi suatu batas ambang tertentu, maka dokumen tersebut dinyatakan masuk menjadi anggota cluster tersebut.
+Sebuah dokumen teks direpresentasikan sebagai kumpulan dari term.
+Setiap dokumen mempunyai sebuah vektor label berupa bobot term dan labelnya yang dinotasikansebagai berikut: =1,1 , 2,2 ,, dimana di menyatakan vektor bobot term dokumen ke i, n menyatakan jumlah dokumen dan y menyatakan label dari dokumen.
+Karena fokus dari studi ini berada pada konteks pengkategorian dokumen secara multi-label maka label dokumen y dalam hal ini berupa vektor berukuran (1) dimana menyatakan jumlah kategori.
+Adapun nilai dari vektor label tersebut bernilai 1 ketika dokumen tersebut berada pada kategori yang sesuai.
+Sebagai contoh, jika terdapat tiga kategori dokumen yaitu nasional, ekonomi dan pendidikan maka ketika d1 memiliki label 1= 0,1,1 , maka dokumen d1 merupakan dokumen yang memuat artikel berkenaan dengan ekonomi dan pendidikan.
+Data masukan untuk proses pengelompokkan n buah dokumen adalah sebuah matriksX berukuran , dimanaadalah jumlah keseluruhan term pada koleksi dokumen.
+Sehinggamerupakan representasi bobot term ke-t =1,2,,pada dokumen ke- (=1,2,,).
+Adapun pseudocode dari algoritma ini seperti yang tertera pada Tabel 1.
+Untuk mengelompokkan dokumen teks dengan fuzzy c-means, parameter yang dibutuhkan adalah.
+Langkah pertama yang perlu dilakukan adalah inisialisasi nilai matriks keanggotaan , setiap dokumen pada setiap cluster yang ada.
+Proses inisialisasi ini dilakukan secara acak.
+Langkah selanjutnya adalah menghitung pusat clustersesuai dengan rumusan berikut:cj=ui,jmxini=1 ui,jmni=1, (3)dengan nilai m>1 yang disebut sebagai fuzzifier atau bobot fuzzy.
+Sedangkanadalah indeks kategori (=1,2,3..),menyatakan jumlah kategori label.
+Selanjutnya, dilakukan perhitungan untuk mencari nilai membership (uij) dokumen di terhadap cluster cj,yang baru dengan rumusan berikut:uij=1dijdik pk=12m1 , (4)dimana, dijmenyatakan jarak antara dokumen di pada pusat cluster cj.
+Setelah itu, dilakukan perhitungan pusat cluster cj yang baru, kemudian nilai membership uij yang baru hingga kondisi +1 <terpenuhi.
+adalah kondisi kriteria stop yang merupakan bilangan bernilai sangat kecil mendekati nilai 0.
+Setelah dilakukan pengelompokan dokumen proses selanjutnya adalah menghitung priorprobability dan likelihood menggunakan aturan Bayes[11].
+Perhitungan prior probability dilakukan untuk menghitung peluang suatu kejadian diyakini benar.
+Dalam konteks ini digunakan untuk menghitung kemungkinan suatu dokumen merupakan anggota dari kategori tertentu.
+Perhitungan ini didasarkan pada rumusan (5) dan (6).
+24P Hj=1 =s+ yjili=12s+l (5)P Hj=0 =1P Hj=1 , (6)dimana s adalah konstanta bernilai positif, biasanya bilangan positif yang bernilai kecil (misalnya 0.1).
+3.2 Pengukuran Jarak Metode yang efektif digunakan untuk mengukur nilai kemiripan antara dua buah dokumen teks adalah dengan menghitung tingkat kemiripan antara kedua buah dokumen tersebut dengan cosine similarity.
+Semakin besar nilai cosine similarity antara dua buah dokumen, maka semakin tinggi nilai kemiripan antara kedua dokumen tersebut.
+Sebuah dokumen teks dapat direpresentasikan sebagai suatu kumpulan term dengan ruang berdimensi .
+Kemiripan antara dua buah dokumen d1 dan d2 dapat didefinisikan sebagai 1,2 =1 .2 12 , (7) dimana d1.d2 adalah hasil product dari d1 dan d2 dihitung dengan 12=1,1 merupakan panjang vektor dari d1 yang dihitung dengan 2.
+Karena yang dibutuhkan dalam fuzzy c-means adalah distance measure untuk mengukur jarak antara suatu dokumen terhadap pusat cluster maka dari itu digunakan rumusan berikut[13]: 1,2 = 1(1,2).(8)3.
+3 K-Nearest Neighbors dan MAP Dari hasil pengelompokan dokumen, dilakukan proses klasifikasi menggunakan metode k-nearest neighbor untuk menentukan label dari setiap dokumen.
+Metode k-nearest neighbors membutuhkan parameter k untuk memilih k-dokumen yang memiliki kemiripan paling dekat dengan dokumen asal[12].
+Untuk menentukan k-tetangga terdekat digunakan informasi Search Set G.
+Pembentukan search set suatu dokumen mengikuti aturan Tabel 2.
+Setelah menentukan k-dokumen terdekat.
+Langkah berikutnya menghitung likelihood.
+Likelihood digunakan untuk menghitung kemungkinan suatu dokumen merupakan anggota dari suatu ktegori dengan memperhitungkan informasi ketetanggan dokumen tersebut.
+Likelihood dapat dihitung dengan menggunakan formula sebagai berikut: =|=1 =+(,) +1 + (,)=0 (9)=|=0 =+ (,) +1 +(,)=0, (10) dimana =0,1,., dan=1,2,,, sedangkan (,) dan(,) dapat dihitung dengan menggunakan formula berikut: , = ()=1 (11), =()=1 (12) = 1, = 0,(13)=1, (14)adalah label dokumen di pada kategori cj.
+Langkah terakhir adalah penentuan label.
+Penentuan label ini digunakan untuk menentukan suatu dokumen masuk dalam kategori mana.
+Untuk menetukan suatu dokumen ternasuk ke dalam kategori tertentu dapat dihitung mengggunakan formula berikut:= 1 , > 0,> 0,1, (15)dimana,==1= =1(16) ==0= =0(17) Jika nilai yjt bernilai 1 mengindikasikan bahwa dokumen j masuk pada kategori t.
+Sebaliknya, jika nilai yjtbernilai 0 maka dokumen j bukan termasuk anggota pada kategori t.
+4. UJI COBA
+Data yang digunakan untuk menguji sistem kategorisasi dokumen teks secara multi-label dengan menggunakan FCM-KNN didapatkan dari situs berita online Kompas.
+Data yang digunakan ada dua jenis yaitu data training dan data testing.
+Data training digunakan untuk membangun model klasifikasi.
+Data testing digunakan untuk melihat performa sistem dari model klasifikasi yang telah didapatkan.
+Data training untuk uji coba ini berjumlah 175 berita sedangkan untuk data testing digunakan sejumlah 50 berita.
+Untuk jumlah kategori yang digunakan sebanyak tiga macam yang terdiri atas kategori nasional, bisnis keuangan, dan pendidikan.
+Sebelum melakukan klasifikasi, dokumen-dokummen tersebut perlu dilakukan pra-proses untuk menyaring kata-kata penting yang dapat merepresentasikan isi dokumen.
+Adapun proses dari tahapan pra-proses secara garis besar dapat dibagi menjadi lima operasi meliputi: 1. Tokenizer: proses penghilangan angka, tanda baca (filtering) dan konversi huruf kapital dan huruf kecil (case folding).
+Selanjutnya kata-kata tersebut disebut sebagai term.
+2. Stopwords Removal: menghilangkan kata-kata yang dianggap tidak berkontribusi banyak untuk merepresentasikan konten dokumen.
+Setiap kata pada dokumen yang identik dengan kata yang terdapat didalam stopword list maka akan dihilangkan.
+Di dalam bahasa Indonesia banyak terdapat kata-kata yang sering muncul namun tidak merepresentasikan konten secara signifikan antara lain : dan, dari, yang.
+3. Stemming: Mendapatkan bentuk dasar dari kata-kata yang tersisa pada dokumen teks untuk mendapatkan bentuk dasar dari kata-kata yang memiliki stem sama, misalnya kata hubungan, menghubungkan dan hubungi akan direduksi menjadi bentuk yang sama yaitu hubung.
+4. Setiap term yang tersisa pada setiap dokumen diberi bobot sesuai dengan rumusan bobot TF-IDF.
+5. Representasikan setiap dokumen berdasarkan kumpulan terms hasil proses dari stemming menggunakan nilai hasil pembobotannya.
+Setelah pra-proses sudah dilakukan, maka dokumen pun siap untuk diklasifikasi.
+Uji coba dilakukan dengan menggunakan metode yang telah dijelaskan, yaitu FCM dan KNN.
+Sedangkan metode yang digunakan sebagai pembanding untuk klasifikasi multi label adalah MLKNN[6].
+MLKNN adalah metode yang dapat secara langsung digunakan untuk klasifikasi multi label tanpa merubah tiap-tiap kategori menjadi nilai biner.
+Untuk mengukur performa sistem ini digunakan dua jenis pengukuran yaituF1 dan BEP.
+1= 2 +(18)= +2 (19) ==1 +=1 (20) ==1 +=1 , (21) dimana p adalah jumlah kategori.
+TP(True Positive) adalah jumlah dokumen testing yang diklasifikasikan secara benar.
+FN(False Negative ) adalah banyaknya dokumen testing yang seharusnya menjadi anggota c tetapi tidak diklasifikasikan menjadi anggota c.
+FP (False Positive) adalah banyaknya dokumen testing yang seharusnya bukan anggota c tetapi dideteksi sebagai anggota c.
+Tabel 3 menunjukkan perbandingan nilai F1 dan BEP diantara dua metode, yaitu FCM-KNN dan MLKNN.
+Pada uji coba kali ini digunakan nilai= 0,33 dan nilai k yang berbeda-beda.
+Adapun parameter k yang diuji coba untuk k-nearest neighbors pada FCM-KNN dan MLKNN antara lain 5, 10, 15, 20 dan 25.
+Dapat dilihat bahwanilai F1 dan BEP terbaik untuk metode FCM-KNN dan MLKNN terjadi pada k=10.
+Tabel 3 juga menunjukkan metode FCM-KNN memperoleh nilai F1 sebesar 73,39% dan BEP sebesar 75,22%.
+Nilai ini lebih tinggi dibandingkan dengan MLKNN yang memperoleh nilai F1 sebesar 68,22% dan BEP sebesar 70,04%.
+Nilai F1 dan BEP yang didapatkan dapat berbeda-beda tergantung dataset yang digunakan.
+5. KESIMPULAN
+Kategorisasi dokumen teks secara multi-label adalah masalah yang berperan penting dalam sistem temu kembali informasi.
+Klasifikasi multi label berbeda dengan klasifikasi single label.
+Klasifikasi single label akan mengklasifikasikan suatu dokumen ke dalam satu kategori dokumen saja.
+Sedangkan klasifikasi multi label dapat mengelompokkan suatu dokumen ke lebih dari satu kategori.
+Pada makalah ini diusulkan sebuah metode baru, yaitu FCM-KNN, untuk melakukan klasifikasi multi labelartikel berbahasa Indonesia.
+Metode ini menggabungkan metode fuzzy c-means dan k-nearest neighbors.
+Uji coba dilakukan dengan membandingkan FCM-KNN dengan metode pengelompokkan multi-label yang lain yaitu MLKNN.
+Hasil uji coba menunjukkan bahwa metode yang diusulkan memberikan performa lebih baik dibanding MLKNN.

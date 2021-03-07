@@ -1,0 +1,118 @@
+Abstrak
+Analisis sentimen adalah proses yang bertujuan untuk menentukan isi dari dataset yang berbentuk teks bersifat positif, negatif atau netral.
+Saat ini, pendapat khalayak umum menjadi sumber yang penting dalam pengambilan keputusan seseorang akan suatu produk.
+Algoritma klasifikasi seperti Nave Bayes (NB), Support Vector Machine (SVM), dan Artificial Neural Network (ANN) diusulkan oleh banyak peneliti untuk digunakan pada analisis sentimen review film.
+Namun, klasifikasi sentimen teks mempunyai masalah pada banyaknya atribut yang digunakan pada sebuah dataset.
+Feature selection dapat digunakan untuk mengurangi atribut yang kurang relevan pada dataset.
+Beberapa algoritma feature selection yang digunakan adalah information gain, chi square, forward selection dan backward elimination.
+Hasil komparasi algoritma, SVM mendapatkan hasil yang terbaik dengan accuracy 81.10% dan AUC 0.904.
+Hasil dari komparasi feature selection, information gain mendapatkan hasil yang paling baik dengan average accuracy 84.57% dan average AUC 0.899.
+Hasil integrasi algoritma klasifikasi terbaik dan algoritma feature selection terbaik menghasilkan accuracy 81.50% dan AUC 0.929.
+Hasil ini mengalami kenaikan jika dibandingkan hasil eksperimen yang menggunakan SVM tanpa feature selection.
+Hasil dari pengujian algoritma feature selection terbaik untuk setiap algoritma klasifikasi adalah information gain mendapatkan hasil terbaik untuk digunakan pada algoritma NB, SVM dan ANN.
+Keywords: analisis sentimen, klasifikasi, feature selection, support vector machine, artificial neural network, nave bayes, information gain, chi square, forward selection, backward eliminations.
+1 PENDAHULUAN
+Analisis sentimen adalah proses yang bertujuan untuk memenentukan isi dari dataset yang berbentuk teks (dokumen, kalimat, paragraf, dll) bersifat positif, negatif atau netral (Kontopoulos, Berberidis, Dergiades, & Bassiliades, 2013).
+Analisis sentimen merupakan bidang penelitian yang cukup popular, karena dapat memberikan keuntungan untuk berbagai aspek, mulai dari prediksi penjualan (Yang Liu, Huang, An, & Yu, 2007), politik (Park, Ko, Kim, Liu, & Song, 2011), dan pengambilan keputusan para investor (Dergiades, 2012).
+Saat ini, pendapat khalayak umum telah menjadi salah satu sumber yang begitu penting dalam berbagai produk di jejaring sosial (C.-L.Liu, Hsaio, Lee, Lu, & Jou, 2012).
+Demikian juga dalam industri film (Tsou & Ma, 2011).
+Popularitas internet mendorong orang untuk mencari pendapat pengguna dari internet sebelum membeli produk atau melihat situs film (C.-L.Liu et al., 2012).
+Pendapat orang-orang dapat mengurangi ketidakpastian terhadap suatu produk tertentu dan membantu konsumen menyimpulkan kualitas suatu produk tertentu (Koh, Hu, & Clemons, 2010).
+Banyak situs yang menyediakan review tentang suatu produk yang dapat mencerminkan pendapat pengguna (C.-L.Liu et al., 2012).
+Salah satu contohnya adalah situs Internet Movie Database (IMDb).
+IMDb adalah situs yang berhubungan dengan film dan produksi film.
+Informasi yang diberikan IMDb sangat lengkap.
+Siapa saja aktor/aktris yang main di film itu, sinopsis singkat dari film, link untuk trailer film, tanggal rilis untuk beberapa negara dan review dari user-user yang lain.
+Ketika seseorang ingin membeli atau menonton suatu film, komentar-komentar orang lain dan peringkat film biasanya mempengaruhi perilaku pembelian mereka.
+Algoritma klasifikasi sentimen seperti nave bayes (NB) (Kang, Yoo, & Han, 2012), artificial neural network (ANN) (Moraes, Valiati, & Gavio Neto, 2013) (Zhu, Xu, & Wang, 2010), support vector machine (SVM) (Moraes et al., 2013) (S Tan & Zhang, 2008) diusulkan oleh banyak peneliti (Koncz & Paralic, 2011) untuk analisis sentimen review restaurant (Kang et al., 2012), dokumen (Moraes et al., 2013) (S Tan & Zhang, 2008), dan teks (Zhu et al., 2010).
+ANN mempunyai kelebihan dalam hal kemampuan untuk generalisasi, yang bergantung pada seberapa baik ANN meminimalkan resiko empiris namun ANN mempunyai kelemahan dimana menggunakan data pelatihan cukup besar (Vapnik, 1999).
+SVM mempunyai kelebihan yaitu bisa diterapkan untuk data yang berdimensi tinggi, tetapi SVM sulit untuk digunakan untuk data dengan jumlah yang besar (Nugroho, Witarto, & Handoko, 2003).
+NB mempunyai kelebihan mudah diimplementasikan, performance NB lebih baik.
+Pengklasifikasian pada NB didasarkan pada probabilitas bersyarat dari fitur salah satu kelas setelah fitur seleksi menggunakan algoritma yang ada (W.Zhang & Gao, 2011).
+Beberapa peneliti telah melakukan komparasi menggunakan beberapa algoritma pada beberapa dataset.
+Penelitian yang dilakukan oleh B.Pang et al (Pang, Lee, Rd, & Jose, 2002) membandingkan algoritma NB, maximum entropy dan SVM.
+Didapatkan hasil yang terbaik adalah SVM.
+Rodrigo Moraes et al (Moraes et al., 2013) membandingkan antara ANN, SVM dan NB.
+Didapatkan hasil yang terbaik adalah ANN.
+Ziqiong Zhang et al (Z.Zhang, Ye, Zhang, & Li, 2011) membandingkan antara SVM dan NB dan NB merupakan hasil yang terbaik.
+Songbo Tan et al (S Tan & Zhang, 2008)membandingkan NB, centroid classifier, k-nearest neighbor (KNN), winnow classifier dan SVM merupakan hasil yang terbaik.
+Dataset yang digunakan dalam penelitian di atas berbeda-beda.
+Penelitian yang dilakukan oleh B.Pang et all (Pang & Lee, 2002) menggunakan dataset review film.
+Rodrigo Moraes et al (Moraes et al., 2013) menggunakan dataset review film, Global Positioning System (GPS), buku dan kamera.
+Ziqiong Zhang (Z. Zhang et al., 2011) et al menggunakan dataset review restaurant, dan Songbo Tan (Songbo Tan & Wang, 2011) et al menggunakan dataset dokumen berbahasa cina.
+Salah satu masalah pada klasifikasi sentimen teks adalah banyaknya atribut yang digunakan pada sebuah dataset (Wang, Li, Song, Wei, & Li, 2011).
+Pada umumnya, atribut dari klasifikasi sentimen teks sangat besar, dan jika semua atribut tersebut digunakan, maka akan mengurangi kinerja dari classifier (Wang, Li, Zhao, & Zhang, 2013).
+Atribut yang banyak membuat accuracy menjadi rendah.
+Untuk mendapatkan accuracy yang lebih baik, atribut yang ada harus dipilih dengan algoritma yang tepat (Xu, Peng, & Cheng, 2012).
+Feature selection merupakan bagian penting untuk mengoptimalkan kinerja dari classifier (Wang et al., 2011).
+Feature selection dapat didasarkan pada pengurangan ruang fitur yang besar, misalnya dengan mengeliminasi atribut yang kurang relevan (Koncz & Paralic, 2011).
+Penggunaan algoritma feature selection yang tepat dapat meningkatkan accuracy (Xu et al., 2012) (Forman, 2000).
+Algoritma feature selection dapat dibedakan menjadi dua tipe, yaitu filter dan wrapper (Yuanning Liu et al., 2011).
+Contoh dari tipe filter adalah information gain (IG), chi-square, dan log likelihood ratio.
+Contoh dari tipe wrapper adalah forward selectiondan backward elimination (Vercellis, 2009).
+Hasil precision dari tipe wrapper lebih tinggi daripada tipe filter, tetapi hasil ini tercapai dengan tingkat kompleksitas yang besar.
+Masalah kompleksitas yang tinggi juga dapat menimbulkan masalah (Koncz & Paralic, 2011).
+Yang dan Perdersen (Yang & Pedersen, 1997) membandingkan lima algoritma feature selection pada klasifikasi dokumen.
+Lima algoritma tersebut adalah document frequency, IG, chi-square, term strength dan mutual information.
+Hasil penelitian mereka menunjukkan bahwa IG dan chi-square paling efisien.
+Forman (Forman, 2000) membandingkan 12 algoritma feature selection pada 229 klasifikasi teks menjadi dua kategori.
+Hasil penelitian menunjukkan IG dan chi-square mendapatkan hasil yang lebih baik dibandingkan metode Bi-Normal Separation yang diusulkan peneliti.
+Tan dan Zang (S Tan & Zhang, 2008) menggunakan algoritma feature selection untuk analisis sentimen dokumen berbahasa Cina.
+Hasil yang didapat IG mendapatkan yang paling baik.
+Dari semua hasil penelitian yang sudah dilakukan belum ditemukan model yang paling tepat untuk analisis sentimen.
+Maka dari itu penulis akan melakukan komparasi terhadap beberapa algoritma klasifikasi (NB, SVM dan ANN), komparasi terhadap beberapa algoritma feature selection (IG, chi-square, forward selection, backward elimination) dan melakukan integrasi dari hasil komparasi algoritma klasifikasi dan algoritmafeature selection yang terbaik pada dataset review film.
+2 PENELITIAN TERKAIT 
+Salah satu masalah pada klasifikasi sentiment teks adalah data yang berdimensi tinggi sehingga menyebabkan banyaknya atribut yang kurang relevan.
+Jika semua atribut tersebut digunakan, maka akan mengurangi kinerja dari sebuah classifier (Wang et al., 2013).
+Atribut yang banyak membuat accuracy menjadi rendah.
+Untuk mendapatkan accuracy yang lebih baik, atribut yang ada harus dipilih dengan algoritma yang tepat (Xu et al., 2012).
+Feature selection merupakan bagian penting untuk mengoptimalkan kinerja dari classifier (Wang et al., 2011).
+Feature selection dapat digunakan untuk mengeliminasi atribut yang kurang relevan (Koncz & Paralic, 2011).
+Beberapa peneliti telah mengkomparasi beberapa algoritma klasifikasi dan algoritma feature selection untuk mendapatkan hasil yang terbaik.
+Penelitian yang dilakukan oleh Peter Koncz dan Jan Paralic (Koncz & Paralic, 2011) menggunakan SVM untuk algoritma klasifikasinya dan algoritma feature selection n-grams+ document frequency dibandingkan dengan Information Gain (IG).
+Hasil yang diadapatkan IG lebih baik daripada algoritma yang diusulkan.
+Rodrigo Moraes, Joao Francisco Valiati, Wilson P (Moraes et al., 2013) mengkomparasi algoritma klasifikasi SVM, Nave Bayes (NB) dan Artificial Neural Network (ANN).
+Feature selection yang digunakan adalah expert knowledge, minimum frequency, IG, chi-square.
+Hasil yang tebaik untuk algoritma klasifikasi adalah ANN dan untuk feature selection terbaik adalah IG.
+Zhu Jian, Xu Chen dan Wang Han Shi (Zhu et al., 2010) mengkomparasi algoritma klasifikasi individual model (i-model) berbasis ANN dibandingkan dengan hidden markov model dan SVM.
+Feature selection yang digunakan adalah odd ratio.
+Hasil algoritma klasifikasi yang terbaik adalah i-model based on ANN.
+Songbo Tan dan Jin Zhang (S Tan & Zhang, 2008) mengkomparasi lima algoritma klasifikasi (centroid classifier, K-nearest neighbor, winnow classifier, NB dan SVM), empat algoritma feature selection (Mutual Information, IG, chi-square dan Document Frequency).
+Hasil eksperimen menunjukan bahwa IG mendapatkan hasil yang terbaik untuk feature selection dan algoritma SVM mendapatkan hasil yang terbaik untuk klasifikasi sentimen.
+3 METODE YANG DIUSULKAN 
+Peneliti mengusulkan untuk mengkomparasi tiga algoritma klasifikasi (SMV, NB dan ANN) dan mengkomparasi empat algoritma feature selection (IG, Chi Square, Forward Selection dan Backward Elimination).
+Gambar 1 menunjukan komparasi algoritma klasifikasi dan feature selection yang diusulkan.
+Sebelum dilakukan komparasi, dataset dilakukan text processing terlebih dahulu.
+Text processing bertujuan untuk mempersiapkan dokumen teks yang tidak terstruktur menjadi data terstruktur yang siap digunakan untuk proses selanjutnya.
+Tahapan text processing meliputi: 
+1. Tokenize merupakan proses untuk memisah-misahkan kata.
+Potongan kata tersebut disebut dengan token atau term (Manning, Raghavan, & Schutze, n.d.).
+2. Filter Token merupakan proses mengambil kata-kata penting dari hasil token (Langgeni, Baizal, & W, 2010).
+3. Stem yaitu proses pengubahan bentuk kata menjadi kata dasar.
+Metode pengubahan bentuk kata menjadi kata dasar ini menyesuaikan struktur bahasa yang digunakan dalam proses stemming (Langgeni et al., 2010).
+4. Filter stopwords adalah proses menghilangkan kata-kata yang sering muncul namun tidak memiliki pengaruh apapun dalam ekstraksi sentimen suatu review.
+Kata yang termasuk seperti kata penunjuk waktu, kata tanya (Langgeni et al., 2010).
+4 HASIL PENELITIAN 
+Penelitian yang dilakukan menggunakan komputer dengan spesifikasi CPU Intel Core i5 1.6GHz, RAM 8GB, dan sistem operasi Microsoft Windows 7 Professional 64-bit.
+Aplikasi yang digunakan adalah RapidMiner 5.2.
+Data penelitian ini menggunakan Data Movie Review Polarity Dataset V2.0 (Pang & Lee, 2002) yang diperoleh dari data movie review yang digunakan oleh Pang and Lee.
+Data ini dapat diambil di situs http://www.cs.cornell.edu/people/pabo/movie-review-data/.
+Data ini diambil dari situs IMDb.
+Data yang digunakan dalam penelitian terdiri dari 1000 review film, berisi 500 review positif dan 500 review negatif.
+Tabel 5 merupakan rangkuman hasil komparasi algoritma klasifikasi.
+Berdasarkan Tabel 1, Gambar 2 dan Gambar 3 didapat hasil terbaik adalah SVM dengan accuracy = 81.10% dan AUC = 0.904.
+Hal ini mengkonfirmasi pada penelitian yang dilakukan oleh Songbo Tan (S Tan & Zhang, 2008) dalam mengkomparasi algoritma klasifikasi, dan SVM mendapatkan nilai yang paling baik.
+Klasifikasi pada analisis sentimen sangat tergantung pada data yang diuji.
+Untuk pengujian data IMDB review film, SVM merupakan algoritma yang paling baik.
+SVM menghasilkan nilai accuracy dan AUC terbaik dibanding ANN dan NB.
+Hal ini mengkonfirmasi pada penelitian yang dilakukan oleh Songbo Tan (S Tan & Zhang, 2008) dalam mengkomparasi algoritma klasifikasi, dan SVM mendapatkan nilai yang paling baik.
+Klasifikasi pada analisis sentimen sangat tergantung pada data yang diuji.
+Untuk pengujian data IMDB review film, SVM merupakan algoritma yang paling baik.
+Tabel 2 merupakan tabel komparasi feature selection terbaik.
+Data dari Tabel 2 diambil berdasarkan average (rata-rata) dari masing-masing parameter algoritma feature selection.
+Dari hasil average tersebut, diambil nilai average yang paling baik, dan kemudian dirangkumkan seperti pada Tabel 2.
+Berdasarkan Tabel 2 didapatkan hasil algoritma feature selection terbaik adalah information gain.
+Hal ini mengkonfirmasi pada penelitian yang dilakukan oleh Peter Koncz (Koncz & Paralic, 2011), Rodrigo Moraes (Moraes et al., 2013), dan Songbo Tan (S Tan & Zhang, 2008) yang juga menghasilkan information gain sebagai algoritma feature selection yang terbaik.
+5 KESIMPULAN
+Hasil dari komparasi algoritma klasifikasi antara Support Vector Machine (SVM), Nave Bayes (NB) dan Artificial Neural Network (ANN) didapatkan SVM dengan hasil terbaik dengan nilai accuracy = 81.10% dan nilai AUC = 0.904.
+Hasil dari komparasi algoritma feature selection antara information gain, chi square, forward selection, backward elimination didapatkan information gain pada parameter top k dengan nilai k = 200 sebagai hasil terbaik, dengan nilai accuracy average adalah 84.57% dan nilai AUC = 0.899.

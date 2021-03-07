@@ -1,0 +1,144 @@
+Abstrak
+Penelitian ini difokuskan untuk mengevaluasi kinerja akademik mahasiswa pada tahun ke-2 dan diklasifikasikan dalam kategori mahasiswa yang dapat lulus tepat waktu atau tidak.
+Kemudian dari klasifikasi tersebut, sistem akan memberikan rekomendasi solusi untuk memandu mahasiswa lulus dalam waktu yang paling tepat dengan nilai optimal berdasarkan histori nilai yang telah ditempuh mahasiswa.
+Input dari sistem ini adalah data induk mahasiswa dan data akademik mahasiswa.
+Sampel mahasiswa angkatan 2005-2009 yang sudah dinyatakan lulus akan digunakan sebagai data training dan testing.
+Sedangkan data mahasiswa angkatan 2010-2011 dan belum lulus akan digunakan sebagai data target.
+Data input akan diproses menggunakan teknik data mining algoritma Naive Bayes Classifier (NBC) untuk membentuk tabel probabilitas sebagai dasar proses klasifikasi kelulusan mahasiswa.
+Output dari sistem ini berupa klasifikasi kinerja akademik mahasiswa yang diprediksi kelulusannya dan memberikan rekomendasi untuk proses kelulusan tepat waktu atau lulus dalam waktu yang paling tepat dengan nilai optimal.
+Hasil pengujian menunjukkan bahwa faktor yang paling berpengaruh dalam penentuan klasifikasi kinerja akademik mahasiswa yaitu Indeks Prestasi Komulatif (IPK), Indeks Prestasi (IP) semester 1, IP semester 4, dan jenis kelamin.
+Sehingga faktor-faktor tersebut dapat digunakan sebagai bahan evaluasi bagi pihak pengelola perguruan tinggi.
+Pengujian pada data mahasiswa angkatan 2005-2009, algoritma NBC menghasilkan nilai precision, recall, dan accuracy masing-masing 83%, 50%, dan 70%.
+Kata KunciKinerja akademik mahasiswa, data mining, dan Naive Bayes Classifier.
+I. PENDAHULUAN
+Mahasiswa merupakan salah satu aspek penting dalam evaluasi keberhasilan penyelenggaraan program studi pada suatu perguruan tinggi.
+Pemantauan mahasiswa yang masuk, peningkatan kemampuan mahasiswa, prestasi yang dicapai mahasiswa, rasio kelulusan terhadap jumlah total mahasiswa, dan kompetensi lulusan seyogyanya mendapatkan perhatian yang serius untuk memperoleh kepercayaan stakeholder dalam menilai dan menetapkan penggunaan lulusannya.
+Berdasarkan uraian di atas, pada penelitian ini akan dibuat sebuah sistem untuk mengklasifikasikan kelulusan mahasiswa dengan cara mengevaluasi kinerja pada tahun pertama dan atau tahun kedua.
+Pada penelitian ini, digunakan teknik data mining untuk menemukan pola kelulusan mahasiswa yang sudah lulus, kemudian dijadikan dasar untuk memprediksi kelulusan mahasiswa pada tahun ke-2.
+Data mining adalah proses menemukan hubungan dalam data yang tidak diketahui oleh pengguna dan menyajikannya dengan cara yang dapat dipahami sehingga hubungan tersebut dapat menjadi dasar pengambilan keputusan [7].
+Teknik data mining yang akan digunakan dalam penelitian ini adalah algoritma NBC yang merupakan sebuah pengklasifikasi probabilitas sederhana yang mengaplikasikan Teorema Bayes.
+Ide dasar dari Teorema Bayes adalah menangani masalah yang bersifat hipotesis yakni mendesain suatu klasifikasi untuk memisahkan objek [9].
+Beberapa penelitian telah banyak dilakukan dengan menggunakan teknik data mining untuk menggali berbagai informasi dari sebuah database mahasiswa, seperti untuk analisis hubungan antara jalur masuk mahasiswa baru, prestasi dan kelulusannya menggunakan algoritma K-Means [1]; monitoring dan evaluasi kinerja akademik mahasiswa menggunakan teknik data mining [8]; menerapkan data mining untuk membangun SPK dalam mengevaluasi dan memilih calon mahasiswa internasional yang paling memenuhi syarat [4]; prediksi kelulusan mahasiswa dengan menerapkan algoritma Nave Bayes dan algoritma C4.5 [11]; model prediksi kinerja akademik mahasiswa tahun pertama menggunakan NBC [2]; prediksi kinerja akademik mahasiswa dengan algoritma K-Means clustering yang hasilnya setelah proses clustering mahasiswa akan dikelompokkan ke dalam tiga kategori, yaitu kategori mahasiswa yang memiliki kinerja tinggi, sedang, dan rendah [10]; dan prediksi kinerja mahasiswa menggunakan algoritma klasifikasi data mining yaitu decision tree classifier, neural network, dan nearest neighbour classifier [5].
+Karena itu, pada penelitian ini akan dikembangkan suatu sistem yang dapat mengklasifikasi kelulusan mahasiswa pada tahun ke-2 dengan melihat pola kelulusan mahasiswa beberapa periode sebelumnya.
+II. LANDASAN TEORI 
+A. Data Mining 
+Data mining adalah proses yang menggunakan teknik statistik, matematika, kecerdasan buatan, dan machine learning untuk mengekstraksi dan mengidentifikasi informasi yang bermanfaat dan pengetahuan yang terkait dari berbagai database besar [12].
+Istilah data mining memiliki hakikat sebagai disiplin ilmu yang tujuan utamanya adalah untuk menemukan, menggali, atau menambang pengetahuan dari data atau informasi yang kita miliki.
+Data mining, sering juga disebut sebagaiKnowledge Discovery inDatabase(KDD).
+KDD adalah kegiatan yang meliputi pengumpulan, pemakaian data, historis untuk menemukan keteraturan, pola atau hubungan dalam set data berukuran besar [9].
+1. Metode Pelatihan 
+Secara garis besar metode pelatihan yang digunakan dalam teknik-teknik data mining dibedakan ke dalam dua pendekatan, yaitu [9]:  Unsupervised learning, metode ini dierapkan tanpa adanya latihan (training) dan tanpa ada guru (teacher).
+Guru di sini adalah label dari data.
+ Supervised learning, yaitu metode belajar dengan adanya latihan dan pelatih.
+Dalam pendekatan ini, untuk menemukan fungsi keputusan, fungsi pemisah atau fungsi regresi, digunakan beberapa contoh data yang mempunyai output atau label selama proses training.
+2. Pengelompokan Data Mining 
+Ada beberapa teknik yang dimiliki data miningberdasarkan tugas yang bisa dilakukan, yaitu [6]:  Deskripsi 
+Para peneliti biasanya mencoba menemukan cara untuk mendeskripsi-kan pola dan trend yang tersembunyi dalam data.
+ Estimasi 
+Estimasi mirip dengan klasifikasi, kecuali variabel tujuan yang lebih kearah numerik dari pada kategori.
+ Prediksi
+Prediksi memiliki kemiripan dengan estimasi dan klasifikasi.
+Hanya saja, prediksi hasilnya menunjukkan sesuatu yang belum terjadi (mungkin terjadi di masa depan).
+ Klasifikasi
+Dalam klasifikasi variabel, tujuan bersifat kategorik.
+Misalnya, kita akan mengklasifikasikan pendapatan dalam tiga kelas, yaitu pendapatan tinggi, pendapatan sedang, dan pendapatan rendah.
+ Clustering
+Clustering lebih ke arah pengelompo-kan record, pengamatan, atau kasus dalam kelas yang memiliki kemiripan.
+ Asosiasi
+Mengidentifikasi hubungan antara berbagai peristiwa yang terjadi pada satu waktu.
+3. Tahap-tahap Data Mining 
+Sebagai suatu rangkaian proses, data mining dapat dibagi menjadi beberapa tahap proses yang diilustrasikan pada Gambar 1. 
+Tahap-tahap tersebut bersifat interaktif, pemakai terlibat langsung atau dengan perantaraan knowledge base.
+Tahap-tahap data mining adalah sebagai berikut: o Pembersihan data (data cleaning) 
+Pembersihan data merupakan proses menghilang-kan noise dan data yang tidak konsisten atau data tidak relevan.
+o Integrasi data (data integration) 
+Integrasi data merupakan penggabungan data dari berbagai database ke dalam satu database baru.
+o Seleksi data (data selection) 
+Data yang ada pada database sering kali tidak semuanya dipakai, oleh karena itu hanya datayangsesuai untuk dianalisis yang akan diambil daridatabase.
+o Transformasi data (data transformation) 
+Data diubah atau digabung ke dalam format yang sesuai untuk diproses dalam data mining.
+o Proses mining 
+Merupakan suatu proses utama saat metode diterapkan untuk menemukan pengetahuan berharga dan tersembunyi dari data.
+Beberapa metode yang dapat digunakan berdasarkan pengelompokan data mining dapat dilihat pada Gambar 2. 
+o Evaluasi pola (pattern evaluation) 
+Untuk mengidentifikasi pola-pola menarik ke dalam knowledge based yang ditemukan.
+o Presentasi pengetahuan (knowledge presentation) 
+Merupakan visualisasi dan penyajian pengetahuan mengenai metode yang digunakan untuk memperoleh pengetahuan yang diperoleh pengguna.
+B. Naive Bayes Classifier (NBC) 
+NBC merupakan salah satu algoritma dalam teknik data mining yangmenerapkan teori Bayes dalam klasifikasi [9].
+Teorema keputusan Bayes adalah adalah pendekatan statistik yang fundamental dalam pengenalan pola (pattern recoginition).
+Naive bayes didasarkan pada asumsi penyederhanaan bahwa nilai atribut secara konditional saling bebas jika diberikan nilai output.
+Dengan kata lain, diberikan nilai output, probabilitas mengamati secara bersama adalah produk dari probabilitas individu.
+Dengan memasukkan Persamaan 1 ke Persamaan 2 akan diperoleh pendekatan yang digunakan dalam NBC.
+III. METODE PENELITIAN
+A. Data 
+Pada penelitian ini digunakan data sebagai berikut: 1. Data training dan data testing 
+Data ini akan digunakan sebagai proses mining dan pengujian, berupa sampel data induk dan data akademik mahasiswa angkatan 2005-2009 yang sudah dinyatakan lulus.
+Data ini memiliki atribut NIM, jenis kelamin, asal sekolah, jalur masuk, nilai ujian nasional, gaji orangtua, IP semester 1-4, IPK semester 1-4, dan keterangan lulus.
+2. Data target 
+Data ini berupa sampel data induk data akademik mahasiswa angkatan 2010-2011 yang diasumsikan belum lulus.
+Data ini memiliki atribut NIM, jenis kelamin, asal sekolah, jalur masuk, nilai ujian nasional, gaji orangtua, IP semester 1-4, dan IPK semester 1-4.
+Setelah proses mining, data ini akan memiliki kelas berdasarkan tabel probabilitas yang diperoleh dari data training.
+3. Data riwayat matakuliah Data ini digunakan untuk mengevaluasi data target ketika diklasifikasikan lulus tidak tepat waktu.
+Data ini akan dianalisis untuk memberikan rekomendasi dalam proses perkuliahan berikutnya.
+Data ini memiliki atribut NIM, kode matakuliah, dan nilai.
+B. Tahapan Penelitian 
+Pada penelitian ini, tahapan penelitian yang dilakukan adalah seperti pada Gambar 3.
+ Penelitian ini secara garis besar meliputi beberapa kegiatan inti yaitu pembuatan proposal, pengumpulan data, pengolahan data, implementasi NBC, pengujian, dan analisis hasil.
+Pada tahap pengolahan ada beberapa kegiatan sesuai dengan tahapan yang ada pada data mining, yaitu pembersihan data, integrasi data, seleksi data, transformasi data, dan pembentukan dataset yang dalam penelitian akan digunakan sebagai data training dan data testing.
+C. Desain Sistem 
+Berikut ini adalah desain sistem yang digunakan pada penelitian ini: 1. Arsitektur Sistem 
+Pada bagian komponen sistem terbagi menjadi empat lingkungan, yaitu basis data, engine, basis pengetahuan, dan antarmuka pengguna.
+Arsitektur sistem dapat dilihat pada Gambar 4. 
+2. Pemodelan Sistem 
+Pada penelitian ini sistem dimodelkan menggunakanuse case diagram untuk memodelkan tingkah laku (behavior) sistem yang akan dibuat.
+3. Algorima NBC
+Langkah-langkah algoritma NBC pada Gambar 6 dapat diuraikan sebagai berikut:  Baca data training  Cari nilai probabilitasnya dengan cara menghitung jumlah data yang sesuai dari kategori yang sama dibagi dengan jumlah data pada kategori tersebut  Mendapatkan nilai dalam tabel probabilitas.
+4. Desain Basis Data 
+Pada desain basis data digambarkan beberapa tabel, atribut, dan relasinya yang akan digunakan sebagai penyimpanan data training, data testing, dan data target pada penelitian ini.
+IV. PENGUJIAN DAN PEMBAHASAN 
+A. Persiapan Data 
+Pada tahap pengujian ini, data yang akan digunakan sudah dibersihkan dan ditranformasi-kan dalam bentuk kategori.
+Dalam pengujian ini digunakan data sampel mahasiswa angkatan 2005-2009 yang sudah dinyatakan lulus dari perguruan tinggi.
+Jumlah data yang digunakan adalah 100 data dengan kelas Tepat dan Tidak Tepat masing-masing berjumlah 33 dan 67.
+Dalam proses pengujian, data dibagi menjadi 2 bagian yaitu data latih dan data uji.
+Oleh algoritma NBC, data latih digunakan untuk membentuk tabel probabilitas, dan data uji digunakan untuk menguji tabel probabilitas yang telah terbentuk.
+B. Pengujian 
+Pengujian ini betujuan untuk mengetahui unjuk kerja dari algoritma NBC dalam mengklasifikasikan data ke dalam kelas yang telah ditentukan.
+Pada uji coba ini, diberikan data latih untuk membentuk tabel probabilitas.
+Langkah selanjutnya akan diberikan data uji untuk menguji tabel probabilitas yang sudah terbentuk.
+Unjuk kerja diperoleh dengan memberikan nilai pada confusion matrix untuk menghitung nilai precision, recall, dan accuracy dari hasil pengujian.
+Berikut hasil pengujian dari beberapa percobaan: 1. Percobaan ke-1 Menggunakan data latih sebanyak 20 data sampel 2005 dengan data uji sebanyak 20 set data.
+Setelah proses import data training, berikut hasil perhitungan dari 20 data training pada aplikasi: Perhitungan pada Gambar 8 merupakan dasar pembuatan tabel probabilitas yang akan digunakan pada proses klasifikasi data testing.
+Tabel 1 adalah perhitungan nilai precision, recall, dan accuracy dengan confusion matrix untuk percobaan ke-5.
+2. Percobaan ke-2 Menggunakan data latih sebanyak 40 data sampel 2005-2006 dengan data uji sebanyak 20 set data.
+Tabel 2 adalah perhitungan nilai precision, recall, dan accuracy dengan confusion matrix untuk percobaan ke-5.
+3. Percobaan ke-3 Menggunakan data latih sebanyak 60 data sampel 2005-2007 dengan data uji sebanyak 20 set data.
+Tabel 3 adalah perhitungan nilai precision, recall, dan accuracy dengan confusion matrix untuk percobaan ke-5.
+4. Percobaan ke-4 Menggunakan data latih sebanyak 80 data sampel 2005-2007 dengan data uji sebanyak 20 set data.
+Tabel 4 adalah perhitungan nilai precision, recall, dan accuracy dengan confusion matrix untuk percobaan ke-5.
+5. Percobaan ke-5 Menggunakan data latih sebanyak 100 data sampel 2005-2009 dengan data uji sebanyak 20 set data.
+Tabel 5 adalah perhitungan nilai precision, recall, dan accuracy dengan confusion matrix untuk percobaan ke-5.
+Selain pengujian pada data testing, juga akan dilakukan klasifikasi kelulusan pada data target.
+Data target berupa sampel mahasiswa angkatan 2010-2011 dan belum lulus.
+Data ini belum memiliki kelas seperti pada data latih dan data uji.
+Berikut adalah tampilan hasil klasifikasi pada data target: Jika hasil klasifikasi Tidak Tepat, maka sistem akan memberikan rekomendasi dengan melakukan analisis pada data riwayat matakuliah yang telah ditempuh.
+Hasil evaluasi kinerja akademik mahasiswa meliputi informasi sks dan saran untuk proses perkuliahan pada semester berikutnya agar dapat lulus dalam waktu yang tepat.
+C. Pembahasan 
+Dari hasil pengujian dapat diketahui nilai precision, recall, dan accuracy untuk setiap percobaan.
+Perhitungan rata-rata dari semua percobaan menghasilkan nilai precision, recall, dan accuracy masing-masing 67%, 44%, dan 60% .
+Nilai precision tertinggi dari semua percobaan yaitu 83%, sedangkan nilai precision terendah dari semua percobaan yaitu 56%.
+Untuk Nilai recall tertinggi dari semua percobaan yaitu 50%, sedangkan nilai recall terendah dari semua percobaan yaitu 20%.
+Nilai accuracy tertinggi dari semua percobaan yaitu 70%, sedangkan nilai accuracy terendah dari semua percobaan yaitu 55%.
+Perbandingan nilai precision, recall, dan accuracy untuk setiap percobaan dapat divisualisasikan dalam bentuk grafik seperti pada Gambar 11.
+Dari grafik tersebut dapat dilihat bahwa besar kecilnya jumlah data latih tidak selalu berbanding lurus dengan nilai precision, recall, dan accuracy dari data uji.
+Secara umum, hasil dari pengujian menunjukkan nilai akurasi yang sadang, Hal ini disebabkan karena faktor penentu kelulusan mahasiswa tepat atau tidak tepat waktu pada kenyataannya memiliki nilai yang tidak konsisten.
+Setelah proses pengujian terhadap data uji, hasil mining yang terbaik akan digunakan untuk mengklasifikasikan data target ke dalam kelas tepat atau tidak tepat waktu kelulusan.
+Mahasiswa yang menjadi data target akan dievaluasi data riwayat akademik yang telah ditempuh dan akan diberikan saran-saran meliputi saran untuk mengulang matakuliah pada semester berikutnya atau megikuti SP, saran untuk melaksanakan PKL, saran untuk ujian seminar, saran untuk ujian komprehensif, dan saran untuk ujian skripsi.
+Saran-saran ini akan diberikan jika kondisi yang disyaratkan pada proses rekomendasi terpenuhi.
+Misalkan untuk saran mengulang matakuliah, akan diberikan jika pada riwayat akademik ditemukan nilai matakuliah yang lebih kecil dari C, yaitu nilai D atau E.
+V. KESIMPULAN
+Dari hasil penelitian dapat disimpulkan bahwa: 1. Pengujian pada data mahasiswa angkatan 2005-2009 mining NBC menghasilkan nilai precision, recall, dan accuracy masing-masing 83%, 50%, dan 70%.
+2. Penentuan data training dapat mempengaruhi hasil pengujian, karena pola data training tersebut akan dijadikan sebagai rule untuk menentukan kelas pada data testing.
+Sehingga besar atau kecilnya prosentase tingkat precision, recall, dan accuracy dipengaruhi juga oleh penentuan data training.
+3. Hasil mining NBC dapat digunakan untuk mengklasifikasikan kinerja akademik mahasiswa tahun ke-2 yang dalam penelitian ini dijadikan data target.

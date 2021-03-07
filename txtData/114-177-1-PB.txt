@@ -1,0 +1,178 @@
+Abstrak
+Karat dan mosaik adalah penyakit pada tebu yang menyerang tebu di Indonesia dan menimbulkan kerugian.
+Teknologi informasi untuk deteksi penyakit tebu diperlukan dalam menunjang peningkatan produksi tebu yang dapat menghasilkan panen optimal.
+Penelitian yang berkembang dalam identifikasi penyakit tanaman melalui identifikasi citra digital daun belum ada yang khusus membahas tebu, tetapi mengenai penyakit tanaman secara umum.
+Penelitian ini membangun sistem identifikasi penyakit pada daun tebu melalui identifikasi citra digital daun dengan pemilihan fitur tekstur dan warna melalui gray level co-occurrence matrix (GLCM) dan color moments.
+Tahap awal penelitian adalah pengumpulan data citra daun tebu berpenyakit dari survei lapangan.
+Tahap selanjutnya adalah pre-processing citra untuk dapat diolah ke tahap selanjutnya yaitu ekstraksi fitur.
+Ekstraksi fitur tekstur dilakukan dengan gray level co-occurrence matrix (GLCM) dan ekstraksi fitur warna dengan color moments.
+Klasifikasi dilakukan berdasarkan fitur yang telah diekstraksi sebelumnya.
+Penelitian ini menggunakan metode klasifikasi support vector machine (SVM).
+Pengujian dilakukan untuk mengetahui fitur yang kemunculannya menyebabkan perubahan dalam hasil klasifikasi dengan 4 skenario meliputi penghapusan fitur bentuk, pemilihan fitur tekstur, pemilihan fitur warna, dan kombinasi fitur tekstur dan warna.
+Kombinasi fitur tekstur dengan GLCM correlation, energy,homogeneity dan variance bersama fitur warna dengan color moments 1,2 dan 3 yang diuji pada skenario 4 merupakan kombinasi fitur yang direkomendasikan untuk identifikasi penyakit pada daun tebu dengan akurasi 97%.
+Kata kunci: ekstraksi fitur, penyakit tebu, citra daun, GLCM, dan color moments.
+1. PENDAHULUAN
+Identifikasi penyakit tebu diperlukan dalam menunjang peningkatan produksi tebu yang dapat menghasilkan panen optimal dalam masa perubahan iklim global.
+Identifikasi penyakit tebu secara manual dilakukan dengan mengamati gejala yang tampak pada daun.
+Penyakit karat dapat dideteksi dari adanya bercak berwarna kuning sampai coklat pada daun (Raid, 2006).
+Gejala paling menonjol dari penyakit mosaik adalah perbedaan warna dari warna daun yang hijau (normal) dan adanya garis atau area klorotik berwarna hijau pucat sampai dengan kuning tua (Comstock, 2009).
+Teknologi informasi mempermudah identifikasi penyakit tanaman karena tidak semua petani memiliki pemahaman detail tentang penyakit dan petani tidak perlu menghafal gejala penyakit yang merugikan dan tidak merugikan.
+Karat danmosaik adalah penyakit yang menyerang tebu di Indonesia dan menimbulkan kerugian.
+Penyakit karat pernah menyebabkan penurunan panen sebanyak 40% di Florida pada 1988 (Raid, 2006).
+Penyakit mosaik pernah mengakibatkan collapse nya industri gula di Louisiana pada pertengahan tahun 1920 (Comstock, 2009).
+Teknologi yang berkembang untuk identifikasi penyakit tanaman tebu saat ini berkembang dalam bidang penginderaan jauh, antara lain (Apan, 2004; Abdel-Rahman, 2008; Grisham, 2010).
+Penelitian yang berkembang mengenai identifikasi penyakit tanaman melalui citra digital daun membahas mengenai penyakit tanaman secara umum (Camargo, 2009) yaitu pada pisang, plantain, jagung, alfalfa, kapas dan kedelai.
+Penelitian (Camargo, 2009) menggunakan fitur bentuk (solidity, extent, minor axis length, dan eccentricity), tekstur (contrast, correlation, energy, homogeneity, fractal dimension, dan lacunarity) dan warna (histogram frekuensi dan grey level untuk masing-masing channel warna).
+Penelitian (Asraf, 2012) merupakan studi perbandingan kernel SVM pada penyakit yang menyerang kelapa sawit.
+Penelitian (Asraf, 2012) menggunakan fitur tekstur (histogram dan GLCM) dan warna (rata-rata RGB dan perbandingan nilai merah dan hijau dalam ruang warna RGB).
+Penelitian (Aduwo, 2012) membahas mengenai identifikasi penyakit mosaik pada singkong ditinjau dari citra digital daun.
+Penelitian (Aduwo, 2012) menggunakan fitur bentuk (Scale Invariant Feature Transformation dan Speeded Up Robust Features) dan warna (histogram warna dengan Hue pada ruang warna HSV).
+Penelitian yang berkembang mengenai identifikasi penyakit tanaman tebu saat ini berkembang dalam bidang penginderaan jauh, sedangkan identifikasi penyakit tanaman melalui citra digital daun belum ada yang membahas mengenai penyakit pada daun tebu oleh karena itu penelitian ini membahas mengenai fitur yang tepat sehingga diharapkan cocok untuk identifikasi penyakit pada daun tebu.
+Penelitian mengenai identifikasi penyakit tanaman ditinjau dari citra digital daun (Camargo, 2009) menyarankan penggunaan fitur bentuk, tekstur dan warna.
+Penelitian ini tidak menggunakan fitur bentuk karena bentuk penyakit karat tidak berpola, selain itu fitur bentuk lebih cocok untuk klasifikasi spesies tanaman dengan bentuk daun berbeda pola (Shabanzade, 2011) dan identifikasi penyakit tanaman dengan gejala daun berlubang atau berubah bentuk di bagian tepi daun, misalnya pada penyakit mosaik pada daun singkong (Aduwo, 2012).
+Terdapat perbedaan tekstur antara daun normal, berpenyakit karat dan mosaik (Raid, 2006; Comstock, 2009) sehingga perlu adanya ekstraksi fitur tekstur.
+Penelitian ini memilih gray level co-occurrence matrix untuk fitur tekstur karena GLCM sebagai fitur untuk mengetahui tekstur daun pernah dipakai untuk deteksi spesies tanaman dan menghasilkan akurasi yang tinggi (Shabanzade, 2011), Kompleksitas tekstur citra sulit untuk didefiniskan dan dikuantifikasi, namun GLCM bisa dipakai untuk mengkuantifikasi dan membandingkan berbagai aspek tekstur citra (Honeycutt, 2008).
+Penggunaan color moments untuk warna karena terdapat perbedaan warna pada daun normal dan berpenyakit (Raid, 2006) dan (Comstock, 2009).
+Color moments merupakan metode ekstraksi fitur yang efektif untuk analisis citra berdasarkan warna karena metode tersebut memiliki dimensi vektor fitur yang paling rendah dan juga kompleksitas komputasional yang paling rendah jika dibandingkan dengan metode lainnya seperti color histogram,color correlogram dan color structure descriptor (Patil, 2011).
+Beberapa penelitian untuk analisis penyakit tanaman melalui citra daun menghasilkan hasil salah satunya (Daoliang Li, 2010) pada klasifikasi serat kapas menggunakan nilai rata-rata dan standar deviasi RGB.
+Tahap awal penelitian adalah pengumpulan data citra daun tebu berpenyakit dari survei lapangan.
+Tahap selanjutnya adalah pre-processing citra untuk dapat diolah pada tahap ekstraksi fitur.
+Citra yang ditangkap kamera berada dalam format RGB.
+RGB tidak dapat merepresentasikan warna dalam persepsi manusia sehingga (Li-jie, 2009) menggunakan La*b* untuk segmentasi citra.
+Oleh karena itu, ruang warna yang digunakan dalam penelitian ini diubah dari RGB ke La*b*.
+Pada tahap ekstraksi fitur, fitur tekstur diekstraksi dengan GLCM dan fitur warna diekstraksi dengan color moments.
+Klasifikasi daun tebu berpenyakit dilakukan berdasarkan fitur yang telah diekstraksi pada tahap sebelumnya.
+Penelitian ini menggunakan metode support vector machine (SVM) karena SVM cocok untuk klasifikasi yang datanya sedikit (Li, 2010).
+Selain itu SVM memberikan hasil akurasi yang tinggi untuk analisis penyakit tanaman (Camargo, 2009b; Asraf, 2012).
+Pengujian dilakukan untuk mengetahui fitur yang kemunculannya menyebabkan perubahan dalam hasil klasifikasi.
+Berdasarkan paparan masalah mengenai kebutuhan identifikasi penyakit pada daun tebu melalui analisis citra digital daun, penelitian ini membentuk metode identifikasi penyakit pada daun tebu.
+Fitur tekstur dengan gray level co-occurrence matrix dan fitur warna dengan color moments yang dipadukan dengan metode klasifikasi SVM diharapkan cocok untuk identifikasi penyakit pada daun tebu.
+2.PENYAKIT PADA DAUN TEBU 
+Tebu (Saccharum Officinarum L) merupakan tanaman perkebunan satu musim yang batangnya terdapat zat gula sehingga dapat dimanfaatkansebagai bahan baku gula dan vetsin.
+Tebu termasuk keluarga rumput-rumputan (gramineae).
+Penyakit karat tebu disebabkan oleh jamur Puccinia Melanocephela.
+Jamur tersebut kini ditemukan hampir di setiap area dimana tebu tumbuh.
+Penyebaran penyakit ini menyebabkan dampak ekonomi yang kuat.
+Penyakit karat adalah penyakit yang gejalanya dapat dilihat dari daun.
+Gejala awal penyakit ini adalah bercak kecil berwarna kuning, kemudian menjadi semakin besar dan dapat menjadi berwarna coklat.
+Lesi dari penyakit karat berkisar antara panjang 2-10 mm, bahkan kadang dapat mencapai 30 mm.
+Lebar lesi penyakit karat antara 1-3 mm (Raid, 2006).
+Gambar 1 menunjukkan penyakit karat (Raid, 2006).
+Gambar 1 Penyakit Karat Penyakit yang disebabkan oleh sugarcane mosaic virus (SCMV) sering disebut mosaik.
+Penyakit mosaik sering terjadi pada negara di mana tebu berkembang.
+Penyakit mosaik dapat teridentifikasi dari gejala yang muncul dari daun.
+Gejala paling menonjol dari penyakit mosaik adalah perbedaan warna dari warna daun yang hijau (normal) menjadi adanya garis atau area klorotik berwarna hijau pucat sampai dengan kuning tua.
+Infeksi penyakit ini dapat pula menjadikan daun berwarna merah.
+Penyakit ini lebih mudah menginfeksi tanaman muda yang sedang berkembang daripada tanaman tebu dewasa dengan tingkat pertumbuhan yang lebih rendah (Comstock, 2009).
+Gambar 2 menunjukkan penyakit mosaik (Comstock, 2009).
+3. GRAY LEVEL CO-OCCURRENCE MATRIX (GLCM) 
+GLCM adalah matriks yang dibangun menggunakan histogram tingkat kedua (Albregtsen, 2008).
+Ketergantungan spasial dari gray level dihitung dengan 14 fitur dari co-occurrence matrix (Haralick, 1973).
+Pemilihan fitur GLCM didasarkan dari analisis hasil pengujian akurasi untuk memilih fitur terbaik yang cocok untuk identifikasi penyakit pada daun tebu.
+Tabel 1 menunjukkan peringkat akurasi tertinggi ke terendah dari fitur GLCM.
+Dari Tabel 1 diketahui bahwa dari 14 fitur GLCM, correlation beserta turunannya yaitu information measures of correlation 1 dan 2 menempati 3 tempat teratas untuk pengujian akurasi, sehingga untuk pemilihan fitur GLCM yang pertama dipilih correlation.
+Hasil pengujian akurasi teratas kemudian diikuti energy dan sum entropy, energy dan entropy sama-sama merepresentasikan keseragaman pola tekstur ditinjau dari rumusnya.
+Entropy akan bernilai tinggi saat teksturnya tidak seragam, sedangkan energy bernilai rendah.
+Energy lebih dipilih dari entropy karena nilai energy sudah berada dalam range yang dinormalisasi.
+Oleh karena itu, pemilihan fitur GLCM kedua adalah energy.
+Peringkat selanjutnya adalah homogeneity dan contrast, keduanya sama-sama merepresentasikan konsentrasi GLCM pada diagonal sehingga nilai homogeneity tinggi menunjukkan perbedaan nilai gray yang kecil pada pasangan piksel, sedangkan nilai contrast rendah.
+Oleh karena itu,pemilihan fitur GLCM ketiga adalah homogeneity.
+Pemilihan fitur GLCM keempat adalah variance karena variance merepresentasikan heterogenitas pada citra, nilai variance yang tinggi menunjukkan nilai gray yang berbeda dengan nilai rata-rata GLCM.
+Selain 4 fitur GLCM yang dipilih, fitur lainnya adalah turunan dari 4 fitur GLCM terpilih.
+Correlation menunjukkan ketergantungan linear gray tone pada citra.
+Untuk 1 sampai k jumlah piksel dalam sebuah citra, jika Pij merupakan distribusi probabilitas bersama dari pasangan piksel dengan tingkat keabuan i dan tingkat keabuan j, adalah rata-rata nilai piksel dan adalah standar deviasi maka correlation dapat dihitung seperti Persamaan 1.
+(1) Energy adalah pengukuran intensitas keseragaman piksel (Honeycutt, 2008) seperti terdapat dalam Persamaan 2.
+Sebuah keadaan homogen mengandung hanya sedikit gray level tetapi memiliki nilai piksel Pij yang tinggi, oleh karena itu jumlah dari pangkat Pij akan tinggi (Albregtsen, 2008).
+(2)Homogeneity adalah kesamaan (similarity) dari coocurrence matrix dan diagonal matrix (Shabanzade, 2011) yang dihitung sesuai Persamaan 3.
+(3)Variance mengukur heterogenitas dan berkorelasi dengan standar deviasi.
+Penghitungan variance terdapat pada Persamaan 4.
+4. COLOR MOMENTS 
+Color moments adalah metode pengukuran yang dapat digunakan untuk membedakan citra berdasarkan fitur warna.
+Dasar color moments adalah bahwa distribusi warna pada citra dapat diintepretasikan sebagai probabilitas distribusi.
+Jika warna pada citra mengikuti probabilitas distribusi tertentu, maka moment dari distribusi tersebut dapat digunakan sebagai fitur untuk identifikasi citra berdasarkan warna (Herdiyeni, 2012).
+Pemilihan fitur color moments didasarkan pada hasil akurasi per fitur color moments pada Tabel 2.
+Analisis dari hasil akurasi tersebut kembali ke konsep color moment yang menyaakan probabilitas distribusi warna dapat dikenali dari moment warna, misalnya distribusi normal yang dapat dianalisis dari color moment 1 dan 2.
+Sedangkan color moment 3 digunakan untuk mengetahui derajat ketidak- simetrisan distribusi warna sehingga dapat disimpulkan bahwa ketiganya merupakan kesatuan untuk analisis fitur warna.
+Oleh karena itu, penelitian ini menggunakan color moments 1, 2, dan 3.
+Color moment 1 (mean) merupakan rata- rata nilai piksel (Pij) pada masing-masing channel warna (Kodituwakku, 2011).
+Jika Pij merupakan piksel j pada channel warna i dan N adalah penjumlahan dari seluruh piksel pada citra, maka moment pertama dalam color moments dapat dihitung pada Persamaan 5.
+Color moment 2 adalah akar dari variance.
+Variance menyatakan luas sebaran distribusi yang penghitungannya terdapat dalam Persamaan 6.
+Color moment 3 (skewness) digunakan untuk mengetahui derajat ketidaksimetrisan pada distribusi warna (Herdiyeni, 2012).
+Skewness merupakan pengukuran dimana sebuah distribusi dikatakan simetri apabila seimbang antara kiri dengan kanan pada center point .
+Penghitungan color moment 3 terdapat pada persamaan 7.
+5. SUPPORT VECTOR MACHINE (SVM) 
+Tujuan utama SVM adalah menemukan hyperplane terbaik yang dapat memisahkan 2 kelas pada input space.
+Hyperplane terbaik didapat dari menghitung margin maksimal dari hyperplane dengan fungsi kernel.
+Kernel trick membuat data yang telah dipetakan ke dimensi yang lebih tinggi dapat dipisahkan dengan linear hyperplane.
+Akurasi tinggi bisa didapatkan dengan memaksimalkan jarak antara hyperplane dan support vector (Fitriawan, 2013) seperti diilustrasikan pada Gambar 3 (Elish, 2008).
+Gambar 3 Ilustrasi SVMDalam SVM kita berusaha menemukan fungsi pemisah, dalam hal ini classifier/ hyperplane yang optimal untuk memisahkan kelas berbeda.
+6. METODOLOGI 
+Arsitektur sistem dijelaskan dalam Gambar 4.
+Daun tebu difoto di atas kertas menggunakan kamera digital.
+Spesifikasi minimum yang sebaiknya dimiliki oleh kamera digital adalah 5 Megapiksel agar dapat mengambil citra dengan kualitas yang baik.
+Citra digital daun tebu kemudian diberikan label sesuai kelas, yaitu kelas 1 untuk tebu dengan penyakit karat, kelas 2 untuk tebu dengan penyakit mosaik dan kelas 3 untuk tebu normal.
+Proses selanjutnya adalah melakukan split data menjadi data training dan data testing.
+Data training digunakan untuk pembelajaran dalam metode identifikasi penyakit pada daun tebu.
+Setelah itu, metode identifikasi penyakit daun tebu yang telah terbentuk dilakukan uji coba pada data testing.
+Hasil uji coba berupa akurasi yang menunjukkan seberapa akurat sistem yang terbentuk dari metode identifikasi penyakit daun tebu.
+Metode untuk identifikasi penyakit pada daun tebu dijelaskan pada Gambar 5.
+Langkah pertama adalah pengumpulan data dari perkebunan tebu di Malang dan sekitarnya, data citra daun tebu baik normal, berpenyakit karat maupun berpenyakit mosaik difoto dengan kamera digital.
+Hasil tahap ini adalah citra digital daun tebu.
+Proses selanjutnya adalah pre-processing citra.
+Tujuan proses ini adalah menyiapkan data untuk dapat diproses dalam proses selanjutnya yaitu ekstraksi fitur.
+Hasil dari pre-processing citra adalah daerah yang representatif dalam 2 bentuk, yaitu hasil transformasi RGB menjadi citra keabuan dan transformasi RGB menjadi citra dalam ruang warna CIELAB.
+Proses berikutnya adalah ekstraksi fitur tekstur dengan GLCM dan ekstraksi fitur warna dengan color moments.
+Hasil tahap ekstraksi fitur ini adalah matriks dari masing-masing fitur yang diekstraksi.
+Tahap terakhir adalah klasifikasi.
+Klasifikasi daun tebu berpenyakit dilakukan menggunakan metode support vector machine (SVM).
+Penelitian ini menggunakan metode support vector machine (SVM) karena SVM cocok untuk klasifikasi yang datanya sedikit (Li, 2010).
+Selain itu SVM memberikan hasil akurasi yang tinggi untuk analisis penyakit tanaman (Camargo, 2009b; Asraf, 2012).
+Fungsi kernel yang digunakan dalam penelitian ini adalah kernel linear karena kernel linear adalah kernel standar dalam SVM dan penelitian ini berfokus pada pemilihan fitur.
+7. HASIL DAN PEMBAHASAN 
+Pengujian akurasi digunakan untuk mengetahui performa sistem dalam mengklasifikasikan tebu normal, berpenyakit mosaik, dan berpenyakit karat berdasarkan paduan fitur dan teknik klasifikasi yang diusulkan dalam metode penelitian.
+Skenario uji dilakukan untuk mengetahui pengaruh kombinasi fitur terhadap hasil klasifikasi.
+Alur skenario uji dijelaskan dalam Gambar 6.
+Skenario uji dilakukan untuk mengetahui pengaruh penghapusan fitur bentuk (skenario 1), pemilihan fitur tekstur dengan GLCM (skenario 2) dan pemilihan fitur warna dengan color moments (skenario 3) serta pengaruh kombinasi fitur tekstur dan warna untuk identifikasi penyakit pada daun tebu (skenario 4) dibandingkan dengan rekomendasi fitur pada penelitian sebelumnya sehingga ditemukan paduan fitur yang akurat untuk identifikasi penyakit pada daun tebu.
+Data untuk pelatihan meliputi 300 data daun tebu dengan 100 normal, 100 memiliki penyakit karat dan 100 memiliki penyakit mosaik.
+Data uji berjumlah 300 data daun tebu dengan 100 normal, 100 memiliki penyakit karat dan 100 memiliki penyakit mosaik.
+Tidak ada irisan data yang digunakan untuk pelatihan dan ujicoba.
+Skenario uji digunakan untuk membandingkan hasil penelitian ini dengan penelitian sebelumnya dengan menggunakan data tebu yang sama seperti dijelaskan sebelumnya.
+7.1 Skenario Uji 1 
+Hasil pengujian akurasi yang dilakukan sesuai skenario 1 untuk mengetahui pengaruh penghapusan fitur bentuk dijelaskan dalam Tabel 3.
+Hasil uji skenario 1 menunjukkan bahwa ada pengaruh penghapusan fitur bentuk, yaitu saat menggunakan fitur bentuk pada Camargo akurasi yang didapatkan 85,67% sedangkan saat fitur bentuk dihapus akurasi semakin baik yaitu naik menjadi 86,33%.
+Hasil ini juga dibandingkan dengan penelitian ini, yaitu akurasi 97%.
+Saat mengunakan fitur bentuk pada Camargo akurasi yang didapatkan 85,67% sedangkan saat fitur bentuk dihapus akurasi semakin baik yaitu naik menjadi 86,33%.
+Hal ini disebabkan penelitian Camargo merekomendasikan identifikasi pola penyakit tanaman secara umum, apabila diuji coba pada tanaman yang spesifik seperti tebu maka fitur yang diusulkan kurang cocok untuk identifikasi penyakit pada tanaman tebu, hal tersebut karena pola penyakit karat pada tebu memiliki pola bentuk yang tidak beraturan.
+Hasil pengujian akurasi Camargo yang telah dihapus fitur bentuknya dibandingkan dengan hasil pengujian akurasi penelitian ini yang menghapus fitur bentuk dan memilih fitur warna dan tekstur menunjukkan bahwa akurasi penelitian ini lebih tinggi yaitu 97% hal ini disebabkan perbedaan fitur yang dipilih untuk ekstraksi fitur tekstur dan warna.
+Untuk menunjang analisis skenario uji 1, maka akan dianalisis hasil akurasi per fitur dalam Tabel 4.
+Tabel 4 menunjukkan analisis akurasi per fitur, didapatkan kesimpulan bahwa fitur bentuk menghasilkan akurasi paling rendah jika dibandingkan dengan fitur lainnya.
+Oleh karena itu, fitur bentuk kurang representatif untuk identifikasi penyakit pada daun tebu sehingga dapat diusulkan fitur tekstur dan warna.
+7.2 Skenario Uji 2 
+Hasil pengujian akurasi yang dilakukan sesuai skenario 2 untuk mengetahui pengaruh pemilihan fitur tekstur dijelaskan dalam Tabel 5.
+Hasil pemilihan fitur tekstur pada penelitian sebelumnya menempati posisi atas dalam hal keakuratan sistem dibandingkan dengan keseluruhan fitur GLCM yang berjumlah 14 seperti diunjukkan dalam Tabel 1.
+Namun, analisis statistik yang digunakan dalam penelitian sebelumnya memiliki 2 fitur yang merepresentasikan hal yang sama, yaitu contrast dan homogeneity.
+Akurasi yang tinggi pada penelitian sebelumnya karena menggunakan fitur teratas dalam hal akurasi namun tidak menganalisis tekstur secara menyeluruh.
+Pada penelitian ini, menggunakan analisis tekstur GLCM yang menyeluruh dan tetap menghasilkan akurasi yang baik, yaitu 90,33%.
+7.3 Skenario Uji 3 
+Pada skenario uji 3 akan diteliti pengaruh pemilihan fitur warna.
+Hasil pengujian akurasi skenario 3 dijelaskan dalam Tabel 6.
+Hasil skenario 3 menunjukkan bahwa color moments lebih dapat merepresentasikan warna untuk identifikasi penyakit daun tebu daripada metode ekstraksi fitur warna yang diusulkan penelitian sebelumnya.
+Hal tersebut ditunjukkan nilai akurasi menggunakan fitur color moment menghasilkan akurasi 96%.
+Color moments menghasilkan nilai akurasi yang lebih tinggi dibandingkan fitur grey level dan histogram frekuensi, yaitu 96% karena 3 moment dari color moment lebih dapat merepresentasikan warna dan lebih cepat dalam proses komputasi dibandingkan metode histogram (Stricker, 1995).
+7.4 Skenario Uji 4 
+Pada skenario uji 4 akan diteliti pengaruh pemilihan kombinasi fitur tekstur dan warna.
+Hasil pengujian akurasi yang dilakukan sesuai skenario 4 dijelaskan dalam Tabel 7.
+Hasil uji skenario 4 menunjukkan bahwa fitur yang dipilih dalam penelitian ini lebih akurat untuk identifikasi penyakit daun tebu dibandingkan dengan kombinasi fitur yang diusulkan pada penelitian sebelumnya mengenai identifikasi penyakit tanaman secara umum.
+Hal ini menunjukkan bahwa penghapusan fitur bentuk, pemilihan fitur tekstur dengan GLCM (correlation, energy, homogeneity dan variance) dan pemilihan color moment 1, 2, 3 sebagai fitur warna merupakan kombinasi fitur yang dapat digunakan untuk identifikasi penyakit pada daun tebu.
+Penyebab kenaikan akurasi pada kombinasi fitur yang diusulkan dalam penelitian ini adalah penghapusan fitur bentuk karena pola penyakit karat pada tebu memiliki pola bentuk yang tidak beraturan, selain itu pada pengujian per fitur didapatkan bahwa akurasi untuk fitur bentuk memiliki nilai yang paling rendah dibandingkan fitur lainnya seperti terdapat pada skenario uji 1.
+Akurasi dengan kombinasi fitur penelitian ini yang menunjukkan angka 97% disebabkan fitur tekstur yang diusulkan menunjukkan akurasi yang tinggi yaitu 90,33% dikombinasikan dengan fitur warna yang lebih unggul dari penelitian sebelumnya yaitu 96% sehingga apabila kombinasi fitur yang baik tersebut digabungkan maka dapat meningkatkan akurasi dalam identifikasi penyakit pada daun tebu.
+Saar mengakuisisi citra dengan kamera digital, terdapat kondisi pencahayaan yang tidak konsisten.
+Hal ini memberikan pengaruh terhadap hasil klasifikasi karena menyebabkan warna menjadi tidak sesuai dengan aslinya.
+Oleh karena itu, koreksi warna perlu dilakukan pada penelitian selanjutnya.
+8. KESIMPULAN
+Penghapusan fitur bentuk dapat memperbaiki akurasi untuk identifikasi penyakit daun tebu karena bentuk kurang dapat merepresentasikan pola penyakit pada daun tebu, sehingga fitur tekstur dan warna dapat diusulkan menjadi fitur yang merepresentasikan penyakit daun tebu.
+Pemilihan fitur GLCM untuk fitur tekstur yang berupa correlation, energy homogeneity dan variance menghasilkan akurasi yang baik yaitu 90,33%.
+Pemilihan fitur color moments 1, 2 dan 3 untuk fitur warna lebih akurat dari fitur warna menggunakan grey level dan histogram frekuensi dengan akurasi 96%.
+Kombinasi fitur tekstur dengan GLCM correlation, energy, homogeneity, variance bersama fitur warna dengan color moments 1,2 dan 3 merupakan kombinasi fitur yang direkomendasikan untuk identifikasi penyakit pada daun tebu dan menghasilkan akurasi 97%.
+Penelitian ini menggunakan metode klasifikasi support vector machine (SVM) dengan kernel linear sehingga penelitian selanjutnya dapat meneliti metode klasifikasi yang lebih baik, misalnya dengan modifikasi kernel maupun penggunaan metode klasifikasi lain.

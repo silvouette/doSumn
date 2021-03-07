@@ -1,0 +1,139 @@
+Abstrak
+Penelitian ini membahas teknik segmentasi warna berbasis RGB Chromaticity Diagram ternormalisasi, untuk ekstraksi simbol dan karakter pada citra rambu lalu lintas.
+Teknik yang diusulkan adalah memisahkan warna biru pada latar belakang rambu petunjuk lalu lintas.
+Hal tersebut dilakukan dengan memanfaatkan histogram yang dikembangkan pada diagram kromatisitas untuk penentuan nilai ambang segmentasi secara otomatis.
+Selain itu, teknik morfologi citra dan proyeksi histogram digunakan untuk ekstraksi simbol dan karakter.
+Dari hasil eksperimen diperoleh bahwa teknik yang diusulkan dapat mengekstrak simbol dan karakter dengan rata-rata ekstraksi 97.3%.
+Kata Kunci: citra rambu lalu lintas, ekstrasi objek, RGB chromaticity diagram, segmentasi warna
+1. Pendahuluan
+Dewasa ini teknik pengolahan citra digital berkembang pesat dengan aplikasi yang cukup luas di berbagai bidang.
+Salah satu bidang aplikasi adalah sistem berbasis citra yang digunakan untuk mendeteksi dan mengenali rambu-rambu lalu lintas secara otomatis.
+Sistem ini merupakan bagian dari sistem pemandu pengendara atau Driver Assistance System (DAS) yang dirancang untuk membantu pengendara mengenali rambu-rambu lalu lintas ketika mengendarai kendaraan di jalan raya.
+Rambu-rambu lalu lintas umumnya mempunyai warna yang kontras dengan lingkungan sekitarnya, sehingga mudah dilihat dan menarik perhatian pengendara.
+Rambu-rambu lalu lintas dibedakan menjadi beberapa jenis, seperti: a) rambu pengatur (rambu batas kecepatan, rambu dilarang masuk, dan lain-lain); b) rambu peringatan (rambu peringatan ada pekerjaan jalan, rambu peringatan perlintasan jalan, dan lain-lain); c) rambu petunjuk (rambu petunjuk jalan dan informasi rute jalan, dan lain-lain).
+Setiap jenis rambu tersebut dinyatakan secara spesifik oleh bentuk, warna, dan simbol atau karakter di dalamnya.
+Pada rambu pengatur dan rambu peringatan, informasi yang terdapat di dalamnya dapat diperoleh dengan melakukan pencocokan pola dengan rambu-rambu rujukan.
+Umumnya simbol dan karakter yang digunakan tidak terlalu banyak dan mempunyai bentuk atau pola standar.
+Sedangkan untuk rambu petunjuk, proses interpretasi informasinya lebih kompleks karena bentuk simbol yang tidak umum dan karakter yang bervariasi.
+Langkah awal untuk mengekstrak informasi yang terdapat dalam suatu citra adalah dengan melakukan segmentasi citra.
+Teknik segmentasi citra pada dasarnya adalah untuk membagi suatu citra menjadi daerah-daerah yang tidak saling tumpang tindih (overlapping) [1].
+Daerah tersebut adalah suatu kumpulan piksel yang mempunyai ciri khusus yang sama seperti warna, tingkatkeabuan, tekstur, dan lain-lain.
+Teknik segmentasi warna merupakan teknik segmentasi citra yang memisahkan objek-objek sesuai dengan warnanya.
+Setelah objek-objek dipisahkan dengan segmentasi warna, proses berikutnya seperti pengenalan objek dapat dilakukan untuk mengekstrak informasi yang berguna dari suatu citra.
+Teknik segmentasi warna banyak digunakan untuk memahami suatu citra, seperti pada robot interaktif [2-4], pemrosesan video [5], dan pengenalan rambu lalu lintas [6-8].
+Untuk aplikasi di luar ruangan dengan intensitas cahaya selalu berubah-ubah, teknik segmentasi warna harus dapat mengatasi permasalahan perubahan intensitas cahaya tersebut.
+Selain itu untuk dapat diimplementasikan secara waktu nyata, algoritma segmentasi harus cukup cepat proses komputasinya.
+Dari kenyataan di atas, segmentasi warna masih menjadi topik yang menantang untuk diteliti dan memungkinkan adanya ruang terbuka untuk perbaikan dan pengembangan algoritma yang ada.
+Penelitian ini membahas suatu teknik baru untuk segmentasi warna berbasis diagram kromatisitas RGB ternormalisasi (normalized RGB chromaticity diagram).
+Teknik segmentasi warna yang diusulkan merupakan teknik yang sederhana dan efektif untuk memisahkan warna biru yang terdapat pada latar belakang rambu petunjuk lalu lintas.
+Selanjutnya teknik morfologi citra digunakan untuk mengekstrak simbol dan karakter dari citra rambu petunjuk lalu lintas.
+Tinjauan pustaka dilakukan untuk mendukung penelitian ini.
+Didapatkan bahwa teknik segmentasi warna dapat diklasifikasikan menjadi beberapa macam, yakni berbasis histogram (histogram-based), batas (boundary-based), daerah (region-based), dan kecerdasan buatan (artificial intelligent-based).
+Teknik berbasis histogram umumnya digunakan untuk segmentasi citra abu-abu.
+Karena citra berwarna biasanya dinyatakan dengan tiga dimensi warna (RGB).
+Segmentasi berbasis histogram dilakukan dengan menggabungkan tiga ambang (threshold) yang diperoleh dari setiap kanal warna.
+Pada [5], teknik pengambangan dilakukan di setiap komponen R (Red), G (Green), dan B (Blue) untuk menghasilkan nilai-nilai ambang untuk segmentasi video dengan suatu proses unsupervised clustering.
+Pada teknik berbasis batas, sebuah detektor tepi digunakan untuk mencari batas suatu objek.
+Teknik ini berdasarkan kenyataan bahwa intensitas piksel akan berubah dengan cepat pada batas dua daerah.
+Untuk segmentasi warna, pertama-tama dilakukan deteksi tepi pada masing-masing kanal warna RGB.
+Selanjutnya tepi-tepi yang dihasilkan digabungkan untuk mendapatkan citra tepi akhir.
+Pada teknik berbasis daerah, piksel dikelompokkan sesuai dengan kriteria keseragaman.
+Contoh dari teknik ini adalah pertumbuhan daerah (region growing) serta teknik pemisahan, dan penggabungan (split and merge).
+Pada teknik pertumbuhan daerah, dilakukan pengelompokkan piksel-piksel menjadi daerah yang lebih besar berdasarkan kriteria yang sudah ditentukan [9].
+Teknik ini dimulai dari satu set titik-titik awal dan selanjutnya menumbuhkan daerah-daerah dengan menambahkan setiap piksel tetangga dari titik-titik awal di atas yang mempunyai kesamaan ciri, seperti nilai keabuan atau warna.
+Teknik pemisahan dan penggabungan diawali dengan membagi suatu citra menjadi beberapa daerah dan selanjutnya menggabungkan dan atau memisahkan daerah-daerah untuk memenuhi kriteria yang sudah ditentukan [9].
+Teknik berbasis daerah ini memiliki dua kelemahan utama [1].
+Teknik pertumbuhan daerah, serta pemisahan dan penggabungan sangat tergantung pada kriteria global yang ditentukan di awal.
+Sementara itu, teknik pertumbuhan daerah tergantung juga pada segmen awal, yaitu segmen atau piksel-piksel awal yang digunakan dan urutan dari proses yang dilakukan.
+Jaringan syaraf tiruan yang mengimplementasikan multilayer perceptron (MLP) dapat digunakan untuk segmentasi warna secara adaptif [10].
+Teknik ini menggunakan fungsi multisigmoid untuk aktivasi proses segmentasi.
+Jumlah nilai ambang pada fungsi aktivasi tergantung dari jumlah kelompok pada citra yang ditentukan secara otomatis dari turunan orde pertama dari histogram saturasi dan intensitas pada bidang warna HSV.
+Logika tersamar yang menirukan intuisi manusia digunakan untuk klasifikasi warna seperti yang diusulkan di [11].
+Teknik dengan logika tersamar ini mendefinisikan himpunan tersamar pada komponen H (hue), S (saturation), dan V (value) dari bidang warna HSV dan membagi bidang warna menjadi segmen-segmen berdasarkan kaidah linguistik.
+Aturan logika tersamar didefinisikan berdasarkan hasil observasi manusia untuk mengklasifikasikan warna yang dihasilkan dari ketiga komponen bidang warna HSV.
+Pada [12], algoritma genetika digunakan untuk optimasi segmentasi warna.
+Pada teknik ini, proses berevolusi terdiri dari suatu urutan langkah-langkah.
+Pada setiap langkah, algoritma genetika mengoptimasi hasil segmentasi yang diperoleh pada proses sebelumnya sampai hasil segmentasi yang diinginkan tercapai.
+Algoritma genetika dimulai dari populasi acak N buah individu kemudian dilakukan N segmentasi dari citra sesuai dengan parameter yang dikodekan pada setiap individu.
+Setelah itu dilakukan evaluasi dari setiap citra hasil segmentasi dan operator genetika (seleksi, kawin silang, dan mutasi) dioperasikan pada parameter-parameter dari individu-individu sampai nilai kecocokan (fitness) tidak melebihi batas ambang tertentu atau jumlah maksimum iterasi tercapai.
+Contoh rambu petunjuk lalu lintas yang digunakan dalam penelitian ini ditunjukkan oleh gambar 1.
+Rambu petunjuk ini mempunyai ciri-ciri khusus, yaitu bentuknya persegi panjang dengan warna latar belakang biru dan putih pada tulisan simbol dan karakter.
+Karena warna mengandung informasi yang sangat berguna bagi penglihatan manusia, para peneliti pada umumnya menggunakan segmentasi warna untuk mengekstrak simbol dan karakter dari citra rambu lalu lintas [6-8].
+Pada [6], segmentasi warna biru menggunakan bidang warna LUV (L adalah luminans, U dan V adalah komponen krominans) digunakan untuk mengekstrak warna biru dari citra dan selanjutnya menggunakan tepi dari bentuk persegi panjang untuk mengidentifikasi rambu petunjuk.
+Untuk mengatasi masalah perubahan intensitas cahaya digunakan teknik dengan banyak ambang.
+Ambang-ambang ini ditentukan dengan menganalisis data distribusi aktual dalam bidang warna LUV yang diambil dari citra dengan berbagai variasi kondisi cuaca dan cahaya.
+Rambu petunjuk yang terdeteksi dengan proses di atas mempunyai dua warna (biru dan putih) yang akan menghasilkan dua kelompok dengan nilai tertinggi pada histogramnya.
+Selanjutnya dilakukan transformasi citra dengan menggunakan persamaan 1.
+Pada Persamaan 1, Imin dan Imax adalah intensitas minimum dan maksimum dari kelompok pada histogram.
+Iorg adalah intensitas citra asal, dan Inew adalah intensitas citra hasil transformasi.
+Dengan transformasi ini, simbol dan karakter dapat diekstrak relatif stabil dengan menggunakan satu nilai ambang pada berbagai kondisi cahaya.
+Teknik transformasi ini juga digunakan pada [7].
+Setelah proses transformasi citra, dilakukan deteksi tepi dan morfologi citra untuk mengisi lubang-lubang yang ada.
+Karena simbol (anak panah) umumnya mempunyai luas area yang besar, maka simbol dipisahkan dari karakter dengan menggunakan informasi banyaknya piksel.
+Daerah atau posisi karakter ditentukan dari proyeksi ke sumbu vertikal untuk menghasilkan histogram.
+Puncak-puncak yang dominan pada histogram menandakan posisi vertikal dari karakter-karakter pada rambu petunjuk.
+Pada [8], komponen H (hue) dari bidang warna HSI digunakan untuk pemodelan warna dan algoritma, sedangkan k-mean digunakan untuk pengelompokan warna.
+Dengan teknik ini semua piksel berwarna merah akan dikelompokkan dalam satu kelompok, demikian juga untuk warna biru, hijau, dan kuning.
+Selanjutnya untuk mengekstrak teks di rambu, digunakan teknik dengan pemodelan warna latar belakang dan latar depan (teks).
+Penelitian lain yang berhubungan dengan ekstraksi karakter dilakukan pada [12] untuk mencari karakter dari citra, dan pada [13] untuk membantu orang dengan gangguan penglihatan mengenali rambu-rambu.
+Teknik pengelompokan berbasis pada bidang warna RGB ternomalisasi digunakan untuk memisahkan warna menjadi lapisan-lapisan warna yang homogen [12].
+Selanjutnya dilakukan analisis pada komponen terhubung di semua lapisan warna dan dilakukan penentuan kotak pembatas komponen.
+Identifikasi karakter dilakukan dengan pendekatan heuristik.
+Teknik pengambangan Otsu yang diterapkan pada ketiga kanal warna digunakan pada [13] untuk mengekstrak karakter dari citra.
+Untuk menghilangkan kesalahan deteksi, digunakan aturan seleksi berdasarkan pada posisi relatif dari komponen-komponen yang terhubung.
+2. Metodologi
+Pada penelitian sebelumnya [14][15], peneliti mengusulkan segmentasi warna berbasis diagram kromatisitas RGB ternormalisasi untukmendeteksi warna merah pada rambu lalu lintas [14] dan mendeteksi warna kulit manusia [15].
+Pada penelitian ini, peneliti mengembangkan teknik segmentasi warna tersebut untuk mendeteksi warna biru pada rambu petunjuk lalu lintas sebagai tahapan awal untuk ekstraksi simbol dan karakter dari citra rambu lalu lintas.
+Gambar 2 memperlihatkan diagram kromatisitas RGB ternormalisasi, di mana koordinat kromatisitas r dan g didefinisikan oleh persamaan 2 dan persamaan 3.
+Garis diagonal untuk mengekstrak warna biru diperlihatkan pada gambar dengan garis tebal yang ditentukan dengan persamaan 4.
+TB pada persamaan 4 adalah titik potong dengan koordinat-g.
+TB dihitung secara otomatis dengan melakukan analisis puncak dari histogram g_neg yang dibuat dengan menghitung piksel dengan nilai yang diperoleh dari penjumlahan nilai g dan r (g + r).
+Histogram yang dihasilkan mempunyai puncak atau lembah yang jelas sehingga memudahkan penentuan nilai ambang [14].
+Dengan cara ini, garis diagonal untuk memisahkan warna biru dapat ditemukan dari analisis histogram tersebut.
+Gambar 3 memperlihatkan tipikal dari histogram g_neg, di mana nilai TB ditunjukkan pada gambar.
+Dari gambar 2 terlihat bahwa warna biru dapat dipisahkan dengan aturan berikut.
+Rambu petunjuk lalu lintas yang digunakan dalam penelitian ini (seperti contoh pada gambar 1) mempunyai tiga komponen informasi, diantaranya simbol yang menandakan struktur jalan (digambarkan dengan anak panah), karakter (huruf Kanji dan atau Alfabet) yang menunjukkan nama kota atau lokasi,dan angka yang menyatakan nomor rute yang ditulis di dalam kotak kecil.
+Dibandingkan dengan penelitian [6], pada penelitian ini, peneliti mengekstrak ketiga informasi tersebut.
+Pada [6] hanya dua macam informasi yang diekstrak, yaitu karakter dan simbol (gabungan struktur jalan dan nomor rute).
+Tahap pertama adalah ekstraksi nomor rute.
+Dengan melakukan pengamatan pada gambar 1, diperoleh bahwa angka nomor rute ditulis dalam kotak kecil dengan latar belakang warna biru dan warna pembatas kotak berwarna putih.
+Jika dilakukan segmentasi warna biru pada citra rambu petunjuk lalu lintas, kemudian dilakukan pelabelan setiap komponen terhubung, maka akan diperoleh dua macam objek yang berlatar belakang biru, yaitu latar belakang rambu keseluruhan, dan latar belakang dari setiap kotak kecil yang berisi nomor rute.
+Dengan demikian, kotak kecil berisi nomor rute dapat dipisahkan dengan menghitung jumlah piksel yang harus berada pada batasan tertentu.
+Pada penelitian ini, ukuran citra asal dinormalkan menjadi 640480 piksel, sehingga jika jumlah piksel dari komponen terhubung hasil segmentasi warna biru lebih besar dari 500 dan kurang dari 5000, maka objek tersebutmerupakan kotak nomor rute.
+Untuk mendapatkan daerah yang utuh dari nomor rute dilakukan operasi morfologi dilation dan pengisian lubang.
+Gambar 5 memperlihatkan proses ekstraksi nomor rute dari citra rambu pada gambar 1.
+Gambar 5(a) adalah citra hitam putih TB hasil segmentasi warna biru.
+Hasil proses pelabelan dari objek-objek berwarna biru digambarkan dengan warna putih dan abu-abu pada gambar 5(b).
+Sedangkan gambar 5(c) memperlihatkan hasil ekstraksi daerah nomor rute yang digambarkan dengan objek berwarna hitam.
+Tahap kedua adalah ekstraksi simbol yang menyatakan struktur jalan (anak panah).
+Dari gambar 1 terlihat bahwa simbol anak panah digambar dengan warna putih dan mempunyai ukuran yang relatif besar dibanding tulisan putih lainnya (karakter Kanji, Alfabet, angka, dan kotak batas nomor rute).
+Sehingga seperti [6], simbol dapat diekstrak menggunakan informasi jumlah piksel dari komponen terhubung.
+Akan tetapi karakter pada citra hasil segmentasi sering terhubung dengan karakter yang berdekatan sehingga akan membentuk komponen terhubung dengan jumlah piksel yang besar.
+Demikian juga dengan kotak pembatas nomor rute seringkali terhubung dengan simbol anak panah, yang akan menghasilkan simbol yang menyatu dengan nomor rute.
+Untuk mengatasi masalah-masalah tersebut, dilakukan operasi morfologi erosi yang akan menghilangkan objek-objek selain simbol panah, seperti terlihat pada gambar 6(a).
+Selanjutnya simbol dapat diekstrak jika jumlah piksel pada komponen terhubung lebih dari 1000.
+Gambar 6(b) memperlihatkan hasil ekstraksi simbol.
+Kedua tahap di atas akan menyisakan karakter yang terdiri dari huruf Kanji dan Alfabet seperti diperlihatkan pada gambar 6(c).
+Tahap selanjutnya adalah mengekstrak huruf Kanji dan Alfabet.
+Untuk menentukan daerah yang berisi karakter Kanji dan Alfabet digunakan teknik proyeksi histogram seperti pada [6].
+Jika citra pada gambar 6(c) diproyeksikan ke sumbu vertikal, akan diperoleh histogram dengan puncak-puncak yang menyatakan posisi vertikal dari karakter-karakter pada rambu seperti terlihat pada gambar 7(a).
+Gambar 7(b) memperlihatkan daerah-daerah hasil ekstraksi karakter Kanji dan Alfabet.
+3. Hasil dan Pembahasan
+Pengujian terhadap algoritma yang diusulkan dilakukan dengan menggunakan MATLAB yang dijalankan pada Personal Computer (PC).
+Citra rambu petunjuk lalu lintas diambil dengan kamera digital dari 15 lokasi yang berbeda.
+Selain pengujian dari algoritma yang diusulkan, dilakukan juga pengujian dari teknik yang diusulkan pada [6] sebagai pembanding.
+Tabel I memperlihatkan hasil pengujian tersebut.
+Karena pada teknik [6] tidak melakukan ekstraksi nomor rute, maka untuk rata-rata keseluruhan dari pada teknik [6] hanya menggunakan rata-rata ekstraksi simbol dan karakter.
+Rata-rata ekstraksi nomor rute diperoleh dari jumlah total daerah nomor rute yang diekstrak dibagi dengan jumlah total nomor rute.
+Rata-rata ekstraksi simbol diperoleh dari jumlah total simbol yang diekstrak dibagi dengan jumlah total simbol.
+Rata-rata ekstraksi karakter diperoleh dari jumlah baris daerah yang berisi karakter dibagi dengan jumlah total baris.
+Masing-masih karakter Kanji dan Alfabet dihitung sebagai baris yang berbeda.
+Dari ekperimen diperoleh bahwa kesalahan ektsraksi karakter pada umumnya disebabkan oleh susunan karakter yang menempati baris yang tumpang tindih seperti terlihat pada gambar 4.
+Dengan susunan karakter seperti ini, dua baris karakter akan menghasilkan satu puncak pada proyeksi histogramnya, sehingga hanya diekstrak sebagai satu baris.
+Kesalahan ekstraksi karakter pada teknik [6] juga diakibatkan oleh kesalahan ekstraksi simbol yang menyebabkan kesalahan dalam analisis proyeksi histogram.
+4. Kesimpulan
+Pada penelitian ini diusulkan teknik segmentasi warna untuk ekstraksi simbol dan karakter pada rambu lalu lintas.
+Teknik yang diusulkan berbasis pada diagram kromatisitas RGB ternormalisasi.
+Hasil dari ekperimen yang dilakukan menunjukkan bahwa teknik yang diusulkan cukup efektif untuk mengekstrak simbol dan warna.
+Penelitian yang sudah dilakukan akan diperluas pada proses pengenalan dan interpretasi simbol dan karakter yang sudah diekstrak.
+Lebih jauh, akan dilakukan pengembangan untuk implementasi nyata.

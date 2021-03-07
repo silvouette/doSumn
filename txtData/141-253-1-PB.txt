@@ -1,0 +1,193 @@
+Abstrak
+Penelitian tentang klasifikasi citra satelit untuk mengklasifikasikan citra dalam kelompok tertentu sedang mengalami perkembangan.
+Terdapat masalah yang disebabkan oleh kesalahan yang dilakukan saat ekstraksi fitur.
+Pada penelitian ini, peneliti mengusulkan metode baru yang dapat digunakan untuk klasifikasi citra melalui ekstraksi fitur berupa fitur warna yang menggunakan tranformasi model warna YUV dan fitur tekstur menggunakan fungsi Gabor.
+Untuk klasifikasi, peneliti menggunakan Fuzzy Support Vector Machine dalam menghindari adanya daerah yang tidak dapat terklasifikasi pada metode SVM.
+Terdapat tiga kelas untuk klasifikasi, yaitu kelas pertanian, kelas pemukiman, dan kelas perairan.
+Pengujian dilakukan terhadap citra satelit dengan ukuran 256 x 256 piksel serta data latih sebanyak 450 data dengan ukuran 16 x 16 piksel.
+Hasil pengujian menunjukkan bahwa metode yang diusulkan peneliti dapat melakukan klasifikasi data citra dengan tingkat akurasi yang didapatkan melebihi 80%.
+Kata kunci: Citra Satelit, Transformasi Citra, Fungsi Gabor, Fuzzy Support Vector Machine 
+1. PENDAHULUAN
+Penelitian klasifikasi citra dalam bidang citra satelit sedang mengalami perkembangan.
+Di dalam citra satelit, proses identifikasi objek merupakan proses yang penting karena memiliki manfaat yang besar, salah satunya adalah informasi yang didapatkan dari objek itu sendiri.
+Adapun contohnya adalah sebuah informasi mengenai jenis dan luas dari area sumber pangan, area bangunan atau pemukiman, dan area perairan seperti sungai, waduk.
+Dengan mengetahui informasi dari objek tersebut, maka akan didapatkan informasi mengenai ketahanan pangan dari daerah dan waktu tertentu.
+Klasifikasi citra satelit dengan pendekatan konversi fitur RGB (Red, Green, and Blue) menjadi format HIS (Hue, Intensity, and Saturation) menggunakan fuzzy support vector machine sebagai classifier sudah diteliti dan diusulkan oleh Yuyong dan Zengtahun 2009.
+Pada penelitian Supianto dkk, menggunakan pendekatan transformasi warna YUV serta menggunakan classifier fuzzy support vector machine (Supianto dkk., 2013).
+Kedua penelitian tersebut berhasil melakukan klasifikasi namun ekstraksi fitur hanya berdasarkan pada fitur warna yang cenderung sensitif terhadap tingkat intensitas cahaya.
+Penggunaan fitur yang tidak dipengaruhi oleh intensitas cahaya adalah fitur tekstur.
+Penerapan metode Fuzzy Support Vector Machine untuk klasifikasi citra satelit digunakan untuk menghindari area yang tidak dapat diklasifikasi pada proses klasifikasi dengan jumlah kelas lebih dari dua.
+Hasil penerapan metode tersebut menunjukkan adanya peningkatan akurasi dari klasifikasi citra satelit.
+Dalam penelitian ini, peneliti memberikan metode baru dengan menggabungkan informasi fitur warna dan fitur tekstur.
+Pendekatan transofrmasi model YUV digunakan dalam fitur warna, karena komponen chrominance (U dan V) yang dipisahkan dari luminance (Y) sehingga kedua komponen tersebut bersifat independen yang menjadikan konten warna dari suatu citra dapat diproses tanpa dipengaruhi komponen luminance (Rubert dkk., 2005).
+Selain itu, model YUV juga banyak digunakan dalam gambar dan video (Jianping danYau, 2001).
+Fungsi Gabor digunakan dalam model fitur tekstur agar menghasilkan gambar yang kuat terhadap intensitas warna dari gambar, karena kernel dalam fungsi gabor memiliki ciri-ciri dapat melihat gambar dari tiga sisi, yaitu sisis patial, sisi locality, spatial frequency dan orientation selectivity (Lei Yu dkk., 2010).
+2. PERSAMAAN MATEMATIKA 
+2.1. Model YUV Model warna YUV sudah digunakan di Eropa, khususnya pola transmisi Televisi berwarna, sedangkan untuk model warna RGB digunakan dalam pola monokrom Televisi khususnya dikodekan untuk efisiensi transmisi serta maintenance kompatibilitas.
+Model warna YUV terdiri atas dua komponen, yangpertamakomponen luminance/brightness (Y) sedangkan yang kedua merupakan dua komponen chrominance/konten warna (U dan V).
+Konversi model warna dari RGB ke YUV dimodelkan sesuai Persamaan (1) oleh Gonzales dan Wood tahun 2002.
+Detail informasi citra digital dapat dilihat pada komponen luminance.
+Sehingga didapatkan informasi tentang tingkat kepekaan yang tinggi dari sistem visualisasi manusia yang berupa variasi brightness (kecerahan) daripada variasi chrominance (Gonzalez dan Woods 2002).
+Oleh karena itu, untuk meningkatkan nilai kecerahan dapat menerapkan metode dengan biaya komputasi yang tinggi, sedangkan untuk pendekatan yang lebih sederhana dapat meningkatkan komponen warna.
+2.2. Fungsi Gabor Texture Fungsi Gabor banyak digunakan dalam penelitian computer vision dan mendapatkan kesimpulan yang dapat dikatakan sukses, seperti pada penelitian tentang pengenalan wajah, pengenalan retina dan pengenalan sidik jari.
+Sebuah elips fungsi gaussian dan plan wave yang kompleks menghasilkan fungsi gabor 2-Dimensi yang ditunjukkan dalam Persamaan (2) (Yongxin dkk. 2013).
+(2) dimana adalah arah dan merupakan skala kernel Gabor.
+z = (x, y) merupakan variabel domain spasial,merupakan standar deviasi fungsi Gaussian untuk menentukan jumlah osilasi, ||.
+|| adalah notasi operator norm.
+Vektor gelombang , diformulasikan sesuai Persamaan (3).
+(3) dimana kv = kmax /f v , kmax ,merupakan frekuensi maksimal dan f merupakan spacingfacto rantara kernel yang satu dengan yang lainnya dalam domain frekuensi.
+Sedangkan untuk =/8.
+Parameter yang digunakan dalam fungsi Gabor adalah jumlah frekuensi, jumlah orientasi, spacing factor, standar deviasi fungsi Gaussian, dan frekuensi maksimum.
+Parameter tersebut digunakan pada penelitian ini untuk mendapatkan fitur tekstur yang akan digabung dengan fitur warna sebagai input proses klasifikasi.
+2.3. Fuzzy Support Vector Machine 
+Fuzzy Support Vector Machine (FSVM) digunakan untuk menyelesaikan permasalahan multiclass yang merupakan pengembangan dari Support Vector Machine.
+Jika klasifikasi menggunakan margin maksimal serta decision function yang berpasang-pasangan untuk kelas i dan j, maka menggunakan Persamaan (4) dimana merupakan gradient garis keputusan yang memisahkan kelas I dan j, sedangkanmerupakan bias dari gradient garis keputusan tersebut.
+Untuk mengklasifikasikan daerah yang tidak terklasifikasi oleh decision function seperti pada Gambar 1, FSVM menggunakan fungsi keanggotaan berdasarkan Persamaan (5).
+Berdasarkan Persamaan (5) dapat didefinisikan fungsi keanggotaan x terhadap i sesuai Persamaan (6).
+Hasil dari persamaan tersebut, maka data x akan dikelompokkan atau diklasifikasikan sesuai nilai keanggotaan yang paling tinggi.
+3. PERANCANGAN SISTEM 
+Beberapa langkah yang dilakukan untuk mencapai tujuan pada penelitian ini adalah sebagai berikut, pertama adalah mengambil data dari citra satelit, kedua proses merancang algoritma yang dibutuhkan, meliputi proses pelatihan serta pengujian, ketiga yaitu mengimplementasi sebuah sistem atau perangkat lunak, dan yang terakhir adalah menganalisa hasil yang didapatkan.
+Pada langkah yang pertama yaitu pengambilan data.
+Sumber data yang digunakan untuk citra satelit adalah Google Maps dalam bentuk format gambar JPG yang dibagi dalam ukuran 256 x 256 piksel.
+Data tersebut akan diklasifikasikan menjadi data latih dan data uji.
+Terdapat 3 kelas yang digunakan dalam penelitian ini, yaitu kelas lahan pertanian, kelas pemukiman, serta kelas perairan.
+Pada langkah kedua yaitu merancang algoritma, terdapat dua proses didalamnya yaitu proses pelatihan dan proses pengujian.
+Proses pelatihan menggunakan teknik window-based classification dengan ukuran window yang terkecil yaitu 3 x 3 piksel.
+Data citra satrelit yang digunakan pada proses pelatihan masing-masing kelas dengan ukuran 16 x 16 piksel yang akan menghasilkan nilai darti setiap parameter sebagai dasar untuk mengambil keputusan pada proses pengujian.
+Pada proses pelatihan, terdapat beberapa langkah yang dilakukan, pertama yaitu memilih objek dari masing-masing kelas untuk pelatihan, kedua yaitu membuat citra input dari hasil konversi citra model RGB ke model YUV, langkah ketiga yaitu menganalisa sinyal dari citra input untuk setiap sinyal Y, U dan V, keempat adalah ekstraksi fitur tekstur menggunakan fungsi filter Gabor dari citra input dan yang terakhir yaitu menghitung komponen classifier menggunakan SVM non-linier yaitu fungsi gaussian RBF sebagai kernel trick.
+Proses pelatihan digunakan untuk mendapatkan nilai optimal dari parameter -parameter untuk membangun hyperplane optimal sebagai classifier proses pengujian, parameter tersebut adalah parameter w dan b.
+Proses selanjutnya adalah proses pengujian untuk mengklasifikasikan data citra satelit kedalam tiga kelas yang sudah ditentukan.
+Langkah-langkah pada proses pengujian adalah sebagai berikut, pertama tracking window pada data citra uji, kedua yaitu konversi citra ke model YUV, ketiga adalah menganalisis sinyal Y, U, V sebagai ekstraksi fitur warna, keempat yaitu menggunakan fungsi Gabor untuk ekstraksi fitur tekstur, dan langkah terakhir adalah mengelompokkan citra sesuai dengan window menggunakan FSVM dengan parameter yang didapatkan dari proses pelatihan serta untuk data yang tidak terklasifikasi menggunakan decision function akan diklasifikasi dengan Persamaan (4), Persamaan (5) dan Persamaan (6).
+Proses yang ketiga dari perancangan sistem adalah implementasi algoritma dalam suatu bahasa pemrograman.
+Implementasi menggunakan Matlab R2009a.
+Proses ini menghasilkan aplikasi sebagai media yang representatif terhadap hasil dari metode yang diusulkan.
+Proses yang terakhir adalah analisa hasil.
+Analisa hasil dilakukan berdasarkan hasil klasifikasi dengan menggunakan perhitungan tingkat akurasinya.
+Formula yang digunakan untuk menghitung tingkat akurasi pada analisa hasil sebagai berikut.
+4. HASIL UJI COBA DAN ANALISIS 
+Uji coba yang akan dilakukan dan diamati adalah pelaksanaan uji coba terhadap pengaruh dari perbedaan parameter yang meliputi pengujian parameter pada fungsi Gabor, pengujian parameter pada fungsi kernel Gaussian RBF dan pengaruh jumlah data latih.
+Pada pengujian fungsi Gabor akan dilakukan beberapa pengujian terhadap ukuran matriks, orientasi, skala dan frekuensi terhadap nilai akurasi yang telah diperoleh yang nantinya akan diimplementasikan pada fitur yang telah diusulkan, yaitu model warna YUV dan fitur tekstur Gabor.
+Setelah didapatkan parameter yang baik, yaitu parameter-parameter yang menghasilkan nilai akurasi yang tertinggi, maka langkah selanjutnya adalah melakukan pengujian terhadap pengaruh kombinasi fitur warna dan tekstur tersebut terhadap nilai akurasi.
+Tingkat akurasi yang diperoleh akan dibandingkan terhadap uji coba hanya dengan fitur warna, uji coba hanya dengan fitur tekstur, dan uji coba dengan kombinasi fitur tersebut.
+Pengujian ini menggunakan total data latih sebanyak 450 data citra yang masing-masing kelas terdiri dari 150 data citra.
+Setiap data citra yang digunakan memiliki ukuran sebesar 16x16 piksel, kemudian setiap data citra tersebut diambil window 3x3 piksel dan digeser untuk setiap satu piksel horizontal dan vertikal.
+Setiap window akan dilakukan proses perhitungan rata-rata untuk setiap channel warna, yaitu Y, U dan V.
+Window tersebut kemudian akan diklasifikasikan ke dalam salah satu dari tiga kelas yang telah ditentukan sebelumnya.
+4.1. Uji Coba Pengaruh Parameter-parameter pada Fungsi Gabor 
+Skenario pengujian pertama adalah uji coba pengaruh parameter-parameter pada fungsi Gabor terhadap nilai akurasinya.
+Terdapat empat pengaruh parameter yang akan diujikan pada skenario pengujian pertama, yaitu ukuran matriks, orientasi, skala dan frekuensi.
+Ukuran matriks menunjukkan besarnya matriks filter yang terbentuk pada proses fungsi Gabor.
+Orientasi adalah pengaruh parameteryang menunjukkan arah dari filter yang terbentuk pada proses fungsi Gabor.
+Skala menggambarkan besarnya ukuran lonceng pembentuk fungsi Gaussian (gaussian envelope).
+Frekuensi menunjukkan banyaknya jumlah frekuensi melingkar pada bagian sinus (imajiner).
+Masing-masing parameter akan diuji dengan tujuan untuk menentukan nilai parameter yang menghasilkan tingkat akurasi yang tertinggi.
+Nilai parameter tersebut diasumsikan sebagai nilai parameter yang memiliki nilai terbaik dimana nilai parameter tersebut akan digunakan pada skenario pengujian yang selanjutnya, yaitu skenario pengujian pengaruh parameterpada fungsi kernel Gaussian dalam algoritma klasifikasi FSVM.
+Skenario pengujian ukuran matriks dilakukan dengan melakukan pengujian terhadap 150 data latih yang masing-masing kelas terdiri dari 50 data citra, orientasi = -/4, skala = 3 dan frekuensi = 0.5. 
+Sedangkan, parameterpada fungsi kernel Gaussian RBF yang digunakan sebesar 0.1. 
+Ukuran matriks yang akan diujikan adalah ukuran matriks mulai dari 3x3 piksel sampai dengan 15x15 piksel dengan beda 2 piksel untuk masing-masing matriks pengujian.
+Ukuran matriks yang digunakan berukuran ganjil dengan tujuan untuk mendapatkan titik tengah yang berimbang antara sisi kiri dan sisi kanan.
+Range nilai tersebut dipilih dikarenakan range tersebut sudah dapat menunjukkan perolehan tingkat akurasi tertinggi yang didapatkan selama proses klasifikasi.
+Hasil pengujian pada skenario uji coba pengaruh parameter ukuran matriks dapat dilihat pada Tabel 1.
+Nilai akurasi yang dicetak tebal merupakan nilai akurasi yang tertinggi.
+Berdasarkan pada Tabel 1 menunjukkan bahwa ukuran matriks 9x9 piksel merupakan ukuran matriks yang menghasilkan nilai akurasi tertinggi untuk semua citra yang telah diujikan.
+Nilai akurasi maksimum yang diperoleh Citra ke-1 adalah 52.74%.
+Nilai akurasi maksimum yang diperoleh Citra ke-2 adalah 52.27%.
+Nilai akurasi maksimum yang diperoleh Citra ke-3 adalah 50.05%.
+Nilai akurasi maksimum yang diperoleh Citra ke-4 adalah 50.02%.
+Nilai akurasi maksimum yang diperoleh Citra ke-5 adalah 50.65%.
+Hasil tersebut menunjukkan bahwa parameter ukuran matriks yang seharusnya digunakan pada pengujian parameter selanjutnya adalah matriks dengan ukuran 9x9 piksel.
+Parameter uji yang selanjutnya adalah parameter orientasi.
+Pada skenario pengujian parameter orientasi akan dilakukan pengujian terhadap 150 data latih yang masing-masing kelas terdiri dari 50 data citra.
+Ukuran matriks yang digunakan adalah 9x9 piksel.
+Parameter skala yang digunakan = 3 dan parameter frekuensi yang digunakan = 0.5. Sedangkan, parameterpada fungsi kernel Gaussian RBF yang digunakan = 2.25.
+Parameter orientasi yang digunakan pada pengujian ini adalah , /2, /3, /4, -/3, dan -/4.
+Nilai-nilai tersebut dipilih dikarenakan nilai-nilai tersebut sudah mewakili beberapa arah dan sudah menunjukkan perolehan tingkat akurasi yang maksimum yang didapatkan selama proses klasifikasi.
+Hasil pengujian pada skenario uji coba pengaruh parameter orientasi dapat dilihat pada Tabel 2.
+Nilai akurasi yang dicetak tebal merupakan nilai akurasi yang tertinggi.
+Berdasarkan pada Tabel 2 menunjukkan bahwa orientasi dengan nilai -/3 merupakan orientasi yang menghasilkan nilai akurasi tertinggi untuk semua citra yang telah diujikan.
+Nilai akurasi maksimum yang diperoleh Citra ke-1 adalah 69.98%.
+Nilai akurasi maksimum yang diperoleh Citra ke-2 adalah 66.69%.
+Nilai akurasi maksimum yang diperoleh Citra ke-3 adalah 62.42%.
+Nilai akurasi maksimum yang diperoleh Citra ke-4 adalah 67.06%.
+Nilai akurasi maksimum yang diperoleh Citra ke-5 adalah 77.15%.
+Hasil tersebut menunjukkan bahwa parameter orientasi yang seharusnya digunakan pada pengujian parameter selanjutnya adalah orientasi dengan nilai -/3.
+Parameter uji yang selanjutnya adalah parameter skala.
+Pada skenario pengujian parameter skala akan dilakukan pengujian terhadap 150 data latih yang masing-masing kelas terdiri dari 50 data citra.
+Parameter frekuensi yang digunakan = 0.5. Parameterpada fungsi kernel Gaussian RBF yang digunakan = 1.
+Parameter skala yang digunakan pada pengujian ini adalah mulai dari 1 sampai dengan 55 dengan beda 5.
+Nilai tersebut dipilih dikarenakan range nilai tersebut sudah menunjukkan perolehan tingkat akurasi yang maksimum yang didapatkan selama proses klasifikasi.
+Hasil pengujian pada skenario uji coba pengaruh parameter skala dapat dilihat pada Tabel 3.
+Nilai akurasi yang dicetak tebal merupakan nilai akurasi yang tertinggi.
+Berdasarkan pada Tabel 3 menunjukkan bahwa skala dengan nilai 20 merupakan skala yang menghasilkan nilai akurasi tertinggi untuk semua citra yang telah diujikan.
+Nilai akurasi maksimum yang diperoleh Citra ke-1 adalah 67.96%.
+Nilai akurasi maksimum yang diperoleh Citra ke-2 adalah 52.18%.
+Nilai akurasi maksimum yang diperoleh Citra ke-3 adalah 60.81%.
+Nilai akurasi maksimum yang diperoleh Citra ke-4 adalah 59.41%.
+Nilai akurasi maksimum yang diperoleh Citra ke-5 adalah 63.33%.
+Hasil tersebut menunjukkan bahwa parameter skala yang seharusnya digunakan pada pengujian parameter selanjutnya adalah skala dengan nilai 20.
+Parameter uji yang selanjutnya adalah parameter frekuensi.
+Pada skenario pengujian parameter frekuensi akan dilakukan pengujian terhadap 150 data latih yang masing-masing kelas terdiri dari 50 data citra.
+Ukuran matriks yang digunakan = 9x9 piksel.
+Nilai orientasi yang digunakan = -/3.
+Nilai skala yang digunakan = 20 yang masing-masing merupakan nilai yang terpilih pada pengujian sebelumnya.
+Parameterpada fungsi kernel Gaussian RBF yang digunakan = 0.75.
+Parameter frekuensi yang digunakan pada pengujian ini adalah mulai dari 0.5 sampai dengan 5 dengan beda 0.5. Nilai tersebut dipilih dikarenakan range nilai tersebut sudah menunjukkan perolehan tingkat akurasi yang maksimum yang didapatkan selama proses klasifikasi.
+Hasil pengujian pada skenario uji coba pengaruh parameter frekuensi dapat dilihat pada Tabel 4.
+Nilai akurasi yang dicetak tebal merupakan nilai akurasi yang tertinggi.
+Berdasarkan pada Tabel 4 menunjukkan bahwa frekuensi dengan nilai 4.0 merupakan frekuensi yang menghasilkan nilai akurasi tertinggi untuk semua citra yang telah diujikan.
+Nilai akurasi maksimum yang diperoleh Citra ke-1 adalah 67.82%.
+Nilai akurasi maksimum yang diperoleh Citra ke-2 adalah 63.45%.
+Nilai akurasi maksimum yang diperoleh Citra ke-3 adalah 61.11%.
+Nilai akurasi maksimum yang diperoleh Citra ke-4 adalah 58.99%.
+Nilai akurasi maksimum yang diperoleh Citra ke-5 adalah 75.66%.
+Berdasarkan hasil dari semua pengujian yang telah dilakukan, maka nilai parameter-parameter yang terpilih dan yang memiliki nilai akurasi tertinggi adalah ukuran matriks = 9x9 piksel, orientasi = -/3, skala = 20 dan frekuensi = 4.
+Nilai-nilai tersebut akan dijadikan sebagai nilai yang akan digunakan pada fungsi Gabor untuk pengujian pada skenario selanjutnya.
+4.2. Uji Coba Pengaruh Parameter pada Gaussian RBF 
+Skenario pengujian kedua adalah uji coba pengaruh parameter pada Gaussian RBF terhadap nilai akurasinya.
+Permasalahan klasifikasi citra satelit merupakan permasalahan klasifikasi yang berbentuk non-linear, sehingga digunakan sebuah fungsi kernel, yaitu Gaussian RBF.
+Parameter σ merupakan parameter yang menentukan bagaimana data yang akan dipetakan.
+Hal tersebut mengakibatkan adanya perubahan nilai pada parameter σ akan mempengaruhi hasil dari klasifikasi itu sendiri.
+Pada skenario ini, jumlah data yang akan diujikan sebanyak 150 data citra yang masing-masing kelas terdiri dari 50 data citra.
+Parameter pada pengujian kali ini ditentukan mulai dari 0.1 sampai dengan 1.5. 
+Range nilai tersebut dipilih karena pada range tersebut sudah dapat menunjukkan tingkat akurasi yang tertinggi yang didapatkan selama proses klasifikasi.
+Hasil pengujian pada skenario uji coba pengaruh parameter σ dapat dilihat pada Tabel 5.
+Nilai akurasi yang dicetak tebal merupakan nilai akurasi yangtertinggi.
+Hasil pengujian dengan nilai akurasi tertinggi pada Citra ke-1 disajikan pada Gambar 2.
+Berdasarkan pada Tabel 5 menunjukkan bahwa penentuan nilai yang berbeda terhadap parameter σ menghasilkan nilai akurasi yang berbeda.
+Perbedaan nilai akurasi yang telah dihasilkan mengakibatkan hasil akurasi tertinggi dari masing-masing citra uji diperoleh dengan nilai parameter σ yang berbeda-beda.
+Nilai akurasi maksimum yang diperoleh Citra ke-1 adalah 69.55% pada= 0.7. 
+Nilai akurasi maksimum yang diperoleh Citra ke-2 adalah 71.91% pada= 0.8. 
+Nilai akurasi maksimum yang diperoleh Citra ke-3 adalah 65.25% pada= 0.7. 
+Nilai akurasi maksimum yang diperoleh Citra ke-4 adalah 76.14% pada= 0.8. 
+Nilai akurasi maksimum yang diperoleh Citra ke-5 adalah 80.43% pada= 0.8. 
+Hasil tersebut menunjukkan bahwa penentuan parameter σ untuk skenario uji selanjutnya tidak dapat menggunakan hanya satu nilai saja, melainkan masih menggunakan range nilai 0.1 sampai dengan 1.5 dengan tujuan untuk menunjukkan perolehan nilai akurasi tertinggi.
+Skenario uji selanjutnya adalah uji coba pengaruh terhadap jumlah data latih.
+4.3. Uji Coba Pengaruh Jumlah Data Latih 
+Skenario pengujian ketiga adalah uji coba pengaruh pemberian jumlah data latih terhadap sistem yang telah dibangun untuk mengetahui pengaruh jumlah data latih terhadap tingkat akurasinya.
+Pengujian ini dilakukan untuk variasi data latih tertentu, yaitu jumlah data latih yang mulai dari 150, 225, 300 dan 450 data citra dengan range nilai parameter σ seperti pada sekenario pengujian sebelumnya.
+Berdasarkan pengujian dari kelima variasi citra uji menunjukkan bahwa perubahan nilai parameter σ dan jumlah data latih memberikan dampak terhadap perubahan nilai akurasi.
+Besar atau kecilnya nilai parameter σ tidak dapat ditentukan secara pasti untuk masing-masing citra uji hingga didapatkan nilai akurasi tertinggi.
+Akan tetapi, dari hasil pengujian dapat diketahui bahwa nilai parameter σ akan menemukan titik-titik tertinggi dengan perolehan nilai akurasi yang maksimum, yaitu antara 0.1 sampai dengan 1.5. 
+Hal tersebut ditunjukkan pada Gambar 3. 
+Gambar 3 merupakan salah satu contoh hasil uji coba pada Citra ke-5 dengan jumlah data latih sebanyak 225 dan range parameter σ antara 0.1 sampai dengan 1.5 yang menunjukkan bahwa pada titik parameter tertentu akan didapatkan nilai akurasi yang maksimum.
+Meningkatnya pemberian jumlah data latih yang diberikan tidak dapat dipastikan akan memberikan pengaruh atau dampak yang signifikan terhadap meningkatnya nilai akurasi.
+Hal tersebut ditunjukkan pada Gambar 4 yang merupakan grafik tingkat akurasi tertinggi pada jumlah data latih yang berbeda-beda.
+Grafik tersebut diperoleh dari pengujian pada Citra ke-5 dengan pemberian jumlah data latih mulai dari 150 sampai dengan 450 data citra.
+4.4. Perbandingan Akurasi terhadap Kombinasi Fitur 
+Perbandingan tingkat akurasi dilakukan pada skenario uji coba yang hanya dengan fitur warna, uji coba yang hanya dengan fitur tekstur dan uji coba dengan kombinasi fitur tersebut.
+Skenario pengujian ini dilakukan dengan tujuan untuk mengetahui perbandingan tingkat akurasi antara ketiga metode ekstraksi fitur tersebut.
+Dari hasil uji coba ini akan diketahui apakah metode yang diusulkan dapat meningkatkan nilai akurasi sesuai yang diharapkan atau tidak.
+Pengujian ini dilakukan terhadap lima citra uji dengan jumlah data latih yangdigunakan sebesar 150 data citra.
+Sedangkan, nilai parameter yang digunakan = 0.8.
+Daftar perbandingan tingkat akurasi yang diujikan diperlihatkan pada Tabel 6 dan grafik perbandingan tingkat akurasi yang diujikan diperlihatkan pada Gambar 5. 
+Berdasarkan grafik yang disajikan pada Gambar 5 menunjukkan bahwa metode ekstraksi fitur terhadap klasifikasi citra satelit yang telah diusulkan, yaitu kombinasi fitur warna dan fitur tekstur mampu memiliki tingkat akurasi yang lebih tingi daripada hanya menggunakan metode ekstraksi fitur warna saja ataupun metode ekstraksi fitur tekstur saja.
+Rata-rata tingkat akurasi yang dihasilkan dari kelima data uji untuk masing-masing metode ekstraksi, yaitu sebesar 64.89% untuk metode ekstraksi fitur warna, sebesar 40.12% untuk metode ekstraksi fitur tekstur serta sebesar 66.87% untuk metode ekstraksi fitur warna dan tekstur.
+Berdasarkan hasil tersebut dapat disimpulkan bahwa dengan melakukan kombinasi terhadap fitur warna dan fitur tekstur dapat meningkatkan nilai akurasi sebesar 1.98% terhadap metode ekstraksi fitur warna dan meningkatkan sebesar 26.75% terhadap metode ekstrasksi fitur tekstur.
+5.KESIMPULAN
+Penggunaan metode kombinasi ekstraksi fitur antara fitur warna dan fitur tekstur untuk klasifikasi dengan metode Fuzzy Support Vector Machine berhasil melakukan klasifikasi pada citra satelit ke dalam tiga kelas yang telah ditentukan sebelumnya, yaitu lahan pertanian, permukimam dan perairan.
+Nilai parameter σ dan jumlah data latih yang diubah- ubah ternyata memberikan dampak terhadap perubahan nilai akurasinya.
+Akan tetapi, besarnya nilai parameter σ yang digunakan akan berbeda-beda untuk mendapatkan nilai akurasi yang maksimum.
+Nilai akurasi yang maksimum diperoleh pada Citra uji ke-5 dengan perolehan nilai akurasi yang didapatkan sebesar 83.80%.
+Hasil akurasi tersebut diperoleh dengan penentuan parameter σ sebesar 0.8 dan jumlah data latih sebanyak 225 data.
+Rata-rata tingkat akurasi yang didapatkan dari kelima data uji untuk metode ekstraksi fitur warna, metode ekstraksi fitur tekstur serta metode kombinasi ekstraksi fitur warna dan fitur tekstur secara berurutan adalah sebesar 64.89%, 40.12% serta 66.87%.
+Berdasarkan rata-rata yang telah diperoleh menunjukkan bahwa penerapan metode kombinasi ekstraksi fitur warna dan fitur tekstur mampu meningkatkan akurasi terhadap klasifikasi jika dibandingkan dengan hanya menerapkan metode ekstraksi fitur warna saja ataupun metode ekstraksi fitur tekstur saja.

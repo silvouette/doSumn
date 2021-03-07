@@ -1,0 +1,315 @@
+Abstrak
+Peternakan ayam broiler merupakan salah satu jenis usaha yang paling potensial dikembangkan.
+Pola yang biasa digunakan dalam pengembangan ayam broiler adalah pola kemitraan inti plasma.
+Pada pola ini perusahaan mitra meninjau layak tidaknya kandang peternak untuk mendapatkan bibit ayam broiler.
+Dalam penelitian ini ada beberapa penilaian kriteria yang dilakukan yaitu: riwayat peternak, tinggi kandang, jarak antar kandang, kelembapan, kekuatan kandang dan keamanan.
+Agar dapat memperoleh penilaian kelayakan kandang yang optimal, penelitian ini menawarkan solusi menggunakan algoritma genetika sebagai algoritma untuk penentuan kandang peternak dalam pengisian bibit ayam broiler.
+Data yang digunakan dalam penelitian adalah 46 data kandang ayam broiler.
+Proses algoritma genetika ini menggunakan representasi realcode dengan panjang kromosom sesuai dengan kriteria yang ditentukan, metode crossover yang digunakan adalah extended intermediate crossover, metode mutasi yang digunakan adalah random mutation, dan diseleksi dengan metode elitism.
+Dari hasil pengujian yang diperoleh parameter optimal yaitu ukuran populasi 105 individu dengan rata-rata fitness sebesar 0,73910, generasi sebanyak 115 dengan rata-rata firness sebesar 0,7610 dan kombinasi cr 0,5 dan mr 0,1 dengan rata-rata fitness sebesar 0,75218.
+Hasil akhir berupa layak atau tidak layak kandang peternak untuk diisi ayam broiler.
+Kata kunci: Algoritma Genetika, Ayam Broiler, Optimasi.
+1. PENDAHULUAN
+Peternakan ayam broiler merupakan usaha yang memberikan konstribusi besar dalam penyediaan daging nasional untuk memenuhi kebutuhan protein hewani masyarakat(Bahari, et al., 2012).
+Ditinjau dari nilai gizinya, daging ayam broiler tidak kalah dibanding dengan daging dari ternak lain (Sholikin, 2011).
+Ayam broiler merupakan ayam penghasil daging yang memiliki beberapa keunggulan diantaranya, laju perputaran modal yang cepat dan waktu pemeliharaan yang singkat yaitu dalam lima minggu ayam broiler sudah dapat dipanen dengan bobot 1,5 kg/ekor(Maulana, 2008).
+Hal inilah yang mendorong banyak peternak mengusahakan peternakan ayam broiler.
+Saat ini peternak ayam broiler di kota Malang berkembang cukup pesat, hal tersebut dapat dilihat dari banyaknya kandang ayam broiler dibeberapa daerah yang menerapkan pola kemitraan inti plasma dengan perusahaan penyedia bibit ayam broiler.
+Tujuan pola kemitraan ini adalah meningkatkan pendapatan, dan peningkatan skala usaha baik dari pihak perusahaan maupun peternak(Maulana, 2008).
+Sedangkan inti plasma yang dimaksud adalahdimana kelompok peternak mitra bertindak sebagai plasma sedangkan perusahaan mitra sebagai inti.
+Ada beberapa persyaratan dalam mengikuti kemitraan seperti : peternak menyiapkan kandang, peralatan, mengajukan pendaftaran kerjasama dan wajib memberikan jaminan kepada perusahaan(Yunus, 2009).
+Kemudian dari pihak perusahaan akan meninjau kelayakan dari kandang yang akan diisi bibit ayam broiler(Imadudin, 2001).
+Fungsi kandang dalam berternak ayam broiler sangatlah penting karena kegagalan dalam beternak ayam pedaging tidak serta merta kesalahan anak buah kandang dalam memelihara ayam tetapi juga dapat disebabkan dari kelayakan kandang ayam tersebut.
+Memberikan bibit ayam secara sembarangan pada kandang yang dinilai kurang layak dapat menyebabkan kerugian dimasa mendatang baik bagi perusahaan maupun peternak, jika terdapat banyak ayam yang mati diakibatkan oleh ketidaknyamanan kandang maupun diakibatkan oleh faktor keamanan lingkungan tersebut.
+Beberapa petugas penyuluhan lapangan selama ini masih menerapkan penilaian secara manual dan subjektif dalam menentukan kelayakan kandang untuk diisi bibit ayam broiler.
+Penilaian dilakukan perorangan dan penentuan kelayakannya secara subjektif, tidak mempertimbangkan keputusan dari pihak lain ataupun sistem.
+Perkembangan sistem informasi saat ini semakin banyak diminati, terutama dalam mendukung pengambilan keputusan.
+Pada penelitian mengenai penentuan kelayakan pengisian kandang ayam broiler telah dilakukan sebelumnya oleh Indra dkk (2013), yang menjelaskan kegunaan metode Analytical Hierarchy Process (AHP) sebagai alat bantu dalam pengambilan keputusan pengisian bibit ayam broiler.
+Di dalam penelitian tersebut penilaian kelayakan kandang ayam broiler dapat ditentukan dari kriteria riwayat peternak, tinggi kandang, jarak antara kandang, kelembapan, kekuatan kandang dan keamanan.
+Pengujian akurasi dilakukan dengan mencocokkan hasil rekomendasi dari sistem dengan hasil rekomendari dari pihak lapang dalam penentuan layak atau tidaknya kandang untuk diisi bibit ayam broiler.
+Pengujian sensitivitas dilakukan untuk mengetahui kriteria yang berpengaruh dalam penentuan kelayakan kandang ayam broiler dengan melakukan penambahan dan pengurangan 10%, 20%, 30%, dan 40%.
+Hasil penelitian tersebut dengan menggunakan metode Analitical Hirarchy Proses (AHP) sebagai metode yang digunakan untuk menentukan bobot kriteria kandang dan Technique for Order Preference by Similarity to Ideal Solution(TOPSIS) yang digunakan untuk menentukan kelayakan kandang peternak, menghasilkan nilai akurasi sebesar 62,5% dan uji tingkat sensitivitas menunjukkan disetiap kriteria kandang memiliki selisih rata-rata sensitivitas yang hampir sama(Indra, 2013).
+Pada penelitian ini digunakan algoritma evolusi untuk penentuan batas-batas tertentu.
+Terdapat banyak metode yang dapat digunakan dan termasuk dalam algoritma evolusi, diantaranya adalah Simulated Annealing (SA), Particle Swarm Optimization (PSO), Evaluation Strategies (ES), Genetic Algoritgm (GA) dan lain sebagainya(Arnold, 2011).
+Dalam penentuan kelayakan pengisian bibit ayam broiler pada kandang peternak ini menggunakan algoritma genetika.
+Kelebihan metode Algoritma Genetika dibanding dengan metode algoritma evolusi lainnya adalah algoritma genetika dapat memecahkan suatu masalah yang kompleks (Mahmudy, Marian, Luong 2013).
+Selain itu algoritma genetika dapat memecahkan masalah optimasi dalam bidang computer science dengan tingkat kesuksesan yang tinggi(Restuputri, et al., 2014).
+Dengan adanya sistem ini diharapkan dapat membantu dalam mengoptimalkan penilaian alternatif layak dan tidaknya beberapa kandang untuk diisi bibit ayam broiler.
+Sehingga dapat membantu peternak ayam broiler dalam meningkatkan produktivitas ternaknya dan meminimalisir kerugian yang bisa terjadi.
+2. LANDASAN KEPUSTAKAAN 
+2.1 Kandang 
+Kandang adalah tempat tinggal ayam dalam melakukan semua aktivitasnya.
+Mulai dengan makan, minum dan tentu saja tumbuh maupun menghasilkan telur.
+Kandang yang tidak memenuhi persyaratan minimal tidak termasuk dalam arti kandang sebenarnya.
+Perlu sekiranya diperhatikan kenyamanan kandang sehingga mampu mendukung tercapainya performan ayam yang optimal(Rasyaf, 2003).
+2.2 Sistem Kandang
+Sistem kandang merupakan hal penting dalam pembuatan sebuah kandang ayam broiler.
+Syarat kandang ayam yang baik adalah kandang yang memenuhi standar yang telah ditentukan.
+Syarat-syarat kandang ayam harus dipenuhi adalah sebagai berikut (Rasyaf & Cahyono, 2004): 1. Kandang harus dibuat kuat agar dapat dipakai dalam waktu yang lama, dan tidak mudah roboh karena angin yang kencang.
+2. Dapat menahan air hujan dan terik matahari langsung masuk kandang, tepi atap sebaiknya dibuat cukup lebar yaitu sekitar 1,25 meter dari dinding kandang.
+3. Kandang tidak rapat tetapi harus terbuka, memiliki celah-celah yang terbuka yang dibuat dari anyaman bambu, kawat ram atau jeruji-jeruji bambu sehingga hewan pemangsa tidak dapat masuk melalui celah yang terbuka tersebut.
+4. Ruang ventilasi dapat ditambahkan dengan membuat sistem atap monitor dan dapat menggunakan kipas angin yang berfungsi menyedot udara kotor dalam kandang atau mengalirkan udara segar masuk ke dalam kandang.
+5. Lantai kandang sebaiknya disemen agar memudahkan dalam pembersihan kandang dan dibuat lebih tinggi dari tanah disekitarnya.
+6. Ukuran/luas kandang tergantung dari jumlah ayam yang akan dipelihara.
+Sebagai pedoman, kepadatan ayam dewasa per meter persegi adalah 10 ekor.
+7. Selokan/parit sebaiknya dibuatkan disekeliling kandang.
+Hal ini penting agar pembuangan air tidak menggenang.
+8. Tata letak kandang hendaknya dibangun diatas tanah yang lebih tinggi dari tanah sekitarnya agar udara dapat berputar dan bergerak bebas elintasi kandang sehingga peredaran uadara dapat berjalan dengan baik.
+Kandang tidak terletak pada lokasi yang sibuk dan gaduh mengingat ayam mudah stres, ukuran dan luas kandang disesuaikan dengan jumlah dan umur ayam.
+9. Jarak antara kandang juga haus mendapat perhatian karena dapat mempengaruhi sirkulasi udara, tingkat kelembapan, dan tepreratur.
+10. Tinggi kandang berkaitan erat dengan bedarnya kandang untuk kondisi indonesia.
+Ketinggian dari lantai sampai atap teratas minimal 6 meter, sedangkan ketinggian dari lantai sampai atap terendah minimal 3 meter.
+Ketinggian kandang mempengaruhi ventilasi, temperatur dan biaya.
+2.3 Analytical Hierarchy Process(AHP) 
+Sub bab pada metode AHP yang dibahas meliputi konsep dasar AHP dan prosedur AHP.
+Metode ini digunakan sebagai model inputan.
+2.2.1. Konsep Dasar AHP 
+AHP adalah sebuah hierarki fungsional dengan input utamanyapersepsi manusia.
+Dengan hierarki, suatu masalah kompleks dan tidak terstruktur dipecahkan ke dalam kelompok-kelompok tersebut diatur menjadi dua bentuk hierarki.
+Model AHP memakai persepsi manusia yang dianggap pakar sebagai input utamanya.
+Pakar adalah seorang individu yang memiliki pengetahuan khusus pemahaman, pengalaman dan metodemetode yang digunakan untuk memecahkan persoalan dalam bidang tertentu(Nurcholis & Achlison, 2014).
+Dalam menyelesaikan persoalan AHP ada beberapa prinsip dasar yang harus dipahami antara lain (Saaty & Vargas, 2006): a. Decomposition, setelah mendefinisikan permasalahan atau persoalan, maka perlu dilakukan dekomposisi, yaitu memecah persoalan yang utuh menjadi unsur-unsur terkecil.
+b. Comparatif Judgement, prinsip ini berarti membuat penilaian tentang kepentingan relatif dua elemen pada suatu tingkatan tertentu yang berkaitan dengan tingkatan diatasnya.
+Penilaian ini merupakan inti dari AHP, karena akan berpengaruh terhadap prioritas elemen-elemen lainnya.
+Hasil dari penelitian ini lebih mudah disajikan dalam bentuk matriks Pairwise Comparison.
+Bentuk matriks Pairwise Comparison dapat dilihat pada Tabel 1.
+c. Synthesis of Priority, dari matriks pairwise comparison vektor eigen ciri-nya untuk mendapatkan prioritas lokal, karena matriks pairwise comparison terdapat pada tingkat lokal, maka untuk melakukan secara global harus dilakukan sintesis diantara prioritas lokal.
+Prosedur melakukan sintesis berbeda bentuk hierarki.
+d. Local Consistency, konsistensi memiliki dua makna.
+Pertama, bahwa objek-objek yang serupa dapat dikelompokkan sesuai dengan keseragaman dan relevansinya.
+Kedua, tingkat hubungan antara objek-objek yang didasarkan pada kriteria tertentu.
+2.2.2. Prosedur Analytical Hierarchy Process 
+Secara umum langkah-langkah yang harus dilakukan dalam menggunakan AHP untuk pemecahan suatu masalah adalah sebagai berikut (Saaty & Vargas, 2006) : 1. Mendefinisikan masalah dan menentukan solusi yang diinginkan, lalu menyusun hierarki dari permasalahan yang dihadapi.
+2. Menentukan prioritas elemen a. Langkah pertama dalam menentukan prioritas elemen adalah membuat perbandingan pasangan, yaitu membandingkan elemen secara berpasangan sesuai kriteria yang diberikan.
+b. Matriks perbandingan berpasangan diisi menggunakan bilangan untuk merepresentasikan kepentingan relatif dari suatu elemen terhadap elemen yang lainnya.
+3. Sintesis 
+Pertimbangan-pertimbangan terhadap perbandingan berpasangan disintesis untuk memperoleh keseluruhan prioritas.
+Hal-hal yang dilakukan dalam langkah ini adalah : a. Menjumlahkan nilai-nilai dari setiap kolom pada matriks.
+b. Membagi setiap nilai dari kolom dengan total kolom yang bersangkutan untuk memperoleh normalisasi matriks.
+c. Menjumlahkan nilai-nilai dari setiap baris dan membaginya dengan jumlah elemen untuk mendapatkan nilai rata-rat.
+4. Mengukur konsistensi 
+Dalam pembuatan keputusan, penting untuk mengetahui seberapa baik konsistensi yang ada karena kita tidak menginginkan keputusan berdasarkan pertimbangan dengan konsistensi yang rendah.
+Halhal iyang dilakukan dalam langkah ini adalah sebagai berikut : a. Kalikan setiap nilai pada kolom pertama dengan prioritas relatif elemen pertama, nilai pada kolom kedua dengan prioritas relatif yang bersangkutan.
+b. Jumlahkan setiap baris.
+c. Hasil dari penjumlahan baris dibagi dengan elemen prioritas relatif yang bersangkutan.
+d. Jumlahkan hasil bagi diatas dengan banyaknya elemen yang ada, hasilnya disebutmaks.
+5. Hitung Konsistensi Index (CI), berikut persamaan konsistensinya : (2-1) Dimana n = banyaknya elemen.
+6. Hitung Konsistensi Ratio (CR), berikut Persamaan Perhitungan Rasio konsistensi: (2-2) Keterangan CR = Consistency Ratio CI = Consistency Index RI = Indeks Random Consistency 7.
+Memeriksa konsistensi hierarki.
+Jika nilainya lebih dari 10%, maka penilaian data judgement harus diperbaiki.
+Namun jika Ratio Konsistensi (CI/RI) kurang atau sama dengan 0,1 maka hasil perhitungan bisa dinyatakan benar (Saaty & Vargas, 2006) 2.
+3 Penentuan Kelayakan Kandang dengan Technique for Order Preference by Similarity to Ideal Solution (TOPSIS) Sub bab ini membahas tentang penentuan layak tidak layaknya kandang.
+Metode yang digunakan adalah metode Technique for Order Preference by Similarity to Ideal Solution (TOPSIS).
+Bobot kriteria yang diperoleh dari metode AHP akan dijadikan acuan pada metode TOPSIS.
+2.3.1 Konsep Dasar dengan Technique for Order Preference by Similarity to Ideal Solution (TOPSIS) 
+TOPSIS merupakan salah satu metode pengambilan keputusan multikriteria yang pertama kali dikenalkan oleh Yoon dan Hwang pada tahun 1981 (Juliyanti & I, 2011).
+Metode TOPSIS banyak digunakan dalam beberapa model Multiple Attribute Decision Making (MADM) dikarenakan metode ini memiliki beberapa keunggulan yaitu : 1. Konsepnya sederhana dan mudah dipahami.
+2. Komputasinya efisien.
+3. Memiliki kemampuan untuk mengukur kinerja relatif dari alternatif-alternatif keputusan dalam bentuk matematis yang sederhana.
+2.3.2 Prosedur TOPSIS 
+Berikut langkah-langkahprosedur TOPSIS (Lestari, 2011): 1. Menentukan matrik keputusan yang ternormalisasi TOPSIS membutuhkan rating kriteria kelayakan setiap calon kandang ayam pada setiap kriteria atau subkriteria yang ternormalisasi.
+Berikut persamaan matriks ternormalisasi dapat dilihat pada Persamaan (2-3).
+2. Menghitung matriks keputusan ternormalisasi terbobot 
+Dalam menghitung matriks ternormalisasi terbobot, harus ditentukan terlebih dahulu nilai bobot yang merepresentasikan preferensi absolute dari pengambilan keputusan.
+Nilai preferensi menunjukkan tingkat kepentingan relatif setiap kriteria atau subkriteria.
+Berikut perhitungan matrik ternormalisasi terbobot ditunjukkan pada Persamaan 2-4 dan Persamaan 2-5 digunakan untuk menghitung perkalian bobot preferensi degan matrik ternormalisasi atau matrik keputusan ternormalisasi terbobot.
+3. Menghitung matrik solusi ideal positif dan matriks solusi ideal negatif.
+Solusi ideal positif dan solusi ideal negatif dapat ditentukan berdasarkan rating bobot ternormalisasi.
+Persamaan solusi ideal positif dan solusi ideal negatif dapat dilihat pada Persamaan 2-6 dan Persamaan 2-7.
+4. Menghitung jarak antara nilai setiap alternatif dengan matrik sousi ideal positif dan matrik solusi ideal negatif.
+Jarak antara alternatif dan solusi ideal negatif terdapat pada Persamaan 2.9. 
+Penghitungan jarak antara alternatif dengan solusi ideal positif terdapat pada Persamaan 2.8. 
+Dari hasil perhitungan diatas nantinya dapat diketahui alternatif kandang yang layak maupun tidak layak untuk diberi bibit ayam broiler.
+Matode ini menggunakan inputan dari metode AHP sebagai bobot prioritas.
+2.4 Algoritma Genetika 
+Algoritma genetika merupakan tipe Evolution Algorithm (EA) yang paling populer.
+Algoritma genetika berkembang seiring dengan perkembangan teknologi informasi yang sangat pesat.
+Karena kemampuannya untuk menyelesaikan berbagai masalah kompleks, algoritma ini banyak digunakan dalam bidang fisika, biologi, ekonomi, sosiologi dan lain-lain yang sering menghadapi masalah optimasi yang model matematikanya kompleks atau bahkan sulit dibangun (Mahmudy, 2013).
+Dalam penyelesaian suatu masalah, algoritma genetika memetakan (encoding) suatu masalah menjadi string kromosom.
+String kromosom ini tersusun atas sejumlah gen yang menggambarkan variable-variable keputusan yang digunakan dalam solusi.
+Representasi string kromosom beserta fungsi fitness untuk menilai seberapa bagus sebuah kromosom untuk menjadi solusi yang layak sehingga dapat dimasukkan ke algoritma genetika (Mahmudy, 2013).
+Proses dalam algoritma genetika dimulai dengan tahap inisialisasi, yaitu menciptakan individuindividu secara acak yang memiliki susunan gen (kromosom) tertentu yang mewakili solusi dari permasalahan.
+Tahap selanjutnya adalah reproduksi yang menghasilkan offspring dari individu yang ada dipopulasi.
+Setelah proses reproduksi dilakukan, lahir individu baru yang menyebabkan jumlah individu bertambah.
+Setiap kromosom mempunyai nilai fitness, dimana semakin besar nilai fitnes maka semakin baik kromosom tersebut untuk dijadikan calon solusi.
+Tahap terakhir adalah proses seleksi yaitu memilih individu dari himpunan populasi dan offspring yang dipertahankan hidup pada generasi berikutnya (Mahmudy, 2013).
+Setelah melewati sekian iterasi, akan didapatkan individu terbaik.
+Individu terbaik ini akan mempunyai susunan kromosom yang bisadikonversi menjadi solusi yang paling baik atau mendekati optimum.
+Dapat disimpulkan bahwa algoritma genetika menghasilkan suatu solusi optimum dengan melakukan pencarian di antara sejumlah alternatif titik optimum berdasarkan fungsi probabilistic (Mahmudy, 2013).
+Flowchart cara kerja algoritma genetika dapat dilihat pada gambar 2.2. 
+2.5 Parameter Algoritma Genetika 
+Penentuan algoritma genetika merupakan pekerjaan yang tidak mudah.
+Beberapa parameter algoritma genetika adalah ukuran populasi (popSize), banyaknya generasi, crossover rate (cr), dan mutation rate (mr).
+Jika nilai parameter lagoritma genetika semakin besar, maka hal ini akan meningkatkan kemampuan eksplorasi algoritma genetika dalam pencarian solusi terbaik.
+Namun hal ini membuat waktu komputasi berlangsung lama karena kemungkinan algoritma genetika akan mengekporasi area yang tidak mempunyai nilai optimum (Mahmudy, 2013).
+Tidak adanya metode pasti dalam penentuan nilai parameter algoritma genetika membuat nilai parameter sangat dipengaruhi oleh permasalahan yang akan diselesaikan.
+Dalam penelitian optimasi menggunakan algoritma genetika, serangkaian pengujian pendahuluan diperlukan untuk mendapatkan kombinasi nilai parameter yang sesuai(Mahmudy, 2013).
+2.6 Penerapan Algoritma Genetika 
+Algoritma yang digunakan dalam penelitian ini adalah algoritma genetika dengan pengkodean real (real-coded genetic algorithms).
+Terdapat beberapa tahapan dalam penerapan algoritma genetika, yaitu melakukan representasi kromosom, inisialisai, reproduksi yang terdiri dari proses crossover dan mutasi, evaluasi, lalu yang terakhir adalah proses seleksi.
+Berikut ini merupakan penjelasan tahapan dalam algoritma genetika.
+2.6.1 Representasi Kromosom 
+Representasi kromosom merupakan proses pengkodean dari penyelesaian asli suatu permasalahan.
+Solusi dari suatu permasalahan harus dipetakan (encoding) menjadi string kromosom.
+String kromosom tersusun atas sejumlah gen yang menggambarkan variablevariable keputusan yang digunakan dalam solusi(Mahmudy, 2013).
+Terdapat berbagai cara untuk menentukan representasi kromosom, yaitu sebagai berikut (Imbar & Jayanti, 2011): a. Representasi Biner 
+Representasi yang paling sederhana dan paling umum dimana setiap gen hanya bernilai 0 dan 1, Contoh 1000111, 1000101, 1000100 dan seterusnya.
+b. Representasi Integer 
+Representasi yang bernilai bilangan bulat.
+Contoh : 29, 18, 21, 9 dan seterusnya.
+c. Representasi Real Code 
+Pada penelitian ini, peneliti menggunakan representasi real code karena mewakili ukuran dari masingmasing bahan pakan yang akan dioptimasi.
+Representasi yang membutuhkan tingkat ketelitian amat tinggi representasi ini bernilai bilangan real.
+Contoh : 65.6588.18, 21.89 dan seterusnya.
+d. Representasi Permutasi 
+Representasi yang digunakan untuk masalah scheduling, travel salesmen problem,atau yang tidak termasuk dari ketiga representasi.
+2.6.2 Inisialisasi 
+Inisialisasi dilakukan untuk membangkitkan himpunan solusi baru secara acak/random yang terdiri dari sejumlah string kromosom dan ditempatkan pada penampungan yang disebut dengan populasi.
+Dalam tahap ini, ukuran populasi (popSize) harus ditentukan.
+Nilai ini menyatakan jumlah individu/kromosom yang ditampung dalam populasi.
+Panjang setiap string kromosom (stringLen) dihitung berdasarkan presisi variable dari solusi yang dicari (Mahmudy, 2013).
+2.6.3 Reproduksi 
+Reproduksi bertujuan untuk menghasilkan keturunan dari individuindividu yang ada di populasi.
+Himpunan keturunan ini akan ditempatkan dalam penampungan offspring.
+Dua operator genetika yang digunakan dalam proses ini adalah crossover dan mutasi.
+2.6.3.1. Crossover 
+Crossover dilakukan dengan cara memilih dua induk (parent) secara acak dari populasi.
+Metode crossover yang digunakan adalah extended intermediate crossover, yaitu metode yang menghasilkan offspring dari kombinasi nilai dua induk.
+Dalam rasio offspring yang dihasilkan proses crossover terhadap ukuran populasi sehingga akan dihasilkan offspring sebanyak cr x popSize.
+Misalkan P1 dan P2 adalah dua kromosom yang telah diseleksi untuk melakukan crossover, maka bisa dibangkitkan offspring C1 dan C2 dengan rumus offspring hasil crossover sebagai berikut (Mahmudy, 2013) : (2-1) Keterangan : C1, C2 = Child 1, Child 2 P1, P2 = Parent 1, Parent 2= Dipilih secara acak pada range yang ditentukan.
+Misal pada interval [ -0,25 ; 1,25] Misalkan yang terpilih sebagai induk adalah P4 dan P9 pada Tabel 2.
+7,= [0.1104, 1.2336] maka akan dihasilkan dua offspring (C1 dan C2) sebagai berikut: C1 :x1 = 5,8114 + 0,1104 (9,43745,8114) = 6,2118x2 = 5,0779 + 1,2336 ( 6,69195,0779) = 7,0690 C2: x1 = 9,4374 + 0,1104 (5,81149,4374) = 9,0370x2 = 6,6919 + 1,2336 (5,07796,6919) = 4,700 Jika ditentukan cr = 0,4 maka ada 0,4 x 10 = 4 offspring yang dihasilkan dari proses crossover.
+Setiap crossover akan menghasilkan dua anak, maka terdapat dua kali operasi crossover yang akan menghasilkan dua offspring berikutnya, yaitu C3 dan C4.
+2.6.3.2. Mutasi 
+Mutasi biasanya digunakan sebagai operator untuk menjaga keragaman populasi.
+Mutasi dilakukan dengan memilih satu induk secara acak dari populasi.
+Dalam tahap ini nilai tingkat mutasi (mutation rate / mr) harus ditentukan untuk menyatakan rasio offspring yang dihasilkan dari proses mutasi terhadap ukuran populasi sehingga akan dihasilkan offspring sebanyak mr x popSize (Mahmudy, 2013).
+Metode mutasi yang digunakan adalah random mutationyang dilakukan dengan menambah atau mengurangi nilai gen terpilih dengan bilangan random yang kecil.
+Misalkan domain variable xj adalah [minj , maxj] dan offspring yang dihasilkan adalah C=[x1...xn], maka nilai gen offspring bisa dibandingkan dengan rumus gen hasil mutasi sebagai berikut (Mahmudy, 2013) : x i = xi + r(maxi - minj)(2-2) Keterangan : x i = Induk terpilih maxi = Nilai random terbesar minj = Range, misalkan [-0,1 , 0,1].
+Misal yang terpilih sebagai induk adalah P2 pada Tabel 2.
+7, gen yang terpilih nomor 2 (x2) dan r = -0,0584.
+Maka akan dihasilkan offspring (C5) sebagai berikut: C5: x1 = 8,491 (tetap)x2 = 2,57540,0584 ( 7,30,0 ) = 2,1491
+Anggap ditentukan mr = 0,2 maka ada 0,2 x 10 =2 offspring yang dihasilkan dari proses mutasi.
+Offspring dianggap C6.
+Keseluruhan offspring yang dihasilkan dari proses repreduksi (crossover dan mutasi) dapat dilihat pada Tabel 2.
+2.6.4 Evaluasi 
+Evaluasi digunakan untuk menghitung fitness pada tiap kromosom.
+Nilai fitness merupakan suatu ukuran kualitas dari tiap kromosom.
+Semakin besar nilai nantinya akan dijadikan calon solusi.
+Pada kasus dalam pencarian nilai maksimal, seperti pada persamaan 2-3(Mahmudy, 2013): Fitness = (2-3) 
+Selain pencarian nilai maksimum, fitness juga digunakan dalam pencarian nilai minimum.
+Pada kasus pencarian nilai minimum, nilai fitness bisa dihitung dengan salah satu dari dua rumus fitness pencarian nilai minimum seperti pada persamaan 2-6 (Mahmudy, 2013): Fitness = Cf(x) Fitness = 1/ (f(x)) (2-4) 
+2.6.5 Seleksi 
+Seleksi merupakan tahapan terakhir yang dilakukan untuk memilih individu dari himpunan populasi dan offspring yang akan dipertahankan hidup pada generasi berikutnya.
+Semakin besar nilai fitness kromosom, maka semakin besar peluang kromosom tersebut terpilih.
+Hal ini dilakukan agar terbentuk generasi berikutnya yang lebih baik dari generasi sekarang (Mahmudy, 2013).
+Ada beberapa metode seleksi yang dapat digunakan, yaitu : a. Seleksi Elitism 
+Metode seleksi yang digunakan dalam penelitian ini adalah metode seleksi elitism.
+Metode seleksi elitism bekerja dengan cara mengumpulkan semua individu dalam populasi (parent) dan offspring dalam satu penampungan.
+Metode ini melakukan seleksi pada individuindividu dalam penampungan berdasarkan nilai fitness tertinggi.
+Individu terbaik dalam penampungan akan lolos untuk masuk dalamgenerasi berikutnya.
+Metode seleksi elitism menjamin individu yang terbaik akan selalu lolos (Mahmudy, 2013).
+Pseudocode seleksi elitism dideskripsikan seperti pada Gambar 1. 
+Himpunan populasi dan offspringdicari nilai fitnessnya masing-masing.
+Nilai fitnessnya himpunan populasi dan offspring dapat dilihat pada Tabel 3.
+Metode seleksi elitism memilih nilai fitness yang terbesar berdasarkan jumlah popSize, sehingga kumpulan individu yang tertahan hidup pada generasi berikutnya dapat dilihat pada Tabel 4.
+b. Roulette Whell 
+Metode ini menghitung nilai probabilitas seleksi (prob) pada tiap individu berdasarkan nilai fitness-nya.
+Nilai prob akan menghasilkan probabilitas kumulatif (probCum) yang digunakan untuk melakukan proses seleksi.
+Langkah- langkah membentuk roulette wheel berdasarkan probabilitas kumulatif (Mahmudy, 2013):Menghitung total fitness keseluruhan dari himpunan populasi parent ditambah offspring.
+Misal fitness (Pi) merupakan nilai fitnessindividu ke-i.
+Rumus : (2-5)Menghitung nilai probabilitas seleksi (prob) tiap individu.
+Rumus : =( ), i = 1, 2, (2-6)
+Menghitung nilai probabilitas kumulatif tiap individu.
+Rumus : = =1, i=1,2,3,..(2-9)
+Selanjutnya ketika sudah membentuk roulette wheel maka individu akan dipilih secara acak berdasarkan nilai probabilitas kumulatif tersebut.
+c. Binary Tournament Selection 
+Binary Tournament Selection merupakan metode seleksi dengan melakukan perbandingan individu yang memiliki nilai fitness terbaik dari individuindividu yang terpilih secara acak.
+Individu yang terpilih tersebut, akan menjadi individu pada generasi selanjutnya.
+Misalkan individuindividu yang terpilih secara acak adalah P1 dan P2.
+P1 mempunyai nilai fitness 12,6342 sedangkan P2 memiliki nilai fitness 13,5345.
+Metode ini akan membandingkan nilai fitness antar P1 dan P2.
+P2 memiliki nilai fitnesslebih baik dari P1 sehingga P2 terpilih menjadi individu pada generasi selanjutnya.
+d. Replacement selection 
+Metode ini merupakan metode seleksi dimana offspring menggantikan parent jika nilai fitness offspringlebih besar dari nilai fitness parent.
+Metode ini memiliki aturan berdasarkan cara reproduksinya (Mahmudy, 2013):Pada Proses mutasi, offspringakan menggantikan induknya jika mempunyai nilai fitness offspring lebih baik dari fitnessinduknya.
+Pada proses crossover, offspring dihasilkan dari dua induk.
+Offspring akan menggantikan induk yang lemah dengan nilai fitness offspring lebih baik dari nilai fitness induk yang terlemah.
+Induk yang terlemah merupakan induk yang mempunyai nilai fitness terburuk dari dua induk yang menghasilkan offspring tersebut.
+2.7 Akurasi 
+Akurasi adalah seberapa dekat suatu angka hasil pengukuran terhadap angka sebenarnya (true value atau reference value).
+Dalam penelitian ini akurasi diaknosa dihitung dari jumlah diaknosa yang tepat dibagi dengan jumlah data.
+Tingkat akurasi diperoleh dengan perhitungan sesuai dengan persamaan 2-11 (Adityo, 2013) = (2-11) 
+3. METODOLOGI PENELITIAN
+3.1 Tahapan Penelitian 
+Dalam melakukan penelitian ini terdapat beberapa tahapan-tahapan yang dilakukan, hal tersebut akan dijelaskan pada Gambar 2. 
+3.2 Teknik Pengumpulan Data 
+Pengumpulan data dilakukan dengan penelitian tentang kelayakan kandang.
+Sistem ini digunakan untuk memberikan alternatif dalam membantu penentuan kelayakan kandang.
+Pengumpulan data pada penelitian ini menggunakan data primer.
+Data primer adalah data yang didapatkan langsung dari sumber penelitian.
+Pengumpulan data primer dapat dilakukan menggunakan wawancara, kuisioner maupun observasi.
+3.3 Algoritma yang Digunakan 
+Penelitian ini menggunakan algoritma genetika, seperti yang sudah dijelaskan pada Bab 2 bahwa algoritma ini sudah dapat menyelesaikan beberapa permasalah seperti optimasi komposisi pakan sapi potong dan lain sebagainya(Kusuma, et al., 2015).
+Algoritma genetika merupakan tipe algoritma evolusi yang paling populer.
+Implementasi algoritma ini akan menggunakan bahasa Java karena program yang dikembangkan adalah program berbasis dekstop.
+4. PERANCANGAN 
+Bagian ini menjelaskan tentang permasalahan yang akan diselesaikan dalam peneltian ini.
+Permasalahan dalam penelitian ini adalah bagaimana menentukan kelayakan kandang peternak untuk dapat diisi bibit ayam broiler.
+Dalam proses penentuan kelayakan kandang peternak terdapat 6 kriteria yang digunakan sebagai standar kelayakan kandang ayam broiler: a. Riwayat peternak 
+Status peternak menjadi sangat penting apakah peternak pernah mengalami kegagalan yang sering, selalu berhasil atau masih pemula.
+b. Tinggi kandang 
+Tinggi kandang merupakan kriteria pendukung dari kelayakan kandang tersebut, apakah sesuai dengan standart atau tidak.
+Semakin tinggi kandang tersebut semakin bagus.
+c. Kekuatan kandang 
+Kandang tersebut masih kokoh ataukah sudah hampir rusak atau bahan kandang tersebut sudah lapuk.
+d. Sirkulasi udara(kelembapan) 
+Sirkulasi udara ini mempengaruhi kelembapan, semakin lembab kandang tersebut semakin tidak bagus bagi bibit ayam broiler.
+e. Jarak antar kandang 
+Jarak antara kandang minimal terpisah selebar 1 kandang ayam, semakin terpisah jauh semakin bagus.
+f. Keamanan 
+Keamanan menjadi penting karena dalam peternakan ayam sering terdapat kejahatan dalam pencurian ayam broiler.
+Misalkan sudah diketahui riwayat peternak berdasarkan range yang di tentukan (range peternak 1-5).
+Langkah selanjutnya adalah penilaian terhadap tinggi kandang, kekuatan kandang, sirkulasi udara pada kandang, jarak antar kandang, dan tingkat keamanan kandang.
+5. PENGUJIAN DAN PEMBAHASAN 
+Terdapat tiga pengujian yang dilakukan dalam pengujian ini yaitu pengujian yang akan dilihat dari hasil nilai fitness paling optimal, sehingga dapat ditemukan parameter terbaik yang digunakan untuk optimasi metode AHP dalam penentuan pengisian bibit kandang ayam broiler.
+Proses pengujian dilakukan dengan melakukan tiga pengujian yaitu pengujian ukuran populasi, banyaknya generasi, dan kombinasi cr dan mr.
+5.1. Pengujian dan Analisis Ukuran Populasi 
+Pengujian ukuran populasi digunakan untuk menentukan ukuran populasi yang terbaik untuk menghasilkan solusi terbaik dalam kasus ini.
+Berikut adalah parameter yang akan digunakan dalam pengujian.
+a. Ukuran populasi : 5115 b. Banyaknya generasi: 10 c. Crossover Rate: 0.5 d. Mutation Rate: 0.1.
+Pengujian dilakukan sebanyak sepuluh kali untuk mendapatkan hasil yang mewakili kemampuan algoritma secara utuh.
+Fitness terbaik pada setiap percobaan dihitung rata-ratanya untuk mengetahui ukuran populasi paling optimal.
+Hasil pengujian menunjukkan semakin besar ukuran populasi maka fitness yang dihasilkan cenderung semakin baik.
+Berdasarkan grafik hasil uji coba pada Gambar 3, ditunjukkan bahwa semakin besar ukuran populasi, maka ratarata fitness yang dihasilkan cenderung meningkat.
+Pada grafik tersebut, dapat dilihat ratarata fitness dari ukuran populasi 5 menuju ukuran 85 mengalami peningkatan, selanjutnya pada ukuran populasi diatas 105 cenderung stabil.
+Hal ini menunjukkan bahwa ukuran populasi 105 adalah ukuran populasi yang optimal.
+Perubahan yang tidak begitu besar ini terjadi karena anak yang dihasilkan pada proses reprodukasi mirip dengan induknya(Mahmudy, 2013).
+5.2. Pengujian dan Analisis 
+Banyaknya Generasi Pengujian banyaknya generasi dilakukan untuk menentukan banyaknya generasi yang dapat mengasilkan solusi terbaik dalam kasus ini.
+Pada pengujian banyaknya generasi ini, digunakan ukuran populasi 105 yang dianggap dapat menghasilkan nilai fitness paling optimal.
+Untuk lebih detailnya mengenai parameter yang digunakan pada uji coba banyaknya generasi adalah sebagai berikut: a. Ukuran populasi= 105 b. Banyaknya generasi= 25145 c. Crossover Rate= 0.5 d. Mutation Rate= 0.1.
+Berdasarkan grafik hasil uji coba pada Gambar 4, dapat dilihat rata-rata fitnessmengalami peningkatan dari generasi40 menuju generasi100.
+Rata-rata fitness yang dihasilkan generasi diatas 115 cenderung stabil karena perubahan rata-rata fitness yang tidak begitu besar.
+Hal ini menunjukkan bahwa generasi sebanyak 100 adalah generasi yang paling optimal.
+Semakin banyak generasi maka semakin besar waktu komputasi, namun belum tentu menghasilkan solusi yang lebih baik (Mahmudy, 2013).
+5.3. Pengujian dan Analisis Kombinasi Cr dan Mr 
+Pengujian crossover rate (cr) dan mutation rate (mr) dilakukan untuk mengetahui kombinasi cr dan mr terbaik yang dapat menghasilkan fitness paling optimal.
+Nilai cr dan mr yang digunakan antara 0 sampai 0.6 dan keduanya jika dijumlahkan menjadi 0.6. Pengujian cr dan mr juga menggunakan hasil pengujian sebelumnya yaitu hasil pengujian jumlah populasi dan generasi yang menghasilkan nilai fitness paling optimal.
+Untuk lebih detailnya mengenai parameter yang digunakan dalam uji coba kombinasi cr dan mr adalah sebagai berikut :a.Ukuran populasi : 105 b.Banyaknya generasi : 115.
+Berdasarkan Grafik hasil pengujian pada Gambar 5, rata-rata fitness yang dihasilkan sangat beragam.
+Permasalahan yang ingin diselesaikan dipengaruhi oleh kombinasi nilai parameter yang tepat(Mahmudy, 2013).
+Kombinasi cr dan mr yang dihasilkan pada setiap kasus akan menunjukkan hasil yang berbeda tergantung permasalahan yang akan diselesaikan.
+Hal ini disebabkan tidak adanya suatu ketepatan nilai kombinasi cr dan mryang dapat digunakan untuk menghasilkan soluasi optimal.
+5.4. Solusi Terbaik yang Pernah Didapat 
+Dalam penelitian optimasi menggunakan algoritma genetika, serangkaian pengujian pendahuuan diperlukan untuk mendapatkan kombinasi nilai parameter yang sesuai(Mahmudy, 2013).
+Pada penelitian ini , didapatkan beberapa parameter terbaik dengan rata-rata fitness paling optimal, yaitu ukuan populasi = 105, banyaknya generasi = 115, crossover rate = 0.5, dan mutation rate = 0.1. Nilai fitness yang dihasilkan dari parameter tersebut adalah 0,75218.
+Setelah melakukan serangkaian uji coba, algoritma genetika dianggap mampu untuk menyelesaikan optimasi metode AHP dalam menentukan kelayakan kandang untuk pemberian bibit ayam broiler.
+Peternak dan petugas lapang peternakan ayam broiler dapat menggunakan rekomendasi ini untuk mengetahui tingkat kelayakan kandang ayam, sehingga dapat mengurangi kerugian dalam beternak ayam broiler.
+6. PENUTUP Berdasarkan hasil uji coba parameter algoritma genetika pada permasalahan optimasi metode AHP dalam penentuan kelayakan kandang ayam broiler, terdapat beberapa kesimpulan : 1. Metode AHP dapat diterapkan dalam penentuan kelayakan bibit ayam broiler pada kandang peternak dengan akurasi yang didapat yaitu 63.0%.
+2. Algoritma genetika dapat menyelesaikan permasalahan optimasi metode AHP dalam menentukan kelayakan kandang ayam broiler.
+Disini dapat dilihat dari sistem yang dapat menghasilkan nilai akurasi lebih tinggi dari penelitian sebelumnya.
+Parameter terbaik dengan rata-rata nilai fitness paling optimal yang didapatkan dari hasil pengujian adalah sebagai berikut : - Jumlah populasi: 105 - Banyaknya generasi: 115 - Crossover Rate: 0.5 - Mutation Rate: 0.1.
+3. Pengukuran solusi dari permasalahan optimasi metode AHP ini dilakukan dengan perhitungan nilai fitness yang diperoleh dari hasil akurasi metode AHP dengan menggunakan bobot yang didapat dari inisialisasi kromosom.
+Penelitian ini dapat dikembangkan untuk menyelesaikan masalah optimasil metode AHP, dengan menggunakan mengembangkan metode AHP seperti fuzzy AHP dan lain sebagainya.
+Selain itu penggunaan metode crossover, mutasi dan seleksi yang berbeda juga dapat mempengruhi hasil nilai fitness yang berbeda pada setiap individu.

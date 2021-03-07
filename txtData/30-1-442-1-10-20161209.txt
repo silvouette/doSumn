@@ -1,0 +1,160 @@
+Abstrak
+Makalah ini membahas mengenai cara untuk mengurangi konsumsi energi pada rumah melalui penyediaan informasi kepada penghuni mengenai penggunaan listrik di rumahnya, dan menyediakan cara yang efektif untuk merespon informasi tersebut.
+Makalah ini mengusulkan sebuah Sistem Monitoring Listrik Rumah (SMLR).
+Sensing, monitoring, dan actuating adalah bagian dari SMLR yang berperan penting dalam mengurangi konsumsi energi di rumah dapat diakses melalui web browser dan perangkat mobile.
+Sistem ini dibangun dalam sebuah platform cloud computing yang menyediakan tools dan mekanisme yang membantu pengembangan aplikasi di lingkungan cloud yang membantu user untuk memonitor dan mengontrol peralatan listrik yang ada dirumah.
+Hasil Riset ini diharapkan dapat mendorong pengguna untuk mengubah kebiasaan mereka dalam menggunakan listrik.
+Pengguna akan memperhatikan penggunaan listrik mereka karena mereka sadar untuk menggunakan listrik se-efisien mungkin.
+Semakin banyak listrik yang dihemat, semakin sedikit mereka menghabiskan uang untuk membayar tagihan.
+Kata kunci - Energy Monitoring, Cloud Computing, Sensing and Actuating, Mobile Computing
+I. PENDAHULUAN
+Penyediaan energi dunia memerlukan sejumlah besar sumber daya.
+Pada tahun 2008 [1], permintaan energi dunia adalah 474 exojoules, yang setara dengan membakar sekitar 500.000 kg batubara setiap detik.
+Sekitar 85% dari listrik didunia berasal dari pembakaran bahan fosil (minyak, batubara dan gas alam).
+Di Indonesia, penggunaan energy sudah mencapai angka 157.992 GWh, dan sebagian besar berasal dari bahan bakar fosil (batubara dan petroleum).
+Peningkatan ini berdampak pada meningkatnya emisi karbon sekitar 8 juta ton CO2 per tahun.
+Beberapa cara untuk mengurangi CO2 telah ditemukan, seperti penggunaan pembangkit listrik non fosil (nuklir, solar, dan lain-lain), tetapi ada isu yang terkait dengan keamanan dan ketersediaan.
+Cara lainnya adalah dengan mendorong pengurangan dari semua konsumsi listrik secara tidak bijaksana melalui efisiensi energi dan inisiatif dalam konservasi, yang mana dalam istilah popular selanjutnya di kenal Demand Side Management (DSM).
+Kesadaran pada manusia (people awareness) adalah faktor utama dalam DSM, peningkatan kesadaran pada orang adalah sebuah peluang yang besar untuk mengurangi penggunaan listrik yang berlebihan.
+Lagi pula, dalam gaya hidup modern, orang sering menggunakan listrik secara tidak bijaksana.
+Misalnya, orang sering lupa mematikan pendingin ruangan (AC) dan lampu ketika tidak digunakan.
+Namun, jika dapat merubah kebisaan buruk tersebut, pembayaran listrik dapat dihemat sampai 20%.
+Studi menunjukkan bahwa sekitar 9-18% penghematan listrik dapat dicapai jika pengguna dapat memperoleh informasi energi secara langsung [2] baik informasi detail konsumsi energi maupun tips dan saran dalam penghematan energi.
+Cara lainya adalah menggunakan automatic control system untuk mengontrol kondisi dari appliances.
+Dalam rangka untuk menemukan cara yang paling efisien untuk melakukan DSM, kita mengembangkan Sistem Monitoring Listrik Rumah (SMLR), sebuah aplikasi berbasis cloud yang memiliki kemampuan untuk menginformasikan penggunaan listrik rumah dan menyediakan cara yang efektif untuk merespon informasi tersebut.
+SMLR membantu pengguna untuk mengawasi penggunaan listrik dari masing-masing peralatan dirumah menggunakan beberapa.
+SMLR dapat diakses menggunakan perangkat handphone, sehingga user dapat memonitor rumah mereka dimanapun dan kapanpun serta mengontrol peralatan dirumah jika terdeteksi tidak digunakan.
+Makalah ini bertujuan untuk membangun sistem monitoring listrik yang memiliki kemampuan untuk memonitor dan mengontrol serta mengoptimasi penggunaan listrik sehingga dapatmenyelesaikan permasalahan-permasalahan dalam penggunaan listrik yang tidak efisien.
+Sistem ini akan dibangun dalam sebuah platform cloud computing yang menyediakan tools dan mekanisme yang membantu pengembang aplikasi di lingkungan cloud.
+Platform ini menawarkan mekanisme pemonitoran dan pengontrolan yang cepat, dan dapat dilakukan dimanapun pada jaringan internet.
+Selain itu juga menawarkan mekanisme yang lebih cepat, lebih hemat biaya untuk pengembangan dan delivery aplikasi.
+II. PENELITIAN TERKAIT 
+Energy monitoring membawa dampak yang besar dalam mengurangi dan mengontrol konsumsi energy.
+Ueno (2005) mengemukan bahwa penghematan energy 9-18% dicapai dengan menggunakan system monitoring yang memberikan informasi energy secara real time yang selanjutnya dikenal dengan ECOIS (Energy Consumtion Information System).
+Dalam usaha me-reduce konsumsi energi, identifikasi status pada tiap peralatan adalah kunci untuk menghasilkan kesadaran energy (energy awareness) dan meningkatkan efisiensi dari pemakaian energi yang digunakan pada peralatan listrik di rumah.
+Lien [1] mengusulkan sebuah sistem untuk memanage energi melalui pengontrolan secara remote pada saluran luar (outlet) dengan mekanisme wireless.
+Sistem ini menggunakan teknologi bluetooth sehingga peralatan rumah dapat dikontrol dan dimonitor tanpa menggunakan kabel.
+Pengguna dapat memanage peralatan listrik secara remote melalui sebuah server yang dipasang dirumah dengan dilengkapi teknologi GSM dan internet.
+Untuk melakukan penghematan energi, pengguna dapat melakukan pemonitoran dan pengontrolan melalui pesan SMS untuk melihat dan mengubah status dari peralatan listrik.
+Bagaimanapun, sistem ini tidak efektif karena pengguna harus menghafal perintah yang harus ditulis melalui SMS untuk dikirimkan ke server yang ada dirumah.
+Pendekatan lain diusulkan oleh Golzar [2] dengan mengimplementasikan sistem kontrol melalui koneksi internet.
+Sensor dan peralatan listrik dihubungkan dan melalui koneksi internet data dikirimkan ke sebuah server dan sebuah panel kontrol digunakan oleh pengguna untuk memonitor dan mengontrol peralatan listrik.
+Sistem ini juga dilengkapi dengan deteksi gangguan dengan menggunakan sensor infra merah untuk mendeteksi pergerakan manusia yang masuk dalam sebuah ruangan.
+Pendekatan serupa juga dikemukakan oleh Huaiyu [3] untuk teknologi pada sistem kontrol jarak jauh.
+Huaiyu mengusulkan sebuah web server yang terhubung melalui media internet sebagai sistem kontrol.
+Melalui pendekatan ini, pengguna tidak hanya dapat mengontrol peralatan listrik dirumah, tetapi juga dapat memonitor status peralatan listrik secara realtime dimanapun.
+Pendekatan selanjutnya dikemukakan oleh Gu [4] dengan menggunakan cloud computing sebagai dasar manajeman energi pada smart home sehingga dapat mengatasi permasalah yang timbul akibat semakin besarnya jumlah data dan kompleksitas pengontrolan pada komputer lokal.
+Pendekatan seerupa selanjutnya dikemukakan oleh Hong [5] yang juga menggunakan cloud computing sebagai dasar manajeman energi.
+Pendekatan ini mempunyai kelebihan untuk mengurangi beban pengguna, biaya dan sumber daya pemeliharaan.
+Sistem ini terdiri tiga komponen utama, yaitu Power Monitor Entity (PME)yang digunakan untuk memonitor dan mengontrol konsumsi energi pada peralatan listrik; Environment Information Entity (EIE) yang digunakan untuk mengumpulkan informasi seperti temperatur dan kelembaban; system manager yang digunakan untuk memanage data dan menyediakan layanan kepada pengguna.
+III. METODOLOGI PENELITIAN
+Makalah ini mengadopsi pendekatan cloud computing yang sebelumnya sudah dikembangkan oleh Gu (2011) dan Hong (2012) sebagai metode manajeman energi.
+Makalah ini menguraikan lebih lanjut dari paper penulis sebelumnya [6].
+Pada Gambar 1, arsitektur SMLR terdiri dari 3 bagian, yaitu smart homeenvironment, cloud service dan perangkat akses.
+Smart home environment terdiri dari peralatan listrik, electric panel yang dilengkapi dengan micro controller, sensor, actuator, relay, zigbee wirelless dan selanjutnya gateway sebagai penghubung ke cloud service.
+Sistem ini diintegrasikan pada cloud service untuk memberikan layanan automation, intelligent dan monitoring, baik melalui web maupun smartphone.
+Peralatan listrik yang terhubung dengan controller akan dideteksi kondisinya (on/off).
+Disamping itu, data hasil deteksi sensor akan dikumpulkan oleh controller.
+Selanjutnya melalui zigbee wirelles data kondisi peralatan listrik dan data deteksi sensor akan dikirimkan ke gateway untuk selanjutnya dikirimkan ke cloud service.
+Komunikasi yang digunakan antara gateway dan cloud server dapat menggunakan 3G, GSM maupun ADSL.
+Disamping itu protokol yang digunakan untuk komunikasi antara gateway dan cloud server menggunakan protokol HTTP/HTTPS.
+Begitu juga untuk komunikasi dan protokol yang digunakan pada perangkat akses baik melalui smartphone / web dekstop ke cloud service juga menggunakan 3G, GSM, ADSL dan HTTP/HTTPS.
+A. Sensor 
+Sensor berfungsi untuk mendeteksi kondisi lingkungan atau area tertentu.
+Sensor PIR dan karakteristiknya dapat ditunjukkan pada Tabel 1.
+Pada penelitian ini, digunakan sensor PIR (Passive Infra-Red) atau sensor infra merah dan sensor DHT11 (Temperature and Humidity Sensor).
+Sensor PIR dihubungkan ke microcontroler arduino berfungsi untuk mendeteksi adanya suatu objek dalam ruangan berdasarkan perubahan panas pada area deteksi sensor, seperti yang ditunjukkan pada Gambar 2.
+Objek yang terdeteksi oleh sensor PIR ini dapat berupa manusia, binatang dan api.
+Namun, penggunaan sensor PIR ini lebih difungsikan untuk mendeteksi keberadaan manusia dalam suatu ruangan.
+Adanya sensor PIR ini akan dijadikan untuk mengontrol peralatan listrik, seperti lampu, untuk dinyalakan atau dimatikan.
+Jika sensor PIR mendeteksi adanya objek/manusia maka data hasil deteksi ini akan dikirimkan ke kontroler untuk selanjutnya kontroler akan memerintahkan aktuator untuk menyalakan lampu.
+Begitu sebaliknya, jika sensor PIR mendeteksi tidak adanya objek/manusia maka data hasil deteksi akan dikirimkan ke kontroler untuk selanjutnya memerintahkan aktuator untuk mematikan lampu.
+Selanjutnya, Sensor DHT11 berfungsi untuk mendeteksi perubahan suhu dan kelembapan pada suatu ruang.
+Data hasil deteksi ini digunakan untuk mengatur pengoperasian peralatan pendingin ruangan (AC).
+Pengoperasian peralatan AC ini selain berdasarkan data dari sensor suhu juga berdasarkan pada data dari sensor PIR.
+Sehingga kontroler dalam mengoperasikan peralatan AC ini akan terlebih dahulu melihat apakah ada objek pada suatu ruangan melalui sensor PIR.
+Jika Sensor PIR mendeteksi ada aktivitas maka kontroler selanjutnya menggunakan data sensor DHT11 untuk memastikan peralatan AC perlu diaktifkan atau tidak.
+Jika suhu yang terdeteksi diruangan dibawah ambang batas nilai yang ditetapkan, dalam hal ini 28oC, maka peralatan AC tidak perlu diaktifkan.
+Jika suhu yang terdeteksi diatas ambang batas maka peralatan AC akan dinyalakan.
+B. Aktuator 
+Aktuator berfungsi untuk melakukan atau mengeksekusi perintah dari kontroler untuk mengoperasikan peralatan listrik.
+Pada penelitian ini, aktuator yang digunakan berupa relai (relay).
+Relai ini berfungsi sebagai saklar (switch) untuk mematikan dan menghidupkan peralatan listrik.
+Modul relai ditunjukkan pada Gambar 4.
+Modul ini didesain agar dapat kompatibel dengan modul kontroler arduino, sehingga lebih memudahkan dalam instalasi.
+Modul ini terdiri dari 4 channel relai dan slot untuk modul zigbee.
+C. Microcontroller
+Microcontrol berfungsi untuk mengolah data dari sensor dan memerintahkan aktuator untuk mengoperasikan peralatan listrik.
+Microcontrol yang digunakan dalam penelitian ini berupa modul arduino uno yang dilengkapi dengan chip ATMega 328 sebagai microcontroller, seperti yang ditunjukkan pada Gambar 3.
+D. Modul Komunikasi 
+Modul komunikasi digunakan untuk menghubungkan antar bagian sistem sehingga dapat berkomunikasi.
+Ada beberapa cara yang dapat digunakan untuk menyediakan media komunikasi dengan menggunakan protokol yang berbeda.
+Sebagai contoh: bluetooth, ethernet, GSM (3G/4G), wifi, zigbee, dan lain-lain.
+Dari beberpa protokol tersebut, masingmasing mempunyai kelebihan dan kekurangan.
+Pada penelitian ini digunakan protokol zigbee sebagai perangkat untuk menyediakan layanan komunikasi.
+Zigbee merupakan protokol komunikasi tanpa kabel (wireless) yang menggunakan media radio dan mempunyai daya yang kecil.
+Walaupun pada imlementasinya mirip dengan protokol wifi sebagai protokol komunikasi tanpa kabel, protokol zigbee ini lebih ditujukan pada implementasi untuk area yang kecil dengan biaya yang relatif murah dan tidak membutuhkan daya yang begitu besar.
+Beberapa fitur dari Zigbee mencakup kemampuan untuk mendukung fungsi beberapa jaringan seperti point to point atau multipoint to point dan juga jaringan mesh.
+Karena berfungsi pada siklus kerja rendah, teknologi ini juga dianggap sangat baik dalam hal daya tahan baterai.
+Perangkat zigbee dan koneksinya terhadap arduino dapat ditunjukkan pada Gambar 5 dan 6.
+E. Perangakat Akses 
+Perangkat akses berfungsi untuk memonitor perangkat listrik berdasarkan informasi dari data yang telah diproses oleh kontroler.
+Perangkat akses ini dapat berupa perangkat mobile, dan perangkat desktop (web).
+Perangkat akses ini mengakses informasi monitoring pada cloud server melalui layanan (cloud service) yang disediakan.
+Perangkat ini terhubung dengan cloud server menggunakan protokol komunikasi GSM (3G/4G) melalui protokol HTTP atau HTTPS.
+Melalui perangkat ini, kondisi dan status peralatan listrik yang ada pada rumah akan dapat dimonitor dan dikontrol kapan saja dan dimana saja.
+F. Gateway 
+Gateway berfungsi untuk menghubungkan jaringan local di rumah dengan jaringan internet atau Wide Area Network (WAN).
+Konektivitas WAN diberikan melalui DSL, cable modem, jaringan broadband pada perangkat mobile (3G/4G).
+Jaringan local membutuhkan IP Gateway yang akan menghubungkan dengan cloud server.
+Solusi untuk IP Gateway dapat atasi dengan menggunakan protokol Zigbee.
+Selain itu juga dapat menggunakan IPV4 melalui WIFI dan ethernet.
+Untuk membangun gateway dibutuhkan modul 3G/4G yang dihubungkan pada arduino.
+Gateway ini akan menerima data dari jaringan lokal melalui protokol Zigbee untuk selanjutnya dikirimkan ke cloud server melalui protokol HTTP/HTTPS, seperti ditunjukkan pada Gambar 1.
+G. Cloud Server 
+Cloud server memberikan manfaat dalam pengaksesan database yang tersimpan di internet/cloud melalui aplikasi berbasis web dan aplikasi mobile.
+Untuk terhubung ke cloud service, aplikasi baik web maupun mobile harus terhubung ke internet.
+Cloud server pada sistem pengendali listrik rumah dapat ditunjukkan pada Gambar 1.
+H. Skenario Monitoring Dan Controlling 
+Skenario ini menunjukkan bagaimana user menggunakan perangkat mobile untuk memonitor secara remote dan memperoleh informasi mengenai status peralatan elektrik dirumah.
+Gambar 7 menggambarkan aliran pesan dalam proses monitoring.
+Selanjutnya sekenario controlling ditunjukkan pada Gambar 8.
+Skenario ini menunjukkan bagaimana user menggunakan perangkat smartphone untuk mengontrol secara remote peralatan elektrik dirumah.
+IV. HASIL PENELITIAN 
+A. Prototype 
+Pada makalah ini, dikembangkan prototype berupa hardware dan software.
+Hardware yang dikembangkan berupa microcontroller yang terdiri dari arduino, modul zigbee, dan relay seperti yang ditunjukkan pada Gambar 9.
+Selanjutnya, software dikembangkan untuk aplikasi SMLR yang digunakan di smartphone ditunjukkan pada Gambar 10.
+Software ini dikembangkan pada platform android dan didukung dengan teknologi Cloud Computing.
+Melalui Cloud Computing ini, aplikasi android dapat berintegrasi dengan layanan/service yang berada diserver dengan memanfaatkan fitur web service.
+Untuk dapat mengakses layanan disisi server, maka dibuat API web service dengan format JSON atau XML.
+Dengan adanya web service ini, maka data yang ada diserver dapat secara realtime bersinkronisasi dengan data yang ada pada aplikasi android.
+Kondisi peralatan listrik dapat di monitor dan dikontrol melalui aplikasi android, sebagaimana yang ditunjukkan pada Gambar 10.
+Jika pengguna mengaktifkan salah satu peralatan listrik (menekan tombol ON) maka status ON akan dikirimkan ke server (POST) dengan mencantumkan alamat IP server, layanan dan variabel status.
+Jika POST ini sudah diterima oleh server, maka server akan mengubah data yang ada didatabase server dan memberikan merespon dengan mengirimkan kembali data dari database server ke aplikasi android dalam format JSON.
+B. Implementasi
+SMLR diimplementasikan dan diuji pada area rumah selanjutnya digunakan untuk memonitor dan mengontrol beberapa peralatan listrik.
+Ada 4 port relay yang dapat digunakan, diantaranya terhubung pada peralatan listrik sebagai berikut.
+Peralatan listrik pada Tabel 2 tersebut dipilih dengan asumsi bahwa peralatan tersebut paling sering lupa dimatikan oleh penghuni sehingga mengakibatkan tidak efisiennya daya listrik yang digunakan.
+V. PEMBAHASAN 
+SMLR diuji pada area rumah dalam waktu satu bulan.
+Smart meter digunakan untuk mengukur data penggunaan energi secara realtime tiap 1 menit.
+Untuk membandingkan data penggunaan energi sebelum digunakan SMLR maka dilakukan juga pengukuran serupa selama 1 bulan.
+Setelah mendapatkan data, maka dilakukan pengolahan dari data yang telah didapat.
+Pengolahan data ini dilakukan untuk pengetahui profil penggunaan energi yang sebenarnya.
+Mengetahui berapa intensitas kebutuhan energi dan apa saja peluang penghematan energi yang mungkin dilakukan dengan melihat intensitas kebutuhan energi, analisis kerja peralatan listrik dan identifikasi peluang penghematan.
+Penggunaan energi listrik diukur dengan memperhatikan perilaku beban dan pembebanan pada peralatan listrik.
+Dalam makalah ini akan dihitung rata-rata penggunaan listrik per hari dengan menggunakan persamaan 1.
+Berdasarkan persamaan 1, didapatkan data penggunaan energi listrik perhari dalam waktu satu bulan baik sebelum/sesudah implementasi SMLR.
+Gambar 11 dan 12 berikut adalah grafik perbandingan penggunaan energi per hari dalam satu bulan.
+Dari hasil pengukuran penggunaan energi listrik dapat dianalisis besar efisiensi penggunaan listrik setelah implementasi SMLR.
+Perhitungan efisiensi dapat menggunakan persamaan 2 berikut.
+Berdasarkan data penggunaan listrik pada Gambar 11 dan 12, maka rata-rata penggunaan listrik selama satu bulan sebelum implementasi SMLR sebesar 8.806 KWH setelah implementasi sebesar 6.6045 KWH.
+Selanjutnya berdasarkan persamaan 2, maka didapatkan besar efisiensi penggunaan listrik sebesar 25%.
+VI. PENUTUP 
+A. Kesimpulan 
+Sistem Monitoring Listrik Rumah (SMLR) mampu membantu user untuk memonitor dan mengontrol peralatan listrik yang ada dirumah.
+Pengguna akan memperhatikan penggunaan listrik mereka karena mereka sadar untuk menggunakan listrik se-efisien mungkin.
+Semakin banyak listrik yang dihemat, semakin sedikit mereka menghabiskan uang untuk membayar tagihan.
+Dari hasil pengujian SMLR didapatkan penghematan listrik sebesar 25%.
+Hal ini akan berpengaruh juga pada penghematan beban pembayaran tagihan listrik oleh user.

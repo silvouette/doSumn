@@ -1,0 +1,244 @@
+Abstrak
+Deteksi obyek manusia merupakan salah satu arah penelitian yang penting untuk meningkatkan kemampuan sistem pengawasan.
+Penelitian ini bertujuan untuk merancang suatu program pengolahan citra yang mampu menghitung jumlah obyek pejalan kaki yangterekam di dalam video menggunakan 30 video yang direkam dalam beberapa kondisi yaitu kondisi terang atau siang hari di luar ruangan, di dalamruangan, dan pada kondisi gelap atau malam hari.
+Penelitian ini menggunakan Metode background subtraction dan operasi morfologi.
+Metode Background subtraction dapat mendeteksi subtstraksi pada background dengan mengubah citra menjadi citra biner dan menentukan tingkat kepekaan perubahan pixel background.
+Operasi morfologi digunakan untuk menghilangkan noise yang dapat mengganggu keberhasilan deteksi pada video.
+Pada pengujian beberapa sample video yang mewakili beberapa kondisi yaitu terang, gelap, dan di dalam ruangan, diperoleh nilai threshold 0.5, nilai elemen penstruktur operasi opening 3x3, dan nilai elemen penstruktur operasi closing 18x18.
+Pada pengujian 10 video dalam pencahayaan terang, 8 video yang akurat dengan perhitungan manual, 2 video tidak akurat.
+Dari 10 video pengujian dalam ruangan, 2 video akurat, dan 8 video tidak akurat.
+Dan dari 10 pengujian video kondisi gelap atau redup, 1 video akurat, dan 9 video tidak akurat.
+Kata kunci monitoring, deteksi obyek manusia, background subtraction, operasi morfologi, threshold, opening, closing.
+PENDAHULUAN
+A. Latar Belakang 
+Sistem monitoring adalah sistem yang digunakan untuk melakukan fungsi pengawasan secara berkala untuk mendapatkan informasi yang diinginkan.
+Hasil dari sistem monitoring tersebut berperan penting pada peningkatan berbagai aspek, yaitu informasi, keamanan, tingkat produktivitas, dan kinerja [2].
+Salah satu bentuk sistem monitoring adalah aplikasi deteksi obyek.
+Aplikasi deteksi obyek merupakan pendeteksi obyek yang dapat mendefinisikan atau mengekstrak informasi dari obyek pada suatu citra.
+Salah satu contoh aplikasi deteksi obyek adalah deteksi obyek manusia.
+Deteksi obyek manusia merupakan salah satu arah penelitian yang penting dalam rangka meningkatkan kemampuan sistem pengawasan di tempat-tempat umum.
+Secara umum, cara kerja deteksi obyek manusia ini mengadaptasi cara pengamatan apa yang ada pada dunia nyata melalui indra penglihatan manusia, dimulai dari suatu pembelajaran menganalisa gambar dan video untuk memperoleh hasil sebagaimana yang bisa dilakukan manusia.
+Dengan kata lain, pendeteksi obyek manusia mencoba meniru cara kerja sistem visual manusia (human vision) yang saat ini dikenal dengan teknologi computer vision [9].
+Beberapa penelitian telah dilakukan dalam rangka penerapan teknik atau metode untuk mendeteksi obyek manusia.
+Salah satunya adalah Metode Background Subtraction untuk Deteksi Obyek Manusia pada Lingkungan Statis [9].
+Pada penelitian tersebut peneliti melakukan penerapan metode background subtraction untuk mendeteksi obyek manusia pada file video.
+Namun pada penelitian tersebut frame yang diekstrak dari video tersebut sangat terbatas yaitu hanya 5 frame yang diekstrak dalam 1 detik yang menghasilkan pendeteksian obyek yang kurang menyeluruh terhadap keseluruhan frame yang ada pada file video dan pendeteksian obyek manusia tidak dilakukan secara kontinyu sehingga penelitian tersebut relatif belum akurat dan belum bisa dijadikan dasar yang kuat untuk mendeteksi obyek manusia mengingat dalam satu detik file video berisi lebih besar dari 15 frame karena mata manusia melihat gambar sebagai suatu gerakan kontinyu apabila gambar-gambar tersebut kecepatannya melebihi 15 frame/detik [1].
+Selain itu, penelitian yang dilakukan Solichin hanya menggunakan operasi dilasi dan region filling sebagai acuan untuk mendeteksi obyek manusia.
+Menurut penulis operasi yang digunakan tersebut masih belum optimal dan masih bisa disempurnakan dengan penambahan beberapa operasi lain.
+Oleh karena itu penulis mengambil inisiatif untuk melakukan penelitian mengenai deteksi obyek manusia dengan menggunakan teknologi mesin computer vision dan menerapkan metode background subtraction dan operasi morfologi.
+Tujuan penelitian ini dilakukan adalah mengukur dan menganalisa bagaimana penerapan metode background subtraction dan operasi morfologi terhadap pendeteksian obyek manusia hingga pada hasil penelitian didapatkan nilai keberhasilan berdasarkan pengukuran dalam pendeteksian obyek manusia pada sebuah database video.
+B. Rumusan Masalah 
+Berdasarkan latar belakang di atas, dapat di rumuskan beberapa masalahyaitu bagaimana menerapkan metode background subtraction dan operasi morfologi untuk mendeteksi obyek manusia pada sebuah database video dan bagaimana hasil kinerja metode background subtraction dan operasi morfologi dalam deteksi obyek manusia.
+C. Batasan Masalah 
+Agar penelitian tetap fokus pada masalah yang akan dibahas, maka diperlukan adanya batasan masalah.
+Batasan masalah untuk penelitian ini adalah sebagai berikut : 1. Menggunakan computer vision system toolbox 2. Menggunakan bahasa pemrograman MATLAB versi R2013A 3. Metode yang digunakan untuk deteksi obyek manusia adalah background subtraction dan operasi morfologi 4. Kamera diletakkan pada lingkungan statis (Background Statis) 5. Pendeteksian obyek dilakukan pada recorded data video dalam format mp4 dengan ukuran resolusi 320x240 6. Analisis kinerja meliputi tingkat keberhasilan deteksi obyek manusia pada skenario kondisi tertentu (dalam kondisi latar berbeda).
+D. Tujuan Penelitian 
+Berdasarkan rumusan masalah yang disebutkan di atas, tujuan penelitian ini adalah menerapkan metode background subtraction dan operasi morfologi untuk melakukan deteksi obyek manusia dan memperoleh kesimpulan dari pengujian terhadap hasil kinerja metode yang digunakan.
+LANDASAN TEORI
+A. Computer Vision 
+Vision secara bahasa dapat diartikan sebagai penglihatan.
+Vision juga dapat diartikan sebagai suatu proses pengamatan apa yang ada pada dunia nyata melalui panca indra penglihatan manusia.
+Adapun computer vision adalah suatu pembelajaran menganalisis gambar dan video untuk memperoleh hasil sebagaimana yang bisa dilakukan manusia.
+Pada hakikatnya, computer vision mencoba meniru cara kerja sistem visual manusia (Human Vision).
+Manusia melihat obyek dengan indra penglihatan (mata), lalu citra obyek diteruskan ke otak untuk diinterpretasi sehingga manusia mengerti obyek apa yang tampak dalam pandangan matanya.
+Hasil interpretasi ini mungkin digunakan untuk pengambilan keputusan (misalnya menghindar kalau melihat mobil melaju di depan atau menghindar ketika ada pejalan kaki ketika sedang mengendarai sebuah mobil) [4].
+Analisis visual pergerakan manusia juga marupakan salah satu topik terpopuler pada computer vision [7].
+Adapun ilustrasi dari pengertian computer vision dapat dilihat pada gambar berikut.
+B. Pengolahan Citra 
+Di dalam bidang komputer, sebenarnya ada tiga bidang studi yang berkaitan dengan data citra, namun tujuan ketiganya berbeda, yaitu: 1. Grafika Komputer (computer graphics).
+Grafika Komputer bertujuan menghasilkan citra (lebih tepat disebut grafik atau picture) dengan primitif-primitif geometri seperti garis, lingkaran dan sebagainya.
+Primitif-primitif geometri tersebut memerlukan data deskriptif untuk melukis elemen-elemen gambar.
+Contoh data deskriptif adalah koordinat titik, panjang garis, jari-jari lingkaran, tebal garis, warna, dan sebagainya.
+Grafika komputer memainkan peranan penting dalam visualisasi dan virtual reality.
+2. Pengolahan Citra (image processing).
+Pengolahan Citra bertujuan memperbaiki kualitas citra agar mudah diinterpretasi oleh manusia atau mesin (dalam hal ini komputer).
+Teknik-teknik pengolahan citra mentransformasikan citra menjadi citra lain.
+Jadi, masukannya adalah citra dan keluarannya juga citra, namun citra keluaran mempunyai kualitas lebih baik daripada citra masukan Termasuk ke dalam bidang ini juga adalah pemampatan citra (image compression).
+3. Pengenalan Pola (pattern recognition/image interpretation).
+Pengenalan pola mengelompokkan data numerik dan simbolik (termasuk citra) secara otomatis oleh mesin (dalam hal ini komputer).
+Tujuan pengelompokan adalah untuk mengenali suatu obyek di dalam citra.
+Manusia bisa mengenali obyek yang dilihatnya karena otak manusia telah belajar mengklasifikasi obyek-obyek di alam sehingga mampu membedakan suatu obyek dengan obyek lainnya.
+Kemampuan sistem visual manusia inilah yang dicoba ditiru oleh mesin.
+Komputer menerima masukan berupa citra obyek yang akan diidentifikasi, memproses citra tersebut, dan memberikan keluaran berupa deskripsi obyek di dalam citra [6].
+C. Citra 
+Secara harfiah, citra (image) adalah gambar pada bidang dua dimensi.
+Ditinjau dari sudut pandang matematis, citra merupakan fungsi menerus (continue) dari intensitas cahaya pada bidang dwimatra.
+Sumber cahaya menerangi obyek, obyek memantulkan kembali sebagian dari berkas cahaya tersebut.
+Pantulan cahaya ini ditangkap oleh alat-alat optik, misalnya pada mata manusia, kamera pemindai (scanner) dan sebagainya, sehingga bayangan obyek yang disebut citra tersebut terekam.
+Meskipun sebuah citra kaya akan informasi,namun seringkali citra yang kita miliki mengalami penurunan mutu (degradasi), misalnya mengandung cacat atau derau (noise), warnanya terlalu kontras, kurang tajam, kabur (blurring) dan sebagainya.
+Tentu saja citra semacam ini menjadi lebih sulit diinterpretasikan karena informasi yang disampaikan oleh citra tersebut menjadi berkurang.
+Agar citra yang mengalami gangguan mudah diinterpretasikan (baik oleh manusia maupun mesin), maka citra tersebut perlu dimanipulasi menjadi citra lain yang kualitasnya lebih baik.
+Bidang studi yang menyangkut hal ini adalah pengolahan citra (image processing) [4].
+D. Thresholding 
+Proses thresholding adalah mengubah citra grayscle menjadi suatu citra biner [5].
+Secara matematis dapat ditulis sebagai berikut :(,)= {1(,)0(,) Dengan g (x,y) adalah citra biner dari citra grayscale f(x,y) dan T adalah nilai threshold.
+Nilai T dapat ditentukan menggunakan 2 cara yaitu thresholding global dan thresholding local.
+D.1. Thresholding Global 
+Thresholding global adalah metode dengan seluruh pixel pada citra dikonversi menjadi menjadi hitam putih (citra biner) dengan suatu nilai thresholding.
+Metode otsu adalah contoh metode yang banyak digunakan dalam thresholding global.
+Citra g(x,y) yang merupakan hasil Global threshold terhadap citra f(x,y) adalah : (,)= {1(,)0.
+D.2. Thresholding Local 
+Thresholding local memiliki perbedaan dengan threshodling global.
+Pada thresholding local, nilai T tidak bergantung pada citra f(x,y) saja, tetapi juga bergantung pada p(x,y), dimana p(x,y) adalah cirri khusus pada tiap pixel citra tersebut.
+Bentuk umum thresholding local adalah : (,)= {1(,)(,)0.
+E. Operasi Morfologi 
+Morfologi adalah teknik pengolahan citra digital dengan menggunakan bentuk obyek sebagai pedoman dalam pengolahan [5].
+Nilai dari setiap piksel dalam citra digital hasil diperoleh melalui proses perbandingan antara piksel yang bersesuaian pada citra digital masukan dengan piksel tetangganya.
+Operasi morfologi bergantung pada urutan kemunculan dari piksel, tidak memperhatikan nilai numeric dari piksel sehingga teknik morfologi sesuai apabila digunakan untuk melakukan pengolahan binary image dan grayscale image.
+Operasi morfologi standar yang biasa dilakukan adalah proses erosi dan dilasi.
+Dilasi adalah proses penambahan piksel pada batas dari suatu obyek pada citra digital masukan, sedangkan erosi adalah proses pengurangan piksel pada batas dari suatu obyek.
+Jumlah piksel yang ditambahkan atau yang dikurangkan dari batas obyek pada citra digital masukan tergantung pada ukuran dan bentuk dari structuring element yang digunakan.
+E.1. Operasi Opening 
+Operasi opening adalah operasi erosi yang diikuti dengan dilasi dengan menggunakan elemen penstruktur yang sama [5].
+Operasi ini memiliki fungsi untuk memberikan penghalusan permukaan obyek dan mengeleminasi semua piksel di area yang terlalu sempit dan kecil untuk diisi oleh elemen.
+Sehingga akhirnya seluruh area yang berukuran lebih kecil dari elemen penstruktur, akan dihilangkan menggunakan operasi erosi lalu operasi dilasi berperan untuk proses penghalusan.
+Operasi opening membutuhkan fungsi elemen penstruktur khusus dalam pengoperasiannya.
+Fungsi tersebut adalah fungsi strel.
+Pada bahasa pemrograman MATLAB, strel memiliki berbagai macam pilihan dalam membuat elemen penstruktur.
+E.2. Operasi Closing 
+Operasi closing berguna untuk menghaluskan kontur dan menghilangkan lubang-lubang kecil.
+Definisinya seperti berikut: AB = (AB) B Keterangan: A = Pixel citra A B = Elemen penstruktur citra B.
+E.3. Operasi Filling 
+Operasi region filling adalah operasi yang berfungsi menutup lubang kecil pada suatu bagian citra.
+Operasi ini akan mengisi bagian dari piksel yang memiliki nilai 1 menjadi 0.
+Operasi ini mengacu pada piksel tetangga pada sebuah piksel [8].
+F. Video 
+Video adalah teknologi pemrosesan sinyal elektronik mewakilkan gambar bergerak.
+Video merupakan sekumpulan gambar bergerak yang diperoleh dari hasil rekaman kamera atau hasil animasi komputer.
+Pada mulanya informasi video ini disimpan secara analog, sebagai perubahan bentuk gelombang secara kontinyu yang mewakili adanya perubahan warna dan kecerahan (brightness) dari gambar yang direkam.
+Di sisi lain, komputer digital hanya dapat menyimpan dan mengolah data yang bersifat biner.
+Untuk itu di kalangan industri komputer didefinisikan warna dalam besaran 24-bit yang dapat digunakan untuk menyimpan sekitar 16,7 juta kemungkinan warna yang berbeda.
+Dengan demikian data video dapat disimpan secara digital sebagai titik-titik yang masing-masing memiliki warna tertentu dan titik-titik tersebut jika disusun sebagai satu kesatuan akan membentuk suatu gambar secara utuh.
+Kemajuan teknologi yang dicapai pada saat ini telah memungkinkan komputer pribadi (PC) memiliki kemampuan untuk menampilkan informasi berupa video yang berisi gambar bergerak beserta suaranya.
+Untuk menyimpan data video secara digital, telah diciptakan berbagai format penyimpanan dan metode kompresi-dekompresi.
+Perangkat lunak yang digunakan untuk melakukan kompresi dan dekompresi terhadap data video digital dengan menggunakan teknik tertentu disebut juga dengan codec yang merupakan singkatan dari compressor-decompressor.
+Sampai saat ini masih dilakukan berbagai penelitian untuk menemukan format yang dapat digunakan untuk menyimpan data video digital dengan seefisien mungkin.
+Di antara format video digital yang populer dan banyak digunakan pada saat ini adalah AVI, QuickTime, Indeo, Cinepak, dan MPEG [2].
+G. Background Subtraction 
+Background subtraction adalah proses untuk mendeteksi pergerakan atau perbedaan signifikan yang terjadi didalam frame video ketika dibandingkan dengan citra referensi.
+Tujuan dari background subtraction adalah untuk memisahkan obyek dan background sehingga gerakan dari sebuah obyek terdeteksi [3].
+Background Subtraction adalah salah satu tahapan penting yang dilakukan pada aplikasi computer vision.
+Output dari background subtraction biasanya berupa input-an yang akan diproses pada tingkat yang lebih lanjut lagi seperti tracking obyek yang terindentifikasi.
+Kualitas background subtraction umumnya tergantung pada teknik pemodelan background yang digunakan untuk mengambil background dari suatu gambar atau video.
+Background subtraction biasanya digunakan pada teknik segmentasi obyek yang dikehendaki dari suatu layar, dan pada umumnya digunakan untuk sistem pengawasan.
+Tujuan dari penggunaan background subtraction adalah untuk menghasilkan urutan frame dari video dan mendeteksi seluruh obyek foreground.
+Suatu deskripsi pendekatan yang telah ada tentang background subtraction adalah mendeteksi obyek-obyek foreground sebagai peredaan yang ada antara frame sekarang dan gambar background dari layar statis.
+Suatu pixel dikatakan sebagai foreground jika : |I(x,y,t) -(,,)=| > Threshold.
+Pendekatan ini sangat sensitif terhadap threshold, sehingga threshold dapat digunakan untuk mengatur sensitifitas suatu kamera dalam menangkap gambar [4].
+METODOLOGI PENELITIAN
+Metodologi penelitian merupakan sistematika tahapan yang dilaksanakan selama penelitian agar hasil yang didapatkan sesuai dengan yang diharapkan.
+Berikut ini Tahapan yang digunakan dalam penelitian dengan judul Deteksi Obyek Manusia Pada Basis Data Video Menggunakan Metode Background Subtraction dan Operasi Morfologi.
+ANALISA DAN PERANCANGAN
+Pada perancangan deteksi obyek manusia, tahap analisis memegang peranan yang penting dalam pelaksanaanya untuk membuat rincian sistem baru yakni berupa langkah pemahaman persoalan sebelum mengambil tindakan atau kesimpulan akhir dari penelitian untuk memperoleh hasil kinerja metode yang diterapkan.
+A. Analisis Data
+Pada penelitian ini dilakukan percobaan pengujian pemrosesan data dengan criteria sebagai berikut : 1. Video berformat .mp4 2. Kondisi yang direkam berjumlah 30 video 3. Resolusi video yang digunakan adalah 320x240 pixel dengan framerate 20 frames/second 4. Video direkam dalam keadaan tidak bergerak (statis) 5. Waktu perekaman masing-masing video 10 Detik 6. Video yang direkam adalah melalui pengambilan dalam beberapa kondisi seperti dalam ruangan, cahaya gelap (malam hari), luar ruangan atau banyak cahaya dan dengan kondisi latar belakang atau background yang berbeda.
+Data citra video dikumpulkan oleh peneliti dari hasil rekaman beberapa video dari kondisi background yang berbeda.
+Alasan dilakukannya perekaman pada kondisi yang berbeda-beda adalah untuk mengetahui bagaimana pengaruh pencahayaan terhadap hasil deteksi.
+Kondisi video berupa pengambilan video di dalam ruangan, luar ruangan, berangin, cahaya redup, dan gangguan obyek lain selain manusia seperti bayangan, obyek bergerak seperti pepohonan, dan lain-lain yang selanjutnya akan dilakukan pengujian pada bab selanjutnya.
+B. Analisis Kamera 
+Kamera yang digunakan pada penelitian ini adalah kamera dengan resolusi vga yang melakukan perekaman video dengan menggunakan aplikasi Open Camera.
+Adapun setting kamera yang digunakan adalah dengan kondisi exposure value secara statis.
+Exposure value adalah kepekaan kamera terhadap cahaya yang masuk pada hasil rekaman video.
+C. Analisis Video 
+Kriteria video yang digunakan pada penelitian ini video dengan resolusi VGA yaitu 320x240 pixel dengan kondisi cahaya terang pada saat siang hari di luar ruangan, di dalam ruangan, dan pada saat kondisi gelap atau malam hari.
+Video yang direkam berdurasi selama 10 detik dengan kondisi beberapa orang pejalan kaki yang berjalan berjarak 5 Meter dari kamera.
+Video yang dihasilkan memiliki framerate 20 frames/second.
+Video yang digunakan adalah video berformat .mp4.
+D. Analisis Deteksi Obyek Manusia 
+Penyeleksian obyek manusia dilakukan dengan melihat ukuran setiap obyek melalui blob analysis pada matlab.
+Fungsi blob analysis pada matlab bertujuan untuk menentukan luas area obyek manusia menggunakan maximum blob area dan minimum blob area.
+Langkah yang dilakukan adalah dengan caramengeleminasi obyek yang memiliki luas kurang dari 10000 pixel dan lebih besar dari 980 pixel.
+Hal ini bertujuan untuk mengeleminasi obyek selain manusia yang ada pada video.
+E. Proses Deteksi Obyek Manusia 
+Proses yang akan dilakukan pada penelitian ini dibagi menjadi beberapa tahapan proses.
+Yaitu ekstraksi frame video, normalisasi citra, background subtraction, operasi morfologi, deteksi.
+Keseluruhan tahapan proses tersebut saling berhubungan satu sama lain.
+Proses awal yang dilakukan adalah ekstraksi frame video untuk dapat memproses seluruh image pada video, setelah itu dilakukan normalisasi citra pada masing-masing frame (image) yang telah diekstraksi.
+Lalu diterapkan metode background subtraction dan operasi morfologi yang di dalamnya terdapat proses rekonstruksi citra berupa operasi opening, closing, dan filling.
+Pada masing masing tahapan dan operasi-operasi yang dilakukan akan ditentukan suatu nilai-nilai tertentu yang pada akhirnya dilakukan pendeteksian terhadap obyek manusia.
+Adapun rincian tahapan proses yang akan dilakukan adalah sebagai berikut: E.1. Preprocessing
+Pada tahap ini dilakukan perekaman video dan konversi video dari camera yang dilakukan menggunakan software Open Camera pada sistem operasi android dan konversi video Xillisoft Video Converter.
+Setelah dilakukan konversi berupa pemotongan video yang selanjutnya akan dilakukan ekstraksi frame video.
+E.2. Ekstraksi frame video 
+Ekstraksi frame video adalah salah satu proses yang dilakukan dalam computer vision untuk mengekstrak gambar-gambar (frame) yang terdapat dalam video untuk dapat melakukan proses selanjutnya.
+Pada Matlab proses ekstraksi tersebut dapat dilakukan dengan menggunakan sintaks readFrame().
+E.3. Normalisasi Citra 
+Pada tahapan ini dilakukan normalisasi citra frame yang telah diekstrak ke dalam bentuk citra biner.
+E.4. Background Substraction 
+Sebelum mengalami pemrosesan lebih lanjut, perlu dilakukan proses awal (pre-processing) terlebih dahulu, yaitu pengolahan citra dengan tujuan mendapatkan gambar yang lebih sederhana sehingga dapat diproses, diantaranya adalah pengubahan citra menjadi grayscale.
+Dalam background subtraction terlebih dahulu citra bergerak yang berwarna diubah menjadi citra keabuan atau grayscale sehingga dapat diubah menjadi citra biner.
+Frame awal yang tidak memiliki obyek bergerak dari citra bergerak yang telah diubah menjadi citra biner tersebut akan dibersihkan dari noise untuk menghasilkan background yang stabil dan peka terhadap perubahan foreground.
+Setelah proses yang dilakukan sebelumnya, dilakukan tahapan operasi background subtraction.
+Pada proses ini akan ditentukan nilai training frame untuk menentukan background statis pada video.
+Selanjutnya menentukan nilai minimum rasio treshold untuk menentukan tingkat kepekaan perubahan citra biner pada piksel-piksel background.
+Adapun nilai training frame ditetapkan sebanyak 50.
+Dan nilai minimum rasio background adalah 0.5. Semakin rendah nilai rasio maka akan semakin sensitif kepekaan perubahan citra biner pada piksel-piksel background.
+Begitu pula sebaliknya.
+E.5. Operasi Morfologi 
+Pada tahap ini operasi yang dilakukan adalah operasi opening, closing, dan filling.
+1. Operasi opening dilakukan untuk menghilangnya obyek obyek kecil dan kurus, memecah obyek pada titik titik yang kurus, dan secara umum menghaluskan batas dari obyek besar tanpa mengubah area obyek secara signifikan.
+2. Operasi closing dilakukan untuk mengisi lubang kecil pada obyek, menggabungkan obyek-obyek yang berdekatan, tujuannya adalah untuk menghaluskan batas dari obyek besar tanpa mengubah area obyek secara signifikan.
+3. Operasi Filling dilakukan untuk menghaluskan kedua proses yang dilakukan sebelumnya dengan melakukan pengisian pada area lubang untuk memperoleh segmen yang lebih solid.
+E.5. Deteksi Obyek Manusia 
+Setelah tahapan normalisasi telah selesai dilakukan, selanjutnya Obyek manusia akan dideteksi.
+Langkah yang dilakukan adalah dengan caramengeleminasi obyek yang memiliki luas kurang dari 10000 pixel dan lebih besar dari 980 pixel.
+Hal ini bertujuan untuk mengeleminasi obyek selain manusia yang ada pada video.
+HASIL DAN PENGUJIAN
+A. Implementasi Antar Muka Proses Deteksi Obyek Manusia 
+Berikut tampilan proses deteksi untuk deteksi obyek manusia pada sistem.
+B. Implementasi Proses Pengujian (testing)
+Untuk melihat implementasi proses pengujian atau testing dapat dilihat pada gambar 11.
+C. Pengujian 
+Pengujian yang dilakukan pada penelitian ini yaitu ada beberapa macam antara lain : 1. Pengujian Preprocessing 2. Pengujian BlackBox 3. Pengujian Deteksi Obyek Manusia.
+C.1. Pengujian Preprocessing 
+Pada tahap ini, dilakukan sejumlah pengujian dengan tujuan agar mendapatkan beberapa nilai ambang yang akan digunakan pada tahap selanjutnya.
+Tahapan preprocessing diperlukan agar pada tahapan akhir deteksi dan penghitungan obyek manusia menjadi akurat berdasarkan analisis yang dilakukan pada tahap ini.
+Pengujian dilakukan pada 3 video yang mewakili kondisi terang, gelap, dan di dalam ruangan.
+Dari hasil pengujian nilai threshold dengan menggunakan nilai rentang 0.3 hingga 0.6, dihasilkan kesimpulan bahwa nilai thresholdyang efektif untuk ekstraksi obyek adalah 0.5. Pada masing-masing video dengan intensitas cahaya berbeda, nilai rasio minimum dapat mendeteksi obyek pejalan kaki dengan baik karena obyek pejalan kaki terlihat lebih solid dibandingkan dengan nilai yang lain.
+Dan pada nilai 0.3, obyek terlihat solid namun noise terlalu tinggi.
+Dan pada nilai rasio minimum 0.5 dan 0.6 dapat menghilangkan noise dengan baik, namun kesolidan obyek pejalan kaki semakin berkurang.
+Sehingga ditariklah suatu kesimpulan bahwa nilai rasio minimum 0.5 yang efektif untuk mengekstraksi obyek.
+Pengujian pada operasi opening menggunakan nilai rentang 3x3 hingga 6x6.
+Semakin besar nilai struktur elemen pada operasi opening maka akan berpengaruh terhadap obyek pejalan kaki yang ikut tereleminasi.
+Agar obyek tidak ikut tereliminasi oleh operasi opening, maka ditetapkan nilai struktur elemen terkecil dari ambang yang ditetapkan untuk operasi opening yaitu 3x3.
+Pengujian pada operasi closing menggunakan nilai rentang antara 10x10 hingga 18x18.
+Semakin besar nilai struktur elemen pada operasi closing,maka akan semakin solid obyeknya.
+Sehingga untuk mengantisipasi obyek yang terputus maka diambil nilai struktur elemen terbesar dari rentang yang telah ditentukan, yaitu 18x18.
+C.2. Pengujian BlackBox 
+Dari pengujian yang sudah dilakukan pada setiap tombol dan proses pada sistem deteksi obyek manusia dengan background subtraction dan Operasi Morfologi dapat disimpulkan bahwa : 1. Proses pada sistem dapat dijalankan dengan benar mulai dari prakondisi sampai dilakukan aksi, sistem mengeluarkan output sesuai instruksi yang dilakukan.
+2. Adanya kesesuaian antara fungsi-fungsi sistem yang diimplementasikan dengan hasil analisis kebutuhan yang sudah ditentukan pada tahap analisis sistem.
+C.3. Pengujian Deteksi Obyek Manusia
+Dari hasil pengujian pada 30 video diatas, didapatkan hasil berupa keterangan yang tepat dan tidak tepat.
+Pengujian dikatakan tepat apabila hasil deteksi dari sistem sama dengan hasil penghitungan manual.
+Sebaliknya apabila hasil deteksi dairi sistem tidak sama dengan hasil perhitungan manual, maka hasil keterangan tidak tepat.
+Terlihat pada tabel 5.8, dari 10 pengujian video pada pencahayaan terang, 8 video sesuai dengan perhitungan manual, 2 video tidak tepat.
+Dari 10 pengujian video pada kondisi dalam ruangan, 2 video sesuai dengan perhitungan manual, 8 video tidak tepat.
+Dari 10 pengujian video pada kondisi gelap atau redup cahaya, 1 video sesuai dengan perhitungan manual, 9 video tidak tepat.
+Dari pengujian yang dilakukan, terlihat bahwa sistem dapat mendeteksi obyek pejalan kaki dengan baik pada kondisi pencahayaan terang.
+Sedangkan pada kondisi pencahayaan gelap dan di dalam ruangan, hasil deteksi kurang begitu baik terlihat dari jumlah deteksi yang tidak tepat jika dibandingkan dengan perhitungan manual.
+Hal ini disebabkan oleh bayangan yang mengganggu pada video sehingga membentuk sebuah obyek yang terhitung sebagai manusia khususnya pada video dalam ruangan.
+Hal lain yang juga mempengaruhi adalah bias cahaya pada video,obyek bergerak lainnya seperti asap dan bayangan pejalan kaki.
+Pada video pencahayaan gelap atau dalam ruangan, sensor kamera juga berpengaruh terhadap hasil deteksi karena pencahayaan yang kurang baik, sensor kamera yang tidak stabil membuat deteksi tidak tepat bahkan melebihi hasil perhitungan secara manual.
+D. Kesimpulan Pengujian 
+Pengujian yang telah dilakukan dapat diambil beberapa kesimpulan.
+Kesimpulan dari hasil pengujian adalah sebagai berikut : 1. Dari pengujian pada beberapa sample video, nilai rasio minimum thresholding terbaik yang digunakan pada penelitian ini adalah 0.5.
+2. Dari pengujian pada beberapa sample video, nilai elemen penstruktur pada operasi opening yang digunakan pada penelitian ini adalah radius 3x3.
+3. Dari pengujian pada beberapa sample video, nilai elemen penstruktur pada operasi closing yang digunakan pada penelitian ini adalah radius 18x18.
+4. Dari 10 pengujian video pada pencahayaan terang, 8 video sesuai dengan perhitungan manual, 2 video tidak tepat.
+5. Dari 10 pengujian video pada kondisi dalam2ruangan, 2 video sesuai dengan perhitungan manual, 8 video tidak tepat.
+6. Dari 10 pengujian video pada kondisi gelap atau redup cahaya, 1 video sesuai dengan perhitungan manual, 9 video tidak tepat.
+KESIMPULAN DAN SARAN
+Kesimpulan yang dapat diambil dari tahap-tahap penelitian ini adalah sebagai berikut: 1. Program yang dirancang mampu melakukan deteksi dan penghitungan jumlah obyek pejalan kaki secara otomatis.
+Proses normalisasi dilakukan dengan mengekstrak citra video dalam bentuk citra biner.
+Lalu dilakukan dengan penerapan metode Background Subtraction dan Operasi Morfologi.
+2. Pada pengujian sistem dapat membedakan obyek kecil selain pejalan kaki seperti kucing, daun, dan lain-lain serta obyek besar seperti mobil dengan baik.
+3. Pendeteksian obyek pada video dapat dihasilkan dengan baik dalam kondisi exposure value statis yang diset saat perekaman dengan kamera.
+4. Berdasarkan hasil pengujian, program yang dirancang dapat mendeteksi dan menghitung obyek pejalan kaki dengan sangat baik ketika dalam kondisi pencahayaan yang baik.
+Terlihat pada pengujian kondisi pencahayaan yang kurang baik itu kondisi gelap maupun dalam ruangan, program tidak dapat mendeteksi obyek dengan baik.
+Hal ini disebabkan oleh adanya noise yang disebabkan oleh kurangnya pencahayaan dan banyaknya obyek bayangan yang muncul sehingga ikut terdeteksi sebagai obyek.
+5. Kelemahan dari penelitian ini adalah, sistem tidak dapat membedakan obyek yang bukan manusia meskipun obyek tersebut berukuran sama dengan obyek manusia.
+Karena pada penelitian ini tidak membedakan manusia dengan obyek lainnya berdasarkan bentuk atau ciri khusus pada obyek pejalan kaki.
+Ada beberapa saran yang penulis paparkan agar berguna untuk pengembangan topik penelitian ini nantinya, yaitu sebagai berikut : 1. Penelitian selanjutnya dapat menggunakan algoritma dan metode yang berbeda agar dapat dibandingkan dengan penelitian ini.
+2. Pada penelitian ini proses operasi morfologi tidak dikombinasikan dengan metode tertentu, sehingga pada penelitian selanjutnya bisa dikembangkan proses operasi morfologi yang dikombinasikan dengan metode lainnya.
+3. Untuk penelitian selanjutnya agar penelitian ini dapat dikembangkan dengan menggunakan metode yang dapat membedakan obyek pejalan kaki dengan obyek benda lain, baik itu bayangan dan noise.
+4. Pada penelitian ini database video berupa citra video yang direkam, dapat dikembangkan dengan menggunakan realtime video pada percobaan penelitian selanjutnya.

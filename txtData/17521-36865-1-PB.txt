@@ -1,0 +1,143 @@
+Abstrak
+Tes Kepribadian Saks Sentence Completion Test (SSCT) adalah salah satu jenis tes proyektif yang digunakan untuk mengungkap dinamika kepribadian, yang dapat menampakkan diri individu dalam hubungan interpersonal dan dalam interpretasi terhadap lingkungan.
+Tugas psikolog dalam tes SSCT adalah melakukan interpretasi terhadap jawaban tes dari para responden.
+Pengembangan sistem berbasis intelligent agent untuk membantu peran psikolog menjadi sangat penting.
+Psikolog mendelegasikan tugas kepada agen cerdas (intelligent agent) berupa perangkat lunak komputer untuk melakukan interpretasi dan menentukan hasil tes.
+Pengembangan sistem berbasis intelligent agent memungkinkan dan mendukung psikolog dalam mengerjakan tugas dan menentukan hasil tes yang dilakukan oleh responden.
+Perangkat lunak berbasis intelligent agent ini dikembangkan menggunakan bahasa pemrograman Java dengan platform JADE.
+Sedangkan arsitektur agent yang digunakan BDI dengan metodologi Prometheus.
+Pengembangan aplikasi difokuskan pada apakah metode summary dapat dimanfaatkan untuk mendapatkan model jawaban tes SSCT serta bagaimana psikolog bisa mendapatkan hasil interpretasi tes SSCT dengan cepat.
+Hasil pengujian menunjukkan bahwa persentase rata-rata hasil jawaban dari responden yang berhasil dikenali oleh model mencapai 59%, sedangkan prosentase rata-rata akurasinya sebesar 95,13%.
+Aplikasi tes menggunakan empat agent yang saling berkoordinasi dan berkomunikasi untuk membantu psikolog mendapatkan hasil tes.
+Kata kunciIntelligent agents, SSCT, JADE, Prometheus, Summary.
+1. PENDAHULUAN
+Salah satu aspek individu yang diukur melalui pengukuran psikologis adalah kepribadian.
+Kepribadian adalah keseluruhan sikap, perasaan, ekspresi, tempramen, ciri-ciri khas dan perilaku seseorang.
+Sikap perasaan ekspresi dan tempramen ini akan terwujud dalam tindakan seseorang jika dihadapkan pada situasi tertentu.
+Setiap orang mempunyai kecenderungan prilaku yang baku, atau berlaku terus menerus secara konsisten dalam menghadapi situasi yang dihadapi, sehingga menjadi ciri khas pribadinya [1].
+Kepribadian seseorang selalu berkembang dan dapat diukur melalui pengukuran kepribadian.
+Kepribadian seorang individu akan menentukan mudah atau tidaknya diterima di lingkungan masyarakat, maka disinilah peran penting adanya tes kepribadian.
+Terdapat dua macam tes kepribadian, yaitu tes proyektif dan obyektif.
+Tes kepribadian dengan pendekatan proyektif, individu memberikan respon pada stimulus yang tidak terstruktur dan ambigu, sehingga diharapkan dengan menggunakan tes proyektif individu secara tidak sadar akan mengungkapkan, menggambarkan struktur atau sikap, karakteristik kepribadian, motivasi, dan keyakinan [2].
+Saks Sentence Completion Test (SSCT) adalah salah satu jenis tes proyektif yang digunakan untuk mengungkap dinamika kepribadian, yang dapat menampakkan diri individu dalam hubungan interpersonal dan dalam interpretasi terhadap lingkungan [3].
+Pada tes SSCT, seseorang (responden) yang dites, diminta untuk melengkapi kalimat-kalimat berjumlah 60 nomor.
+Setelah tes SSCT selesai dikerjakan oleh responden, maka hasil tes tidak bisa langsung diketahui.
+Psikolog terlebih dahulu harus membaca kalimat pelengkap (jawaban) tiap item, mengelompokkan rumpun item kemudian melakukan interpretasi.
+Selanjutnya menentukan kesimpulan dari kalimat pelengkap tersebut untuk menentukan skor yang akan diberikan.
+Skor dari kalimat pelengkap tes akan menentukan sikap yang dimiliki oleh responden.
+Proses pelaksanaan tes sampai didapatkan hasil tes membutuhkan waktu yang cukup panjang, maka jika semakin banyak responden (peserta tes) SSCT, semakin lama waktu yang dibutuhkan oleh psikolog dalam melakukan analisa, kesimpulan dan menentukan hasil dari tes.
+Kajian yang menarik adalah mewakilkan peran psikologi dalam melakukan interpretasi kepada perangkat lunak (intelligent agent).
+Intelligent agent (IA) adalah program komputer yang membantu pengguna menjalankan tugas komputer rutin.
+Program ini menjalankan tugas tertentu berdasarkan aturan yang telah ditentukan sebelumnya dan pengetahuan yang disimpan dalam basis pengetahuannya [4].
+Intelligent agent merupakan sebuah entitas otonom yang melakukan pengamatan dan dapat bertindak terhadap lingkungannya, serta mengarahkan aktivitasnya untuk mencapai tujuan tertentu [5].
+Pengembangan sistem berbasis intelligent agent untuk membantu peran psikolog dalam proses pelaksanaan tes SSCT menjadi sangat penting.
+Psikolog mendelegasikan tugas kepada agen cerdas (intelligent agent) berupa perangkat lunak komputer untuk melakukan analisa, kesimpulan dan menentukan hasil tes.
+Pengembangan sistem berbasis intelligent agent memungkinkan dan mendukung proses psikolog dalam mengerjakan tugas dan menentukan hasil tes yang dilakukan oleh responden.
+Penelitian tentang intelligent agent sudah banyak dilakukan, diantaranya pada sistem pembelajaran [6] dan [7], simulasi [8], [9],monitoring perusahaan [10], negosiasi [11], dan penjadwalan [5].
+Berbagai macam pendekatan diusulkan dalam penelitian tersebut.
+Penelitian yang akan dilakukan menggunakan metodologi prometheus yaitu difokuskan pada pembangunan sistem secara arsitektur internal agent.
+Arsitektur agent yang digunakan adalah BDI dengan mengimplementasikan perangkat lunak (intelligent agent) menggunakan platform JADE dalam bahasa pemrograman Java.
+Beberapa metode sudah digunakan dalam mengembangkan aplikasi tes kepribadian diantaranya Fitriantri menggunakan sistem pakar model komputasi sistem produksi dengan pendekatan forward chaining[12].
+Winiarti juga menggunakan sistem pakar pendekatan forward chaining dalam penelusuran fakta [13].
+Adapun penelitian yang diusulkan tentang pengembangan aplikasi tes kepribadian berbasis intelligent agent menggunakan metode summary atau text summarization term frequency-inverse document frequency (tf-idf).
+Summary atau ringkasan didefinisikan sebagai teks yang dihasilkan dari satu atau lebih teks, mengandung informasi dari teks sumber dan panjangnya tidak lebih dari setengah teks sumber [14].
+Text summarization merupakan proses mengurangi dokumen teks dengan program komputer untuk menciptakan sebuah ringkasan yang mempertahankan poin paling penting dari dokumen asli.
+Terdapat dua pendekatan pada peringkasan teks, yaitu ekstraksi dan abstraksi.
+Tf-idf merupakan salah satu metode text summarization jenis ekstraksi.
+Tf-idf adalah cara pemberian bobot hubungan suatu kata (term) terhadap dokumen.
+Pada pengembangan aplikasi tes kepribadian berbasis intelligent agent ini, tf-idf akan diterapkan untuk meringkas hasil tes yang sudah dilakukan oleh sejumlah responden.
+Ringkasan yang dihasilkan adalah model kalimat pelengkap (jawaban) berupa kata-kata dan digunakan untuk melakukan interpretasi terhadap responden baru.
+Penelitian yang akan dilakukan merupakan inisiasi awal untuk menyelesaikan permasalahan tentang lamanya waktu yang dibutuhkan oleh psikolog dalam memberikan interpretasi terhadap jawaban tes ssct dari banyak responden.
+Peran psikolog dalam memberikan interpretasi diwakilkan kepada intelligent agent.
+Metode summary (tf-idf) digunakan untuk mengetahui apakah model jawaban tes dari sejumlah data responden bisa didapatkan dan digunakan dalam proses interpretasi pada responden baru.
+2. METODE PENELITIAN
+Sistem yang akan dikembangkan berupa sebuah model prototype aplikasi (perangkat lunak) tes kepribadian (SSCT) berbasis intelligent agent.
+Aplikasi memiliki kemampuan untuk melakukan proses summary guna mendapatkan model jawaban berupa kata-kata yang diambil dari sejumlah responden dan membantu proses tes SSCT mulai dari responden memberikan input jawaban sampai mendapatkan hasil tes.
+Pada proses summary, admin memilih jumlah data yang akan diolah untuk mendapatkan model jawaban.
+Selanjutnya sistem akan memproses summary sesuai dengan tahapannya mulai preprocessing sampai menghitung bobot.
+Sedangkan pada proses tes SSCT, responden memberikan input berupa profil dan kalimat-kalimat pelengkap dari kalimat (soal) tes SSCT.
+Input profil meliputi nama, tanggal lahir, jenis kelamin, pendidikan, pekerjaan dan status pernikahan.
+Sedangkan input jawaban tes berupa kalimat pelengkap dari enam puluh (60) butir soal (kalimat).
+Setelah responden menyelesaikan input profil dan input jawaban tes, sistem akan melakukan interpretasi terhadap jawaban tes mulai dari preprocessing sampai mendapatkan hasil tes.
+Jika dilihat dari sisi user interface, aplikasi menyediakan tiga (3) interface yang masing-masing memiliki fasilitas yang berbeda.
+Pertama, untuk admin disediakan fasilitasberupa summary (preprocessing, menghitung tf, idf, tf-idf dan bobot kata).
+Kedua, untuk responden disediakan input profil dan input jawaban tes.
+Ketiga, untuk psikolog disediakan fasilitas berupa input bantuan rating baru pada proses interpretasi.
+Gambar 1 menunjukkan bagan alir sistem dalam pemrosesan data responden.
+Sekumpulan data responden terbagi menjadi kumpulan data training dan data testing.
+Data training mengalami proses summary yang meliputi preprocessing, menghitung tf, df, idf, tf-idf dan bobot kata.
+Selanjutnya hasil dari proses training berupa kata-kata diberi label/rating/skor oleh psikolog dan digunakan dalam proses interpretasi.
+Proses interpretasi merupakan bagian dari proses testing yang meliputi preprocessing, pemberian rating tiap item, tiap aspek kepribadian, tiap area kepribadian serta penentuan interpretative summary.
+Jika dalam proses interpretasi ditemukan jawaban yang belum ada pada data hasil training, maka diperlukan input bantuan rating dari psikolog.
+Setelah psikolog memberikan input rating baru dan dilakukan interpretasi ulang, maka hasil akhir dari proses testing adalah hasil tes SSCT.
+Rancangan model agent secara detail ditunjukkan pada Gambar 2. 
+Perancangan model yang dikembangkan melibatkan empat agent, yaitu agent summary, agent responden, agent interpretasi, dan agent psikolog.
+Agent summary mempunyai intelegensia berupa melakukan proses untuk mendapatkan model jawaban (kata dari kalimat pelengkap tiap item).
+Agent summary melakukan pembacaan terhadap kumpulan data jawaban dari responden, preprocessing (ekstrak teks, menghilangkan stop word, mengubah kata menjadi hurufkecil), menghitung tf, idf, tf-idf serta menghitung bobot kata.
+Agent responden memiliki kemampuan untuk menampilkan layar input profil dan jawaban tes, menangkap input jawaban dan menyimpan ke basis data, mengirim pesan ke agent interpretasi, menerima pesan dari agent interpretasi, dan menampilkan hasil tes ke layar untuk responden.
+Agent interpretasi memiliki kemampuan berupa membaca data jawaban responden, melakukan preprocessing, interpretasi rating (skor), interpretative summary, menerima pesan dari agent responden, mengirim pesan ke agent responden dan mengirim pesan ke agent psikolog.
+Agent psikolog memiliki kemampuan berupa menerima pesan dari agent interpretasi dan menampilkan bantuan rating ke layar psikolog.
+System Overview Diagram yang dihasilkan menggunakan Prometheus Design Tool ditunjukkan pada Gambar 3.
+3. HASIL DAN PEMBAHASAN
+Pengujian merupakan kegiatan suatu sistem atau komponen dijalankan dalam kondisi tertentu, sehingga hasilnya bisa diamati atau direkam untuk kemudian dilakukan evaluasi.
+Pengujian fungsionalitas memastikan bahwa semua kebutuhan-kebutuhan telah terpenuhi dalam sistem (aplikasi).
+Pengujian fungsionalitas tidak berkonsentrasi pada bagaimana prosesnya terjadi, tetapi pada hasil dari proses.
+Pengujian fungsionalitas yang digunakan dalam menguji aplikasi tes kepribadian berbasis intelligent agent menggunakan pengujian black box.
+Secara fungsional aplikasi dapat digunakan sesuai dengan kebutuhan diantaranya menyediakan halaman input data responden, menyediakan halaman tes SSCT, secara otomatis menjalankan proses interpretasi setelah responden selesai input jawaban tes, menyediakan tampilan hasil tes dan menyediakan halaman bantuan input rating baru untuk psikolog.
+Hasil dari proses summary menggunakan metode tf idf pada data training menunjukkan bahwa model jawaban tes bisa didapatkan berupa kata (keyword).
+Model jawaban tes berupa kata-kata hasil summary dan hasil bobot dari sejumlah data training.
+Data tersebut secara manual dipilih menurut tingkat kecocokan berdasarkan kalimat (soal tes) dan diberi label/rating /skor berdasarkan aturan dalam tes SSCT.
+Sebelum data digunakan dalam proses interpretasi, terlebih dahulu diverifikasi (diberi label/rating/skor) oleh psikolog.
+Hasil summary dari metode tf-idf bisa diterapkan dalam proses summary pada kasus tes SSCT walaupun kurang optimal.
+Semua kata hasil preprocessing dan summary tidak digunakan sebagai model jawaban.
+Tabel 1 menunjukkan hasil percobaan dari sejumlah data training dalam proses summary, serta hasil verifikasi oleh psikolog menggunakan metode tf-idf.
+Pada pengujian aplikasi, digunakan empat data sheet yang terbagi menjadi data training dan data testing.
+Data training yang digunakan berupa hasil data yang sudah diverifikasi oleh psikolog untuk digunakan pada proses interpretasi (testing).
+Eksperimen pertama menggunakan data sheet I, yaitu sejumlah 35 data responden.
+Sebanyak 30 data responden (responden ke-1 sampai dengan ke-30) digunakan untuk training (pelatihan) yang terlebih dahulu divalidasi oleh psikolog.
+Sedangkan 5 data responden (data ke 31 sampai dengan data ke 35) digunakan untuk testing (pengujian) yang diujikan satu persatu.
+Tahapan proses uji data responden ke 31 (data sheet I) diulang kembali pada data responden ke 32, responden 33, responden ke 34 dan responden ke 35.
+Dari proses pengulangan tersebut dilakukan pengamatan terhadap jumlah data yang dikenali sistem.
+Tabel 2 menunjukkan jawaban yang dikenali sistem berikut prosentase keberhasilan data yang dikenali model dan akurasi data pada testing data sheet I.
+Berdasarkan testing data sheet ke I dihasilkan prosentase keberhasilan data tertinggi yang dikenali model sebesar 50% dan akurasi tertinggi 96.97%.
+Adapun prosentase rata-rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet ke I sebesar 43.67 % dan rata-rata akurasi 91.88 %.
+Keseluruhan proses pada pengujian data testing data sheet I diulang pada data sheet II sampai dengan data sheet IV, sehingga mendapatkan hasil akhir berupa keberhasilan data yang dikenali model dan akurasi data.
+Tabel 3 menunjukkan jawaban yang dikenali sistem berikut prosentase keberhasilan akurasi data pada testing data sheet II.
+Berdasarkan testing data sheet II dihasilkan prosentase keberhasilan data tertinggi yang dikenali model sebesar 61.67 % dan akurasi tertinggi 96.88%.
+Adapun prosentase rata-rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet II sebesar 51.67% dan rata-rata akurasi 90.19%.
+Tabel 4 menunjukkan jawaban yang dikenali sistem berikut prosentase keberhasilan akurasi data pada testing data sheet III.
+Berdasarkan testing data sheet III dihasilkan prosentase keberhasilan data tertinggi yang dikenali model sebesar 71.67 % dan akurasi tertinggi 97.67%.
+Adapun prosentase rata-rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet III sebesar 56.33 % dan rata-rata akurasi 95.07%.
+Tabel 5 menunjukkan jawaban yang dikenali sistem berikut prosentase keberhasilan akurasi data pada testing data sheet IV.
+Berdasarkan testing data sheet IV dihasilkan prosentase keberhasilan data tertinggi yang dikenali model sebesar 76.67% dan akurasi tertinggi 100%.
+Adapun prosentase rata-rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet IV sebesar 59 % dan rata-rata akurasi 95.13%.
+Hasil dari rata-rata prosentase keberhasilan data yang dikenali model data testing pada data sheet I sampai dengan data sheet IV terangkum dalam Tabel 6.
+Terlihat pada percobaan data sheet I, bahwa hasil training yang berjumlah 30 data diujikan pada 5 data baru diperoleh prosentase keberhasilan data yang dikenali model sebesar 43.67% dan akurasi data sebesar 91.88%.
+Percobaan data sheet II menggunakan data training sebanyak 40 data, diujikan pada 10 data baru diperoleh keberhasilan data yang dikenali model sebesar 51.67 % dan akurasi data sebesar 90.19.
+Percobaan data sheet III menggunakan data training sebanyak 60 data, diujikan pada 15 data baru diperoleh keberhasilan data yang dikenali model sebesar 51.67 % dan akurasi data sebesar 95.07%.
+Percobaan data sheet IV menggunakan data training sebanyak 80 data, diujikan pada 20 data baru diperoleh keberhasilan data yang dikenali model sebesar 59.00 % dan akurasi data sebesar 95.13%.
+Berdasarkan hasil percobaan data sheet I sampai data sheet IV terlihat bahwa prosentase keberhasilan data yang dikenali model pada proses interpretasi oleh sistem mengalami kenaikan.
+Sedangkan akurasi data pada data sheet II mengalami penurunan, akan tetapi pada data sheet selanjutnya mengalami kenaikan.
+Keberhasilan data yang dikenali model dan akurasi tertinggi diperoleh pada data testing data sheet IV dengan rata-rata prosentase hasil mencapai 59.00% dan rata-rata prosentase akurasi sebesar 95.13%.
+Aplikasi tetap membutuhkan bantuan user (psikolog) jika dalam proses interpretasi data baru tidak ditemukan jawaban yang sesuai dalam model jawaban hasil data training.
+Percobaan sebagaimana terlihat pada Tabel 6 akan dilanjutkan dengan memberikan rating/label/skor baru pada data yang membutuhkan, kemudian dilakukan interpretasi ulang sehingga didapatkan hasil tes.
+Berdasarkan karakteristik agent, maka kemampuan yang dimiliki oleh agent-agent antara lain: 1.
+Autonomy (Kemandirian), agent dapat melakukan tugas secara mandiri dengan diberikan pemicu event tombol.
+2. Intelligence, Reasoning, dan Learning (Kecerdasan, Penalaran dan Pembelajaran), agent memiliki kecerdasan untuk melakukan proses pembelajaran pada preprocessing dan summary, serta memiliki penalaran dan kecerdasan untuk melakukan proses interpretasi.
+3. Delegation (Delegasi), agent responden mendelegasikan tugas kepada agent interpretasi untuk menentukan hasil tes 4.
+Reactivity (Reaktif), kemampuan untuk beradaptasi dengan adanya perubahan informasi yang terjadi dalam lingkungannya.
+5. Communication and Coordination (Komunikasi dan Koordinasi), agent-agent mampu berkomunikasi dengan mengirim pesan antar agent.
+Proses komunikasi antar agent dapat diamati pada jendela sniffer di JADE Remote Agent Management GUI yang ditunjukkan pada Gambar 4. 
+Berdasarkan kemampuan dan karakteristik agent mampu melakukan proses summary untuk mendapatkan model jawaban serta mampu melakukan interpretasi untuk mendapatkan hasil tes.
+4. KESIMPULAN
+Berdasarkan hasil penelitian, pengujian dan evaluasi kemampuan agent, kesimpulan yang diperoleh sebagai berikut: 1. Aplikasi sudah selesai dikembangkan sesuai dengan tujuan penelitian yaitu dihasilkan sebuah aplikasi tes kepribadian berbasis intelligent agent.
+2. Secara fungsional aplikasi dapat digunakan sesuai dengan kebutuhan diantaranya menyediakan halaman input data responden, menyediakan halaman tes SSCT, secara otomatis menjalankan proses interpretasi setelah responden selesai input jawaban tes, menyediakan tampilan hasil tes dan menyediakan halaman bantuan input rating baru untuk psikolog.
+3. Model jawaban tes SSCT bisa didapatkan dari proses summary pada data training berupa kata (keyword) dari masing-masing jawaban yang di input oleh responden dan diverifikasi oleh psikolog dengan diberikan label/rating/skor.
+Model jawaban selanjutnya digunakan dalam proses testing (interpretasi) untuk mendapatkan hasil tes dari data baru.
+Berdasarkan hasil percobaan pertama sampai keempat terlihat bahwa keberhasilan data yang dikenali model dan akurasi tertinggi diperoleh pada data testing data sheet IV dengan rata-rata presentase hasil mencapai 59.00% dan rata-rata prosentase akurasi sebesar 95.13%.
+4. Aplikasi tes memerlukan empat agent yang saling berkomunikasi melaksanakan tugas dalam rangka membantu psikolog untuk mendapatkan hasil interpretasi tes SSCT.
+5. SARAN
+Aplikasi tes kepribadian berhasil melakukan peran untuk mendapatkan model jawaban tes melalui proses summary, serta bisa mendapatkan hasil tes melalui proses interpretasi.
+Selanjutnya, aplikasi dapat dikembangkan untuk dapat memberikan label/rating/skor secara otomatis jika terdapat data baru yang belum ada dalam model jawaban tes.
+Untuk model jawaban diharapkan dapat dikembangkan dalam bentuk kata yang berhubungan antara kata sebelum dan sesudah jawaban, sehingga akan diperoleh label/rating/skor yang semakin valid.
+Penelitian selanjutnya diharapkan juga untuk mengembangkan proses aplikasi agar lebih cepat, baik pada proses summary maupun interpretasi.

@@ -1,0 +1,151 @@
+Abstrak
+Pemilihan Gubernur DKI Jakarta 2017 ramai diperbincangkan di dunia nyata maupun dunia maya, khususnya di media sosial Twitter.
+Semua orang bebas berpendapat atau beropini tentang calon Gubernur DKI Jakarta 2017 sehingga memunculkan banyak opini, tidak hanya opini yang positif atau netral tapi juga yang negatif.
+Media sosial khususnya Twitter sekarang ini menjadi salah satu tempat promosi atau kampanye yang efektif dan efisien.
+Penelitian ini diharapkan dapat bermanfaat membantu untuk melakukan riset atas opini masyarakat yang mengandung sentimen positif, netral atau negatif.
+Metode yang digunakan dalam penelitian ini, untuk preprocessing data menggunakan tokenisasi, cleansing dan filtering, untuk menentukan class sentimen dengan metode Lexicon Based.
+Untuk proses klasifikasinya menggunakan metode Naive Bayes Classifier (NBC) dan Support Vector Machine (SVM).
+Data yang digunakan adalah tweet dalam bahasa Indonesia dengan kata kunci AHY, Ahok, Anies, dengan jumlah dataset sebanyak 300 tweet.
+Hasil dari penelitian ini adalah analisis sentimen terhadap calon gubernur DKI Jakarta 2017.
+Akurasi tertinggi didapat saat menggunakan metode klasifikasi Naive Bayes Classifier (NBC), dengan nilai rata-rata akurasi mencapai 95%, nilai presisi 95%, nilai recall 95% nilai TP rate 96,8% dan nilai TN rate 84,6%.
+Kata Kunci: analisis sentimen, calon gubernur dki jakarta 2016, lexicon based, Naive bayes classifier, support vector machine 
+1. Pendahuluan 
+Pemilihan Gubernur DKI Jakarta yang akan dilangsungkan pada tahun 2017 keramaiannya sudah mulai bisa dirasakan.
+Jadwal rangkaian Pemilihan Gubernur DKI Jakarta sudah ditetapkan (KPU, 2016).
+Sejak tahapan pendaftaran dan ditetapkan calon Gubernur DKI Jakarta 2017 nama-nama calonnya mulai banyak diperbincang, baik di dunia nyata maupun dunia maya.
+Semua orang bebas berpendapat atau beropini tentang calon Gubernur DKI Jakarta sehingga memunculkan banyak opini, tidak hanya opini yang positif atau netral tapi juga yang negatif.
+Perkembangan media yang begitu pesat, memunculkan banyak media online dari media berita sampai media sosial.
+Media sosial saja sudah begitu banyak, dari Facebook, Twitter, Path, Instagram, Google+, Tumblr, Linkedin dan sebagainya masih banyak lagi (Evadollzz, 2014).
+Media sosial sekarang ini tidak hanya digunakan sebagai sarana pertemanan, mencari teman, tapi sudah banyak digunakan untuk kegiatan lain.
+Promo dagangan, jual beli apa saja sampai promo partai politik atau kampanye calon calon legislative dan presiden, Media sosial khusunya Twitter sekarang ini menjadi perangkat komunikasi yang sangat populer di kalangan pengguna internet.
+Pada konferensi resmi pengembang Twitter Chirp 2010, perusahaan tersebut menyampaikan statistik mengenai situs dan pengguna Twitter.
+Statistik tersebut menyebutkan bahwa pada bulan April 2010, Twitter memiliki 106 juta akun dan sebanyak 180 juta pengunjung unik setiap bulannya.
+Jumlah pengguna Twitter disebutkan terus meningkat 300.000 user setiap harinya (Yarrow, 2010).
+Digital Buzz blog suatu situs yang menyediakan statistik infografik menyebutkan data statistik yang sama.
+Tim sukses sebuah pasangan calon Gubernur atau kepala daerah sekarang ini bisa menghalalkan segala cara dalam mengkampanyekan calonnya.
+Khususnya pada setiap masa kampanye pemilihan Gubernur, atau kepala daerah ada istilah Black Campaign terutama di media sosial.
+Karena sekarang ini promosi, kampanye atau pencintraan tidak hanya di dunia nyata tapi juga di dunia maya.
+Media sosial khususnya Twitter sekarang ini menjadi salah satu tempat promosi atau kampanye yang efektif dan efisien.
+Analisis sentimen atau opinion mining merupakan proses memahami, mengekstrak dan mengolah data tekstual secara otomatis untuk mendapatkan informasi sentimen yang terkandung dalam suatu kalimat opini.
+Besarnya pengaruh dan manfaat dari analisis sentimen menyebabkan penelitian dan aplikasi berbasis analisis sentimen berkembang pesat.
+Bahkan di Amerika terdapat sekitar 20-30 perusahaan yang memfokuskan pada layanan analisis sentimen (Huang, 2009).
+Pada penelitian ini Analisis sentimen dilakukan untuk melihat sebuah opini seseorang yang ditujukan kepada calon Gubernur DKI Jakarta 2017, opini itu bisa dimasukkan kategori opini positif, netral atau negatif.
+Besarnya sentimen yang ditujukan kepada calon Gubernur DKI Jakarta 2017 bisa dijadikan sebuah parameter kemenangan atau kekalahan seorang calon.
+2. Tinjauan Pustaka 
+Penelitian oleh (Mesut, 2012) menggunakan machine learning untuk mengklasifikasikan berita politik Turki.
+Penelitian ini melakukan klasifikasi sentimen terhadap berita politik Turki dan menentukan apakah berita politik Turki tersebut memiliki sentimen positif ataukah negatif.
+Fitur yang berbeda dari berita politik Turki tersebut diekstrak dengan algoritme machine learning Naive Bayes Classifier (NBC), Maximum Entropy (ME) dan Support Vector Machine (SVM) untuk menghasilkan model klasifikasi.
+Penelitian ini memperoleh Akurasi 72,05% untuk Naive Bayes Classifier (NBC), Akurasi 69,44% Maximum Entropy dan 66,81% untuk SVM pada penggunaan bigram.
+(Pak, 2010) Menggunakan emoticon untuk membangun corpus berbahasa Inggris dari Twitter dengan sentimen positif, negatif dan netral.
+Untuk kelas netral Pak dan Paurobek mengambil data training dari tweet akun media berbahasa Inggris.
+Metode yang digunakan adalah Naive Bayes dengan n-gram.
+Performasi terbaik dihasilkan ketika menggunakan bigram.
+Penggunaan Twitter sekarang ini tidak hanya sebatas pada media sosial untuk pertemanan, akan tetapi Twitter juga digunakan sebagai alat promosi dan kampanye (Buntoro, 2016).
+Pengguna Twitter bebas untuk mengeluarkan pendapat dan opininya, termasuk opini tentang calon Presiden Indonesia 2014.
+Penelitian ini menampung pendapat dan opini masyarakat tersebut dengan membaginya menjadi lima class attribute, yaitu sangat positif, positif, netral, negative dan sangat negatif.
+Proses klasifikasi pada penelitian ini menggunakan metode klasifikasi Naive Bayes Classifier (NBC) dengan preprocessing data menggunakan tokenisasi, cleansing dan filtering.
+Data yang digunakan adalah tweet dalam bahasa Indonesia tentang calon Presiden Indonesia 2014, dengan jumlah dataset sebanyak 900 tweet yang didistribusikan secaramerata kedalam lima class attribute.
+Hasil akurasi tertinggi didapatkan saat menggunakan tokenisasi n-gram, stopword list WEKA dan emoticons, yaitu dengan nilai akurasi 71,9%, nilai presisi 71,6%, nilai recall 71,9% nilai TP rate 66,1% dan nilai TN rate 65%.
+Penelitian menggunakan machine learning untuk mengklasifikasikan movie reviews (Pang, 2002).
+Penelitian ini melakukan klasifikasi sentimen terhadap review film dan menentukan apakah review film tersebut memiliki sentimen positif ataukah negatif.
+Fitur yang berbeda dari review tersebut diekstrak dan digunakan algoritme machine learning Naive Bayes dan Support Vector Machine (SVM) untuk menghasilkan model klasifikasi.
+Mereka memperoleh akurasi antara 78,7% ketika menggunakan Naive Bayes pada penggunaan unigram.
+Akurasi yang diperoleh ketika menggunakan SVM dengan unigram adalah 72,8%.
+(Frangky, 2008) mencoba untuk mengulangi eksperimen klasifikasi sentiment movie review oleh Pang untuk Bahasa Indonesia.
+Berkaitan dengan ketidaktersediaannya training corpora untuk Bahasa Indonesia, maka diaplikasikan machine translation tools untuk mentranslasikan corpus Bahasa Inggris yang dibuat Pang yang asli ke Bahasa Indonesia dan hasil translasinya digunakan untuk train klasifikasi.
+Berbagai pilihan machine translation digunakan mulai dari commercial tool hingga translasi sederhana kata demi kata dan metode klasifikasi teks dicoba.
+Hasil akurasi rata-rata yang diperoleh untuk metode Naive Bayes adalah 74,6% dan 75,62% untuk metode SVM.
+Hasil terbaik diperoleh sama dengan yang diperoleh ketika menggunakan eksperimen dalam Bahasa Inggris.
+3. Metode Penelitian
+Langkah-langkah penelitian sesuai dengan alur penelitian adalah sebagai berikut: 1. Mengumpulkan data tweet Data tweet diambil dengan metode Crawling dari media sosial Twitter.
+Data yang diambil hanya tweet dalam bahasa Indonesia, yaitu 100 tweet dengan kata kunci AHY, 100 tweet dengan kata kunci Ahok, dan 100 tweet dengan kata kunci Anies.
+Data diambil secara acak baik dari user biasa ataupun media online di Twitter.
+2. Preprocessing Data 
+Pada tahap preprocessing, dilakukan 4 langkah sebagai berikut: 1.Seleksi komentar Pada tahap ini, dilakukan seleksi komentar yang mengandung kata atau hashtag(#) AHY, Ahok atau Anies, karena Twitter terdapat fungsi retweet, yaitu memberikan komentar terhadap tweet komentar seseorang, karena komentar tweet akan mengganggu dalam proses Analisis Sentimen tweet.
+Jadi dalam preprocessing ini komentar tweet dihapus.
+2. Cleansing Kalimat yang didapat biasanya masih terdapat noise, yaitu kesalahan acak atau varian dalam variable terukur (Ariawan, 2014), untuk itu, kita harus menghilangkan noise tersebut.
+Kata yang dihilangkan adalah karakter HTML, kata kunci, ikon emosi, hashtag (#), username (@username), url (http://website.com), dan email (nama@website.com).
+3. Parsing yaitu proses memecah dokumen menjadi sebuah kata dengan melakukan analisa terhadap kumpulan kata dengan memisahkan kata tersebut dan menentukan struktur sintaksis dari tiap kata tersebut (Putro, 2011).
+4. Normalisasi Kalimat Bertujuan untuk menormalkan kalimat sehingga kalimat gaul menjadi normal (Adiyasa, 2013), sehingga bahasa gaul tersebut dapat dikenali sebagai bahasa yang sesuai dengan KBBI.
+Yang harus dilakukan untuk normalisasi kalimat adalah: 1. Meregangkan tanda baca (punctuation) dan symbol selain alphabet 2. Meregangkan tanda baca adalah memberikan jarak terhadap tanda baca dari kata-kata sesudah atau sebelumnya, tujuannya agar tanda baca dan symbol selain alphabet tidak menjadi satu dengan kata-kata pada saat proses tokenisasi. 3. Mengubah menjadi huruf kecil semua 4. Normalisasi kata 5. Menghilangkan huruf yang berulang Ketika sedang senang atau kesal, seseorang bebas menuliskan opini berdasarkan emosinya, biasanya seseorang menuliskan dengan mengulang huruf yang sama.
+Contohnya: kereeen untuk mengekspresikan kesenangan.
+Kata berulang seperti kereeen akan dinormalisasi menjadi keren.
+6. Menghilangkan emoticon ketika sedang menulis status (tweet) seseorang kadang salah atau kurang tepat dalam penggunaan emoticon, entah disengaja atau tidak banyak yang melakukannya.
+Contohnya: Mereka hanya bisa memfitnah karena tidak bisa ketemu fakta buruk :), kata opini fitnah tapi emoticonnya senyum :), dengan begitu emoticon akan mengganggu dalam proses Sentiment Analysis tweet, jadi dalam proses ini emoticon dihapus atau diabaikan.
+3. Tokenisasi 
+Setelah normalisasi kalimat, selanjutnya kalimat tersebut dipecah kedalam token-token menggunakan pembatas atau delimiter spasi.
+Token yang digunakan dalam penelitian ini yaitu: N-gram: token yang terdiri dari tiga kata setiap satu token, contohnya: Daerah Khusus Ibukota.
+4. Part of Speech (POS) Tagger 
+POS tagger adalah sebuah proses untuk memberikan kelas pada sebuah kata.
+Dalam proses POS tagger dilakukan dengan cara parsing, kemudian ditentukan kelas tiap kata dengan menggunakan bantuan kamus yang di buat sendiri berdasarkan Kamus Besar Bahasa Indonesia (KBBI) menggunakan metode Maximum Entropy.
+Proses POS tagging terbagi ke dalam tiga proses yaitu pemisahan setiap token dalam dokumen dengan pengecekan setiap kata dalam dokumen, mengidentifikasi setiap kata dalam dokumen dengan pemberian jenis kata, pengecekan kata yang belum teridentifikasi terhadap bentuk imbuhan dan akhiran sehingga diperoleh kata dasar.
+Berdasarkan aturan linguistik pada kata diperoleh sentimen sementara.
+Penentuan sentimen dilakukan dengan melihat adanya kata yang mengandung opini baik yang memiliki polarity positif maupun negatif dari tweet yang sudah dilabeli kelas katanya.
+Kelas kata yang dipilih adalah kata sifat (adjective), kata keterangan (adverb), kata benda (noun) dan kata kerja (verb), sesuai dengan penelitian (Azhar, 2013) bahwa keempat jenis kata di atas merupakan jenis kata yang paling banyak mengandung sentimen.
+Dalam sistem ini jika suatu tweet terdapat kata benda (NN) pada sebelum atau setelah kata sifat (JJ) atau kata keterangan (RB) dan kata benda (memiliki polarity berlawanan dengan kata sifat atau kata keterangan maka polarity yang diperoleh berdasarkan kata sifat atau kata keterangan, karena kata sifat atau kata keterangan memberikan penegasan terhadap kata benda (Putranti, 2014) 
+5. Penentuan Class Attribute 
+Data Twitter yang sudah dilakukan Preprocessing kemudian akan ditentukan class attribute, class attribute yang dimunculkan dalam penelitian ini ada 3, diantaranya positif, netral, dan negatif.
+Dengan 3 class attribute ini diharapkan mampu memberi penilaian masyarakat secara akurat terhadap objek tertentu.
+6. Load Dictionary 
+Setelah dilakukan tokenisasi dan ditentukan class attribute, langkah selanjutnya adalah load dictonary.
+Banyak jenis kamus yang dapat digunakan, contohnya: kamus kata kunci sentimen positif (positif keywords), kamus kata kunci sentimen negatif (negatif keywords), kamus kata negasi (negation keywords), dan kamus normalisasi bahasa gaul atau alay.
+Berikut adalah contoh kamus dan isinya (Ariawan, 2014): 1. Positif keywords: baik, hebat, jujur, cerdas, keren 2.Negatif keywords: bohong, korupsi, jahat, jelek 3.Negation keywords: nggak, tidak, bukan, jauh 4.Kamus konversi bahasa gaul ke KBBA: sp = siapa, spt = seperti, brp = berapa, hrg = harga, ciyus = serius.
+7. Determine Sentiment 
+Pada proses ini metode Lexicon Based digunakan, yaitu saat menentukan sentimen suatu kalimat opini, penentuan dilakukan dengan penjumlahan n skor polaritas kata opini p yang mengomentari fitur f.
+Skor polaritas suatu kata opini p akan bernilai 1 jika kata tersebut adalah kata opini positif, dan bernilai -1 jika kata tersebut adalah kata opini negatif (Liu, 2005).
+Setelah diketahui kata yang mengandung positif, negatif dan netral di dalam sebuah kalimat, selanjutnya dihitung bobot nilai yang terkandung dalam kalimat tersebut yang dilakukan dengan menjumlahkan nilai kata opini.
+Jika jumlah nilai opini dalam kalimat tersebut 1, maka nilai sentimen dari kalimat tersebut adalah positif, jika nilai opini dalam kalimat tersebut = 0, maka nilai sentimen dari kalimat tersebut adalah netral, jika nilai opini dalam kalimat tersebut = -1, maka nilai sentimen dari kalimat tersebut adalah negatif.
+8. Klasifikasi 
+Masuk pada proses klasifikasi, proses ini dilakukan untuk menguji akurasi metode Lexicon Based dalam menentukan sentimen sebuah tweet opini.
+Proses klasifikasi menggunakan WEKA 3.8.1.
+Metode klasifikasi yang digunakan dalam penelitian ini adalah Naive Bayes Classifier (NBC) dan Support Vector Machine (SVM).
+Naive Bayes Classifier (NBC) adalah metode classifier berdasarkan probabilitas dan Teorema Bayesian dengan asumsi bahwa setiap variabel X bersifat bebas (independence).
+Dengan kata lain, Naive Bayesian Classifier (NBC) mengansumsikan bahwa keberadaan sebuah atribut (variabel) tidak ada kaitannya dengan beradaan atribut (variabel) yang lain.
+Berikut adalah rumusnya.
+Support Vector Machine (SVM) adalah seperangkat metode pembelajaran terbimbing yang menganalisis data danmengenali pola, digunakan untuk klasifikasi dan analisis regresi.
+Algoritma SVM asli diciptakan oleh Vladimir Vapnik dan turunan standar saat ini (margin lunak) diusulkan oleh Corinna Cortes dan Vapnik Vladimir.
+Pada proses klasifikasi data diuji dengan menggunakan metode 10 fold cross validation (Witten, 2013).
+Jadi dataset akan dibagi menjadi dua, yaitu 10 bagian dengan 9/10 bagian digunakan untuk proses training dan 1/10 bagian digunakan untuk proses testing.
+Iterasi (1)berlangsung 10 kali dengan variasi data training dan testing menggunakan kombinasi 10 bagian data.
+9. Evaluasi Hasil 
+Melakukan evaluasi performa Akurasi, Presisi dan Recall dari eksperimen yang telah dilakukan.
+Evaluasi dilakukan dengan menggunakan Confusion Matrix yaitu true positive rate (TP rate), true negative rate (TN rate), false positive rate (FP rate) dan false negative rate (FN rate) sebagai indikator.
+TP rate adalah persentase dari kelas positif yang berhasil diklasifikasi sebagai kelas positif, sedangkan TN rate adalah persentase dari kelas negatif yang berhasil diklasifikasi sebagai kelas negatif.
+FP rate adalah kelas negatif yang diklasifikasi sebagai kelas positif.
+FN rate adalah kelas positif yang diklasifikasi sebagai kelas negatif (Kohavi, 1998).
+4. Uji Coba dan Pembahasan 
+Dataset pada penelitian ini menggunakan format ARFF yang dikumpulkan dari Twitter dengan metode Crawling dari media sosial Twitter.
+Data yang diambil hanya tweet dalam bahasa Indonesia, yaitu tweet dengan kata kunci AHY untuk Calon Gubernur DKI Jakarta 2017 Agus Yudhoyono, Ahok untuk Calon Gubernur DKI Jakarta 2017 Basuki Tjahja Purnama dan Anies untuk Calon Gubernur DKI Jakarta 2017 Anies Baswedan.
+Data diambil secara acak baik dari user biasa ataupun media online di Twitter.
+Dataset yang digunakan sebanyak 300 Tweet, data dibagi secara seimbang (balanced) setiap kelasnya, karena dengan data yang tidak seimbang (imbalanced), klasifikasi yang dibangun memiliki kecenderungan untuk mengabaikan minority class (Kohavi, 1998).
+Data dibagi menjadi AHY 100 Tweet, Ahok 100 Tweet dan Anies 100 Tweet.
+Pemberian label dilakukan dengan metode Lexicon Based dan bantuan ahli Bahasa Indonesia.
+Hasil Analisis Sentimen calon Gubernur DKI Jakarta 2017 menggunakan metode Lexicon Based dengan tiga class atribut yaitu positif, netral dan negatif.
+Untuk mengetahui akurasinya, Analisis Sentimen calon Gubernur DKI Jakarta 2017 dengan metode Lexicon Based diklasifikasi menggunakan metode Naive Bayes Classifier (NBC) dan Support Vector Machine (SVM) dengan perangkat lunak WEKA versi 3.8.1.
+WEKA menggunakan tipe dokumen Atribut-Relation File Format (ARFF) sebagai masukan untuk melakukan klasifikasi data.
+Hasil dari proses klasifikasi kemudian diuji dengan menggunakan metode 10 fold cross validation, data dibagi mejadi 10 bagian dengan 9/10 bagian digunakan untuk proses training dan 1/10 bagian digunakan untuk proses testing.
+Iterasi berlangsung 10 kali dengan variasi data training dan testing menggunakan kombinasi 10 bagian data.
+Perbandingan hasil dari metode klasifikasi Naive Bayes Classifier (NBC) dengan Support Vector Machine (SVM).
+Tabel 6 berisi informasi mengenai nilai akurasi, presisi, recall, TP rate dan TN rate dari masing-masing uji coba yang telah dilakukan.
+Bagian kolom berisi informasi mengenai calon Gubernur DKI Jakarta 2017.
+Sedang bagian baris berisi nilai akurasi, presisi, recall, TP rate dan TN rate dari masing-masing uji coba yang telah dilakukan.
+Dari proses data preprocessing menghasilkan sejumlah token yang kemudian digunakan sebagai input sebuah proses klasifikasi.
+Proses klasifikasi dilakukan menggunakan metode Naive Bayes Classifier (NBC) dan Support Vector Machine (SVM).
+Dari proses klasifikasi diperoleh nilai akurasi, presisi, recall, TP rate dan TN rate dari masing-masing uji coba.
+Dari Gambar 4 dapat dilihat bahwa nilai akurasi, presisi, recall, TP rate dan TN rate dicek dengan dua metode klasifikasi yaitu Naive Bayes Classifier (NBC) dan Support Vector Machine (SVM).
+Nilai akurasi tertinggi didapat metode klasifikasi Naive Bayes Classifier (NBC) untuk klasifikasi data AHY, dengan nilai rata-rata akurasi mencapai 95%, nilai presisi 95%, nilai recall 95% nilai TP rate 96,8% dan nilai TN rate 84,6%.
+Metode klasifikasi Naive Bayes Classifier (NBC) mendapatkan akurasi paling tinggi, metode ini cenderung lebih stabil karena berbasis probabilitas kemunculan kata dalam sebuah kalimat.
+Akurasi terendah saat metode klasifikasi Naive Bayes Classifier (NBC) digunakan untuk klasifikasi data Ahok dan Anies.
+Nilai akurasi adalah salah satu parameter penilaian dari metode yang telah digunakan, nilai akurasi didapat dari jumlah banyaknya data yang berhasil diklasifikasi dengan benar sesuai kelas sentimennya dari seluruh jumlah data yang diklasifikasi.
+Dari penelitian yang telah dilakukan, diketahui bahwa hasil akurasi tertinggi didapatkan saat menggunakan metode klasifikasi Naive Bayes Classifier (NBC) untuk klasifikasi data AHY, sedangkan untuk nilai akurasi terendah didapat saat metode klasifikasi Naive Bayes Classifier (NBC) digunakan untuk klasifikasi data Ahok dan Anies.
+Meskipun menghasilkan akurasi yang cukup baik, tapi model yang dibangun masih melakukan sedikit kesalahan pada saat proses klasifikasi data yang pembagian sentimennya tidak seimbang.
+Karena dengan menggunakan data yang tidak seimbang akan menyebabkan data minority class yang salah diklasifikasi sebagai data majority class (Kohavi, 1998).
+Pada akhirnya menjadikan selisih nilai menjadi besar.
+5. Kesimpulan 
+Dari penelitian yang telah dilakukan, maka dapat ditarik kesimpulan bahwa Analisis Sentimen dapat digunakan untuk mengetahui sentimen masyarakat khususnya netizen Twitter terhadap calon Gubernur DKI Jakarta 2017.
+Tujuannya membantu masyarakat menentukan sentimen yang terdapat pada twit opini Bahasa Indonesia yang ada di Twitter.
+Setelah dilakukan analisis sentimen, terlihat berapa banyak sentimen yang ditujukan kepada calon Gubernur DKI Jakarta 2017.
+Nilai akurasi tertinggi didapat saat menggunakan metode klasifikasi Naive Bayes Classifier (NBC) untuk klasifikasi data AHY, dengan nilai rata-rata akurasi mencapai 95%, nilai presisi 95%, nilai recall 95% nilai TP rate 96,8% dan nilai TN rate 84,6%.
+Dalam penelitian ini juga dapat diketahui metode klasifikasi Naive Bayes Classifier (NBC) lebih tinggi akurasinya untuk klasifikasi sentimen Tweet Bahasa Indonesia dibandingkan dengan metode klasifikasi Support Vector Machine (SVM).
+Untuk penelitian selanjutnya perlu dicoba dikembangkan dengan menggunakan data yang lebih banyak dan Real Time.
+Perlu dikembangkan juga stopword list dan stemmer Bahasa Indonesia yang mampu meningkatkan akurasi dalam analisis sentimen Bahasa Indonesia.

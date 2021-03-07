@@ -1,0 +1,155 @@
+1. LATAR BELAKANG 
+Seiring pertambahan jumlah penduduk dan peningkatan daya beli masyarakat dapat dipastikan penjualan daging sapi dalam negeri akan semakin meningkat.
+Salah satu faktor yang perlu diperhatikan dalam pemeliharaan ternak sapi adalah kesehatan ternak itu sendiri.
+Untuk menjaga kesehatan ternak agar selalu prima sebaiknya peternak memahami penyakit yang sering menyerang sapi dan cara pengobatannya yang biasanya hanya diketahui oleh dokter hewan (Rahmat, 2012).
+Salah satu cara untuk memasyarkatkan pengetahuan pakar atau dokter hewan adalah dengan menggunakan sistem pakar.
+Sistem pakar adalah salah satu kecerdasan buatan yangmengadopsi pengetahuan, fakta dan teknik penalaran pakar yang digunakan untukmemecahkan permasalahan yang biasanya hanya dapat dipecahkan oleh pakar dalam bidang tersebut (Kusrini, 2007).
+Sistem pakar dapat memungkinkan untuk memperluas jangkauan kerja pakar sehingga pengetahuan pakar dapat diperoleh dan dipakai dimana saja.
+Beberapa penelitian sistem pakar telah dilakukan untuk membantu penyelesaian diagnosa penyakit bagi manusia, hewan dan tumbuhan.
+Pada penelitian yang berjudul An Efficient Expert System For Diabetes By Nave Bayesian Classifier sistem pakar digunakan untuk mengklasifikasikan penderita diabetes (Ambica, 2013).
+Penderita diabetes diklasifikasikan dalam tiga kelas yaitu tidak menderita diabetes, menderita diabetes dan pre diabetes.
+Penelitian yang berjudul The Use of Certainty Factor with Multiple Rules for Diagnosing Internal Disease sistem pakar digunakan untuk mendiagnosa penyakit dalam pada manusia dengan metode certainty factor (Munandar, 2012).
+Sistem ini menghasilkan output berupa diagnosa penyakit dalam yang diderita pasien.
+Penelitian yang berjudul Aplikasi Sistem Pakar untuk Pendeteksi dan Penanganan Dini pada Penyakit Sapi dengan Metode Dempster-Shafer Berbasis Web sistem pakar digunakan untuk mendiagnosa penyakit pada sapi dengan menggunakan metode dempster-shafer (Mustikadewi, 2013).
+Output dari sistem pakar ini adalah diagnosa penyakit sapi dan solusi penanganan terhadap penyakit tersebut.
+Penelitian yang berjudul Aplikasi Sistem Pakar untuk Identifikasi Hama dan Penyakit Tanaman Tebu dengan Metode Naive Bayes Berbasis Web sistem pakar digunakan untuk menentukan hama atau penyakit yang menyerang tanaman tebu (Hardika, 2014).
+Pada penelitian-penelitian sebelumnya yang menjadi kajian pustaka penulis telah membahas metode Dempster-Shafer, Certainty Factor dan Naive Bayes yang digunakan dalam pembuatan aplikasi sistem pakar.
+Metode certainty factor diciptakan untuk mengakomo-dir ungkapan yang biasanya diungkapkan oleh dokter seperti mungkin, kemungkinan besar atau hampir pasti (Sutojo, 2011).
+Certainty Factor bekerja dengan cara menggunakan nilai parameter klinis yang menunjukkan besarnya nilai kepercayaan (Kusrini, 2008).
+Metode dempster-shafer dikenal adanya frame of discernment yang dinotasikan dengan .
+Frame ini merupakan semesta pembicaraan dari sekum-pulan hipotesa untuk mengaitkan kepercayaan elemen-elemenkarena tidak semua evidence secara langsung mendukung tiap elemen.
+Metode Naive Bayes bekerja secara fitur independen yang artinya sebuah fitur dalam sebuah data tidak berkaitan dengan ada atau tidaknya fitur yang lain dalam data yang sama (Prasetyo, 2012).
+Pada penelitian ini akan dibangun sebuah aplikasi sistem pakar berbasis web untuk diagnosa penyakit pada sapi potong dengan metode naive bayes.
+Metode ini dipilih karena fitur-fitur pada metode Naive Bayes dapat bekerja secara independen (Prasetyo, 2012).
+Aplikasi sistem pakar ini bekerja dengan cara menerima input data gejala yang terjadi pada ternak.
+Melalui data-data tersebut akan dilakukan penalaran berdasarkan pengetahuan pakar yang dikombinasikan dengan algoritma naive bayes.
+Hasil dari pengolahan sistem pakar ini adalah diagnosa jenis penyakit yang sedang menyerang ternak dan saran terapi untuk menanggulangi penyakit ternak.
+2. METODOLOGI 
+2.1. Studi Literatur 
+Studi literatur adalah metode untuk mendapatkan teori pendukung penelitian dan menjadi dasar dalam penelitian ini.
+Literatur tersebut dapat diperoleh dari buku, jurnal, ebook dan dokumentasi project.
+Bagian studi literatur ini mencakup teori diantaranya adalah sebagai berikut: a. Sistem Pakar; b. Algoritma Naive Bayes; c. Penyakit pada sapi potong.
+2.2. Observasi dan Wawancara 
+Observasi dan wawancara dilakukan di Pos Keswan Kab. Nganjuk.
+Target wawancara adalah tenaga dokter hewan yang menjadi staff Pos Keswan Kab. Nganjuk.
+Observasi dan wawancara ini bertujuan untuk menggali informasi dan memperoleh data observasi tentang penyakit sapi potong yang menyerang ternak sapi di Kab. Nganjuk.
+Data observasi nantinya akan digunakan sebagai data training metode Naive Bayes.
+Hasil wawancara dengan pakar akan digunakan sebagai basis pengetahuan sistem pakar diagnosa penyakit pada sapi potong.
+2.3. Analisa Kebutuhan 
+Analisa kebutuhan dilakukan dengan menentukan kebutuhan apa saja yang dibutuh-kan untuk mendukung kerja sistem pakar diagnosa penyakit pada sapi potong.
+2.4. Perancangan 
+Perancangan sistem berisi rancangan langkah kerja dari sistem secara menyeluruh, baik dari segi model maupun dari segi arsitektur sistem pakar yang akan dibangun.
+Tujuan perancangan itu sendiri adalah untuk mempermudah implementasi dan pengujian sistem pakar diagnosa penyakit sapi potong dengan metode Naive Bayes.
+Langkah kerja dalam sistem akan disesuaikan dengan arsitektur sistem pakar.
+Gambar 1 menjelaskan arsitektur sistem pakar yang mewakili beberapa komponen sistem pakar yang akan dibangun.
+Pengguna sistem ini adalah pengguna umum, pakar atau dokter hewan dan knowledge engineer.
+Antarmuka sistem ini tebagi menjadi 2 yaitu tampilan untuk pengguna umum dan tampilan untuk pakar dan knowledge engineer.
+Fasilitas penjelas pada sistem ini digunakan untuk memperjelas pertanyaan diagnosa dan men-jelaskan proses pengambilan keputusan.
+Basis pengetahuan menyimpan data training yang akan digunakan sebagai metode mesin inferensi untuk melakukan penalaran.
+Mesin inferensi akan memproses data training dengan menggunakan metode Naive Bayes sehingga dapat menghasilkan keputusan diagnosa sistem.
+Blackboard berfungsi sebagai penyimpanan hasil perhitungan sementara metode naive bayes.
+2.4.1. Proses Perhitungan Naive Bayes
+Bayes merupakan teknik prediksi berbasis probabilistik sederhana yang berdasar pada penerapan teorema Bayes.
+Klasifikasi Naive Bayes praktis diterapkan karena merupakan salah satu probabilitas sederhana yang penerapannya didasarkan pada teorema bayes dengan asumsi independensi[4].
+Formula Naive Bayes dinyatakan dalam Persamaan 1 berikut (Prasetyo, 2012): (|)=()=1(|)()..
+(Persamaan 1) P(Y|X)=Probabilitas data dengan vektor X pada kelas Y P(Y)= Probabilitas awal kelas Y =1(|) = Probabilitas independen kelas Y dari semua fitur dalam vektor XGambar 2 Diagram Proses Komputasi Metode Naive Bayes Gambar 2 merupakan langkah-langkah komputasi dalam perhitungan Naive Bayes.
+Contoh Kasus: Jika diketahui suatu fakta gejala suatu penyakit yang terdapat pada sapi adalah demam (G5), keluar ingus (G9) dan pincang (G16).
+Langkah Pertama: Menghitung probabilitas prior 
+Melakukan pencarian nilai probabilitas pada setiap jenis penyakit.
+P(h) = Peluang dari hipotesa h(jenis penyakit) Contoh: Jumlah data penyakit BEF = 161 Jumlah seluruh data penyakit = 325 P(BEF) = 161/325 = 0,49538 Hitung: P(BEF) = 161/325 = 0,49538P(Bloat) = 34/325 = 0,10461P(Enteritis) = 42/325 = 0,12923P(Endometritis) = 27/325 = 0,08308P(Ascariasis) = 27/325 = 0,083077dst...
+Langkah Kedua: Menghitung probabilitas likelihood 
+Melakukan pencarian nilai probabilitas sebuah fakta gejala pada penyakit yang mempengaruhi suatu hipotesa.
+P(e|h) = Peluang data fakta gejala e, bila diasumsikan bahwa hipotesa h benar Contoh:Jumlah gejala G5 pada penyakit BEF = 161 Jumlah gejala G9 pada penyakit BEF = 153 Jumlah gejala G16 pada penyakit BEF =89 P(G5|BEF) = 161/161 = 1 P(G9|BEF) = 153/161 = 0,95031 P(G16|BEF) = 89/161 = 0,55280 Hitung: P(G5|BEF) = 161/161 = 1P(G9|BEF) = 153/161 = 0,95031P(G16|BEF) = 89/161 = 0,55280 P(G5|Bloat) = 161/161 = 1 P(G9|Bloat) = 153/161 = 0,95031 P(G16|Bloat) = 89/161 = 0,55280 P(G5|Enteritis) = 34/34 = 1P(G9|Enteritis) = 0/34 = 0 P(G16|Enteritis) = 0/34 = 0P(G5|Endometritis) = 21/21 = 1P(G9|Endometritis) = 0/21 = 0 P(G16|Endometritis) = 0/21 = 0 P(G9|Ascariasis) = 0/22 = 0 P(G9|Ascariasis) = 0/22 = 0 P(G16|Ascariasis) = 0/22 = 0 dst...
+Langkah Ketiga: Menghitung probabilitas posterior 
+P(h|e) = Peluang bahwa hipotesa benar untuk data fakta gejala e yang diamati.
+(|)=()(1,2,3|) 1=6,2=17,3=10 Perhitungan P(h|e) dapat dilihat seperti berikut: Contoh: P(BEF|e) = P(BEF) x P(G6|BEF) x P(G17|BEF) x P(G10|BEF) P(BEF|e) = 0,49538 x 1 x 0,95031 x 0,5528 = 0,26024 Hitung: P(BEF|e) = 0,49538 x 1 x 0,95031 x 0,5528 = 0,26024 Melakukan perhitungan probabilitas prior Melakukan perhitungan probabilitas likelihoodMelakukan perhitungan probabilitas posterior P(Bloat|e) = 0,10462 x 0 x 0 x 0 = 0 P(Enteritis|e) = 0,12923 x 1 x 0 x 0 = 0 P(Endometritis|e) = 0,08308 x 1 x 0 x 0 = 0 P(Ascaris|e) = 0,08307 x 0 x 0 x 0 = 0 dst...
+Hasil perhitungan metode Naive Bayes pada penyakit sapi potong sesuai dengan fakta gejala tersebut ditunjukkan pada tabel 1.
+Hasil perhitungan probabilitas Tabel 1 akan dilakukan searching nilai probabilitas terbesar yang nantinya akan menjadi keputusan sistem.
+Berdasarkan hasil perhitungan nilai probabilitas terbesar adalah 0,26024.
+Hasil diagnosa gejala demam, pincang dan keluar ingus adalah penyakit BEF.
+2.5. Implementasi 
+Implementasi sistem adalah fase membangun sistem yang telah dirancang dan menerapkan hal-hal yang telah diperoleh dalam proses studi literatur.
+Fase-fase yang ada dalam implementasi antara lain: Implementasi basis data dengan menggunakan DBMS MySQL.
+Implementasi algoritma Naive Bayes ke dalam bahasa pemrograman PHP.
+Tools pendukung lainnya. 
+2.6. Pengujian 
+Pengujian sistem dilakukan untuk mengetahui tingkat kesuksesan sistem pakar yang telah dibangun.
+Pengujian sistem dilakukan melalui dua cara yaitu pengujian blackbox dan pengujian akurasi.
+Pengujian blackbox akan menguji fungsionalitas sistem dapat berjalan dengan baik.
+Pengujian akurasi dilakukan dengan membandingkan hasil diagnosa sistem dengan hasil diagnosa seorang pakar.
+Pengujian akurasi dilakukan terhadap variasi data dengan cara mengubah data training.
+Pengujian variasi dataterbagi menjadi empat skenario yaitu jumlah data training 20%, 40%, 60%, 80% dan 100%.
+Tujuan pengujian variasi data training adalah untuk akurasi paling optimal terhadap perubahan data training.
+3. HASIL DAN PEMBAHASAN 
+Hasil dan Pembahasan merupakan tahap pengujian hasil dari perancangan dan implementasi sistem pakar.
+Proses pengujian dilakukan melalui dua tahap yaitu pengujian blackbox, pengujian akurasi dan pengujian variasi data 3.
+1. Pengujian Blackbox 
+Pengujian blackbox dilakukan dengan melihat kesesuaian antara hasil yang diharapkan dengan hasil yang didapatkan dari sistem pakar.
+Hasil pengujian blackbox sistem pakar diagnosa penyakit sapi potong dengan metode Naive Bayes menunjukkan bahwa sistem dapat menjalankan seluruh fungsi dengan baik dan memenuhi seluruh kebutuhan fungsional yang ada.
+Hal tersebut terbukti dengan kesuaian hasil yang diharapkan dan hasil yang dihasilkan.
+3.2. Pengujian Akurasi 
+Skenario pengujian akurasi terhadap variasi data akan terbagi menjadi lima skenario pengujian yaitu jumlah data training 20%, 40%, 60%, 80% dan 100% dari 325 data training.
+Pengambilan data training pada masing-masing skenario pengujian dilakukan melalui 5 skenario pengambilan data.
+Skenario peng-ambilan data training pertama dilakukan dengan cara mengambil data sejumlah n% kemudian dilakukan pembulatan ke atas.
+Skenario pengambilan data training kedua dilakukan dengan cara mengambil data sejumlah n% kemudian dilakukan pembulatan ke bawah.
+Skenario pengambilan data training ketiga dilakukan dengan cara mengambil data sejumlah n% kemudian dilakukan pembulatan.
+Skenario pengambilan data training keempat dilakukan dengan cara mengambil data se-jumlah n% sesuai kebutuhan.
+Skenario pengambilan data training kelima dilakukan secara random.
+3.2.1. Skenario 20% Data Training 
+Gambar 3 adalah grafik hasil pengujian pada masing-masing skenario proses peng-ambilan data dengan jumlah data training sebesar 20% dari keseluruhan data training.
+Sistem pakar mengenali peyakit pneumonia sebagai penyakit bloat pada seluruh skenario pengambilan data.
+Kesalahan diagnosa pada skenario 1, 2, 3, 4 dan 5 terjadi karena data yang dimasukkan oleh pengguna kurang spesifik.
+Sistem pakar tidak dapat mengenali penyakit enteritis, pneumonia, abses dan omphalitis pada skenario pengambilan data ketiga.
+Kesalahan ini terjadi karena data yang dimasukkan pengguna tidak tercakup dalam data training.
+3.2.2. Skenario 40% Data Training 
+Gambar 4 adalah grafik hasil pengujian pada masing-masing skenario proses pengambilan data dengan jumlah data training sebesar 40% dari keseluruhan data training.
+Sistem pakar mengenali peyakit pneumonia sebagai penyakit bloat pada seluruh skenario pengambilan data.
+Kesalahan diagnosa pada skenario 1, 2, 3, 4 dan 5 terjadi karena data yang dimasukkan oleh pengguna kurang spesifik.
+Sistem pakar tidak dapat mengenali penyakit enteritis dan pneumonia pada skenario pengambilan data ketiga.
+Kesalahan ini terjadi karena data yang dimasukkan pengguna tidak tercakup dalam data training.
+Selain itu pada skenario pengambilan data ketiga sistem pakar mengenali penyakit omphalitis sebagai penyakit abses.
+Kesalahan ini dapat terjadi karena data training penyakit abses berjumlah sedikit sehingga tidak seimbang dengan data training penyakit-penyakit lain.
+3.2.3. Skenario 60% Data Training 
+Gambar 5 adalah grafik hasil pengujian pada masing-masing skenario proses pengambilan data dengan jumlah data training sebesar 60% dari keseluruhan data training.
+Sistem pakar mengenali penyakit pneumonia sebagai penyakit bloat pada seluruh skenario pengambilan data.
+Kesalahan diagnosa pada skenario 1, 2, 3, 4 dan 5 terjadi karena data yang dimasukkan oleh pengguna kurang spesifik.
+Skenario pengambilan data pertama dan kelima sistem pakar mengenali penyakit omphalitis sebagai penyakit abses.
+Kesalahan ini dapat terjadi karena data training penyakit abses berjumlah sedikit sehingga tidak seimbang dengan data training penyakit-penyakit lain.
+3.2.4. Skenario 80% Data Training 
+Gambar 6 adalah grafik hasil pengujian pada masing-masing skenario proses pengambilan data dengan jumlah data training sebesar 80% dari keseluruhan data training.
+Sistem pakar mengenali peyakit pneumonia sebagai penyakit bloat pada seluruh skenario pengambilan data.
+Kesalahan diagnosa pada skenario 1, 2, 3, 4 dan 5 terjadi karena data yang dimasukkan oleh pengguna kurang spesifik.
+Selain itu pada seluruh skenario pengambilan data sistem pakar mengenali penyakit omphalitis sebagai penyakit abses.
+Kesalahan ini dapat terjadi karena data training penyakit abses berjumlah sedikit sehingga tidak seimbang dengan data training penyakit-penyakit lain.
+3.2.5. Skenario 100% Data Training 
+Skenario 100% data training menggunakan 100% data dari keseluruhan data training yang ada.
+Hasil pengujian sistem pakar skenario ini mengenali peyakit pneumonia sebagai penyakit bloat.
+Kesalahan diagnosa terjadi karena data yang dimasukkan oleh pengguna kurang spesifik.
+Selain itu sistem pakar mengenali penyakit omphalitis sebagai penyakit abses.
+Kesalahan ini dapat terjadi karena data training penyakit abses berjumlah sedikit sehingga tidak seimbang dengan data training penyakit-penyakit lain.
+3.2.6. Analisa Pengujian Akurasi 
+Berdasarkan kelima skenario pengujian akurasi terhadap variasi data menghasilkan nilai rata-rata akurasi masing-masing skenario sebesar 93,08%, 93,84%, 94,61%, 92,31% dan 92,31%.
+Sehingga didapatkan rata-rata akurasi sistem sebesar 93,23%.
+Grafik rata-rata hasil pengujian akurasi terhadap variasi data training ditunjukkan pada Gambar 7 berikut.
+Berdasarkan pemaparan hasil rata-rata pengujian variasi data dapat diambil kesimpulan bahwa tingkat akurasi tertinggi didapat ketika variasi berjumlah 40% dan 60% dari keseluruhan jumlah data training yang ada.
+Hal ini membuktikan bahwa komposisi jumlah data kasus berpengaruh dalam hasil akurasi sistem.
+Semakin banyak data training belum tentu dapat menjamin sistem pakar yang dihasilkan akan semakin baik.
+Jadi dalam menentukkan data training harus memperhatikan komposisi jumlah data kasus masing-masing class untuk menghasilkan sistem pakar yang baik.
+4. PENUTUP 
+4.1. Kesimpulan 
+Berdasarkan hasil perancangan danpengujian yang dilakukan pada sistem pakar diagnosa penyakit pada sapi potong dengan metode Naive Bayes, maka dapat diambil kesimpulan sebagai berikut: 1. Proses diagnosa penyakit sapi potong dilakukan dengan cara memasukkan gejala klinis yang muncul pada ternak.
+Melalui gejala klinis tersebut akan dilakukan perhitungan dengan metode Naive Bayes untuk mendapatkan nilai probabilitas posterior setiap class jenis penyakit ternak yang menjadi studi kasus pada penelitian ini.
+Jenis penyakit yang memiliki nilai probabilitas akhir tinggi akan diambil sebagai hasil diagnosa sistem pakar.
+2. Sistem pakar diagnosa penyakit sapi potong ini memiliki kinerja sistem yang mampu berjalan dengan baik sesuai kebutuhan fungsional.
+Hal ini berdasarkan pengujian blackbox yang telah membuktikan bahwa seluruh fungsi dapat bekerja sesuai dengan hasil yang diharapkan.
+3. Berdasarkan kelima skenario pengujian akurasi terhadap variasi data menghasilkan nilai rata-rata akurasi masing-masing skenario sebesar 93,08%, 93,85%, 93,85%, 92,31% dan 92,31%.
+Sehingga didapatkan rata-rata akurasi sistem sebesar 93,08%.
+Tingkat akurasi tertinggi didapat ketika variasi data training berjumlah 40% dan 60% dari keseluruhan jumlah data training yang ada.
+Hal ini membuktikan bahwa komposisi data kasus berpengaruh dalam hasil akurasi sistem.
+Semakin banyak data training belum tentu dapat menjamin sistem pakar yang dihasilkan akan semakin baik.
+Jadi dalam menentukkan data training harus komposisi data kasus masing-masing class untuk menghasilkan sistem pakar yang baik.
+4.2. Saran
+Sistem pakar diagnosa penyakit sapi potong dengan metode Naive Bayes ini masih memiliki beberapa kekurangan.
+Saran yang dapat diberikan untuk pengembangan sistem agar menjadi lebih baik antara lain: 1. Pengembangan metode Naive Bayes dapat dilakukan dengan cara melakukan pembobotan pada gejala klinis penyakit.
+2. Sistem dapat dikembangkan lebih lanjut dengan menggunakan metode yang berbeda atau mengkombinasikan metode Naive Bayes dengan metode yang lain agar sistem lebih akurat, efektif dan efisien.
+3. Pengembangan dapat dilakukan dengan cara menambah jenis penyakit dan gejala klinis dalam proses diagnosa penyakit sapi potong.

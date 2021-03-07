@@ -1,0 +1,157 @@
+Abstrak
+Penyusunan penjadwalan kapal penyeberangan di Pelabuhan Ketapang - Gilimanuksangatlah penting agar para penumpang pengguna jasa kapal laut mendapatkan pelayanan yang maksimal.
+Karena pembuatan penjadwalan masih dibuat secara manual sehingga memungkinkan ada nama kapal yang sama dalam sehari yang beroperasi dan tidak adanya keadilan pada pembagian porsi masing-masing kapal.
+Untuk mengatasi permasalahan tersebut diperlukan suatu sistem komputerisasi penjadwalan kapal guna mempercepat pengaturan jadwal pemberangkatan kapal penyeberangan Ketapang - Gilimanuk.
+Penerapan metode algoritma genetika dalam permasalahan penjadwalan kapal mampu menghasilkan solusi yang baik dengan menggunakan representasi kromosom permutasi bilangan integer, metode crossover menggunakan one cut-point crossover, mutasi menggunakan reciprocal exchange mutation, dan seleksi menggunakan elitism selection.
+Dari pengujian parameter didapat hasil yaitu antara lain ukuran populasi sebesar 180, banyaknya generasi 200, serta kombinasi crossover rate=0,6 dan mutation rate=0,4.
+Kata kunci: kapal, penjadwalan, algoritma genetika.
+1. PENDAHULUAN
+Di ujung timur Pulau Jawa yaitu tepatnya diKabupaten Banyuwangi memiliki tempat penyeberangan kapal yang berfungsi sebagai pelabuhan atau tempat bersandarnya kapal yang akan mengantarkan manusia atau barang dari Pelabuhan Ketapang, Kabupaten Banyuwangi menuju Pelabuhan Gilimanuk yang berada di pulau Bali, begitu juga sebaliknya.
+Keberadaan pelabuhan ini, tentu sangat penting dan membantu semua sektor dalam proses penjadwalan pemberangkatan dan kedatangan kapal yang ada di Pelabuhan Ketapang, Kabupaten Banyuwangi.
+Salah satu tugas penting dari Pelabuhan Ketapang adalah pembuatan jadwal pemberangkatan kapal yang beroperasi setiap hari.
+Penjadwalan pemberangkatan kapal yang baik tentu akan menghasilkan pelayanan yang prima dan memuaskan para penumpang pengguna jasa transportasi angkutan laut yaitu kapal.
+Semua kapal yang ada di pelabuhan Ketapang jumlahnya banyak dan terjadwal secara rutin oleh para pegawai di Kantor PT ASDP Cabang Ketapang, Kabupaten Banyuwangi berdasarkan utusan Otoritas Pelabuhan Penyeberangan.
+Akan tetapi masih ada kendala yang dihadapi dalam proses penyusunan penjadwalan pemberangkatan kapal, dikarenakan pembuatan penjadwalan masih dibuat secara manual, dengan jumlah kapal yang banyak dan dermaga yang terbatas, sehingga memungkinkan ada nama kapal yang sama dalam sehari yang beroperasi, memasukkan nama kapal docking, serta tidak adanya keadilan pada pembagian porsi masing-masing kapal.
+Oleh karena itu, untuk mendapatkan jadwal pemberangkatan kapal penyeberangan secara adil dan rutin untuk memenuhi penjadwalan yang baik.
+Apabila dihitung secara manual jadwal pemberangkatan kapal tersebut sangat rumit dan tentunya membutuhkan suatu ketelitian dan waktu yang cukup lama.
+Penerapan algoritma genetika telah dibahas pada penelitian sebelumnya.
+Penelitian Ilmi dkk.(2015) membahas tentang permasalahan penjadwalan perawat menggunakan metode algoritma genetika.
+Permasalahan tersebut menggunakan representasi permutasi bilangan integer, metode crossover menggunakan one cut-point crossover, mutasi menggunakanreciprocal exchange mutation, dan seleksi menggunakan elitism selection.
+Dari pengujian permasalahan tersebut didapat kromosom terbaik dengan nilai fitness tertinggi dengan hasil akhirnya didapat sebuah jadwal jaga perawat selama 1 bulan di ruang ICU.
+Penulis juga menemukan penelitian yang relevan yaitu pada penelitian Zulfa dkk.(2015) yang menerapkan algoritma genetika dalam permasalahan penyusunan jadwal mengajar asisten laboratorium.
+Permasalahan tersebut timbul karena adanya jadwal yang bentrok antara jadwal kegiatan asisten dengan jadwal mengajar asisten dan proses penyusunan jadwal yang membutuhkan waktu lama apabila dilakukan secara manual.
+Permasalahan tersebut menggunakan representasi permutasi berbasis kode asisten, metode crossover menggunakan one cut-point crossover, mutasi menggunakan reciprocal exchange mutation, dan seleksi menggunakan elitism selection.
+Dengan mengacu pada penelitian yang telah dilakukan tersebut, penggunaan algoritma genetika telah terbukti berhasil dalam mengatasi berbagai permasalahan, sehingga pada skripsi ini menggunakan algoritma genetika dalam optimasi permasalahan penjadwalan kapal.
+Berdasarkan permasalahan dan metode yang telah dijelaskan tersebut, maka penulis tertarik untuk membahas dan meneliti lebih lanjut mengenai Optimasi Penjadwalan Kapal Penyeberangan Ketapang - Gilimanuk Menggunakan Algoritma Genetika yang akan dikembangkan dalam studi ini.
+2. KAJIAN PUSTAKA
+2.1. Penjadwalan Kapal 
+Menurut Wismulyani (2008) kapal adalah suatu alat transportasi yang sering digunakan masyarakat Indonesia untuk dapat saling berhubungan dari satu pulau ke pulau yang lain di seluruh wilayah Indonesia karena Indonesia itu sendiri berbentuk sebagai negara kepulauan yang terdiri dari beberapa pulau.
+Perahu dan kapal merupakan alat transportasi yang utama di negara Indonesia.
+Kapal memiliki bentuk, fungsi, dan warna yang beraneka ragam.
+2.2. Algoritma Genetika 
+Algoritma genetika adalah suatu algoritma pencarian heuristik yang digunakan untuk menyelesaikan masalah optimasi yang didasarkan pada seleksi alam dan genetik.
+Sifat dari algoritma genetika yaitu mencari kemungkinan dari calon solusi-solusi yang ada dengan tujuan untuk mendapatkan penyelesaian masalah secara optimal (Widodo dan Mahmudy, 2010).
+Algoritma genetika mengkombinasikan secara acak individu terbaik yang ada pada suatu populasi dan dilakukan secara berulang-ulang dari generasi ke generasi dengan menggunakan tiga operator dasar, yaitu crossover, mutasi, dan seleksi (Wijayaningrum dan Mahmudy, 2016).
+3. METODE PENELITIAN
+3.1 Studi Pustaka 
+Tahapan penelitian yang pertama yaitu studi pustaka yang dilakukan dengan mencari, mendapatkan, dan mengumpulkan dasar-dasar teori dan sumber acuan mengenai metode algoritma genetika dan penjadwalan kapal penyeberangan Ketapang - Gilimanuk yang nantinya dapat dipelajari mengenai informasi, pengetahuan, dan teori yang terkait tentang pembuatan sistem agar dari hasil penelitian, dapat menyelesaikan penyusunan penjadwalan kapal.
+3.2 Pengumpulan Data 
+Pengumpulan data merupakan tahapan yang penting, dengan tujuan agar mendapatkan data yang tepat sehingga sesuai dengan perumusan masalah yang telah ditentukan dari awal.
+Proses pengumpulan data yang dilakukan yaitu dengan melakukan observasi dan wawancara.
+Tahap untuk memperoleh data dengan melakukan observasi yaitu datang secara langsung di Kantor PT ASDP Indonesia Ferry Cabang Ketapang, Kabupaten Banyuwangi dan Kantor Otoritas Pelabuhan Penyeberangan Ketapang Gilimanuk.
+3.3 Pengolahan Data dan Perancangan Sistem 
+Tahap studi pustaka dan pengumpulan data telah dilakukan, maka tahap selanjutnya adalah mengolah data yang telah didapat dan melakukan perancangan sistem.
+Tahap perancangan sistem ini bertujuan untuk menganalisis kebutuhan apa saja yang dibutuhkan dalam pembuatan sistem optimasi penjadwalan kapal menggunakan algoritma genetika untuk mempermudah penulis dalam melakukan tahap selanjutnya dan agar menghasilkan sistem yang optimal.
+3.4 Implementasi Sistem 
+Tahap implementasi sistem ini yaitu dengan menerapkan algoritma genetika dalam permasalahan pengoptimalan penjadwalan kapal penyeberangan Ketapang - Gilimanuk berdasarkan perancangan sistem yang telah dirancang.
+Dalam implementasi sistem ini, menggunakan bahasa pemrograman Java, pembuatan antarmuka, dan nama kapal yang diperoleh dari Kantor PT ASDP Indonesia Ferry Cabang Ketapang dan Kantor Otoritas Pelabuhan Penyeberangan Ketapang - Gilimanuk.
+3.5 Pengujian Sistem 
+Pada tahap pengujian sistem ini penulis menguji sistem sesuai dengan parameter algoritma genetika, yaitu antara lain pengujian ukuran populasi, banyaknya generasi, serta kombinasi crossover rate (cr) dan mutation rate (mr).
+Pengujian dilakukan agar dapat membuktikan bahwa hasil sistem berupa perangkat lunak (software) tersebut telah mampu bekerja dengan baik sesuai dengan kebutuhan dan mengetahui seberapa baik solusi yang didapatkan dalam penerapan algoritma genetika dalam menyelesaikan permasalahan penjadwalan kapal penyeberangan Ketapang - Gilimanuk.
+3.6 Evaluasi Sistem 
+Langkah terakhir yaitu tahap evaluasi sistem yaitu dengan mengevaluasi hasil pengujian menggunakan algoritma algoritma genetika dalam penyusunan penjadwalan kapal penyeberangan Ketapang - Gilimanuk.
+Evaluasi sistem yang dilakukan yaitu melakukan pengujian kembali mengenai hasil dari parameter terbaik yang telah dilakukan sebelumnya.
+4. PERANCANGAN
+4.1 Siklus Algoritma 
+Adapun siklus algoritma dalam penyelesaian permasalahan optimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk menggunakan algoritma genetika adalah sebagai berikut.
+1. Memasukkan parameter algoritma genetikayang digunakan yaitu antara lain ukuranpopulasi (popSize), banyaknya generasi(generasi), crossover rate (cr), dan mutationrate (mr).
+2. Melakukan pengkodean kromosom denganmenggunakan representasi kromosombilangan integer yang sesuai dengan porsiyang telah ditentukan.
+3. Membangkitkan populasi awal secara acaksesuai dengan ukuran populasi yang telahditentukan.
+4. Melakukan proses reproduksi, yaitu yangpertama dengan cara crossover denganmemilih dua parent secara acak lalumenentukan titik potongnya danmenghasilkan child.
+Metode crossover yangdigunakan adalah one cut-point crossover.
+5. Melakukan proses reproduksi, yaitu yangkedua dengan cara mutasi dengan caramemilih dua gen pada kromosom yang telahterpilih secara acak untuk dilakukan prosesmutasi, kemudian ditukarkan nilai gennyatersebut dan menghasilkan child.
+Metodemutasi yang digunakan adalah reciprocalexchange mutation.
+6. Melakukan perhitungan nilai fitness padamasing-masing individu.
+7. Melakukan evaluasi dengan cara seleksidengan memilih suatu individu sebanyakjumlah populasi gabungan dari individu danchild hasil proses crossover dan mutasi untukdapat berlanjut pada iterasi selanjutnyaberdasarkan nilai fitness tertinggi sampaiterendah sesuai dengan jumlah populasi.
+8. Apabila telah memenuhi kriteria kondisiberhenti, maka proses iterasi akan berhentidan dihasilkan solusi terbaik yaitu suatuindividu yang memiliki nilai fitness tertinggi.
+Namun, apabila kriteria kondisi berhentibelum terpenuhi, maka proses iterasi akan terus berlanjut.
+4.2 Siklus Penyelesaian Algoritma Genetika 
+4.2.1 Representasi Kromosom Dalam permasalahan optimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk menggunakan representasi kromosom permutasi.
+Penyeberangan Ketapang - Gilimanuk dalam satu hari dibutuhkan 8 kapal tiap harinya sehinggakebutuhan penjadwalan kapal selama satu minggu yakni 7 hari maka kromosom penyusunan menggunakan algoritma genetika adalah sebanyak 8 x 7 = 56 gen.
+Gen dalam kromosom direprentasikan dengan angka integer yang menunjukkan nomor kode kapal.
+Terdapat 10 kapal yang ada sehingga susunan angka integer gennya yaitu angka 1 sampai dengan 10.
+Dalam waktu 1 minggu atau 7 hari, setiap kapalmendapat jadwal operasi sebanyak 56 : 10 = 5,6.
+Sehingga jadwal operasi kapal dapat dilakukan 5 atau 6 kali dalam seminggu.
+Berikut representasi kromosom yang digambarkan pada Gambar 2. 
+Berikut ini merupakan konversi kromoson menjadi jadwal kapal selama 7 hari yaitu pada Tabel 1 adalah sebagai berikut.
+Fitness adalah ukuran suatu nilai yang dibentuk dari individu.
+Nilai tersebut dihitung berdasarkan jumlah pelanggaran penyusunan penjadwalan.
+Berikut merupakan rumus nilai fitness yang dibentuk.
+Keterangan: P1 = Pelanggaran 1 P2 = Pelanggaran 2 P3 = Pelanggaran 3.
+Untuk dapat menghasilkan penjadwalan yang baik, terdapat beberapa constraint atau batasan dalam penyusunan penjadwalan kapal penyeberangan Ketapang - Gilimanuk.
+Pengertian constraint adalah suatu batasan yang tidak boleh terjadi agar dapat menghasilkan suatu penjadwalan yang baik.
+Apabila penjadwalan tersebut terjadi suatu pelanggaran dengan apa yang telah ditetapkan maka akan diberikan suatu nilai pinalti untuk setiap pelanggaran.
+Nilai konstanta pada rumus fitness merupakan nilai yang berdasarkan pada jenis pelanggaran.
+Jenis pelanggaran ada 2 jenis, yaitu hard constraint dan soft constraint.
+Hard constraint adalah suatu batasan atau aturan keras yang harus dapat dipenuhi dalam penyusunan penjadwalan, sedangkan soft constraint adalah batasan atau aturan yang masih bisa ditawar, akan tetapi sedapat mungkin dipenuhi agar dapat menghasilkan solusi penjadwalan yang baik.
+Apabila jumlah pelanggaran yang dihasilkan semakin kecil, maka penjadwalan yang dihasilkan akan semakin baik sehingga solusi penjadwalan yang baik dapat terpenuhi.
+Berikut Tabel 2 merupakan batasan atau constraint dalam permasalahan penjadwalan kapal penyeberangan Ketapang - Gilimanuk adalah sebagai berikut.
+4.3.2 Inisialisasi Populasi Awal 
+Inisialisasi populasi awal merupakan penyelesaian pencarian untuk mendapatkan solusi penjadwalan yang optimal.
+Algoritma genetika ini dilakukan inisialisasi dengan membuat suatu himpunan solusi yang nantinya akan dievalusi yang apabila solusi tersebut bukan merupakan solusi yang optimal maka dilakukan proses reproduksi.
+Dalam permasalahan optimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk, peneliti menggunakan representasi integer yang dibangkitkan secara acak sesuai dengan porsi yang telah ditentukan.
+Berikut Gambar 3 yang merupakan contoh individu awal yang dibangkitkan secara acak.
+4.3.3 Reproduksi 
+Terdapat proses crossover dan mutasi pada tahap reproduksi ini.
+Crossover adalah proses penggabungan dua kromosom induk yang sebelumnya telah ditentuan titik potongnya menjadi kromosom baru (offspring).
+Metode crossover yang digunakan dalam permasalahan penjadwalan kapal ini adalah one cut-point crossover.
+Pada contoh perhitungan manual ini, peneliti menggunakan crossover dengan inisialisasi crossover rate (cr) 0,2.
+Langkah pertama yaitu dengan memilih 2 induk secara acak untuk melalui proses crossover tersebut.
+Misalnya saja individu yang terpilih untuk melakukan proses crossover adalah individu 1 dan 2.
+Titik crossover ini dipilih secara acak dan menghasilkan one cut-point crossover pada hari ke 4.
+Berikut Gambar 4 yang merupakan hasil proses crossover.
+Setelah melakukan proses crossover, langkah selanjutnya yaitu dengan melakukan proses mutasi.
+Mutasi adalah proses perubahan nilai gen yang dilakukan secara acak.
+Dalam penelitian ini, proses mutasi yang dilakukan yaitu dengan menggunakan metode reciprocal exchange mutation yaitu dengan memilih dua posisi (exchange point/XP) kromosom pada hari tertentu secara acak kemudian menukar nilai pada posisi tersebut.
+Individu yang terpilih untuk melakukan proses crossover adalah individu 3.
+Berikut Gambar 5 yang merupakan contoh perhitungan manual hasil proses mutasi yang dilakukan dengan inisialisai mutation rate (mr) 0,3.
+4.3.4 Seleksi 
+Seleksi adalah suatu proses pemilihan kromosom terbaik dalam suatu populasi sehingga mendapat peluang yang besar untuk dapat bertahan hidup, sedangkan yang kurang baik mendapat peluang yang kecil dan akan hilang.
+Tujuan dari seleksi ini adalah memberikan kesempatan yang besar kepada individu yang paling fit untuk melakukan reproduksi (Kusumadewi, 2003).
+Metode seleksi yang sering digunakan pada algoritma genetika adalah roulette wheel, binary tournament, dan elitism (Mahmudy, 2013).
+Metode elitism merupakan metode dengan memilih individu terbaik yang memiliki nilai fitness tertinggi dengan mengumpulkan beberapa individu dari populasi (parent) dan offspring dalam suatu wadah.
+Nantinya individu terbaik akan terpilih dan akan masuk pada generasi selanjutnya (Mahmudy, Marian, dan Luong, 2013).
+Adapun kelemahan menggunakan metode seleksi elitism yaitu tidak memberikan kesempatan pada nilai fitness yang kecil untuk bereproduksi.
+Namun menurut Syarif (2014) metode elitism sangatlah efektif dalam berbagai permasalahan karena dengan metode tersebut dapat terhindar dari kehilangan kromosom yang terbaik.
+5. PENGUJIAN DAN PEMBAHASAN
+5.1 Hasil Pengujian Ukuran Populasi 
+Dalam pengukuran pengujian ukuran populasi yang tepat bertujuan untuk menghasilkan solusi yang optimal pada sistem penjadwalan kapal penyeberangan Ketapang - Gilimanuk ditinjau dari rata-rata nilai fitness terbaik yang dihasilkan.
+Ukuran populasi yang akan diujikan yaitu 20, 40, 60, 80, 100, 120, 140, 160, 180 dan 200 sebanyak 10 kali percobaan dengan menggunakan banyaknya generasi 50, serta kombinasi crossover rate (cr)= 0,6 dan mutation rate (mr)= 0,4.
+Berdasarkan hasil pengujian ukuran populasi mengenai sistem optimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk menggunakan algoritma genetika didapatkan bahwa semakin besar ukuran populasi, maka nilai fitness yang dihasilkan juga cenderung mengalami peningkatan.
+Gambar 6 Grafik Hasil Pengujian Ukuran Populasi Terlihat bahwa hasil pengujian pada Gambar 6, ukuran populasi 20 sampai dengan 120 mengalami kenaikan rata-rata nilai fitness.
+Akan tetapi, pada ukuran populasi 140 mengalami penurunan dan mengalami kenaikan kembali pada ukuran populasi 160 sampai dengan 180, namun mengalami penurunan kembali pada ukuran populasi 200 sampai dengan 240.
+Pengujian dengan ukuran populasi yang terlalu besar, membutuhkan waktu komputasi yang semakin lama dan belum tentu mendapatkan nilai fitness yang lebih tinggi.
+Peningkatan ukuran populasi juga tidak menjamin adanya kenaikan nilai fitness yang diperoleh disebabkan area pencarian semakin besar.
+Semakin kecil ukuran populasi juga tidak menjamin adanya penurunan nilai fitness yang diperoleh karena konsep acak pada algoritma genetika.
+Pada pengujian ukuran populasi dengan nilai fitness yang paling optimal adalah pada ukuran 180 populasi.
+5.2 Hasil Pengujian Banyaknya Generasi 
+Dalam pengukuran pengujian banyaknya generasi yang tepat bertujuan untuk menghasilkan solusi yang optimal pada penjadwalan kapal penyeberangan Ketapang - Gilimanuk ditinjau dari rata-rata nilai fitness terbaik yang dihasilkan.
+Banyaknya generasi yang akan diujikan yaitu 20, 40, 60, 80, 100, 120, 140, 160, 180, dan 200 sebanyak 10 kali percobaan dengan menggunakan hasil ukuran populasi terbaik pada hasil pengukuran pengujian sebelumnya yaitupopulasi, serta kombinasi crossover rate (cr)=0,6 dan mutation rate (mr)= 0,4.
+Berdasarkan hasil pengujian banyaknya generasi mengenai sistem optimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk menggunakan algoritma genetika didapatkan bahwa semakin besar banyaknya generasi, maka nilai fitness yang dihasilkan juga cenderung mengalami peningkatan.
+Terlihat bahwa hasil pengujian pada Gambar 7, banyaknya generasi 20 sampai dengan 160 mengalami peningkatan.
+Namun, pada populasi 180 mengalami penurunan, dan mengalami peningkatan kembali pada banyaknya generasi 200 dengan rata-rata nilai fitness tertinggi.
+Pada pengujian banyaknya generasi dengan nilai fitness yang paling optimal adalah pada ukuran 200 generasi.
+Pengujian dihentikan karena telah memenuhi kriteria kondisi dan telah mendapatkan nilai fitness terbaik dengan nilai 1.
+5.3 Hasil Pengujian Kombinasi Crossover Rate (cr) dan Mutation Rate (mr) 
+Dalam pengukuran pengujian kombinasi crossover rate (cr) dan mutation rate (mr) yang tepat bertujuan untuk menghasilkan solusi optimal pada penjadwalan kapal penyeberangan Ketapang - Gilimanuk ditinjau dari rata-rata nilai fitness terbaik yang dihasilkan.
+Dengan menggunakan ukuran populasi yaitu sebanyak 180 dan banyaknya generasi yaitu sebanyak 200 sesuai dari hasil pengukuran pengujian sebelumnya.
+Kombinasi crossover rate (cr) dan mutation rate (mr) yang digunakan yaitu angka 0 sampai dengan 1 (Zukhri, 2014).
+Berdasarkan hasil pengujian ukuran populasi mengenai sistem optimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk menggunakan algoritma genetika didapatkan bahwa grafik kombinasi crossover rate (cr) dan mutation rate (mr) adalah sebagai berikut.
+Terlihat rata-rata nilai fitness yang didapat sangat bermacam-macam karena memang tidak ada ketetapan yang digunakan untuk parameter kombinasi crossover rate (cr) dan mutation rate (mr) dalam menghasilkan solusi yang optimal sesuai dengan permasalahan yang ingin diselesaikan.
+Penentuan kombinasi crossover rate (cr) dan mutation rate (mr) ini merupakan hal yang sulit (Mahmudy, Marian & Luong 2013).
+Apabila nilai crossover rate (cr) terlalu tinggi dan nilai mutation rate (mr) terlalu rendah maka tidak dapat mengeksplorasi area lain dalam suatu pencarian, sedangkan apabila nilai crossover rate (cr) terlalu rendah dan nilai mutation rate (mr) terlalu tinggi maka secara efektif tidak dapat mengeksploitasi area lain dalam suatu pencarian (Mahmudy, 2013).
+Pada Gambar 6.3 grafik kombinasi crossover rate (cr) dan mutation rate (mr) memiliki nilai rata-rata nilai fitness hampir sama pada 0,4 : 0,6, 0,3 : 0,7, 0,2 : 0,8, 0,1: 0,9, dan paling rendah kombinasi cr dan mr pada 0 : 1.
+Pada pengujian kombinasi crossover rate (cr) dan mutation rate (mr) dengan nilai fitness yang paling optimal adalah pada crossover rate (cr)= 0,6 dan mutation rate (mr)= 0,4.
+5.4 Hasil Pengujian Parameter Terbaik 
+Pengujian parameter terbaik bertujuan untuk mengetahui seberapa optimal solusi yang didapatkan dalam permasalahan penjadwalan kapal penyeberangan Ketapang - Gilimanuk.
+Parameter terbaik didapat dari pengujian sebelumnya yaitu dengan menggunakan ukuran populasi sebanyak 180, banyaknya generasi sebanyak 200, dan kombinasi crossover rate (cr)=0,6 dan mutation rate (mr)=0,4 yang memiliki rata-rata nilai fitness tertinggi.
+Maka didapat individu terbaik dengan nilai fitness yaitu sebesar 1, dengan tidak terdapat pelanggaran 1, 2, ataupun 3, hard constrain maupun soft constraint, yaitu masing-masing kapal memiliki jatah porsi adil yang telah ditentukan, tidak ada nama kapal yang sama dalam sehari, serta kapal docking tidak beroperasi.
+Individu terbaik tersebut akan menjadi sebuah solusi dalam permasalahan penjadwalan kapal penyeberangan Ketapang - Gilimanuk.
+Dari hasil individu terbaik tersebut Sehingga dapat disimpulkan bahwa dengan menggunakan metode algoritma genetika dapat menyelesaikan permasalahan penjadwalan kapal penyeberangan Ketapang - Gilimanuk dengan optimal.
+Berikut Gambar 9 merupakan penjadwalan kapal yang dihasilkan.
+6. PENUTUP
+Dari hasil pengujian didapatkan bahwaoptimasi penjadwalan kapal penyeberangan Ketapang - Gilimanuk dapat diimplementasikan dengan menggunakan algoritma genetika yaitu dengan menggunakan representasi kromosom permutasi berbasis kode kapal yang diacak secara acak sesuai dengan porsi yang telah ditentukan, memiliki panjang kromosom dengan panjang interval [1..........180].
+Untuk menentukan parameter yang tepat yaitu dilakukan pengujian mengenai pengujian ukuran populasi, pengujian banyaknya generasi, serta pengujian kombinasi crossover rate (cr) dan mutation rate (mr).
+Dari hasil pengujian tersebut didapat rata-rata nilai fitness tertinggi yaitu pada ukuran populasi 180, banyaknya generasi 200, serta kombinasi crossover rate (cr)= 0,6 dan mutation rate (mr)= 0,4.
+Dari hasil pengujian parameter terbaik, didapat individu terbaik memiliki nilai fitness 1 dengan tidak terdapat nilai pelanggaran 1, 2, ataupun 3, hard constraint ataupun soft constraint yang telah ditentukan.
+Sehingga dapat disimpulkan bahwa algoritma genetika dapat menyelesaikan permasalahan penjadwalan kapal penyeberangan Ketapang - Gilimanuk dengan optimal.

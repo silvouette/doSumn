@@ -1,0 +1,156 @@
+Abstrak
+Gulma merupakan tanaman pengganggu yang merugikan tanaman budidaya dengan menghambat pertumbuhan tanaman budidaya.
+Langkah awal dalam melakukan pengendalian gulma adalah mengenali spesies gulma pada lahan tanaman budidaya.
+Cara tercepat dan termudah untuk mengenali tanaman, termasuk gulma adalah melalui daunnya.
+Dalam penelitian ini, diusulkan pengenalan spesies gulma berdasarkan citra daunnya dengan cara mengekstrak ciri bentuk dan ciri tekstur dari citra daun gulma tersebut.
+Untuk mendapatkan ciri bentuk, digunakan metode moment invariant, sedangkan untuk ciri tekstur digunakan metode lacunarity yang merupakan bagian dari fraktal.
+Untuk proses pengenalan berdasarkan ciri-ciri yang telah diekstrak, digunakan metode Jaringan Syaraf Tiruan dengan algoritma pembelajaran Backpropagation.
+Dari hasil pengujian pada penelitian ini, didapatkan tingkat akurasi pengenalan tertinggi sebesar 97.22% sebelum noise dihilangkan pada citra hasil deteksi tepi Canny.
+Tingkat akurasi tertinggi didapatkan menggunakan 2 ciri moment invariant (momentdan ) dan 1 ciri lacunarity (ukuran box 4 x 4 atau 16 x 16).
+Penggunaan 3 neuron hidden layer pada Jaringan Syaraf Tiruan (JST) memberikan waktu pelatihan data yang lebih cepat dibandingkan dengan menggunakan 1 atau 2 neuron hidden layer.
+Kata kunci 3-5 gulma, daun ,moment invariant, lacunarity, jaringan syaraf tiruan
+1. PENDAHULUAN
+Pengenalan spesies gulma dibutuhkan untuk menentukan pengendalian yang digunakan, misalnya pengendalian gulma menggunakan pestisida.
+Dalam lampiran Keputusan Menteri Pertanian Republik Indonesia dengan Nomor 444/Kpts/SR.140/9/2003, dapat dilihat bahwa cara aplikasi, jenis dan dosis pestisida yang digunakan dalam pengendalian gulma disesuaikan dengan spesies gulma pada lahan pertanian.
+Penelitian mengenai gulma dalam hubungannya dengan computer vision telah dilakukan oleh peneliti terdahulu.
+Dalam [1] melakukan penelitian tentang identifikasi kepadatan gulma dari citra digital dengan mengambil ciri Region, Countour-based, dan Skeleton-based untuk mendapatkan parameter-parameter bentuk yang sebelumnya telah tersegmentasi menggunakan kamera khusus sedangkan [2] melakukan deteksi gulma kemudian mengklisifikasikannya kedalam dua jenis gulma yaitu gulma berdaun sempit dan berdaun lebar.
+Proses deteksi dan klasifikasi menggunakan algoritma yang didasarkan pada erosion kemudian diikuti oleh algoritma segmentasi dilation.
+Dalam [3] juga telah melakukan penelitian untuk mendeteksi kepadatan gulma menggunakan metode Fuzzy Clustering dan Dimensi Fraktal.
+Fuzzy Clustering digunakan untuk mengidentifikasi kepadatan gulma sedangkan Dimensi Fraktal digunakan untuk membedakan antara tanaman dan gulma [4] menggunakan local pattern operators untuk mengklasifikasikan gulma berdaun lebar dan sempit.
+Tiga operator dari local pattern operators yang digunakan dalam penelitian tersebut, yaitu Local Binary Pattern (LBP), Local Ternary Pattern (LTP), dan Local Directional Pattern (LDP).
+Dari beberapa penelitian mengenai gulma yang berkaitan dengan computer vision yang telah dibahas masih menitikberatkan pada identifikasi kepadatan gulma maupun mengidentifikasi dua jenis gulma, yaitu gulma berdaun lebar atau gulma berdaun sempit.
+Menurut [5], pengenalan spesies gulma merupakan langkah awal yang menentukan keberhasilan pengendalian gulma.
+Namun, dalam mengenali suatu spesies gulma tidaklah mudah karena biasanya ditempuh salah satu cara seperti membandingkan gulma yang ingin dikenali dengan material yang telah diidentifikasi di herbarium, konsultasi langsung dengan para ahli gulma, mencari sendiri melalui kunci identifikasi, membandingkan gulma yang ingin dikenali dengan determinasi yang ada, atau membandingkannya dengan ilustrasi yang tersedia.
+Hal ini tentu saja membutuhkan waktu yang relatif lama bagi orang-orang yang belum ahli dalam bidang gulma.
+Untuk itu peneliti melakukan penelitian pengenalan spesies gulma yang dapat dijadikan dasar dalam melakukan pengendalian gulma.
+Pada penelitian ini, ciri bentuk dan ciri tekstur dari citra daun gulma digunakan untuk mengenali spesis gulma.
+Ciri warna tidak digunakan dalam penelitian ini karena mengingat hampir semua spesies gulma memiliki daun berwarna hijau.
+Ciri tekstur yang dimaksudkan disini adalah susunan tulang-tulang daun.
+Hal ini didasarkan pada [6] yang menyatakan bahwa diantara sifat-sifat daun yang perlu mendapat perhatian dalam melakukan pengenalan suatu spesies tumbuhan adalah bangunnya (bentuk) dan susunan tulang-tulangnya.
+Adapun metode yang digunakan untuk melakukan ekstraksi ciri adalah Moment invariant dan derajat kekosongan fraktal (Lacunarity).
+Moment invariant digunakan untuk mendapatkan ciri bentuk dari citra daun gulma sedangkan Lacunarity digunakan untuk mendapatkan ciri tekstur dari citra daun gulma.
+Hasil ekstraksi ciri dari citra daun gulma dilatih dan kemudian dilakukan pengenalan spesiesnya menggunakan metode Jaringan Syaraf Tiruan dengan metode pembelajaran Backpropagation.
+2. METODE PENELITIAN
+Sistem pengenalan spesies gulma terdiri dari 5 bagian, yaitu : proses akuisisi citra, proses pengolahan citra, proses pendataan, proses pelatihan, dan proses pengenalan.
+Proses akuisisi citra adalah proses pengambilan citra daun gulma menggunakan kamera dan pengambilan citra dilakukan di alam terbuka.
+Citra daun gulma yang telah didapatkan dari proses akuisisi citra, selanjutnya melalui proses pengolahan citra, dimana pada proses ini dilakukan preprocessing citra sampai proses ekstraksi ciri.
+Ciri yang telah didapatkan, kemudian disimpan ke basis data.
+Pada proses pendataan, selain ciri yang disimpan ke basis data, data spesies gulma juga disimpan ke basis data.
+Data ciri yang telah tersimpan di basis data, selanjutnya dilatih menggunakan JST dan hasil pelatihan tersebut berupa bobot-bobot akhir JST dan parameter pelatihan disimpan ke basis data yang selanjutnya digunakan untuk melakukan proses pengenalan.
+Proses pengenalan diawali dengan mengambil nilai ciri citra daun gulma yang akan dikenali dari proses pengolahan citra dan mengambil nilai bobot JST hasil pelatihan yang tersimpan di basis data, kemudian melakukan proses pengenalan menggunakan data-data tersebut dan keluarannya adalah informasi tentang spesies gulma yang berhasil dikenali.
+Gambar 1 menampilkan alur sistem pengenalan spesies gulma.
+2.1 Akuisisi citra 
+Bagian daun yang diambil menggunakan kamera adalah punggung daun.
+Hal ini dilakukan karena pada bagian punggung daun, teksturnya sangat jelas dan tidak mempengaruhi bentuk daun pada citra yang diambil.
+Pengambilan citra daun gulma dilakukan dengan menempatkan kamera diatas objek daun dan jarak kamera dengan objek tidak ditentukan dikarenakan ukuran daun dari masing-masing spesies gulma berbeda-beda dan terdapat daun gulma yang memiliki ukuran yang sangat kecil.
+format file citra dalam bentuk JPG seperti ditunjukkan pada Gambar 2. 
+Data citra yang diolah sebanyak 120 citra, dimana 70% (84 citra) dari 120 citra digunakan untuk data pelatihan dan sisanya 30% (36 citra) sebagai data uji.
+Terdapat 12 spesies gulma dari jenis daun lebar yang ingin dikenali dalam penelitian ini.
+Adapun 12 spesies gulma yang dimaksud adalah Euphorbia hirta L, Amaranthus spinosus L, Portulaca oleracea L, Erigeron sumatrensis Retz, Chromolaena odorata, Commelina nudiflora Burm, Ageratum conyzoides L, Physalis angulata L, Alternanthera philoxeroides (Mart.) Griseb, Synedrela nodiflora L, Sida rhombifolia L, dan Boerhavia erecta L.
+Masing-masing spesies diwakili oleh 10 citra.
+2.2 Segmentasi citra 
+Proses segementasi dilakukan dengan dua cara dan menghasilkan hasil segmentasi yang berbeda.
+Hal ini dilakukan karena ciri yang diekstrak adalah ciri bentuk dan ciri tekstur dengan menggunakan metode yang berbeda.
+Untuk mendapatkan ciri bentuk, proses segmentasi menghasilkan citra biner.
+Sedangkan untuk mendapatkan ciri tekstur, hasil segmentasi adalah pola garis-garis tulang daun pada objek daun gulma.
+Adapun langkah-langkah dari kedua segmentasi yang dimaksud dapat dilihat pada Gambar 3 dan Gambar 4. 
+Pada Gambar 3 terdapat proses operasi closing, dimana proses closing diawali dengan proses dilasi kemudian dilanjutkan proses erosi.
+Proses closing dimaksudkan untuk menutup lubang-lubang yang mungkin terdapat pada objek daun pada citra biner yang dapat mempengaruhi bentuk dari objek daun tersebut.
+Lubang-lubang yang terdapat pada objek daun pada citra biner dikarenakan pada beberapa daun gulma memiliki zat lilin dan apabila proses pengambilan citra dilakukan pada saat cahaya yang sangat terang, maka bagian permukaan daun akan mengkilap dan hal ini mengakibatkan memiliki nilai piksel yang sama dengan latar belakang.
+Apabila hal tersebut terjadi maka citra biner yang dihasilkan sama dengan Gambar 5. 
+Operasi closing berguna untuk menghilangkan lubang-lubang kecil pada objek [7].
+Pada Gambar 4, proses awal adalah masking citra grayscale berdasarkan citra biner hasil operasi closing.
+Masking dilakukan dengan menghitamkan bagian latarbelakang citra sesuai posisi piksel hitam pada citra biner hasil operasi closing, sedangkan bagian objek daun tetap disesuaikan dengan citra grayscale.
+Proses masking bertujuan untuk menghilangkan noise pada bagian latarbelakang yang akan berpengaruh pada hasil ekstraksi ciri tekstur daun.
+Hal ini dilakukan berdasarkan pada hasil pengujian, dimana noise pada latarbelakang citra hasil deteksi tepi Canny memberikan efek negatif terhadap pengenalan spesies gulma.
+Proses selanjutnya adalah penentuan ROI (Region of Interest) dari citra hasil masking.
+ROI yang dimaksud adalah objek daun didalam citra.
+Hal ini dilakukan supaya dalam melakukan ekstraksi ciri tekstur, hanya bagian daunnya yang diambil dan diolah sedangkan bagian latarbelakang dibuang karena bagian latarbelakang tidak memberikan informasi tekstur daun.
+Gambar 6 menampilkan ilustrasi penentuan ROI.
+Adapun hasil implementasi dari proses segmentasi ditunjukkan pada Gambar 7. 
+2.3 Ekstraksi ciri
+Ciri yang diekstrak dari citra daun gulma adalah ciri bentuk dan tektur.
+Ciri bentuk didapatkan menggunakan metode Moment invariant, sedangkan untuk ciri tekstur didapatkan menggunakan metode lacunarity.
+2.3.1 Moment invariant 
+Moment invariant dapat menggambarkan suatu objek dalam hal area, posisi, dan orientasi [8].
+Himpunan tujuh elemen dari moment invariant digunakan dalam penelitian ini.
+Adapun ketujuh nilai tersebut didapatkan menggunakan persamaan (1) [9].
+Persamaan (1) memuat fungsi normalized central moments yang dilambangkan dengan .
+Fungsi ini dapat dihitung dengan menggunakan persamaan (2).
+Nilai y pada persamaan (2) diperoleh dengan menggunakan persamaan (3).
+Sementara sendiri adalah central moment yang diperoleh dengan persamaan (4).
+Persamaan (4) memuat dan dengan ,dan adalah nilai intensitas pada citra di posisi .
+Persamaan (4) juga memuat moment of order yang dilambangkan dengan .
+Moment of order atau dalam beberapa literature disebutkan sebagai moment spasial sendiri diperoleh dengan perhitungan sesuai persamaan (5).
+2.3.2 Lacunarity 
+Derajat kekosongan fraktal mengukur bagaimana fraktal mengisi ruang [10].
+Derajat kekosongan dapat dihitung dengan menggunakan persamaan (6)(9).
+Bila P(m,L) menyatakan probabilitas dari titik berjumlah m pada kotak yang berukuran L, maka untuk setiap L(6) dengan N menyatakan banyaknya piksel pada kotak yang berukuran L.
+Derajat kekosongan dapat didefenisikan sebagai(9) Menghitung lacunarity direpresentasikan dengan menggunakan metode sliding box.
+Pada penelitian ini ukuran box yang digunakan adalah 2n x 2n, dimana n adalah 1 sampai 4.
+Proses ekstraksi ciri bentuk dan tekstur citra daun gulma menggunakan metode moment invariant dan lacunarity, ditunjukkan pada Gambar 8. 
+2.4 Proses pelatihan dan pengenalan 
+Proses pelatihan dan pengenalan dilakukan menggunakan metode jaringan syaraf tiruan (JST) dengan algoritma pembelajaran backpropagation.
+Backpropagation adalah metode penurunan gradient untuk meminimalkan kuadrat error keluaran [11] atau algoritma yang menggunakan pola penyesuaian bobot untuk mencapai nilai kesalahan minimum.
+Langkah pertama yang dilakukan dalam pelatihan adalah menentukan parameter yang digunakan untuk melakukan pelatihan menggunakan JST termasuk didalamnya adalah jumlah data yang akan dilatih.
+Kemudian selanjutnya adalah mengambil data yang akan dilatih dari basis data berupa data ciri dan data target JST, dimana data target JST ini digunakan untuk melakukan perhitungan nilai error pada saat proses pelatihan berlangsung.
+Parameter JST yang diinput sebelum melakukan proses pelatihan data diantaranya nilai learning rate adalah 0.01 dan nilai MSE adalah 0.00001.
+Jumlah neuron output layer pada JST ditetapkan 4 neuron karena disesuaikan dengan jumlah spesies gulma yang diteliti, yaitu 12 spesies.
+Sedangkan untuk jumlah neuron hidden layer dan input layer, selanjutnya dieksplorasi jumlah neuronnya untuk mendapatkan tingkat akurasi tertinggi.
+Adapun arsitektur JST yang digunakan, ditunjukkan pada Gambar 8. 
+Gambar 9 menampilkan langkah-langkah dalam melakukan proses pelatihan data dan pengenalan.
+Pada proses pelatihan, hasil pelatihan yang berupa nilai bobot akhir dari JST dan parameter yang digunakan dalam pelatihan disimpan ke basis data.
+Dari proses pengenalan, dapat diketahui tingkat akurasi pengenalan dari sistem yang dibangun.
+Untuk mendapatkan nilai akurasi, jumlah data yang berhasil dikenali atau memiliki kecocokan antara output JST dengan target yang sudah ditentukan dibagi dengan jumlah keseluruhan data yang diuji (36 data citra uji), seperti yang ditunjukkan pada persamaan (10).
+3. HASIL DAN PEMBAHASAN
+Dalam penelitian ini, pengujian dilakukan dengan 3 kali eksplorasi.
+Eksplorasi pertama adalah pada bagian ciri moment invariant.
+Eksplorasi kedua dan ketiga adalah pada bagian ciri lacunarity dan bagian jumlah neuron hidden layer pada Jaringan Syaraf Tiruan (JST).
+Mengingat jumlah ciri atau jumlah neuron input layer JST pada eksplorasi pengujian kedua memungkinkan adanya 2 neuron atau 2 ciri, maka pada eksplorasi pengujian pertama dan kedua, jumlah neuron hidden layer pada JST adalah 2.
+Hal ini dilakukan supaya pada eksplorasi pengujian pertama dan kedua memiliki jumlah neuron hidden layer yang sama dan tetap memenuhi persyaratan bahwa jumlah neuron hidden layer tidak lebih besar dari jumlah neuron input layer seperti yang ditulis oleh [12].
+3.1 Eksplorasi pengujian ciri moment invariant 
+Pada eksplorasi pengujian pertama, dilakukan 11 kali pengujian.
+Adapun hasil pengujian pada eksplorasi pengujian pertama, disajikan dalam bentuk grafik seperti yang ditunjukkan pada Gambar 10.
+Pada pengujian pertama dan kedua didapatkan tingkat akurasi yang paling rendah diantara semua pengujian yang dilakukan pada eksplorasi pengujian pertama.
+Hal ini disebabkan terdapat beberapa daun dari spesies gulma yang berbeda memiliki bentuk daun yang hampir sama dan pada pengujian kedua nilai momenttidak memberikan pengaruh terhadap tingkat akurasi.
+Pada Gambar 11, dimana dari spesies gulma yang berbeda memiliki bentuk daun yang hampir sama.
+Bentuk daun gulma yang hampir sama dari spesies yang berbeda Bentuk daun gulma yang hampir sama dari spesies yang berbeda akan menghasilkan nilai moment pertama yang memiliki selisih yang kecil walaupun memiliki ukuran yang berbeda.
+Hasil pengujian yang dilakukan oleh [13] dalam penelitiannya, menunjukkan bahwa nilai momentcenderung stabil untuk objek yang sama walaupun dilakukan rotasi atau perubahan ukuran terhadap citra.
+Hasil akuisisi citra juga memberikan pengaruh pada bentuk daun didalam citra, khusunya pada hasil segmentasi.
+Misalnya pada Gambar 12(a), terdapat bayangan daun pada bagian kanan citra dan hal ini sedikit banyak memberikan pengaruh pada bentuk asli daun dari hasil segmentasi biner.
+Hal ini tentu saja akan memberikan pengaruh terhadap nilai moment invariant yang berbeda dengan bentuk asli dan begitupula pada Gambar 12(b), terdapat bayangan yang muncul pada bagian kiri atas dan bagian kiri bawah yang disebabkan oleh lekukan pada tepian daun.
+Proses operasi closing juga memberikan pengaruhterhadap bentuk daun pada citra hasil segmentasi biner.
+Untuk daun yang memiliki tepian yang rata, operasi closing memberikan hasil yang bagus, tetapi sebaliknya apabila tepian daun tidak rata maka operasi closing memberikan hasil yang sedikit berbeda dengan bantuk daun aslinya.
+3.2 Eksplorasi pengujian ciri lacunarity 
+Pada eksplorasi pengujian ciri lacunarity ini, hanya ciri lacunarity yang dieksplorasi.
+Ciri moment invariant yang digunakan dalam eksplorasi pengujian ini adalah nilai momentdan .
+Penggunaan nilai moment dan didasarkan pada jumlah ciri moment invariant yang paling sedikit dan menghasilkan tingkat akurasi tertinggi pada eksplorasi pengujian pertama.
+Masing-masing ciri lacunarity digunakan dalam pengujian dan pada pengujian selanjutnya nilai-nilai lacunarity tersebut dikombinasikan satu sama lain.
+Dilakukan 7 kali pengujian pada eksplorasi pengujian kedua ini.
+Adapun hasil pengujian pada eksplorasi pengujian kedua ini disajikan dalam bentuk grafik seperti yang terlihat pada Gambar 12.
+Adanya noise pada citra hasil segmentasi deteksi tepi Canny, membuat data citra uji tidak berhasil dikenali dengan benar.
+Noise yang dimaksud disini adalah garis-garis tepi yang dihasilkan dari deteksi tepi Canny, namun posisi garis-garis tepi tersebut berada pada latar belakang citra dan bukan merupakan bagian dari pola tulang daun.
+Untuk mengatasi permasalahan noise pada citra hasil deteksi tepi Canny, maka dilakukan proses masking terhadap citra grayscale berdasarkan pada citra biner hasil operasi closing sebelum dilakukan deteksi tepi Canny.
+Adapun ilustrasi proses masking ditunjukkan pada Gambar 13 dan hasil deteksi tepi Canny dari citra hasil masking lebih baik (Gambar 14a) dan tidak memiliki noise biladibandingkan dengan citra hasil deteksi tepi Cannya yang tidak melalui proses masking (Gambar 14b).
+3.3 Eksplorasi pengujian hidden layer JST 
+Pada eksplorasi pengujian ketiga ini, dilakukan pengujian terhadap jumlah neuron pada hidden layer.
+Ciri yang diuji adalah ciri yang digunakan pada pengujian ke-4 dan ke-6 pada eksplorasi pengujian kedua.
+Jumlah neuron yang diuji adalah 1 dan 3 neuron.
+Nilai akurasi yang dihasilkan dari semua pengujian ini adalah sama, yaitu 97.22% sebelum dilakukan proses masking untuk menghilangkan noise pada citra hasil deteksi tepi Canny, dimana dilakukan 4 kali pengujian.
+Namun, dari eksplorasi pengujian ketiga ini, didapatkan bahwa dengan menggunakan 3 neuron hidden layer pada JST menghasilkan waktu pelatihan data yang lebih cepat dibandingkan dengan menggunakan 1 atau 2 neuron.
+Adapun perbandingan waktu pelatihan data berdasarkan jumlah neuro hidden layer pada JST, ditunjukkan pada Tabel 1.
+4. KESIMPULAN
+Dari hasil penelitian ini, didapatkan beberapa kesimpulan, yaitu : 1. Nilai moment dari moment invariant dapat digunakan untuk membedakan bentuk daun gulma, namun pada bentuk daun yang hampir sama dari spesies yang berbeda akan menghasilkan selisih nilai yang kecil.
+2. Bayangan daun pada citra, mempengaruhi bentuk asli daun didalam citra hasil segmentasi biner.
+3. Hasil operasi closing pada citra biner memberikan bentuk daun yang tidak sesuai dengan bentuk aslinya apabila tepian daun tersebut tidak rata.
+4. Penggabungan nilai momentdanmemberikan tingkat akurasi pengenalan yang lebih baik bila dibandingkan hanya menggunakan nilai moment .
+5. Noise pada citra hasil segmetasi deteksi tepi Canny dapat membuat data citra tersebut tidak berhasil dikenali dengan benar.
+6. Dalam penelitian ini, penggunaan ciri lacunarity dengan ukuran box 8 x 8 memberikan tingkat akurasi pengenalan yang lebih rendah apabila dibandingkan dengan tidak menggunakan ciri tersebut.
+7. Gabungan ciri moment dan dari moment invariant dan ciri lacunarity ukuran box 4 x 4 atau ukuran 16 x 16 dapat membedakan bentuk dan tekstur daun spesies gulma dengan tingkat akurasi sebesar 97.22% sebelum dilakukan proses masking.
+8. Gabungan ciri moment dan dari moment invariant dan ciri lacunarity ukuran box 4 x 4 atau ukuran 16 x 16 dengan menggunakan 2 neuron hidden layer pada JST memberikan tingkat akurasi pengenalan sebesar 97.22% dan tingkat akurasi yang sama dihasilkan dengan menggunakan 1 dan 3 neuron hidden layer pada JST sebelum dilakukan proses masking untuk menghilangkan noise pada citra hasil deteksi tepi Canny.
+9. Dari eksplorasi pengujian jumlah neuron hidden layer pada Jaringan Syaraf Tiruan (JST), didapatkan bahwa dengan menggunakan 3 neuron untuk 3 neuron pada input layer dapat mempercepat waktu pelatihan data bila dibandingkan menggunakan 1 atau 2 neuron pada hidden layer.
+5. SARAN
+Mengingat penelitian ini masih perlu dikembangkan demi memberikan manfaat bagi masyarakat, kalangan akademisi, dan pihak-pihak yang berkecimpung dalam dunia pertanian, maka diberikan saran-saran sebagai berikut : 1. Perlunya suatu metode yang dapat digunakan untuk melakukan proses segmentasi agar bayangan daun pada citra tidak mempengaruhi bentuk asli daun pada citra hasil segmentasi biner, misalnya penentuan nilai threshold untuk proses segmentasi biner dengan mempertimbangkan warna daun.
+2. Diperlukan metode segmentasi citra yang dapat memberikan hasil segmentasi sesuai dengan bentuk daun didalam citra, khususnya untuk daun yang memiliki tepian tidak rata.
+3. Mengingat banyak bentuk daun gulma yang sepintas memiliki bentuk yang sama tetapi memiliki tepian daun yang berbeda, maka diperlukan metode yang dapat menghasilkan ciri kontur yang baik, tapi tentu saja harus disertai dengan segmentasi citra yang baik.
+4. Perlunya dikembangkan sistem pengenalan spesies gulma yang bukan hanya didasarkan pada daun, tapi gabungan antara daun, bunga, dan batang agar memberikan informasi dengan tingkat kepercayaan yang tinggi.

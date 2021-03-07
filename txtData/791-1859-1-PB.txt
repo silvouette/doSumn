@@ -1,0 +1,254 @@
+Abstrak
+Banyak ibu rumah tangga yang kebingungan untuk menentukan masakan apa yang akan mereka masak sehingga bahan makanan yang mereka miliki menjadi rusak akibat tidak kunjung dimasak.
+Sebagian besar ibu rumah tangga mendapatkan ide resep dari website resep karena mudah untuk diakses dan memiliki resep yang cukup lengkap, namun kelemahannya kebanyakan dari website resep tidak memiliki fitur untuk pencarian resep berdasarkan bahan-bahan yang dimiliki.
+Aplikasi telepon genggam dipilih untuk memecahkan masalah tersebut.
+Pada penelitian ini, penulis akan membuat rancang bangun sistem rekomendasi resep masakan berdasarkan bahan baku dengan menggunakan algoritma penyaringan berbasis konten (CBFA).
+Algoritma ini merekomendasikan resep yang memiliki kesamaan dengan bahan makanan yang dimasukkan oleh pengguna.
+Aplikasi dibuat menggunakan file PHP untuk memproses data resep, seperti query data, mengecek data yang sama, menentukan weight serta menghitung dan mengurutkan resep menurut CBFA.
+Hasil dari pengujian menunjukkan bahwa rekomendasi resep sudah sesuai dengan kekuatan 71%.
+Kata Kunci: Android, Bahan Makanan, CBFA, Ibu Rumah Tangga, Resep
+I. PENDAHULUAN
+Memasak masih merupakan kegiatan harian utama yang umumnya dilakukan oleh ibu rumah tangga.
+Faktanya masih banyak ibu rumah tangga yang masih kebingungan untuk menentukan masakan apa yang akan mereka masak sehingga bahan-bahan yang mereka miliki menjadi rusak akibat tidak kunjung dimasak.
+Berdasar survei yang dilakukan, 65 dari ibu rumah tangga menyimpan bahan-bahan makanan untuk dimasak pada kemudian hari.
+Sementara itu, 57 dari ibu rumah tangga menemukan bahan makanan yang mereka simpan menjadi rusak dikarenakan tidak kunjung dimasak.
+Mereka tidak memiliki ide untuk memasak apa dari bahan-bahan yang mereka miliki.
+Bahan makanan seperti sayur-sayuran dan daging memiliki daya tahan yang sangat singkat.
+Jika setiap ibu-ibu yang memiliki bahan tersebut tidak memiliki ide untuk dimasak menjadi masakan apa, berarti tidak sedikit dari bahan-bahan tersebut yang tidak digunakan akan menjadi rusak dan mau tidak mau pun akhirnya terbuang.
+Sampah makanan yang terus menerus menumpuk akan menjadi masalah yang serius karena makanan yang rusak dan membusuk akan menghasilkan gas metana.
+Gas metana 23 kali lebih kuat daripada CO2 sehingga dapat mempercepat terjadinya pemanasan global yang memicu perubahan iklim seperti yang sedang terjadi saat ini.
+Berdasarkan survei yang dilakukan, sebagian besar ibu rumah tangga mendapatkan ide resep dari website resep.
+Resep dari website tersebut memiliki kelebihan mudah untuk diakses dan memiliki resep yang cukup lengkap, namun kelemahannya adalah merepotkan pengguna karena harus memilih resep dari situs yang mana, karena terdapat banyak sekali situs yang memuat resep yang sama, serta kebanyakan dari website resep di internet tidak memiliki fitur untuk pencarian resep berdasarkan bahan-bahan yang dimiliki.
+Aplikasi telepon genggam dipilih untuk memecahkan masalah yang dimiliki oleh website resep, yaitu tidak perlu repot-repot memilih resep dari berbagai sumber serta memiliki fitur untuk menemukan resep masakan dari bahan-bahan yang dimiliki.
+Pada penelitian ini penulis membuat aplikasi telepon genggam berbasis Android pencari resep masakan bahan-bahan yang dimiliki untuk membantu ibu rumah tangga menentukan pilihan masakan yang dapat dimasak.
+Aplikasi resep di telepon genggam yang dibuat memiliki fitur pencarian resep dari bahan-bahan yang dimiliki untuk membantu ibu rumah tangga menentukan pilihan masakan.
+Aplikasi ini menggunakan algoritma penyaringan berbasis konten(CBFA).
+Algoritma ini menemukan kesamaan bahan makanan yang digunakan dalam resep dengan bahan makanan yang dimasukkan oleh pengguna dan kemudian merekomendasikan resep yang memiliki fitur umum dari bahan makanan yang dimasukkan oleh pengguna.
+Pada penelitian terdahulu, algoritma penyaringan berbasis konten ini digunakan dalam rekomendasi musik.
+Algoritma ini merekomendasikan musik dengan cara mempelajari representasi mendalam dari segmen musik.
+Musik akan diubah ke dalam gambar spektogram yang selanjutnya gambar tersebut yang akan diproses untuk rekomendasi.
+Hasil penelitian tersebut menunjukkan bahwa rekomendasi yang dihasilkan lebih baik dibandingkan model lainnya.
+[1] Penelitian lain menggunakan algoritma penyaringan berbasis konten ini untuk merekomendasikan buku.
+Dalam penelitian ini digunakan serangkaian karakteristik dari buku untuk merekomendasikan buku-buku dengan konten serupa.
+Konten buku akan disediakan sebagai gambaran umum bagi pengguna.
+Sehingga pengguna dapat dengan mudah mengetahui buku yang ingin mereka gunakan atau beli [2].
+Sebelumnya telah ada penelitian untuk merekomendasikan resep masakan menggunakan algoritma penyaringan berbasis konten.
+Algoritma ini akan dapat merekomendasikan resep berdasarkan penilaian bahan yang disukai oleh pengguna.
+Penilaian bahan dari setiap resep diubah menjadi bentuk vektor menggunakan TF-IDF.
+Selanjutnya dicari kesamaan resep menggunakan persamaan Cosinus Similarity menggunakan data dari vektor tersebut dengan data pada basis data mereka sehingga didapatkan rekomendasi resep yang akan ditampilkan oleh pengguna.
+Perbedaan yang paling mendasar antara penelitian sebelumnya dengan penelitian ini adalah konten dari resep yang digunakan untuk rekomendasi, pada penelitian sebelumnya digunakan data penilaian bahan yang disukai oleh pengguna, sedangkan pada penelitian ini digunakan berat setiap bahan yang dimiliki oleh pengguna [3].
+II. TINJAUAN PUSTAKA
+A. Sistem Rekomendasi 
+Sistem rekomendasi adalah perangkat lunak dan teknik yang menyediakan rekomendasi dari item yang mungkin akan disukai oleh pengguna.
+Rekomendasi berhubungan dengan berbagai proses pengambilan keputusan, seperti barang yang akan dibeli, musik yang akan didengarkan, berita yang akan dibaca [4].
+Sistem rekomendasi mempunyai berbagai macam algoritma seperti Content-Based Filtering Algorithm atau algoritma penyaringan berbasis konten, Collaborative Filtering Algorithm atau algoritma penyaringan kolaborasi, dan Hybrid Filtering Algorithm atau algoritma penyaringan hybrid.
+Algoritma penyaringan berbasis konten (Selanjutnya disebut CBFA) adalah algoritma yang melakukan rekomendasi item dengan memprediksi kegunaan item untuk pengguna tertentu berdasarkan kemiripan item tersebut dengan item yang pernah ia sukai pada masa lalu.
+Dalam pendekatan ini, item biasanya diwakili oleh fitur-fitur.
+Misalnya pada aplikasi rekomendasi film, fitur dari film adalah aktor, sutradara, genre, dll.
+Preferensi pengguna didapatkan dari profil pengguna.
+Profil pengguna didapatkan dari menanyakan langsung kepada pengguna ataupun dengan mempelajari kebiasaan dari pengguna.
+Rekomendasi dibuat dengan membandingkan profil pengguna dengan item dengan fitur yang sama.
+Item terbaik yang paling cocok dan paling mirip akan direkomendasikan kepada pengguna [5].
+Algoritma penyaringan kolaborasi adalah algoritma yang paling banyak digunakan, algoritma ini melakukan rekomendasi item berdasarkan pilihan pengguna lain yang memiliki kesamaan kesukaan dengan pengguna tersebut.
+Algoritma penyaringan kolaborasi mempertimbangkan pengguna lain yang mirip dengan pengguna target, dan menemukan kesamaan antara keduanya.
+Kemudian item yang dipilih pengguna yang mirip dengan pengguna target tersebut direkomendasikan ke target pengguna.
+Dalam algoritma ini, hanya digunakan data interaksi antara produk dengan konsumen dan mengabaikan atribut konsumen dan produk.
+Algoritma penyaringan kolaborasi memiliki tiga metode yaitu k-nearest neighbor, association rules-based prediction, dan matrix factorization [5].
+Metode k-nearest neighbor merekomendasikan item dengan mengukur korelasi antara profil pengguna target dengan profil pengguna lain dalam basis data.
+Saat k-nearest neighbor ditemukan, agregasi nilai dari profil pengguna yang berkorelasi tersebut yang direkomendasikan.
+Metode association rules-based prediction merekomendasikan item melalui kecocokan profil pengguna dengan item pada sisi kiri dan sisi kanan dari aturan yang diberikan.
+Selanjutnya n item teratas yang cocok akan direkomendasikan.
+Metode matrix factorization merekomendasikan item dengan memperkenalkan variabel laten seperti fitur, aspek dan faktor untuk menjelaskan alasan pengguna membeli atau menggunakan item.
+Saat hubungan antara variabel laten dengan variabel yang diamati diperkirakan saat fase pelatihan, rekomendasi dibuat dengan menghitung kemungkinan interaksi dengan setiap variabel yang diamati melalui variabel laten [5].
+Algoritma penyaringan hybrid adalah gabungan antara algoritma penyaringan berbasis konten dengan algoritma penyaringan kolaborasi.
+Algoritma ini menerapkan metode penyaringan berbasis konten dengan algoritma penyaringan kolaborasi secara terpisah dan menggabungkan rekomendasi dari kedua algoritma tersebut.
+Algoritma penyaringan hybrid melakukan rekomendasi item berdasarkan konten item namun dengan mempertimbangkan pilihan pengguna lain yang memiliki kesamaan kesukaan dengan pengguna tersebut [5].
+1) Algoritma penyaringan berbasis konten 
+Algoritma penyaringan berbasis konten merekomendasikan item ke pengguna berdasarkan deskripsi dari item tersebut kepada profil pengguna.
+Profil pengguna bisa didapatkan dari sejarah pengguna menggunakan aplikasi, item apa saja yang pernah pengguna lihat, atau bisa juga didapatkan dengan menanyakan langsung ke pengguna [6].
+Setelah profil pengguna didapatkan, maka algoritma ini akan melakukan pencarian kesamaan antara profil pengguna dengan fitur yang dimiliki oleh item.
+Masing-masing fitur item memiliki weight yang digunakan sebagai alat pembanding antara fitur yang sama dari item yang berbeda.
+Perbandingan weight tersebut sangat mempengaruhi hasil rekomendasi.
+Semakin mirip weight dari fitur sebuah item dengan profil pengguna, maka item tersebut akan lebih direkomendasikan.
+Sebaliknya, semakin tidak mirip weight dari fitur sebuah item dengan profil pengguna, maka item tersebut tidak akan direkomendasikan.
+Kemiripan antara fitur item dengan profil pengguna dapat dihitung dengan cosinus similarity.
+Cosinus similarity digunakan untuk menemukan derajat kemiripan dari dua buah item.
+Semakin mirip maka derajat kemiripannya akan semakin mendekati satu, semakin tidak mirip maka derajat kemiripannya akan semakin mendekati nol.
+2) Content-Based Filtering Algorithm for Mobile Recipe Application 
+Dalam penelitian ini, algoritma CBFA digunakan untuk merekomendasikan resep yang sesuai dengan kategori dan jenis resep yang sering pengguna lihat.
+Tahapan pertama adalah pengambilan data, data diambil dari log pengguna dan informasi resep, jumlah resep setiap kategori yang telah pengguna lihat dihitung, dan kategori dengan jumlah tertinggi yang dipilih.
+Tahapan kedua adalah mendapatkan jumlah frekuensi setiap fitur resep dari kategori yang telah dipilih, selanjutnya weight dari setiap fitur resep dihitung.
+Weight setiap resep dihitung melalui persamaan (1).
+Setiap kategori i mempunyai nilai paling banyak dilihat Cj, namun memiliki banyak fitur konten j dalam kategori i aplikasi akan menghitung weight Wi dari setiap fitur konten Ci setiap kategori.
+Tahapan ketiga adalah merekomendasikan dan menampilkan resep yang mempunyai weight tertinggi dan belum pernah dilihat oleh pengguna [7].
+Perbedaan antara penelitian yang dilakukan oleh Cheng dengan penelitian ini terdapat pada proses pencarian weight.
+Pada penelitian yang dilakukan Cheng, weight didapatkan dari perkalian fitur konten dengan jumlah kategori dibagi dengan jumlah resep.
+Sedangkan pada penelitian ini, weight diambil berdasarkan berat bahan yang sesuai dengan masukan pengguna dan dihitung menggunakan rumus cosinus similarity.
+B. Cosinus Similarity 
+Dalam penerapan CBFA digunakan persamaan cosinus similarity.
+Persamaan cosinus similarity digunakan untuk menghitung derajat relevansi dari sebuah query.
+Semakin relevan, nilai cosinus similarity bernilai satu, semakin tidak relevan, nilai cosinus similarity bernilai nol.
+Berikut persamaan cosinus similarity dapat dilihat pada persamaan (2).
+Cosinus dari dokumen b adalah jumlah hasil perkalian antara nilai sebuah query a dengan nilai sebuah dokumen b dibagi dengan hasil perkalian dari akar jumlah hasil kuadrat sebuah query a dengan akar jumlah hasil kuadrat sebuah dokumen b [5].
+C. Resep Masakan 
+Resep masakan adalah sekumpulan instruksi atau perintah kerja yang memuat petunjuk untuk membuat suatu masakan.
+Resep memberi petunjuk secara seksama dan tepat mengenai berbagai hal seperti komposisi dan proporsi bahan, cara memperlakukan bahan, teknik yang digunakan, dan prosedur pembuatan masakan.
+Komposisi bahan menjelaskan macam bahan yang digunakan.
+Proporsi bahan menunjukkan jumlah setiap bahan yang digunakan.
+Cara memperlakukan bahan menjelaskan berbagai hal yang berhubungan tata cara mempersiapkan bahan seperti cara memotong, cara mencampur dan sebagainya.
+Teknik yang digunakan merupakan teknik pokok yang berfungsi membantu orang dalam memahami prosedur kerja.
+Terakhir, prosedur pembuatan masakan menggambarkan tata urutan pengolahan masakan tersebut [8].
+D. Basis Data TheMealDB 
+TheMealDB adalah sebuah basis data resep masakan open source yang memiliki berbagai macam resep dari seluruh dunia.
+Basis data TheMealDB dapat diakses menggunakan API yang mereka sediakan dengan cara mengirim HTTPS request pada URL yang telah ditentukan.
+URL dasar dari API yang digunakan untuk mengakses basis data TheMealDB adalah https://www.themealdb.com/api/json/v1/1/ dan URL tersebut dapat ditambah dengan beberapa parameter yang ada sesuai dengan kebutuhan.
+Server untuk basis data TheMealDB menggunakan kompresi HTTPS sejak bulan Maret 2018.
+Karena bersifat open source, maka siapa pun dapat berkontribusi untuk menggunakan dan mengembangkan basis data ini.
+Mereka juga menggalang dana melalui Patreon untuk keberlangsungan basis data khususnya untuk membayar server dan bandwidth serta untuk mengembangkan fitur-fitur baru [9].
+E. Analisa Skala Likert 
+Skala Likert adalah metode pengukuran yang sering digunakan di dalam dunia pendidikan.
+Pada skala ini, setiap item adalah sebuah pernyataan.
+Untuk setiap item memiliki opsi jawaban yang terdiri dari angka-angka dengan jarak sama.
+Skala Likert menggunakan lima opsi jawaban, termasuk opsi jawaban netral.
+Setiap opsi jawaban memiliki nilai mereka masing-masing.
+Contohnya opsi Sangat Tidak Setuju memiliki nilai 1, opsi Tidak Setuju memiliki nilai 2, opsi Netral/Rata-Rata memiliki nilai 3, opsi Setuju memiliki nilai 4, dan opsi Sangat Setuju memiliki nilai 5 [10].
+Indeks kekuatan skala likert dapat dihitung menggunakan persamaan (3).
+Kesimpulan dari setiap item dapat dilihat dari indeks kekuatan yang didapatkan dengan cara menjumlahkan nilai setiap opsi yang dipilih responden dan membaginya dengan nilai maksimum yang bisa didapatkan.
+Hasil dari indeks penghitungan indeks kekuatan tersebut dikalikan dengan untuk mendapatkan nilai dalam bentuk persentase.
+Jika indeks kekuatan dalam bentuk persentase telah didapatkan maka dapat ditarik kesimpulan sebagai berikut: 1) Persentase indeks kekuatan bernilai 0-20% artinya responden sangat tidak setuju dengan pernyataan item tersebut.
+2) Persentase indeks kekuatan bernilai 21-40% artinya responden tidak setuju dengan pernyataan item tersebut.
+3) Persentase indeks kekuatan bernilai 41-60% artinya responden netral dengan pernyataan item tersebut.
+4) Persentase indeks kekuatan bernilai 61-80% artinya responden setuju dengan pernyataan item tersebut.
+5) Persentase indeks kekuatan bernilai 81- % artinya responden sangat setuju dengan pernyataan item tersebut.
+III. METODOLOGI PENELITIAN
+A. Kebutuhan Aplikasi 
+Sebelum merancang desain aplikasi perlu dilakukan analisa sistem untuk mengetahui kebutuhan dari aplikasi yang dibuat.
+Kebutuhan sistem tersebut antara lain tampilan antarmuka, jenis masukan dan keluaran dari aplikasi, cara menampilkan daftar bahan-bahan.
+Analisa dilakukan dengan metode kuantitatif, pengumpulan data dilakukan dengan alat bantu kuesioner.
+Survei dilakukan kepada 67 responden dari berbagai macam latar belakang dan pekerjaan.
+Survei kebutuhan aplikasi memiliki tiga aspek pertanyaan, yaitu: 1) Pertanyaan pertama adalah Cara pemilihan bahan seperti apa yang disukai?.
+Pertanyaan ini ditanyakan untuk mengetahui cara pemilihan bahan-bahan yang disukai, pilihan jawaban pertama yang diberikan kepada pengguna adalah pengguna dapat langsung memilih bahan dari daftar bahan yang ditampilkan semua seperti yang ditampilkan pada Gambar 1. 
+Pilihan jawaban kedua yang diberikan kepada pengguna adalah pengguna harus menekan tombol tambah untuk menambah bahan seperti yang ditampilkan pada Gambar 2. 
+Hasil dari pertanyaan pertama yang ditanyakan adalah sebanyak 34 responden atau 50.7% dari total keseluruhan responden memilih untuk menampilkan semua daftar bahan yang ada dan pengguna dapat langsung memilih bahannya.
+Sebanyak 33 responden atau 49.3% dari total keseluruhan responden memilih untuk menekan tombol "tambah bahan" untuk menambah bahan yang akan dipilih.
+2) Pertanyaan kedua adalah Perlukah memasukkan berat bahan untuk pemilihan resep?.
+Pertanyaan ini ditanyakan untuk mengetahui cara pengguna melakukan pemilihan bahan yang lebih baik, pilihan jawaban pertama yang diberikan kepada pengguna adalah pengguna hanya mencentang kotak yang disediakan tanpa memikirkan berat bahan seperti yang ditampilkan pada Gambar 3.
+Pilihan jawaban kedua yang diberikan kepada pengguna adalah pengguna harus memasukkan berat jika ingin memilih sebuah bahan makanan seperti yang ditampilkan pada Gambar 4. 
+Hasil dari pertanyaan kedua yang ditanyakan pada survei adalah sebanyak 41 responden atau 61.2% dari total keseluruhan responden memilih cara untuk menentukan bahan yang dipilih dengan mengganti berat bahan yang dipilih.
+Sebanyak 26 responden atau 38.8% dari total keseluruhan responden memilih cara untuk menentukan bahan yang dipilih dengan mencentang kotak yang ada.
+3) Pertanyaan ketiga adalah Bagaimana keluaran resep yang lebih diinginkan?.
+Pertanyaan ini ditanyakan untuk mengetahui hasil keluaran resep yang diinginkan pengguna, pilihan jawaban pertama yang diberikan kepada pengguna adalah resep keluaran harus memiliki semua bahan yang sama dengan masukan pengguna seperti yang ditampilkan pada Gambar 5. 
+Pilihan jawaban kedua yang diberikan kepada pengguna adalah resep tersebut minimal harus memiliki 1 buah bahan yang sama dengan masukan pengguna seperti yang ditampilkan pada Gambar 6. 
+Hasil dari pertanyaan ketiga yang ditanyakan pada survei sebanyak 52 responden atau 77.6% dari total keseluruhan responden memilih resep keluaran setidaknya memiliki 1 bahan yang sama dengan masukan pengguna.
+Sebanyak 15 responden atau 22.4% dari total keseluruhan responden memilih resep keluaran harus memiliki semua bahan yang sama dengan masukan pengguna.
+B. Desain Sistem 
+Desain sistem dari aplikasi pencari resep masakan berdasarkan bahan baku dibuat dengan mempertimbangkan analisa hasil survei.
+1) Desain Arsitektur 
+Aplikasi ini memiliki basis data untuk menyimpan data resep dan bahan-bahan.
+Data yang ada di dalam basis data aplikasi didapatkan dari basis data TheMealDB menggunakan API dan melalui file PHP yang dibuat untuk mengubah data dari basis data TheMealDB menjadi data yang disimpan di basis data aplikasi.
+Proses di atas dijalankan secara berkala.
+Aplikasi Android akan mengirimkan masukan pengguna ke aplikasi PHP untuk diproses.
+PHP dapat berhubungan dengan basis data untuk mengambil data-data resep maupun bahan yang digunakan.
+Jalannya program dapat dilihat pada Gambar 7. 
+2) Desain Tampilan 
+Tampilan yang digunakan mengikuti hasil survei yang telah dilakukan sebelumnya.
+Pada tampilan pencarian bahan pada aplikasi terdapat logo pada bagian atas aplikasi.
+Pada bagian bawah logo terdapat kotak pencarian, setiap pengguna memasukkan huruf maka aplikasi langsung mencari nama bahan yang sesuai dengan yang pengguna masukkan pada kotak pencarian tersebut.
+Pada bagian bawah kotak pencarian terdapat daftar bahan-bahan yang dapat dipilih, pengguna dapat memasukkan berat bahan untuk memilih bahan tersebut, jika tidak dipilih, maka berat bahan tersebut bernilai nol.
+Pada bagian terbawah tampilan pencarian bahan terdapat tombol untuk mencari resep, aplikasi akan mencari resep-resep yang sesuai dengan bahan yang dimasukkan oleh pengguna.
+Contoh rencana desain tampilan daftar pilihan bahan dapat dilihat pada Gambar 8. 
+Pada tampilan daftar hasil resep pada aplikasi terdapat logo pada bagian atas aplikasi.
+Pada bagian bawah logo terdapat daftar resep yang dapat dipilih oleh pengguna.
+Pengguna dapat langsung memilih resep dengan cara menekan nama resep yang diinginkan.
+Contoh rencana desain tampilan daftar hasil resep dapat dilihat pada Gambar 9. 
+Pada tampilan detail resep pada aplikasi terdapat logo pada bagian atas aplikasi.
+Pada bagian bawah logo terdapat nama dan gambar resep yang dipilih oleh pengguna.
+Pada bagian bawah nama dan gambar resep terdapat daftar bahan dan cara memasak dari resep yang dipilih oleh pengguna.
+Contoh rencana desain tampilan daftar hasil resep dapat dilihat pada Gambar 10.
+3) Diagram Aktivitas 
+Jalannya aplikasi ini dimulai saat pengguna memilih dan memasukkan berat dari setiap bahan baku.
+Setelah itu aplikasi Android akan mengambil data bahan baku dan berat yang telah pengguna masukan.
+Aplikasi PHP akan melakukan query untuk mengambil data resep dengan id bahan yang sama dengan masukan pengguna serta berat bahan yang lebih kecil dari masukan pengguna.
+Basis data akan mengembalikan data resep yang sesuai dengan query PHP.
+PHP akan melakukan proses sistem rekomendasi resep berdasarkan bahan baku dengan menggunakan algoritma CBFA.
+Proses yang dilakukan PHP terakhir kali adalah melakukan query resep berdasarkan urutan CBFA.
+Setelah itu basis data mengembalikan data detail resep berdasarkan urutan CBFA.
+Data tersebut ditampilkan dalam bentuk daftar resep pada aplikasi Android.
+Pengguna dapat memilih resep yang ada pada daftar resep tersebut.
+Terakhir, Android akan menampilkan detail dari resep yang dipilih oleh pengguna.
+Jalannya aplikasi ini dapat dilihat pada Diagram Aktivitas pada Gambar 11.
+C. Sistem Rekomendasi Resep Masakan Berdasarkan Bahan Baku 
+Dalam penerapannya, sistem rekomendasi resep masakan berdasarkan bahan baku memiliki dua buah masukan, yaitu bahan a dan resep b.
+Sistem akan mengambil data resep b ke i yang memiliki berat bahan j pada basis data yang memiliki berat kurang dari sama dengan bahan a yang memiliki berat j.
+Penjelasan di atas dapat dilihat pada persamaan (4).
+Fungsi resep b ke i di atas akan menentukan nilai resep yang ada pada basis data.
+Fungsi resep b akan bernilai satu jika resep ke i yang memiliki berat bahan j kurang dari sama dengan bahan a yang memiliki berat j.
+Jika kondisi tersebut tidak memenuhi, maka fungsi resep b ke i akan bernilai nol.
+Nilai fungsi resep b yang telah didapatkan akan menjadi acuan untuk dimasukkan ke dalam list data.
+Fungsi resep b ke i yang bernilai satu akan dimasukkan ke dalam list data, dan fungsi resep b ke i yang bernilai nol tidak akan dimasukkan ke dalam list data.
+Tahapan selanjutnya yang dilakukan adalah penentuan weight dari setiap bahan pada tiap resep.
+Weight dari setiap bahan pada tiap resep ditentukan dari perbandingan antara resep ke i yang memiliki berat bahan j dengan bahan a yang memiliki berat j.
+Penjelasan di atas dapat dilihat pada persamaan (5).
+Weight dari resep ke i yang memiliki berat bahan j akan bernilai sama dengan berat resep ke i yang memiliki berat bahan j pada basis data jika berat resep ke i yang memiliki berat bahan j memiliki berat kurang dari sama dengan bahan a yang memiliki berat j.
+Jika kondisi tersebut tidak memenuhi, weight dari resep ke i yang memiliki berat bahan j akan bernilai nol dikarenakan tidak sesuai dengan ketentuan.
+Weight dari resep ke i yang memiliki berat bahan j yang telah didapatkan akan digunakan untuk menghitung nilai CBFA menggunakan cosinus similarity.
+Berikut persamaan cosinus similarity yang dapat dilihat pada persamaan (6).
+Cosinus dari bahan masukan pengguna a terhadap resep b ke i adalah jumlah hasil perkalian antara nilai sebuah bahan masukan pengguna yang memiliki berat j dengan resep ke i yang memiliki berat bahan j dibagi dengan hasil perkalian dari akar jumlah hasil kuadrat sebuah bahan masukan pengguna yang memiliki berat j dengan akar jumlah hasil kuadrat sebuah resep ke i yang memiliki berat bahan j.
+Setelah nilai CBFA didapatkan maka resep-resep yang ada diurutkan menurut nilai CBFA terbesar.
+Keseluruhan jalannya sistem rekomendasi ini dapat dilihat pada Gambar 12.
+IV. PENGUJIAN 
+A. Uji Coba Aplikasi 
+Berikut ini adalah pengujian sistem rekomendasi dari aplikasi yang telah dibuat.
+Pengujian ini dilakukan untuk mengetahui keakuratan sistem rekomendasi yang dibuat.
+Pengujian dilakukan dalam lima skenario, masing-masing skenario berisikan masukan bahan dan jumlah bahan tersebut untuk membandingkan lima teratas resep yang dihitung secara manual dengan resep yang ditampilkan pada aplikasi.
+Berikut ini adalah skenario yang diujikan: 1) Pada skenario pertama, bahan makanan masukan adalah Baby squid dengan berat 250 gram, Black Pepper dengan berat 50 gram, Broccoli dengan berat gram, Butter dengan berat 50 gram, Carrot dengan berat gram.
+2) Pada skenario kedua, bahan makanan masukan adalah Tomato dengan berat 150 gram, Salt dengan berat 2.5 gram, Peaches dengan berat0 gram, Blackberries dengan berat 250 gram, Duck Legs dengan berat 600 gram.
+3) Pada skenario ketiga, bahan makanan masukan adalah Onion dengan berat 20 gram, Lettuce dengan berat gram, Chicken dengan berat 300 gram, Rice dengan berat 500 gram, Lime dengan berat gram.
+4) Pada skenario keempat, bahan makanan masukan adalah Pepper dengan berat 50 gram, Water dengan berat gram, Beef dengan berat 500 gram, Salt dengan berat 4 gram, Olive Oil dengan berat 20 gram.
+5) Pada skenario kelima, bahan makanan masukan adalah Egg dengan berat 50 gram, Garlic dengan berat 6 gram, Pork dengan berat 250 gram, Vegetable Oil dengan berat 20 gram, Honey dengan berat 40 gram.
+B. Analisa Uji Coba Aplikasi 
+Pada pengujian pertama, akurasi urutan lima teratas resep yang ditampilkan pada aplikasi sebesar 100% atau sama dengan urutan lima teratas resep yang dihitung dengan cara hitung manual.
+Urutan lima teratas hasil keluaran resep pada skenario pertama dapat dilihat pada Tabel I.
+Pada pengujian kedua, akurasi urutan lima teratas resep yang ditampilkan pada aplikasi sebesar 100% atau sama dengan urutan lima teratas resep yang dihitung dengan cara hitung manual.
+Urutan lima teratas hasil keluaran resep pada skenario kedua dapat dilihat pada Tabel II.
+Pada pengujian ketiga, akurasi urutan lima teratas resep yang ditampilkan pada aplikasi sebesar 100% atau sama dengan urutan lima teratas resep yang dihitung dengan cara hitung manual.
+Urutan lima teratas hasil keluaran resep pada skenario ketiga dapat dilihat pada Tabel III.
+Pada pengujian keempat, akurasi urutan lima teratas resep yang ditampilkan pada aplikasi sebesar 100% atau sama dengan urutan lima teratas resep yang dihitung dengan cara hitung manual.
+Urutan lima teratas hasil keluaran resep pada skenario keempat dapat dilihat pada Tabel IV.
+Pada pengujian kelima, akurasi urutan lima teratas resep yang ditampilkan pada aplikasi sebesar 100% atau sama dengan urutan lima teratas resep yang dihitung dengan cara hitung manual.
+Urutan lima teratas hasil keluaran resep pada skenario kelima dapat dilihat pada Tabel V.
+C. Pengujian Manfaat 
+Dalam penerapan aplikasi ini, dilakukan pengujian untuk mengetahui apa saja manfaat aplikasi bagi pengguna, mengetahui jika aplikasi ini telah sesuai dengan keinginan pengguna, serta mendapatkan kritik dan saran dari pengguna untuk aplikasi ini.
+Pengujian dilakukan dengan metode kuantitatif, pengumpulan data dilakukan dengan alat bantu kuesioner.
+Survei dilakukan kepada 30 responden dari berbagai macam latar belakang dan pekerjaan.
+Survei pengujian manfaat aplikasi bagi pengguna memiliki delapan aspek pertanyaan, yaitu: 1) Apakah rekomendasi resep sudah sesuai dengan bahan yang saya pilih? Pertanyaan ini ditanyakan untuk mengetahui kesesuaian resep yang ditampilkan dengan bahan-bahan yang responden pilih.
+2) Apakah rekomendasi resep sudah sesuai dengan apa yang saya inginkan? Pertanyaan ini ditanyakan untuk mengetahui kesesuaian resep yang ditampilkan dengan harapan dari responden.
+3) Apakah tampilan dari aplikasi sudah sesuai dengan apa yang saya harapkan? Pertanyaan ini ditanyakan untuk mengetahui apakah tampilan dari aplikasi ini sesuai dengan harapan responden.
+4) Bagaimana minat responden untuk mengunduh aplikasi? Pertanyaan ini ditanyakan untuk mengetahui manfaat aplikasi bagi responden, pengunduhan aplikasi dianggap sebagai salah satu indikasi besarnya manfaat aplikasi.
+5) Seberapa sering menggunakan aplikasi ini? Pertanyaan ini ditanyakan untuk mengetahui frekuensi responden menggunakan aplikasi ini.
+Tinggi frekuensi penggunaan aplikasi mengindikasikan manfaat aplikasi.
+D. Analisa Pengujian Manfaat 
+Hasil survei dianalisis menggunakan skala likert, menyatakan bahwa sebagian besar atau sebanyak 60% responden adalah berjenis kelamin perempuan berusia 20-24 tahun dan bekerja sebagai mahasiswa menyatakan sebagai berikut: Nilai total dari pertanyaan pertama adalah jumlah dari nilai total setiap jawaban pada pertanyaan pertama yaitu 114.
+Indeks kekuatan pertanyaan pertama adalah 114/150 atau 76%, yang berarti responden setuju bahwa rekomendasi resep sudah sesuai dengan bahan yang responden pilih.
+Nilai total dari pertanyaan kedua adalah jumlah dari nilai total setiap jawaban pada pertanyaan kedua yaitu 107.
+Indeks kekuatan pertanyaan kedua adalah 107/150 atau 71%, yang berarti responden setuju bahwa rekomendasi resep sudah sesuai dengan yang responden inginkan.
+Nilai total dari pertanyaan ketiga adalah jumlah dari nilai total setiap jawaban pada pertanyaan ketiga yaitu 108.
+Indeks kekuatan pertanyaan ketiga adalah 108/150 atau 72%, yang berarti responden setuju bahwa tampilan dari aplikasi sudah sesuai dengan yang responden harapkan.
+Nilai total dari pertanyaan keempat adalah jumlah dari nilai total setiap jawaban pada pertanyaan keempat yaitu 99.
+Indeks kekuatan pertanyaan keempat adalah 99/150 atau 66%, yang berarti responden setuju bahwa responden akan mengunduh aplikasi ini.
+Nilai total dari pertanyaan kelima adalah jumlah dari nilai total setiap jawaban pada pertanyaan kelima yaitu 97.
+Indeks kekuatan pertanyaan kelima adalah 97/150 atau 65%, yang berarti responden setuju bahwa responden akan sering menggunakan aplikasi ini.
+V. KESIMPULAN DAN SARAN 
+A. Kesimpulan 
+Berdasarkan pengujian yang telah dilakukan, dapat disimpulkan bahwa: 1) Tingkat kekuatan kesetujuan responden mengenai kesesuaian resep yang ditampilkan dengan bahan yang mereka pilih adalah 76%.
+Tingkat kekuatan kesetujuan responden pada poin ini kurang maksimal karena dipengaruhi oleh resep hasil rekomendasi yang memiliki bahan-bahan yang tidak dimiliki pengguna.
+2) Tingkat kekuatan kesetujuan responden mengenai kesesuaian resep yang ditampilkan dengan apa yang mereka inginkan adalah 71%.
+Tingkat kekuatan kesetujuan responden pada poin ini kurang maksimal karena seluruh responden berasal dari Indonesia dan mereka sebagian besar lebih menginginkan masakan Indonesia, sedangkan basis data yang digunakan hanya memuat masakan asing.
+3) Tingkat kekuatan kesetujuan responden mengenai tampilan aplikasi dengan apa yang mereka harapkan adalah 72%.
+Tingkat kekuatan kesetujuan responden pada poin ini kurang maksimal karena dipengaruhi oleh tampilan aplikasi yang sangat sederhana.
+4) Tingkat kekuatan kesetujuan responden untuk mengunduh aplikasi ini adalah 66%.
+Tingkat kekuatan kesetujuan responden pada poin ini kurang maksimal karena dipengaruhi oleh poin 1, 2 dan 3 di atas.
+5) Tingkat kekuatan kesetujuan responden untuk sering menggunakan aplikasi ini adalah 65%.
+Tingkat kekuatan kesetujuan responden pada poin ini kurang maksimal karena dipengaruhi oleh poin 1, 2 dan 3 di atas.
+B. Saran 
+Saran untuk pengembangan aplikasi ini: 1) Menambah resep-resep masakan Indonesia 2) Memperbaiki tampilan aplikasi 3) Menambah fitur untuk simpan resep 4) Menggunakan sistem rekomendasi berbasis hybrid untuk memperoleh minat pengguna 5) Menandai bahan makanan yang dimasukkan oleh pengguna pada detail resep.

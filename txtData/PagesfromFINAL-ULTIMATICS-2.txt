@@ -1,0 +1,121 @@
+I. PENDAHULUAN
+Perkembangan teknologi informasi yang begitu maju saat ini, menyebabkan tingkat akurasi suatu data sangat dibutuhkan dalam kehidupan sehari-hari.
+Setiap informasi yang ada menjadi suatu hal penting untuk menentukan setiap keputusan dalam situasi tertentu.
+Hal ini menyebabkan penyediaan informasi menjadi sarana untuk dianalisa dan diringkas menjadi suatu pengetahuan dari data yang bermanfaat ketika pengambilan suatu keputusan dilakukan [1].
+Pengetahuan dari data pada suatu informasi saja tidak cukup untuk mengambil suatu keputusan.
+Diperlukan juga suatu analisa dari setiap data yang ada untuk mendapatkan bahan pertimbangan dari informasi yang tersedia.
+Dengan menggunakan data mining, setiap kumpulan atau gudang data dapat memberikan pengetahuan penting yang menjadi informasi yang sangat berharga bagi suatu organisasi, seperti pada organisasi pendidikan.
+Pada organisasi pendidikan, suatu sistem informasi dapat digunakan untuk memperoleh informasi yang menunjang setiap kegiatan pada pengambilan suatu keputusan.
+Data mining algoritma C4.5 dapat digunakan untuk menyusun sistem yang mempunyai kemampuan melihat pola kelulusan mahasiswa, untuk selanjutnya bisa menjadi strategi dalam proses perkuliahan [1].
+Universitas Multimedia Nusantara merupakan salah satu organisasi pendidikan yang bergerak di bidang multimedia dan teknologi.
+Informasi tingkat kelulusan dari mahasiswa Universitas Multimedia Nusantara sangat penting untuk meningkatkan pelayanan yang dapat membuat mahasiswa nyaman dan bisa lulus tepat waktu.
+Penggunaan data mining dapat digunakan sebagai pertimbangan dalam mengambil keputusan lebih lanjut tentang faktor yang mempengaruhi kelulusan khususnya faktor dalam data induk mahasiswa [1].
+Pada penelitian Mujib Ridwan dan kawan-kawan (2013) menjelaskan bahwa faktor yang paling berpengaruh dalam penentuan klasifikasi kinerja akademik mahasiswa adalah Indeks Prestasi Komulatif (IPK), Indeks Prestasi Semester (IPS) semester 1, IPS semester 4 dan jenis kelamin [2].
+Pada penelitian ini peneliti menggunakan algoritma C4.5 dalam menentukan prediksi kelulusan berdasarkan attribute jenis kelamin, asal sekolah SMA dan IPS semester satu sampai dengan semester enam.
+Algoritma C4.5 merupakan algoritma klasifikasi pohon keputusan yang banyak digunakan karena memiliki kelebihan utama dari algoritma yang lainnya.
+Kelebihan algoritma C4.5 dapat menghasilkan pohon keputusan yang mudah diinterprestasikan, memiliki tingkat akurasi yang dapat diterima, efisien dalam menangani atribut bertipe diskret dan dapat menangani atribut bertipe diskret dan numerik [3].
+Dalam mengkonstruksi pohon, algoritma C4.5 membaca seluruh sampel data training dari storage dan memuatnya ke memori.
+Hal inilah yang menjadi salah satu kelemahan algoritma C4.5 dalam kategori skalabilitas adalah algoritma ini hanya dapat digunakan jika data training dapat disimpan secara keseluruhan dan pada waktu yang bersamaan di memori [4].
+Data training yang akan digunakan oleh peneliti adalah data alumni mahasiswa program studi Teknik Informatika Universitas Multimedia Nusantara angkatan 2007 dan 2008, sedangkan untuk data testing akan digunakan data alumni angkatan 2009.
+Dari kumpulan data training dan data testing, dapat diketahui informasi kelulusan yang dapat mempengaruhi beberapa keputusan program studi menggunakan data mining dengan algoritma C4.5.
+
+II. TINJAUAN PUSTAKA
+A. Data Mining 
+Data Mining didefinisikan sebagai sebuah proses untuk menemukan hubungan, pola dan tren baru yang bermakna dengan menyaring data yang sangat besar, yang tersimpan dalam penyimpanan, menggunakan teknik pengenalan pola seperti teknik Statistik dan Matematika [5].
+Data mining bukanlah suatu bidang yang sama sekali baru.
+Salah satu kesulitan untuk mendefinisikan data mining adalah kenyataan bahwa data mining mewarisi banyak aspek dan teknik dari bidang-bidang ilmu yang sudah mapan terlebih dahulu.
+Berawal dari beberapa disiplin ilmu, data mining bertujuan untuk memperbaiki teknik tradisional sehingga bisa menangani: 1. Jumlah data yang sangat besar 2. Dimensi data yang tinggi 3. Data yang heterogen dan berbeda sifat.
+Menurut para ahli, data mining merupakan sebuah analisa dari observasi data dalam jumlah besar untuk menemukan hubungan yang tidak diketahui sebelumnya dan dua metode baru untuk meringkas data agar mudah dipahami serta kegunaannya untuk pemilih data [6].
+B. Pengolahan Data Mining
+Pengolahan data mining terdiri dari beberapa metode pengolahan, yaitu [5]: (a) Predictive modelling yang merupakan pengolahan data mining dengan melakukan prediksi/peramalan.
+Tujuan metode ini untuk membangun model prediksi suatu nilai yang mempunyai ciri-ciri tertentu.
+Contoh algoritmanya Linear Regression, Neural Network, Support Vector Machine, dan lain-lain.
+(b) Association (Asosiasi) merupakan teknik dalam data mining yang mempelajari hubungan antar data.
+Contoh penggunaannya seperti untuk menganalisis perilaku mahasiswa yang datang terlambat.
+Contohnya jika mahasiswa memiliki jadwal dengan dosen A dan B, maka mahasiswa akan datang terlambat.
+Contoh algoritmanya FP-Growth, A Priori, dan lain-lain.
+(c) Clustering (Klastering) atau pengelompokkan merupakan teknik untuk mengelompokkan data ke dalam suatu kelompok tertentu.
+Contoh algoritmanya K-Means, K-Medoids, Self-Organitation Map (SOM), Fuzzy C-Means, dan lain-lain.
+Contoh untuk clustering: Terdapat lima pulau di Indonesia: Sumatera, Kalimantan, Jawa, Sulawesi dan Papua.
+Maka lima pulau tersebut dijadikan tiga klaster berdasarkan waktunya: Waktu Indonesia Barat (Sumatera, Kalimantan dan Jawa), Waktu Indonesia Tengah (Sulawesi) dan Waktu Indonesia Timur (Papua).
+(d) Classification merupakan teknik mengklasifikasikan data.
+Perbedaannya dengan metode clustering terletak pada data, dimana pada clustering variabel dependen tidak ada, sedangkan pada classification diharuskan ada variabel dependen.
+Contoh algoritma yang menggunakan metode ini ID3 dan K Nearest Neighbors.
+C. Pohon Keputusan (Decision Tree)Pohon keputusan merupakan metode klasifikasi dan prediksi yang sangat terkenal.
+Metode pohon keputusan mengubah fakta yang sangat besar menjadi pohon keputusan yang merepresentasikan aturan.
+Aturan dapat dengan mudah dipahami dengan bahasa alami, juga dapat diekspresikan dalam bentuk bahasa basis data seperti Structured Query Language untuk mencari record pada kategori tertentu.
+Pohon keputusan juga berguna untuk mengeksplorasi data, menemukan hubungan tersembunyi antara sejumlah calon variabel input dengan sebuah variabel target.
+Karena pohon keputusan memadukan antara eksplorasi data dan pemodelan, pohon keputusan sangat bagus sebagai langkah awal dalam proses pemodelan bahkan ketika dijadikan sebagai model akhir dari beberapa teknik lain [7].
+D. Algoritma C4.5
+Secara umum Algoritma C4.5 untuk membangun pohon keputusan adalah sebagai berikut [6]:a. Pilih atribut sebagai akar b. Buat cabang untuk masing-masing nilai c.Bagi kasus dalam cabang d. Ulangi proses untuk masing-masing cabang sampai semua kasus pada cabang memiliki kelas yang sama.
+Untuk memilih atribut sebagai akar, didasarkan pada nilai gain tertinggi dari atribut-atribut yang ada.
+Untuk menghitung gain digunakan rumus seperti yang tertera berikut: (1).Sebelum mendapatkan nilai Gain adalah dengan mencari nilai Entropi.
+Entropi digunakan untuk menentukan seberapa informatif sebuah masukan atribut untuk menghasilkan sebuah atribut.
+Rumus dasar dari Entropi adalah sebagai berikut:(2)
+III. METODOLOGI DAN PERANCANGAN APLIKASI
+A. Metode Penelitian
+Metodologi dalam penelitian ini dapat dijabarkan menjadi beberapa langkah yang terdiri dari: a. Studi Literatur.
+Metode ini membantu peneliti dalam mencari teori-teori dasar yang diperlukan dalam penelitian, seperti teori tentang data mining dan algoritma C4.5.
+
+Selain itu, dilakukan juga pengumpulan data trainingdan data testing untuk proses prediksi kelulusan mahasiswa.
+b. Perancangan dan Pembangunan Aplikasi.
+Perancangan dan pembangunan aplikasi dilakukan dengan menggunakan bahasa pemrograman C# untuk aplikasi berbasis desktop dengan menerima masukkan berupa file excel untuk data training dan data testing.
+c. Implementasi Aplikasi.
+Implementasi aplikasi yang dilakukan adalah memprediksi tingkat kelulusan berdasarkan data yang telah diperoleh.
+d. Uji Coba dan Evaluasi.
+Peneliti melakukan uji coba terhadap aplikasi yang telah dibuat disertai dengan hasil evaluasi.
+Uji coba dilakukan untuk memperlihatkan apakah algoritma C4.5 bisa memprediksi tingkat kelulusan mahasiswa.
+B. Perancangan 
+Perancangan aplikasi prediksi kelulusan mahasiswa tersebut dilakukan dengan perancangan conceptual flowchart seperti gambar berikut ini.
+Gambar 1 menjelaskan alur proses algoritma C4.5.
+Pada bagian awal aplikasi menerima masukkan cabang pertama, data training, jumlah tiap kategori, attribute dan kelulusan dari proses data training sebelumnya.
+Pada proses cek keputusan dilihat apakah data testing pada attribute yang ke N bisa diambil keputusan atau tidak.
+Jika tidak maka data training diubah dan aplikasi melakukan perhitungan kembali terhadap jumlah data tiap attribute, entropy total, entropy tiap attribute dan gain.
+Setelah itu cabang yang baru (gain yang tertinggi) dicek keputusannya berdasarkan data testing yang ada.
+Gambar 2 menunjukkan alur proses perhitungan nilai gain tiap kategori.
+Perhitungan dimulai dengan menghitung jumlah data dan menghitung jumlah kelulusan untuk tiap attribute di masing-masing kategori.
+Proses dilanjutkan dengan menghitung entropy total, entropy tiap attribute, dan nilai gain untuk tiap kategori.
+Gambar 3 menunjukkan alur proses untuk mendapatkan cabang baru.
+Proses diawali dengan mengubah nilai gain menjadi -1 untuk setiap cabang yang pernah ada di cabang sebelumnya.
+Dengan demikian proses ini dapat menemukan cabang baru yang didapat dari nilai gain yang tertinggi.
+Dari gambar 4 user memasukkan data training yang terdiri dari IPS (data IPS semester satu sampai dengan semester enam), JK (jenis kelamin), SMA, tipe kelulusan dan jumlah SKS pada semester enam.
+Selain itu, user juga memasukkan data testing yang terdiri dari IPS (data IPS semester satu sampai dengan semester enam), JK (jenis kelamin), SMA dan jumlah SKS pada semester enam.
+Pada data flow diagram level satu terjadi proses aliran data dengan enam proses yang terdiri dari hitung jumlah attribute, list data SMA, hitung entropy, hitung gain, add cabang dan prediksi kelulusan.
+Proses hitung jumlah attribute adalah proses yang akan menghitung jumlah tiap attribute berdasarkan data yang masuk dan hasil perjumlahan akan masuk dalam data jumlah tiap attribute.
+Proses list data SMA adalah proses untuk membuat sekumpulan data SMA menjadi sepuluh data SMA di mana SMA yang ke sepuluh merupakan SMA lain-lain.
+Proses hitung entropy berfungsi untuk menghitung nilai entropy total dan entropy masing-masing attribute.
+Proses hitung gain berfungsi untuk menghitung nilai gain untuk masing-masing attribute.
+Proses prediksi kelulusan adalah proses yang berfungsi memberikan keputusan kepada setiap data testing yang masuk.
+Pada proses gambar 6, akan dihitung terlebih dahulu nilai entropy total berdasarkan jumlah tiap attribute.
+Dari hasil nilai entropy total akan dihitung nilai entropy dari masing-masing attribute.
+Pada sketsa layar tersebut menu bar terdiri dari File, Input, Help dan About Us.
+Untuk button 1 berfungsi untuk membuka file excel yang berisi data training, sedangkan untuk button 2 berfungsi untuk memproses data training.
+Data grid view 1 berfungsi untuk menampilkan data training yang di-input, sedangkan data grid view 2 menampilkan hasil proses dari data training.
+Button 3 digunakan untuk keluar dari aplikasi.
+IV. IMPLEMENTASI DAN UJI COBA
+A. Spesifikasi dan Hardware
+Pembuatan dan pengembangan aplikasi yang digunakan oleh peneliti menggunakan: 1) Microsoft Visual Studio 2012 untuk pembuatan aplikasi.
+2) Microsoft Excel 2013 untuk simulasi data training dan testing.
+Laptop yang digunakan peneliti untuk melakukan implementasi dan uji coba aplikasi prediksi kelulusan mahasiswa adalah sebuah laptop dengan spesifikasi berikut,1. Processor Intel(R) Core(TM)2 Duo, 2. RAM 4 GB, 3. Sistem Operasi Windows 7 64-bit.
+B. Implementasi
+Setelah dilakukan perancangan flowchart, data flow diagram dan sketsa aplikasi, dilakukanlah pembangunan aplikasi dan implementasi coding.
+Tampilan awal aplikasi prediksi kelulusan mahasiswa dapat dilihat pada gambar 9.
+Untuk button proses excel bisa digunakan setelah selesai memasukkan data training.
+Sedangkan untuk pilihan menu bar input data akan aktif bila data training berhasil diproses.
+Tampilan hasil prediksi data testing dengan menggunakan excel file dapat dilihat pada gambar 9.
+Pada Data Grid View yang kanan akan menampilkan hasil prediksi keputusan dari data testing yang dimasukkan.
+C. Uji Coba
+Pada tahap uji coba ini, peneliti mendapatkan seratus data dari department IT Universitas Multimedia Nusantara berdasarkan attribute yang dibutuhkan.
+Peneliti menggunakan seratus data alumni Universitas Multimedia Nusantara program studi Teknik Informatika.
+Pada pemilihan data training, peneliti memilih data alumni angkatan 2007 dan 2008, sedangkan untuk data testing peneliti memilih data alumni angkatan 2009 dengan spesifikasi pada tabel berikut.
+Pada tahap uji coba ini, peneliti mendapatkan tingkat akurasi aplikasi dari hasil prediksi kelulusan terhadap data testing sebesar 87.5%.
+Pada uji coba ini IPS semester 6 merupakan attribute yang paling berpengaruh dari keputusan yang ada.
+Hasil data uji coba dapat dilihat pada lampiran.
+Spesifikasi hasil uji coba data dilihat pada tabel 4.
+V. SIMPULAN
+Berdasarkan hasil implementasi dan uji coba aplikasi, peneliti dapat menyimpulkan bahwa: 1. Data mining dengan algoritma C4.5 dapat diimplementasikan untuk memprediksi tingkat kelulusan mahasiswa dengan empat kategori yaitu lulus cepat, lulus tepat, lulus terlambat dan drop out.
+Attribute yang paling berpengaruh dalam hasil prediksi adalah IPS semester enam.
+2. Aplikasi desktop berhasil memprediksi kelulusan mahasiswa dengan presentase 87.5% dari enam puluh data training dan empat puluh data testing.
+3. Hasil prediksi kelulusan dari aplikasi penelitian ini dapat membantu bagian program studi untuk mengetahui status kelulusan mahasiswa.
+Hal ini dapat menjadi rekomendasi pengambilan mata kuliah bagi mahasiswa untuk semester berikutnya seperti skripsi dan magang.
+Dengan hal tersebut mahasiswa bisa lulus minimal tepat waktu.

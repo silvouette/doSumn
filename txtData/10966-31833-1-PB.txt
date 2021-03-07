@@ -1,0 +1,198 @@
+Abstrak
+Jumlah aliran artikel berita yang diunggah di internet sangat banyak dan rentang waktu yang cepat.
+Jumlah yang banyak dan waktu yang cepat akan menyulitkan editor mengkategorikan secara manual.
+Terdapat metode agar berita dapat dikategorikan secara otomatis, yaitu klasifikasi.
+Data berita berbentuk teks, sehingga jauh lebih rumit dan perlu proses untuk mempersiapkan data.
+Salah satu prosesnya adalah confix-stripping stemmer sebagai cara untuk mendapatkan kata dasar dari berita Indonesia.
+Untuk metode klasifikasi yang digunakan adalah Naive Bayes Classifier (NBC) yang secara umum sering digunakan dalam data teks dan Support Vector Machine (SVM) yang diketahui bekerja sangat baik pada data dengan dimensi besar.
+Kedua metode tersebut akan dibandingkan untuk mengetahui hasil klasifikasi yang paling baik.
+Hasil penelitian menunjukkan bahwa SVM kernel Linier dan kernel RBF menghasilkan ketepatan klasifikasi yang sama dan bila dibandingkan dengan NBC maka SVM lebih baik.
+Kata Kunci -- artikel berita, confix-stripping stemmer, klasifikasi, naive bayes classifier, support vector machine.
+I. PENDAHULUAN
+Pada tahun 2006 pertumbuhan dan pertukaran informasi sudah mencapai lebih dari 550 triliun dokumen dan 7,3 juta Internet page baru tiap harinya.
+Salah satu dampaknya adalah artikel berita yang diunggah di internet sangatlah banyak dan rentang waktu yang cepat.
+Selama ini pengkategorian berita masih menggunakan tenaga manusia atau manual.
+Kategori yang banyak beserta waktu yang cepat akan menyulitkan editor untuk mengkategorikan, terutama artikel yang tidak terlalu berbeda secara jelas.
+Beberapa kategori yang penggunaan bahasanya tidak berbeda terlalu jauh seperti nasional, internasional, sains, ekonomi, tekno, health, dan properti mengharuskan seorang editor mengetahui isi artikel yang akan diunggah secara keseluruhan untuk selanjutnya dimasukkan ke dalam kategori yang tepat.
+Akan lebih efesien apabila kategori berita dimasukkan secara otomatis dengan komputer menggunakan metode tertentu.
+Sebelum berita dapat dikategorikan maka data berita tersebut harus diproses terlebih dahulu.
+Dimana dibandingkan dengan jenis data yang lain, sifat data berbentuk teks tidak terstruktur dan sulit untuk menangani.
+Text mining adalah cara agar teks dapat diolah dengan menggunakan komputer untuk menghasilkan analisis yang bermanfaat[1].
+Praproses dalam text mining diantaranya adalah tokenizing, case folding, stopwords, dan stemming.
+Diantara keempat langkah tersebut yang paling penting adalah proses stemmingyang merupakan proses menghilangkan imbuhan pada suatu kata untuk mendapatkan kata dasar dari kata tersebut.
+Confix-stripping stemmermerupakan penyempurnaan oleh Jelita Asian yang berawal dari nazief stemmer yang dibuat oleh Nazief dan Adriani.
+Salah satu metode statistika yang dapat melakukan pengkategorian adalah klasifikasi.
+Terdapat banyak metode klasifikasi dan dalam penelitian ini akan menggunakan metode NBC dan SVM.
+Metode NBC telah banyak digunakan dalam penelitian mengenai text mining, beberapa kelebihan NBC diantaranya adalah algoritma sederhana tapi memiliki akurasi yang tinggi [2].
+SVM teknik ini berakar pada teori pembelajaran statistik dan telah menunjukkan hasil empiris yang menjanjikan dalam berbagai aplikasi praktis dari pengenalan digit tulisan tangan sampai kategorisasi teks.
+SVM juga bekerja sangat baik pada data dengan banyak dimensi dan menghindari kesulitan dari permasalahan dimensionalitas [3].
+Penelitian berkaitan dengan metode NBC telah dilakukan diantaranya oleh Arifiyanti (2014), menggunakan NBC dengan confix-stripping stemmer mendapatkan hasil ketepatan klasifikasi sebesar 86,74%.
+Penelitian dengan menggunakan SVM telah dilakukan oleh Liliana, Hardianto, & Ridok, (2011) menghasilkan ketepatan klasifikasi sebesar 85%.
+Penelitian berkaitan dengan membandingkan kedua metode NBC dan SVM telah dilakukan pada sentiment analysis oleh Saraswati (2011) dan Aliandu (2013), kedua penelitian mendapati hasil metode SVM lebih baik dibandingkan metode NBC.
+Dalam penelitian ini akan dicoba menggunakan dua metode, metode pertama adalah yang umumnya dipakai yaitu metode NBC dan metode kedua adalah metode SVM.
+Kedua metode tersebut akan dibandingkan, mana metode yang menghasilkan tingkat klasifikasi paling besar.
+II. LANDASAN TEORI 
+A. Praproses Teks 
+Tahapan praproses ini dilakukan agar dalam klasifikasi dapat diproses dengan baik.
+Tahapan dalam praproses teks adalah sebagai berikut.
+Case Folding, merupakan proses untuk mengubah semua karakter pada teks menjadi huruf kecil.
+Tokenizing, merupakan proses memecah yang semula berupa kalimat menjadi kata-kata.
+Stopwords, merupakan kosakata yang bukan merupakan kata unik atau ciri pada suatu dokumen.
+Terakhir Stemming, yakni proses untuk mendapatkan kata dasar dengan cara menghilangkan awalan, akhiran, sisipan, dan confixes (kombinasi dari awalan dan akhiran).
+B. Nazief Stemmer 
+Algoritma stemming Nazief dan Adriani dikembangkan berdasarkan aturan bahasa Indonesia yang kata-katanya menggunakan imbuhan, awalan (prefix), sisipan (infix), akhiran (suffix), dan kombinasi awalan serta akhiran (confixes).
+Pengelompokan imbuhan nazief stemmer dibagi dalam beberapa kategori sebagai berikut: a.
+Inflection Suffixes, kelompok akhiran yang tidak mengubah bentuk dari kata dasar.
+Kelompok ini dibagi menjadi dua, yaitu:Particle (Partikel), termasuk di dalamnya adalah -lah, -kah, -tah, dan -pun.
+Passive Pronoun (Kata ganti kepemilikan), termasuk di dalamnya adalah -ku, -mu, dan -nya.
+b. Derivation Suffixes (Akhiran), kumpulan akhiran yang secara langsung ditambahkan pada kata dasar.
+Termasuk di dalamnya adalah -i, -kan, dan -an.
+c. Derivation Prefixes (Awalan), kumpulan awalan yang dapat ditambahkan langsung pada kata dasar yang sudah mendapatkan penambahan sampai dua awalan.
+Kelompok ini dibagi menjadi dua, yaitu:Standar, termasuk di dalamnya adalah di-, ke-, dan se-.
+Kompleks, termasuk di dalamnya adalah me-, be-, pe-, dan te-.
+Pengelompokan dari beberapa kategori tersebut dimodelkan sebagai berikut: AW+AW+AW+Kata Dasar +AK+KK+P Dengan: AW = Awalan KK = Kata ganti kepunyaan AK = AkhiranP = Partikel.
+Pada Tabel 1, Tabel 2, dan Tabel 3 simbol C merupakan huruf konsonan, simbol V merupakan vokal, simbol A merupakan vokal atau konsonan, dan simbol P merupakan partikel dari suatu kata, contohnya 'er'.
+C. Confix-Stripping Stemmer Pada tahun 2007 algoritma nazief stemmer kemudiandikembangkan lagi oleh Jelita Asian, dengan menambahkan beberapa perbaikan yang bertujuan untuk meningkatkan hasil stemming yang diperoleh.
+Algoritma ini kemudian dikenal sebagai confix-stripping stemmer.
+Perbaikan tersebut antara lain sebagai berikut: 1. Menggunakan kamus kata dasar yang lebih lengkap.
+2. Memodifikasi dan menambahkan aturan pemenggalan untuk tipe awalan yang kompleks (memodifikasi aturan pada Tabel 1 sesuai modifikasi pada Tabel 2 dan menambahkan aturan pada Tabel 3 ke dalam Tabel 1).
+3. Menambahkan aturan stemming untuk kata ulang dan bentuk jamak, misalnya kata 'buku-buku' yang menjadi 'buku'.
+Hal ini dilakukan dengan melakukan pemisahan kata tersebut menjadi dua kata yang masing-masing di-stemming.
+Jika stemming memberikan kata dasar yang sama, maka keluaran kata dasarnya adalah hasil stemming tersebut.
+Jika hasil stemming dua kata tersebut berbeda maka disimpulkan bahwa masukan adalah kata ulang semu dan tidak memiliki bentuk kata dasar lagi.
+4. Aturan rule precedence penghilangan awalan dilakukan terlebih dahulu kemudian diikuti oleh penghilangan akhiran dan berlaku jika kata memiliki kombinasi awalan-akhiran 'be-lah', 'be-an', 'me-i', 'di-i', 'pe-i', atau 'te-i', misalnya bertaburan, melindungi, dilengkapi, dan teradili.
+D. Naive Bayes Classifier 
+Teorema Bayes merupakan teorema yang mengacu konsep probabilitas bersyarat[3].
+Secara umum teorema Bayes dapat dinotasikan pada persamaan berikut: (1). 
+Metode naivebayesclassification (NBC), merupakan salah satu metode yang dapat mengklasifikasikan teks.
+Kelebihan NBC adalah algoritmanya sederhana tetapi memiliki akurasi yang tinggi.
+Dalam algoritma NBC setiap dokumen direpresentasikan dengan pasangan atribut a1, a2, a3,..., an dimana a1 adalah kata pertama, a2 adalah kata kedua dan seterusnya.
+Sedangkan V adalah himpunan kategori berita.
+Pada saat klasifikasi algoritma akan mencari probabilitastertinggi dari semua kategori dokumen yang diujikan (VMAP).
+Adapun persamaan VMAP adalah sebagai berikut: argmax |jMAPjijivVVPvPav (2) Nilai P(vj) dihitung pada saat data training, didapat dengan rumus sebagai berikut: jdocjPvtraining (3) Dimana |doc j|merupakan jumlah dokumen (artikel berita) yang memiliki kategori j dalam training.
+Sedangkan |training| merupakan jumlah dokumen (artikel berita) dalam contoh yang digunakan untuk training.
+Untuk probabilitas kata ai untuk setiap kategori P(ai|vj), dihitung pada saat training.
+(4) Dimana ni adalah jumlah kemunculan kata ai dalam dokumen yang berkategori vj, sedangkan n adalah banyaknya seluruh kata dalam dokumen dengan kategori vjdan |kosakata| adalah banyaknya kata dalam contoh pelatihan.
+E. Term Frequency Inverse Document Frequency
+Term Frequency Inverse Document Frequency (TF-IDF) merupakan pembobot yang dilakukan setelah ekstrasi artikel berita.
+Rumus dalam menemukan pembobot dengan TF-IDF adalah sebagai berikut : (5) Dimana wij adalah bobot dari kata i pada artikel ke j, N merupakan jumlah seluruh dokumen, tfij adalah jumlah kemunculan kata i pada dokumen j, dfj adalah jumlah artikel j yang mengandung kata i.
+TF-IDF dilakukan agar data dapat dianalisis dengan menggunakan support vector machine.
+F. Support Vector Machine 
+Support Vector Machine (SVM) adalah sistem pembelajaran yang menggunakan hipotesis fungsi linear dalam ruang berdimensi tinggi dan dilatih dengan algoritma berdasarkan teori optimasi dengan menerapkan learning bias yang berasal dari teori statistik[4].
+Tujuan utama dari metode ini adalah untuk membangun OSH (Optimal Separating Hyperplane), yang membuat fungsi pemisahan optimum yang dapat digunakan untuk klasifikasi.
+Data yang berada pada bidang pembatas disebut dengan support vector.
+Dalam Gambar 1, dua kelas dapat dipisahkan oleh sepasang bidang pembatas yang sejajar.
+| | merupakan jarak bidang pemisah yang tegak lurus dari titik pusat koordinat dan adalah jarak euclidean dari w.
+Bidang pembatas pertama membatasi kelas pertama sedangkan bidang pembatas kedua membatasi kelas kedua, sehingga diperoleh:1, 11, 1iibybyiixwxw (6) w adalah normal bidang dan b adalah posisi bidang alternatif terhadap pusat koordinat.
+Nilai margin (jarak) antara bidang pembatas (berdasarkan rumus jarak garis ke titik pusat) adalah 112bbww.
+Nilai margin ini dimaksimalkan dengan tetap memenuhi persamaan (6).
+Dengan mengalikan b dan w dengan sebuah konstanta, akan dihasilkan nilai margin yang dikalikan dengan konstata yang sama.
+Oleh karena itu, constraint pada persamaan (6) merupakan scaling constraint yang dapat dipenuhi dengan rescaling b dan w.
+Selain itu karena memaksimalkansama dengan meminimumkan.
+Jika kedua bidang pembatas pada persamaan (6) direpresentasikan dalam pertidaksamaan, (7) maka pencarian bidang pemisah terbaik dengan nilai margin terbesar dapat dirumuskan menjadi masalah optimasi konstrain, yaitu: 21min2dengan 10iybiwxw(8) Untuk mengklasifikasikan data yang tidak dapat dipisahkan secara linier formula SVM ditambahkan variabel i sering disebut dengan soft margin hyperplane.
+Dengan demikian formula pencarian bidang pemisah terbaik berubah menjadi: 211min2niiCw (9) Dengan () C adalah parameter yang menentukan besar penalti akibat kesalahan dalam klasifikasi data dan nilainya ditentukan oleh pengguna.
+Sehingga peran dari C adalah meminimalkan kesalahan pelatihan dan mengurangi kompleksitas model.
+Untuk kasus data dengan kategori lebih dari 2 atau multiclass, digunakan metode One Against One (OAO).
+G. Pengukuran Performa 
+Pengukuran performa dilakukan untuk melihat hasil yang didapatkan dari klasifikasi.
+Terdapat beberapa cara untuk mengukur performa, beberapa cara yang sering digunakan adalah dengan menghitung akurasi, recall, precission dan F-measure[5].
+III. METODOLOGI PENELITIAN
+A. Sumber Data 
+Sumber data yang akan digunakan dalam penelitian ini adalah artikel berita pada koran online kompas.com yangterdiri dari 12 artikel.
+Kategori tersebut adalah berita nasional, internasional, olahraga, sains, edukasi, ekonomi, tekno, entertaintment, otomotif, health, properti, dan travel.
+Tiap kategori akan diambil sebanyak 100 artikel sehingga data artikel keseluruhan berjumlah 1200.
+B. Langkah Analisis 
+1. Menyiapkan data artikel, daftar stopwords, dan kata dasar.
+Artikel beritaonlineJanuari hingga Desember tahun 2014.
+Data sampel tersebut dibagi menjadi data training dan data testing dengan proporsi 70:30.
+Daftar stopwords, didapatkan pada tesis F. Tala yang berjudul A Study of Stemming Effect on Information Retrieval in Bahasa Indonesia.
+Kata dasar dari kamus besar bahasa Indonesia.
+2. Praproses Teks a) Melakukan case folding,proses untuk mengubah semua karakter pada teks menjadi huruf kecil.
+b) Tokenizing untuk memecah kalimat menjadi kata per kata.
+c) Melakukan stemming pada kata-kata yang tersisa pada dokumen teks untuk mendapatkan kata dasar.
+Pada tahap ini dilakukan algoritma confix-stripping stemmer untuk mendapatkan kata dasar.
+d) Kemudian dilakukan proses stopping berdasarkan stoplist yang berisi stopwords yang telah ditentukan sebelumnya.
+3. Klasifikasi teks menggunakan NBC dengan tahapan a) Membagi data menjadi testing dan training, pada data training telah diketahui jenis dari kategori berita.
+b) Menghitung probabilitas dari Vj, dimana Vj merupakan kagetori berita, yaitu j1 = nasional, j2 = internasional, dan seterusnya.
+c) Menghitung probabilitas kata wk pada kategori vj.
+d) Model probabilitas NBC disimpan dan digunakan untuk tahap data testing.
+e) Menghitung probabilitas tertinggi dari semua kategori yang diujikan (VMAP).
+f) Mencari nilai VMAP paling maksimum dan memasukkan artikel berita tersebut pada kategori dengan VMAP maksimum.
+g) Menghitung nilai akurasi dari model yang terbentuk.
+4. Klasifikasi teks menggunakan SVM dengan tahapan a) Membagi data menjadi testing dan training, pada data training telah diketahui jenis dari kategori berita.
+b) Merubah teks menjadi vektor dan pembobotan kata dengan tf-idf.
+c) Menentukan pembobot parameter pada SVM tiap jenis kernel.
+d) Membangun model SVM menggunakan fungsi Radial Basis Function dan linier.
+e) Menghitung nilai akurasi dari model yang terbentuk.
+5. Membandingkan performansi metode NBC dan SVM berdasarkan tingkat akurasi ketepatan klasifikasi.
+IV. HASIL DAN PEMBAHASAN 
+Dalam pembahasan ini data telah dibagi menjadi dua yaitu data training dan testing dengan proporsi 70:30.
+Jumlah word vector yang akan diuji coba pada data training adalah1000,1500, 2000, 2500, 3000, 3500, 4000, 4500, dan 10000.
+Sedangkan untuk data testing karena jumlah artikel berita lebih sedikit maka word vector yang akan digunakan adalah 1000,1500, 2000, 2500, dan 3000.
+A. Nave Bayes Classifier 
+Pada data training kelas pada artikel berita telah diketahui sebelumnya.
+Dimana tujuan data training adalah untuk menghasilkan model dari Nave Bayes Classifier (NBC) untuk mengetahui ketepatan klasifikasi, selain itu pada data training juga memperhatikan waktu yang diperlukan pada pembentukan model.
+Berikut merupakan hasil dari data training.
+Tabel 4 yang bercetak tebal memperlihatkan bahwa dengan menggunakan word vector sebanyak 10000 akan menghasilkan tingkat klasifikasi yang paling baik.
+Ketepatan klasifikasi cenderung meningkat.
+Kecuali pada word vector 3000 dimana ketepatan sempat turun, kemudian terus meningkat hingga pada word vector terakhir.
+Selanjutnya adalah menguji masing-masing model pada word vector tersebut dengan menggunakan data testing.
+Berikut merupakan hasil klasifikasi berita dengan data testing menggunakan model yang telah terbentuk sebelumnya.
+Berdasarkan Tabel 5 akurasi yang dicetak tebal merupakan akurasi tertinggi untuk ketepatan prediksi artikel berita.
+Memperlihatkan bahwa ketepatan klasifikasi untuk word vector 4000, 4500, 6000 dan 10000 memberikan hasil yang terbaik dan menghasilkan hasil yang sama yaitu sebesar 82,2222%.
+Berdasarkan rata-rata akurasi, recall, precision, dan F-Measure pada Tabel 6 memperlihatkan hasil yang cukup baik.
+Masing-masing nilainya adalah 82,2%, 83,9%, 82,2%, dan 82,4%.
+Untuk tingkat akurasi paling tinggi dihasilkan oleh kategori berita edukasi, health, dan travel dengan nilai akurasi 93,3%.
+Berbeda dengan tiga kategori tersebut kategori berita properti menghasilkan akurasi yang paling rendah yaitu 66,7%.
+Untuk ukuran precision kategori tekno dan otomotif bernilai 100% sebaliknya travel menjadi yang paling rendah yaitu 65,1%.
+Recall paling tinggi terdapat pada kategori edukasi, health, dan travel sedangkan untuk paling rendah adalah properti.
+Untuk ukuran gabungan dari precision dan recall yaitu F-Measure memperlihatkan bahwa kategori entertaiment adalah yang paling tinggi sedangkan yang paling rendah adalah properti.
+Untuk kategori berita tekno dan otomotif tidak terdapat kategori berita lain yang diprediksikan masuk ke dalam kedua kategori tersebut.
+Tidak adanya kategori lain yang masuk, menyebabkan kategori tekno dan otomotif memiliki nilai precision sebesar 100%.
+Dalam pembahasan menggunakan NBC berarti terdapat kata yang berbeda pada saat menggunakan data training.
+Sehingga saat artikel berita pada data testing dicoba, hanya artikel berita yang memiliki kata berbeda tersebut yang akan diprediksi ke dalam kedua kategori tersebut.
+Sebaliknya seperti pada Tabel 6 travel menjadi kategori dengan nilai precision rendah.
+Kata yang terdapat pada data training artikel berita travel juga dipakai pada artikel berita lainnya sehingga berita kategori lain dapat diprediksi masuk kategori travel.
+Kesalahan klasifikasi yang terjadi dapat dikurangi dengan menambahkan data training yang memiliki kata yang lebih representatif, sehingga kata pada masing-masing kategori dapat lebih akurat untuk diprediksi.
+B. Support Vector Machine 
+Sama seperti pembahasan pada NBC mulanya data training dibagi menjadi 10 word vector.
+Tiap word vector dicari ketepatan klasifikasi yang paling baik dengan menggunakan parameter Support Vector Machine (SVM) yaitu Cdengan batasan C akan dari 10-2 hingga 104[6].
+Sedangkan gammaakanditentukan melalui percobaan untuk mendapatkan hasil training yang paling baik.
+Untuk mendapatkan model pada SVM kernel RBFakan digunakan seluruh data training.
+Berikut merupakan hasil percobaan pada data trainingdengan word vector 10000.
+Berdasarkan Tabel 7 dapat dilihat bahwa dengan menggunakan parameter C dan gamma pada percobaan SVM akan mempengaruhi hasil ketepatan klasifikasi berita pada data training.
+Gamma 1000 hingga 0,1 didapatkan ketepatan klasifikasi pada data training sebesar 100% pada tiap parameter C.
+Nilai gamma yang semakin mengecil mulai mempengaruhi ketepatan klasifikasi seperti yang terlihat pada gamma 0,001 dimana untuk C 10-2hingga 100 ketepatan klasifikasi dibawah 100%.
+Semakin mengecil nilai gamma semakin mengurangi ketepatan klasifikasi sehingga perlu ditambahkan parameter C yang lebih besar.
+Menggunakan cara yang sama maka didapatkan parameter untuk tiap word vector.
+Tabel 8 merupakan parameter yang menghasilkan ketepatan klasifikasi 100% pada data training dan menghasilkan ketepatan klasifikasi yang paling tinggi pada data testing yang akan dibahas selanjutnya.
+Berdasarkan Tabel 9 memperlihatkan untuk SVM dengan menggunkan kernel linier untuk setiap word vector pada data training didapatkan nilai ketepatan sebesar 100%.
+Kecuali untuk word vector 1000, 1500, dan 2000 pada c=0,01.
+Setelah mengetahui bahwa ketepatan klasifikasi pada data training baik untuk SVM dengan kernel RBF maupunkernel linier, maka selanjutnya akan masuk tahap dengan menggunakan data testing untuk tiap kernel.
+Tabel 10 menunjukkan untuk kernel RBF bahwa pada saat word vector 1000, 1500, 2000, dan 4000 menghasilkan ketepatan klasifikasi yang lebih tinggi dibandingkan dengan kernel linier.
+Saat jumlah word vector ditambahkan menjadi 4500 hingga 10000 ketepatan klasifikasi antara kernel RBF maupun linier menghasilkan ketepatan klasifikasi yang sama.
+Pada umumnya RBF akan lebih baik jika variabel lebih dari 1000[7], namun dalam penelitian yang dilakukan didapatkan bahwa pada word vector 4500 ke atas linier sama baiknya dengan kernel RBF.
+Kernel linier akan sama baiknya dengan kernel yang lebih rumit jika memiliki input space yang cukup.
+Ini berarti kategori teks terpisah secara linier di ruang fitur.
+Kemudian untuk pengukuran performa pada SVM akan digunakan linier SVM pada word vector 10000 untuk selanjutnya dibandingkan dengan hasil pada NBC.
+Hasil klasifikasi data testing menggunakan SVM linier pada Tabel 11 menunjukkan performa yang cukup baik dengan masing-masing nilai dari akurasi, precision, recall, dan F-Measure adalah 88,1%, 89,1%, 88,1%, dan 88,3%.
+Kategori berita entertaiment menjadi kategori dengan tingkat akurasi yang paling tinggi yaitu 96,7%, sebaliknya sains menjadi kategori dengan tingkat akurasi yang paling rendah yaitu 80,0%.
+Untuk precision dengan nilai paling baik adalah kategori tekno dan otomotif sebesar 100%, sedangkan kategori internasional dan ekonomi adalah kategori dengan precision terendah sebesar 73,0%.
+Hasil recall tertinggi adalah kategori entertaiment dengan nilai sebesar 96,7% dan terendah adalah kategori sains dengan nilai sebesar 80,0%.
+Nilai F-Measure menunjukkan performa yang paling baik adalah kategori health 94,9%, sedangkan yang paling rendah adalah kategori internasional dan ekonomi 80,6%.
+C. Perbandingan Antara NBC dan SVM
+Melihat hasil dari Perbandingan Antara NBC dan SVM Tabel 12 maka untuk semua cara pengukuran performa baik akurasi, precision, recall, dan F-Measure SVM kernel linier lebih baik dari NBC.
+Selain itu secara waktu saat menggunkan aplikasi SVM jauh lebih cepat untuk mendapatkan hasil daripada NBC.
+Secara keseluruhan terdapat 33 berita yang tidak bisa diprediksi dengan baik oleh kedua metode.
+V. KESIMPULAN DAN SARAN 
+A. Kesimpulan 
+Setelah sebelumnya didapatkan hasil dan pembahasan untuk klasifikasi berita Indonesia menggunakan metode NBC dan SVM dengan confix stripping stemmer.
+Berikut merupakan kesimpulan yang didapatkan: 1. Metode Naive Bayes Classifier dapat melakukan klasifikasi berita Indonesia cukup baik.
+Hasil yang didapatkan pada saat data testing pada masing-masing pengukuran performa akurasi, precision, recall, dan F-Measure sebesar 82,2%; 83,9%; 82,2%; dan 82,4%.
+2. Metode Support Vector Machine antara kernel RBF dan kernel linier pada word vector 10000 sama baiknya dalam melakukan klasifikasi berita Indonesia.
+Menggunakan data testing didapatkan untuk tiap pengukuran performa akurasi, precision, recall, dan F-Measure adalah 88,1%, 89,1%, 88,1%, dan 88,3%.
+3. Perbandingan antara kedua metode NBC dan SVM didapatkan hasil SVM kernel RBF dan linier lebih baik dibandingkan dengan NBC.
+B. Saran 
+Saran untuk penelitian yang akan datang adalah: 1. Dalam penelitian klasifikasi berita ini tidak melakukanpemilihan atribut/variabel.
+Sehingga untuk penelitian selanjutnya dapat dilakukan pemilihan atribut untuk mengurangi jumlah data.
+2. Dalam prediksi kelas pada multiclass SVM hanya menggunakan metode one against one dimana terdapat metode lainnya seperti one against all.

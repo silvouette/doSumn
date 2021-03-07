@@ -1,0 +1,153 @@
+Abstrak
+Prakiraan curah hujan merupakan salah satu tanggung jawab penting yang dilakukan oleh layanan meteorologi di seluruh dunia.
+Permasalahan utama dalam hal analisis dan prakiraan adalah tingkat kesalahan yang semakin meningkat dari waktu ke waktu.
+Hal ini dapat terjadi karena kondisi ketidakpastian juga meningkatseiring dengan perubahan musim dan iklim.
+Penelitian ini mencoba mengombinasikan dua metode yaitu Logika Fuzzy untuk menghadapi kondisi-kondisi yang tidak pasti dan Jaringan Syaraf Tiruan multi-layer untuk menghadapi kondisi dengan ketidakpastian yang terus meningkat.
+Penelitian ini juga menggunakan algoritma Particle Swarm Optimization untuk menentukan kebutuhan secara otomatis.
+Kebutuhan yang perlu ditentukan secara otomatis adalah bobot-bobot awal dalam Jaringan Syaraf Tiruan multi-layer sebelum akhirnya melakukan proses pelatihan algoritma.
+Penelitian ini menggunakan studi kasus di empat area Jawa Timur yaitu Puspo, Tutur, Tosari, dan Sumber untuk memprakirakan curah hujan di area Puspo.
+Data yang digunakan merupakan curah hujan timeseries yang dicatat selama 10 tahun oleh Badan Meteorologi Klimatologi dan Geofisika (BMKG).
+Hasil penelitian ini menunjukkan bahwa kombinasi dari Logika Fuzzy dengan Jaringan Syaraf Tiruan multi-layer mampu memberikan tingkat RMSE sebesar 2.399 dibandingkan dengan hanya menggunakan regresi linear dengan tingkat RMSE sebesar 7.211.
+Kata kunci: fuzzy, hujan, hybrid, jaringan syaraf, optimasi, timeseries
+1. PENDAHULUAN
+Analisis curah hujan timeseries, pada skala spasial dan temporal yang berbeda, telah menjadi perhatian besar selama abad terakhir.
+Hal tersebut ditunjukkan dengan perhatian yang diberikan terhadap perubahan iklim secara global dari komunitas peneliti.
+Para peneliti menunjukkan tren global yang sedikit lebih positif, meskipun pada beberapa daerah besar ditandai dengan tren negatif (Stocker, 2014).
+Pada awal mulanya, penelitian yang berkaitan dengan analisis data kualitatif dan timeseries homogen dilakukan menggunakan metodologi langsung maupun tidak langsung (Longobardi and Villani, 2009).
+Prakiraan curah hujan merupakan salah satu tanggung jawab penting yang dilakukan oleh layanan meteorologi di seluruh dunia.
+Permasalahan utama dalam hal analisis dan prakiraan adalah tingkat kesalahan yang semakin meningkat dari waktu ke waktu.
+Hal ini dapat terjadi karena kondisi ketidakpastian juga meningkatseiring dengan perubahan musim dan iklim (Kajornrit et al., 2014; Patel and Parekh, 2014; Wilks, 1998).
+Ini merupakan tugas yang rumit karena semua keputusan yang akan diambil di bidang meteorologi adalah suatu hal yang tidak pasti.
+2. TINJAUAN PUSTAKA
+Berbagai prosedur statistik telah sering digunakan untuk meramalkan banyaknya curah hujan.
+Salah satu metode yang paling sering digunakan pada sebagian besar kasus untuk analisis data statistik yang berbentuk timeseries adalah pemodelan Regresi Linear dengan metode ARIMA (Hashem et al., 1990; Papalaskaris et al., 2016; Svetlkov et al., 2008).
+Dua kata kunci utama untuk mencapai keberhasilan dan efektivitas ketika berhadapan dengan data yang berbentuk timeseries menurut Ahmed dkk (2009) yaitu metode yang sebaiknya digunakan dalam merepresentasikan kasus dan penyamaan pola.
+Akan tetapi pada kasus Prakiraan Curah Hujan Timeseries bukanlah sebuah kasus yang memiliki pola sederhana yang dapat diselesaikan dengan model Regresi Linear.
+Beberapa peneliti lain juga telah mencoba mengembangkan metode lain yang lebih rumit untuk menghadapi kasus Prakiraan Curah Hujan Timeseries.
+Beberapa peneliti menggunakan metode Logika Fuzzy untuk menghadapi berbagai kondisi yang tidak pasti/jelas (Asklany et al., 2011; Fallah-Ghalhary et al., 2009; Hasan et al., 2013) sedangkan beberapa peneliti yang lain menggunakan metode Jaringan Syaraf Tiruan multi-layer untuk menghadapi kondisi dengan ketidakpastian yang terus meningkat (Awan and Maqbool, 2010; Khidir et al., 2013; Mislan et al., 2015).
+Namun jika menggunakan metode Logika Fuzzy maka metode tersebut tidak mampu menghadapi permasalahan dari kondisi dengan ketidakpastian yang terus meningkat.
+Sebaliknya jika menggunakan metode Jaringan Syaraf Tiruan multi-layer maka metode tersebut tidak mampu menghadapi kondisi-kondisi yang tidak pasti/jelas.
+Agar dapat menghadapi kedua permasalahan tersebut maka penelitian ini akan mencoba mengombinasikan dua metode yaitu Logika Fuzzy dan Jaringan Syaraf Tiruan multi-layer.
+3. STUDI KASUS 
+Penelitian ini menggunakan empat area di Jawa Timur yaitu Puspo, Tutur, Tosari, dan Sumber untuk memprakirakan curah hujan di area Puspo.
+Masing-masing area tersebut dapat dilihat seperti pada Gambar 1. 
+Dari Gambar 1 diketahui bahwa keempat area tersebut saling berdekatan dan berada di area pegunungan di mana biasa terdapat area pertanian.
+Menurut Liu dan Lee (1999) penggunaan beberapa area yang berdekatan sebagai parameter dapat meningkatkan akurasi yang dihasilkan.
+Data timeseries yang digunakan adalah nilai curah hujan harian yang terjadi di Puspo, Tutur, Tosari, dan Sumber pada tahun 2005 hingga 2014.
+Data timeseries tersebut diukur menggunakan sebuah alat yang disebut ombrometer oleh Badan Meteorologi Klimatologi dan Geofisika (BMKG) dengan nilai rata-rata antara 040.000 mm3 per hari.
+Data timeseries dapat dimodelkan seperti pada Persamaan (1) di mana t merepresentasikan waktu sedangkan x(t) adalah nilai curah hujan pada waktu t.
+Contoh pola curah hujan secara timeseries dari area Puspo dapat dilihat seperti pada Gambar 2. 
+Menurut Svetlkov dkk (2008) dari Gambar 2 dapat dibagi menjadi 4 pola yaitu, - pola tidak teratur - sebuah pola acak yang tidak memiliki kemiripan dengan nilai sebelumnya, - pola siklus - sebuah pola yang membentuk seperti gelombang sinus kosinus yang terjadi beberapa kali, - pola musim - sebuah pola yang pasti terjadi sekali dalam setahun - Pola tren - sebuah pola kecenderungan meningkat atau menurun.
+4. METODOLOGI 
+Penelitian ini mengusulkan sebuah algoritma yang mengombinasikan Logika Fuzzy dan Jaringan Syaraf Tiruan multi-layer seperti pada Gambar 3 untuk kasus Prakiraan Curah Hujan Timeseries di area Puspo.
+Dari Gambar 3 diketahui mula-mula nilai curah hujan masuk sebagai nilai masukan.
+Selanjutnya nilai yang masuk tersebut diproses menggunakan metode Logika Fuzzy.
+Setelah diperoleh hasil dari proses Logika Fuzzy maka selanjutnya hasil tersebut dinormalisasi.
+Hasil normalisasi tersebut kemudian diproses menggunakan metode Jaringan Syaraf Tiruan multi-layer.
+Setelah diproses menggunakan metode Jaringan Syaraf Tiruan multi-layer maka selanjutnya dapat diperoleh hasil akhir.
+Penjelasan lebih detail dari masing-masing proses akan dijelaskan pada Bab berikutnya.
+5. LOGIKA FUZZY 
+Logika Fuzzy merupakan sebuah metode yang mampu mengambil keputusan dari permasalahan yang memiliki sifat ketidakjelasan.
+Ketidakjelasan yang dimaksud adalah pengklasifikasian sebuah nilai yang tidak termasuk salah satu dari klasifikasi yang tersedia (Takagi and Sugeno, 1985).
+Sebagai contoh sederhana yaitu sebuah suhu 500 C merupakan suhu yang bukan termasuk suhu panas maupun dingin.
+Logika Fuzzy mampu bekerja dengan mengubah nilai yang tidak jelas menjadi nilai fuzzy sehingga kemudian mampu memberikan keputusan.
+Dua hal yang perlu diperhatikan agar metode Logika Fuzzy dapat bekerja dengan baik yaitu menentukan himpunan fuzzy dan aturan fuzzy.
+Sedangkan nilai tidak jelas yang diproses dalam penelitian ini adalah nilai-nilai curah hujan yang terjadi di Puspo, Tutur, Tosari, dan Sumber.
+Nilai-nilai tersebut perlu difuzzykan karena secara semantik kita hanya mengenal kondisi hujan dan cerah yang kemudian dijelaskan lebih lanjut pada Subbab 5.1. 
+Selain itu, karena penelitian ini merupakan prakiraan secara statistik maka nilai-nilai curah hujan yang terjadi beberapa hari sebelumnya juga diperlukan dan akan dijelaskan lebih lanjut pada Subbab 5.2.
+5.1. Himpunan Fuzzy 
+Kebutuhan pertama agar Logika Fuzzy dapat bekerja dengan baik adalah menentukan himpunan fuzzy.
+Himpunan fuzzy berfungsi supaya nilai yang tidak yang jelas tetap dapat diproses secara jelas dengan cara mengubahnya menjadi nilai fuzzy.
+Dalam curah hujan yang diukur menggunakan ombrometer diketahui bahwa nilai sebesar 0 adalah cerah sedangkan nilai sebesar 40 adalah hujan lebat.
+Berdasarkan pernyataan tersebut maka penelitian ini menentukan himpunan fuzzy seperti pada Gambar 4. 
+Dari Gambar 4 diketahui terdapat dua pola yaitu pola hujan dengan nilai fuzzy dari 0 hingga 1 dan pola cerah dengan nilai fuzzy dari 1 hingga 0.
+Persamaan yang mengikuti pola di dalam Gambar 4 adalah Persamaan (2) untuk memperoleh nilai fuzzy hujan dan Persamaan (3) untuk memperoleh nilai fuzzy cerah di mana min adalah curah hujan sebesar 0, max adalah curah hujan sebesar 40, dan x adalah nilai curah hujan yang akan diproses.
+5.2. Aturan Fuzzy 
+Kebutuhan kedua agar Logika Fuzzy dapat bekerja dengan baik adalah menentukan aturan fuzzy.
+Aturan fuzzy terdiri dari beberapa kondisi IF-THEN berdasarkan nilai fuzzy yang diperoleh sebagai IF hingga memperoleh sebuah keputusan sebagai THEN.
+Penelitian ini menggunakan beberapa aturan fuzzy yang diperoleh dari penelitian yang dilakukan oleh Utomo dan Mahmudy (2016) seperti pada Tabel 1.
+Secara keseluruhan, Tabel 1 memiliki 17 kolom sebagai 16 nilai masukan dan 1 nilai keluaran; dan 16 baris sebagai 16 macam aturan.
+Jika P adalah Puspo, U adalah Tutur, O adalah Tosari, S adalah Sumber, dan t-36 adalah 360 hari sebelumnya maka Logika Fuzzy memiliki 16 nilai masukan yaitu P-1, P-2, P-18, P-36, U-1, U-2, U-18, U-36, O-1, O-2, O-18, O-36, S-1, S-2, S-18, S-36, sedangkan t-0 adalah hasil Logika Fuzzy untuk hari prakiraan.
+Jika variabel C merepresentasikan nilai fuzzy cerah, variabel H merepresentasikan nilai fuzzy hujan dan hubungan antar variabel adalah AND maka pada baris pertama dalam aturan fuzzy dapat dibaca sebagai, IF P(t-1) = cerah AND P(t-2) = cerah AND P(t-18) = hujan AND .... AND S(t-36) = cerah THEN t-0 = f1 (z1-17).
+Pada kolom t-0 memiliki beberapa baris persamaan yang berbeda-beda tetapi memiliki struktur yang sama yaitu seperti pada Persamaan (4).
+Struktur ini disebut dengan struktur persamaan regresi linear di mana variabel z merupakan konstanta yang perlu ditetapkan.
+Apabila Tabel 1 memiliki 16 buah persamaan dan setiap persamaan memiliki 17 variabel z maka secara keseluruhan Tabel 1 memiliki 272 variabel z yang perlu ditetapkan.
+Aturan fuzzy yang seperti ini biasa dikenal dengan sebutan Fuzzy Sugeno.
+Berdasarkan penelitian yang dilakukan oleh Utomo dan Mahmudy (2016), beberapa konstanta yang diperoleh adalah seperti pada Tabel 2.
+6. MEKANISME NORMALISASI 
+Beberapa penelitian seperti yang dilakukan oleh Patro dan Sahu (2015) menyatakan bahwa algoritma Jaringan Syaraf Tiruan multi-layer untuk beberapa kasus tertentu memerlukan mekanisme normalisasi.
+Hal tersebut diperlukan karena Jaringan Syaraf Tiruan multi-layer mampu bekerja dengan baik apabila data latih yang digunakan merupakan data dengan sebaran normal.
+Penelitian ini menggunakan rasio yang sering digunakan untuk menormalisasikan nilai keluaran dari proses Logika Fuzzy dengan kisaran antara 0 sampai 10 dengan rasio antara 0 sampai 1 untuk kemudian diproses menggunakan Jaringan Syaraf Tiruan (Patro and Sahu, 2015).
+Persamaan normalisasi yang digunakan adalah persamaan min-max normalization seperti pada Persamaan (5) di mana y adalah hasil normalisasi, x adalah nilai yang akan dinormalisasi, minX adalah rentang x terendah, maxX adalah rentang x tertinggi, minY adalah rentang y terendah dan maxY adalah rentang y tertinggi.
+7. JARINGAN SYARAF TIRUAN 
+Jaringan Syaraf Tiruan multi-layer merupakan sebuah metode adaptif yang dapat mengubah strukturnya untuk memecahkan masalah berdasarkan informasi eksternal dan internal yang mengalir melalui jaringan tersebut (Zurada, 1992).
+Jaringan Saraf Tiruan dapat digunakan untuk memodelkan hubungan yang kompleks antara nilai masukan dan keluaran untuk menemukan pola-pola dalam data.
+Karena terinspirasi oleh model kerja jaringan syaraf biologis otak, Jaringan Saraf Tiruan memproses sejumlah besar informasi secara paralel dan terdistribusi (Haykin, 2005).
+Arsitektur Jaringan Syaraf Tiruan multi-layer memiliki minimal 3 layer yaitu input layer, hidden layer, dan output layer.
+Masing-masing layer memiliki minimal satu neuron.
+Contoh sederhana dari arsitektur Jaringan Syaraf Tiruan multi-layer ditunjukkan seperti pada Gambar 5. 
+Dari Gambar 5 diketahui bahwa variabel B1 dan B2 adalah bias neuron, X1 dan X2 adalah input neuron, Y1 adalah output neuron, Z1, Z2, dan Z3 adalah hidden neuron sedangkan garis antar neuron adalah bobot neuron.
+Nilai keluaran yang diharapkan dari proses ini adalah sebuah nilai prakiraan curah hujan yang akan terjadi dengan nilai antara 040.000 mm3 untuk rata-rata curah hujan per hari.
+Karena proses Logika Fuzzy yang memiliki 16 macam aturan di mana setiap aturan memiliki 1 nilai keluaran maka proses Jaringan Syaraf Tiruan ini memiliki 16 nilai masukan.
+Dengan kata lain arsitektur Jaringan Syaraf Tiruan memiliki 16 input neuron yaitu X1, X2, ...., X16.
+Dua hal yang perlu diperhatikan agar metode Jaringan Syaraf multi-layer dapat bekerja dengan baik yaitu menentukan berapa banyaknya hidden neuron yang sebaiknya digunakan dan bobot-bobot awal dalam pelatihan Jaringan Syaraf Tiruan multi-layer.
+Selanjutnya penelitian ini akan menunjukkan cara bagaimana menentukan banyaknya hidden neuron dan bobot-bobot neuron.
+7.1. Banyaknya Hidden Neuron 
+Pada prinsipnya apabila semakin banyak neuron yang digunakan maka semakin tinggi tingkat akurasi yang diperoleh.
+Akan tetapi semakin bertambah banyaknya neuron yang digunakan maka tingkat akurasi yang diperoleh semakin tidak berbeda secara signifikan.
+Selain itu setiap penambahan neuron yang digunakan maka semakin rumit proses komputasi yang terjadi sehingga semakin membutuhkan waktu yang lebih lama (Hagan et al., 2014).
+Dalam menentukan berapa banyaknya hidden neuron yang sebaiknya digunakan, Heaton (2008) menyatakan bahwa banyaknya hidden neuron sebanyak 2/3 dari banyaknya input neuron ditambah dengan banyaknya output neuron.
+Dalam Subbab 4.2, Aturan Fuzzy memiliki 16 baris aturan maka penelitian ini juga menggunakan 16 input neuron.
+Penelitian ini hanya akan menghasilkan nilai keluaran sehingga penelitian ini juga menggunakan 1 output neuron.
+Dengan 16 input neuron, 1 output neuron, dan mengacu pada pernyataan Heaton (2008) maka penelitian ini menggunakan 12 hidden neuron.
+7.2. Bobot-Bobot Awal Jaringan 
+Dalam beberapa kasus seperti kasus Prakiraan Tren Curah Hujan, penentuan bobot-bobot awal jaringan sebelum melakukan prosedur pelatihan perlu diperhatikan.
+Hal tersebut diperlukan karena apabila menggunakan bobot-bobot awal secara acak maka proses pelatihan menjadi kurang optimal (Fausett, 1994).
+Apabila arsitektur Jaringan Syaraf Tiruan memiliki 16 input neuron, 12 hidden neuron, dan 1 output neuron maka arsitektur ini memiliki (1+16)*12 + (1+12)*1 = 217 bobot-bobot jaringan yang harus ditentukan.
+Untuk menyelesaikan permasalahan tersebut maka penelitian ini akan menggunakan algoritma Particle Swarm Optimization untuk menentukan bobot-bobot awal jaringan secara otomatis seperti penelitian yang pernah dilakukan oleh Pulido dkk (2014).
+Akan tetapi sebelum dapat menentukan secara otomatis diperlukan banyaknya swarm, nilai konstanta lokal, dan nilai konstanta global yang telah ditentukan.
+Perhitungan error yang digunakan dalam penelitian ini menggunakan sebuah perhitungan yang disebut Root Mean Square Error seperti pada Persamaan (6) di mana y adalah error yang diperoleh, x adalah hasil yang telah diperoleh, x adalah hasil yang seharusnya diperoleh, i adalah urutan dari data latih, dan n adalah banyaknya data latih.
+8. HASIL DAN PEMBAHASAN 
+Proses penentuan bobot-bobot jaringan merupakan proses stokastik di mana setiap kali proses dilakukan maka akan diperoleh hasil yang berbeda-beda.
+Maka dari itu masing-masing pengujian yang dilakukan dalam penelitian ini dengan menjalankan Particle Swarm Optimization sebanyak 10 kali sehingga kemudian diperoleh RMSE rata-rata yang diperoleh.
+Untuk memperoleh bobot-bobot awal jaringan yang baik maka terlebih dahulu dilakukan pengujian parameter untuk algoritma Particle Swarm Optimization antara lain yaitu banyaknya swarm, nilai konstanta lokal dan nilai konstanta global.
+8.1. Banyaknya swarm 
+Pengujian yang pertama adalah menentukan banyaknya swarm yang dibutuhkan.
+Pada prinsipnya semakin banyak swarm yang digunakan maka semakin memperoleh hasil yang optimal tetapi setiap penambahan swarm maka hasil yang diperoleh semakin tidak signifikan sehingga semakin membutuhkan waktu yang lebih lama.
+Hasil pengujian ditunjukkan seperti pada Gambar 6. 
+Dari Gambar 6 diketahui bahwa banyaknya swarm yang mampu memberikan RMSE yang masih signifikan adalah sebanyak 70 swarm.
+8.2. Nilai Konstanta Lokal 
+Pengujian yang kedua adalah menentukan nilai konstanta lokal.
+Nilai konstanta lokal ini memengaruhi perilaku observasi swarm berdasarkan hasil yang pernah diperoleh swarm tersebut.
+Hasil pengujian ditunjukkan seperti pada Gambar 7. 
+Dari Gambar 7 diketahui bahwa nilai konstanta lokal yang mampu memberikan RMSE yang rendah adalah nilai konstanta yang sebesar 1.20.
+8.3. Nilai Konstanta Global 
+Pengujian yang ketiga adalah menentukan nilai konstanta global.
+Nilai konstanta global ini memengaruhi perilaku observasi swarm berdasarkan hasil yang pernah diperoleh swarm lain.
+Hasil pengujian ini ditunjukkan seperti pada Gambar 8. 
+Dari Gambar 8 diketahui bahwa nilai konstanta global yang mampu memberikan RMSE yang rendah sebaiknya sama dengan besaran nilai konstanta akselerasi lokal, bukan setengah atau dua kalinya.
+8.3. Perbandingan dengan Metode Lain 
+Setelah menentukan banyaknya swarm, nilai konstanta lokal, dan nilai konstanta global maka kemudian dapat menentukan bobot-bobot awal dalam Jaringan Syaraf Tiruan multi-layer secara otomatis.
+Setelah memperoleh bobot-bobot awal maka selanjutnya melakukan prosedur pelatihan algoritma yang dimiliki oleh metode Jaringan Syaraf Tiruan multi-layer.
+Bobot-bobot jaringan yang diperoleh setelah melalui prosedur pelatihan yang dimiliki algoritma Jaringan Syaraf Tiruan ditunjukkan seperti pada Tabel 3.
+B1 adalah nilai bias pada input layer, X1, X2, ...., X16 adalah neuron pada input layer, dan Z1, Z2, ...., Z12 adalah neuron pada hidden layer.
+Nilai 4.093 pada kolom B1 dan baris Z1 berarti jaringan yang menghubungkan antara neuron B1 dengan Z1 memiliki bobot sebesar 4.093.
+Algoritma yang telah terbentuk kemudian dibandingkan dengan model Regresi Linear, Logika Fuzzy Sugeno tanpa Jaringan Syaraf Tiruan multi-layer, dan Jaringan Syaraf Tiruan multi-layer tanpa Logika Fuzzy Sugeno.
+Hasil dari perbandingan tersebut ditunjukkan seperti pada Tabel 4.
+Dari Tabel 4 diketahui bahwa dengan mengombinasikan dua metode yaitu Logika Fuzzy dan Jaringan Syaraf Tiruan multi-layer mampu memberikan RMSE yang paling rendah dibandingkan dengan algoritma lain yang lebih sederhana.
+Sedangkan ketiga metode lain sudah sangat sulit memperoleh RMSE yang lebih rendah lagi dikarenakan kelemahan yang dimiliki masing-masing metode.
+Apabila diperhatikan dengan lebih terperinci maka perbandingan hasil prediksi masing-masing metode dapat ditunjukkan seperti pada Tabel 5.
+Tabel 5 merupakan sebagian dari data curah hujan yang digunakan untuk pengujian.
+Kolom Aktual adalah nilai curah hujan yang sebenarnya terjadi, FIS adalah nilai error (selisih antara nilai sebenarnya dengan nilai prediksi) dari metode Logika Fuzzy, JST adalah nilaierror dari metode Jaringan Syaraf Tiruan, sedangkan FIS+JST adalah nilai error dari metode gabungan yang diusulkan.
+Jika diperhatikan hanya dari nilai RMSE maka FIS terlihat mampu memberikan nilai RMSE yang lebih rendah dibandingkan dengan JST meskipun masih belum serendah FIS+JST.
+Jika diperhatikan kuantitas metode dalam memberikan nilai error di antara 1 sampai -1 maka FIS dan JST mampu memberikan kuantitas yang setara yaitu sebanyak 5 sedangkan FIS+JST hanya 3 (ditandai dengan blok warna abu-abu).
+Akan tetapi jika memperhatikan kuantitas metode dalam memberikan nilai error di luar 5 sampai -5 maka FIS+JST mampu memberikan kuantitas hanya 1 daripada FIS dan JST dengan memberikan kuantitas sebanyak 3 (ditandai dengan blok warna hitam.
+Berdasarkan hal ini maka diketahui bahwa kelebihan dari kombinasi dari Logika Fuzzy dan Jaringan Syaraf Tiruan multi-layer adalah menekan error yang tinggi dari sudut kuantitas.
+9. KESIMPULAN
+Apabila menghadapi sebuah kasus dengan salah satu metode adakalanya sudah sangat sulit untuk memperoleh akurasi yang lebih baik lagi.
+Hal tersebut dapat terjadi karena masing-masing metode memiliki kelemahan tersendiri.
+Penelitian ini menunjukkan bahwa dengan mengombinasikan Logika Fuzzy yang memiliki kelebihan dalam memproses kondisi yang tidak pasti dengan Jaringan Syaraf Tiruan yang memiliki kelebihan dalam memproses kondisi yang berubah-ubah mampu menurunkan tingkat RMSE menjadi lebih rendah lagi untuk kasus Prakiraan Curah Hujan Timeseries.
+Metode Logika Fuzzy yang mampu memberikan tingkat RMSE sebesar 2.982 sedangkan Jaringan Syaraf Tiruan yang mampu memberikan tingkat RMSE sebesar 2.750 apabila dikombinasikan maka mampu menurunkan tingkat RMSE menjadi sebesar 2.399.
+Di samping itu, penggunaan algoritma Particle Swarm Optimization juga bermanfaat untuk menentukan bobot-bobot awal pada Jaringan Syaraf Tiruan untuk meningkatkan kemampuannya dalam memberikan tingkat RMSE yang rendah.
+Pada penelitian selanjutnya akan mencoba mengganti algoritma Particle Swarm Optimization dengan strategi optimasi lain yang lebih komples untuk menentukan bobot-bobot jaringan beserta banyaknya hidden neuron secara otomatis.
+Dengan kemampuan menentukan bobot-bobot jaringan beserta banyaknya hidden neuron secara otomatis maka diharapkan memperoleh solusi untuk prakiraan curah hujan agar menjadi lebih baik..

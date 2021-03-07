@@ -1,0 +1,197 @@
+Abstrak
+Grafologi merupakan salah satu cabang ilmu psikologi yang khusus mempelajari tentang tulisan tangan.
+Melalui grafologi bisa diperoleh informasi tentang karakter kepribadian seseorang.
+Melalui perangkat mobile berbasis android, analisis grafologi akan menjadi lebih cepat dalam menampilkan pendekatan karakter kepribadian seseorang.
+Penelitian dilakukan dengan mengambil 42 sampel tulisan tangan dari orang yang memiliki perbedaan latar belakang.
+Fitur yang digunakan dalam penelitian ini adalah margin kiri pada tulisan tangan.
+Metode Support Vector Machine digunakan untuk mengklasifikasikan fitur hasil dari proses ekstraksi.
+Menggunakan metode baru yaitu Grid-double block dengan satu kali proses menghasilkan ratarata akurasi margin kiri sebesar 69%.
+Kata kunci: grafologi; support vector machine; svm; psikologi.
+1. PENDAHULUAN
+Karakter dan penampilan fisik seseorang adalah hal yang berbeda.
+Artinya, karakter seseorang tidak dapat dilihat dari penampilannya saja.
+Seseorang yang memiliki karakter baik belum tentu berpenampilan rapi, begitu pula sebaliknya.
+Tes psikologi dilakukan untuk memperoleh informasi mengenai karakter seseorang (San, 2016).
+Pada pelaksanaannya, tes psikologis memerlukan waktu yang lama.
+Oleh karena itu, dibutuhkan alternatif lain yang dapat memberikan hasil akurat tentang gambaran karakter seseorang dalam waktu singkat (San, 2016).
+Selain waktu yang lama, faktor biaya juga menjadi kendala.
+Biaya untuk pelaksanaan tes psikologi relatif mahal (San, 2016).
+Alternatif dari tes psikologis adalah dengan membaca gaya tulisan tangan.
+Gaya tulisan tangan dapat digunakan untuk mengetahui karakter seseorang (Prasetyono, 2010).
+Sama seperti sidik jari, gaya tulisan tangan dan tandatangan sesorang merupakan ciri khas yang dimiliki seseorang.
+Walaupun dibuat semirip mungkin, tidak ada yang dapat menirunya.
+Bahkan, orang kembarmemiliki sidik jari dan gaya tulisan tangan yang berbeda (Prasetyono, 2010).
+Salah satu cabang ilmu psikologi yang secara khusus mempelajari tentang karakter seseorang melalui gaya tulisan tangan adalah grafologi (Nugroho, 2013).
+Kepribadian, karakter dan kecenderungan perilaku seseorang tercermin dari gaya tulisan tangannya (goresan dan gaya tulisan tangan).
+Pelaksanaan tes grafologi memiliki keakuratan hingga 85%, waktu yang dibutuhkan juga relatif singkat (tidak memakan waktu satu hari penuh), mudah dalam penggunaan graphotest dan biayanya pun murah(San, 2016).
+Pada saat seseorang menulis, aspek tubuh, mental dan emosi turut berperan.
+Otak manusia mengontrol fungsi tubuh yang sadar dan tidak sadar.
+Otak manusia pula yang berperan dalam mengontrol gaya tulisan tangan seseorang.
+Analisis grafologi tidak melihat bagus atau jeleknya tulisan atau isi dari tulisan.
+Analisis grafologi berfokus pada gaya tulisan tangan (San, 2016).
+Informasi mengenai pikiran, sikap dan perilaku seseorang dapat diketahui melalui gaya tulisan tangannya (San, 2016).
+Analisis grafologi dilakukan pada tulisan seseorang pada secarik kertas A4 polos.
+Parameter yang dapat digunakan dalam analisis grafologi antara lain ukuran tulisan, kemiringan tulisan, kecepatan dalam menulis, jarak tulisan, arah tulisan, spasi antar kata, garis dasar tulisan, ketersambungan dan tekanan pada saat menulis (Prasetyono, 2010).
+Melalui analisis tulisan tangan, motivasi dan dorongan dalam diri seseorang dapat diketahui.
+Selain itu, dapat diketahui pula kondisi mental, kestabilan emosi, kecenderungan intelektual, bidang / minat seseorang serta kekuatan dan kelemahan diri seseorang.
+Ahmad (2009) mengembangkan metode SVM yang dihybrid dengan Hidden Markov Model Online Handwriting Recognition (HMM OHR).
+Penelitian tersebut menghasilkan kesimpulan bahwa pengenalan angka dan huruf besar atau huruf kecil dapat dilakukan dengan baik menggunakan metode SVM yang hybrid.
+Penelitian lain menggunakan fitur margin, garis dasar tulisan, spasiantarkata dilakukan oleh Widoretno (2013) menggunakan metode pencocokan (matching).
+Fitur margin dibagi menjadi beberapa kategori yaitu margin seimbang, margin kiri lebar, margin kanan lebar, margin atas lebar, margin bawah lebar dan tidak ada margin.
+Penelitian ini menghasilkan tingkat akurasi 73,33% untuk keseluruhan margin dikarenakan adanya gangguan (noise) pada image.
+Pada penelitian Widoretno (2013), fitur margin kiri hanya disebutkan dalam satu kategori saja.
+Hal ini tidak dapat mewakili keadaan karakter kepribadian seseorang dimana karakter kepribadian seseorang ada berbagai macam jenisnya (San, 2016).
+Penelitian tersebut juga akan membutuhkan banyak memori penyimpanan karena metode pencocokan (matching) diharuskan menyimpan data yang akan digunakan untuk pencocokan dengan data baru.
+Berdasarkan permasalahan yang ditemukan dalam penelitian Widoretno(2013), maka dilakukan pengembangan fitur margin kiri.
+Fitur margin kiri dikembangkan dengan membagi kategori margin kiri menjadi margin kiri normal, margin kiri sempit, margin kiri tidak teratur, margin kiri menyempit, margin kiri melebar dan margin kiri sangat lebar.
+Penerapan metode Support Vector Machine (SVM) dan metode baru, diharapkan dalam pengembangan rancangan dan implementasinya memberikan tingkat akurasi yang berarti dilihat dari parameter akurasinya.
+Pengembangan lainnya juga terletak pada perangkat aplikasi yang digunakan adalah android mobile.
+2. LANDASAN TEORI 
+2.1 Grafologi 
+Kondisi pikiran dan tulisan tangan seseorang sangat berhubungan.
+Kondisi pikiran seseorang yang paling mudah berubah adalah emosi.
+Senang, sedih, galau, stress, bahagia merupakan emosi yang dapat berubah-ubah.
+Tulisan tangan seseorang dapat mencerminkan emosi pada saat menulis, sehingga hasilnya akan terlihat berbeda-beda.
+Selain itu kondisi mental pada saat menulis juga mempengaruhi tulisan tangan, terutama pada saat percaya diri atau tidak percaya diri.
+Pada saat menulis, aspek yang digunakan oleh manusia adalah tubuh, mental, dan emosional.
+Seseorang menuangkan cerminan tubuh, mental, dan emosinya dalam bentuk tulisan tangan.
+Mental mencerminkan kecerdasan dan kepribadian.
+Tubuh mencerminkan kondisi fisik, kekuatan, dan kesehatan penulis.
+Emosional mencerminkan kondisi emosi/perasaan seperti bahagia, sedih, marah, dan sebagainya (San, 2016) Secara singkat, ratusan kepribadian dan karakter seseorang dapat diungkapkan melalui tulisan tangan.
+Mulai dari pikiran bawah sadar, reaksi emosional, intelektual, energi yang menakutkan dan pertahanan diri, motivasi, daya khayal, integritas, bakat, dan bahkan dorongan seksual dan keyakinan.
+Analisis grafologi meliputi beberapa fitur seperti tekanan, margin, spasi, garis dasar, ketersambungan, kecepatan, slant, ukuran huruf, 3 zona, awalan dan akhiran, huruf kapital, tanda tangan, huruf-huruf istimewa(Prasetyono, 2010).
+Berbagai bentuk tulisan tangan memiliki ciri-cirinya sendiri, dan ciri-ciri tersebut dapat menggambarkan kepribadian seseorang (Prasetyono, 2010).
+Penelitian ini mendeteksi kepribadian seseorang dengan menggunakan margin kiri.
+Deskripsi karakter kepribadian tersebut dapat dilihat pada Tabel 1.
+2.2 Klasifikasi Support Vector Machine (SVM) 
+Vapnik(1995) mengembangkan Support Vector Machine (SVM) yang merupakan classifier diskriminan powerful.
+Hasil positif yang diberikan oleh SVM membuat metode ini banyak digunakan di pengenalan pola.
+Pada Gambar 1 dapat dilihat bahwa permasalahan linier dan non linier, permasalahan klasifikasi, fleksibilitas, karakter optimum global dan kapasitas prediksi dapat dilakukan dengan SVM dan memberikan hasil yang positif.
+3. METODOLOGI 
+Bagian dalam metodologi merupakan langkah-langkah yang digunakan dalam penelitian.
+Tampak Gambar 2 merupakan skema dari metodologi yang dilakukan.
+Langkah awal dalam penelitian adalah studi literature yang berkaitan dengan sampel tulisan tangan.
+Buku grafologi, jurnal-jurnal ilmiah baik nasional dan internasional merupakan pendukung dalam penelitian.
+Pengetahuan tentang grafologi sangat penting dalam penggunaan metode pencitraan pada proses preprocessing, segmentasi dan klasifikasi SVM.
+Pada bagian pengumpulan data, pengumpulan sampel dilakukan pada responden pria dan wanita yang berumur 14 hingga 30 tahun secara acak.
+Sampel tulisan kemudian dianalisis oleh aplikasi.
+Gambar 3 menunjukkan tahapan-tahapan dalam proses analisis tulisan tangan.
+Data tulisan tangan yang sudah dikumpulkan selanjutnya dilakukan proses image analysis yang terdiri dari 2 tahap yaitu preprocessing dan segmentasi.
+Tahapan preprocessing menentukan bagian citra yang akan dianalisis.
+Tahapan preprocessing yang dilakukan adalah grayscale dimana sampel tulisan yang semula berbentuk citra RGB (Red Green Blue) diubah dalam bentuk citra keabuan yang kedalaman warna 8bit.
+Selanjutnya citra dibinerkan dalam bentuk nilai 0 dan 1, warna hitam dan putih saja (Prasetiawan, 2013).
+Segmentasi merupakan tahap selanjutnya setelah preprocessing yang membagi citra ke dalam komponen region atau objek.
+Pembagian citra ke region-region sesuai kriteria dengan pendekatan seperti threshold, region growing dan merging.
+Sifat similiarity pada segmentasi (Hermawati, 2013).
+Tahapan image analysis selanjutnya adalah ekstraksi fitur.
+Fitur yang diekstraksi adalah margin kiri, yang terdiri margin kiri beraturan, margin kiri tak beraturan, margin kiri melebar ke kanan, margin kiri menyempit.
+4. PERANCANGAN 
+Tahapan perancangan dibagi dalam dua bagian yaitu perancangan aplikasi dan perancangan metode seperti pada Gambar 4.
+4.1 Perancangan Aplikasi 
+Aplikasi yang digunakan adalah perangkat berbasis android.
+Terdapat dua peran penting pada aplikasi, yaitu sistem android dimana sistem ini memproses kegiatan pencitraan mulai dari preprocessing, segmentasi, ekstraksi fitur hingga menampilkan hasil analisis.
+Peran penting kedua adalah user, di mana user memasukkan data berupa gambar tulisan tangan.
+Pada Gambar 5 terlihat bagaimana cara menggunakan android untuk melakukan analisis tulisan tangan.
+4.2 Perancangan metode 
+Proses perancangan metode seperti yang terlihat pada Gambar 3. 
+Perubahan menjadi citra biner berdasarkan atribut yang sudah ditentukan.
+Citra tulisan tangan di-load ke dalam aplikasi kemudian ditampilkan di layar.
+Proses preprocessing dilakukan dengan diawali proses grayscale dan thresholding terlebih dahulu.
+Dimana citra diberikan nilai batas ambang dan dilakukan proses invers yang menghasilkan warna putih pada tulisan dan hitam pada latar belakang.
+Citra hasil segmentasi kemudian diambil fitur yang margin kiri melalui proses ekstraksi fitur.
+Nilai yang dihasilkan adalah jumlah dari beberapa piksel sampel tulisan sebagai nilai fitur proses klasifikasi.
+Proses selanjutnya dilakukan klasifikasi menggunakan metode SVM dimana terdapat bidang batas klasifikasi termasuk dalam margin kiri, margin kanan, margin atas dan margin bawah sesuai dengan kategori masing-masing margin.
+Margin kanan sempit, margin kanan lebar, margin kanan terbentur.
+Margin atas lebar, margin atas normal, margin atas sempit.
+Margin bawah sempit dan margin bawah lebar.
+5. IMPLEMENTASI 
+Tahapan implementasi menjelaskan tentang alur dari kegiatan merancang sistem dan merancang metode.
+Implementasi sistem perangkat lunak menjelaskan tentang alat yang digunakan dalam penelitian.
+Implementasi perangkat keras dalam penelitian berupa perangkat keras komputer yang digunakan dalam membangun aplikasi.
+Perangkat keras computer tersebut mempunyai spesifikasi menggunakan prosesor Intel(R) Core(TM) i3-2430M CPU @2.40GHz 2.40 GHz, RA 4GB dan sistem operasi Windows 7 Ultimate dengan bahasa pemrograman Eclipse Indigo dan sampel yang digunakan berupa data gambar.
+Uji coba aplikasi digunakan sebuah perangkat berbasis android menggunakan tipe handphone Sony Xperia C2305 v4.2.2, Prosesor Quad-Core 1.2 Ghz Cortex-47, RAM 1GB, memori 4GB.
+Langkah awal dalam melakukan implementasi metode adalah mengambil sampel tulisan dari 40 orang yang berbeda latar belakang.
+Tahapan dalam implementasi metode margin kiri berawal dari proses preprocessing yang kemudian dilanjutkan dengan segmentasi, ekstraksi fitur dan terakhir adalah klasifikasi tulisan serta hasil analisa.
+5.1 Preprocessing 
+Preprocessing merupakan awal dari perancangan metode mempunyai manfaat untuk meningkatkan kualitas citra, menghilangkan noise, dan perbaikan citra (Putra, 2010).
+Tahapan preprocessing meliputi: a) Binarization yang dimaksud disini adalah dengan melakukan Grayscale.
+Proses Grayscale ini memiliki warna hitam, keabuan dan putih.
+Kedalaman warna yang dimiliki citra grayscale adalah 8 bit (256 kombinasi warna keabuan) (Putra, 2010).
+Memiliki satu nilai kanal di setiap pixelnya.
+Tingkat intensitas ditunjukkan oleh nilai kanal di tiap pixel tersebut.
+b) Thresholding yaitu citra yang memiliki dua nilai tingkat keabuan yaitu hitam dan putih.
+Seluruh pixel yang terdapat pada citra dikonversi menjadi hitam (nilai 0) dan putih (nilai 1) dengan satu nilai ambang T(Putra, 2010).
+Hasil dari proses preprocessing dari penelitian ditampilkan pada Gambar 6.
+ Tampak tampilan data awal diubah menjadi black-white dimana pada proses grayscale dilakukan inverse nilai grayscale untuk mendapatkan latar belakang berwarna hitam dan teks berwarna putih.
+Karena dalam penelitian dilakukan perhitungan nilai piksel teks.
+5.2 Segmentasi 
+Segmentasi merupakan proses membagi citra ke dalam komponen-komponen region atau objek (Nugroho, 2013).
+Segmentasi menjadi penting karena penggunaan segmentasi adalah untuk mengubah citra input ke dalam citra biner berdasarkan atribut yang diambil dari citra tersebut (Sutoyo, 2009).
+Sampel asli dilakukan pemotongan pada bagian kiri sebanyak seperempat lebar sampel.
+Tampak pada Gambar 6 bagian b.
+5.3 Ekstraksi fitur
+Ekstraksi fitur pada margin kiri merupakan nilai yang didapatkan setelah segmentasi.
+Nilai dari jarak margin kiri tersebut berupa nilai koordinat x dan y.
+Pada ekstraksi fitur margin kiri dimana nilainya diambil dari batas kertas paling kiri sampai huruf pertama teks yaitu: a) margin kiri normal apabila lebar jarak sebesar 1cm b) margin kiri sempit apabila lebar jarak sebesar 1cm c) margin kiri menyempit apabila bagian atas barisan tulisan makin ke bawah makin menyempit ke bagian bawah d) margin kiri sangat lebar apabila lebar jarak sebesar 1cm e) margin kiri melebar apabila bagian atas barisan tulisan makin ke bawah makin melebar ke bagian bawah f) margin kiri tidak teratur.
+5.4 Klasifikasi
+Klasifikasi merupakan proses dimana penentuan margin kiri masuk ke dalam kategori margin kiri normal, margin kiri sempit, margin kiri menyempit, margin kiri sangat lebar, margin kiri melebar dan margin kiri tidak teratur.
+Penentuan kategori tersebut merupakan hasil dari proses nilai koordinat (x,y) pada ekstraksi fitur.
+Pada bagian ini juga proses SVM dilakukan untuk pengklasifikasian.
+5.5 Meaning/hasil 
+Meaning / hasil adalah proses terakhir yang didapatkan berupa kesimpulan dari proses klasifikasi.
+Pada bagian ini dapat dinyatakan bahwa sampel tersebut mempunyai deskripsi seperti pada Tabel 1.
+Pada Gambar 7 ditunjukkan secara keseluruhan alur margin kiri.
+Berawal dari start yang merupakan bagian dari preprocessing dimana grayscale dan thresholding dilakukan.
+Kemudian dilakukan segmentasi dimana diambil sebagian dari area sampel sebesar seperempat lebar sampel dari sebesar kiri.
+Pada bagian segmentasi ini sangat penting karena akan diambil nilai untuk dilakukan proses selanjutnya yaitu ekstraksi fitur.
+Sebelum ekstraksi fitur pada hasil segmentasi dibuatlah grid sebagai garis imajiner dalam menentukan bagian teks atau bukan teks pada sampel.
+Grid berupa garis horizontal dari kiri ke kanan yang berawal pada bagian atas hingga ke bawah layar sampel.
+Lebar antar grid adalah sebesar 95 piksel.
+Tampak pada Gambar 8. 
+Satu persatu grid tersebut discanning untuk menemukan teks yang terdapat dalam lembar sampel.
+Jika pada proses scanning pada grid tersebut ditemukan piksel putih, maka dibuatlah sebuah block/kotak imajiner guna menandai bahwa daerah tersebut terdapat sebuah deret teks.
+Tampak pada Gambar 9. 
+Disinilah proses ekstraksi fitur terjadi.
+Tapi itu belum cukup dalam menentukan grid tersebut apakah benar mengandung teks, maka pada kotak imajiner tersebut dibuatlah 2 kotak imajiner yang berada di atas dan bawah grid awal guna mendeteksi lebih dalam teks di grid tersebut.
+Proses scanning grid diulang hingga semua grid didapatkan kesimpulan apakah grid tersebut sebuah barisan teks atau bukan teks yang ditandai dengan kotak.
+Pada Gambar 10 tampak terlihat sebuah teks dengan kotak imajiner berwarna putih strip hijau, kuning dan merah.
+Setiap kotak mempunyai nilai masing-masing, dimana nilai tersebut adalah jumlah dari piksel putih yang dilewati grid pada saat proses scanning.
+Kotak imajiner tersebut dibandingkan satu dengan yang lain sehingga menghasilkan kriteria bahwa kotak dengan nilai piksel putih paling tinggi adalah barisan dari teks.
+Ditandai dengan kotak imajiner berwarna hijau strip putih.
+Ketika grid tersebut sudah dinyatakan sebagai barisan dari sebuah teks maka dibuatlah juga titik awal teks dengan warna hijau.
+Pada bagian ini, metode SVM diperlukan dalam mengklasifikasi margin kiri.
+Metode SVM digunakan untuk menentukan kategori margin kiri melalui dua buah garis sejajar yang berfungsi sebagai pembagi daerah hyperplane.
+Garis hyperplane yang digambarkan sebagai 2 buah garis imajiner lurus sejajar selebar 20 piksel.
+Letak garis hyperplane tersebut berada pada posisi koordinat (x,y) pada barisan teks paling kiri.
+Garis hyperplane tersebut kemudian memanjang ke bawah dan ke atas hingga batas lembar sampel.
+Garis hyperplane ini merupakan parameter yang digunakan dalam menentukan teks tersebut mempunyai margin kiri melebar atau menyempit, tidak beraturan atau normal atau bahkan sangat lebar.
+Garis hyperplane bergerak dari 0 hingga 5 secara berurutan ke kanan dan ke kiri.
+Hasil dari masing-masing derajat kemiringan kemudian dibandingkan satu dengan yang lain dan diambil nilai piksel paling banyak.
+Hasil dari scanning tiap sudut mulai dari sudut 0 hingga 5 dan -0 hingga -5 dibandingkan satu dengan yang lain.
+Penentuan kategori margin kiri didapatkan dari seberapa banyak piksel putih yang didapatkan dari kotak imajiner sebelumnya.
+Proses selanjutnya adalah klasifikasi yang menentukan hasil dari proses SVM sebelumnya.
+Nilai prosentasi piksel putih pada tiap sudut kemiringan dibandingkan antar sudut yang satu dengan yang lain.
+Jika pada kemiringan tertentu terdapat banyak jumlah piksel putih maka sudut kemiringan tersebut yang akan ditentukan kategori marginnya.
+Dimana hasil klasifikasinya berupa margin kiri normal, margin kiri sempit, margin kiri menyempit, margin kiri sangat lebar, margin kiri melebar dan margin kiri tidak teratur.
+Setelah ditentukan klasifikasi margin yang dimaksud maka langkah selanjutnya yaitu menentukan deskripsi atau kesimpulan dari klasifikasi.
+Hasil kesimpulannya merupakan karakter kepribadian yang merupakan hasil olahan margin kiri dari sebuah teks tulisan tangan sesorang.
+6. HASIL 
+Pengujian dari aplikasi dilakukan dengan cara membandingkan hasil analisis android dengan hasil analisis pakar.
+Sehingga akan didapatkan keakuratan analisis dari aplikasi yang dibuat.
+Berikut merupakan sampel tulisan dari data Tulisan(1) seperti pada Gambar 13.
+Sehingga didapatkan hasil analisis dengan menggunakan aplikasi yang telah dibuat seperti pada Tabel 2.
+Berdasarkan Tabel 2, ada perbedaan hasil pada sampel data Tulisan(1) di fitur margin kiri.
+Pada aplikasi dikatakan margin kiri tidak teratur tetapi pada hasil pakar dikatakan margin kiri sempit.
+Keseluruhan hasil dari analisis aplikasi kemudian dibandingkan dengan hasil pakar.
+Pada fitur diberi nilai 1 jika hasilnya sama antara aplikasi dan pakar tetapi akan bernilai 0 jika hasilnya berbeda antara aplikasi dan pakar.
+Sehingga didapatkan hasil seperti pada Tabel 3.
+Sehingga hasil dari kesesuaian antara aplikasi dan pakar adalah seperti tampak pada Tabel 3.
+Pada bagian margin kiri, hasil yang didapatkan sebesar 69%.
+7. KESIMPULAN
+Pada penelitian Widoretno (2013), metode pencocokan (matching) membutuhkan lebih banyak memori khususnya penyimpanan data.
+Sedangkan pada penelitian yang sekarang dilakukan, tidak membutuhkan penyimpanan khusus.
+Widoretno(2013) menggunakan metode pencocokan (matching) sehingga proses berjalan dua kali lebih banyak yaitu proses pengambilan data pada database dan proses pencocokan data.
+Tetapi dengan menggunakan metode baru, grid-double block, proses hanya berjalan satu kali.
+Widoretno (2013) hanya menyebutkan satu kategori margin kiri saja sehingga tidak menjelaskan karakter kepribadian lainnya.
+Sedangkan penelitian yang dikembangkan ini meliputi margin kiri normal, margin kiri sempit, margin kiri menyempit, margin kiri sangat lebar, margin kiri melebar, margin kiri tidak teratur dan melibatkan seorang pakar grafologi.
+Semakin banyak fitur margin kiri yang masuk dalam penelitian akan semakin detail dalam klasifikasi karakter kepribadian.

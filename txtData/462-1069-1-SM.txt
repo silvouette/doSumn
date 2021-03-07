@@ -1,0 +1,127 @@
+Abstrak.
+Stemming adalah proses pemetaan dan penguraian berbagai bentuk (variants) dari suatu kata menjadi bentuk kata dasarnya.
+Proses ini juga disebut sebagai conflation.
+Proses stemming secara luas sudah digunakan di dalam kegiatan Information retrieval (pencarian informasi) untuk meningkatkan kualitas informasi yang didapatkan.
+Cara kerja stemming dapat dilakukan dengan menggunakan kamus kata dasar maupun menggunakan aturan-aturan imbuhan.
+Porter stemmer untuk Bahasa Indonesia atau yang biasa disebut dengan stemmer Tala menggunakan rule base analisis untuk mencari root sebuah kata.
+Stemmer Tala tidak menggunakan kamus dalam proses, melainkan menggunakan algoritma berbasis aturan.
+Dalam penelitian ini, pokok permasalahan yang diangkat adalah bagaimana melakukan proses klasifikasi/penentuan jenis buku/bahan pustaka dalam sebuah perpustakaan dengan cara yang cepat dan efektif sehingga dapat meminimalisir kesalahan penentuan jenis buku.
+Solusi yang dipergunakan adalah dengan memanfaatkan metode stemming dengan porter stemmer untuk bahasa Indonesia.
+Kata Kunci: Stemming, Information Retrieval, Porter Stemmer, Klasifikasi
+1. Pendahuluan
+Dewasa ini, buku merupakan salah satu sarana pemberi informasi bagi masyarakat luas.
+Ibarat kata, buku adalah jendela informasi dunia, maka segala kebutuhan akan informasi apapun tersaji dalam pustaka buku.
+Untuk mempermudah pencarian informasi yang sesuai dengan yang diinginkan oleh pencari informasi dan sesuai dengan waktunya, maka pengklasifikasifikasian dokumen akan membantu bagaimana mendapatkan informasi, sehingga mempermudah pengolahan dan penggunaannya sesuai kebutuhan dan tujuan yang ingin dicapai.
+Klasifikasi adalah proses menemukan model atau fungsi yang menjelaskan atau membedakan konsep/kelas data, dengan tujuan dapat memperkirakan kelas dari suatu objek dan merupakan proses awal pengelompokkan data.
+Proses klasifikasi dokumen merupakan proses yang sangat penting dalam bidang sistem informasi, khususnya dalam proses penambangan data (data mining) untuk memperoleh pengetahuan bisnis (Mulyanto, 2009).
+Menurut (Walpole dan Myers, 1995), klasifikasi adalah salah satu tugas yang penting dalam data mining.
+Permasalahan yang muncul sekarang adalah bagaimana melakukan proses klasifikasi buku dengan cepat dan efektif agar buku dapat benar-benar berada pada jenis yang sebenarnya.
+Permasalahan yang diuraikan di atas dapat diatasi dengan menggunakan metode dalam text preprocessing yang dilakukan sebelum tahap klasifikasi.
+Metode ini dikenal dengan istilah stemming.
+Stemming adalah proses pemetaan dan penguraian berbagai bentuk (variants) dari suatu kata menjadi bentuk kata dasarnya.
+Proses ini juga disebut sebagai conflation (Tala, 2003).
+Proses stemming secara luas sudah digunakan di dalam kegiatan information retrieval (pencarian informasi) untuk meningkatkan kualitas informasi yang didapatkan.
+Pada analisa temu kembali informasi imbuhan merupakan bagian dari informasi yang tidak bermakna, seperti halnya stop word.
+Sehingga imbuhan harus dihilangkan untuk mempercepat proses index.
+Cara kerja stemming dapat dilakukan dengan menggunakan kamus kata dasar maupun menggunakan aturan-aturan imbuhan.
+Dalam penelitian ini, dipergunakan metode porter stemmer atau yang dikenal dengan nama stemmer Tala.
+Metode ini tidak menggunakan kamus kata dasar tetapi menggunakan algoritma berbasis aturan dalam proses kerjanya.
+Tujuan yang ingin dicapai dalam penelitian ini diantaranya: (1) Memahami aturan-aturan dalam Porter Stemmer untuk bahasa Indonesia.
+(2) Dapat menerapkan aturan Porter Stemmer untuk Bahasa Indonesia untuk proses klasifikasi jenis buku berbahasa Indonesia dalam sebuah prototype.
+Beberapa manfaat yang dapat diambil dari penelitian ini diantaranya: (1) Penelitian ini diharapkan dapat menambah wawasan dan pengetahuan peneliti tentang aturan-aturan dalam porter stemmer untuk Bahasa Indonesia.
+(2) Dapat membantu mempermudah dalam proses klasifikasi jenis buku dengan menerapkan aturan-aturan dalam porter stemmer untuk Bahasa Indonesia.
+(3) Dapat membantu mempercepat proses klasifikasi dengan terbentuknya kata dasar dari implementasi porter stemmer untuk Bahasa Indonesia.
+2. Tinjauan Pustaka 
+2.1. Penelitian Terdahulu Beberapa penelitan tentang penerapan metode Nave Bayes Classifier yang sudah pernah dilakukan peneliti sebelumnya antara lain penelitian yang dilakukan oleh: (1) Indranandita, dkk.
+(2008) menjelaskan penggunaan porter stemmer untuk proses transformasi teks dalam sistem klasifikasi dan pencarian jurnal menggunakan metode Nave Bayes Classifier dan Vector Space Model.
+(2) Agusta (2009) memaparkan pemanfaatan algoritma porter stemmer Bahasa Indonesia dalam proses klasifikasi dokumen dan membandingkannya dengan algoritma Nazief & Adriani.
+(3) Baskoro, dkk.
+(2012) menjelaskan tentang langkah-langkah/algoritma, aturan dan pemanfaatan porter stemmer dalam Bahasa Indonesia.
+(4) Budhi, dkk. (2012) menjelaskan cara pembuatan kata kunci secara otomatis dengan menggunakan GenEx dan memanfaatkan porter stemmer for bahasa Indonesia untuk penyesuaian kata kunci.
+Dari hasil penelitian ini, disimpulkan bahwa porter stemmer for bahasa Indonesia dapat digunakan untuk membantu dalam proses penyesuaian kata kunci.
+(5) Utomo (2013) memaparkan pemanfaatan stemmer Tala untuk temu kembali informasi yang diterapkan dalam sebuah aplikasi berbasis web.
+Hasil dari penelitian ini, bahwa stemmer Tala yang merupakan algoritma berbasis aturan memiliki performa yang stabil dengan jumlah dokumen yang berkembang.
+(6) Pradnyana dan Sanjaya (2012) menguraikan penggunaan algoritma porter stemmer Bahasa Indonesia pada proses penemuan kalimat-kalimat penting dari tiap dokumen dalam sistem Automated Document Integration.
+(7) Karaa (2013) memaparkan tentang pemanfaatan algoritma porter stemmer untuk proses information retrieval (temu kembali informasi).
+2.2. Pengertian Klasifikasi 
+Mulyanto (2009) mengatakan proses klasifikasi adalah proses menemukan model atau fungsi yang menjelaskan atau membedakan konsep/kelas data, dengan tujuan dapat memperkirakan kelas dari suatu objek dan merupakan proses awal pengelompokkan data.
+Proses klasifikasi dokumen merupakan proses yang sangat penting dalam bidang sistem informasi, khususnya dalam proses penambangan data (data mining) untuk memperoleh pengetahuan bisnis (business knowledge).
+Klasifikasi adalah salah satu tugas yang penting dalam data mining.
+Dalam klasifikasi, sebuah pengklasifikasi dibuat dari sekumpulan data latih dengan kelas yang telah di tentukan sebelumnya (Walpole dan Myers, 1995), sedangkan menurut Han dan Kamber (2001), proses klasifikasi dibagi menjadi dua tahap, yaitu tahapan learning dan testing.
+Pada tahap learning/pembelajaran, sebagian data yang telah diketahui kelasnya (data latih) digunakan untuk membuat model klasifikasi.
+Tahap testing/pengujian menguji data uji dengan model klasifikasi untuk mengetahui akurasi model klasifikasi tersebut.
+Menurut Tenenboim, dkk (2008), klasifikasi dokumen adalah bidang penelitian dalam perolehan informasi yang mengembangkan metode untuk menentukan atau mengkategorikan suatu dokumen ke dalam satu atau lebih kelompok yang telah dikenal sebelumnya secara otomatis berdasarkan isi dokumen.
+2.3. Manfaat Klasifikasi 
+Menurut Eryono (1999), manfaat yang dapat diambil dari proses klasifikasi dokumen/bahan pustaka adalah sebagai berikut: (1) Buku/bahan pustaka yang sama atau mirip isinya akan terletak pada tempat yang berdekatan.
+(2) Memudahkan dalam mengadakan perimbangan koleksi yg dimiliki.
+(3) Memudahkan penelusuran terhadap bahan pustaka menurut subyek.
+(4) Memudahkan dalam membuatkan bibliografi menurut pokok masalah.
+Manfaat klasifikasi yang lainnya menurut Tenenboim (2008) adalah untuk mengelompokkan dokumen yang tidak terstruktur ke dalam kelompok-kelompok yang menggambarkan isi dari dokumen.
+2.4. Pengertian Stemming 
+Stemming adalah proses pemetaan dan penguraian berbagai bentuk (variants) dari suatu kata menjadi bentuk kata dasarnya (Porter, 1980).
+Proses ini juga disebut sebagai conflation.
+Proses stemming secara luas sudah digunakan di dalam information retrieval (pencarian informasi) untuk meningkatkan kualitas informasi yang didapatkan (Frakes dan Baeza, 1992).
+Stemming adalah suatu teknik pencarian bentuk dasar dari suatu term.
+Yang dimaksud dengan term itu sendiri adalah tiap kata yang berada pada suatu dokumen teks.
+Stemming dilakukan pada saat pembuatan indeks dari suatu dokumen.
+Pembuatan indeks dilakukan karena suatu dokumen tidak dapat dikenali langsung oleh suatu sistem temu kembali informasi atau information retrieval (IR) sistem.
+Oleh karena itu, dokumen tersebut terlebih dahulu perlu dipetakan ke dalam suatu representasi dengan menggunakan teks yang berada di dalamnya.
+Menurut Tala (2003), tujuan dari proses stemming adalah menghilangkan imbuhan-imbuhan baik itu berupa prefiks, sufiks, maupun konfiks yang ada pada setiap kata.
+2.5. Porter Stemmer Untuk Bahasa Indonesia 
+Porter Stemmer untuk Bahasa Indonesia atau yang dikenal dengan nama stemmer Tala, dikembangkan oleh Tala (2003).
+Implementasi Porter Stemmer untuk Bahasa Indonesia berdasarkan English Porter Stemmer yang dikembangkan oleh Frakes dan Baeza (1992).
+Karena Bahasa Inggris datang dari kelas yang berbeda, beberapa modifikasi telah dilakukan untuk membuat Algoritma Porter dapat digunakan sesuai dengan Bahasa Indonesia (Tala, 2003).
+Desain dari Porter Stemmer untuk Bahasa Indonesia dapat dilihat pada Gambar 1. 
+Dari Gambar 1 dapat dijelaskan algoritma/langkah-langkah dalam Porter Stemmer untuk Bahasa Indonesia sebagai berikut: (1) Menghapus partikel seperti: -kah, -lah, -tah.
+(2) Mengapus kata ganti (Possesive Pronoun), seperti ku, -mu, -nya.
+(3) Menghapus awalan pertama.
+Jika tidak ditemukan, maka lanjut ke langkah remove 2nd order prefix, dan jika ada maka lanjut ke langkah remove suffix.
+(4) (a) Menghapus awalan kedua, dan dilanjutkan pada langkah ke remove suffix.
+(b) Menghapus akhiran, jika tidak ditemukan maka kata tersebut diasumsikan sebagai kata dasar (root word).
+Jika ditemukan maka lanjut ke langkah remove 2nd order prefix.
+(5) (a) Menghapus akhiran dan kata akhir diasumsikan sebagai kata dasar (root word).
+(b) Menghapus awalan kedua dan kata akhir diasumsikan sebagai kata dasar (root word).
+2.6. Aturan Porter Stemmer Untuk Bahasa Indonesia 
+Terdapat lima aturan pada Algoritma Porter Stemmer untuk Bahasa Indonesia (Tala, 2003).
+Aturan-aturan tersebut dapat dilihat pada Tabel 1, Tabel 2, Tabel 3, Tabel 4, dan Tabel 5.
+3. Pembahasan dan Implementasi 
+3.1. Pembahasan 
+Sebelum dilakukan proses klasifikasi, data buku yang akan diproses untuk menentukan jenis bukunya, terlebih dahulu melalui tahap text preprocessing.
+Pada tahap text preprocessing dilakukan beberapa proses untuk menyiapkan judul dan sinopsis buku yang akan menjadi dokumen teks yang siap diolah pada tahap selanjutnya.
+Menurut Garcia (2005) pada tahap text preprocessing ini pada umumnya terdapat beberapa proses, antara lain tokenizing, stopword removal, filtering, stemming dan term weighting.
+Adapun tahap text preprocessing yang dilakukan dalam penelitian ini diperlihatkan pada Gambar 2. 
+3.1.1. Tokenizing 
+Selama proses tokenizing berlangsung semua string input akan diuraikan sesuai dengan tiap kata yang menyusunnya.
+Setiap huruf input akan diubah menjadi huruf kecil.
+Semua tanda baca dan tanda hubung akan dihapuskan, termasuk semua karakter selain huruf alphabet (Garcia, 2005).
+Pada penelitian ini, tahap tokenizing akan melakukan pemisahan terhadap kata demi kata dari teks judul dan sinopsis buku yang dimasukkan.
+Tanda baca juga dihilangkan dalam proses ini, sehingga dokumen akan menghasilkan beberapa token yang akan diproses lebih lanjut.
+Contoh proses ini seperti diperlihatkan pada Gambar 3. 
+3.1.2. Stopword Removal 
+Pada bagian ini, sistem baru akan melakukan proses membuang kata-kata yang tidak bermakna dari daftar token yang dihasilkan pada proses tokenizing.
+Contoh proses stopword removal diperlihatkan pada Gambar 4. 
+3.1.3. Stemming 
+Pada bagian ini dilakukan proses menghilangkan imbuhan, awalan, akhiran dan kata depan pada term hasil dari proses stopword removal, sehingga term dapat menjadi bentuk kata dasarnya.
+Metode stemming yang digunakan adalah Porter Stemmer untuk Bahasa Indonesia atau yang lebih dikenal sebagai stemming Tala.
+Dengan ditemukannya kata dasar dari term, maka dapat ditemukan pula intensitas kemunculan term dalam tiap dokumen melalui proses indexing.
+Contoh stemming dapat dilihat pada Gambar 5. 
+3.1.4. Indexing 
+Setelah tahap stemming dilakukan, maka data term yang dihasilkan dari input judul dan sinosis dari beberapa buku, diubah ke dalam term frequency (TF).
+TF adalah frekuensi kemunculan suatu term dalam tiap dokumen.
+Data TF tersebut kemudian disimpan untuk digunakan dalam proses klasifikasi.
+Pada proses klasifikasi ini, kata-kata yang telah dihasilkan dari proses stemming dan indexing akan digunakan untuk mencari probabilitas kesamaan kata dari dokumen buku yang akan diuji.
+Contoh dari TF dapat dilihat pada Gambar 6. 
+3.1.5 Proses Klasifikasi 
+Proses klasifikasi jenis buku mulai dilakukan setelah term yang dihasilkan dari data buku yang dijadikan sebagai dokumen training terbentuk.
+Pada bagian ini yang akan diuji adalah buku-buku yang dijadikan sebagai dokumen testing.
+Sebelum proses klasifikasi dilakukan, buku-buku testing harus melalui tahapan text preprocessing terlebih dahulu sampai pada tahap stemming.
+Dari tahap stemming ini dihasilkan kata-kata yang sudah tidak lagi memiliki imbuhan, awalan, akhiran dan kata depan untuk kemudian dicocokkan dengan kata kunci yang sudah diberikan dan dihitung probabilitasnya dengan algoritma klasifikasi.
+Tabel 6 di bawah ini memperlihatkan contoh simulasi hasil proses klasifikasi dokumen testing yang cocok dengan tabel kata kunci yang ada.
+3.2. Implementasi 
+Pada bagian ini dilakukan proses perancangan antar muka untuk mengimplementasikan seluruh tahapan text preprocessing.
+Perancangan antar muka ini menggunakan compiler Delphi 2010 seperti yang diperlihatkan pada Gambar 7, Gambar 8, dan Gambar 9. 
+4. Kesimpulan dan Saran 
+Berdasarkan hasil penelitian yang telah diuraikan pada bab sebelumnya dan perancangan prototype yang telah dilakukan, maka dapat diambil beberapa kesimpulan sebagai berikut: (1) Tahap text preprocessing yang dilakukan terhadap dokumen buku yang diuji semakin mempermudah untuk proses stemming.
+(2) Algoritma stemming dengan porter stemmer untuk Bahasa Indonesia yang menggunakan algoritma berbasis aturan sangat membantu mempercepat proses klasifikasi karena word yang dihasilkan dari dokumen-dokumen uji merupakan kata dasar yang semestinya sehingga memudahkan dalam pencocokan dengan kata kunci dan perhitungan probabilitas kemunculannya.
+(3) Prototype yang dibangun dengan penerapan aturan porter stemmer untuk Bahasa Indonesia ini dapat digunakan untuk membantu mempercepat dan mempermudah dalam proses klasifikasi jenis buku.
+Penelitian ini menggunakan dokumen uji yang tidak terlalu banyak (900 buku) dan berdasarkan pada kriteria judul serta sinopsis buku, sehingga dapat diberikan saran bagi peneliti yang lain untuk menggunakan dokumen uji yang lebih banyak lagi dengan kriteria uji tidak hanya judul dan sinopsis agar hasil stemming dengan porter stemmer untuk Bahasa Indonesia lebih akurat.

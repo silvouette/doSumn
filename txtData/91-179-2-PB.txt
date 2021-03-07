@@ -1,0 +1,163 @@
+Abstrak
+Sebuah citra dental memiliki komponen-komponen penting yang dapat digunakan untuk berbagai diagnosis penyakit.
+Salah satunya adalah komponen garis yang dapat digunakan untuk identifikasi penyakit periodontitis.
+Namun komponen garis ini sering tersamar dengan background.
+Oleh karena itu dibutuhkan metode perbaikan atau enhancement citra yang memodifikasi histogram citra radiograf untuk menonjolkan komponen detail garis pada citra.
+Pada penelitian ini diusulkan metode Histogram Modification - Local Contrast Enhancement untuk menonjolkan komponen garis pada citra dental.
+Setelah dilakukan perbaikan komponen garis, dilakukan klasifikasi penyakit periodontitis dengan algoritma Line Operator.
+Percobaan ini berhasil diterapkan serta menghasilkan akurasi 6 %, sensitivity 6 %, dan specificity 80%.
+Kata Kunci Perbaikan citra, histogram, identifikasi, klasifikasi.
+1. PENDAHULUAN
+Periodontitis merupakan suatu penyakit peradangan atau infeksi pada jaringan periodontal (Carranza dkk, 2006).
+Periodontitis dibagi menjadi dua yaitu periodontitis kronis dan periodontitis agresif.
+Periodontitis kronis biasanya terjadi pada usia dewasa, perjalanan penyakit yang cenderung lambat, dan disebabkan oleh faktor lokal.
+Gambaran radiografi pada periodontitis kronis yaitu tampak adanya kerusakan tulang secara horizontal.
+Periodontitis agresif biasanya terjadi pada usia muda, dibawah usia0 tahun, perjalanan penyakit yang cenderung cepat, dan disebabkan oleh respon imun.
+Gambaran radiografi periodontitis agresif tampak pada adanya kerusakan tulang secara vertikal.
+Proses deteksi penyakit periodontitis biasanya dilakukan secara klinis, namun jika dilakukan secara kasat mata dari citra dental panoramic radiograph, penyakit ini sangat sulit dideteksi (Cholissodin dkk, 2011).
+Citra radiograf dental terdiri atas gambaran tulang tengkorak manusia bagian bawah.
+Struktur tulang di bawah akar gigi dianggap sebagai benda padat dan trabecular bone yang memiliki banyak rongga direpresentasikan sebagai linear structure.
+Metode perbaikan detail citra dengan memodifikasi histogram dilakukan oleh Sundaram, dkk (2011) dalam penelitian yang dilakukan untuk memperbaiki citra medis.
+Penelitian tersebut dilakukan pada citra mammogram yang dapat digunakan untuk identifikasi kanker payudara.
+Pada penelitian tersebut telah dibuktikan bahwa kemampuan metode yang diajukan mampu meningkatkan pendeteksian microcalcification pada citra mammogram dimana microcalcification memiliki tingkat perbedaan kecerahan yang kurang signifikan jika dibandingkan dengan background sehingga sulit dideteksi (Sundaram dkk, 2011).
+Terdapat beberapa algoritma yang telah diusulkan untuk menganalisis bentuk linear structure dan salah satunya adalah algoritma Line Operator (Zwiggelaar dkk, 2004).
+Algoritma ini pula yang digunakan Cholissodin, dkk (2011) untuk mendeteksi struktur tulang pada citra dental panoramic radiograph untuk mengidentifikasi penyakit periodontitis.
+Algoritma Line Operator bekerja untuk memperoleh suatu nilai yang disebut line strength.
+Nilai line strength merupakan nilai tertinggi hasil pengurangan piksel-piksel foreground terhadap piksel-piksel yang termasuk background pada beberapa sudut (Arifin dkk, 2010).
+Pada citra dental panoramic radiograph, perbedaan antara foreground dan background tidak terlalu menonjol terutama pada bagian tepian garis yang memiliki lebar tertentu.
+Hal ini menyebabkan komponen detail garis ini sulit dikenali oleh sistem sehingga dibutuhkan metode perbaikan atau enhancement citra yang memodifikasi histogram citra radiograf untuk menonjolkan komponen detail garis pada citra.
+Pada penelitian ini diusulkan metode modifikasi histogram lokal atau Histogram Modified - Local Contrast Enhancement (HM-LCE) untuk menonjolkan komponen garis pada citra.
+Metode ini diharapkan mampu memperbaiki komponen garis pada citra dental sehingga dari citra tersebut dapat dilakukan klasifikasi dan identifikasi penyakit periodontitis yang akan dilakukan dengan algoritma Line Operator.
+Nilai line strength dari hasil algoritma Line Operator tersebut yang kemudian diintegrasikan dengan metode Line Tracking untuk melacak garis dari setiap piksel pada citra dengan diameter tertentu.
+Identifikasi penyakit periodontitis dapat dilakukan dengan menggunakan hasil binerisasi dari citra dental radiograf yang telah dilakukan.
+2. METODE DAN MATERIAL 
+Penelitian dilakukan dalam beberapa tahapan.
+Tahapan-tahapan tersebut dijabarkan dalam diagram alur pada Gambar.
+Secara umum, tahapan penelitian terdiri atas proses perbaikan citra, binerisasi dan klasifikasi penyakit periodontitis secara otomatis dengan metode yang telah ditentukan.
+2.1 Data 
+Data uji coba yang digunakan adalah data dental panoramic radiograph yang diperoleh dari hasil kerjasama dengan Institute of Tropical Disease (ITD) Universitas Airlangga.
+Gambar 2 menunjukkan contoh dari citra dental panoramic radiograph.
+2.2 Modified Histogram Dengan Local Contrast Enhancement 
+Perbaikan citra menggunakan Histogram Equalization (HE) mendistribusikan histogram citra keluaran dengan histogram kumulatif sebagai fungsi pemetaannya (Sasi & Jayasree, 2011).
+Namun metode ini dapat menjurus pada over enhancement dan mengakibatkan informasi detail dari citra awal hilang (Wang & Ward, 2007).
+Oleh karena itu, metode ini membutuhkan proses lain yang dapat mempertahankan detail-detail dari citra awal.
+Metode HE dengan Local Contrast Enhancement akan memodifikasi histogram yang sesuai sehingga dapat meningkatkan nilai perbaikan citra.
+Sesuai Sundaram, dkk (2011), proses perbaikan utama terdiri atas dua tahapan yaitu modifikasi histogram dan teknik perbaikan kontras secara lokal.
+Pada tahap modifikasi histogram, histogram awal akan dimodifikasi sehingga histogram keluaran akan mendekati histogram yang uniform.
+Hal penting yang perlu ditekankan adalah apabila histogram masukan telah berbentuk uniform, maka distribusi pemetaan untuk histogram keluaran akan mirip dengan histogram masukan (Sundaram dkk, 2011).
+Tujuan lain dari proses ini adalah untuk memperkecil perbedaan antara histogram citra masukan dengan histogram keluaran hasil modifikasi atau memperkecil nilai .
+Berdasarkan Sundaram, dkk (2011) tujuan ini bisa dicapai dengan menerapkan bi-criteria optimization problemsesuai dengan Persamaan (1).
+( ) Variabel adalah histogram keluaran,adalah histogram masukan, adalah histogram uniform, dan merupakan parameter enhancement dengan rentang nilai antara 0 dan.
+Solusi analitikal dari Persamaan (1) dapat diperoleh dengan Persamaan (2).
+() ()(2) Tahap kedua adalah Local Contrast Enhancement yang akan memperbaiki detail dari citra masukan secara lokal.
+Tahapan ini akan memproses histogram keluaran tahap pertama dan kemudian akan mentransformasikan histogram tersebut dengan berbasis distribusi level keabuan dan sifat lain yang ada pada setiap piksel pada citra.
+Beberapa pendekatan statistik dibutuhkan padan metode Local Contrast Enhancement ini.
+Pertama menghitung rata-rata global m dan standar deviasi sesuai dengan Persamaan (1) dan Persamaan (4).
+( )(4) Variabel r merupakan nilai diskrit level keabuan yang berada di rentang [0, L- ] dan variabel adalah komponen histogram normal yang berkorespondensi dengan nilai r hingga nilai ke-i.
+Basis dari Local Contrast Enhancement adalah penggunaan rata-rata lokal dan varians yang dijabarkan dalam Persamaan (1) dan (6).
+Rata-rata lokal dan varians dihitung menggunakan nilai piksel pada sub-citra dengan ukuran dan berpusat pada.
+( ) ( )(6) Variabel adalah level keabuan pada koordinat sesuai dengan ketetanggaan sub-citra dan adalah ketetanggaan dari komponen histogram normal sesuai dengan nilai keabuannya.
+Setelah semua perhitungan statistik dari histogram modifikasi didapatkan, maka mengikuti Sundaram, dkk (2011) diterapkan Persamaan (7) untuk menghasilkan citra keluaran sesuai dengan perbaikan.
+{{ (7) Variabel adalah citra keluaran proses enhancement danhasil dari modifikasi histogram.
+Nilai,, merupakan nilai konstanta positif dan, denganlebih dari untuk perbaikan area terang dan kurang dari untuk area gelap.
+2. Multi Scale Line Strength dan Integrasi Line Tracking
+Multi Scale Line Operator merupakan sebuah algoritma yang dapat digunakan untuk mendeteksi garis pada citra radiograf.
+Ada dua parameter yang dibutuhkan pada algoritma ini yaitu sudut ( ) dan panjang (M) (Ball, 2007).
+Nilai bervariasi antara 0 derajat sampai80 derajat.
+Sementara M merepresentasikan panjang dari sebuah moving window.
+Sebagai contoh, apabila terdapat2 nilai sudut dan M adalah, maka Multi Scale Line Strength akan membentuk2 bentuk rotasi dengan sudut 0, ,0, 4 , 60, 7 , 90,0 ,20,, 0, dan6derajat dan membentuk moving window dengan ukuranxpiksel.
+Line Strength dihitung dengan menggunakan Multi Scale Line Operator di setiap piksel pada citra masukan.
+Line Strength merupakan hasil pengurangan antara foreground dengan background (Arifin dkk, 2010).
+Sebuah nilaimerupakan jumlahan dari piksel citra dikali dengan nilai foreground mask yang berhubungan.
+Nilaimerupakan jumlahan piksel citra dikali dengan nilai background mask yang berhubungan.
+Nilai dari Line Strengthdapat dihitung dengan mengikuti Arifin, dkk (2010) sesuai Persamaan (8).
+Foregorund mask dan background mask ditentukan dengan garis sesuai panjang M dan lebar satu piksel dengan orientasi sudut.
+{ } (8) Struktur garis lokal yang memiliki kontras baik dan cocok dengan foreground mask akan memiliki nilai yang tinggi pada pemetaan Line Strength .
+Interpolasi bilinear digunakan untuk merotasi citra untuk pada selain nol untuk mendapatkan hasil yang lebih baik.
+Metode Gaussian Pyramid (Adelson dkk,1984) juga diterapkan untuk menganalisis permasalahan multi scale yang terjadi karena perbedaan segmen di setiap struktur garis.
+Line Strength yang didapatkan dari Multi Scale Line Operator diintegrasikan dengan algoritma Line Tracking untuk mengoptimasi deteksi struktur garis berdasarkan sudut dan diameter.
+Algoritma ini menggunakan histogram citra untuk mendapatkan batas piksel dari area yang dilacak dengan nilai ambang sesuai dengan intensitas frekuensi citra (Vlachos & Dermatas, 2010).
+Jika variabeladalah tingkat kecerahan piksel dari citra masukan pada posisi danadalah sebuah set dari piksel-piksel seed yang termasuk piksel inisial untuk proses pelacakan maka set piksel seedmenurut Vlachos, dkk (2010) ini didefinisikan seperti Persamaan (9).
+{ } (9) Variabeldan adalah dua nilai ambang yang secara otomatis diestimasi dari histogram menggunakan ukuran dari area pelacakan.
+Setelah set piksel seed didapatkan, nilai confidence dari setiap piksel yang termasuk struktur garis pada skala W akan diestimasi dan disimpan dalam array Cw.
+Inisialisasi array untuk nilai confidence dituliskan pada Persamaan ( 0).
+( 0) Nilai perkalian setiap bagian dari setiap piksel untuk delapan ketetanggaan Vs dihitung dengan perhitungan Persamaan ().
+Variabel merupakan nilai cross sectional dan adalah diameter dari struktur garis.
+Piksel tetangga yang memiliki nilaiakan memiliki nilaiyang lebih besar dengan T sebagai nilai ambang (Cholissodin dkk, 2011).
+Piksel pelacakan yang baru dapat dikalkulasi dengan Persamaan ( 2).
+Variabel cycx, adalah piksel pelacakan yang baru sesuai dengan perhitungan posisi yx, yang sebelumnya, diameter r, dan arah sudut .
+2.4 Identifikasi Penyakit Periodontitis 
+Untuk mendeteksi penyakit periodontitis pada citra dental panoramic radiograph, dihitung jumlah nilai piksel dari setiap citra biner hasil dari multi scale line strength dan integrasi line tracking sehingga diperoleh nilai total piksel masing-masing citra (Cholissodin dkk, 2011).
+Dari total piksel masing-masing citra tersebut,berikutnya ditentukan nilai threshold yang diperoleh dari rata-rata total piksel dari setiap citra.
+Jika total piksel lebih dari nilai threshold maka citra dental panoramic radiograph terdeteksi normal.
+Sebaliknya jika total piksel kurang dari nilai threshold maka citra dental panoramic radiograph terdeteksi periodontitis.
+3. UJI COBA DAN HASIL 
+Uji coba dilakukan pada sub sample citra yang diambil dari empat bagian citra dental panoramic radiograph yaitu masing-masing dua sub sample pada foramen kiri (Gambar) dan foramen kanan citra (Gambar 4).
+Uji coba dilakukan dalam beberapa skenario.
+Skenario ini berkenaan dengan parameter yang ada pada metode perbaikan citra.
+Parameter tersebut adalah parameter yang digunakan pada Persamaan (2) serta parameter k0, k , dan k2 yang digunakan pada Persamaan (7).
+Uji coba dilakukan dengan sistem cross validation dengan folds.
+Data secara random dibagi menjadi bagian.
+Uji coba ini dievaluasi dengan kriteria yaitu akurasi, sensitivity, dan specificity (Lutz, 2009).
+Tiga kriteria tersebut dapat dihitung berdasarkan informasi pada Tabel 1.
+Akurasi, sensitivity, dan specificity didapatkan dari perhitungan pada Persamaan (), ( 4), dan ().
+()( 4) () Uji coba sesuai parameter dilakukan dengan mengeksekusi program dengan jangkauan nilai parameter yang dituju.
+Pada percobaan pertama, dilakukan uji coba dengan variasi nilai parameter pada jangkauan 0,hingga.
+Sedangkan nilai parameter lain ditetapkan k0=0.5, k1=0.01, dan k2=0.
+Hasil dari uji coba ini dijabarkan dalam Tabel 2.
+Percobaan kedua dilakukan berdasarkan variasi nilai parameter k0 pada jangkauan 0,hingga 0.9 dengan nilai mengacu pada percobaan pertama yaitu ketika nilai akurasi tertinggi diperoleh.
+Sehingga ditetapkan nilai parameter =0.8, k1=0.01, dan k2=0.1.
+Hasil uji coba ini dijabarkan dalam Tabel.
+Percobaan ketiga dilakukan berdasarkan variasi nilai parameter k1.
+Pada percobaan ini ditetapkan nilai parameter=0.8, k0=0.8, dan k2=0.1.
+Penetapan nilai parameter dan k0 berdasarkan anaiisis pada percobaan pertama dan kedua.
+Hasil uji coba ini dijabarkan dalam Tabel 4.
+Percobaan keempat dilakukan berdasarkan variasi nilai parameter k2.
+Pada percobaan ini ditetapkan nilai parameter=0.8, k0=0.8, dan k2=0.09 yang mengacu dari analisis pada percobaan-percobaan sebelumnya.
+Hasil uji coba dijabarkan dalam tabel.
+Parameter, k0, k1 , dan k2 merupakan parameter yang digunakan pada tahap perbaikan citra.
+Pada tahap tersebut terjadi modifikasi histogram dari citra masukan.
+Gambar menunjukkan histogram dari salah satu sub sample citra yang diuji coba dan Gambar 6 menunjukkan hasil modifikasi histogram.
+Sedangkan Gambar 7 menunjukkan contoh citra hasil dari tahap perbaikan komponen garis.
+Citra hasil perbaikan tersebut kemudian diproses ke tahap berikutnya yaitu tahap Multi Scale Line Strength dan Integrasi Line Tracking.
+Citra biner hasil dari pemrosesantahap tersebut ditunjukkan pada Gambar 8.
+4. PEMBAHASAN 
+Hasil dari uji coba dalam empat skenario yang telah ditetapkan menunjukkan bahwa parameter, k0, k , dan k2 sangat mempengaruhi klasifikasi penyakit periodontitis.
+Pada skenario pertama, dilakukan uji coba terhadap nilai parameter.
+Terlihat pada hasil uji coba bahwa akurasi dan sensitivity tertinggi didapatkan dari nilai=0,8 sedangkan nilai specificity tertinggi didapatkan dari nilai= 0,3, 0,4, 0,5, dan 0,7.
+Dari variasi nilai yang diuji coba maka dapat dilihat bahwa semakin besar nilai parameter maka nilai akurasi yang diperoleh mengalami peningkatan.
+Dari hasil coba tersebut juga menunjukkan ketika histogram citra yang semakin mendekati histogram uniform maka akurasi dari proses pendeteksian penyakit periodontitis dapat meningkat.
+Pada skenario kedua, dilakukan uji coba terhadap nilai parameter k0.
+Terlihat pada hasil uji coba bahwa akurasi terbaik didapatkan dari nilai k0=0,8.
+Sedangkan sensitivity tertinggi juga didapatkan dari nilai k0=0,8.
+Untuk nilai specificity tertinggi didapatkan dari nilai parameter k0=0,8 dan 0,9.
+Dari variasi nilai k0 yang diuji coba maka dapat dilihat bahwa tingginya nilai k0 memberikan peningkatan terhadap hasil akurasi, sensitivity, dan specifity.
+Nilai parameter k0 sesuai Persamaan (7) merupakan konstanta yang berkaitan dengan rata-rata tingkat keabuan.
+Hasil uji coba dari Tabel menunjukkan nilai rata-rata tingkat keabuan lokal suatu piksel yang semakin mendekati niali rata-rata tingkat keabuan dari keseluruhan citra dapat meningkatkan hasil akurasi, sensitivity, dan specifity.
+Pada skenario ketiga dan keempat dilakukan uji coba terhadap nilai parameter kdan k2.
+Kedua parameter tersebut sesuai Persamaan (7), berkaitan dengan nilai satndar deviasi tingkat keabuan citra.
+Terlihat pada hasil uji coba parameter k , akurasi dan sensitivity terbaik didapatkan dari nilai parameter k =0.09.
+Sedangkan nilai specificity terbaik didapatkan dari nilai parameter k =0.09 dan 1.
+Dari variasi nilai kyang diuji coba dapat juga dilihat bahwa semakin besar nilai kmemberikan peningkatan terhadap hasil akurasi, sensitivity, dan specifity.
+Pada skenario terakhir yaitu uji coba terhadap nilai parameter k2, terlihat bahwa akurasi dan sensitivity terbaik didapatkan dari nilai parameter k2=0,4.
+Sedangkan untuk specificity terbaik didapatkan dari nilai parameter k2=0,3, 0,4,0,5 dan 0,7.
+Dari variasi nilai k2 yang diuji coba, terlihat bahwa nilai akurasi, sensitivity, dan specificity tidak mengalami peningkatan atau penurunan secara konstan.
+Selain itu nilai akurasi, sensitivity, dan specificity yang diperoleh tidak mengalami peningkatan secara signifikan jika dibandingkan dengan hasil dari percobaan-percobaan sebelumnya.
+Sehingga secara umum, hasil uji coba terbaik didapatkan dari percobaan ketiga dengan nilai k1=0.09.
+Pada percobaan ini didapatkan nilai akurasi, sensitivity, dan specificity tertinggi.
+Jumlah data uji coba antar kelas yang digunakan tidak seimbang.
+Untuk mengatasi ketimpangan tersebut, uji coba dilakukan dengan menggunakan folds cross validation.
+Data dibagi menjadi lima bagian secara acak kemudian ditentukan proporsi data uji dan data latihnya.
+Untuk percobaan ini proporsi data latih adalah 80% dan data uji 20%.
+Berdasarkan pertimbangan ketimpangan jumlah data pada setiap kelas, proses evaluasi juga disesuaikan dengan menambahkan nilai selain akurasi.
+Nilai akurasi dianggap kurang relevan apabila digunakan untuk persentase data yang sangat sedikit dibandingkan dengan data yang sangat banyak.
+Oleh karena itu nilai sensitivity dan specificity digunakan pada evaluasi untuk menghasilkan evaluasi yang lebih handal terhadap jumlah data yang timpang.
+5. KESIMPULAN
+Metode perbaikan komponen garis pada citra dengan menggunakan metode Histogram Modification - Local Contrast Enhancement dapat digunakan untuk menonjolkan komponen detail garis pada citra dental sehingga dapat dilakukan identifikasi penyakit periodontitis dari citra tersebut.
+Dari percobaan yang telah dilakukan, diketahui bahwa setiap parameter pada metode Histogram Modification - Local Contrast Enhancement berpengaruh terhadap perbaikan citra dan identifikasi penyakit periodontitis.
+Parameter yang diuji untuk melihat pengaruh dari metode Histogram Modification - Local Contrast Enhancement adalah, k0, k1, dan k2.
+Setiap parameter tersebut diuji dengan variasi nilai pada jangkauan tertentu.
+Berdasarkan hasil uji coba variasi nilai parameter tersebut maka dipilih hasil dari uji coba yang menghasilkan nilai akurasi, sensitivity, dan specificity tertinggi sebagai hasil terbaik.
+Sehingga hasil terbaik diperoleh dari uji cobaparameter kdengan hasil akurasi 6 %, sensitivity 6 %, dan specificity 80%.
+Untuk penelitian selanjutnya, perlu dilakukan penanganan terhadap tidak seimbangnya jumlah data antar kelas pada kumpulan data yang diuji coba.
+Selain itu, metode dalam penelitian ini dapat dikembangkan untuk uji coba pada bagian citra dental radiographs yang lain seperti bitewings, maxillary, dan mandibular.

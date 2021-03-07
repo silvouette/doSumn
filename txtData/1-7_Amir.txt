@@ -1,0 +1,113 @@
+INTISARI 
+Volume informasi teks yang berkembang eksponensialmenyebabkan kesulitan dalam proses temu kembali informasi, utamanya pada model perolehan informasi linear berbasis word matching yang umumnya tidak efektif.
+Faktor sinonim dari kata menjadi penyebab munculnya dokumen tidak relevan dalam perolehan, sebaliknya faktor polisemy menyebabkan banyak dokumen yang relevan tidak terpanggil.
+Penerapan clusteringdokumen dipercaya dapat meningkatkan kinerjaberdasar satu hypothesis bahwa dokumen yang relevan terhadap suatu query cenderung berada dalam kluster yang sama.
+Penelitian ini melakukan kajian penerapan clusteringdokumen untuk meningkatkan perolehan informasi dengan cara melakukan retrieval berbasis kluster (cluster-based retrieval) dengan model ruang vektor.
+Koleksi dokumen mula-mula dikluster dan representasi kluster digunakan vektor pusat kluster.
+Dokumen-dokuman dalam kluster yang pusat klusternya memiliki similaritas tertinggi terhadap query dipilih sebagai perolehan.
+Metode clustering yang dipilih adalah metode partitional, yaitu algoritma Bisecting K-Mean dan Buckshot, dan metode hierarchical agglomerative dengan algoritma perhitungan similaritas kluster UPGMA dan Complete Link.
+Kriteria kinerja perolehan informasi diukur dengan parameter F-measure yang diturunkan dariPrecision danRecall dari retrieval.
+Koleksi dokumen yang digunakan adalah 1000 dokumen berita yang telah diketahui struktur klusternya dan 3000 dokumen berita dengan struktur kluster belum diketahui.
+Hasil penelitian menunjukkan bahwa pada koleksi yang dicobakan terjadi peningkatan kinerja perolehan informasi berbasis kluster sebesar berturut-turut 12.3% dan 9.5% dibandingkan dengan perolehan linear berbasis word matching.
+Kata Kunci: Perolehan informasi, clustering, cluster-based retrieval 
+PENDAHULUAN
+Penerapan teknologi digital dan jaringan komputer telah menyebabkan terjadinya ledakan informasiyang berkembang eksponensial.
+Hal ini menyebabkan Sistem temu kembali informasi (information retrieval = IR) mengalami kesulitan.
+Google sebagai mesin pencari terkemuka pada tahun 2006 mengindeks tidak kurang dari 16 milyar dokumen (Google.com, 2006).
+Sebagian besar (80%) informasi adalah berbentuk teks (Tan,1999).
+Pada strategi pencarian query berbasis kata (word-matching) kesulitan yang dijumpai muncul dari aspek bahasa, yaitu faktor sinonim pada kata telah menyebabkan dokumen yang tidak relevan akan dipanggil hanya semata-mata karena dokumen tersebut mengandung1 kata yang ada dalam query.
+Sebaliknya faktor polisemy, yaitu keadaan di mana suatu kata dapat memiliki lebih dari satu makna, menyebabkan ada dokumen relevan dalam koleksi yang tidak dipanggil karena tidak memuat kata yang ada dalam query.
+Kesulitan ini semakin kompleks manakala pada kenyataannya koleksi dokumen cenderung bertambah besar dan akan menghasilkan hasil (search result) yang berpresisi rendah (Zamir, 1999; Tombros,2002).
+Menurut Rijbergen (1979), clustering dokumen telah lama diterapkan untuk meningkatkan efekifitas temu kembali informasi.
+Penerapan clustering ini bersandar pada suatu hipotesis (cluster-hypothesis) bahwa dokumen yang relevan akan cenderung berada pada cluster yang sama jika pada koleksi dokumen dilakukan clustering.
+Beberapa penelitian untuk dokumen berbahasa inggris menerapkan clustering dokumen untuk memperbaiki kinerja dalam proses searching (Voorhess,1986; Tombros,2002).
+Sedangkan perbaikan dalam penyajian hasil search dilakukan oleh antara lain Cutting et.al.(1992), Zamir(1999), Osinki (2004) dan Widyantoro (2007).
+Untuk dokumen berbahasa Indonesia penelitian bidang IR adalah oleh Vega (2001) dan Tala (2004) yang meneliti efek stemming pada hasil pencarian.
+Penelitian penerapan clustering untuk perbaikan kinerja perolehan informasi untuk dokumen berbahasa Indonesia belum pernah dilakukan.
+Hal ini mengingat secara umum penelitian tentang komputasi bahasa untuk dokumen Bahasa Indonesia juga masih sangat minim (Nazief, 2000), bahkan tes-bed yang dapat digunakan secarastandar untuk penelitian IR belum ada (Asian, 2004).
+Dengan latar belakang tersebut penelitian ini mencoba menyelidiki alternative pencarian berbasis cluster untuk dokumen berbahasa Indonesia.
+Permasalahan dalam penelitian ini adalah bagaimana merancang sebuah sistem untuk menyimpan dan menemukan informasi teks dengan pendekatan berbasis kluster dan menguji apakah pendekatan ini lebih unggul dibandingkan dengan pencarian berbasis word-matching.
+Penelitian ini memiliki batasan model yaitu model ruang vektor dengan uji coba sistem berupa dokumen teks berita berbahasa Indonesia.
+Dari penelitian ini diharapkan dapat dirancang suatu sistem temu kembali informasi yang memiliki kinerja yang lebih baik dibandingkan dengan pendekatan berbasis kata (word-matching) didalam menangani volume data teks yang semakin membesar.
+Model Ruang Vektor Untuk Koleksi Dokumen 
+Model ruang vektor untuk koleksi dokumen mengandaikan dokumen sebagai sebuah vektor dalam ruang kata (feature).
+Klustering dokumen dipandang sebagai pengelompokan vektor berdasarkan suatu fungsi similarity antar dua vektor tersebut.
+Jika koleksi n buah dokumen dapat diindeks oleh t buah term/feature maka suatu dokumen dapat dipandang sebagai vektor berdimensi t dalam ruang term tersebut.
+Dengan demikian koleksi dokumen dapat dituliskan sebagai matrik kata-dokumen X, yang dapat ditulis :X = {xij } i= 1,2,..t ; j =1,2,..n (1)xij adalah bobot term i dalam dokumen ke j Menurut Luhn (1958), kekuatan pembeda terkait dengan frekuensi term (term-frequency, tf).
+Term yang memiliki kekuatan diskriminasi adalah term dengan frekuensi sedang.
+Pemotongan term dengan frekuensi tinggi dilakukan dengan membuang stop-word, seperti ini,itu,yang, yaitu dan lain-lain yang dapat mengurangi frekuensi feature 30 sampai 40 persen (Steinbach et.al.,2000; Hamzah, 2006).
+Pembobotan dasar dilakukan dengan menghitung frekuensi kemunculan term dalam dokumen karena dipercaya bahwa frekuensi kemunculan term merupakan petunjuk sejauh mana term tersebut mewakili isi dokumen.
+Menurut Luhn (1958), kekuatan pembeda terkait dengan frekuensi term (term-frequency, tf), di mana term yang memiliki kekuatan diskriminasi adalah term dengan frekuensi sedang.
+Pembobotan baku yang digunakan adalah term-frequency invers-document freqeuency (TF-IDF) (Chisholm and Kolda,1999) sebagai berikut : xij= tfi * log(n/dfi ) ;i=1,2,,t ; j=1,2,,n (2) dengan t=total term dalam index, n=total dokumen dalam koleksi, dfi=total dokumen yang mengandung term ke-i.
+Dalam proses clustering, kesamaan antara dokumen Di dengan dokumen Dj umumnya diukur dengan fungsi similaritas tertentu.
+Menurut Chisholm and Kolda (1999) untuk tujuan clustering dokumen fungsi yang baik adalah fungsi similaritas Cosine, berikut : Cosine-sim(Di,Dj)====tktkjkiktkkjkiDDDD11221)()((3) .
+Jika vektor Di dan Dj masing-masing ternormalisasi sehingga masing-masing panjangnya satu, maka fungsi cosine menjadi : Cosine-sim(Di,Dj) =(4) =tkjkikDD1 .
+Dalam Pemrosesan query, similaritas antara query Q dengan dokumen Di juga dapat digunakan formula pada persamaan (4), yaitu : Cosine-sim(Q,Di) = (5) =tkikkDQ1
+Strategi Pencarian Query
+Ada berbagai strategi pencarian (search strategies) dalam IR antara lain : boolean search, inverted file search, probabilistic search, extended boolean search (Frakes and Baeza-Yates,1992).
+Dari model-model search tersebut yang banyak digunakan adalah inverted files search (IFS) karena alasan efisiensi.
+Pencarian Linear model IFS 
+Sekema IR model IFS dapat dilihat seperti pada Gambar 1.
+Dalam indexing model IFS term terindex akan menunjuk pada list yang memuat daftar dokumen yang mengandung term tersebut (Gambar 2), sehingga jika suatu query diberikan maka dengan cepat akan diberikan jawaban daftar dokumen yang memuat term tersebut.
+Pencarian berbasis kluster
+Pada pencarian berbasis kluster dokumen yang telah dikluster diindeks berdasarkan term IFS dan indeks kluster (Gambar 3).
+Jika suatu query diberikan maka similaritas query dengan pusat kluster dihitung, selanjutnya kluster yang pusat klusternya paling dekat dengan query ditampilkan sebagai jawaban.
+Sebagai ilustrasi jika dimiliki koleksi 8 dokumen yang terkluster menjadi 3 kluster (Gambar 4).
+Struktur data yang dirancang untuk implementasi disajikan seperti pada Gambar 5.
+Struktur ini terdiri dari inverted-index untuk centroid vector (IC) dan CBR implementation using skips (ICsIIS).
+Dengan struktur ini pencarian query dengan model kluster akan dapat dilakukan dengan cepat (Can et.al.,2004).
+Clustering Dokumen 
+Clustering didefinisikan sebagai upaya pengelompokan data ke dalam kluster sehingga data-data didalam kluster yang sama memiliki lebih kesamaan dibandingkan dengan data-data pada kluster yang berbeda (Jain,1988).
+Dikenal dua pendekatan, yaitu herarchical dan3 partitional dengan masing-masing memiliki banyak variasi.
+Metode Hierarchi Agglomerative untuk Clustering dokumen 
+Metode klustering secara aglomerative berawal dari n= cacah dokumen sebagai cluster.
+Dengan menggunakan fungsi similaritas antar kluster kemudian proses penggabungan kluster terdekat dilakukan.
+Ukuran similaritas antar kluster antara lain, misalnya: UPGMA,CST, Single Link, Complete Link (Jain,1988).
+Berikut ini ringkasan masing-masing teknik tersebut:Unweighted Pair Group Method Average similarity (UPGMA): Similaritas dua kluster diukur dengan rata-rata hitung similaritas antar seluruh pasangan titik antara kedua kluster.
+Centorid- Similarity Technique(CST) : Jarak antar kluster ditentukan dengan jarak antar pusat kluster.
+Single Link (SL) : jarak terbaik dua kluster diwakili oleh jarak terdekat (similaritas tertinggi) dari dua titik dari dua kluster.
+Complete Link(CL) : jarak terbaik dua kluster diwakili oleh jarak terjauh (similaritas terendah) dari dua titik dari dua kluster.
+Pendekatan hierarchical memiliki kompleksitas waktu dan ruang O(N2).
+K-Means Clustering
+Algoritma K-means clustering merupakan algortima iteratif dengan meminimalkan jumlah kuadrat error antara vektor objek dengan pusat klusterterdekatnya (Jain,1988), yaitu : =kjxjjmx12 (6) di mana mj adalah pusat kluster (mean vector) dalam kluster ke j.
+Proses dimulai dengan mula-mula memilih secara random k buah dokumen sebagai pusat kluster awal.
+Bisecting K-Means Clustering
+Metode Bisecting K-means (Steinbach, et.al.,2000) mencoba menggabungkan pendekatan partitional dengan divisive hierarchi, yaitu mula-mula seluruh dokumen dibagi dua dengan cara K-means (bisecting-step).
+Selanjutnya cara itu dikenakan pada tiap-tiap kluster sampai diperoleh K buah kluster.
+Buckshot Clustering
+Algoritma Buckshot menggunakan pendekatan hierarchie agglomerative untuk mendapatkan k buahvektor sebagai pusat kluster awal.
+Langkah Buckshot mula-mula mengambil sampel acak sebesar kn dokumen, dikluster dengan prosedur hierarchie agglomerative untuk mendapatkan k buah kluster.
+Selanjutnya dari partisi awalBuckshot proses refinement dilakukan sebagaimana dalam K-means clustering.
+Evaluasi Retrieval
+Evaluasi suatu model retrieval oleh suatu sistem IR yang paling umum adalah ukuran Recall dan Precision (Rijsbergen,1979).
+Recall didefinisikan sebagai rasio cacah dokumen relevan terpanggil dengan cacah total dokumen terpanggil, sedangkan Recall didefinisikan sebagai rasio antara cacah dokumen relevan terpanggil dengan total cacah dokumen relevan dalam koleksi.
+Parameter tunggal ukuran keberhasilan retrieval yang menggabungkan Recall dan Precision adalah parameter F-measure (Rijsbergen,1979) : F-measure = RPPR++22)1( (7) dengan parameter kepentingan relative aspek Precision dan Recall.
+Jika Recall (R) dan Precision (P) memiliki bobot yang sama penting, =1, maka parameter F-measure menjadi : F-measure = RPPR+2(8) 
+METODOLOGI
+Bahan penelitian ini berupa koleksi dokumen teks berbahasa Indonesia, yang terdiri dari dua buah koleksi berita dn koleksi abstract , yaitu seperti tersaji dalam Tabel 1 berikut : Tabel 1.
+Adapun daftar Query untuk masing-masing koleksi adalah seperti pada Tabel 2, Tabel 3 dan Tabel 4.
+Proses pre-processing berupa ekstrak kata,penyusunan indeks dan struktur IFS maupun struktur ICsIIS dilakukan dengan kode program JAVA (jdk1.4.2).
+Hasil pengujian kinerja feature kata dan frasa diukur melalui nilai F-measure yang membandingkan feature kata saja, frasa saja dan feature campuran.
+Uji statistik hasil dengan uji twilcoxon sign-rank untuk pengamatan berpasangan.
+PEMBAHASAN 
+Hasil pengujian untuk koleksi pertama News500 ketika diberikan query seperti yang ada dalam daftar memberikan hasil bahwa pemanggilan berbasis kluster(CBR) menghasilkan nilai F-measure yang lebih tinggi dibandingkan dengan pemanggilan linear (IFS).
+Hal ini berlaku untuk semua query.
+Tabel berikut adalah Rata-rata F-measure untuk pemanggilan query berbasis kluster dan pemanggilan linear untuk koleksi News500.
+Rata-rata diambil untuk retrieval berbasis kluster pada setiap model clustering, baik hierarchical maupun partitional.
+Hasil uji statistic menunjukkan bahwa perbedaan rata-rata adalah signifikan.
+Pengaruh algoritma clustering pada hasil pemanggilan berbasis kluster dapat diberi contoh seperti Tabel 6. berikut, untuk suatu query :pertandingan piala dunia.
+Dari Tabel 6 terlihat bahwa pada algoritma hierarchical kinerja clustering lebih baik dalam memberikan nilai F-measure daripada algoritma partitional K-means dan Bisecting K-mean, tetapi kinerja masih dibawah algoritma buckshot.
+Pada koleksi News1009 dan koleksi Abstract pengujian query diambil untuk metode kluster yang relatif cepat dan dengan kompleksitas komputasi lineer, yaitu buckshot.
+Tabel 7 menyajikan hasil pengujian untuk seluruh Query dari koleksi News1009 untuk jumlah retrieval pada IFS tidak dibatasi.
+Jika retrieval IFS dibatasi sejumlah dokumen sesuai dengan jumlah dokumen yang dikembalikan oleh CBR maka hasil retrieval adalah seperti table 8 berikut .
+Terlihat beberapa query CBR bernilai sama dengan IFS, dan ada satu query yang IFSnya lebih tinggi dari CBR.
+Untuk koleksi Abstract pemanggilan IFS yang tidak dibatasi dan IFS yang dibatasi sebanyak dokumen dari CBR hasilnya berturut-turut adalah tersaji Tabel9 dan Tabel 10.
+Dari Tabel 10 terlihat bahwa untuk koleksi abstract jika jumlah dokumen yang diretrieve oleh IFS dibatasi sama dengan jumlah dokumen yang diretreiev oleh CBR, maka kinerja retrieval CBR akan menurun dan beberapa queryu IFS mengahsilkan retrieval yang lebih baik daripada CBR.
+KESIMPULAN
+Beberapa kesimpulan yang dapat diambil dari penelitian ini adalah: Pemrosesan query dengan pendekatan berbasis kluster (cluster-based retrieval) terbukti mampu secara signifikan meningkatkan kinerja sistem IR jika dibandingkan dengan pemrosesan linear model IFS.
+Kinerja pemrosesan query berbasis kluster dipengaruhi oleh model koleksi dokumen.
+Pada koleksi dokumen berbahasa Indonesia untuk jenis dokumen ilmiah seperti kumpulan abstrak dari makalah ilmiah yang umumnya banyak mengandung kosa kata bahasa inggris kinerja retrieval berbasis kluster cenderung menurun.
+Tetapi pada dokumen berita kinerja retrieval berbasis kluster terlihat sangat baik.
+Hasil clustering dengan hierarchical menunjukkan kinerja yang lebih baik dari partitional.
+Meskipun demikian algoritma partitional tetap memberikan kinerja retrieval berbasis kluster yag lebih baik daripada retrieval dengan model IFS.
+Masih diperlukan pengujian dengan berbagai jenis koleksi dokumen berbahasa Indonesia, seperti makalah penuh, atau jenis tulisan yang lain.
