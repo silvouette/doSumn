@@ -1,0 +1,68 @@
+volume informasi teks yang berkembang eksponensialmenyebabkan kesulitan dalam proses temu kembali informasi utamanya pada model perolehan informasi linear berbasis word matching yang umumnya tidak efektif
+faktor sinonim dari kata menjadi penyebab munculnya dokumen tidak relevan dalam perolehan sebaliknya faktor polisemy menyebabkan banyak dokumen yang relevan tidak terpanggil
+penerapan clustering dokumen dipercaya dapat meningkatkan kinerjaberdasar satu hypothesis bahwa dokumen yang relevan terhadap suatu query cenderung berada dalam kluster yang sama
+penelitian ini melakukan kajian penerapan clustering dokumen untuk meningkatkan perolehan informasi dengan cara melakukan retrieval berbasis kluster clusterbased retrieval dengan model ruang vektor
+koleksi dokumen mulamula dikluster dan representasi kluster digunakan vektor pusat kluster
+dokumendokuman dalam kluster yang pusat klusternya memiliki similaritas tertinggi terhadap query dipilih sebagai perolehan
+metode clustering yang dipilih adalah metode partitional yaitu algoritma bisecting kmean dan buckshot dan metode hierarchical agglomerative dengan algoritma perhitungan similaritas kluster upgma dan complete link
+kriteria kinerja perolehan informasi diukur dengan parameter fmeasure yang diturunkan dari precision dan recall dari retrieval
+koleksi dokumen yang digunakan adalah dokumen berita yang telah diketahui struktur klusternya dan dokumen berita dengan struktur kluster belum diketahui
+hasil penelitian menunjukkan bahwa pada koleksi yang dicobakan terjadi peningkatan kinerja perolehan informasi berbasis kluster sebesar berturutturut dan dibandingkan dengan perolehan linear berbasis word matching
+term yang memiliki kekuatan diskriminasi adalah term dengan frekuensi sedang
+menurut luhn kekuatan pembeda terkait dengan frekuensi term termfrequency tf di mana term yang memiliki kekuatan diskriminasi adalah term dengan frekuensi sedang
+pembobotan baku yang digunakan adalah termfrequency inversdocument freqeuency tfidf chisholm and kolda sebagai berikut dengan ttotal term dalam index ntotal dokumen dalam koleksi dfitotal dokumen yang mengandung term kei
+beberapa kesimpulan yang dapat diambil dari penelitian ini adalah pemrosesan query dengan pendekatan berbasis kluster clusterbased retrieval terbukti mampu secara signifikan meningkatkan kinerja sistem ir jika dibandingkan dengan pemrosesan linear model ifs
+kinerja pemrosesan query berbasis kluster dipengaruhi oleh model koleksi dokumen
+pada koleksi dokumen berbahasa indonesia untuk jenis dokumen ilmiah seperti kumpulan abstrak dari makalah ilmiah yang umumnya banyak mengandung kosa kata bahasa inggris kinerja retrieval berbasis kluster cenderung menurun
+tetapi pada dokumen berita kinerja retrieval berbasis kluster terlihat sangat baik
+hasil clustering dengan hierarchical menunjukkan kinerja yang lebih baik dari partitional
+meskipun demikian algoritma partitional tetap memberikan kinerja retrieval berbasis kluster yag lebih baik daripada retrieval dengan model ifs
+masih diperlukan pengujian dengan berbagai jenis koleksi dokumen berbahasa indonesia seperti makalah penuh atau jenis tulisan yang lain
+hasil threshold yang didapatkan oleh mthbmot akan dibandingkan dengan hasil threshold yang didapatkan oleh algoritma maximum tsallis entropy mtt
+mthbmot memiliki tingkat akurasi sebesar terhadap algoritma mtt
+hal ini disebabkan waktu yang diperlukan oleh algoritma mtt untuk mencari threshold meningkat secara eksponensial sesuai denganjumlah threshold yang dicari
+penelitian ini mengusulkan suatu metode baru untuk pencarian multilevel thresholding dari suatu citra grayscale yaitu dengan menggabungkan metode maximum tsallis entropy mtt dan metode honey bee mating optimization hbmo
+ujicoba dilakukan dengan cara membandingkan algoritma tersebut dengan algoritma mtt tanpa optimasi
+hasil yang didapat adalah algoritma mthbmot mampu mendapatkan threshold yang kurang lebih sama dengan algoritma mtt akan tetapi dengan waktu komputasi yang jauh lebih singkat
+algoritma mthbmot hanya kalah dari algoritma mtt dalam hal waktu komputasi jika jumlah threshold yang dicari kurang dari
+ini membuktikan bahwa penggunaan metode hbmo secara efektif mampu mengoptimalkan penggunaan metode mtt dalam pencarian multilevel thresholding pada suatu citra grayscale
+thresholding merupakan metode yang cukup populer untuk segmentasi suatu gambar
+untuk mensegmentasi suatu gambar grayscale menjadi gambar biner bilevel thresholding bisa digunakan
+sedangkan untuk mensegmentasi citra grayscale ke dalam beberapa varian digunakanlah multilevel thresholding
+metode maximum tsallis entropy mtt adalah salah satu metode yang bisa digunakan untuk pencarian multi threshold pada suatu citra grayscale
+akan tetapi metode ini memiliki waktu komputasi yang sangat besar jika jumlah threshold yang dicari semakin banyak
+oleh karena itu suatu metode baru diusulkan dalam penelitian ini yang merupakan penggabungan antara metode maximum tsallis entropy dan algoritma honey bee mating optimization hbmo untuk mendapatkan multilevel threshold dari suatu citra grayscale dalam waktu yang relatif singkat
+metode penggabungan yang diusulkan ialah dengan memfungsikan algoritma mtt sebagai alat untuk mencari nilai fitness dari suatu individu dalam algoritma hbmo
+semakin baik nilai fitness yang dimiliki oleh individu semakin baik pula threshold yang ditemukan
+hasil yang didapat dari ujicoba menunjukkan bahwa algoritma hybrid ini mampu mencari multi threshold dengan tingkat akurasi mencapai dan waktu komputasi hingga kali lebih cepat dibandingkan dengan waktu komputasi dari metode mtt untuk mencari level threshold
+ada banyak literatur yang membahas tentang image thresholding
+akan tetapi formula yang digunakan untuk memaksimalkan jarak ini masih terlalu kompleks sehingga membutuhkan waktu komputasi yang cukup lama huang dkk memodifikasi metode otsu untuk mengoptimasi pencarian multilevel threshold pada suatu citra
+waktu komputasinya akan semakin meningkat secara signifikan dengan semakin banyaknya threshold yang harus ditemukan
+hasil threshold yang didapatkan oleh mthbmot akan dibandingkan dengan hasil threshold yang didapatkan oleh algoritma maximum tsallis entropy mtt
+mthbmot memiliki tingkat akurasi sebesar terhadap algoritma mtt
+hal ini disebabkan waktu yang diperlukan oleh algoritma mtt untuk mencari threshold meningkat secara eksponensial sesuai denganjumlah threshold yang dicari
+penelitian ini mengusulkan suatu metode baru untuk pencarian multilevel thresholding dari suatu citra grayscale yaitu dengan menggabungkan metode maximum tsallis entropy mtt dan metode honey bee mating optimization hbmo
+ujicoba dilakukan dengan cara membandingkan algoritma tersebut dengan algoritma mtt tanpa optimasi
+hasil yang didapat adalah algoritma mthbmot mampu mendapatkan threshold yang kurang lebih sama dengan algoritma mtt akan tetapi dengan waktu komputasi yang jauh lebih singkat
+algoritma mthbmot hanya kalah dari algoritma mtt dalam hal waktu komputasi jika jumlah threshold yang dicari kurang dari
+ini membuktikan bahwa penggunaan metode hbmo secara efektif mampu mengoptimalkan penggunaan metode mtt dalam pencarian multilevel thresholding pada suatu citra grayscale
+thresholding merupakan metode yang cukup populer untuk segmentasi suatu gambar
+untuk mensegmentasi suatu gambar grayscale menjadi gambar biner bilevel thresholding bisa digunakan
+sedangkan untuk mensegmentasi citra grayscale ke dalam beberapa varian digunakanlah multilevel thresholding
+metode maximum tsallis entropy mtt adalah salah satu metode yang bisa digunakan untuk pencarian multi threshold pada suatu citra grayscale
+akan tetapi metode ini memiliki waktu komputasi yang sangat besar jika jumlah threshold yang dicari semakin banyak
+oleh karena itu suatu metode baru diusulkan dalam penelitian ini yang merupakan penggabungan antara metode maximum tsallis entropy dan algoritma honey bee mating optimization hbmo untuk mendapatkan multilevel threshold dari suatu citra grayscale dalam waktu yang relatif singkat
+metode penggabungan yang diusulkan ialah dengan memfungsikan algoritma mtt sebagai alat untuk mencari nilai fitness dari suatu individu dalam algoritma hbmo
+semakin baik nilai fitness yang dimiliki oleh individu semakin baik pula threshold yang ditemukan
+hasil yang didapat dari ujicoba menunjukkan bahwa algoritma hybrid ini mampu mencari multi threshold dengan tingkat akurasi mencapai dan waktu komputasi hingga kali lebih cepat dibandingkan dengan waktu komputasi dari metode mtt untuk mencari level threshold
+ada banyak literatur yang membahas tentang image thresholding
+akan tetapi formula yang digunakan untuk memaksimalkan jarak ini masih terlalu kompleks sehingga membutuhkan waktu komputasi yang cukup lama huang dkk memodifikasi metode otsu untuk mengoptimasi pencarian multilevel threshold pada suatu citra
+waktu komputasinya akan semakin meningkat secara signifikan dengan semakin banyaknya threshold yang harus ditemukan
+hasil threshold yang didapatkan oleh mthbmot akan dibandingkan dengan hasil threshold yang didapatkan oleh algoritma maximum tsallis entropy mtt
+mthbmot memiliki tingkat akurasi sebesar terhadap algoritma mtt
+hal ini disebabkan waktu yang diperlukan oleh algoritma mtt untuk mencari threshold meningkat secara eksponensial sesuai denganjumlah threshold yang dicari
+penelitian ini mengusulkan suatu metode baru untuk pencarian multilevel thresholding dari suatu citra grayscale yaitu dengan menggabungkan metode maximum tsallis entropy mtt dan metode honey bee mating optimization hbmo
+ujicoba dilakukan dengan cara membandingkan algoritma tersebut dengan algoritma mtt tanpa optimasi
+hasil yang didapat adalah algoritma mthbmot mampu mendapatkan threshold yang kurang lebih sama dengan algoritma mtt akan tetapi dengan waktu komputasi yang jauh lebih singkat
+algoritma mthbmot hanya kalah dari algoritma mtt dalam hal waktu komputasi jika jumlah threshold yang dicari kurang dari
+ini membuktikan bahwa penggunaan metode hbmo secara efektif mampu mengoptimalkan penggunaan metode mtt dalam pencarian multilevel thresholding pada suatu citra grayscale
