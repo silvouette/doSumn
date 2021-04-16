@@ -1,0 +1,34 @@
+Perlu adanya sistem yang secara otomatis yang dapat mengelompokkan berita sesuai dengan kategori berita dengan menggunakan text mining.
+Dalam penelitian ini, metode yang digunakan dalam klasifikasi adalah SVM dan KNN.
+KNN memiliki kelebihan dalam hal data training yang cukup banyak.
+Sebagai komparasi, dalam penelitian ini juga menggunakan SVM karena metode ini merupakan salah satu metode yang banyak digunakan untuk klasifikasi data, khususnya data teks.
+Kedua metode ini akan dibandingkan untuk mengetahui hasil ketepatan klasifikasi yang paling baik.
+Hasil dari penelitian ini bahwa SVM kernel linier dan kernel polynomial menghasilkan ketepatan klasifikasi yang paling baik adalah kernel polynomial.
+Apabila dibandingklan dengan KNN maka SVM lebih baik daripada KNN dengan hasil nilai akurasi, recall, precision dan f-measure sebesar 93.2%, 93.2%, 93.63% dan 93.14%.
+Pada umumnya, berita yang disampaikan dalam website terdiri dari beberapa kategori seperti berita politik, olahraga, ekonomi, kesehatan, dan lain - lain ( sebagai contoh pada website kompas.com, detik.com, dan vivanews.com).
+Sejauh ini, mengelompokkan berita dalam beberapa kategori tersebut dilakukan oleh editor secara manual.
+Prosesnya, sebelum diunggah harus terlebih dahulu diketahui isi berita secara keseluruhan untuk selanjutnya dikelompokkan dalam kategori yang tepat.
+Jika jumlah artikel berita yang diunggah semakin banyak, hal ini akan merepotkan bagi pengunggah berita.
+Terlebih jika dokumen sangat banyak dengan kategori yang cukup beragam.
+Hal tersebut akan menjadi beban kerja editor dalam mengelompokkan kategori berita.
+Permasalahan lain muncul ketika dokumen yang akan dikelompokkan dalam masing - masing kategori memiliki kemiripan isi.
+Hal ini membutuhkan ketelitian dan waktu yang tidak sebentar dalam sistem pengelompokan.
+Oleh karena itu, perlu adanya sistem yang secara otomatis dapat mengelompokkan berita sesuai dengan kategori berita dengan menggunakan text mining.
+Dalam penelitian ini, metode yang digunakan dalam klasifikasi adalah SVM dan KNN.
+KNN memiliki kelebihan dalam hal data training yang cukup banyak.
+Sebagai komparasi, dalam penelitian ini juga menggunakan SVM karena metode ini merupakan salah satu metode yang banyak digunakan untuk klasifikasi data, khususnya data teks.
+Salah satu kelebihan SVM dapat diimplementasikan relative mudah, karena proses penentuan support vector dapat dirumuskan dalam QP problem.
+Selanjutnya akan dilakukan perbandingan dari kedua metode tersebut pada data berita online.
+Sumber data yang akan digunakan dalam penelitian ini adalah artikel berita pada koran online detik.com yang terdiri dari 5 kategori.
+Kategori tersebut adalah news, finance,hot , sport, dan oto.
+Tiap kategori akan diambil sebanyak 100 artikel sehingga data artikel keseluruhan berjumlah 500 dengan variabel bebas sebanyak 3784 word vector.
+Pada penelitian klasifikasi berita online digunakan metode support vector machine.
+Fungsi kernel yang akan digunakan adalah kernel linier dan polynomial.
+Penelitian ini menggunakan 2 - NN, 3 - NN dan 5 - NN untuk dilakukan analisis.
+Hasil dari KNN memberikan tingkat akurasi paling kecil dibandingkan dengan metode SVM.
+Metode Support Vector Machine dengan menggunakan kernel linier dan polynomial didapat hasil kernel linier sama baik dengan kernel polynomial pada word vector 3784.
+ untuk dibandingkan dengan hasil KNN digunakan kernel polynomial dengan hasil yang didapatkan pada data testing untuk masing - masing pengukuran performa nilai rata - rata 10 fold didapatkan akurasi total, recall, precision, dan f-measure sebesar 93.2%, 93.2%, 93.63% dan 93.14%.
+Metode K - Nearest Neighbor dengan menggunakan 2 - NN pada data testing dengan word vector sebesar 3784 didapatkan hasil dari tiap nilai rata - rata dari 10 fold performa akurasi total, recall, precision, dan f-measure adalah 60%, 60%, 81.15%, 68.90%.
+Perbandingan antara kedua metode SVM dan K - NN didapatkan hasil SVM kernel linier lebih baik dibandingkan dengan K - NN.
+Saran untuk penelitian selanjutnya adalah agar didapatkan performansi lebih baik maka menggunakan kernel yang sesuai dengan jenis data.
+ untuk prediksi kelas pada multiclass SVM hanya menggunakan metode one against one dimana terdapat metode lainnya seperti one against all pada kasus multiclass.

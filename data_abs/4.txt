@@ -1,0 +1,20 @@
+Media sosial khususnya Twitter sekarang ini menjadi salah satu tempat promosi atau kampanye yang efektif dan efisien.
+Metode yang digunakan dalam penelitian ini, untuk preprocessing data menggunakan tokenisasi, cleansing dan filtering, untuk menentukan class sentimen dengan metode Lexicon Based.
+ untuk proses klasifikasinya menggunakan metode Naive Bayes Classifier ( NBC) dan Support Vector Machine ( SVM).
+Data yang digunakan adalah tweet dalam bahasa Indonesia dengan kata kunci AHY, Ahok, Anies, dengan jumlah dataset sebanyak 300 tweet.
+Hasil dari penelitian ini adalah analisis sentimen terhadap calon gubernur DKI Jakarta 2017.
+Akurasi tertinggi didapat saat menggunakan metode klasifikasi Naive Bayes Classifier ( NBC), dengan nilai rata - rata akurasi mencapai 95%, nilai presisi 95%, nilai recall 95% nilai TP rate 96,8% dan nilai TN rate 84,6%.
+Media sosial khususnya Twitter sekarang ini menjadi salah satu tempat promosi atau kampanye yang efektif dan efisien.
+Pada penelitian ini Analisis sentimen dilakukan untuk melihat sebuah opini seseorang yang ditujukan kepada calon Gubernur DKI Jakarta 2017, opini itu bisa dimasukkan kategori opini positif, netral atau negatif.
+Data yang diambil hanya tweet dalam bahasa Indonesia, yaitu 100 tweet dengan kata kunci AHY, 100 tweet dengan kata kunci Ahok, dan 100 tweet dengan kata kunci Anies.
+Metode klasifikasi yang digunakan dalam penelitian ini adalah Naive Bayes Classifier ( NBC) dan Support Vector Machine ( SVM).
+Nilai akurasi tertinggi didapat metode klasifikasi Naive Bayes Classifier ( NBC) untuk klasifikasi data AHY, dengan nilai rata - rata akurasi mencapai 95%, nilai presisi 95%, nilai recall 95% nilai TP rate 96,8% dan nilai TN rate 84,6%.
+Metode klasifikasi Naive Bayes Classifier ( NBC) mendapatkan akurasi paling tinggi, metode ini cenderung lebih stabil karena berbasis probabilitas kemunculan kata dalam sebuah kalimat.
+Akurasi terendah saat metode klasifikasi Naive Bayes Classifier ( NBC) digunakan untuk klasifikasi data Ahok dan Anies.
+Dari penelitian yang telah dilakukan, diketahui bahwa hasil akurasi tertinggi didapatkan saat menggunakan metode klasifikasi Naive Bayes Classifier ( NBC) untuk klasifikasi data AHY, sedangkan untuk nilai akurasi terendah didapat saat metode klasifikasi Naive Bayes Classifier ( NBC) digunakan untuk klasifikasi data Ahok dan Anies.
+Meskipun menghasilkan akurasi yang cukup baik, tapi model yang dibangun masih melakukan sedikit kesalahan pada saat proses klasifikasi data yang pembagian sentimennya tidak seimbang.
+Dari penelitian yang telah dilakukan, maka dapat ditarik kesimpulan bahwa Analisis Sentimen dapat digunakan untuk mengetahui sentimen masyarakat khususnya netizen Twitter terhadap calon Gubernur DKI Jakarta 2017.
+Nilai akurasi tertinggi didapat saat menggunakan metode klasifikasi Naive Bayes Classifier ( NBC) untuk klasifikasi data AHY, dengan nilai rata - rata akurasi mencapai 95%, nilai presisi 95%, nilai recall 95% nilai TP rate 96,8% dan nilai TN rate 84,6%.
+Dalam penelitian ini juga dapat diketahui metode klasifikasi Naive Bayes Classifier ( NBC) lebih tinggi akurasinya untuk klasifikasi sentimen Tweet Bahasa Indonesia dibandingkan dengan metode klasifikasi Support Vector Machine ( SVM).
+ untuk penelitian selanjutnya perlu dicoba dikembangkan dengan menggunakan data yang lebih banyak dan Real Time.
+Perlu dikembangkan juga stopword list dan stemmer Bahasa Indonesia yang mampu meningkatkan akurasi dalam analisis sentimen Bahasa Indonesia.

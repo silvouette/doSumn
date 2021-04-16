@@ -1,0 +1,23 @@
+,sentence,heading,labels,pred
+0,penyakit kardiovaskuler cardiovascular disease cvd menurut definisi who adalah istilah bagi serangkaian gangguan jantung pembuluh darah,abstrak,OTHERS,BACKGROUND
+1,data badan kesehatan dunia who menunjukan bahwa cvd adalah faktor penyebab kematian nomor satu didunia berdasarkan data riset kesehatan dasar riskesdas kementerian kesehatan republik indonesia tahun menunjukkan penyakit termasuk kelompok cvd menempati urutan teratas penyebab kematian di indonesia,abstrak,OTHERS,BACKGROUND
+2,ditinjau dari sisi ketersediaan tenaga ahli dibidang cardiovascular saat ini indonesia hanya memiliki sekitar dokter spesialis penyakit jantung pembuluh darah,abstrak,OTHERS,BACKGROUND
+3,artinya dengan jumlah penduduk indonesia mencapai juta rasio dokter spesialis jantung pembuluh darah adalah penduduk,abstrak,OTHERS,BACKGROUND
+4,jumlah ini masih sangat kurang dibandingkan dengan kebutuhan penduduk di indonesia,abstrak,OTHERS,BACKGROUND
+5,rasio diharapkan adalah penduduk,abstrak,OTHERS,BACKGROUND
+6,penelitian ini menerapkan case based reasoning untuk membangun sebuah sistem memiliki kemampuan untuk mendiagnosa penyakit cardiovascular berdasarkan kemiripan similaritas pada kasus kasus terdahulu mengunakan metode simple matching coefficient similarity,abstrak,TOPIC,TOPIC
+7,hasil pengujian menunjukan bahwa sistem dibangun memiliki nilai sensitivitas spesifisitas ppv npv akurasi dengan tingkat kesalahan error rate sebesar,abstrak,RESULT,RESULT
+33,sistem menerima input berbetuk biner diamana nilai menunjukan adanya gejala faktor resiko nilai menunjukan tidak ada gejala faktor resiko dalam sebuah kasus,pendahuluan,TOPIC,BACKGROUND
+47,pengujian dengan dua cara yaitu dengan tanpa threshold,pendahuluan,OTHERS,BACKGROUND
+53,masukan sistem berupa faktor resiko risk factor data gejala gejala symptoms penyakit dialami pasien kemudian data tersebut dibuat menjadi kasus,perancangan sistem,METHOD,DATASET
+57,proses diagnosa kasus baru dilakukan dengan cara memasukkan data pasien faktor resiko gejala gejala dialami pasien pada kasus baru,perancangan sistem,OTHERS,METHOD
+83,dimana x kasus lamay kasus jumlah atribut dimana jumlah atribut dimana jumlah atribut dimana jumlah atribut dimana jika tingkat kemiripan antara kasus lama dengan kasus baru cukup tinggi maka kasus tersebut akan di reuse dimana solusi kasus lama tersebut akan digunakan kembali sebagai solusi kasus baru,perancangan sistem,OTHERS,METHOD
+85,pakar akan merevisi nama penyakit beserta tingkat kepercayaan terhadap penyakit hasil diagnosa memiliki nilai similarity lebih kecil dari kasus direvisi selanjutnya kasus tersebut akan disimpan retain dijadikan sebagai basis kasus baru,perancangan sistem,OTHERS,METHOD
+151,hasil perhitungan menunjukan nilai sensitivitas spesifisitas ppv npv akurasi dengan tingkat kesalahan error rate sebesar,hasil pembahasan,RESULT,RESULT
+152,berdasarkan perhitungan hasil pengujian dapat disimpulkan bahwa sistem dikembangkan memiliki kemampuan cukup tinggi dalam mengenali identifikasi sensitivitas jenis penyakit cardiovascular serta memiliki kemampuan baik dalam membedakan penyakit selain spesifisitas,hasil pembahasan,CONCLUSION,CONCLUSION
+153,sistem mampu melakukan diagnosa terhadap penyakit dengan benar ppv memiliki kemampuan baik untuk mengenali penyakit selain npv,hasil pembahasan,OTHERS,CONCLUSION
+154,secara keseluruhan dapat disimpulkan bahwa sistem di kembangan memiliki tingkat akurasi cukup baik dalam melakukan diagnosa,hasil pembahasan,OTHERS,CONCLUSION
+156,berdasarkan hasil pengujian sistem case based reasoning untuk mendiagnosa penyakit kardiovaskuler dapat ditarik beberapa kesimpulan sebagai berikut sistem case based reasoning dengan menggunakan metode simple matching coefficient dapat diimplementasikan untuk melakukan diagnosa awal penyakit cardiovascular berdasarkan kondisi gejala faktor resiko seorang pasien,,CONCLUSION,METHOD
+157,sistem memberikan diagnosa penyakit berdasarkan kemiripan antara kasus lama kasus baru,,OTHERS,METHOD
+158,diagnosa dianggap benar jika nilai similarity ���,,OTHERS,CONCLUSION
+160,nilai ppv npv dengan tingkat akurasi sebesar serta tingkat kesalahan error rate sebesar,,RESULT,RESULT

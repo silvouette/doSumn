@@ -1,0 +1,257 @@
+filename,sentence,labels,abstract,heading
+133-243-1-PB.txt,Klasifikasi berita hoax atau berita dengan informasi yang tidak benar merupakan salah satu aplikasi kategorisasi teks.,OTHERS,0,Abstrak
+133-243-1-PB.txt," seperti aplikasi kategorisasi teks berbasis pembelajaran mesin pada umumnya, sistem ini terdiri atas praproses, ekstraksi fitur, seleksi fitur dan pengeksekusian model klasifikasi.",OTHERS,0,Abstrak
+133-243-1-PB.txt,"Pada penelitian ini, eksperimen dilakukan untuk memilih teknik terbaik pada setiap sub proses dengan menggunakan 220 artikel berbahasa Indonesia dalam 22 topik ( 89 artikel hoax dan 131 artikel bukan hoax).",TOPIC,1,Abstrak
+133-243-1-PB.txt," untuk praproses, hasil eksperimen terbaik dicapai oleh praproses tanpa stemming dan dengan penghapusan stop word.",RESULT,1,Abstrak
+133-243-1-PB.txt," untuk ekstraksi fitur, fitur unigram memiliki akurasi terbaik dibandingkan dengan bigram dan unigram+bigram.",RESULT,1,Abstrak
+133-243-1-PB.txt," untuk seleksi fitur, teknik terbaik adalah penggunaan operasi union pada mutual information dan information gain.",RESULT,1,Abstrak
+133-243-1-PB.txt,"Sedangkan untuk algoritma klasifikasi, dengan berbagai kombinasi di atas, algoritma naive bayes menunjukkan hasil akurasi yang terbaik dibandingkan dengan SVM dan C4.5 dengan nilai akurasi 91.36%.",RESULT,1,Abstrak
+133-243-1-PB.txt,Hoax adalah informasi sesat dan berbahaya karena menyesatkan persepsi manusia dengan menyampaikan informasi palsu sebagai kebenaran.,BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt,"Hoax mampu mempengaruhi banyak orang dengan menodai suatu citra dan kredibilitas ( Chen et al, 2014).",BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt,Hoax dapat bertujuan untuk mempengaruhi pembaca dengan informasi palsu sehingga pembaca mengambil tindakan sesuai dengan isi hoax.,BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt,"Sebagai pesan informasi palsu dan menyesatkan, hoax juga dapat menakut - nakuti orang yang menerimanya.",BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt," dengan demikian, sebaiknya hoax itu dapat dijelaskan, diidentifikasi dan diklasifikasikan ( Petkovic et al, 2005).",BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt,"Penelitian terkait hoax sebelumnya telah dilakukan untuk domain email hoax ( Petkovic et al, 2005; Vukovic et al, 2009; Chen et al, 2014).",BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt,"Hingga sekarang, belum ada studi dalam klasifikasi berita hoax.",BACKGROUND,1,1. PENDAHULUAN
+133-243-1-PB.txt,"secara umum, sistem klasifikasi teks yang menggunakan pendekatan berbasis pembelajaran mesin terdiri dari praproses, ekstraksi fitur, seleksi fitur dan klasifikasi.",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Terdapat berbagai algoritma pembelajaran mesin pada klasifikasi teks yang dapat digunakan, contohnya multinomial naive bayes ( Callum & Nigam,1998), model multivariat bernoulli ( Joachim, 1997), rocchio ( Joachim, 1997), k - nearest neighbor ( Kotsiantis, 2005), dan support vector machine ( Manning et al, 2008).",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Algoritma Support Vector Machine ( SVM) adalah algoritma pembelajaran mesin terbaik untuk klasifikasi teks ( Pilszy, 2005).",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Algoritma C4.5 adalah algoritma pembelajaran adaptif yang handal dan mampu menangani data noise ( Maharani, 2009).",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,Teknik lain yang penting dalam sistem klasifikasi teks adalah seleksi fitur yang bertujuan untuk menghilangkan fitur noise yang mungkin menyebabkan klasifikasi menjadi tidak benar.,OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Beberapa teknik seleksi fitur diantaranya adalah document frequency thresholding ( Yang et al, 2003), information gain ( Mitchell, 1996),mutual information ( R.Fano, 1961), term strength ( Yang et al, 2003) dan chi - square ( T.E.Dunning, 1993).",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,Information gain dan chi - square adalah metode yang paling efektif pada seleksi fitur untuk meningkatkan akurasi dari klasifikasi.,OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,Term frequency dapat meningkatkan nilai recall dalam information retrieval.,OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Sementara itu, TFxIDF dapat berkontribusi untuk meningkatkan recall dan presisi ( Langgeni et al, 2010).",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Mutual information adalah metode paling umum seleksi fitur yang digunakan dalam pemodelan bahasa statistik ( Yang & Pedersen, 2003).",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt," untuk mendapatkan hasil yang terbaik , maka dibandingkan beberapa metode dalam membangun sistem klasifikasi berita hoax, baik dalam praproses, ekstraksi fitur, seleksi fitur dan algoritma pembelajaran mesin.",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Di sini, juga diusulkan operasi union dan intersection pada seleksi fitur untuk meningkatkan akurasi.",OTHERS,0,1. PENDAHULUAN
+133-243-1-PB.txt,"Makalah ini terdiri dari analisis berita hoax berbahasa Indonesia, sistem klasifikasi, dan eksperimen.",TOPIC,1,1. PENDAHULUAN
+133-243-1-PB.txt,Fokus dalam penelitian ini adalah bagaimana menemukan fitur penciri pada proses klasifikasi dokumen berita hoax dalam bahasa Indonesia.,OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt, seperti dijelaskan di bagian sebelumnya yang mengatakan bahwa fitur penciri hoax pada email dan pesan teks dapat ditemukan dan diekstraksi dengan pola penulisan.,OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"Dalam email dan pesan teks ( SMS) hoax, pola kata hoax dapat dikenali sebagai peringatan virus palsu, pesan berantai, permintaan bantuan palsu, pesan mengancam atau menakut - nakuti, petisi palsu, dan pernyataan bahwa pesan itu bukan hoax.",OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"Biasanya isi email dan pesan hoax bersifat overstatements, berlebihan dan bertujuan untuk menjual suatu produk.",OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"Berbeda dengan email dan pesan hoax, dalam berita yang mengandung hoax, tidak ada pola yang dapat diidentifikasi.",OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"Dalam dokumen berita hoax, gaya penulisan bersifat bebas dan tidak kaku.",OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,Sulit bagi pembaca untuk membedakan mana berita hoax dan yang tidak .,OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,Salah satu cara untuk memeriksa apakah sebuah artikel merupakan berita hoax atau tidak adalah dengan melakukan klarifikasi terhadap berita yang sebenarnya.,OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"Jika klarifikasi dari artikel berita tidak tersedia, dapat dikatakan bahwa artikel tidak mengandung hoax karena tidak ada yang keberatan dengan isi berita.",OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,Penelitian ini mencoba untuk mencari informasi pada dokumen hoax untuk digunakan sebagai klasifikasi hoax otomatis.,OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"Sebagai data latih dan referensi, dilakukan pelabelan dokumen ( hoax atau tidak hoax) secara manual.",OTHERS,0,2. ANALISIS BERITA HOAX
+133-243-1-PB.txt,"secara umum, langkah penelitian pada sistem klasifikasi berita hoax digambarkan pada Gambar 1.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Penelitian ini dibagi menjadi dua tahap yaitu tahap pelatihan dan pengujian.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Tahap pelatihan bertujuan membangun model klasifikasi terbaik , sementara tahap pengujian bertujuan untuk mengklasifikasikan dokumen input sebagai hoax atau tidak .",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pada pembangunan model, dilakukan pengujian 10 - fold cross validation untuk memperoleh model terbaik .",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Model terbaik yang dihasilkan digunakan untuk mengklasifikasikan artikel baru sebagai dokumen masukan.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pada pembangunan model, terdapat 4 tahap utama yaitu praproses, ekstraksi fitur, seleksi fitur dan pelatihan.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Setiap tahap dijelaskan pada uraian berikut.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Semua dokumen baik data latih, data uji maupun artikel baru dikenai praproses terlebih dahulu.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Tahap praproses terdiri dari pemrosesan leksikal dan pengubahan kata ke fitur kata.,METHOD,1,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pemrosesan leksikal bertujuan untuk memproses token kata dan terdiri atas modul tokenisasi, case folding, penghapuran stopword dan stemming.",METHOD,1,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Modul case folding digunakan dengan asumsi bahwa informasi huruf kapital pada dokumen berita tidak mempengaruhi hasil klasifikasi teks.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Modul penghapusan stopword digunakan untuk menghilangkan fitur kata yang tidak penting yang bisa mengganggu klasifikasi karena jumlahnya yang banyak pada dokumen.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Modul stemming digunakan untuk menyamakan kata dengan lemma yang sama.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Case folding dilakukan untuk menghilangkan karakter selain huruf pada saat pengambilan informasi ( Yates & Note, 1999).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Proses ini melakukan pengubahan huruf dalam dokumen menjadi huruf kecil ( a sampai z).,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Karakter selain huruf dianggap sebagai delimeter sehingga karakter tersebut dihapus dari dokumen.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Tujuannya untuk menghilangkan noise pada saat pengambilan informasi ( Yates & Note, 1999).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Proses tokenisasi adalah proses pemecahan kalimat menjadi kata atau frase ( Yates & Note, 1999).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Proses tokenisasi dalam penelitian ini memisahkan kata pada kalimat dengan menggunakan penanda spasi, lalu kata yang telah dipisah - pisah disimpan menjadi larik.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pada penelitian ini, proses tokenisasi yang dilakukan menghasilkan beberapa model fitur antara lain unigram, bigram dan gabungan keduanya.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Penghapusan stopwords adalah proses pembuangan stopwords ( kata yang sering muncul dan tidak dipakai).,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Proses ini bertujuan untuk mengurangi volume kata.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Stopwords dapat berupa kata depan, kata penghubung, dan kata pengganti.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Contoh stopwords dalam bahasa Indonesia adalah yang , ini, dari,ke, di, dari ( Yates & Note, 1999).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Pengaruh tidaknya penghilangan stopwords tergantung pada jenis klasifikasi dan data yang terkumpul.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Berdasarkan hal tersebut , maka dilakukan pengujian penghapusan stopword pada dokumen teks berita hoax.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Stemming adalah proses pemotongan imbuhan atau pengembalian kata berimbuhan menjadi kata dasar ( Yates & Note, 1999).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Proses ini bertujuan untuk mengurangi variasi kata yang sebenarnya memiliki kata dasar yang sama.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Algoritma pemotongan imbuhan dalam penelitian ini menggunakan algoritma Adriani dan Nazief.,METHOD,1,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pada penelitian ini, juga dilakukan pengujian pada praproses stemming ini untuk melihat pengaruh penggunaan kata dasar pada klasifikasi berita hoax.",METHOD,1,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Sehingga dengan demikian data pengujian stemming yang diperoleh adalah 4 jenis yakni: a.Dokumen non - stemming + tanpa penghapusan stopword b.Dokumen stemming + tanpa penghapusan stopword c.Dokumen non - stemming + penghapusan stopword d.Dokumen stemming + penghapusan stopword.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Ekstraksi fitur adalah proses mengekstrak seluruh fitur kata yang terdapat dalam dokumen latih.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Keluaran dari proses ini adalah kumpulan kata yang dijadikan penciri dokumen berita hoax dan bukan hoax.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Fitur kata ini diperoleh dari hasil tokenisasi.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Dimana setiap kata terpisah berdasarkan penanda spasi, lalu kata disimpan menjadi larik.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pada penelitian ini, proses ekstraksi fitur kata yang dilakukan menghasilkan beberapa model fitur antara lain: 1.Unigram 2.Bigram 3.Gabungan Unigram & Bigram.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Ketiga jenis fitur tersebut diujikan pada seluruh model pengujian praproses, pengujian seleksi fitur dan algoritma klasifikasi ( classifier).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Hasil fitur yang diperoleh selanjutnya diseleksi untuk mengambil hanya sejumlah fitur yang diasumsikan memegang informasi penting dari kelas dokumen.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Teknik yang digunakan untuk seleksi fitur adalah information gain ( IG), mutual information ( MI), chi - square ( CS), term frequency ( TF) dan TFxIDF.",METHOD,1,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Dalam eksperimen, dilakukan perbandingan antara tanpa seleksi fitur, dengan seleksi fitur tunggal, dan dengan gabungan seleksi fitur.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Teknik seleksi fitur dengan Information gain artinya adalah memilih simpul fitur dari pohon keputusan berdasar nilai information gain.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai information gain sebuah fitur diukur dari pengaruh fitur tersebut terhadap keseragaman kelas pada data yang dipecah menjadi sub data dengan nilai fitur tertentu.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Keseragaman kelas ( entropy) dihitung pada data sebelum dipecah dengan persamaan ( 1) dan pada data setelah dipecah dengan persamaan ( 2) ( Mitchell, 1996): ( ) ( ) ( ) ( 1) dengan nilai Pi adalah proporsi data S dengan kelas i.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,K adalah jumlah kelas pada output S.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt," dengan nilai v adalah semua nilai yang mungkin dari atribut A, Sv adalah subset dari S dimana atribut A bernilai v.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Nilai information gain dihitung dari persamaan berikut: ( ) ( ) ( ) ( 3) dengan nilai Gain ( S,A) adalah nilai information gain.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Entropy ( S) adalah nilai entropy sebelum pemisahan.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Entropy ( S, A) adalah nilai entropy setelah pemisahan.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Besarnya nilai information gain menunjukkan seberapa besar pengaruh suatu atribut terhadap pengklasifikasian data ( Mitchell, 1996).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Mutual Information ( MI) menunjukkan seberapa banyak informasi mengenai ada atau tidaknya sebuah kata memberikan konstribusi dalam membuat keputusan klasifikasi secara benar atau salah.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Nilai dari MI disimbolkan dengan notasi I ( R.Fano, 1961): ( ) ( ) ( ) ( ) ( ) * + ( 4) dengan ,U adalah variabel acak dengan nilai - nilai et.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai et =1 adalah dokumen berisi kata t.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai et = 0 adalah dokumen yang tidak mengandung kata t.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai C adalah variabel acak dengan nilai - nilai ec.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai ec = 1 adalah dokumen dikelas c.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai ec = 0 adalah dokumen tidak dikelas c.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Chi - square menguji hipotesis perbandingan antara frekuensi data observasi dengan frekuensi harapan ( ekspektasi) berdasarkan pada suatu hipotesis tertentu untuk setiap kasus atau data.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Perhitungan chi - square adalah sebagai berikut ( T.E.Dunning, 1993): ( ) ( 5) dengan nilai adalah frekuensi observasi dan adalah frekuensi ekspektasi.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Lalu hitung: ( 6) dengan nilai fk adalah jumlah frekuensi pada kolom.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai fb adalah jumlah frekuensi pada baris.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai T adalah jumlah keseluruhan baris atau kolom.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Chi - square menguji hubungan atau pengaruh dua variabel dan mengukur keterkaitan antara variabel satu dengan lainnya.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Penghitungan nilai chi - square pada setiap kata t yang muncul pada setiap kelas c dapat dibantu dengan menggunakan tabel kontingensi ( Tabel 1).,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Nilai pada tabel kontingensi merupakan nilai frekuensi observasi dari suatu kata terhadap kelas ( T.E.Dunning, 1993).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Penghitungan tersebut dapat disederhanakan menjadi: ( ) ( ) ( ) ( ) ( ) ( ) ( 7) dengan nilai t adalah kata yang diujikan terhadap kelas c.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai N adalah jumlah dokumen latih.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai A adalah banyaknya dokumen kelas c yang memuat kata t.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai B adalah banyaknya dokumen yang tidak berada di kelas c namun memuat kata t.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai C adalah banyaknya dokumen yang berada di kelas c namun tidak memiliki kata t di dalamnya.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Nilai D adalah banyaknya dokumen yang bukan merupakan dokumen kelas c dan tidak memuat kata t ( T.E.Dunning, 1993).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Term frequency atau frekuensi kata dapat dinyatakan dalam notasi rumus berikut ( Yang & Liu, 1999): ( ) ( ) ( 8) dengan nilai tf adalah jumlah kemunculan setiap kata t, nilai fr ( x,t) adalah fungsi sederhana yang didefenisikan sebagai ( ), dengan : ( ){ ( 9)Penggunaan TF dapat memperbaiki nilai recall pada information retrieval.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Hal ini disebabkan TF muncul di banyak teks, sehingga kata tersebut memiliki keunikan yang kecil.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt," untuk memperbaiki permasalahan ini, kata dengan nilai frekuensi yang tinggi sebaiknya dibuang dari set kata.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Penggunaan threshold yang optimal dapat membantu seleksi fitur ( Langgeni et al, 2010).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Berikut adalah rumus menghitung TFxIDF ( Yang & Liu, 1999): ( 10) dengan nilai tf adalah jumlah kemunculan kata t.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai d adalah dokumen.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai adalah kemunculan kata t setiap dokumen.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Nilai idf merupakan kemunculan kata t pada semua dokumen ( pembobotan global ): ( 11) dengan nilai N adalah banyaknya dokumen, Nilai adalah jumlah dokumen yang mengandung kata t.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Pelatihan atau pembangunan model dilakukan setelah tahap seleksi fitur.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Adapun algoritma pembelajaran mesin yang dipilih pada sistem klasifikasi berita hoax ini adalah naive bayes, SVM ( Support Vector Machine) dan Algoritma C4.5.",METHOD,1,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Algoritma naive bayes dipilih dalam penelitian ini karena telah terbukti efektif untuk kategorisasi teks, prosesnya sederhana, cepat dan akurasi klasifikasi yang tinggi ( Dai, 1997).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Algoritma Support Vector Machine ( SVM) dipilih karena merupakan algoritma pembelajaran mesin terbaik untuk klasifikasi teks ( Pilszy, 2005).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pemilihan algoritma C4.5 karena merupakan algoritma pembelajaran adaptif yang handal dan mampu menangani data noise ( Han & Kamber, 2006).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt," untuk merepresentasikan sebuah kelas dokumen, terdapat karakteristik petunjuk yang dibutuhkan untuk melakukan klasifikasi yang berguna untuk menjelaskan bahwa peluang masuknya sampel karakteristik tertentu kedalam kelas posterior.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Klasifikasi naive bayes diasumsikan bahwa ada atau tidaknya ciri tertentu dari sebuah kelas tidak ada hubungannya dengan ciri dari kelas lainnya.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Persamaan dari teorema bayes adalah ( Mitchell, 1997): P ( H|X)= ( P ( X|H)P ( H)) / ( P ( X)) ( 12)Di mana nilai X adalah data kelas yang belum diketahui, H adalah hipotesis X pada label tertentu, P ( H|X) adalah probabilitas H berdasarkan kondisi X ( posteriori), P ( H) adalah probabilitas H ( prior), P ( X|H) adalah probabilitias X pada hipotesis H, P ( X) adalah probabilitas X.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"SVM merupakan algoritma pembelajaran mesin universal ( dapat menangani berbagai jenis data) yang memanfaatkan fungsi pembatas linear sebagai basisnya ( Joachims, 1998).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Namun, tidak semua data dapat dipisahkan secara linear dalam dua dimensi.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Oleh karena itu, fungsi pembatas linear tersebut kemudian ditransformasi menjadi hyperplanes dengan menggunakan fungsi kernel sehingga hyperplanes tersebut dapat memisahkan data dalam ruang dimensi yang lebih tinggi ( Hoffman, 2006).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Pada SVM, fungsi pemisah bertujuan untuk menentukan kelas.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Bidang pemisah pendukung dari kelas +1 dan bidang pemisah pendukung dari kelas 1.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"secara matematika, mencari bidang pemisah terbaik ekuivalen dengan memaksimalkan margin antara dua kelas.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Memaksimalkan margin antara kedua kelas sama dengan meminimumkan fungsi tujuan dengan memperhatikan pembatas.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Bidang pemisah terbaik ialah bidang pemisah yang menghasilkan nilai margin terbesar dan berada di tengah - tengah antara dua set objek dari dua.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Nilai margin merupakan jarak antara bidang pemisah dengan elemen terluar dari kedua kelas.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Dalam hal ini fungsi pemisah yang dicari adalah fungsi linear sebagai berikut ( Manning dkk, 2008): ( ) ( ) ( 13) dengan nilai W adalah bobot yang merepresentasikan posisi hyperplane pada bidang normal, X adalah vektor data masukan.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,B adalah bias yang merepresentasikan posisi bidang relatif terhadap pusat koordinat.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Selanjutnya data dikelompokkan dengan menggunakan fungsi pemisah yang sudah ditemukan, di mana untuk menentukan kelasnya: Fungsi w.xi + b = +1 adalah bidang pemisah pendukung dari kelas +1.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Fungsi w.xi + b = 1 adalah bidang pemisah pendukung dari kelas 1.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Bidang pemisah terbaik ekuivalen dengan memaksimalkan margin antara dua kelas yang dihitung dengan formula 2w 2.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Memaksimalkan margin antara kedua kelas sama dengan meminimumkan fungsi tujuan 1 2w 2 dengan memperhatikan pembatas yi ( wxi+b) 1 dengan xi adalah data input dan yi adalah keluaran dari data xi.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Selanjutnya, masalah klasifikasi diformulasikan ke dalam quadratic programming ( QP) yang diselesaikan dengan lagrange multiplier ( Manning dkk, 2008): ( ) - ( ) ( 14) dengan nilai I adalah lagrange multiplier yang berkorespondensi dengan xi.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Algoritma ini dapat menangani data kontinu dan diskrit.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt," untuk pemisahan obyek atribut kontinu, pengurutan berdasarkan atribut, kemudian membentuk minimum ambang dari contoh yang ada dari kelas mayoritas pada setiap partisi yang bersebelahan, lalu digabungkan partisi yang bersebelahan tersebut dengan kelas mayoritas yang sama.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Jika suatu dataset mempunyai missing value, maka atribut tersebut diganti dengan nilai rata - rata variabel yang bersangkutan.",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Dalam pemisahan obyek dilakukan tes terhadap atribut dengan mengukur tingkat ketidakmurnian pada sebuah simpul ( Larose, 2005).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Pohon keputusan dibangun dengan menghitung nilai Information Gain dari setiap fitur sebagai isi dari setiap simpul.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Persamaan yang digunakan untuk menghitung information gain tsb dapat dilihat pada persamaan ( 1), ( 2) dan ( 3).",OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Pembentukan simpul dilakukan terus hingga diperoleh data yang seragam untuk sebuah simpul.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,Selanjutnya dilakukan pemotongan pohon ( pruning) untuk menghindari overfitting.,OTHERS,0,3. KLASIFIKASI BERITA HOAX
+133-243-1-PB.txt,"Tujuan dari skenario eksperimen yang telah dilaksanakan pada penelitian ini mencakup: 1. Evaluasi penggunaan modul stopwords elimination dan stemming pada praproses 2. Pemilihan jenis fitur ( unigram, bigram dan gabungan unigram - bigram) 3. Pemilihan teknik seleksi fitur ( tanpa seleksi fitur, 5 jenis seleksi fitur, union dan intersection dari seleksi fitur) 4. Pemilihan algoritma pembelajaran mesin terbaik .",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Dataset yang digunakan untuk ektraksi dan diseleksi fiturnya berjumlah 220 artikel ( 89 artikel hoax dan 131 bukan hoax).,DATASET,1,4. EKSPERIMEN
+133-243-1-PB.txt,Kumpulan dataset digunakan untuk semua skenario eksperimen.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt," untuk dataset tanpa operasi union dan intersection berisi skenario eksperimen dengan parameter 4 kombinasi praproses ( stopword elimination, non stopword elimination, stemming, non stemming) x 3 jenis fitur ( unigram, bigram, gabungan) x 5 jenis seleksi fitur ( information gain ( IG), mutual information ( MI), chi - square ( CS), term frequency ( TF) dan TFxIDF).",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Sehingga untuk eksperimen dengan seleksi fitur tunggal, terdapat 60 jenis dataset.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Sedangkan dataset dengan operasi union dan intersection pada seleksi fitur ditunjukkan oleh Tabel 2 berikut.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Eksperimen pada penelitian ini dilakukan pada sistem operasi windows 7 dengan 32 bits system, IDE Netbeans dan MySQL untuk database.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Sistem dibangun dengan bahasa pemrograman JAVA.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Pengujian penelitian menggunakan model 10 - folds cross validation.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt, untuk perhitungan akurasi hasil pengujian dilakukan secara statistik yakni total instance yang benar dibagi total seluruh instance ( setiap dataset terdiri dari 220 instance) dikali 100%.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Seluruh pengujian klasifikasi yang dilakukan meliputi pengujian praproses ( stemming & stopword elimination) dengan 3 jenis classifier yang telah disebutkan.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Namun, dari hasil kombinasi pengujian tersebut terbagi 2 jenis pengujian utama yakni klasifikasi tanpa dan dengan seleksi fitur.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt, untuk pengujian klasifikasi dengan seleksi fitur dikombinasikan dengan operasi union dan intersection.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Gambar 2 menunjukkan eksperimen dengan tanpa seleksi fitur.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Dari Gambar 2, dapat dilihat bahwa modul praproses terbaik adalah dengan menggunakan penghapusan stopword dan tanpa stemming.",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Sedangkan jenis fitur terbaik adalah unigram dan gabungan unigram - bigram.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Hasil klasifikasi tanpa seleksi fitur ini memberikan nilai yang tidak lebih dari 80%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Gambar 3 berikut menunjukkan eksperimen dengan seleksi fitur yaitu information gain, mutual information, chi - square, term frequency dan TFxIDF.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Hasil klasifikasi tertinggi diperoleh dengan jumlah fitur 600 sebagai Best First Selection / BFS ( dari 3 jenis pengujian pada jumlah fitur yakni 300, 600 & 700 BFS).",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Berdasarkan hasil Gambar 3,maka eksperimen klasifikasi dengan seleksi fitur selanjutnya diujikan dengan jumlah fitur sebesar 600 fitur kata.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Gambar 4 menunjukkan eksperimen pada seleksi fitur yang dikombinasikan dengan operasi irisan atau intersection.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Seleksi fitur ini berasal dari 5 jenis seleksi fitur yang telah ditetapkan yakni information gain, mutual information, chi - square, term frequency dan TFxIDF.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt, untuk daftar kombinasi seleksi fiturnya dapat dilihat pada tabel 2 ( kolom Intersection).,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Pada gambar 5 hasil tertinggi diperoleh dari fitur hasil irisan antara mutual information dan chi - square ( MI CS) dengan akurasi 90%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Nilai tersebut adalah hasil classifier naive bayes dengan model fitur unigram yang telah di stemming dan mengalami stopword elimination.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Gambar 5 berikut menunjukkan eksperimen pada seleksi fitur yang dikombinasikan dengan operasi gabungan atau union.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt, untuk daftar kombinasi seleksi fiturnya dapat dilihat pada tabel 2 ( kolom Union).,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Pada gambar 5, hasil tertinggi diperoleh dari fitur hasil gabungan ( union) antara mutual information dan information gain ( IG MI) dengan akurasi 91.36%.",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Nilai tersebut adalah hasil naive bayes dengan model fitur unigram yang tidak di - stemming dan namun sudah mengalami penghilang stopword.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Gambar 6 adalah hasil klasifikasi dari pengujian tertinggi yakni dengan penggunaan seleksi fitur yang dioperasikan secara union atau intersection.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Hasil pengujian ini di kelompokkan berdasarkan penggunaan classifier.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Dari gambar 6 tersebut dapat dilihat bahwa algoritma naive bayes mampu melakukan klasifikasi berita hoax paling baik dibanding algoritma lainnya ( SVM dan C4.5).,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Dari seluruh hasil klasifikasi yang diperoleh sebelumnya dapat diperoleh beberapa kesimpulan yang dapat dilihat pada tabel 3, 4 dan 5.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Tabel 3 adalah nilai klasifikasi tertinggi yang dihasilkan seluruh pengujian seleksi fitur.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Kolom fitur adalah seleksi fitur yang digunakan secara tunggal.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Seleksi fitur tersebut adalah information gain ( IG), mutual information ( MI) dan chi - square ( CS).",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Tabel tersebut menunjukan bahwa klasifikasi dengan akurasi tertinggi adalah hasil union ( IG dan MI) yakni sebesar 91.36%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Pada tabel tersebut terdapat beberapa penggunaan seleksi fitur berbeda namun nilai akurasinya sama.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Tabel 4 diperoleh berdasarkan nilai tertinggi , disini dilakukan kombinasi dari 3 jenis seleksi fitur terbaik yakni IG, MI dan CS.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Kombinasi ini untuk melihat bagaimana jika ketiga hasil fitur tersebut digabungkan atau diiriskan.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Nilai akurasi diperoleh pada tabel 4 mempunyai kesamaan nilai akurasi pada tabel 3.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Namun, penggabungan atau irisan ketiganya tidak menghasilkan nilai yang lebih baik.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Tabel 5 menunjukkan kombinasi seleksi fitur berbeda dengan akurasi sama.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Hal ini dilakukan untuk analisis terhadap penggunaan seleksi fitur pada klasifikasi berita hoax.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Hal ini menunjukkan 3 seleksi fitur terbaik yang menghasilkan nilai akurasi tertinggi adalah information gain, mutual information dan chi - square.",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Diagram venn pada gambar 7 merupakan representasi fitur yang berada pada hasil seleksi fitur ( IG, MI dan CS).",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Diagram tersebut menunjukkan hubungan dari ketiga seleksi fitur.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Himpunan {IG MI CS}, {IGCS} dan {MICS} menghasilkan 89.55%, namun {IG MI CS} menghasilkan 90.45%.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Hal ini menunjukkan bahwa {IG MI CS} mempunyai fitur yang tidak efisien {A, C, G}.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Notasi {IG MI}dan { ( IGMI) ( IGCS ) ( MICS)} menghasilkan akurasi sama sebesar 91.36%, namun fiturnya berbeda.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Dilihat dari hasil penguraian fitur pada himpunan tersebut terdapat fitur {A} dan {G}.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Hal ini menunjukan bahwa fitur tersebut relevansinya sama - sama tidak berpengaruh terhadap kelas hasil klasifikasi artikel hoax.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Fitur {A} adalah fitur milik mutual information ( MI) dan fitur {G} milik information gain ( IG) menunjukan bahwa pengaruh fitur yang dihasilkan dan terhadap kelas seimbang.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Fitur {B}, {E} dan {F} juga memberikan pengaruh yang setara dimana keberadaan ketiga mempunyai pengaruh yang sama terhadap hasil klasifikasi ( dengan akurasi 90%).",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Fitur {B} adalah intersection MI dan CS, fitur {E} adalah intersection antara MI dan IG, sedangkan fitur {F} adalah intersection antara IG dan CS.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt, untuk fitur paling kuat adalah fitur {D} yakni hasil intersection ketiganya.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Visualisasi menunjukkan bahwa relevansi fitur yang dihasilkan IG dan MI setara, sedangkan dengan keberadaan fitur {C} yang dapat menurunkan akurasi, menunjukkan bahwa relevansi CS terhadap kelasdibawah IG dan MI.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Hasil pengujian menyatakan bahwa hasil terbaik dihasilkan oleh seleksi fitur berbasiskan probabilitas.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Teknik information gain, mutual information dan chi - square sebagai fitur seleksi berbasiskan probabilitas mampu menghasilkan nilai akurasi rata - rata 81.82% ( rata - rata=total akurasi 108 pengujian menggunakan seleksi fitur IG, MI dan CS dibagi 108), sedangkan term frequency dan TFxIDF sebagai seleksi fitur berbasiskan frekuensi menghasilkan 73.42% ( rata - rata = total akurasi 72 pengujian yang menggunakan seleksi fitur TF dan TFxIDF dibagi 72).",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt," dengan demikian, dapat disimpulkan bahwa seleksi fitur berbasiskan probabilitas mencapai akurasi yang lebih baik untuk klasifikasi artikel hoax daripada fitur berdasarkan frekuensi.",CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Fitur kata yang dihasilkan oleh seleksi fitur berbasis probabilitas ( IG, MI & CS) tersebut dapat dilihat pada tabel 6 dibawah ini.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Pada tabel 6 ini ditampilkan hanya 13 fitur dengan bobot tertinggi hasil seleksi fitur tersebut .,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Kolom IG U MI pada tabel 6 di atas, berisi 13 fitur kata tertinggi hasil seleksi fitur information gain yang di - union - kan dengan mutual information.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Fitur - fitur kata pada kolom tersebut mampu menghasilkan akurasi klasifikasi hingga 91.36%.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Kolom IG pada tabel 6 di atas, berisi 13 fitur kata tertinggi hasil seleksi fitur information gain dengan akurasi mencapai 90.45%.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Kolom MI pada tabel 6 di atas, berisi 13 fitur kata tertinggi hasil mutual information dengan akurasi mencapai 89.55%.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Kolom CS pada tabel 6 di atas, berisi 13 fitur kata tertinggi hasil chi - square dengan akurasi mencapai 88.63%.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Fitur kata yang digunakan adalah jenis unigram yang tidak mengalami stemming namun telah dieliminasi stopwords - nya.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Akurasi tersebut diperoleh dari hasil klasifikasi oleh naive bayes.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Dari daftar fitur kata pada tabel 6 dapat dilihat bahwa terdapat kesamaan dan perbedaan fitur kata di setiap kolom berbeda.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Hal itu dipengaruhi oleh metode seleksi fitur yang digunakan.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Operasi union antara IG dan MI mampu menyeleksi fitur paling baik dibanding penggunaan secara tunggal pada seleksi fitur berbasis probailitas.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Nilai incorrect% merupakan hasil pemeriksaan instance yang salah dari akurasi tertinggi pada pengujian menggunakan 10 - folds CV.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Dimana hasil akurasi tertinggi adalah hasil klasifikasi menggunakan seleksi fitur dengan operasi union antara information gain dan mutual information yakni sebesar 91.36%.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Pada pengujian tersebut diperiksa instance yang salah diklasifikasikan.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Pemeriksaan menunjukkan bahwa penyebab kegagalan klasifikasi berita hoax adalah bahwa terdapat instance yang hasil perhitungan P ( C|W) dan voting setiap instance lebih besar kecenderungannya untuk masuk ke suatu kelas tertentu, namun kelas yang telah dimiliki instance sebelumnya tidak sama dengan hasil klasifikasi.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Sehingga instance terklasifikasi salah.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Hal itu disebabkan hasil perhitungan probabilitas instance terhadap seluruh topik dan topik sejenis menunjukkan hasil berbeda.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Sebanyak 72.22% ( 13 / 18) instance hasil probabilitas terhadap seluruh topik menunjukan nilai sama dengan hasil klasifikasi.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Namun, hanya 44.44% ( 8 / 18) instance hasil probabilitas terhadap topik sejenis yang menunjukkan hasil yang sama dengan hasil klasifikasi.",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Hal ini menunjukkan bahwa nilai probabilitas terhadap seluruh topik lebih menentukan hasil klasifikasi dibandingkan dengan probabilitas topik sejenis.,CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,Hasil tertinggi dari seluruh pengujian adalah hasil klasifikasi menggunakan seleksi fitur dengan kombinasi operasi union antara information gain dan mutual information.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Dataset tersebut diklasifikasikan menggunakan naive bayes dengan pengujian 10 - fold cross validation.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Nilai yang diketahui antara lain false postive ( FP), false negative ( FN), correct%, confusion matrix dan F1.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Pada tabel 6 dapat dilihat bahwa nilai F1 terbaik dihasilkan model fold - 4, fold - 5 dan fold - 10 dengan nilai 100%.",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Dan nilai F1 terendah adalah 0.814 yang dihasilkan model fold - 9.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Nilai F1 yang rendah ini karena total FP dan FN yang dihasilkan klasifikasi.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Dataset dengan nilai FP dan FN tertinggi dihasilkan fold - 9.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Tingginya nilai FP dan FN disebabkan ketidak- konsistenan keberadaan fitur dalam sebuah kelas serta kecenderungan fitur suatu kelas berbeda dengan keberadaan kelas fitur itu berada.,OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Oleh karena itu, model yang dihasilkan dapat dikatakan belum konsisten karena menghasilkan 14 FP dan 5 FN.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,"Pada modul praproses, penghilangan stopword memberikan hasil akurasi yang lebih tinggi secara rata - rata 1.13%, sesuai dengan asumsi bahwa penghilangan kata yang tidak penting dapat meningkatkan akurasi.",RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Namun, modul stemming ternyata memberikan akurasi lebih rendah.",OTHERS,0,4. EKSPERIMEN
+133-243-1-PB.txt,Berikut beberapa poin kesimpulan yang dihasilkan seluruh pengujian: 1.bFitur tanpa stemming memberikan akurasi lebih baik.,CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,Ini menunjukkan bahwa penciri berita hoax ditentukan secara leksikal.,CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,2. Model fitur terbaik adalah unigram.,CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Namun, gabungan antara unigram dan bigram memberikan hasil yang lebih baik secara rata - rata.",CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,3. Algoritma klasifikasi yang menghasilkan nilai akurasi terbaik adalah naive bayes dan terendah adalah C4.5 dengan pengujian 10 - fold cross validation.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,4. Seleksi fitur dengan operasi union antara information gain dan mutual information menghasilkan nilai tertinggi sebesar 91.36%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Information gain saja menghasilkan 90.45%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Operasi intersection tertinggi menghasilkan 90%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,Hasil tersebut lebih baik dibandingkan klasifikasi tanpa seleksi fitur yakni rata - rata sebesar 69.57%.,RESULT,1,4. EKSPERIMEN
+133-243-1-PB.txt,5. Probabilitas kata terhadap seluruh topik ( 22 topik) menghasilkan nilai yang lebih baik dibandingkan topik sejenis.,CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,"6. Keseluruhan pengujian menunjukkan bahwa seleksi fitur berbasis probabilitas ( IG, MI and CS) lebih baik dibanding seleksi fitur berbasis frekuensi ( TF dan TFxIDF).",CONCLUSION,1,4. EKSPERIMEN
+133-243-1-PB.txt,"Dalam makalah ini, telah dibangun sistem klasifikasi berita hoax menggunakan pendekatan statistik.",TOPIC,1,5. KESIMPULAN
+133-243-1-PB.txt,Data yang ditetapkan untuk sistem berisi 220 artikel yang terdiri dari 89 artikel hoax dan 131 artikel non hoax yang diberi label secara manual.,DATASET,1,5. KESIMPULAN
+133-243-1-PB.txt,"Sistem ini terdiri dari modul praproses, ekstraksi fitur, seleksi fitur dan klasifikasi itu sendiri.",TOPIC,1,5. KESIMPULAN
+133-243-1-PB.txt," untuk setiap modul, dilakukan eksperimen yang membandingkan beberapa teknik.",TOPIC,1,5. KESIMPULAN
+133-243-1-PB.txt,Hasil eksperimen terbaik dicapai dengan algoritma naive bayes dengan fitur unigram dimana seleksi fitur menggunakan operasi union antara information gain dan mutual information.,RESULT,1,5. KESIMPULAN

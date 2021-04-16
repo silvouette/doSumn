@@ -1,0 +1,122 @@
+filename,sentence,labels,abstract,heading
+11992-1-22158-1-10-20150206.txt,"Informasi dalam bentuk teks adalah informasi yang penting dan banyak didapatkan dari berbagai sumber seperti buku, surat kabar, situs web, ataupun pesan e - mail.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Teks merupakan sebuah hamparan bahasa, baik dalam pembicaraan ataupun dalam tulisan, yang memiliki makna, bersifat praktis dan berguna untuk umum serta berhubungan dengan dunia nyata ( Bolshakov & Gelbukh [2]).",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Sebuah teks dapat terdiri dari hanya satu kata ataupun susunan kalimat ( Carter & McCarthy [3]).,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Pengambilan informasi dari teks ( text mining) antara lain dapat meliputi kategorisasi teks atau dokumen, analisis sentimen ( sentiment analysis), pencarian topik yang lebih spesifik ( search engine), serta spam filtering.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Gagasan umum text mining adalah untuk mengetahui cakupan atau topik dari permasalahan dalam teks ( Maning, et al.[6]).",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Text mining penting dalam analisis sentimen sebagai pengidentifikasi emosional suatu pernyataan, sehingga banyak studi tentang analisis sentimen dilakukan ( Zhang, et al.[12]).",BACKGROUND,1,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Analisis sentimen adalah studi komputasi dari opini - opini, sentimen, serta emosi yang diekspresikan dalam teks ( Liu [5]).",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Tugas dasar dalam analisis sentimen adalah mengelompokkan polaritas dari teks yang ada dalam dokumen, kalimat, atau pendapat.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Polaritas mempunyai arti apakah teks yang ada dalam dokumen, kalimat, atau pendapat memiliki aspek positif atau negatif.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Salah satu teknik pembelajaran mesin untuk analisis sentimen adalah Naive Bayes classifier ( NBC).,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,NBC merupakan teknik pembelajaran mesin yang berbasis probabilistik.,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"NBC adalah metode sederhana tetapi memiliki akurasi serta performansi yang tinggi dalam pengklasifikasian teks ( Routray, et al.[9]).",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Banyak ide telah muncul selama beberapa tahun belakangan tentang teknik pembelajaran mesin untuk permasalahan analisis sentimen.,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Xhemali, et al.[11] berkonsentrasi pada perbandingan tiga metode.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Metode - metode tersebut adalah Naive Bayes, Pohon Keputusan, dan Neural Networks.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Hasil penelitian secara keseluruhan menunjukkan bahwa Naive Bayes classifier adalah pilihan terbaik untuk pelatihan domain.,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Metode berbasis leksikon untuk melakukan analisis sentimen pertama kali diterapkan oleh Zhang et al.[12].,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Metode ini dapat memberikan presisi yang tinggi tapi recall yang rendah.,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Penelitian lain yang dilakukan Taboada, et al.[10] yang menerapkan pendekatan berbasis leksikon untuk mengekstrak sentimen dari teks yang menggunakan kamus kata - kata atau frase dijelaskan dengan orientasi semantik meliputi polaritas dan strength dari kata - kata, serta menggabungkan intensifikasi dan negasi.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Routray et al.[9] dan Khairnar & Kinikar [4] membahas banyak pendekatan dari para peneliti yang berbeda, serta menyatakan bahwa metode pembelajaran mesin menjadi cara yang efisien untuk menganalisis sentimen.",OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Penggabungan yang dilakukan dalam tulisan ini adalah menggabungkan NBC dengan seleksi fitur.,TOPIC,1,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Penyeleksian fitur diperlukan dalam proses memilih subset dari fitur - fitur yang relevan untuk digunakan dalam konstruksi model probabilistik NBC.,OTHERS,0,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Penyeleksian fitur yang digunakan adalah seleksi fitur chi square.,METHOD,1,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,"Dari data yang tersedia, sejumlah data akan digunakan untuk menguji hasil klasifikasi sistem NBC dengan penyeleksian fitur chi square.",METHOD,1,1. PENDAHULUAN
+11992-1-22158-1-10-20150206.txt,Tokenization adalah tugas pemotongan urutan karakter dan sebuah set dokumen yang diberikan menjadi potongan - potongan kata atau karakter yang sesuai dengan kebutuhan sistem.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Potongan - potongan tersebut dikenal dengan istilah token ( Maning, et al.[6]).",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Stemming merupakan salah satu proses dari mengubah token yang berimbuhan menjadi kata dasar, dengan menghilangkan semua imbuhan yang ada pada token tersebut .",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Pentingnya stemming dalam proses pembuatan sistem adalah untuk menghilangkan imbuhan pada awalan dan akhiran.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Berdasarkan hasil proses tersebut , akan didapatkan sebuah informasi mengenai banyaknya fitur yang muncul dalam sebuah dokumen.",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Stopwords dapat diartikan sebagai menghilangkan karakter, tanda baca, serta kata - kata umum yang tidak memiliki makna atau informasi yang dibutuhkan.",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Stopwords umumnya digunakan dalam pengambilan informasi salah satu contohnya adalah mesin pencari Google.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Pengurangan ukuran indeks dalam teks dengan penghilangan beberapa kata kerja, kata sifat, dan kata keterangan lainnya dapat dimasukkan ke dalam daftar stopwords.",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Seleksi fitur dilakukan untuk mereduksi fitur - fitur yang tidak relevan dalam proses klasifikasi oleh NBC.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Terdapat beberapa metode untuk penyeleksian fitur yaitu Mutual Information ( MI), chi square ( 2), dan yang umum digunakan adalah frequency - based.",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Seleksi fitur frequency - based menggunakan jumlah kemunculan term atau frekuensi term yang diurutkan dari yang paling banyak sampai paling sedikit dan diambil beberapa urutan atas untuk digunakan sebagai fitur.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Seleksi fitur MI merupakan ukuran yang mengukur kehadiran atau ketidakhadiran sebuah term yang memberikan kontribusi kepada kategori yang tepat.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Sedangkan seleksi fitur Chi Square menggunakan teori statistika untuk menguji independensi sebuah term dengan kategorinya.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Salah satu tujuan penggunaan seleksi fitur adalah untuk menghilangkan fitur pengganggu dalam klasifikasi.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Dalam seleksi fitur Chi Square berdasarkan teori statistika, dua peristiwa di antaranya adalah , kemunculan dari fitur dan kemunculan dari kategori, yang kemudian setiap nilai term diurutkan dari yang tertinggi berdasarkan perhitungan berikut [6].",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Penyeleksian fitur Chi Square dilakukan dengan cara mengurutkan setiap fitur berdasarkan hasil seleksi fitur Chi Squaredari nilai yang terbesar hingga nilai yang terkecil.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Nilai seleksi fitur Chi Squareyang lebih besar dari nilai signifikan menunjukkan penolakan hipotesis independensi.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Sedangkan jika dua peristiwa menunjukkan dependen, maka fitur tersebut menyerupai atau sama dengan label kategori yang sesuai pada kategori.",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Naive Bayes classifier merupakan suatu metode klasifikasi yang menggunakan perhitungan probabilitas.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Konsep dasar yang digunakan pada Naive Bayes classifier adalah Teorema Bayes yang dinyatakan pertama kali oleh Thomas Bayes [1].,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Nilai probabilitas yang digunakan dinyatakan secara sederhana sebagai berikut ( Pop [8]).,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Dua dasar ukuran yang sering digunakan untuk mengetahui efektivitas sistem adalah precision atau presisi dan recall.,OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,"Presisi ( P) adalah ukuran banyaknya dokumen yang ditemukan relevan, dinyatakan dalam pecahan sebagai berikut; sedangkan recall ( R) adalah ukuran banyaknya dokumen yang relevan dapat ditemukan kembali, dinyatakan dalam pecahan sebagai berikut.",OTHERS,0,2. KAJIAN PUSTAKA
+11992-1-22158-1-10-20150206.txt,Data pada penelitian ini berupa opini berbahasa Inggris tentang produk telepon genggam.,DATASET,1,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Dari data yang tersedia, diambil secara acak sebanyak 200 buah opini yang terdiri dari 100 buah opini positif dan 100 buah opini negatif.",DATASET,1,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Data tersebut digunakan sebagai data pembelajaran mesin dan data uji untuk mengevaluasi kinerja sistem.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Adapun langkah - langkah untuk perancangan analisis sentimen yang dibahas adalah sebagai berikut: 1. Tahap pre - processing data,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Pada tahap pre - processing data, awal mula data mentah dilakukan proses tokenizer, stemming, serta stopwords.",OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Hasil dari tahapan ini menghasilkan fitur yang digunakan sebagai data pembelajaran mesin oleh NBC.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,2. Tahap penyeleksian fitur dengan seleksi fitur Chi Square Penelitian ini menggunakan seleksi fitur Chi Square.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Langkah awal, yaitu menentukan tabel kontingensi masing - masing fitur dengan Tabel 1.",OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Langkah selanjutnya menghitung nilai seleksi fitur Chi Square dengan persamaan berikut ( Maning, et al.[6])Seleksi fitur Chi Square digunakan untuk pengamatan kebersesuaian ( goodness of fit) dari kategori dengan terms.",OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Uji Chi Squaredalam statistika diterapkan untuk menguji independensi dari dua peristiwa.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Sedangkan dalam seleksi fitur berdasarkan teori statistika, dua peristiwa tersebut di antaranya adalah , kemunculan dari fitur dan kemunculan dari kategori.",OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Langkah terakhir yaitu mengurutkan semua hasil perhitungan seleksi fitur dari yang terbesar sampai yang terkecil.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Penghapusan fitur dilakukan jika penerimaan hipotesis independen terpenuhi.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,3. Tahap klasifikasi data,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Naive Bayes menganggap sebuah dokumen sebagai kumpulan dari kata yang menyusun dokumen tersebut .,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Naive Bayes juga tidak memperhatikan urutan kemunculan kata pada dokumen.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Adapun algoritma NBC [7] untuk klasifikasi data dapat dilihat pada Gambar 1.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,4. Tahap evaluasi kinerja sistem,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Pada tahap evaluasi sistem, perhitungan menggunakan tabel kontingensi yang diberikan pada Tabel 2.",OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Alternatif yang jelas terlintas pada pikiran pembaca dalam menilai sebuah sistem adalah dengan akurasi.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Akurasi adalah ketepatan suatu sistem melakukan klasifikasi yang benar.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,"Perhitungan untuk Presisi ( P), Recall ( R), dan akurasi dapat dikalkulasi sebagai berikut.",OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Sebuah ukuran yang digunakan sebagai rata - rata terbobot harmonik dari P dan R adalah sebagai berikut.,OTHERS,0,3. METODE PENELITIAN
+11992-1-22158-1-10-20150206.txt,Penggunaan data sebanyak 200 buah opini tentang opini berbahasa Inggris pengguna telepon genggam yang terbagi atas 100 buah opini positif dan 100 buah opini negatif.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sebagai data latih digunakan sejumlah 100 buah data yaitu data yang terbagi masing - masing 50 buah opini positif dan 50 buah opini.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sisanya yaitu 100 buah opini yang terbagi sama rata antara opini positif dan opini negatif digunakan sebagai data uji.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Perancangan basis data dengan menggunakan XAMPP, memuat tiga buah tabel yang independen, yaitu tabel datatraining, corpus, tb_feature.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Tabel datatraining memuat keseluruhan data latih mentah.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Tabel tb_feature memuat fitur - fitur yang telah diberi label positif atau negatif secara manual.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sedangkan tabel corpus memuat fitur - fitur yang telah diseleksi melalui tahapan yang telah diuraikan pada implementasi seleksi fitur Chi Square.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Pada sistem, proses - proses atau urutan proses dirancang untuk mengklasifikasi data uji dengan melalui beberapa tahapan.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Tahapan tersebut merupakan tahapan yang telah diuraikan pada tahap pre - processing dan implementasi Naive Bayes classifier.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Langkah awal yaitu melakukan pelabelan secara manual dari 100 buah data latih.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Pada pelabelan fitur tersebut dilakukan proses stemming.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Pelabelan tersebut menghasilkan 117 fitur diantaranya 66 fitur negatif dan 51 fitur positif.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Setelah melakukan pelabelan dilanjutkan dengan proses penyeleksian fitur.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Seleksi fitur dilakukan dari sebanyak 117 fitur yang diperoleh dari pelabelan.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Pada tahap seleksi fitur ada tiga metode yang diketahui, yaitu Mutual Information ( MI), chi square ( 2), dan frequency - based.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Seleksi fitur frequency - based menggunakan jumlah kemunculan term atau frekuensi term yang diurutkan dari yang paling banyak sampai paling sedikit dan diambil beberapa urutan atas untuk digunakan sebagai fitur.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Metode seleksi fitur Frequency - based memilih fitur yang paling umum di kategori.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Metode seleksi fitur Frequency - based dapat didefinisikan baik sebagai frekuensi dokumen ( jumlah dokumen di kategori c yang mengandung fitur t) atau sebagai koleksi frekuensi ( jumlah token dari t yang muncul pada dokumen dalam c).,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Seleksi fitur MI merupakan ukuran yang mengukur kehadiran atau ketidakhadiran sebuah term yang memberikan kontribusi kepada kategori yang tepat.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sedangkan seleksi fitur Chi Square menggunakan teori statistika untuk menguji independensi sebuah term dengan kategorinya.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Salah satu tujuan penggunaan seleksi fitur adalah untuk menghilangkan fitur pengganggu dalam klasifikasi.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Maning, et al.[6] mengatakan untuk kasus seleksi fitur frequency - based memiliki kinerja yang buruk dibandingkan MI dan Chi Square.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Perbandingan dari peningkatan akurasi dapat diamati pada Gambar 2, dengan F1 - measure merupakan ukuran ketepatan klasifikasi oleh metode Naive Bayes Classifier dengan dilakukannya beberapa metode seleksi fitur yaitu MI, Chi Square dan frequency - based.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Pada Gambar 2, saat 100 buah fitur terpilih, ketepatan klasifikasi oleh metode seleksi fitur frequency - based memperoleh di bawah 40%, metode seleksi fitur MI memperoleh hasil di atas 60%, dan metode seleksi fitur chi square memperoleh hasil yang mendekati 60% [6].",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Hal ini menunjukkan bahwa metode frequency - based tidak seharusnya digunakan.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Hipotesis awal menyatakan bahwa term t independen terhadap kategori c.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sedangkan hipotesis akhir menyatakan bahwa term t dependen terhadap kategori c.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Hasil seleksi fitur Chi Square dari 117 fitur terseleksi menjadi 30 fitur yang terdiri dari 14 fitur negatif dan 16 fitur positif.,RESULT,1,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Proses penyeleksian fitur sebanyak 117 fitur dengan seleksi fitur Chi Square yang dibangun dengan bahasa pemrograman Java membutuhkan waktu komputasi hanya dua detik.,RESULT,1,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Diagram alir untuk merepresentasikan langkah - langkah sistem untuk melakukan proses penyeleksian fitur dengan seleksi fitur Chi Square dapat dilihat pada Gambar 3 berikut.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Dalam seleksi fitur Chi Square frekuensi pada fitur menjadi kurang penting bila fitur tersebut juga muncul beberapa kali pada kategori yang tidak diharapkan.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sehingga bila kedua metode tersebut dibandingkan seleksi fitur Chi Square akan lebih baik daripada frequency - based.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Kemunculan frekuensi fitur pada kategori yang diharapkan dan kategori yang tidak diharapkan memiliki peranan penting dalam seleksi fitur Chi Square.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Sedangkan pada frequency - based yang memiliki peranan penting hanya kemunculan frekuensi fitur pada kategori yang diharapkan.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Apabila penolakan hipotesis awal terpenuhi atau penerimaan hipotesis akhir terpenuhi, fitur tersebut akan digunakan dalam proses klasifikasi NBC.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Mengacu pada konsep dasar Naive Bayes classifier yaitu Teorema Bayes yang dinyatakan pertama kali oleh Thomas Bayes [1].,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Nilai probabilitas dihitung dari kemunculan opini yang setara dengan perkalian nilai probabilitas kemunculan fitur dalam opini tersebut .,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Adapun diagram alir untuk proses klasifikasi dengan NBC dapat dilihat pada Gambar 4.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Klasifikasi oleh NBC pada data uji negatif memperoleh ketepatan sebesar 72% sedangkan untuk data uji positif memperoleh 96%.,RESULT,1,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"secara keseluruhan data uji, klasifikasi oleh NBC memperoleh akurasi sebesar 83% dan rata - rata harmonik ( f-measure) sebesar 90,713%.",RESULT,1,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Pada penelitian ini, NBC melakukan kesalahan klasifikasi sebanyak empat data uji, tidak dapat mengklasifikasi 13 data uji dari total keseluruhan 100 data uji.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,NBC bekerja dengan baik dalam mengklasifikasi dan juga merupakan teknik pembelajaran mesin yang sederhana dengan hanya menggunakan kemunculan fitur serta frekuensi fitur pada tiap - tiap opini.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,secara global klasifikasi oleh NBC dapat digunakan sebagai teknik analisis sentimen pasar produk seperti yang dilakukan pada penelitian ini.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Daftar hasil perhitungan memuat nilai seleksi fitur Chi Square yang berdasarkan hipotesis independensi, dengan hipotesis awal menyatakan bahwa term t independen terhadap kategori c.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Apabila nilai seleksi fitur Chi Square lebih besar daripada nilai signifikan, sehingga penolakan hipotesis awal akan terpenuhi.",OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,Hipotesis akhir yang diperoleh menyatakan bahwa term t dependen terhadap kategori c.,OTHERS,0,4. HASIL dan PEMBAHASAN
+11992-1-22158-1-10-20150206.txt,"Berdasarkan hasil yang diperoleh dapat disimpulan bahwa kemunculan frekuensi fitur pada kategori yang diharapkan dan kategori yang tidak diharapkan memiliki peranan penting dalam seleksi fitur Chi Square, oleh karena itu seleksi fitur Chi Square baik digunakan dalam penyeleksian fitur dibandingkan dengan metode frequency - based.",CONCLUSION,1,5. SIMPULAN
+11992-1-22158-1-10-20150206.txt,"Serta pembangunan sistem analisis sentimen menggunakan metode NBC dengan bahasa pemrograman Java memperoleh akurasi sebesar 83% dan rata - rata harmonik sebesar 90,713%.",RESULT,1,5. SIMPULAN
+11992-1-22158-1-10-20150206.txt,Terdapat kesalahan klasifikasi karena pada data uji terdapat fitur yang muncul pada bukan kategorinya.,OTHERS,0,5. SIMPULAN
+11992-1-22158-1-10-20150206.txt, untuk penelitian selanjutnya yaitu dapat dibandingkan hasil seleksi fitur dari chi square terhadap hasil seleksi fitur dari Mutual Information berdasarkan segi waktu komputasi dan segi ketepatan klasifikasi.,SUGGESTION,1,5. SIMPULAN
+11992-1-22158-1-10-20150206.txt,Serta menggabungkan teknik pembelajaran mesin NBC dengan beberapa model n - gram untuk meneliti hasil ketepatan klasifikasi yang diperoleh.,SUGGESTION,1,5. SIMPULAN

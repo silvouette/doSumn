@@ -1,0 +1,155 @@
+filename,sentence,labels,abstract,heading
+1229-2860-1-SM.txt,Text mining dapat didefinisikan sebagai suatu proses menggali informasi oleh seorang user yang berinteraksi dengan sekumpulan dokumen menggunakan tools analisis yang merupakan komponen - komponen dalam data mining.,OTHERS,0,Abstrak
+1229-2860-1-SM.txt,"Dalam text mining dikenal beberapa metode untuk klasifikasi teks, salah satunya adalah K - Nearest Neightbour ( KNN).",OTHERS,0,Abstrak
+1229-2860-1-SM.txt,KNN adalah sebuah metode untuk melakukan klasifikasi terhadap objek berdasarkan data pembelajaran yang jaraknya paling dekat dengan objek tersebut .,OTHERS,0,Abstrak
+1229-2860-1-SM.txt,Pada penelitian ini akan dilakukan klasifikasi terhadap dokumen teks menggunakan metode KNN berdasarkan winnowing fingerprint.,TOPIC,1,Abstrak
+1229-2860-1-SM.txt,Winnowing adalah algoritma yang biasa digunakan untuk mendeteksi kesamaan isi suatu dokumen teks dengan cara memecah kalimat yang ada pada dokumen teks menjadi beberapa karakter sepanjang k - grams dan menghasilkan output berupa kumpulan nilai hash yang disebut fingerprint.,OTHERS,0,Abstrak
+1229-2860-1-SM.txt,Penelitian ini mencoba untuk menjadikan fingerprint sebagai ciri suatu dokumen teks lalu mengelompokkan dokumen teks berdasarkan ciri tersebut .,TOPIC,1,Abstrak
+1229-2860-1-SM.txt,Proses klasifikasi diawali dengan mengumpulkan dokumen latih yang akan dijadikan sebagai acuan dalam pengelompokan dokumen.,METHOD,1,Abstrak
+1229-2860-1-SM.txt,Dokumen latih tersebut diproses dengan metode winnowing untuk mendapatkan ciri dari dokumen tersebut .,METHOD,1,Abstrak
+1229-2860-1-SM.txt,"Dokumen uji yang ingin dikelompokkan juga harus melewati proses winnowing, setelah fingerprint didapat maka dilanjutkan dengan proses klasifikasi menggunakan metode KNN.",METHOD,1,Abstrak
+1229-2860-1-SM.txt,Dari hasil pengujian terhadap 10 dokumen uji didapat nilai akurasi pengelompokan 80%.,RESULT,1,Abstrak
+1229-2860-1-SM.txt,Pesatnya perkembangan teknologi informasi menyebabkan banyak informasi tidak lagi disimpan dalam bentuk berkas - berkas dokumen yang diletakkan di dalam lemari melainkan informasi disimpan dalam bentuk softcopy berupa dokumen digital.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Hal ini mempermudah dalam penyimpanan dan dalam memperbanyak suatu dokumen.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,"Saat ini, jumlah dan keanekaragaman dokumen teks terus bertambah sehingga menyebabkan penumpukan dokumen.",BACKGROUND,1,PENDAHULUAN
+1229-2860-1-SM.txt,Dokumen yang tersebar dan tidak terkoordinasi dengan baik akan menyulitkan user dalam mendapatkan informasi yang diinginkan.,BACKGROUND,1,PENDAHULUAN
+1229-2860-1-SM.txt,"Sebagai contoh, user ingin mencari materi kuliah dan jurnal yang berhubungan dengan tema penelitian dibidang komputer.",OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Sehingga user melakukan pencarian berdasarkan nama dokumen yang diduga memiliki hubungan dengan tema tugas akhir tersebut .,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,"Setelah melakukan pencarian, beberapa dokumen yang didapat tidak sesuai dengan yang diharapkan.",OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Beberapa dokumen tersebut berisi hal yang tidak memiliki hubungan dengan tema penelitian yang dicari.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Salah satu solusi yang dapat digunakan untuk mengatasi masalah ini adalah dengan menggunakan sistem yang mampu mengklasifikasikan dokumen teks berdasarkan kesamaan isi dokumen.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Teknik klasifikasi adalah suatu proses untuk mengelompokkan sejumlah data ke dalam kelas - kelas tertentu yang sudah diberikan berdasarkan kesamaan sifat dan pola yang terdapat dalam data - data tersebut [1].,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt," menggunakan teknik klasifikasi ini, dokumen dapat dikelompokkan berdasarkan kesamaan isi yang terdapat dalam dokumen tersebut dengan membandingkan dengan kelompok - kelompok dokumen yang telah ada.",OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Penelitian yang berhubungan tentang pengelompokan dokumen sebelumnya telah diteliti I Wayan Surya Priantara dari Institut Sebelas Maret pada tahun 2011.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Pada tulisannya Wayan menggunakan algoritma k - mean++ sebagai metode pengelompokan dokumen dalam bahasa inggris.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,"Dalam penelitiannya tersebut dijelaskan bahwa algoritma winnowing telahmemenuhi kebutuhan sebuah algoritma pendeteksian kesamaan dokumen yaitu , dalam melakukan pencocokan terhadap dokumen tidak terpengaruh oleh spasi, jenis huruf, tanda baca dan karakter lainnya[2].",OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Hal ini sering disebut dengan whitespace insensitivity.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Selain itu dengan mengunakan algoritma winnowing untuk menghasilkan fingerprint suatu dokumen akan mempercepat proses pengelompokan dokumen karena dokumen dikelompokkan berdasarkan fingerprint yang dihasilkan.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Sedangkan metode k - nearest neighbour telah diteliti sebelumnya oleh Widia Nur Diana dari Universitas Brawijaya pada tahun 2011.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Penelitian yang dilakukan berhubungan dengan pengelompokan dokumen teks berita berbahasa indonesia.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Dari penelitian tersebut disimpulkan bahwa dengan penggunaan metode k - nearest neighbour untuk pengelompokan dapat mengurangi jumlah data latih secara efektif dan mengurangi kompleksitas perhitungan[3].,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,"Berdasarkan latar belakang yang telah dijelaskan, maka dapat ditarik sebuah rumusan masalah yaitu , Bagaimana merancang dan membangun sebuah aplikasi pengelompokan dokumen berdasarkan kesamaan isi dokumen dengan menggunakan winnowing sebagai penghasil fingerprint dan metode k - nearest neighbour untuk mengelompokan dokumen.",OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Agar penulisan dalam tugas akhir ini lebih terarah maka diberikan batasan masalah yaitu : a. Dokumen yang diuji berupa dokumenteks digital yang mempunyai format plaintext ( txt dan dtxt).,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,b. Teks yang digunakan berupa huruf latin dan berbahasa Indonesia.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,c. Perhitungan distance menggunakan euclidean distance.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,d. Penentuan input nilai ketetanggaan ditentukan oleh pengguna.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,e. Koleksi dokumen latih yang digunakan dalam percobaan diambil dari artikel dan tulisan yang kelompoknya telah didefinisikan sebelumnya,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,"Tujuan yang ingin dicapai dalam pembuatan penelitian ini, yaitu melakukan klasifikasi terhadap dokumen teks berdasarkan fingerprint winnowing dengan menggunakan metode k - nearest neighbour.",TOPIC,1,PENDAHULUAN
+1229-2860-1-SM.txt,Tahapan penelitian yang dilakukan dapat dilihat pada Gambar 1.,OTHERS,0,PENDAHULUAN
+1229-2860-1-SM.txt,Text mining adalah salah satu bidang khusus dari data mining.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Sesuai dengan buku The Text Mining Handbook, text mining dapat didefinisikan sebagai suatu proses menggali informasi oleh seorang user yang berinteraksi dengan sekumpulan dokumen menggunakan tools analisis yang merupakan komponen - komponen dalam data mining yang salah satunya adalah kategorisasi.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Text mining merupakan suatu proses yang melibatkan beberapa area teknologi.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Namun secara umum proses - proses pada text mining mengadopsi proses data mining.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Bahkan beberapa teknik dalam proses text mining juga menggunakan teknik - teknik data mining.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Ada empat tahap proses pokok dalam text mining, yaitu pemrosesan awal terhadap teks ( text preprocessing), transformasi teks ( text transformation), pemilihan fitur ( feature selection), dan penemuan pola ( pattern discovery)[4].",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Adapun penjelasan tentang tahapan pemrosesan adalah sebagai berikut:a. Text Preprocessing,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Text preprocessing merupakan tahapan awal pada text mining.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Preprocessing merupakan suatu proses untuk menghilangkan bagian - bagian yang tidak diperlukan atau pembersihan teksyang dilakukan untuk mengubah data data berkulitas yaitu data yang telah memenuhi persyaratan untuk dieksekusi pada sebuah algoritma.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Bentuk pembersihan teks ini seperti menghilangkan spasi,tanda baca, mengubah huruf kapital menjadi huruf kecil dan menghilangkan karakter - karakter yang tidak relevan lainnya Text preprocessing ini juga diterapkan pada algoritma untuk mendeteksi kesamaan isi dokumen seperti algoritma winnowing.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Ada beberapa hal yang dilakukan pada tahap preprocessing pada algoritma winnowing, seperti : ( 1) Case Folding, yaitu membuang seluruh karakter - karakter yang tidak relevan seperti : tanda baca, spasi dan juga karakter lain, sehingga nantinya hanya karakter yang berupa huruf atau angka yang akan diproses lebih lanjut.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt," ( 2) Filtering, Tahap lanjutan dari case holding yaitu pengambilan katapenting hasil dari case holding, contoh kalimat Teknik Informatika adalah salah satu jurusan yang terdapat di Fakultas Sains dan Teknologi melalui tahapan filtering akan terbentuk Teknik Informatika adalah salah satu jurusan yang terdapat difakultas sains dan teknologi.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Setelah dilakukan preprocessing maka akan di lanjutkan dengan text transformation.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Pada text transformation akan dilakukan lanjutan proses dari algoritma winnowing.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Algoritma Winnowing merupakan algoritma yang digunakan dalam mendeteksi kesamaan dokumen termasuk bagian - bagian kecil yang mirip dalam dokumen yang berjumlah banyak.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Input dari algoritma ini adalah dokumen teks yang diproses sehingga menghasilkan output berupa kumpulan nilai - nilai hash.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Kumpulan - kumpulan nilai hash tersebut selanjutnya disebut fingerprint.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Fingerprint inilah yang dijadikan dasar pembanding antara file - file teks yang telah dimasukkan dan digunakan dalam deteksi penjiplakan[5].,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Setelah tahapan preprocessing dilakukan, berikut langkah - langkah lanjutan dalam penerapan Algoritma Winnowing: 1. Metode K - gram, yaitu membentuk substring sepanjang k karakter dari sebuah string.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Sebagai contoh: Teknik Informatika adalah salah satu jurusan yang terdapat di Fakultas Sains dan Teknologi Memotong string sepanjang k.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Misalnya nilai k = 7, dari kalimat diatas, sehingga diperoleh hasil sebagai berikut: Teknikieknikinknikinfnikinfo ikinfor kinform informa .....",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"2. Perhitungan nilai hash, yaitu fungsi yang menerima masukan string yang panjangnya sembarang dan mengkonversinya menjadi string keluaran yang panjangnya tetap ( umumnya berukuran jauh lebih kecil daripada ukuran string semula).",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Berikut persamaan dari metode hash: H ( c1.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,ck)= c1 * b ( k - 1) + c2 * b ( k - 2) + .. + c ( k - 1) *bk + ck Keterangan: c: nilai ascii karakter ( desimal) b: basis ( bilangan prima) k: banyak karakter ( indeks karakter).,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Contoh perhitungan dengan basis prima=2: H ( tekniki)=ascii ( t) * 2 ( 6)+ ascii ( e) * 2 ( 5)+ascii ( k) * 2 ( 4) + ascii ( n) * 2 ( 3) + ascii ( i) * 2 ( 2) + ascii ( k) * 2 ( 1) + ascii ( i) * 2 ( 0) = 116 * 64 + 101 * 32 + 107 * 16 + 110 * 8 + 105 * 4 + 107 *2 + 105 * 1 = 7424 + 3232 + 1712 + 880 + 420 + 214 + 105 =139873.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Membentuk window, yaitu membagi nilai hash yang terbentuk kedalam beberapa window.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"4. Pemilihan fingerprint, yaitu nilai hash minimum dari setiap window yang telah terbentuk.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Feature selection merupakan tahap lanjut dari pengurangan dimensi pada proses transformasi teks.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Walaupun tahap sebelumnya sudah melakukan penghapusan kata - kata yang tidak deskriptif ( stopwords), namun tidak semua kata - kata di dalam dokumen memiliki arti penting.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Oleh karena itu, untuk mengurangi dimensi, pemilihan hanya dilakukan terhadap kata - kata yang relevan yang benar - benar merepresentasikan isi dari suatu dokumen.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Ide dasar dari pemilihan fitur adalah menghapus kata - kata yang kemunculannya hanya di suatu dokumen tertentu.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Algoritma yang digunakan pada text mining, biasanya tidak hanya melakukan perhitungan pada dokumen saja, tetapi juga pada feature.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Empat macam feature yang sering digunakan adalah : ( 1) Character, merupakan komponan individual, bisa huruf, angka, karakter spesial dan spasi, merupakan block pembangun pada level paling tinggi pembentuk semantik feature, seperti kata, term dan concept.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt, ( 2) Words.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt, ( 3) Terms merupakan single word dan multiword phrase yang terpilih secara langsung dari corpus.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt," ( 4) Concept, merupakan feature yang di - generate dari sebuah dokumen secara manual, rule - based, atau metodologi lain.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Ada beberapa teknik yang dimiliki data mining berdasarkan tugas yang bisa dilakukan [6], yaitu : 1. Deskripsi: Para peneliti / analis biasanya mencoba menemukan cara untuk mendeskripsikan pola dan trend yang tersembunyi dalam data.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"2. Estimasi: Estimasi mirip dengan klasifikasi, kecuali variabel tujuan yang lebih ke arah numerik daripada kategori.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,3. Prediksi: Prediksi memiliki kemiripan dengan estimasi dan klasifikasi.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Hanya saja, prediksi hasilnya menunjukkan sesuatu yang belum terjadi ( mungkin terjadi di masa depan).",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Misalnya, ingin diketahui prediksi harga beras tiga bulan yang akan datang.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"4. Klasifikasi: Dalam klasifikasi variable, tujuan bersifat kategorik.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Misalnya, kita akan mengklasifikasikan pendapatan dalam tiga kelas, yaitu pendapatan tinggi, pendapatan sedang, dan pendapatan rendah.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"5. clustering : clustering lebih kearah pengelompokan record,pengamatan, ataukasusdalam kelas yang memiliki kemiripan.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Sebuah cluster adalah kumpulan record yang memiliki kemiripan satu dengan yang lain dan memiliki ketidakmiripan dengan record dalam cluster yang lain.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,6. Asosiasi: Mengidentifikasi hubungan antara berbagai peristiwa yang terjadi pada satu waktu.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Pendekatan asosiasi tersebut menekankan sebuah kelas masalah yang dicirikan dengan analisis keranjang pasar.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Klasifikasi adalah suatu proses untuk mengelompokkan sejumlah data ke dalam kelas - kelas tertentu yang sudah diberikan berdasarkan kesamaan sifat dan pola yang terdapat dalam data - data tersebut .,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"secara umum, proses klasifikasi dimulai dengan diberikannya sejumlah data yang menjadi acuan untuk membuat aturan klasifikasi data.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Data - data ini biasa disebut dengan training sets, dari training sets tersebut kemudian dibuat suatu model untuk mengklasifikasikan data.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Model tersebut kemudian digunakan sebagai acuan untuk mengklasifikasikan data - data yang belum diketahui kelasnya yang disebut dengan test set atau data latih[7].,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Klasifikasi ( classification) adalah metode data mining yang dapat digunakan untuk proses pencarian sekumpulan model ( fungsi) yang dapat menjelaskan dan membedakan kelas - kelas data atau konsep, yang tujuannya supaya model tersebut dapat digunakan memprediksi objek kelas yang labelnya tidak diketahui atau dapat memprediksi kecenderungan data - data yang akan muncul di masa depan.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Metode klasifikasi juga bertujuan untuk melakukan pemetaan data ke dalam kelas yang sudah didefinisikan sebelumnya berdasarkan pada nilai atribut data[1].,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,K - Nearest Neighbour sangat sering digunakan dalam klasifikasi dengan tujuan dari algoritma ini adalah untuk mengklasifikasi objek baru berdasarkan atribut dan training samples[8].,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Algoritma K - Nearest Neighbour ( K - NN atauKNN) adalah sebuah metode untuk melakukan klasifikasi terhadap objek berdasarkan data pembelajaran yang jaraknya paling dekat dengan objek tersebut .,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"KNN termasuk algoritma supervised learning yaitu hasil dari query instance yang baru, diklasifikasikan berdasarkan mayoritas dari kategori pada KNN.",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Dekat atau jauhnya tetangga biasanya dihitung berdasarkan jarak Euclidean dengan rumus umum sebagai berikut: Keterangan d= Jarak a= Data uji / testing X ( Cetak)b= Sampel data i= Variabel data n= Dimensi data,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Percobaan dari penelitian dievaluasi dengan pengukuran akurasi.,OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,"Pengukuran dilakukan dengan menggunakan tabel klasifikasi yang bersifat prediktif, disebut juga dengan Confusion Matrix[9].",OTHERS,0,LANDASAN TEORI
+1229-2860-1-SM.txt,Jumlah dan keanekaragaman dokumen digital saat ini terus bertambah.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Dokumen yang tersebar menyebabkan sulit untuk mencari dokumen yang mempunyai tema yang sama atau mempunyai kesamaan isi.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Bila melakukan pencarian secara manual menggunakan nama file dokumen, sering didapat dokumen yang berisi hal yang tidak berhubungan.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Hal itu disebabkan nama file dokumen belum tentu menggambarkan isi dari dokumen tersebut .,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Oleh karena itu, sangat penting untuk mengelola dan mengelompokkan dokumen.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Dokumen yang telah dikelompokkan berdasarkan isi karakter yang ada didalamnya akan mempermudah dalam proses pencarian dokumen.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Data merupakan bahan mentah yang akan diolah untuk menghasilkan sebuah informasi.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Beberapa data yang dibutuhkan pada pembuatan aplikasi klasifikasi dokumen ini adalah sebagai berikut: a. Data Koleksi Dokumen Latih: Dokumen latih adalah data masukan yang berisi kumpulan dokumen teks yang telah mempunyai kelompok.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Selanjutnya setiap dokumen latih akan diproses ke dalam tahapan text mining hingga menghasilkan output berupa fingerprint.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Fingerprint ini yang akan dijadikan acuan sebagai klasifikasi dokumen.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,b. Dokumen Uji: Dokumen uji adalah dokumen yang akan ditentukan kelompoknya berdasarkan fingerprint dokumen latih sebagai acuan.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,c. Konfigurasi Winnowing: Konfigurasi winnowing adalah penentuan nilai - nilai yang digunakan dalam algoritma winnowing.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Berdasarkan penelitian [11] konfigurasi dengan nilai k - gram=8, bilangan basis prima=3 dan jumlah window=8 menghasilkan ciri dokumen yang lebih baik, untuk itu seluruh proses algoritma winnowing yang ada akan menggunakan konfigurasi tersebut .",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"d. Data Nilai K Tetangga Terdekat: Nilai K Tetangga terdekat adalah data masukan berupa angka bernilai ganjil, yang digunakan sebagai penentuan kelompok.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Batasan implementasi pada aplikasi pengelompokan dokumen teks ini adalah sebagai berikut: a. Bahasa pemrograman yang digunakan adalah PHP dan database mySQL.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,b. Masukkan dokumen teks yang dapat dideteksi aplikasi ini adalah dokumen yang memiliki format plain text ( .txt dan .dtxt).,DATASET,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"c. Dalam proses pencarian fingerprint, menggunakan nilai k - gram=8, bilanganprima=3, dan ukuran window=8 [11].",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Lingkungan implementasi adalah lingkungan dimana aplikasi ini dikembangkan.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Lingkungan implementasi aplikasi clustering dokumen teks ini terdiri dari 2 lingkungan, yaitu lingkungan perangkat keras dan lingkungan perangkat lunak.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Berikut ini merupakan spesifikasi lingkungan tersebut : 1. Perangkat Keras,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,a. Processor : Intel Core i3 CPU 2.3 Hz b. Memory : 4 GB c. Harddisk : 500 GB.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,2. Perangkat Lunak a. Sistem Operasi : Windows 7 Ultimate b. Browser : Google Chrome c. Bahasa Pemrograman : PHP d. Database : MySQL e. Tools Perancangan : Notepad++.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Tahapan ini merupakan tahap implementasi aplikasi dari hasil analisa yang telah diperoleh dan mengimplementasikan hasil perancangan interface yang telah dibuat.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Pada aplikasiini memiliki empat menu, yaitu menu beranda, menu data latih, menu kelompok dan menu proses.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Berikut ini merupakan implementasi aplikasi pengelompokan dokumen sesuai dengan menu yang ada pada aplikasi.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Halaman beranda merupakan halaman yang berisitentangdefinisiK - Nearest Neighbour dan juga keterangan tambahan yang diperlukan.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Berikut adalah tampilan antarmuka menu beranda.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Halaman ini berisi tampilan dokumen latih yang ada dalam database aplikasi.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Tampilannya berupa nama file dan nama kelompok.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Selain itu juga terdapat tombol input data, yang berfungsi untuk menambahkan dokumen latih kedalam aplikasi.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Berikut adalah tampilan menu pelatihan.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Halaman ini berisikan form untuk proses pengujian dokumen.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Disini terdapat informasi yang dibutuhkan untuk memproses dokumen uji, seperti input dokumen, id_aturan serta nilai ketetanggan yang diperlukan untuk pengelompokan dokumen uji.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Berikut adalah tampilan menu pengujian.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Sistem akan dilakukan untuk mengetahui apakah sistem yang dibangun sudah sesuai dengan analisa dan tujuan dari dibangunnya sistem ini.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt," untuk mengetahui hasil dari sistem ini apakah sudah sesuai dengan yang diharapkan, dilakukan penghitungan similarity dengan inputan dokumen yang diuji.",OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Adapun rencana pengujian yang dilakukan adalah sebagai berikut: 1. Pengujian Blackbox untuk menguji apakah program telah sesuai dengan tujuan dan fungsi dengan hasil yang didapat.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,2. Menguji hasil klasifikasi dokumen uji dengan mengubah jumlah dokumen latih dan nilai kedekatan ( nilai k tetangga terdekat).,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Koleksi dokumen latih yang digunakan berjumlah 12 dan 25 dokumen.,OTHERS,0,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Berdasarkan beberapa pengujian yang telah dilakukan, diperoleh kesimpulan sebagai berikut: a. Fingerprint winnowing dapat dijadikan sebagai ciri untuk mengelompokkan suatu dokumen.",CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Hal ini dapat terlihat dari hasil pengujian yaitu dokumen yang memiliki kelompok yang sama akan memiliki nilai kedekatan yang hampir sama pula.,CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,b. K - Nearest Neightbour ( KNN) sangat bergantung dengan jumlah data latih.,CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Semakin banyak dokumen latih yang ada, maka akan semakin baik KNN dalam melakukan pengelompokan.",CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Hal ini dapat terlihat dari pengujian I dan II yaitu jumlah dokumen latih yang lebih banyak akan memperbesar keakuratan pengelompokan.,CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Selain itu jumlah nilai k tetangga terdekat juga sangat berpengaruh, jumlah nilai k harus disesuaikan dengan jumlah dokumen latih agar menghasilkan kelompok yang sesuai.",CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"c. Selain kelemahan yang telah disebutkan, metode klasfikasi ini mempunyai kelemahan yakni bila dokumen uji yang tidak berhubungan dengan dokumen latih dimasukkan, maka tetap akan mendapatkan nilai dan dikelompokkan.",CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,d. Pada pengujian akurasi didapat akurasi yaitu 80%.,RESULT,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,Adanya kelompok yang tidak relevan dipengaruhi oleh beberapa faktor yang telah disebutkan diatas.,CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,e. Pada pengujian blackbox didapat hasil telah sesuai dengan keluaran yang diharapkan.,CONCLUSION,1,ANALISA dan IMPLEMENTASI
+1229-2860-1-SM.txt,"Kesimpulan yang dapat diambil dari penelitian ini adalah sebagai berikut: 1. Pada pengelompokan dokumen uji, jumlah data latih dan parameter K dari KNN sangat berpengaruh terhadap hasil pengelompokan.",CONCLUSION,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,Semakin banyak dokumen latih akan dapat menghasilkan pengelompokan yang lebih baik.,CONCLUSION,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,"Namun, semakin banyak dokumen latih menyebabkan waktu proses menjadi lebih lama disebabkan harus membandingkan dokumen latih ke semua dokumen uji yang ada.",CONCLUSION,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,"2. Panjang karakter dalam dokumen mempengaruhi nilai similarity, hal ini disebabkan sistem membaca frekuensi setiap fingerprint yang terbentuk.",CONCLUSION,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,"3. Berdasarkan pengujian akurasi terhadap 10 dokumen, persentase akurasi yang didapat adalah 80%.",RESULT,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,Hal ini disebabkan ada kelompok yang tidak relevan.,RESULT,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,"Kelompok yang tidak relevan dipengaruhi oleh beberapa faktor seperti : nilai k - gram, nilai k tetangga terdekat, dan panjang dokumen.",RESULT,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,"Pada penelitian selanjutnya dapat menggunakan algoritma lain seperti algoritma biword winnowing untuk ekstraksi ciri fingerprint, sehingga diharapkan menghasilkan ciri dokumen yang lebih baik.",SUGGESTION,1,KESIMPULAN dan SARAN
+1229-2860-1-SM.txt,"Selain itu, metode klasifikasinya juga dapat dimodifikasi menggunakan metode lain seperti naive bayes dan sebagainya.",SUGGESTION,1,KESIMPULAN dan SARAN

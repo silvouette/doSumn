@@ -10,7 +10,7 @@ from pdfminer.converter import PDFPageAggregator, TextConverter
 from nltk.tokenize import sent_tokenize
 
 path = os.path.dirname(os.getcwd())
-pdf_path = os.path.join(path, "../pdfData/")
+pdf_path = os.path.join(path, "../data_pdf/")
 txt_path = os.path.join(path, "../txtData_b/")
 
 def removeNotAscii(input):

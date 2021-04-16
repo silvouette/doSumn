@@ -1,0 +1,13 @@
+saat ini jumlah keanekaragaman dokumen teks terus bertambah sehingga menyebabkan penumpukan dokumen
+dokumen tersebar tidak terkoordinasi dengan baik akan menyulitkan user dalam mendapatkan informasi diinginkan
+b masukkan dokumen teks dapat dideteksi aplikasi ini adalah dokumen memiliki format plain text txt dtxt
+berdasarkan beberapa pengujian telah dilakukan diperoleh kesimpulan sebagai berikut a fingerprint winnowing dapat dijadikan sebagai ciri untuk mengelompokkan suatu dokumen
+hal ini dapat terlihat dari hasil pengujian yaitu dokumen memiliki kelompok sama akan memiliki nilai kedekatan hampir sama pula
+b k nearest neightbour knn sangat bergantung dengan jumlah data latih
+semakin banyak dokumen latih ada maka akan semakin baik knn dalam melakukan pengelompokan
+hal ini dapat terlihat dari pengujian yaitu jumlah dokumen latih lebih banyak akan memperbesar keakuratan pengelompokan
+selain itu jumlah nilai k tetangga terdekat juga sangat berpengaruh jumlah nilai k harus disesuaikan dengan jumlah dokumen latih agar menghasilkan kelompok sesuai
+c selain kelemahan telah disebutkan metode klasfikasi ini mempunyai kelemahan yakni bila dokumen uji tidak berhubungan dengan dokumen latih dimasukkan maka tetap akan mendapatkan nilai dikelompokkan
+d pada pengujian akurasi didapat akurasi yaitu
+adanya kelompok tidak relevan dipengaruhi oleh beberapa faktor telah disebutkan diatas
+e pada pengujian blackbox didapat hasil telah sesuai dengan keluaran diharapkan

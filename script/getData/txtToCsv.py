@@ -5,7 +5,7 @@ import csv
 
 path = os.path.dirname(os.getcwd())
 csv_path = os.path.join(path, "labels.csv")
-txt_path = os.path.join(path, "txtData/")
+txt_path = os.path.join(path, "data_txt/")
 
 def addToCsv():
     print("Appending to csv...")

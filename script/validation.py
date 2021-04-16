@@ -29,34 +29,33 @@ def validate(x_test,y_test,y_pred):
                 
     return TP, TN, FP, FN
 
-def validate_more(x_test,y_test,y_pred):
-    bg, tp, mt, dt, rs, cc, sg, no = 0, 0, 0, 0, 0, 0, 0, 0
-    # fn, fp = [], []
+def validate_more(data):
+    bg, tp, mt, dt, rs, cc, sg = 0, 0, 0, 0, 0, 0, 0
+    abg, atp, amt, adt, ars, acc, asg= [],[],[],[],[],[],[]
 
-    for i in range(len(y_pred)):
-        if y_pred[i][0] == 1:
-            bg += 1
-            # print('background')
-        if y_pred[i][1] == 1:
-            cc += 1
-            # print('conclusion')
-        if y_pred[i][2] == 1:
-            dt += 1
-            # print('dataset')
-        if y_pred[i][3] == 1:
-            mt += 1
-            # print('method')
-        if y_pred[i][4] == 1:
-            rs += 1
-            # print('result')
-        if y_pred[i][5] == 1:
-            sg += 1
-            # print('suggestion')   
-        if y_pred[i][6] == 1:
-            tp += 1
-            # print('topic')
-        if np.array_equal(y_pred[i], [0,0,0,0,0,0,0,0]):
-            no += 1
-            # print('NOTHING') 
-        print(y_pred[i])         
-    return bg, tp, mt, dt, rs, cc, sg, no
+    for index, row in data.iterrows():
+        if row['pred'] == 'BACKGROUND':
+            abg.append(row['sentence'])
+        elif row['pred'] == 'TOPIC':
+            atp.append(row['sentence'])
+        elif row['pred'] == 'METHOD':
+            amt.append(row['sentence'])
+        elif row['pred'] == 'DATASET':
+            adt.append(row['sentence'])
+        elif row['pred'] == 'RESULT':
+            ars.append(row['sentence'])
+        elif row['pred'] == 'CONCLUSION':
+            acc.append(row['sentence'])
+        else:
+            asg.append(row['sentence'])
+        
+        
+    print(len(abg), len(atp), len(amt), len(adt), len(ars), len(acc), len(asg))
+    print("\nabg\n", abg)
+    print("\natp\n", atp)
+    print("\namt\n", amt)
+    print("\nadt\n", adt)
+    print("\nars\n", ars)
+    print("\nacc\n", acc)
+    print("\nasg\n", asg)
+    # return bg, tp, mt, dt, rs, cc, sg, no

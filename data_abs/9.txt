@@ -1,0 +1,28 @@
+Fuzzy c-means ( FCM) merupakan salah satu algoritma fuzzy clustering yang sangat populer.
+FCM tergolong lebih fleksibel dan adil dalam memperlakukan data jika dibandingkan dengan algoritma klustering konvensional.
+Selain kelebihan tersebut , kelemahan utama algoritma ini adalah sensitif terhadap pusat klaster.
+Pusat klaster yang sensitif mengakibatkan hasil akhir sulit di kontrol dan FCM mudah terjebak pada optimum lokal.
+ untuk mengatasi masalah tersebut , penelitian ini memperbaiki kinerja FCM dengan menerapkan Particle Swarm Optimization ( PSO) untuk menentukan pusat klaster yang lebih baik.
+Penelitian ini diterapkan pada pengklasteran sentimen dengan menggunakan data berdimensi tinggi yaitu ulasan produk yang dikumpulkan dari beberapa situs toko online di Indonesia.
+Hasil penelitian menunjukkan bahwa penerapan PSO pada pembangkitan pusat klaster FCM dapat memperbaiki performa FCM serta memberikan luaran yang lebih sesuai.
+Performa pengklasteran yang menjadi acuan adalah Rand Index, f-measure dan Objective Function Value ( OFV).
+ untuk keseluruhan performa tersebut , FCM - PSO memberikan hasil yang lebih baik dari FCM.
+Nilai OFV yang lebih baik menunjukkan bahwa FCM - PSO tersebut membutuhkan waktu konvergensi yang lebih cepat serta penanganan noise yang lebih baik.
+ untuk mencari solusi terbaik terhadap masalah sensitivitas pusat klaster, penelitian ini difokuskan pada penerapan Particle Swarm Optimization ( PSO).
+Pada penelitian ini PSO ( Particle Swarm Optimization) diterapkan pada inisialisasi pusat klaster FCM.
+Penelitian ini membangun sebuah model klasterisasi FCM - PSO untuk mengevaluasi sekaligus menganalisis sentimen masyarakat terhadap produk toko online.
+Penelitian ini menggunakan data ulasan produk yang dikumpulkan atau diperoleh secara online dari beberapa situs e - commerce di Indonesia.
+Data ulasan produk terdiri dari 1073 data yang terdiri dari 627 sentimen positif dan 445 sentimen negatif.
+Pada Tabel 3 ditunjukan bahwa perbaikan metode FCM melalui penerapan PSO menghasilkan kinerja FCM yang lebih baik dibandingkan dengan tanpa PSO.
+FCM - PSO memiliki nilai RI yang lebih baik dari FCM.
+Hal ini mengindikasikan bahwa pembangkitan pusat klaster FCM dengan PSO meningkatkan kemampuan FCM dalam mengenal pola sentimen yang tersembunyi di dalam data.
+Hal tersebut juga menjadi indikator bahwa FCM - PSO dapat bekerja dengan baik pada data berdimensi tinggi dan tidak terstruktur seperti data ulasan produk.
+Model FCM - PSO juga memiliki f-measure yang lebih baik, hal tersebut menunjukkan bahwa FCM - PSO lebih efektif.
+Dari sisi OFV, metode FCM - PSO memiliki nilai yang lebih baik.
+Nilai OFV yang besar menunjukkan bahwa metode tersebut membutuhkan waktu yang lama untuk mencapai konvergen.
+FCM - PSO memiliki harmonisa yang lebih baik daripada FCM sehingga FCM - PSO lebih baik dalam menangani noise pada data.
+FCM merupakan algoritma pengklasteran yang sangat baik, tetapi algoritma ini sensitif terhadap pusat klaster.
+Penelitian ini menguji efektifitas penerapan Particle Swarm Optimization pada optimalisasi hasil pengklasteran sentimen pada FCM.
+Hasil penelitian menunjukkan bahwa PSO dapat memperbaiki kinerja FCM.
+Model FCM - PSO lebih baik jika dibandingkan dengan model FCM saja.
+Penelitian ini menunjukkan bahwa FCM - PSO sangat cocok digunakan untuk tugas pengklasteran dalam rangka menemukan pola pada data berdimensi tinggi.

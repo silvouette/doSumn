@@ -1,0 +1,1 @@
+svm.SVC(class_weight='balanced', kernel='poly', decision_function_shape='ovo',  gamma=10, C=10 )

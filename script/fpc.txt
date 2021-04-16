@@ -1,0 +1,2 @@
+dalam text mining dikenal beberapa metode untuk klasifikasi teks salah satunya adalah k nearest neightbour knn
+dalam penelitiannya tersebut dijelaskan bahwa algoritma winnowing telahmemenuhi kebutuhan sebuah algoritma pendeteksian kesamaan dokumen yaitu dalam melakukan pencocokan terhadap dokumen tidak terpengaruh oleh spasi jenis huruf tanda baca karakter

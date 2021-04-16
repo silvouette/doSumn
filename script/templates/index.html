@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOSUMN summarizer</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Ubuntu&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="container-sm">
+        <!-- HEADER -->
+        <div class="row" id="header">
+            <div class="col-md-4" id="div-title">
+                <h1 id="app-title">DOSUMN</h1>
+                <h3 id="app-subtitle">Scientific Article Summarizer</h3>
+            </div>
+            <div class="col-md-5" id="div-nav">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                          <a class="nav-link" href="#">Git</a>
+                          <a class="nav-link" href="#">Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+            <div class="col-md-3" id="app-info">
+                <img id="img-logo" src="{{url_for('static', filename='fasilkom.png')}}">
+                <ul>
+                    <li>Silvia Mawarni 151402097</li>
+                    <li>Teknologi Informasi</li>
+                    <li>Universitas Sumatera Utara</li>
+                </ul>
+            </div>
+        </div>
+        <!-- BODY  -->
+        <div  class="container"  id="command">
+            <p>Please select a file to summarize</p>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <input type="file" class="form-control-file col-md-4" id="exampleFormControlFile1">
+                <button type="button" class="btn btn-primary col-md-2" style="margin-left:2%">Summarize!</button>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        <div class="container">
+            Filename summary:
+            <div>
+                
+            </div>
+            <button type="button" class="btn btn-primary">Details</button>
+        </div>
+    </div>
+</body>
+</html>
