@@ -1,0 +1,137 @@
+filename,sentence,labels,abstract,heading
+17521-36865-1-PB.txt,"Tes Kepribadian Saks Sentence Completion Test ( SSCT) adalah salah satu jenis tes proyektif yang digunakan untuk mengungkap dinamika kepribadian, yang dapat menampakkan diri individu dalam hubungan interpersonal dan dalam interpretasi terhadap lingkungan.",BACKGROUND,1,Abstrak
+17521-36865-1-PB.txt,Tugas psikolog dalam tes SSCT adalah melakukan interpretasi terhadap jawaban tes dari para responden.,BACKGROUND,1,Abstrak
+17521-36865-1-PB.txt,Pengembangan sistem berbasis intelligent agent untuk membantu peran psikolog menjadi sangat penting.,BACKGROUND,1,Abstrak
+17521-36865-1-PB.txt,Psikolog mendelegasikan tugas kepada agen cerdas ( intelligent agent) berupa perangkat lunak komputer untuk melakukan interpretasi dan menentukan hasil tes.,BACKGROUND,1,Abstrak
+17521-36865-1-PB.txt,Pengembangan sistem berbasis intelligent agent memungkinkan dan mendukung psikolog dalam mengerjakan tugas dan menentukan hasil tes yang dilakukan oleh responden.,OTHERS,0,Abstrak
+17521-36865-1-PB.txt,Perangkat lunak berbasis intelligent agent ini dikembangkan menggunakan bahasa pemrograman Java dengan platform JADE.,METHOD,1,Abstrak
+17521-36865-1-PB.txt,Sedangkan arsitektur agent yang digunakan BDI dengan metodologi Prometheus.,METHOD,1,Abstrak
+17521-36865-1-PB.txt,Pengembangan aplikasi difokuskan pada apakah metode summary dapat dimanfaatkan untuk mendapatkan model jawaban tes SSCT serta bagaimana psikolog bisa mendapatkan hasil interpretasi tes SSCT dengan cepat.,TOPIC,1,Abstrak
+17521-36865-1-PB.txt,"Hasil pengujian menunjukkan bahwa persentase rata - rata hasil jawaban dari responden yang berhasil dikenali oleh model mencapai 59%, sedangkan persentase rata - rata akurasinya sebesar 95,13%.",RESULT,1,Abstrak
+17521-36865-1-PB.txt,Aplikasi tes menggunakan empat agent yang saling berkoordinasi dan berkomunikasi untuk membantu psikolog mendapatkan hasil tes.,OTHERS,0,Abstrak
+17521-36865-1-PB.txt,Salah satu aspek individu yang diukur melalui pengukuran psikologis adalah kepribadian.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Kepribadian adalah keseluruhan sikap, perasaan, ekspresi, tempramen, ciri - ciri khas dan perilaku seseorang.",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Sikap perasaan ekspresi dan tempramen ini akan terwujud dalam tindakan seseorang jika dihadapkan pada situasi tertentu.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Setiap orang mempunyai kecenderungan prilaku yang baku, atau berlaku terus menerus secara konsisten dalam menghadapi situasi yang dihadapi, sehingga menjadi ciri khas pribadinya [1].",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Kepribadian seseorang selalu berkembang dan dapat diukur melalui pengukuran kepribadian.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Kepribadian seorang individu akan menentukan mudah atau tidaknya diterima di lingkungan masyarakat, maka disinilah peran penting adanya tes kepribadian.",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Terdapat dua macam tes kepribadian, yaitu tes proyektif dan obyektif.",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Tes kepribadian dengan pendekatan proyektif, individu memberikan respon pada stimulus yang tidak terstruktur dan ambigu, sehingga diharapkan dengan menggunakan tes proyektif individu secara tidak sadar akan mengungkapkan, menggambarkan struktur atau sikap, karakteristik kepribadian, motivasi, dan keyakinan [2].",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Saks Sentence Completion Test ( SSCT) adalah salah satu jenis tes proyektif yang digunakan untuk mengungkap dinamika kepribadian, yang dapat menampakkan diri individu dalam hubungan interpersonal dan dalam interpretasi terhadap lingkungan [3].",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Pada tes SSCT, seseorang ( responden) yang dites, diminta untuk melengkapi kalimat - kalimat berjumlah 60 nomor.",BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Setelah tes SSCT selesai dikerjakan oleh responden, maka hasil tes tidak bisa langsung diketahui.",BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Psikolog terlebih dahulu harus membaca kalimat pelengkap ( jawaban) tiap item, mengelompokkan rumpun item kemudian melakukan interpretasi.",BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Selanjutnya menentukan kesimpulan dari kalimat pelengkap tersebut untuk menentukan skor yang akan diberikan.,BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Skor dari kalimat pelengkap tes akan menentukan sikap yang dimiliki oleh responden.,BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Proses pelaksanaan tes sampai didapatkan hasil tes membutuhkan waktu yang cukup panjang, maka jika semakin banyak responden ( peserta tes) SSCT, semakin lama waktu yang dibutuhkan oleh psikolog dalam melakukan analisa, kesimpulan dan menentukan hasil dari tes.",BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Kajian yang menarik adalah mewakilkan peran psikologi dalam melakukan interpretasi kepada perangkat lunak ( intelligent agent).,BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Intelligent agent ( IA) adalah program komputer yang membantu pengguna menjalankan tugas komputer rutin.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Program ini menjalankan tugas tertentu berdasarkan aturan yang telah ditentukan sebelumnya dan pengetahuan yang disimpan dalam basis pengetahuannya [4].,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Intelligent agent merupakan sebuah entitas otonom yang melakukan pengamatan dan dapat bertindak terhadap lingkungannya, serta mengarahkan aktivitasnya untuk mencapai tujuan tertentu [5].",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Pengembangan sistem berbasis intelligent agent untuk membantu peran psikolog dalam proses pelaksanaan tes SSCT menjadi sangat penting.,BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Psikolog mendelegasikan tugas kepada agen cerdas ( intelligent agent) berupa perangkat lunak komputer untuk melakukan analisa, kesimpulan dan menentukan hasil tes.",BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Pengembangan sistem berbasis intelligent agent memungkinkan dan mendukung proses psikolog dalam mengerjakan tugas dan menentukan hasil tes yang dilakukan oleh responden.,BACKGROUND,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Penelitian tentang intelligent agent sudah banyak dilakukan, diantaranya pada sistem pembelajaran [6] dan [7], simulasi [8], [9],monitoring perusahaan [10], negosiasi [11], dan penjadwalan [5].",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Berbagai macam pendekatan diusulkan dalam penelitian tersebut .,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Penelitian yang akan dilakukan menggunakan metodologi prometheus yaitu difokuskan pada pembangunan sistem secara arsitektur internal agent.,METHOD,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Arsitektur agent yang digunakan adalah BDI dengan mengimplementasikan perangkat lunak ( intelligent agent) menggunakan platform JADE dalam bahasa pemrograman Java.,METHOD,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Beberapa metode sudah digunakan dalam mengembangkan aplikasi tes kepribadian diantaranya Fitriantri menggunakan sistem pakar model komputasi sistem produksi dengan pendekatan forward chaining[12].,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Winiarti juga menggunakan sistem pakar pendekatan forward chaining dalam penelusuran fakta [13].,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Adapun penelitian yang diusulkan tentang pengembangan aplikasi tes kepribadian berbasis intelligent agent menggunakan metode summary atau text summarization term frequency - inverse document frequency ( tf-idf).,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Summary atau ringkasan didefinisikan sebagai teks yang dihasilkan dari satu atau lebih teks, mengandung informasi dari teks sumber dan panjangnya tidak lebih dari setengah teks sumber [14].",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Text summarization merupakan proses mengurangi dokumen teks dengan program komputer untuk menciptakan sebuah ringkasan yang mempertahankan poin paling penting dari dokumen asli.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Terdapat dua pendekatan pada peringkasan teks, yaitu ekstraksi dan abstraksi.",OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,tf-idf merupakan salah satu metode text summarization jenis ekstraksi.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,tf-idf adalah cara pemberian bobot hubungan suatu kata ( term) terhadap dokumen.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,"Pada pengembangan aplikasi tes kepribadian berbasis intelligent agent ini, tf-idf akan diterapkan untuk meringkas hasil tes yang sudah dilakukan oleh sejumlah responden.",TOPIC,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Ringkasan yang dihasilkan adalah model kalimat pelengkap ( jawaban) berupa kata - kata dan digunakan untuk melakukan interpretasi terhadap responden baru.,TOPIC,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Penelitian yang akan dilakukan merupakan inisiasi awal untuk menyelesaikan permasalahan tentang lamanya waktu yang dibutuhkan oleh psikolog dalam memberikan interpretasi terhadap jawaban tes ssct dari banyak responden.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Peran psikolog dalam memberikan interpretasi diwakilkan kepada intelligent agent.,OTHERS,0,1. PENDAHULUAN
+17521-36865-1-PB.txt,Metode summary ( tf-idf) digunakan untuk mengetahui apakah model jawaban tes dari sejumlah data responden bisa didapatkan dan digunakan dalam proses interpretasi pada responden baru.,METHOD,1,1. PENDAHULUAN
+17521-36865-1-PB.txt,Sistem yang akan dikembangkan berupa sebuah model prototype aplikasi ( perangkat lunak) tes kepribadian ( SSCT) berbasis intelligent agent.,TOPIC,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Aplikasi memiliki kemampuan untuk melakukan proses summary guna mendapatkan model jawaban berupa kata - kata yang diambil dari sejumlah responden dan membantu proses tes SSCT mulai dari responden memberikan input jawaban sampai mendapatkan hasil tes.,TOPIC,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Pada proses summary, admin memilih jumlah data yang akan diolah untuk mendapatkan model jawaban.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Selanjutnya sistem akan memproses summary sesuai dengan tahapannya mulai preprocessing sampai menghitung bobot.,METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Sedangkan pada proses tes SSCT, responden memberikan input berupa profil dan kalimat - kalimat pelengkap dari kalimat ( soal) tes SSCT.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Input profil meliputi nama, tanggal lahir, jenis kelamin, pendidikan, pekerjaan dan status pernikahan.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Sedangkan input jawaban tes berupa kalimat pelengkap dari enam puluh ( 60) butir soal ( kalimat).,METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Setelah responden menyelesaikan input profil dan input jawaban tes, sistem akan melakukan interpretasi terhadap jawaban tes mulai dari preprocessing sampai mendapatkan hasil tes.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Jika dilihat dari sisi user interface, aplikasi menyediakan tiga ( 3) interface yang masing - masing memiliki fasilitas yang berbeda.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Pertama, untuk admin disediakan fasilitasberupa summary ( preprocessing, menghitung tf, idf, tf-idf dan bobot kata).",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Kedua, untuk responden disediakan input profil dan input jawaban tes.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Ketiga, untuk psikolog disediakan fasilitas berupa input bantuan rating baru pada proses interpretasi.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Gambar 1 menunjukkan bagan alir sistem dalam pemrosesan data responden.,OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Sekumpulan data responden terbagi menjadi kumpulan data training dan data testing.,DATASET,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Data training mengalami proses summary yang meliputi preprocessing, menghitung tf, df, idf, tf-idf dan bobot kata.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Selanjutnya hasil dari proses training berupa kata - kata diberi label / rating / skor oleh psikolog dan digunakan dalam proses interpretasi.,METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Proses interpretasi merupakan bagian dari proses testing yang meliputi preprocessing, pemberian rating tiap item, tiap aspek kepribadian, tiap area kepribadian serta penentuan interpretative summary.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Jika dalam proses interpretasi ditemukan jawaban yang belum ada pada data hasil training, maka diperlukan input bantuan rating dari psikolog.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Setelah psikolog memberikan input rating baru dan dilakukan interpretasi ulang, maka hasil akhir dari proses testing adalah hasil tes SSCT.",METHOD,1,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Rancangan model agent secara detail ditunjukkan pada Gambar 2.,OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Perancangan model yang dikembangkan melibatkan empat agent, yaitu agent summary, agent responden, agent interpretasi, dan agent psikolog.",OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Agent summary mempunyai intelegensia berupa melakukan proses untuk mendapatkan model jawaban ( kata dari kalimat pelengkap tiap item).,OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Agent summary melakukan pembacaan terhadap kumpulan data jawaban dari responden, preprocessing ( ekstrak teks, menghilangkan stop word, mengubah kata menjadi hurufkecil), menghitung tf, idf, tf-idf serta menghitung bobot kata.",OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Agent responden memiliki kemampuan untuk menampilkan layar input profil dan jawaban tes, menangkap input jawaban dan menyimpan ke basis data, mengirim pesan ke agent interpretasi, menerima pesan dari agent interpretasi, dan menampilkan hasil tes ke layar untuk responden.",OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Agent interpretasi memiliki kemampuan berupa membaca data jawaban responden, melakukan preprocessing, interpretasi rating ( skor), interpretative summary, menerima pesan dari agent responden, mengirim pesan ke agent responden dan mengirim pesan ke agent psikolog.",OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,Agent psikolog memiliki kemampuan berupa menerima pesan dari agent interpretasi dan menampilkan bantuan rating ke layar psikolog.,OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,System Overview Diagram yang dihasilkan menggunakan Prometheus Design Tool ditunjukkan pada Gambar 3.,OTHERS,0,2. METODE PENELITIAN
+17521-36865-1-PB.txt,"Pengujian merupakan kegiatan suatu sistem atau komponen dijalankan dalam kondisi tertentu, sehingga hasilnya bisa diamati atau direkam untuk kemudian dilakukan evaluasi.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Pengujian fungsionalitas memastikan bahwa semua kebutuhan - kebutuhan telah terpenuhi dalam sistem ( aplikasi).,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Pengujian fungsionalitas tidak berkonsentrasi pada bagaimana prosesnya terjadi, tetapi pada hasil dari proses.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Pengujian fungsionalitas yang digunakan dalam menguji aplikasi tes kepribadian berbasis intelligent agent menggunakan pengujian black box.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"secara fungsional aplikasi dapat digunakan sesuai dengan kebutuhan diantaranya menyediakan halaman input data responden, menyediakan halaman tes SSCT, secara otomatis menjalankan proses interpretasi setelah responden selesai input jawaban tes, menyediakan tampilan hasil tes dan menyediakan halaman bantuan input rating baru untuk psikolog.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Hasil dari proses summary menggunakan metode tf idf pada data training menunjukkan bahwa model jawaban tes bisa didapatkan berupa kata ( keyword).,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Model jawaban tes berupa kata - kata hasil summary dan hasil bobot dari sejumlah data training.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Data tersebut secara manual dipilih menurut tingkat kecocokan berdasarkan kalimat ( soal tes) dan diberi label / rating / skor berdasarkan aturan dalam tes SSCT.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Sebelum data digunakan dalam proses interpretasi, terlebih dahulu diverifikasi ( diberi label / rating / skor) oleh psikolog.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Hasil summary dari metode tf-idf bisa diterapkan dalam proses summary pada kasus tes SSCT walaupun kurang optimal.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Semua kata hasil preprocessing dan summary tidak digunakan sebagai model jawaban.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Tabel 1 menunjukkan hasil percobaan dari sejumlah data training dalam proses summary, serta hasil verifikasi oleh psikolog menggunakan metode tf-idf.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Pada pengujian aplikasi, digunakan empat data sheet yang terbagi menjadi data training dan data testing.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Data training yang digunakan berupa hasil data yang sudah diverifikasi oleh psikolog untuk digunakan pada proses interpretasi ( testing).,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Eksperimen pertama menggunakan data sheet I, yaitu sejumlah 35 data responden.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Sebanyak 30 data responden ( responden ke - 1 sampai dengan ke - 30) digunakan untuk training ( pelatihan) yang terlebih dahulu divalidasi oleh psikolog.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Sedangkan 5 data responden ( data ke 31 sampai dengan data ke 35) digunakan untuk testing ( pengujian) yang diujikan satu persatu.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Tahapan proses uji data responden ke 31 ( data sheet I) diulang kembali pada data responden ke 32, responden 33, responden ke 34 dan responden ke 35.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Dari proses pengulangan tersebut dilakukan pengamatan terhadap jumlah data yang dikenali sistem.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Tabel 2 menunjukkan jawaban yang dikenali sistem berikut persentase keberhasilan data yang dikenali model dan akurasi data pada testing data sheet I.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Berdasarkan testing data sheet ke I dihasilkan persentase keberhasilan data tertinggi yang dikenali model sebesar 50% dan akurasi tertinggi 96.97%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Adapun persentase rata - rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet ke I sebesar 43.67% dan rata - rata akurasi 91.88%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Keseluruhan proses pada pengujian data testing data sheet I diulang pada data sheet II sampai dengan data sheet IV, sehingga mendapatkan hasil akhir berupa keberhasilan data yang dikenali model dan akurasi data.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Tabel 3 menunjukkan jawaban yang dikenali sistem berikut persentase keberhasilan akurasi data pada testing data sheet II.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Berdasarkan testing data sheet II dihasilkan persentase keberhasilan data tertinggi yang dikenali model sebesar 61.67% dan akurasi tertinggi 96.88%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Adapun persentase rata - rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet II sebesar 51.67% dan rata - rata akurasi 90.19%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Tabel 4 menunjukkan jawaban yang dikenali sistem berikut persentase keberhasilan akurasi data pada testing data sheet III.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Berdasarkan testing data sheet III dihasilkan persentase keberhasilan data tertinggi yang dikenali model sebesar 71.67% dan akurasi tertinggi 97.67%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Adapun persentase rata - rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet III sebesar 56.33% dan rata - rata akurasi 95.07%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Tabel 5 menunjukkan jawaban yang dikenali sistem berikut persentase keberhasilan akurasi data pada testing data sheet IV.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Berdasarkan testing data sheet IV dihasilkan persentase keberhasilan data tertinggi yang dikenali model sebesar 76.67% dan akurasi tertinggi 100%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Adapun persentase rata - rata keberhasilan data tertinggi yang dikenali model dari hasil testing data sheet IV sebesar 59% dan rata - rata akurasi 95.13%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Hasil dari rata - rata persentase keberhasilan data yang dikenali model data testing pada data sheet I sampai dengan data sheet IV terangkum dalam Tabel 6.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Terlihat pada percobaan data sheet I, bahwa hasil training yang berjumlah 30 data diujikan pada 5 data baru diperoleh persentase keberhasilan data yang dikenali model sebesar 43.67% dan akurasi data sebesar 91.88%.",RESULT,1,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Percobaan data sheet II menggunakan data training sebanyak 40 data, diujikan pada 10 data baru diperoleh keberhasilan data yang dikenali model sebesar 51.67% dan akurasi data sebesar 90.19.",RESULT,1,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Percobaan data sheet III menggunakan data training sebanyak 60 data, diujikan pada 15 data baru diperoleh keberhasilan data yang dikenali model sebesar 51.67% dan akurasi data sebesar 95.07%.",RESULT,1,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Percobaan data sheet IV menggunakan data training sebanyak 80 data, diujikan pada 20 data baru diperoleh keberhasilan data yang dikenali model sebesar 59.00% dan akurasi data sebesar 95.13%.",RESULT,1,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Berdasarkan hasil percobaan data sheet I sampai data sheet IV terlihat bahwa persentase keberhasilan data yang dikenali model pada proses interpretasi oleh sistem mengalami kenaikan.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Sedangkan akurasi data pada data sheet II mengalami penurunan, akan tetapi pada data sheet selanjutnya mengalami kenaikan.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Keberhasilan data yang dikenali model dan akurasi tertinggi diperoleh pada data testing data sheet IV dengan rata - rata persentase hasil mencapai 59.00% dan rata - rata persentase akurasi sebesar 95.13%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Aplikasi tetap membutuhkan bantuan user ( psikolog) jika dalam proses interpretasi data baru tidak ditemukan jawaban yang sesuai dalam model jawaban hasil data training.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Percobaan sebagaimana terlihat pada Tabel 6 akan dilanjutkan dengan memberikan rating / label / skor baru pada data yang membutuhkan, kemudian dilakukan interpretasi ulang sehingga didapatkan hasil tes.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Berdasarkan karakteristik agent, maka kemampuan yang dimiliki oleh agent - agent antara lain: 1.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Autonomy ( Kemandirian), agent dapat melakukan tugas secara mandiri dengan diberikan pemicu event tombol.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"2. Intelligence, Reasoning, dan Learning ( Kecerdasan, Penalaran dan Pembelajaran), agent memiliki kecerdasan untuk melakukan proses pembelajaran pada preprocessing dan summary, serta memiliki penalaran dan kecerdasan untuk melakukan proses interpretasi.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"3. Delegation ( Delegasi), agent responden mendelegasikan tugas kepada agent interpretasi untuk menentukan hasil tes 4.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Reactivity ( Reaktif), kemampuan untuk beradaptasi dengan adanya perubahan informasi yang terjadi dalam lingkungannya.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"5. Communication and Coordination ( Komunikasi dan Koordinasi), agent - agent mampu berkomunikasi dengan mengirim pesan antar agent.",OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Proses komunikasi antar agent dapat diamati pada jendela sniffer di JADE Remote Agent Management GUI yang ditunjukkan pada Gambar 4.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,Berdasarkan kemampuan dan karakteristik agent mampu melakukan proses summary untuk mendapatkan model jawaban serta mampu melakukan interpretasi untuk mendapatkan hasil tes.,OTHERS,0,3. HASIL dan PEMBAHASAN
+17521-36865-1-PB.txt,"Berdasarkan hasil penelitian, pengujian dan evaluasi kemampuan agent, kesimpulan yang diperoleh sebagai berikut: 1. Aplikasi sudah selesai dikembangkan sesuai dengan tujuan penelitian yaitu dihasilkan sebuah aplikasi tes kepribadian berbasis intelligent agent.",OTHERS,0,4. KESIMPULAN
+17521-36865-1-PB.txt,"2. secara fungsional aplikasi dapat digunakan sesuai dengan kebutuhan diantaranya menyediakan halaman input data responden, menyediakan halaman tes SSCT, secara otomatis menjalankan proses interpretasi setelah responden selesai input jawaban tes, menyediakan tampilan hasil tes dan menyediakan halaman bantuan input rating baru untuk psikolog.",CONCLUSION,1,4. KESIMPULAN
+17521-36865-1-PB.txt,3. Model jawaban tes SSCT bisa didapatkan dari proses summary pada data training berupa kata ( keyword) dari masing - masing jawaban yang di input oleh responden dan diverifikasi oleh psikolog dengan diberikan label / rating / skor.,OTHERS,0,4. KESIMPULAN
+17521-36865-1-PB.txt,Model jawaban selanjutnya digunakan dalam proses testing ( interpretasi) untuk mendapatkan hasil tes dari data baru.,OTHERS,0,4. KESIMPULAN
+17521-36865-1-PB.txt,Berdasarkan hasil percobaan pertama sampai keempat terlihat bahwa keberhasilan data yang dikenali model dan akurasi tertinggi diperoleh pada data testing data sheet IV dengan rata - rata presentase hasil mencapai 59.00% dan rata - rata persentase akurasi sebesar 95.13%.,RESULT,1,4. KESIMPULAN
+17521-36865-1-PB.txt,4. Aplikasi tes memerlukan empat agent yang saling berkomunikasi melaksanakan tugas dalam rangka membantu psikolog untuk mendapatkan hasil interpretasi tes SSCT.,CONCLUSION,1,4. KESIMPULAN
+17521-36865-1-PB.txt,"Aplikasi tes kepribadian berhasil melakukan peran untuk mendapatkan model jawaban tes melalui proses summary, serta bisa mendapatkan hasil tes melalui proses interpretasi.",CONCLUSION,1,5. SARAN
+17521-36865-1-PB.txt,"Selanjutnya, aplikasi dapat dikembangkan untuk dapat memberikan label / rating / skor secara otomatis jika terdapat data baru yang belum ada dalam model jawaban tes.",SUGGESTION,1,5. SARAN
+17521-36865-1-PB.txt," untuk model jawaban diharapkan dapat dikembangkan dalam bentuk kata yang berhubungan antara kata sebelum dan sesudah jawaban, sehingga akan diperoleh label / rating / skor yang semakin valid.",SUGGESTION,1,5. SARAN
+17521-36865-1-PB.txt,"Penelitian selanjutnya diharapkan juga untuk mengembangkan proses aplikasi agar lebih cepat, baik pada proses summary maupun interpretasi.",SUGGESTION,1,5. SARAN

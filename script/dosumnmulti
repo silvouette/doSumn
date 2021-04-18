@@ -1,0 +1,30 @@
+def dosumnmulti():
+    #part 1: sentence removal, pick only summary-worthy sentence
+    path = os.path.dirname(os.getcwd())
+    test_path = os.path.join(path, "/test/")
+    train = util.get_parser_data("train_set.csv")
+    acc = 0
+
+    for column in ["sentence","heading"]:
+      train[column+"_x"] = train[column].apply(preprocess.clean)
+    
+    c_train = train[train['abstract'] == 1].copy()
+
+    for filename in os.listdir('../test'):
+      print(filename)
+      test = util.get_parser_data(test_path+filename)
+
+      for column in ["sentence","heading"]:
+        # train[column+"_x"] = train[column].apply(preprocess.clean)
+        test[column+"_x"] = test[column].apply(preprocess.clean)
+
+      test['summary_worth'] = try_knn(train, test)
+
+      #part 2: labelling
+      # c_train = train[train['abstract'] == 1].copy()
+      c_test = test[test['summary_worth'] == 1].copy()
+      
+      res = classify(c_train, c_test)
+      acc += res
+    
+    print(acc/19)

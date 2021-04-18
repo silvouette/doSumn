@@ -1,0 +1,193 @@
+filename,sentence,labels,abstract,heading
+136-243-1-PB.txt,Klasifikasi dokumen teks bertujuan untuk menentukan kategori suatu dokumen berdasarkan kesamaannya dengan kumpulan dokumen yang telah berlabel sebelumnya.,BACKGROUND,1,Abstrak
+136-243-1-PB.txt,Namun demikian kebanyakan metode klasifikasi yang ada saat ini dilakukan berdasarkan kata - kata kunci atau kata - kata yang dianggap penting dengan mengasumsikan masing - masing merepresentasikan konsep yang unik.,BACKGROUND,1,Abstrak
+136-243-1-PB.txt,Padahal pada kenyataanya beberapa kata yang mempunyai makna atau semantik sama seharusnya diwakili satu kata unik.,BACKGROUND,1,Abstrak
+136-243-1-PB.txt,Pada penelitian ini pendekatan berbasis LSI ( Latent Semantic Indexing) digunakan pada KNN untuk mengklasifikasi dokumen berbahasa Indonesia.,TOPIC,1,Abstrak
+136-243-1-PB.txt,"Pembobotan term dari dokumen - dokumen latih maupun uji menggunakan tf-idf,yang direpresentasikan masing - masing dalam matrik term - dokumen A dan B.",METHOD,1,Abstrak
+136-243-1-PB.txt,Selanjutnya matrik A didekomposisi menggunakan SVD untuk mendapatkan matrik U dan V yang tereduksi dengan k - rank.,METHOD,1,Abstrak
+136-243-1-PB.txt,Kedua matrik U dan V digunakan untuk mereduksi B sebagai representasi dokumen uji.,METHOD,1,Abstrak
+136-243-1-PB.txt,Evaluasi kinerja sistem terbaik berdasarkan hasil diperoleh pada klasifikasi KNN berbasis LSI tanpa stemming dengan threshold 2.,RESULT,1,Abstrak
+136-243-1-PB.txt,Akan tetapi evaluasi kinerja terbaik berdasarkan waktu dicapai ketika KNN LSI dengan stemming pada threshold 5.,RESULT,1,Abstrak
+136-243-1-PB.txt,Kinerja KNN berbasis LSI secara signifikan jauh lebih baik dibandingkan dengan KNN biasa baik dari sisi hasil maupun waktu.,CONCLUSION,1,Abstrak
+136-243-1-PB.txt,Ketersediaan dokumen teks digital semakin bertambah dari tahun ke tahun sebagai dampak perkembangan teknologi informasi.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Hampir semua aktifitas tulis menulis saat ini semuanya telah menggunakan media elektronik baik komputer maupun hp, berupa pengiriman surat elektronik, sms, penulisan artikel, koran digital, majalah digital dan lain sebagainya.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Formatnyapun beragam mulai berupa teks biasa, dokumen yang ditulis dengan Microsoft word, pdf, html dan XML.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Informasi dokumen teks yang demikan besar tersebut perlu dikelola dalam suatu cara sehingga mudah untuk pengaksesan dan penggalian informasi daripadanya.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Diantara bentuk pengelolaan dokumen tersebut adalah pengklasifikasi dokumen.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Klasifikasi dokumen akan memberi label dokumen yang masih belum mempunyai label berdasarkan kesamaan dengan sekelompok dokumen yang sebelumnya telah diberi label.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Beberapa metode klasifikasi teks telah dikembangkan seperti KNN, Naive Bayes, Rocchio dan SVM.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Namun demikian kebanyakan metode klasifikasi yang ada saat ini dilakukan berdasarkan kata - kata kunci atau kata - kata yang dianggap penting setelah melalui tahap pra proses.,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,Masing - masing kata tesebut diasumsikan merepresentasikan konsep yang unik.,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,Padahal pada kenyataannya suatu kata dapat mempunyai padanan katanya sehingga dua atau tiga kata yang sebenarnya semakna masing - masing tetap direpresenatasikan sebagai term yang unik.,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,Masalah ini dikenal dengan masalah polysemi dan synonymy.,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,"Sebagai akibat dari masalah ini walaupun klasifikasi dapat menghasilkan hasil yang baik, akan tetapi dimensi term yang terbentuk sangat besar.",BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,"Representasi term dokumen akan membentuk ruang vector sparse dengan dimensi yang besar, karena kata - kata yang tidak relevan juga akan diekstrak.",BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt, dengan demikian akurasi yang tinggi sulit dicapai selain banyak menghabiskan waktu dalam prosesnya.,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,Masalah polisemi dan sinonimitas berhubungan dengan skema pengindekan berbasis konseptual.,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,Persoalan ini dapat diselesaikan dengan LSI ( Latent Semantic Indexing).,BACKGROUND,1,1. PENDAHULUAN
+136-243-1-PB.txt,LSI akan melakukan transformasi ruang vector asal ke ruang latent semantic.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Dokumen uji dan dokumen latih keduanya direpresentasikan dan dibandingkan dalam ruang vector baru.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Pada metode ini data ditransformasi ke dalam suatu ruang konsep yang baru ( Silva et al., 2004).",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Ruang konsep ini tergantung pada koleksi dokumen, karena koleksi yang berbeda akan mempunyai himpunan konsep yang berbeda.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Ide dasar LSI adalah memproyeksikan data ke dalam sub ruang dari data asal sehingga pengaruh nois dari sinonimitas dan polisemi dihilangkan.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Walaupun LSI asalnya diusulkan sebagai salah satu metode sistem temu kembali, metodeini juga telah digunakan secara luas dalam pengklasifikasian teks.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Sebagai contoh yang pada ( Yang, 1995) menggunakan LSI untuk menghilangkan noise selama prosespelatihan, ( Zelikovitz and Hirsh, 2001) melakukan SVD pada satu matrik term - dokumen yang diperluas meliputi pelatihan contoh dan latar belakang pengetahuan untuk meningkan klasifikasi, ( Wu and Gunopulos, 2002) melakukan SVD pada matrik term - dokumen yang melibatkan tem tunggal dan frase.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Atas latar belakang di atas maka pada penelitian ini diekplorasi pengindekan dengan menggunakan LSI pada klasifikasi dokumen berbahasa Indonesia.,TOPIC,1,1. PENDAHULUAN
+136-243-1-PB.txt,Metode klasifikasi yang akan dicobakan adalah metode KNN pada berbagai variasi k dan mempertimbangkan nilai ambang frekuensi masing - masing term.,METHOD,1,1. PENDAHULUAN
+136-243-1-PB.txt,"Pertimbangan digunakannya metode KNN adalah selain metode ini paling lama dan sederhana dari klasifikasi non parametric, metode ini dalam prosesnya menerapkankonsep pola - pola yang yang berdekatan dalam ruang fitur yang dimasukkan dalam satu kelas yang sama.",OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Klasifikasi suatu pola yang belum diketahui kelasnya akan ditentukan berdasarkan kedekatannya dengan sekumpulan data yang telah mempunyai kelas atau label sebelumnya.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Selanjutnya kumpulan dokumen yang telah berlabel ini disebut sebagai dokumen latih dan dokumen yang masih belum mempunyai label disebut dokumen uji.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Penentuan kedekatan antara dokumen uji dan dokumen latih disebut kesamaan antar dokumen.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Kesamaan dokumen uji dengan dokumen latih ini dapat dilakukan dengan menghitung jarak antara dokumen latih dan dokumen uji dengan menggunakan kesamaan cosines.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,Pada metode ini setiap term dinyatakan sebagai representasi dirnya sendiri secara unik sehingga kesamaan cosines akan dijalankan pada ruang ruang vektor yang besar.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt, dengan menerapkan LSI diharapkan akan diperoleh hasil pengklasifikasi yang lebih baik karena nois dan kata - kata yang semakna telah telah direpresentasi dengan satu term.,OTHERS,0,1. PENDAHULUAN
+136-243-1-PB.txt,"Penelitian yang memamfaatkan LSI dalam pengklasifikasian dokumen dapat dilihat pada penelitian yang diadakan oleh Cheng ( Li and Park, 2007), klasifikasi dokumen dikonstruksi menggunakan jaringan saraf tiruan yang diintegrasikan dengan LSI.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Hasil uji coba menunjukkan bahwa sistem pelatihan dengan LSI lebih cepat dibandingkan dengan model ruang vektor asal.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Penggunaan LSI pada klasifikasi dokumen saat ini dilaporkan oleh Liping ( Jing et al., 2010).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Pada penelitian ini diusulkan representasi suatu dokumen unit term semantik yang diidentifikasi dari informasi semantik implisit dan eksplisit.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Semantik implisit diesktrak dari konten sintaksi dengan LSI sementara semantik eksplisit diperoleh dari sumber semantik ekternal yakni Wikipedia.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,LSI merupakan metode yang digunakan untuk mencari hubungan kata yang mempunyai makna atau sematik tersembunyi.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Semantik tersembunyi ini dapat digunakan untuk mencari relasi antar kata berdasarkan makna.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt," dengan demikian LSI sangat bagus digunakan dalam hal sinonim, namun gagal untuk polisemi ( Bassil and Semaan, 2012).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Tujuan utama dari pengindekan LSI adalah untuk mengelompokkan term - term hasil ekstraksi dari dokumen latih dan dokumen uji berdasarkan kesamaan semantik antara term,sehingga term - term yang mempunyai kemiripan semantik dikumpulkan dalam satu kelompok.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Pengindekan dengan LSI ini akan mengahasilkan kumpulan term yang telah tereduksi dari kumpulan term asal.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt, dengan demikian LSI akan mereduksi ruang vektor dengan membuat suatu subruang dari dimensi matrik yang bertujuan untuk menghapus noise dan term yang redundan.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Ruang tereduksi tersebut menyajikan hubungan makna antara term dan dokumen.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"LSI merupakan turunan dari teknik VSM yang dalam prosesnya memerlukan tiga tahap yang meliputi pembangunan Term Document Matrix ( TDM), pembobotan, dan hasil perangkingandokumen yang relevan berdasarkan similaritas.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,LSI akan mereduksi dimensi TDM dari pembobotan matriks kata dan dokumen dengan menggunakan Singular Value Decomposition ( SVD).,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"SVD merupakan sebuah model perkiraan yang digunakan untuk LSA ( Latent Semantic Analysis), dimana komponen SVD dapat melakukan dekomposisi matriks sehingga didapatkan nilai dimensi yang lebih rendah ( Peter et al., 2009).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Dekomposisi SVD merupakan sebuah metode penulisan matriks dalam bentuk perkalian antara mariks diagonal yang berisi nilai - nilai singular dengan matriks yang berisi vektor - vektor singular yang bersesuaian.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Suatu matriks setelah dituliskan dalam matriks diagonal nilai singular dan matriks vektor singularnya dapat dilakukan reduksi rank pada matriks diagonal nilai singularnya.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Reduksi rank beguna untuk mengurangi waktu komputasi suatu algoritma yang membutuhkan perkalian matriks.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Pemilihan nilai k - rank pada Latent Semantic Indexing ( LSI) yang optimal merupakan hal yang sulit dipahami.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Nilai optimal k - rank dipilih berdasarkan hasil eksekusi sekumpulan query dengan berbagai macam inputan k - rank.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Hasil evaluasi paling tinggi dari nilai suatu k - rank, maka nilai k - ranktersebut merupakan nilai k - rank yang optimal ( Kontostathis and Pottenger, 2006).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Pada SVD, Term Document Matrix ( TDM) didekomposisi ke dalam 3 bentuk matriks yang diDari ilustrasi Gambar 1 , dapat ditarik persamaan seperti berikut : ( 1) dimana, U merupakan matriks othonormal dan barisnya sesuai dengan baris yang ada di matriks A.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Matriks S merupakan matriks persegi berisi matriks diagonal yang tidak sama dengan 0, hanya terdapat nilai sepanjang diagonal matriks.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Sedangkan matriks V merupakan matriks othonormal yang memiliki kolom yang sesuai dengan kolom pada matriks A, namun baris dari matriks V dibangun dari vektor singular ( Ab Samat et al., n.d. ).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Matriks S dihitung melalui prosedur - prosedur seperti berikut ( Garcia, 2006) : 1. AT dan A.AT dihitung",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,2. Mencari eigenvalue dari hasil perkalian matriksdan mengurutkan nilai dari yang terbesar ke yang terkecil.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Hasil atau nilai dari matriks S adalah nonnegatif matriks, yang merupakan akar dari nilai pengurutan dan disebut dengan nilai singular dari A.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,3. S dibangun dengan menempatkan nilai yang singular dimana nilai diurutkan dari yang terbesar ke yang terkecil pada setiap diagonalnya.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Dari persamaan 1 dapat dibentuk : ( 2)dimana :A = matriks A yang dibangun dari TDM pembobotan ternormalisasi pada corpus.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,V = matriks V hasil dekomposisi SVD matriks A S = matriks singular hasil dekomposisi SVDmatriks A VT = matriks V transpose U = matriks U hasil dekomposisi SVD matriks A UT = matriks U transposehasil dekomposisi SVDmatriks A,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"4. U dan V adalah ortoghonal, dimana matriks orthogonal merupakan sebuah matriks yang jika dikalikan dengan transposenya akan menghasilkan matriks identitas.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Misalkan matriks M adalah orthogonal maka dapat ditulis bahwa MMT = MTM = I =1.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Perkalian M dan MT bersifat komutatif ( Garcia, 2006).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Sehingga berdasarkan prosedur yang telah dijelaskan sebelumnya, nilai eigenvalue dapat dicari melalui persamaan berikut : ( 3) dimana : |AT.AcI| = determinan nilai AT.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,AcI A= matriks A : dari TDM pembobotan corpus AT = matriks A transpose dari TDM pembobotan corpus c = merupakan variable nilai eigen I = matriks indentitas.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,5. Nilai c merupakan nilai eigen yang akan dihasilkan oleh persamaan tersebut .,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Akar dari nilai eigen disebut dengan nilai singular.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Nilai singular tersebut disusun berurutan dari nilai yang terbesar ke yang terkecil dan pada akhirnya membentuk matriks diagonal yang disebut dengan matriks S.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Dari nilai eigen akan didapatkan eigenvector untuk membentuk matriks V, sesuai dengan persamaan berikut : ( 4) dimana : A= matriks A : dari TDM pembobotan corpus AT = matriks A transpose dari TDM pembobotan corpus c = merupakan variable nilai eigen I = matriks indentitas x = variable x 6.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt, untuk mencari nilai dari matriks U maka digunakan persamaan berikut : ( 5) dimana : U = hasil dari perkalian A= matriks A : dari TDM pembobotan corpus V = matriks V hasil dari nilai eigenvector S - 1 = inverse dari matriks singular 7.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Proses dekomposisi dari reduksi dimensi SVD kemudian dapat digunakan untuk pengembangan sistem temu kembali.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt, untuk menghitung query ( 2) ( 3) ( 4) vektor dari SVD maka dapat dihitung dengan menggunakan persamaan berikut : ( 6) dimana : q = query vector representasi dari LSI qT=transpose TDM dari pembobotan ternormalisasi tf-idf query Uk = reduksi dimensi k dari matriks U 1kS= inverse dari reduksi dimensi kmatriks S.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt," untuk melakukan LSI pada dokumen latih dan dokumen uji, dilakukan beberapa tahapan berikut :Tahap 1 : Lakukan serangkaian praproses yang akan mengubah semua dokumen latih dan dokumen uji masing - masing menjadi matrik A dan B.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Tahap 2: Lakukan SVD pada matrik A menggunakan persamaan 1.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt, dengan pemilihan k - rank tertentu akan diperoleh Ukhasil reduksi k - rank.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Tahap 3 : Gunakan persamaan 6 untuk mendapatkan matrik tereduksi representasi dokumen latih.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Dalam hal ini q digantikan dengan matrik B sehingga 1..'kkTSUBB.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Proses pengindekan dengan LSI dilakukan dalam beberapa tahap sebagai berikut ( Garcia, 2006): 1. Gunakan algoritma LSI untuk mendapatkan matrik A dan B representasi masing - masing document latih dan dokumen uji tereduasi k - rank.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"2. Hitung cosine similaritas persamaan 7 antar dokumen latih dan dokumen uji hasil reduksi berdasarkan matrik tereduksi A dan B, dalam hal ini X merepresentasikan dokumen uji dan dj representasi dokumen latih ke j.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Misalkan terdapat j kategori latih C1, C2, ...,Cj dari jumlah dari sampel latih N dan suatu dokumen uji Q.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Setelah pre - prosesing, masing - masing dokumen akan menjadi vektor fitur representasi term unik berdimensi m.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Selanjutnya akan dihitung kedekatan X dengan seluruh dokumen latih menggunakan cosine similaritas.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Selanjutnya dokumen uji X akan ditentukan kategorinya berdasarkan k tetangga terdekat yang paling dominan kelasnya.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Langkah - langkah untuk penerapan metode ini adalah sebagai berikut: 1. Membuat dokumen latih dan dari semua uji menjadi bentuk vektor fitur yang berdimensi sama.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,2. Reduksi fitur berdimensi m dengan menggunakan LSI.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,3. Hitung kesamaan antara dokumen X dengan semua dokumen latih menggunakan persamaan 6.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"4. Memilih k sampel dengan menghitung probabilitas X ke masing - masing kategori menggunakan persamaan ( 7) dimana, y ( di, Cj) adalah fungsi attribut kategori yang memenuhi persamaan ( 9).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Uji dokumen X untuk mengetahui kategorinya dengan melihat P ( X,Cj) terbesar.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Inverted Index merupakan struktur data yang digunakan untuk mengindek keseluruhan kata unik pada semua dokumen korpus ( Zelikovitz and Hirsh, 2001).",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Representasi struktur data inverted indeks dapat digambarkan sebagaimana pada Gambar 2.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,tf-idf dengan normalisasi frekuensi dapat meningkatkan proses pembobotan dari kata.,OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,"Fungsi normalisasi untuk mengurangi efek dari panjang dokumen dengan menggunakan persamaan 10 sebagai berikut ( Bassil and Semaan, 2012) : , = ,, ( 10) dimana fi,j = frekuensi ternormalisasi tfi,j = frekuensi kata i pada dokumen j max tfi,j = frekuensi maksimum kata i pada dokumen j.",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt," untuk normalisasi frekuensi dalam query diberikan rumus : ,, ( 11) dimana fi,j = frekuensi ternormalisasi tfi,j = frekuensi kata i pada dokumen j max tfi,j = frekuensi maksimum kata i pada dokumen j Sehingga pembobotan tf-idf pada kata idan dokumenj dapat ditulis sebagai berikut: ijijijidfDftfW2,,,logmax ( 12) dimana : Wi,j = bobot kata i pada dokumen j fi,j = frekuensi ternormalisasi tfi,j = frekuensi kata i pada dokumen j 2121..), ( 1mjijmjjdXjdXdXsimmjijj max tfi,j = frekuensi maksimum kata i pada dokumen j D = banyaknya dokumen yang diinputkan / banyaknya dokumen dalam corpus dfi = banyaknya dokumen yang mengandung kata i",OTHERS,0,2. TINJAUAN PUSTAKA
+136-243-1-PB.txt,Arsitektur sistem secara keseluruhan terdiri dari serangkaian tahap sebagaimana pada Gambar 3 berikut.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,1. Tahap pertama yang dilakukan adalah melakukan pre proses terhadap data latih maupun data uji.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Target akhir dari pre proses ini adalah merepresentasikan dokumen ke dalam format angka yang siap untuk dioperasikan pada fase - fase selanjutnya.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,"Tahap praproses ini meliputi tokenisasi yakni memecah masing - masing dokumen ke dalam term - term, hasil ekstraksi term - term dari seluruh dokumen dihilangkan penghilangan kata stop list ( kumpulan kata yang tidak penting) sehingga hanya akan terbent untuk kumpulan term - term penting.",OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Dari seluruh kata yang dianggap penting dilakukan proses stemming untuk mendapatkan akar kata dari masing - masing term.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Pada penelitian ini akan diadopsi algoritma stemming Porter yang telah diadaptasi untuk bahasa Indonesia oleh Tala [4].,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Kumpulan kata dasar yang diperoleh selanjutnya adakan dijadikan tem unik.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Akhir dari pre proses ini semua term akan dimasukkan ke dalam struktur data inverted Index sebagai mana pada Gambar 2.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,2. Mengekstrak bobot masing - masing term menggunakan tf-idf baik dari dokumen latih maupun dokumen uji ke dalam representasi matrik masing - masing A dan B.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,3. Lakukan reduksi fitur dengan menggunakan LSI.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,4. Hitung kesamaan antara masing - masing dokumen uji dan dokumen latih menggunakan persamaan ( 6).,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,5. Hitung klasifikasi masing - masing dokumen uji menggunakan KNN.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,"6. Evaluasi hasil menggunakan metric presisi, recall dan F - Metrik.",OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,"Berdasarkan rancangan sistem di atas, selanjutnya dikembangkan sistem pengklasifikasian dokumen dengan metode KNN berbasis LSI.",OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Sistem dikembangkan menggunakan bahasa pemrograman java yang dijalankan platform window 7 dengan memamfaatkan library Jama untuk proses SVD.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Tahap praprosesing tujuan utamanya mengubah representasi data dokumen teks menjadi representasi numerik yang siap untuk diolah lebih lanjut.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Pada tahap ini secara umum dapat digambarkan menggunakan flowchart Gambar 4 berikut.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Modul baca semua dokumen korpus diawali dengan membaca direktori data korpus dan menyimpan dalam dua array dLat dan dUji.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,Kedua array ini menjadi parameter masukan untuk memanggil konstruktur class Inverted indeks.,OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,"Selanjutnya pada class inverted indeklah akan dilakukan semua tahapan praprosesing mulai dari tokenisai, filterisasi, steming serta penghitungan frekuensi kemunculan term pada masing - masing dokumen.",OTHERS,0,3. ARSITEKTUR SISTEM
+136-243-1-PB.txt,"Pengaruh pengindekan dengan LSI dihitung berdasarkan presisi, recall dan f-measure - nya pada setiap kategori.",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Evaluasi system meliputi beberapa scenario sebagai berikut : a. secara umum akan dievaluasi pengaruh LSI pada algoritma KNN sehingga terdapat KNN biasa dan KNN - LSI.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,b. Pada setiap uji coba KNN dan KNN - LSI masing - masing akan akan dievaluasi pada beberapa nilai batas frekuensi kata ( threshold) mulai dari 2 sampai 5.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Tujuan dari evaluasi ini untuk mengetahui sensitivitas threshold pada kedua metode KNN dan KNN - LSI.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,c. Evaluasi pada setiap threshold akan dievaluasi pada berbagai nilai k mulai dari 2 sampai 10 sebagai parameter dari KNN.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,d. Seluruh uji coba a sampai c juaga akan dievaluasi pada praproses stemming dan non stemming untuk mengetahui sensitivitas stemming pada kedua metode.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Skenario sistem secara keseluruhan dapat digambarkan sabagaimana flowchartpada Gambar 5.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Tahap praproses pada Gambar 5 dilakukan untuk mengubah semua dokumen latih dan dokumen uji yang berupa teks menjadi representasi angka yang siap diolah pada proses berikutnya melalui serangkaian sub proses sebagaimana dijelaskan pada tahap pertama dari arsitektur system pada penjelasan Gambar 3.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Hasil dari praproses adalah berupa matrik L dan U masing - masing merepresentasikan data latih dan data uji dengan ukuran baris antara keduanya sama yakni sesuai dengan jumlah term unik yang memenuhi threshold th hasil praproses yang telah disimpan pada inverted indeks.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,"Th disini dimaksudkan besarnya frekuensi minimal dari masing - masing term dimulai dari 2, sampai dengan 5.",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Sedangkan ukuran kolom masing - masing tergantung jumlah dokumen latih untuk matrik L dan jumlah dokumen uji untuk matrik U.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Jika dipilih LSI maka akan dipanggil modul SVD.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Selanjutnya hasil dari SVD atau yang tanpa proses ini kedua matrik L dan U akan dicari kesamaannya menggunakan cosine similarity.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Matrik representasi kesamaan antara kedua matrik L dan U selanjutnya digunakan oleh algoritma KNN yang diuji pada berbagai kondisi nilai k.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,"Looping pertama dimaksudkan untuk mengetahui sejauhmana pengaruh threshold frekuensi term unik terhadap hasil sistem, baik dengan metode KNN - LSI atau KNN biasa.",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Selain itu akan dievaluasi untuk masing - masing threshold - nya pada nilai k berapakah yang paling optimal.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Perbedaan antara uji coba KNN dan KNN - LSI terletak pada pemilihan proses LSI.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Jika tidak dipilih proses LSI maka kedua matrik L dan U yang merepresentasikan masing - masing data latih dan data uji tidak mengalami proses dekomposisi SVD.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,"Sehingga kedua matrik ini akan menjadi masukan untuk menghitung kesamaan antara data latih dan data uji melalui modul Cosim ( L,U).",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,"Sebaliknya, jika dipilih LSI maka sebelum dihitung kesamaan antara kedua data tersebut terlebih dahulu dilakukan proses SVD.",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Setelah proses SVD matrik L dan U akan mengalami reduksi sesuai dengan pemilihan k - rank.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,"Selanjutnya kedua matrik hasil reduksi ini akan dihitung kesamaannya menggunakan Cosim ( L,U).",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,"Hasil dari masing - masing metode selanjutnya akan dievaluasi untuk menghitung presesi, recall dan f1 - nya.",OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Hasil evaluasi inilah yang natinya akan dijadikan bahan argumentasi kinerja kedua metode.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Dokumen latih dan dokumen uji pada penelitian ini berasal dari berita berbahasa Indonesia yang diambil dari internet.,DATASET,1,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Selanjutnya masing - masing dokumen yang berasal dari kategori yang sama dikelompokkan dalam satu direktori yang diberi label sama dengan kategorinya.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Semua data diorganisir dalam dua kelompok besar yakni sebagai kelompok data latih dan kelompok yang lain sebagai data uji.,OTHERS,0,4. Skenario Evaluasi Sistem
+136-243-1-PB.txt,Sistem dikembangkan dengan menggunakan bahasa pemrograman java dengan jdk jdk1.7.0_79 dengan IDE Neatbean 8.1 yang dijalankan pada lingkungan Windows 7 pada Laptop berprosesor intel i3 dengan RAM 4 G.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Sistem dikembangkan dengan bahasa pemrograman java berbasis objek oriented yang disusun dalam class - class dan paket - paket.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Organisasi paket - paket disusun sebagaimana pada Gambar6 berikut.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Selain paket - paket di atas didukung oleh library jama - 1.0.3 yang merupakan paket untuk semua operasi dasar matrik.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Uji coba dilakukan pada sejumlah data sebanyak 523 dokumen yang terdiri dari 8 kategori.,DATASET,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Setelah dipilih secara acak dari masing - masing kategori maka sebaran data dapat digambarkan sebagaimana tabel 1.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Evaluasi sistem keseluruhan dijalankan sebagaimana flowchart gambar 5.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Selain diukur kinerja sistem pada berbagai situasi stemming atau non stemming dan antara KNN biasa dengan KNN LSI, sistem juga diukur waktu eksekusi masing - masing skenario.",OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Penghitungan waktu eksekusi dilakukan dengan mencatat waktu awal eksekusi dan waktu akhirv pada masing - masing metode.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"F1 - Measure masing - masing threshold pada berbagai nilai k untuk mengetahui kinerja sistem secara keseluruhan, maka dilakukan perhitungan rata - rata F1 dari semua kategori pada berbagai threshoud baik pada KNN LSI maunpun KNN biasa.",OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Pada evaluasi ini sekaligus diperlihatkan sensitivitas penggunaan stemming dan tidak pada kedua metode.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Perbandingan hasil rata - rata F1 measure pada KNN LSI pada kedua konsidi stemming dan tidak dipelihatkan sebagaimana pada Gambar 7.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Dari Gambar 11 dapat diketahui bahwa kinerja terbaik untuk stemming LSI ditunjukkan pada threshold 2 dan nilai k=9 dengan nilai F1 measure rata 0.6682, demikian juga pada LSI non stemming kinerja terbaik terletak pada threshold 2 pada k=10 dengan nilai F1 measure rata - rata 0.701775.",RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt, dengan demikian kinerja terbaik untuk KNN LSI dicapai tanpa menggunakan stemming.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Namun demikian berbanding terbalik ketika mempertimbangkan sisi waktu running sebagaimana ditunjukkan pada gambar 8.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Sedangkan kinerja sistem dengan KNN tanpa LSI jauh lebih jelek dibandingkan dengan KNN LSI baik dengan stemming maupun tanpa stemming sebagaimana ditunjukkan pada Gambar 9.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Rata - rata F1 measure pada KNN non LSI hanya dicapai maksimal 0.4611875 yakni pada th=2 tanpa stemming.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Selain itu perbadingan waktu eksekusi antara KNN LSI dan KNN biasa menunjukkan perbedaan yang signifikan sebagimana disajikan pada Gambar 10 berikut.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Evaluasi terakhir dari sistem adalah membandingkan kinerja klasifikasi dokumen dengan KNN LSI dengan KNN biasa.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Evaluasi dihitung berdasarkan rata - rata F1 measure dari masing - masing threshold.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Hasil evaluasi menunjukkan bahwa KNN LSI kinerjamya lebih baik dari KNN biasa sebagaimana ditunjukkan pada Gambar 1.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Pada bagian ini akan dibahas analisa hasil uji coba sistem.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Sebagaimana target yang telah ditetapkan pada bagian tujuan penelitian ini yakni membandingkan pengaruh ektraksi fitur dengan LSI dan non LSI pada kinerja dari sisi waktu maupun hasil pengklasifikasi dokumen berbahasa Indoneisa dengan metode KNN baik dengan stemming maupun non stemming pada berbagai perlakukan threshold dan nilai k.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Evaluasi diawali dengan melihat pengaruh stemming terhadap jumlah dimensi term.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Selanjutnya kecepatan waktu eksekusi menjadi bahan pertimbangan untuk pengujian selanjutnya.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Waktu eksekusi sangat dipengaruhi oleh besarnya dimensi matrik data latih dan data uji.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Hal ini disebabkan karena dalam proses penghitungan kesamaan antara kedua kelompok dokumen latih dan kelompok dokumen uji haruslah dilakukan dengan cara melakukan perkalian matrik antara keduanya.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Sedangkan perkalian matrik mempunyai kompleksitas O ( n3) yakni UTu,t x Lt,l dimensi yang dibutuhkan u*t*l, dimana u menyatakan banyaknya data uji, t menyatakan banyaknya term unik dan l menyatakan banyaknya data latih.",OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Kondisi yang mungkin untuk direduksi adalah t.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt," untuk itulah dilakukan pemilihan term berdasarkan frekuensi minimal yakni 2, 3, 4 dan 5 baik dengan stemming maupun non stemming.",OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Selanjutnya masing - masing skenario pemilihan fitur ini diuji cobakan pada KNN biasa dan KNN LSI.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Hasil evaluasi menunjukkan kinerja waktu yang sangat signifikan antara KNN LSI dan KNN biasa, akan tetapi tidak begitu signifikan pada KNN LSI antara stemming non stemming stemming.",RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Hasil terbaik dari sisi waktu eksekusi dicapai ketika menggunakan KNN LSI dengan stemming pada thresould 5.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Hal ini sesuai sesuai dengan fakta bahwa dengan stemming fitur akan tereduksi dan dampaknya pada reduksi dimensi matrik baik latih maupun testing.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Demikian pula jika dibandingkan kinerja hasil pada KNN biasa dengan KNN LSI hasilnya jauh lebih metode KNN LSI.,RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Namun demikian jika dibandingkan kinerja hasil pada KNN LSI antara stemming dan non stemming, hasilnya lebih baik pada non stemming pada threshold 2.",RESULT,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt, dengan demikian dapat ditarik suatu kesimpulan bahwa dengan KNN LSI non stemming menghasilkan kinerja terbaik dari sisi hasil akan tetapi dari sisi waktu KNS LSI dengan stemming pada threshold 5 menunjukkan kinerja terbaik .,CONCLUSION,1,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Kombinasi ekstraksi fitur dengan threshold = 2, non stemming dan dekomposisi matrik dengan LSI akan menghasilkan reduksi fitur yang sangat signifikan dan menghilangkan bias sinonemi pada fitur sebagai akibat penggunaan LSI.",OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,Karena bias sinonemi berkurang maka kesamaan antar dokumen semakin meningkat sehingga dampaknya terlihat pada kinerja hasil yang terbaik dari semua situasi.,OTHERS,0,5. HASIL dan PEMBAHASAN
+136-243-1-PB.txt,"Berdasarkan hasil dan pembahasan sebagaimana pada bab 5 maka dapat ditarik beberapa kesimpulan: klasifikasi dokumen berbahasa Indonesia dengan menggunakan KNN LSI lebih baik dari KNN non LSI, namun demikian kinerja hasil terbaik ditunjukkan pada KNN LSI non stemming pada threshold 2 sedangkan kinerja terbaik dari sisi waktu dicapai ketika sistem menggunakan KNN LSI dengan stemming pada threshold 5.",CONCLUSION,1,6. KESIMPULAN

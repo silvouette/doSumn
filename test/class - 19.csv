@@ -1,0 +1,155 @@
+filename,sentence,labels,abstract,heading
+ekstraksi.txt,Kopi merupakan salah satu minuman yang sangat populer di dunia dan digemari oleh banyak orang termasuk di Indonesia.,OTHERS,0,Abstrak
+ekstraksi.txt,"Kopi terdiri dari berbagai varietas, salah satunya adalah varietas arabika.",BACKGROUND,1,Abstrak
+ekstraksi.txt,"Varietas kopi dapat memiliki kenampakan yang berbedabeda misalnya seperti perbedaan warna, bentuk, ataupun tekstur.",BACKGROUND,1,Abstrak
+ekstraksi.txt,"Oleh karena itu, terkadang petani ataupun pemilik coffee shop dapat melakukan kesalahan dalam mengenali varietas kopi arabika yang dijual ataupun yang dibeli.",BACKGROUND,1,Abstrak
+ekstraksi.txt,"Hal ini juga akan mempengaruhi penentuan harga kopi tersebut , karena masing - masing varietas kopi arabika memiliki harga yang berbeda - beda.",BACKGROUND,1,Abstrak
+ekstraksi.txt," untuk itu, diperlukan sistem yang juga mampu mengenali varietas kopi arabika secara akurat sehingga dapat digunakan sebagai second opinion bagi para petani ataupun pemilik coffee shop dalam mengenali varietas kopi arabika.",BACKGROUND,1,Abstrak
+ekstraksi.txt,Salah satu cara yang dapat dilakukan adalah dengan metode pencitraan.,OTHERS,0,Abstrak
+ekstraksi.txt,"Tahap awal yang dilakukan adalah praproses yaitu cropping citra yang dilakukan secara manual, kemudian segmentasi menggunakan metode Otsu.",METHOD,1,Abstrak
+ekstraksi.txt,Tahap selanjutnya adalah ekstraksi fitur bentuk menggunakan circularity dan klasifikasi menggunakan MultiLayer Perceptron.,METHOD,1,Abstrak
+ekstraksi.txt,"Hasil klasifikasi menunjukkan tingkat akurasi yang diperoleh sebesar 80%, sensitivitas 83,33% dan spesifisitas 76,7%.",RESULT,1,Abstrak
+ekstraksi.txt,"Kopi merupakan salah satu komoditas di dunia yang dibudidayakan di berbagai negara, termasuk Indonesia.",OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,"Pemrosesan kopi sebelum dapat diminum dilakukan melalui proses yang cukup panjang, dimulai dari proses panen biji kopi yang telah matang, kemudian proses pengeringan dilanjutkan proses sangrai dengan menggunakan suhu yang bervariasi.",OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Proses terakhir adalah penggilingan biji kopi yang telah disangrai menjadi bubuk kopi.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Jenis kopi yang paling populer adalah arabika dan robusta.,BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt,Masing - masing jenis kopi ini masih memiliki varietas yang cukup banyak dengan rasa yang berbeda - beda tergantung pada varietas kopi tersebut .,BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt,"Di Indonesia, juga terdapat jenis kopi arabika dengan berbagai varietas yang dibudidayakan di berbagai daerah.",BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt,"Masing - masing varietas kopi arabika tersebut memiliki kenampakan yang berbeda - beda misalnya seperti perbedaan warna, bentuk, ataupun tekstur.",BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt,"Oleh karena itu, terkadang petani ataupun para pemilik coffee shop dapat melakukan kesalahan dalam mengenali varietas kopi arabika yang dijual ataupun yang dibeli.",BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt,"Hal ini juga akan mempengaruhi penentuan harga kopi tersebut , karena masing - masing varietas kopi arabika memilki harga yang berbeda - beda.",BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt," untuk itu, diperlukan sistem yang juga mampu mengenali varietas kopi arabika secara akurat sehingga dapat digunakan sebagai second opinion bagi para petani ataupun pemilik coffee shop dalam mengenali varietas kopi arabika tersebut .",BACKGROUND,1,1. PENDAHULUAN
+ekstraksi.txt,Salah satu cara yang dapat dilakukan adalah dengan metode pencitraan.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,"Biji kopi yang telah diproses, dipotret menggunakan kamera Canon 750D dengan jarak yang tidak konstan.",OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Tujuannya adalah agar sistem yang dihasilkan lebih fleksibel saat proses pemotretan citra.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Kemudian citra hasil pemotretan tersebut diproses menggunakan teknik - teknik pengolahan citra.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Terdapat beberapa penelitian tentang pengenalan varietas kopi arabika yang telah dilakukan sebelumnya menggunakan berbagai teknik pengolahan citra.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Salah satu teknik yang sering digunakan adalah ekstraksi fitur yang bertujuan untuk mengambil fitur atau ciri dari sebuah objek.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Teknik ini juga dapat digunakan untuk mengambil fitur yang dimiliki biji kopi sehingga sistem dapat mengenali varietas kopi arabika berdasarkan fitur - fitur yang diperoleh.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Salah satu metode ekstraksi fitur yang telah umum digunakan adalah fitur tekstur.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Metode ini akan mengambil fitur - fitur tekstur pada permukaan biji kopi dengan menggunakan perhitungan statistik ( Kadir and Adhi 2012).,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,Fitur tekstur terdiri dari fitur tekstur orde satu dan fitur tekstur orde dua.,OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,"Terdapat penelitian untuk pengenalan varietas biji kopi dilakukan dengan menggunakan fitur tekstur orde dua yang dikenal dengan Gray Level Co - occurrence Matrices ( GLCM) ( Condori et al. 2014), ( Apaza et al. 2014).",OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,"Selain fitur tekstur, terdapat fitur bentuk yang juga sering digunakan oleh para petani maupun pemilik coffee shop untuk membedakan varietas kopi secara manual.",OTHERS,0,1. PENDAHULUAN
+ekstraksi.txt,"Oleh karena itu, penelitian ini akan melakukan pengenalan varietas kopi arabika yaitu varietas Sigarar Utang dan varietas Lini S - 795 berdasarkan fitur bentuk menggunakan teknik pengolahan citra.",TOPIC,1,1. PENDAHULUAN
+ekstraksi.txt,"Setelah mendapat fitur yang diinginkan, tahap selanjutnya yang perlu dilakukan adalah melakukan klasifikasi yang bertujuan untuk mengenali varietas kopi arabika.",METHOD,1,1. PENDAHULUAN
+ekstraksi.txt,Terdapat beberapa penelitian tentang pengenalan varietas kopi arabika dengan menggunakan teknik pengolahan citra.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Tahap - tahap yang dilakukan terdiri dari ekstraksi fitur dan klasifikasi.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Salah satunya adalah penelitian ( Condori et al. 2014) yang melakukan pengenalan terhadap biji kopi dengan menggunakan citra sampel sebanyak 3367 citra.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Tahap awal yang dilakukan adalah segmentasi untuk memisahkan background dengan objek pada citra menggunakan contours algorithm, kemudian tahap selanjutnya adalah ekstraksi fitur menggunakan GLCM dengan empat sudut arah yang berbeda yaitu 00, 450, 900 dan 1350.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Beberapa fitur GLCM yang digunakan adalah contrast, dissimilarity, homogeneity, energy, entropy, correlation dan variance.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Tahap terakhir adalah klasifikasi dengan metode Support Vector Machine ( SVM).,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Hasil yang diperoleh adalah tingkat akurasi mencapai 86%.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Penelitian tentang klasifikasi biji kopi ( Apaza et al. 2014), juga dilakukan dengan menggunakan metode lain.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Tahap awal yang dilakukan adalah pre - processing terhadap citra digital dengan algoritma Multi - scale Retinex with Color Restoration ( MSRCR).,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Metode tersebut kemudian dibandingkan dengan metode peningkatan kualitas citra yang berbeda yaitu Histogram Equalization dan Contrast Limited Adaptive Histogram Equalization ( CLAHE).,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Tahap selanjutnya adalah ekstraksi fitur menggunakan metode Color GLCM dengan empat sudut arah yang berbeda yaitu 00, 450, 900 dan 1350.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Tahap terakhir adalah klasifikasi menggunakan SVM.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Hasil yang diperoleh menunjukkan bahwa kualitas visual dan akurasi lebih baik jika menggunakan metode pre - processing MSRCR.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Penelitian lain juga dilakukan ( De Oliveira et al. 2016) yaitu pengenalan terhadap biji kopi berdasarkan warna.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Metode Artificial Neural Network ( ANN) digunakan sebagai model transformasi kemudian NBC digunakan untuk mengenali biji kopi yang terdiri dari empat jenis yaitu : whitish, cane green, green, dan bluish - green.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Metode ANN hanya mencapai tingkat eror sebesar 1,15% dan NBC menghasilkan tingkat akurasi sebesar 100%.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt," untuk memperoleh lebih banyak fitur, maka terdapat penelitian ( Radi, Rivai, and Purnomo 2015) yang juga mengusulkan sistem untuk mengenali varietas kopi arabika menggunakan beberapa tahap yaitu ekstraksi fitur dengan menggabungkan metode fitur tekstur orde satu dan orde dua.",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Tahap klasifikasi dilakukan menggunakan metode ANN dan diperoleh rata - rata akurasi sebesar 80%.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Penelitian terdahulu cenderung melakukan ekstraksi fitur berdasarkan pada fitur tekstur.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,Tetapi penelitian ini akan mengusulkan metode ekstraksi fitur berdasarkan fitur bentuk.,OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Proses klasifikasi akan menggunakan MultiLayer Perceptron ( MLP) yang merupakan pengembangan dari ANN dan telah banyak diterapkan pada kasus yang berbeda ( Nugroho, Sebatubun, and Adji 2017).",OTHERS,0,2. TINJAUAN PUSTAKA
+ekstraksi.txt,"Sebelum ekstraksi fitur, dilakukan proses cropping yang dilakukan secara manual sehingga fokus penelitian hanya pada bagian biji kopi.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Hasil dari proses cropping tersebut digunakan sebagai citra masukkan untuk proses selanjutnya.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Proses segmentasi dilakukan dengan menggunakan metode Otsu karena metode ini dapat memilih threshold paling optimal secara otomatis dan stabil karena didasarkan pada histogram citra ( Ratri, Nugroho, and Adji 2015).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Metode ini digunakan untuk melakukan konversi citra grayscale menjadi citra biner.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Metode Otsu menentukan nilai ambang dengan cara membedakan dua kelompok yaitu objek dan latar belakang, yang memiliki bagian yang saling bertumpukan berdasarkan histogram seperti pada Gambar 3 ( Susanto and Kadir 2012).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Prinsip kerja metode Otsu yaitu pertama - tama menghitung probabilitas nilai intensitas i dalam histogram, dinormalisasikan dan didistribusikan dalam persamaan ( 1) berikut ( Ratri et al. 2015).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt, ( 1) Keterangan : pi= normalisasi jumlah piksel dengan intensitas i L = level keabuan pada citra ni = jumlah piksel pada level keabuan ke - i N = jumlah total piksel.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Selanjutnya dari persamaan ( 1) di atas, akan dilakukan pembagian piksel - piksel tersebut menjadi dua kelas C0 dan C1 ( background dan objek dalam citra, atau sebaliknya) dengan sebuah threshold pada level keabuan k.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"C0 akan berisi piksel dengan level keabuan ( 1,,k) dan C1 akan berisi piksel dengan level keabuan ( k+1, ,L).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Maka probabilitas dari terjadinya kelasdan ( background dan objek dalam citra) dan rata - rata level pada kelasdan ( background dan objek dalam citra) didapatkan dari persamaan ( 2) hingga persamaan ( 7) berikut ( Ratri et al. 2015).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Persamaan ( 7) di atas adalah nilai zeroth dan untuk mengetahui total rata - rata level keabuandari citra dengan persamaan ( 8) berikut ( Ratri et al. 2015) : ( 8),OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Kemudian untuk memudahkan dalam melakukan verifikasi terhadap beberapa relasi untuk semua pilihan threshold k yang ada, maka dapat menggunakan persamaan ( 9) ( Ratri et al. 2015).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Varian dari kedua kelasdan ( background dan objek dalam citra) yang ada dapat diperoleh dari persamaan ( 10) berikut ( 11).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Dalam berbagai fitur geometris, circularity ( sifat bundar) merupakan salah satu fitur penting yang umum digunakan.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Circularity biasanya didefinisikan dalam persamaan ( 12) berikut ( Fu and Han 2012) ( 12) CI merupakan keluaran yang bernilai 1 jika objek mendekati bentuk lingkaran.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Perimeter atau keliling menyatakan panjang tepi suatu objek yang dapat dihitung dengan persamaan ( 13) berikut ( Fu and Han 2012) ( 13) li merupakan piksel - piksel pada tepi objek yang diperoleh dengan menggunakan kode rantai empat arah yang didefinisikan dengan persamaan ( 14) berikut ( Fu and Han 2012) ( 14) Perimeter terdiri dari 0,1,,1,0, dan n merupakan total area yang diperoleh dengan menggunakan persamaan ( 15) berikut ( Fu and Han 2012) ( 15) dengan ==1+0 ( 16) n adalah jumlah kode rantai, aix dan aiy merupakan komponen x dan y dari dari rantai arah, yi adalah koordinat y pada masing - masing titik, y0 adalah koordinat y untuk titik mulai.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,algoritma akan menghitung perimeter dan area terlebih dulu menggunakan metode kode rantai dan diperoleh nilai CI.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Dalam implementasi, sebuah bentuk bundar yang standar sulit didapat sehingga ditetapkan nilai threshold s di awal.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Ketika CI lebih besar dari s, lingkaran yang terdeteksi akan ditampilkan berdasarkan kriteria s.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Multilayer perceptron merupakan pengembangan dari model Perceptron Neural Network yang dikembangkan pada awal 1960 - an.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Neural Network memiliki banyak lapisan yang terbatas untuk mengurangi waktu untuk memecahkan masalah yang ada ( Ratri et al. 2015).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Multilayer Perceptron adalah contoh dari ANN yang biasanya digunakan untuk memberikan solusi untuk masalah yang berbeda, misalnya untuk pengenalan pola dan interpolasi ( Noriega 2005).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Diperlukan beberapa langkah untuk menjalankan klasifikasi ANN menggunakan arsitektur MLP, yaitu dimulai dengan pengumpulan data, kemudian membuat dan mengkonfigurasi jaringan.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Selanjutnya menginisialisasi bobot dan bias.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Setelah jaringan dapat melakukan pelatihan, validasi data dan digunakan selama klasifikasi.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Kelemahan perceptron adalah tempat perceptron hanya dapat memecahkan masalah yang dapat dipisahkan secara linear ( Ratri et al. 2015).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"secara umum ANN adalah sebuah unit proses yang memiliki input dan mengeluarkan output, dengan neuron - neuron diorganisasikan sebagai layer.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Output dari ANN dapat dikomputasikan dengan persamaan ( 17) berikut ( Ratri et al. 2015).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Keterangan: Wio= Matriks beban ( weight matrix), ukuran i x o i = jumlah input node o = jumlah output node I = input vector O = output vector secara umum data dipresentasikan dalam input layer, kemudian network akan melakukan proses input dengan mengalikan input dengan layer weight ( beban).",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Prinsip kerja ANN ini hampir sama dengan MLP yang dapat ditunjukkan dalam Gambar 2.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Adapun untuk mempermudah dalam memahami cara kerja MLP, dapat digunakan algoritma yang telah disampaikan L. Noriega ( Noriega 2005), sebagai berikut.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"1. Melakukan inisialisasi network, dengan semua beban diset secara random antara angka - 1 sampai dengan +1.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"2. Mempresentasikan pola pelatihan pertama pada network yang ada , dan menyimpan hasil output.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,3. Membandingkan output network tersebut dengan output target yang ada.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,4. Memperbaiki eror secara backward.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,a. Memperbaiki layer beban dari output dengan formula.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Keterangan : ho=nilai beban dari unit h yang tersembunyi dengan output unit o,= rasio pelatihan,oh = output dari unit h yang tersembunyi dimana Keterangan :O0 = node o dari outputlayer t0 = target output untuk node tersebut ",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"b. Memperbaiki beban input dengan formula ( 20) Keterangan: ih=nilai beban dari unit h yang tersembunyi dengan input unit i, = rasio pelatihan, oi = input dari node i.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"5. Melakukan perhitungan eror, dengan menghitung rata - rata dari nilai target dan output vector.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Fungsi berikut dapat digunakan untuk menghitung eror tersebut .,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,6. Mengulangi langkah no. 2 untuk setiap pola pada dataset pelatihan untuk melengkapi satu epoch.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,7. Melakukan pertukaran dataset pelatihan secara random.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Hal ini untuk mengurangi kemungkinan network dipengaruhi oleh urutan pada data.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,8. Mengulangi langkah 2 untuk sejumlah epochs atau hingga eror mulai berubah.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Pengukuran yang dilakukan dalam penelitian ini adalah untuk mengetahui tingkat kesuksesan terhadap proses - proses yang telah dilakukan.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Pengukuran yang akan dilakukan yaitu pengukuran terhadap kinerja dari metode ekstraksi fitur maupun metode klasifikasi.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Pengukuran dari proses klasifikasi ditentukan dengan nilai - nilai berikut: 1. Akurasi,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Nilai akurasi dari hasil klasifikasi dapat diperoleh dengan menghitung jumlah klasifikasi yang benardan sesuai target dibagi dengan jumlah klasifikasi yang berbeda dengan target dari semua kelas.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,"Akurasi dirumuskan dalam persamaan berikut ( 23) dengan TP ( True Positive) adalah jumlah data benar pada target yang terklasifikasi benar pada sistem, TN ( True Negative) adalah jumlah data salah pada target yang terklasifikasi salah pada sistem, FP ( False Positive) merupakan representasi jumlah data salah pada target yang terklasifikasi benar pada sistem dan FN ( False Negative) merupakan representasi jumlah data benar pada target yang terklasifikasi salah pada sistem.",OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Nilai - nilai tersebut akan tampil dalam bentuk confusion matrix.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,2. Sensitivitas,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Sensitivitas merupakan ukuran kemampuan sistem untuk melakukan prediksi terhadap data yang dianggap benar sesuai dengan TPR ( True Positive Rate).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Sensitivitas dapat dirumuskan dalam persamaan ( 24) berikut.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,3. Spesifisitas,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Spesifisitas berkebalikan dengan sensitivitas yaitu kemampuan sistem untuk melakukan prediksi terhadap data yang dianggap salah sesuai dengan TNR ( True Negative Rate).,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Spesifisitas dapat dirumuskan dalam persamaan ( 25) berikut.,OTHERS,0,3. LANDASAN TEORI
+ekstraksi.txt,Penelitian ini bekerja sama dengan black java coffee roaster Yogyakarta yang merupakan tempat untuk melakukan pengambilan sampel green bean sekaligus sebagai tempat wawancara narasumber untuk klasifikasi varietas kopi arabika.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Selanjutnya, penelitian dilakukan di STMIK AKAKOM Yogyakarta.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Data yang digunakan dalam penelitian ini merupakan citra green bean coffee yang difoto secara manual menggunakan kamera Canon 750D dengan jumlah data sebanyak 60 citra.,DATASET,1,4. METODE PENELITIAN
+ekstraksi.txt,Green bean coffee ini merupakan kopi arabika yang terdiri dari dua jenis yaitu mandailing dan toraja.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Dari 60 citra tersebut , terdapat 30 citra jenis kopi mandailing dan 30 citra jenis kopi toraja.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Citra tersebut merupakan citra RGB yang diambil dari dua sisi sehingga masing - masing biji kopi memiliki dua citra yang berbeda.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Salah satu sisi dari jenis kopi cenderung hampir sama sehingga cukup sulit untuk dibedakan.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Sementara sisi yang lain secara visual dapat dibedakan berdasarkan bentuk permukaan dari biji kopi tersebut .,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Sementara itu, terdapat fitur lain yang sering digunakan sebagai acuan oleh petani ataupun pemiliki coffee shop yaitu fitur bentuk.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Bagi kaum awam, fitur ini tidak bisa terlihat dengan jelas, karena bentuknya cenderung hampir sama.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Penelitian ini terdiri dari beberapa tahapan yang diawali dengan proses pengumpulan data citra, selanjutnya citra tersebut digunakan sebagai citra input dalam tahap pre - processing yaitu cropping citra yang bertujuan untuk menyiapkan citra agar dapat diolah.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Proses ini hanya akan mengambil biji kopi dan mengabaikan background citra serta dilakukan secara manual karena mengikuti bentuk dan ukuran dari masing - masing biji kopi.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Tahap selanjutnya adalah segmentasi citra yang bertujuan untuk mengambil bentuk biji kopi sebelum diekstraksi.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Setelah segmentasi, tahap selanjutnya adalah ekstraksi fitur untuk memperoleh fitur bentuk.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,Tahap terakhir adalah proses klasifikasi menggunakan MLP.,OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Proses klasifikasi dilakukan menggunakan WEKA 3.6 dengan test mode 10 - fold cross - validation yang berarti data akan dibagi menjadi 10 bagian secara acak, kemudian dilakukan 10 kali eksperimen dimana masing - masing eksperimen menggunakan 10 data sebagai data uji dan sisanya sebagai data latih.",OTHERS,0,4. METODE PENELITIAN
+ekstraksi.txt,"Berdasarkan penelitian - penelitian sebelumnya, metode yang sering digunakan adalah GLCM dan memberikan hasil yang akurat.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Sementara penelitian ini mengusulkan metode circularity yang digunakan untuk melakukan ekstraksi fitur bentuk dan hasil yang diperoleh menunjukkan bahwa metode ini juga mampu memberikan hasil yang akurat.,METHOD,1,5. HASIL PENELITIAN
+ekstraksi.txt,Hasil dari ekstraksi ini berupa angka - angka sesuai dengan fitur yang diukur.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Gambar 4 berikut merupakan salah satu contoh citra kopi mandailing dan toraja.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Gambar 4 ( a) adalah varietas kopi mandailing yang diambil dari sisi depan maupun sisi belakang, selanjutnya hal yang sama juga dilakukan untuk Gambar 4 ( b) yang merupakan varietas kopi toraja.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Sebelum diproses, citra tersebut dicropping secara manual dengan tujuan agar fokus penelitian hanya pada objeknya dan mempercepat proses komputasi karena ukuran citra menjadi lebih kecil.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Sebelum diekstraksi, proses yang perlu dilakukan adalah mengambil objek yang terdapat dalam citra dan mengabaikan bagian yang bukan objek.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Salah satu cara yang dapat dilakukan adalah melalui proses segmentasi.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Gambar 5 berikut merupakan salah satu contoh hasil segmentasi citra menggunakan metode Otsu.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Tahap selanjutnya adalah ekstraksi fitur menggunakan circularity.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Tabel 1 berikut menunjukkan hasil ekstraksi fitur menggunakan circularity.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Hasil ekstraksi digunakan sebagai masukkan dalam proses klasifikasi.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Tabel 1 berikut merupakan confusion matrix dari hasil klasifikasi fitur GLCM menggunakan WEKA 3.6.,OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Tabel 1 merupakan confusion matrix yang menggambarkan hasil klasifikasi menggunakan MLP dan diperoleh nilai True Positive ( TP)=25, True Negative ( TN)=23, False Negative ( FN)=5 dan False Positive ( FP)=7.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Artinya dari 30 citra kopi mandailing, MLP mampu mengenali sebagai citra kopi sigarar utang sebanyak 25 citra sedangkan 5 citra dikenali sebagai citra kopi lini S - 795.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Selanjutnya dari 30 citra kopi lini S - 795, MLP mampu mengenali sebagai citra kopi lini S - 795 sebanyak 23 citra sedangkan 7 citra dikenali sebagaicitra kopi sigarar utang.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Berdasarkan confusion matrix maka dapat dihitung tingkat akurasi, sensitivitas dan spesifisitas.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt," untuk pengenalan varietas kopi tersebut , diperoleh nilai akurasi sebesar 80% dengan sensitivitas sebesar 83,33% dan spesifisitas sebesar 76,7%.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,"Berdasarkan hasil klasifikasi yang diperoleh, terdapat kesalahan pengenalan sebanyak 13 citra.",OTHERS,0,5. HASIL PENELITIAN
+ekstraksi.txt,Kesalahan terbanyak adalah ketika pengenalan varietas lini S - 795.,CONCLUSION,1,5. HASIL PENELITIAN
+ekstraksi.txt,"Hal ini mungkin disebabkan karena terdapat beberapa citra yang memiliki rentang nilai yang mirip ataupun sama seperti varietas sigarar utang, dan begitu juga sebaliknya.",CONCLUSION,1,5. HASIL PENELITIAN
+ekstraksi.txt,Proses pengenalan varietas kopi selama ini dilakukan secara manual dengan memanfaatkan pengalaman seorang petani.,OTHERS,0,6. KESIMPULAN
+ekstraksi.txt,"Ciri yang sering dijadikan acuan dalam mengenali varietas kopi ini adalah warna, ukuran dan bentuk maupun bentuk pohon.",OTHERS,0,6. KESIMPULAN
+ekstraksi.txt,"Namun demikian, petani dapat melakukan kesalahan ataupun pengenalan bisa menjadi tidak konsisten karena perbedaan pendapat antar petani.",OTHERS,0,6. KESIMPULAN
+ekstraksi.txt,"Oleh karena itu, penelitian ini mengusulkan teknik pengolahan citra yang terdiri dari proses segmentasi menggunakan metode Otsu dan ekstraksi fitur menggunakan circularity.",TOPIC,1,6. KESIMPULAN
+ekstraksi.txt,Tahap terakhir adalah proses klasifikasi menggunakan MultiLayer Perceptron.,METHOD,1,6. KESIMPULAN
+ekstraksi.txt,"Nilai akurasi yang diperoleh sebesar 80% dengan sensitivitas sebesar 83,33% dan spesifisitas sebesar 76,7%.",RESULT,1,6. KESIMPULAN

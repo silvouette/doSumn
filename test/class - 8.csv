@@ -1,0 +1,112 @@
+filename,sentence,labels,abstract,heading
+16-21-1-PB.txt,Sistem temu kembali dokumen teks membutuhkan metode yang mampu mengembalikan sejumlah dokumen yang memiliki relevansi tinggi sesuai dengan permintaan pengguna.,BACKGROUND,1,Abstrak
+16-21-1-PB.txt,Salah satu tahapan penting dalam proses representasi teks adalah proses pembobotan.,OTHERS,0,Abstrak
+16-21-1-PB.txt,Penggunaan LCS dalam penyesuaian bobot tf-idf mempertimbangkan kemunculan urutan kata yang sama antara query dan teks di dalam dokumen.,OTHERS,0,Abstrak
+16-21-1-PB.txt,Adanya dokumen yang sangat panjang namun tidak relevan menyebabkan bobot yang dihasilkan tidak mampu merepresentasikan nilai relevansi dokumen.,BACKGROUND,1,Abstrak
+16-21-1-PB.txt,Penelitian ini mengusulkan penggunaan metode LCS yang memberikan bobot urutan kata dengan mempertimbangkan panjang dokumen terkait dengan rata - rata panjang dokumen dalam korpus.,METHOD,1,Abstrak
+16-21-1-PB.txt,Metode ini mampu melakukan pengembalian dokumen teks secara efektif.,CONCLUSION,1,Abstrak
+16-21-1-PB.txt,Penambahan fitur urutan kata dengan normalisasi rasio panjang dokumen terhadap keseluruhan dokumen dalam korpus menghasilkan nilai presisi dan recall yang sama baiknya dengan metode sebelumnya.,CONCLUSION,1,Abstrak
+16-21-1-PB.txt,Saat ini sebagian besar informasi disimpan dalam bentuk digital pada media elektronik sehingga sistem informasi harus mampu mengembalikan sejumlah besar data teks yang dibutuhkan pengguna.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Teknologi sistem temu kembali dokumen teks menyediakan cara untuk mendapatkan kembali informasi yang dibutuhkan tersebut .,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,"Teknologi ini mampu menemukan dokumen teks yang tersimpan dalam sistem sesuai dengan query tertentu yang dimasukkan oleh pengguna, baik query dengan kata atau kalimat.",OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Dokumen teks ini ditampilkan dalam urutan menurun mulai dari dokumen yang memiliki nilai relevansi tertinggi dengan query yang dimaksud [8].,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Dalam perkembangannya digunakan pula klasifikasi dokumen sehingga akan turut memudahkan proses penemuan kembali dokumen teks.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Dua tahapan awal dalam teknologi sistem temu kembali dokumen teks adalah pra - pemrosesan teks dan representasi teks.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,"Pra - pemrosesan teks terdiri dari banyak tahap, misalnya tokenizing, stemming, dan stoplisting.",OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Sedangkan tahap representasi teks biasa dikenal dengan tahap pembobotan teks.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Telah banyak penelitian sebelumnya yang mengusulkan metode - metode baru untuk pembobotan teks ini.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Metode pembobotan yang sampai saat ini masih sering digunakan yaitu Term frequency - Inverse document frequency ( tf-idf) yang mempertimbangkan seringnya kemunculan term dalam dokumen dan rasio panjang dokumen tersebut di dalam korpus [5].,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,"Selain itu, terdapat pula pembobotan BM25 yang juga mempertimbangkan panjang dokumen dibanding rata - rata panjang dokumen di dalam korpus disertai dengan beberapa parameter penyesuaian [4].",OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Erenel dan Altincay [1] menggunakan pembobotanyang memanfaatkan transformasi linier pada frekuensi term sebagai fitur untuk mengategorikan dokumen teks.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Terdapat pula pembobotan yang didasarkan pada nilai diskriminasi dari hasil pengembalian sebelumnya [6].,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Lain halnya dengan Luo dan Xiong [3] yang menggunakan pembobotan berdasarkan konsep semantik di dalam penelitiannya.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Tasi dkk.[7] mengusulkan metode pembobotan dengan tambahan fitur urutan kata menggunakan metode Longest Common Subsequence ( LCS) dalam sistem temu kembali dokumen teks yang terintegrasi.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Fitur urutan kata ini ditambahkan ke dalam pembobotan tf-idf yang sudah didapatkan sebelumnya.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Namun penggunaan fitur urutan kata dalam pembobotan ini masih memiliki kekurangan.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Hal tersebut dikarenakan terdapat beberapa dokumen yang sangat panjang namun tidak relevan.,BACKGROUND,1,1. PENDAHULUAN
+16-21-1-PB.txt,Dokumen - dokumen ini biasanya melakukan banyak perulangan kata - kata.,BACKGROUND,1,1. PENDAHULUAN
+16-21-1-PB.txt,"Sebaliknya, terdapat dokumen yang pendek namun di dalamnya memuat informasi yang penting sehingga urutan kata query yang ada dalam dokumen tersebut lebih sedikit.",BACKGROUND,1,1. PENDAHULUAN
+16-21-1-PB.txt,"Oleh karena itu, diperlukan proses penyesuaian terhadap fitur urutan kata tersebut dengan melibatkan fitur panjang dokumen sehingga dokumen yang dihasilkan benar - benar memiliki informasi yang relevan.",BACKGROUND,1,1. PENDAHULUAN
+16-21-1-PB.txt,Pada penelitian ini diusulkan sebuah metode representasi teks dengan fitur urutan kata LCS yang 18melibatkan normalisasi dengan rasio panjang dokumen terhadap keseluruhan dokumen dalam korpus.,TOPIC,1,1. PENDAHULUAN
+16-21-1-PB.txt, dengan adanya representasi teks yang lebih baik diharapkan dokumen yang ditemukan oleh sistem ini memiliki relevansi yang tinggi dengan keinginan pengguna.,OTHERS,0,1. PENDAHULUAN
+16-21-1-PB.txt,Pengukuran tingkat kesamaan merupakan elemen penting dalam mekanisme sistem temu kembali dokumen teks.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Pada penelitian ini, fokus paparan terdapat pada metode yang berbasis vektor dan urutan.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Dalam metode berbasis vektor, setiap kata dari query maupun dokumen direpresentasikan sebagai elemen dalam lingkungan vektor.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Representasi tersebut yang akan digunakan untuk menghitung tingkat kesamaan dokumen.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Prosedur metode berbasis vektor dibagi menjadi dua tahapan, representasi teks dan perhitungan kesamaan.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,tf-idf merupakan salah satu metode popular yang digunakan dalam menentukan bobot setiap kata.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Bobot tersebut dapat mencerminkan tingkat kepentingannya dalam sebuah dokumen.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Bobot setiap kata akan dipetakan dalam lingkungan vektor, sehingga akan terbentuk lingkungan vektor berdimensi n.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Pembobotan dengan LCS juga merupakan salah satu metode berbasis vektor yang telah diusulkan pada penelitian sebelumnya.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Urutan kata antara dokumen dan query dijadikan nilai vektor.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Tahapan selanjutnya setelah representasi teks adalah perhitungan kesamaan.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Komputasi kesamaan ditujukan untuk menghitung tingkat kesamaan antara query dan dokumen.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Tiga metode paling umum yang sering digunakan adalah Cosine, Dice, dan Jaccard.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,2.1.Pembobotan tf-idf,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,tf-idf adalah perhitungan yang menggambarkan seberapa pentingnya kata ( term) dalam sebuah dokumen dan korpus.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Proses ini digunakan untuk menilai bobot relevansi term dari sebuah dokumen terhadap seluruh dokumen dalam korpus.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Term - frequency adalah ukuran seringnya kemunculan sebuah term dalam sebuah dokumen dan juga dalam seluruh dokumen di dalam korpus.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Term frequency ini dihitung menggunakan persamaan ( 1) dengan adalah term frequency ke - i dan adalah frekuensi kemunculan term ke - i dalam dokumen ke - j.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Sedangkan inverse document frequency adalah logaritma dari rasio jumlah seluruh dokumen dalam korpus dengan jumlah dokumen yang memiliki term yang dimaksud seperti yang dituliskan secara matematis pada persamaan ( 2) [2].,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Nilai didapatkan dengan mengalikan keduanya yang diformulasikan pada persamaan ( 3).,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,LCS digunakan untuk menghitung relasi berurutan yang paling panjang antara query dengan dokumen.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Dalam penelitian Tasi dkk. [7], LCS diadopsi di dalam sistem temu kembali dokumen teks sebagai fitur bobot.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Nilai LCS antara query q dengan dokumen ke - j yang telah didapatkan tersebut kemudian dinormalisasi dengan persamaan ( 4) dengan m adalah jumlah term dalam query dan n adalah jumlah term di dalam dokumen.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Nilai normalisasi LCS ini kemudian digunakan untuk penyesuaian disesuaikan dengan pembobotan sebelumnya yang sudah ada, yaitu dengan bobot yang didapatkan dari tf-idf.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Nilai bobot akhir untuk dokumen yang memiliki urutan kata sesuai query lebih tinggi dibandingkan dokumen yang tidak memiliki urutan kata yang sesuai dengan query.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Hal tersebut berdampak pula pada nilai kesamaan antara query dengan dokumen.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Dokumen yang memiliki bobot urutan kata memiliki nilai kesamaan yang lebih tinggi.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Perhitungan kesamaan yang umum digunakan dalam metode berbasis vektor diantaranya adalah Dice, Jaccard, dan Cosine.",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Berdasarkan pembuktian secara matematis oleh Tasi dkk. diketahui bahwa metode Cosine tidak tepat digunakan dalam menghitung kesamaan bobot yang melibatkan fitur urutan kata.,OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,"Di dalam penelitian tersebut , Tasi dkk. menghasilkan kesimpulan bahwa pengukuran kesamaan yang cocok untuk sistem temu kembali dokumen teks dengan pembobotan tf-idf dan LCS ini adalah Dice dan Jaccard [7].",OTHERS,0,2. MODEL BERBASIS VEKTOR
+16-21-1-PB.txt,Penggunaan fitur urutan kata sebagai pertimbangan penentuan bobot di dalam sistem temu kembali dokumen teks merupakan sebuah kontribusi.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Namun hal tersebut masih memiliki kekurangan yang dapat menyebabkan ketidaktepatan hasil pengembalian dokumen.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Ke tidak tepatan tersebut disebabkan adanya dokumen yang tidak standar ukuran kandungan informasinya.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Terdapat dokumen yang sangat panjang namun tidak memiliki kandungan informasi yang cukup penting.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Di dalam dokumen ini terdapat kemungkinan banyak perulangan kata yang memiliki uratan sama dengan query.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Hal ini menyebabkan peningkatan nilai bobot LCS yang akan berdampak pula pada nilai kesamaan dokumen terhadap query.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,"Di lain pihak, terdapat dokumen yang memiliki informasi penting namun panjang dokumennya kecil sehingga nilai bobot LCS dokumen tersebut juga akan bernilai rendah.",BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Hal ini menyebabkan dokumen ini memiliki nilai kesamaan yang kecil.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Pada akhirnya akan terjadi ketidaktepatan dokumen yang dikembalikan oleh sistem.,BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,"Oleh karena itu, bobot LCS yang digunakan untuk sistem temu kembali dokumen teks ini harus disesuaikan dengan panjangnya dokumen.",BACKGROUND,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,Dalam penelitian ini diusulkan sebuah modifikasi pembobotan urutan kata yang mempertimbangkan panjang dokumen.,TOPIC,1,3. MODIFIKASI LCS
+16-21-1-PB.txt,"Modifikasi LCS ini dihitung menggunakan persamaan ( 5) dengan LCS ( q, j) adalah nilai LCS query dengan dokumen ke - j dan ndlj adalah rasio panjang dokumen ke - j dengan rata - rata panjang seluruh dokumen di dalam korpus.",OTHERS,0,3. MODIFIKASI LCS
+16-21-1-PB.txt,Usulan pembobotan baru tersebut diaplikasikan ke dalam sistem temu kembali dokumen teks yang utuh.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"secara singkat, alur metodologi dan proses yang ada pada sistem temu kembali dokumen teks tersebut diilustrasikan pada Gambar 1.",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"Pertama, pada tahap pra - pemrosesan teks dilakukan ekstraksi term dari query dan dokumen teks untuk disimpan di repositori.",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Proses pertama adalah memisahkan query dan dokumen teks ke dalam token - token dan mengabaikan tanda baca dan angka.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Proses tersebut dinamakan tokenisasi.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Kemudian stoppper akan menghapus kata - kata di teks yang termasuk dalam stoplist.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Kata - kata yang termasuk dalam stoplist adalah kata - kata tidak penting yang tidak mengandung informasi.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Proses selanjutnya adalah stemming yaitu mendapatkan kata dasar dari term yang tersisa dari dua proses sebelumnya.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"Stemmer yang digunakan adalah stemmer bahasa Indonesia ( Jelita A. dkk., 2005).",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"Kedua, memberikan bobot tf-idf term dalam query dan dokumen teks pada tahap representatsi teks.",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Perhitungan bobot tf-idf dilakukan pada kata dasar hasil dari tahapan pra - pemrosesan teks.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"Ketiga, modifikasi LCS dengan penilaian panjang dokumen digunakan untuk menghitung hubungan sekuensial pada query dan teks.",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"Keempat, hubungan sekensial digunakan untuk menyesuaikan bobot tf-idf pada tahap re - representation teks [7].",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Tahap ini digunakan untuk menambahkan bobot tf-idf dari term berdasarkan hubungan sekuensial antara query dan teks yang nilainya dihasilkan dari modifikasi LCS.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Terdapat dua konsep untuk menyesuaikan bobot tf-idf.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Konsep pertama adalah proses penyesuaian dengan hanya menyesuaikan term sekuensial karena berhubungan dengan informasi sekuensial.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Term sekuensial adalah term yang terdapat dalam hubungan sekuensial antara query dan teks.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Konsep kedua adalah untuk mengurangi perbedaan dalam term sekuensial.,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt," dengan cara ini, bobot term sekuensial bertambah sehingga perbedaan dalam term sekuensial akan berkurang untuk meningkatkan nilai kesamaan antara query dan teks.",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,"Langkah terakhir, perhitungan kesamaan digunakan untuk menghitung nilai kesamaan antara query dan teks dalam tahap perangkingan teks.",OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Pengukuran nailai kesamaan yang digunakan adalah Dice sesuai dengan hasil pada penelitian Tasi dkk [7].,OTHERS,0,4. SISTEM TEMU KEMBALI DOKUMEN TEKS
+16-21-1-PB.txt,Pengujian dilakukan terhadap 140 buah dokumen berita berbahasa Indonesia yang tergolong dalam 11 buah kategori.,DATASET,1,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt, untuk mengetahui kemampuan sistem yang diusulkan dilakukan perhitungan nilai presisi dan recall terhadap 57 kali uji coba dengan query yang berbeda.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,"Nilai presisi dan recall sistem yang diusulkan adalah 30,36% dan 96,84%.",RESULT,1,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Nilai presisi merupakan presentase antara jumlah dokumen yang relevan dan mampu dikembalikan oleh sistem dengan jumlah keseluruhan dokumen yang dikembalikan.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Sedangkan recall adalah presentase antara jumlah dokumen yang relevan dan mampu dikembalikan oleh sistem dengan jumlah keseluruhan dokumen relevan.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,"Oleh karena itu, untuk mengukur sistem ini tidak hanya dilihat dari nilai presisinya, tetapi juga nilai recall - nya.",OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Hal ini dikarenakan nilai presisi hanya melibatkan seluruh dokumen yang mampu dikembalikan oleh sistem tanpa melihat dokumen tersebut relevan atau tidak dengan query.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,"Walaupun sistem ini hanya menghasilkan presisi sebesar 30,36%, namun sistem ini mampu bekerja secara efektif dalam mengembalikan sejumlah dokumen teks yang relevan dengan query karena menghasilkan recall sebesar 96,84%.",RESULT,1,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Hasil uji coba sistem yang diusulkan juga dibandingkan dengan hasil uji sistem Tasi dkk.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Tabel 1 menampilkan rata - rata nilai presisi dan recall dari sistem yang diusulkan dibandingkan dengan sistem Tasi dkk.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Nilai presisi maupun recall antara kedua sistem sama menunjukkan bahwa metode normalisasi bobot urutan kata dan tf-idf tidak berbeda secara signifikan meskipun bobot yang diberikan oleh metode yang diusulkan lebih besar dibanding metode Tasi dkk.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,"Nilai presisi dan recall metode yang diusulkan bernilai sama dengan metode Tasi dkk, diakibatkan kondisi pencarian dokumen teks menggunakan query pencarian yang sudah berurutan.",OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Bobot tf-idf dijumlahkan dengan bobot LCS hanya menghasilkan perbandingan linier meskipun nilainya lebih besar.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Penambahan nilai bobot tersebut terjadi pada hampir keseluruhan dokumen yang memiliki nilai bobot tf-idf tinggi secara sebanding.,OTHERS,0,5.HASIL UJI COBA dan ANALISA
+16-21-1-PB.txt,Sistem temu kembali dokumen teks pada penelitian ini menggunakan penambahan fitur urutan kata.,OTHERS,0,6. KESIMPULAN
+16-21-1-PB.txt,Percobaan yang dilakukan membuktikan penggunaan fitur urutan kata sama efektifnya dengan sistem temu kembali yang terintegrasi yang digunakan Tasi dkk.,OTHERS,0,6. KESIMPULAN
+16-21-1-PB.txt,Metode yang diusulkan mampu mengembalikan sejumlah dokumen teks yang relevan sesuai dengan permintaan pengguna.,CONCLUSION,1,6. KESIMPULAN
+16-21-1-PB.txt,Nilai presisi dan recall dari metode yang diusulkan dan metode Tasi dkk bernilai sama sehingga dapat direpresentasikan sebagai kesamaan dari kehandalaan dan efektivitas sistem temu kembali dokumen teks.,CONCLUSION,1,6. KESIMPULAN

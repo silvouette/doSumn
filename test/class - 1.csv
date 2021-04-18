@@ -1,0 +1,162 @@
+filename,sentence,labels,abstract,heading
+116-185-1-PB.txt,Penyakit kardiovaskuler atau cardiovascular disease ( CVD) menurut definisi WHO adalah istilah bagi serangkaian gangguan jantung dan pembuluh darah.,OTHERS,0,Abstrak
+116-185-1-PB.txt,"Data badan kesehatan dunia WHO ( 2012) menunjukan bahwa CVD adalah faktor penyebab kematian nomor satu didunia dan berdasarkan data Riset Kesehatan Dasar ( RISKESDAS) Kementerian Kesehatan Republik Indonesia tahun 2007 menunjukkan, penyakit yang termasuk kelompok CVD menempati urutan teratas penyebab kematian di Indonesia.",OTHERS,0,Abstrak
+116-185-1-PB.txt,"Ditinjau dari sisi ketersediaan tenaga ahli dibidang cardiovascular, saat ini Indonesia hanya memiliki sekitar 500 dokter spesialis penyakit jantung dan pembuluh darah.",OTHERS,0,Abstrak
+116-185-1-PB.txt,"Artinya dengan jumlah penduduk Indonesia yang mencapai 240 juta, rasio dokter spesialis jantung dan pembuluh darah adalah 1:480.000 penduduk.",OTHERS,0,Abstrak
+116-185-1-PB.txt,Jumlah ini masih sangat kurang dibandingkan dengan kebutuhan penduduk di Indonesia.,OTHERS,0,Abstrak
+116-185-1-PB.txt,Rasio yang diharapkan adalah 1:250.000 penduduk.,OTHERS,0,Abstrak
+116-185-1-PB.txt,Penelitian ini menerapkan case - based reasoning untuk membangun sebuah sistem yang memiliki kemampuan untuk mendiagnosa penyakit cardiovascular berdasarkan kemiripan ( similaritas) pada kasus - kasus terdahulu mengunakan metode simple matching coefficient similarity.,TOPIC,1,Abstrak
+116-185-1-PB.txt,"Hasil pengujian menunjukan bahwa sistem yang dibangun memiliki nilai sensitivitas 97,06%, spesifisitas 64,29%, PPV 86,84%, NPV 90,00%, akurasi 87,50% dengan tingkat kesalahan ( error rate) sebesar 12,50%.",RESULT,1,Abstrak
+116-185-1-PB.txt,"Perkembangan teknologi begitu pesat terutama dalam bidang komputer, sehingga tidak berlebihan apabila komputer dijadikan alat untuk memperingan beban kerja manusia.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Semakin berkembangnya teknologi menyebabkanmakinbanyakpekerjaanyang memerlukan keahlian tertentu.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Menciptakan tenaga ahli ( human expert) memerlukan waktu yang relatif lama serta biaya yang tidak sedikit.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Salah satu usaha alternatif untuk menanggulangi kebutuhan ini adalah dengan menciptakan suatu sistem cerdas berbasis komputer.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Pengkajian dan penelitian untuk mewujudkan harapan tersebut dilakukan dengan meniru sistem kecerdasan manusia untuk menghasilkan sebuah sistem komputer yang mampu berfikir seperti seorang manusia yang dikenal dengan istilah kecerdasanbuatan ( artificial intelligence).,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Salah satu implementasi dari cabang kecerdasan buatan yang cukup terkenal adalah sistem pakar ( expert system).,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Mengingat sulitnya proses akuisisi pengetahuan maka para ahli komputer mencoba mempelajari metode lain penyelesaian masalah dikenal dengan penalaran berbasis kasus ( case - based reasoning).,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Representasi pengetahuan ( knowledge representation) dari sebuah case - based reasoning / CBR adalah berupa kumpulan kasus ( case base) yang pernah terjadi sebelumnya.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,CBR menggunakan solusi dari kasus terdahulu yang mirip dengan kasus saat ini untuk menyelesaikan permasalahan.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Metode yang dapat digunakan dalam menghitung kemiripan ( similarity) adalah Simple Matching Coefficient.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Jika kasus baru mempunyai kemiripan dengan kasus lama, maka CBR akan menggunakan kembali ( reuse) solusi kasus lama sebagai rekomendasi solusi kasus baru tersebut .",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Tetapi jika tidak ada yang cocok maka CBR akan melakukan adaptasi, dengan cara memasukkan / menyimpan ( retain) kasus baru tersebut ke dalamdatabasekasus,sehingga secara tidak langsung pengetahuan CBR akan bertambah.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Semakin banyak kasus yang tersimpan dalam basis kasus, maka akan semakin cerdas pula sistem CBR tersebut .",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Kardiovaskuler ( cardiovascular disease / CVD) adalah istilah bagi serangkaian gangguan jantung dan pembuluh darah.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Data badan kesehatan dunia WHO tahun 2012 menunjukan bahwa CVD adalah faktor penyebab kematian nomor satu didunia.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Pada tahun 2008 terdapat 17,3 juta orang meninggal akibat CVD, angka ini mewakili 30% dari penyebab kematian dunia.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"7,3 juta kematian terjadi karena jantung koroner dan 6,2 juta akibat stroke.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Berdasarkan data RISKESDAS tahun 2007, penyakit yang termasuk kelompok CVD menempati urutan teratas penyebab kematian di Indonesia yaitu sebanyak 31,9%.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Hasil Survai Kesehatan Daerah tahun 2010 menunjukkan bahwa propinsi DIY masuk dalam lima besar provinsi dengan kasus hipertensi terbanyak.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Kualitas dan peningkatan akses pelayanan penyakit CVD sangat bergantung pada ketersediaan dan distribusi dokter spesialis.,BACKGROUND,1,1. PENDAHULUAN
+116-185-1-PB.txt,"Saat ini, Indonesia memiliki sekitar 500 dokter spesialis penyakit jantung dan pembuluh darah.",BACKGROUND,1,1. PENDAHULUAN
+116-185-1-PB.txt,Jumlah ini masih sangat kurang dibandingkan dengan kebutuhan penduduk di Indonesia yang mencapai 240 juta.,BACKGROUND,1,1. PENDAHULUAN
+116-185-1-PB.txt,Rasio yang diharapkan adalah 1:250.000 penduduk.,BACKGROUND,1,1. PENDAHULUAN
+116-185-1-PB.txt,Berdasarkan fakta - fakta di atas maka perlu dibuat sebuah sistem yang mampu mendiagnosa penyakit cardiovascular.,BACKGROUND,1,1. PENDAHULUAN
+116-185-1-PB.txt,"Sistem yang dibangun merupakan implementasi dari penalaran berbasis kasus, dimana dengan CBR pemecahan kasus baru dilakukan dengan mengadapatasi solusi dari kasus - kasus lama yang sudah terjadi ( Pal& Shiu, 2004).",TOPIC,1,1. PENDAHULUAN
+116-185-1-PB.txt,"Sistem menerima input berbetuk biner ( 1 dan 0) diamana, nilai 1 menunjukan adanya gejala atau faktor resiko dan nilai 0 menunjukan tidak ada gejala atau faktor resiko dalam sebuah kasus.",TOPIC,1,1. PENDAHULUAN
+116-185-1-PB.txt,Perhitungan kedekatan ( similarity) antara kasus baru dan kasus lama menggunakan metode simple matching coefficient yang merupakan salah satu teknik perhitungan kemiripan data biner.,METHOD,1,1. PENDAHULUAN
+116-185-1-PB.txt,"Beberapa penelitian dalam domain penyakit kardiovakuler yang telah dilakukan antara lain, penelitian yang dilakukan ( Febrianti dkk, 2007) dengan menganalisis JST RPROP untuk mengenali pola elektrokardiografi dalam mendeteksi penyakit jantung koroner dengan akurasi 100% untuk data latih dan 84.21% untuk data uji.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Effendy dkk ( 2008), memprediksi penyakit jantung koroner menggunakan JST backpropagation.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Hasil pengujian menunjukkan metode JST - BP dapat mengenali pola - pola faktor risiko penyakit jantung koroner sebesar 80%.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Abbas ( 2012) menggunakan konsep poly tree terstruktur dan model directed acyclic graphical ( DAG) untuk memprediksi semua kasus yang dapat menyebabkan penyakit jantung koroner dan ditahun yang sama Shekar dkk ( 2012) mengusulkan sebuah algoritma baru untuk memprediksi penyakit jantung menggunakan teknik CBR.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Sistem diimplementasi menggunakan bahasa Java dan berhasil melakukan prediksi tingkat resikoyangberbeda pada serangan jantung secara efektif.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Penerapan CBR dalam bidang penyakit kardiovakuler dilakukan Salem dkk ( 2005) dengan membangun prototype case - based expert system diagnosis penyakit jantung.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Sementara Tomar dkk ( 2012) menggunakan CBR dalam membangun multimedia sistem pendukung keputusan ( MM - DSS) diagnosis penyakit jantung Salem dkk ( 2005) menggunakan 110 kasus untuk 4 jenispenyakit jantung.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Dua metode retrieval yang digunakan yaitu metode induksi dan nearest - neighbor.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Sedangkan Tomar dkk ( 2012) menggunakan 315 kasus untuk 4 penyakit jantung.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Metode retrieval yang digunakan adalah nearest - neighbor.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Penelitian Tursina ( 2012) menerapkan case - based reasoning untuk diagnosa penyakit respirologi anak dengan similaritas simple matching coefficient untuk 250 kasus.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Threshold 0.95 sebagai indikator apakah kasus baru akan di - retain ke basis kasus atau tidak .,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Pengujian dengan dua cara yaitu dengan dan tanpa threshold.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Pengujian tanpa threshold menunjukan tingkat akurasi sebesar 89%.,OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,"Sedangkan dengan menggunakan variasi threshold 0,5 , 0,75 dan 0,95 diperoleh hasil masing - masing 100%, 12,67% dan 0,67%.",OTHERS,0,1. PENDAHULUAN
+116-185-1-PB.txt,Sistem yang dibangun digunakan untuk melakukan diagnosa awal penyakit jantung dan pembuluh darah ( cardiovascular) dengan menerapkan metode case - based reasoning.,METHOD,1,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Teknik pencocokan antara kasus lama dan kasus baru menggunakan simple matching coefficient.,METHOD,1,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Pada dasarnya, CBR merupakan salah satu metode yang menggunakan solusi kasus sebelumnya untuk menyelesaikan kasus yang baru.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Masukan sistem berupa faktor resiko ( risk factor) dan data gejala - gejala ( symptoms) penyakit yang dialami pasien, kemudian data tersebut dibuat menjadi kasus.",METHOD,1,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Terdapat dua jenis kasus, yaitu target case dan source case.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Source case merupakan data - data kasus yang dimasukkan ke dalam sistem yang berfungsi sebagai pengetahuan bagi sistem.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Sedangkan target case merupakan data kasus baru yang akan dicari solusinya.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Proses diagnosa kasus baru dilakukan dengan cara memasukkan data pasien, faktor resiko dan gejala - gejala yang dialami pasien pada kasus baru.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Kasus baru tersebut kemudian diproses dengan cara menghitung similaritas atau kesamaan dengan kasus - kasus sebelumnya yang tersimpan dalam basis kasus.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Kesamaan masing - masing faktor resiko dan gejala akan dihitung menggunakan persamaan ( 1).,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Hasil perhitungan pada masing - masing kasus akan diurutkan dari nilai tertinggi ke nilai tererndah.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Nilai yang paling tinggi adalah kasus yang paling mirip dengan kasus baru.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Nilai kemiripan antara 0 sampai dengan 1 ( dalam bentuk persentase antara 0% sampai dengan 100%).,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Jika nilai kemiripan sama dengan 1, maka kasus lama tersebut sama persis dengan kasus baru, dan sebaliknya semakin kecil nilai similaritasnya maka semakin tidak mirip kasus tersebut .",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Apabila nilai tersebut lebih kecil dari nilai ambang ( threshold) yang ditentukan yaitu 0.8 ( Campos dkk, 2010), maka solusi dari kasus tersebut harus di revisi terlebih dahulu oleh pakar.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Hasil keluaran ( output) dari sistem adalah berupa nama penyakit dan solusi yang paling mirip dengan kasus saat ini.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,secara umum arsitektur sistem CBR terlihat pada Gambar 1.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Case base akan dibentuk dari kumpulan data rekam medis pasien rawat inap penyakit kardiovaskuler.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Tahap berikutnya adalah melakukan akuisisi pengetahuanya itu proses untuk mengumpulkan data - data pengetahuan dari sumber pengetahuan.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Sumber pengetahuan tersebut dijadikan sebagai informasi untuk dipelajari, diolah dan diorganisasikan secara terstruktur menjadi basis pengetahuan.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Sumber pengetahuan diperoleh dari seorang pakar ( dokter spesialis penyakit jantung dan pembuluh darah / SpJP).,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Selain pakar, bahan pengetahuan ini juga diperoleh dari literatur - literatur yang berkaitan dengan masalah tersebut , seperti buku, jurnal, artikel dan lain sebagainya.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Data kasus yang diperoleh dari catatan rekam medis disimpan menjadi case base.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Kasus yang sudah terkumpul direpresentasikan ke dalam bentuk frame.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Frame berisi relasi antara data pasien, penyakit yang diderita, faktor resiko dan gejala - gejala yang menyertai kasus tersebut .",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Setiap kasus diberikan tingkat kepercayaan / keyakinan dari pakar terhadap hubungan data - data tersebut , sehingga dengan representasi ini dapat dibuat suatu model kasus untuk sistem CBR, dimana problem space adalah faktor resiko dan gejala - gejala penyakit serta solution space adalah nama penyakit.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Setiap faktor resiko dan gejala memiliki bobot yang menunjukan tingkat kepentingan terhadap penyakit yang diderita pasien.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Nilai bobot antara 1 sampai 10, semakin besar nilai bobot, maka semangkin penting faktor resiko atau gejala tersebut untuk menentukan penyakit pasien.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Tingkat kepercayaan menunjukan kepastian diagnosa dari pakar berdasarkan faktor resiko dan gejala yang dialami pasien.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Retrieval merupakan inti dari CBR, yaitu proses menemukan kasus lama dalam case base yang paling dekat dengan kasus saat ini ( kasus baru).",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Teknik retrieval yang paling sering diselidiki sejauh ini, adalah k - nearest neighbor, pohon keputusan dan turunannya.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Teknik ini menggunakan similarity metric untuk menentukan ukuran kedekatan antar kasus.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Pada penelitian ini, metode similaritas yang digunakan adalah simple matching coefficient dengan persamaan ( 1) ( Tursina, 2012).",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt, ( ) ( 1) dimana :X = Kasus lamaY = Kasus BaruM11= Jumlah atribut dimana X=1 dan Y=1 M10= Jumlah atribut dimana X=1 dan Y=0 M01= Jumlah atribut dimana X=0 dan Y=1 M00= Jumlah atribut dimana X=0 dan Y=0 Jika tingkat kemiripan antara kasus lama dengan kasus baru cukup tinggi maka kasus tersebut akan di - reuse dimana solusi kasus lama tersebut akan digunakan kembali sebagai solusi kasus baru.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Revisi kasus merupakan bagian dari adaptasi sistem yang dilakukan oleh seorang pakar.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Pakar akan merevisi nama penyakit beserta tingkat kepercayaan terhadap penyakit hasil diagnosa memiliki nilai similarity lebih kecil dari 0.8.Setelah kasus direvisi, selanjutnya kasus tersebut akan disimpan ( retain) dan dijadikan sebagai basis kasus baru.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Desain sistem meliputi kegiatan perancangan dan konstruksi, baik desain yang berhubungan dengan alur sistem, pemrosesan sampai dengan rancangan antarmuka ( inteface) sistem yang akan bangun.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Desain dalam membangun sistem CBR untuk mendiagnosa penyakit kardiovaskuler dengan metode simple matching coefficient ini terdiri dari desain arsitektur sistem, perancangan arus data ( DFD), perancangan basis data dan perancangan antar muka.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Sistem dibagi menjadi 2 kategori berdasarkan jenis pemakai yaitu pakar dan paramedis.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Masing - masing kategori pemakai mempunyai hak akses terhadap sistem yang dengan fasilitas yang berbeda - beda.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Admin / pakar memiliki hak akses untuk menambahkan pengguna baru pada sistem, memasukan data pengetahuan,memasukan dan merevisi kasus hasil diagnosa serta melakukan diagnosa.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Sedangkan user dengan jenis Paramedis memiliki hak akses untuk memasukkan data pasien, mendiagnosa kasus baru serta menyimpan kasus baru.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Pengujian sistem dilakukan dengan tes diagnostik untuk mengukur kemampuan sistem dalam mendeteksi seseorang terkena penyakit atau tidak .,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Akobeng ( 2007) menjelaskan bahwa sensitivitas dan spesifisitas digunakan untuk mengetahui akurasi dari tes diagnostik.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Nilai prediktif dapat digunakan untuk memperkirakan probabilitas penyakit, namun nilai prediksi positif dan nilai prediksi negatif bervariasi sesuai dengan prevalensi penyakit.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Analisis dilakukan dengan menggunakan 4 parameter yaitu TP, FP, TN dan FN.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Selanjutnya parameter tersebut digunakan dalam menghitung sensitivitas ( sensitivity), spesifisitas ( specificity), nilai prediksi positif ( PPV) dan nilai prediksi negatif ( NPV).",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Perhitungan nilai - nilai tersebut menggunakan persamaan ( 2), ( 3), ( 4), ( 5) ( Tomar dkk, 2012).",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"Menurut Han & Kamber ( 2006), confusion matrix adalah cara yang berguna untuk menganalisis seberapa baik sistem mengenali tuple dari kelas yang berbeda.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,"TP dan TN memberikan informasi ketika sistem benar, sedangkan FP dan FN memberitahu ketika sistem salah.",OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Sensitivitas dan spesifisitas dapat digunakan untuk mengklasifikasikan akurasi.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Sensitivitas dapat ditunjuk sebagai true positives ( recognition) rate ( proporsi dari tuple positif yang diidentifikasi dengan benar).,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Sedangakan spesifisitas adalah true negatives rate ( proporsi tuple negatif yang diidentifikasi secara benar).,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Fungsi sensitivitas dan spesifisitas dapat menunjukkan tingkat akurasi menggunakan persamaan ( 6) dan ukuran tingkat kesalahan sistem menggunakan persamaan ( 7) dimana: SV : Nilai sensitivitasSF : Nilai spesifisitas P: Jumlah total kasus dengan hasil positif N: Jumlah total kasus dengan hasil negatif.,OTHERS,0,2. PERANCANGAN SISTEM
+116-185-1-PB.txt,Terdapat 126 kasus dengan 74 gejala dan 9 jenis faktor resiko yang mengalami penyakit golongan I21 ( Acute Myocardial Infarction).,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Data yang digunakan merupakan kumpulan data rekam medis pasien rawat inap penyakit kardiovaskuler RSUP Sardjito Yogyakarta.,DATASET,1,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Sebelum melakukan pengisian basis kasus, user terlebih dahulu memasukan data pasien, data penyakit, data gejala dan data faktor resiko kedalam sistem.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Sistem melakukan proses diagnosa dengan teknik anamnesis yaitu , dengan memperhatikan faktor resiko dan gejala yang tampak pada pasien.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Proses diagnosa diawali dengan memilih data pasien.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Selanjutnya memasukkan data gejala dan data faktor resiko yang dialami seorang pasien, kemudian sistem melakukan proses retrieve dan menghitung tingkat kemiripan menggunakan metode simple matching coefficient.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Alur proses yang terjadi pada saat sistem melakukan diagnosa di sajikan pada Gambar 2.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Setiap kasus baru akan dihitung tingkat kemiripanya dengan kasus lama berdasarkan kemunculan gejala dan faktor resiko.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Perhitungan similaritas dilakukan pada setiap kasus yang memiliki kesamaan fitur dengan kasus baru, kemudian memilih kasus dengan kemiripan tertinggi sebagai solusi.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Berikut contoh perhitungan similaritas antara case base dan target case ( data kasus baru) secara manual.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Proses perhitungan similaritas contoh kasus yang disajikan pada Tabel 1 adalah sebagai berikut.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Berdasarkan hasil perhitungan similaritas kasus baru terhadap kasus lama yang terdapat pada basis kasus ( K001 dan K002), nilai kemiripan pada kasus K002=0.85, lebih besar dari pada kasus K001=0.46.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Sehingga dapat disimpulkan bahwa kasus K002 adalah kasus yang paling mirip dengan kasus baru.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Hasil pengembangan aplikasi, proses diagnosa meliputi proses input kondisi pasien, pemeriksaan / pencarian kasus terdahulu yang mirip dengan kasus baru ( retrieve), menghitung tingkat kemiripan ( similaritas) dan menyimpulkan hasil diagnosa berdasarkan nilai kemiripan paling tinggi.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Proses pada form diagnosa dimulai dengan memilih menu diagnosa.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Pada saat muncul form diagnosa sistem akan secara otomatis memberikan nomor kasus berdasarkan nomor urut kasus yang telah tersimpan dalam basis data.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Selanjutnya user ( baik pakar maupun paramedis) harus memilih data pasien.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Pencarian data pasien dapat dilakukan berdasarkan kode pasien, nomor rekam medis dan nama pasien.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Jika pasien belum tersimpan dalam basis data, maka user dapat melakukan penambahan data pasien baru dengan g mengklik tombol tambah.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Saat data pasien ditemukan, sistem akan mengambil kode pasien, jenis kelamin dan tanggal lahir.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Tanggal lahir akan dikonversi menjadi usia ( umur pasien) dengan menghitung berdasarkan tanggal sekarang.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Data yang perlu dimasukan oleh user adalah data faktor resiko dan data gejala yang dimiliki pasien ( Gambar 3).,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Input data faktor resiko dapat dilakukan dengan memilih daftar faktor resiko pada combobox atau dapat juga dilakukan dengan mencari data dengan meng - click tombol cari.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Jika terdapat data faktor resiko baru, user dapat menambahkan faktor resiko baru tersebut dengan meng - click tombol tambah pada form cari data faktor resiko.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Setelah faktor resiko terpilih, untuk beberapa faktor resiko user perlu memasukan nilai faktor resiko tersebut , misalnya untuk faktor keturunan user perlu memasukan berapa banyak faktor resiko ini ditemukan pada orang tua pasien dan penyakit apa saja yang di alami.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Sebagai contoh seorang pasien memiliki orang tua yang mengalami penyakit Stroke dan sakit jantung, sehingga user akan mengisi nilai faktor resiko dengan 2 FH / Factor History ( Stroke, Sakit Jantung).",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Selanjutnya click tombol Pilih untuk memasukan data faktor resiko tersebut kedalam listbox.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Proses memasukkan data gejala pasien hampir sama dengan faktor resiko, perbedaanya adalah pada pemilihan gejala tidak ada nilai yang perlu ditambahkan, cukup dengan memilih gejala yang dirasakan pasien.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Setelah semua data dimasukan, selanjutnya user harus meng - click tombol Hasil Diagnosa untuk mengetahui hasil diagnosa pasien tersebut .",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Setelah proses perhitungan similaritas masing - masing kasus yang memiliki kesamaan dengan kasus baru, langkah selanjutnya adalah mengurutkan nilai similaritas dari nilai tertinggi ke nilai terrendah.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Kasus dengan nilai similaritas tertinggi adalah kasus yang paling mirip dengan kasus baru, kemudian solusi dari kasus tersebut akandirekomendasikan sebagai solusi kasus baru tersebut .",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Sehingga hasil diagnosa ditampilkan seperti pada Gambar 4.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Hasil diagnosa ini dapat dicetak pada media kertas ( print out).,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Selanjutnya user dapat menyimpan hasil diagnosa tersebut kedalam basis kasus dengan ketentuan tertentu.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Jika nilai kemiripan mencapai nilai threshold yaitu minimal 0,8 atau 80% maka kasus tersebut akan disimpan dengan status 1 yang berarti dapat diikutkan dalam proses diagnosa kasus berikutnya.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Jika nilai similaritas kurang dari 0,8 maka kasus tersebut akan disimpan dengan status 0, artinya kasus tersebut perlu mendapatkan revisi dari pakar dan tidak akan gunakan dalam proses diagnosa kasus berikutnya sebelum mendapat revisi dari pakar.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Penyimpanan kasus dengan status 1 hanya dapat dilakukan user dengan hak akses sebagai pakar.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Proses revisi kasus perlu dilakukan apabila sistem tidak mampu mendiagnosa penyakit dengan benar.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Sistem dianggap tidak berhasil melakukan diagnosa apabila nilaisimilaritas kurang dari 0.8 ( 80%).,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Proses revisi hanya dapat dilakukan user dengan hak akses sebagai pakar.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Proses pengujian sistem dilakukan dengan menggunakan sampel data rekam medis acak sebanyak 30% dari 126 kasus dan ditambahkan 10 kasus penyakit I.50.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Proses pengujian di bagi dalam 4 tahap yaitu 10% sampel di uji sebanyak 1 kali, 10% di uji sebanyak 3 kali dan 10% diuji sebanyak 5 kali.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Sedangkan sampel jenis penyakit yang berbeda ( I.50) di lakukan sebanyak 3 kali.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Hasil pengujian masing - masing sampel diambil dari rata - rata hasil pengujian tiap sampel.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Nilai kepercayaan pakar terhadap sebuah kasus yang terdapat dalam data rekam medis adalah 100%, karena sudah melalui observasi dan pengujian secara menyeluruh.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Hasil pengujian ditampilkan dalam tabel confusionmatrixberdasarkan nilai similaritas hasil pengujian sistem, seperti terlihat pada Tabel 2.",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Berdasarkan confusion matrix dapat dihitung tingkat sensitivitas,spesifisitas,PPV, NPV, akurasi dan error rate menggunakan persamaan ( 2), ( 3), ( 4), ( 5), ( 6) dan persamaan ( 7).",OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Hasil perhitungan menunjukan nilai sensitivitas 97,06%, spesifisitas 64,29%, PPV 86,84%, NPV 90,00%, akurasi 87,50% dengan tingkat kesalahan ( error rate) sebesar 12,50%.",RESULT,1,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,"Berdasarkan perhitungan hasil pengujian dapat disimpulkan bahwa sistem yang dikembangkan memiliki kemampuan yang cukup tinggi dalam mengenali / identifikasi ( sensitivitas) jenis penyakit cardiovascular ( I.21), serta memiliki kemampuan yang baik dalam membedakan penyakit selain I.21 ( spesifisitas).",CONCLUSION,1,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Sistem mampu melakukan diagnosa terhadap penyakit I.21 dengan benar ( PPV) dan memiliki kemampuan yang baik untuk mengenali penyakit selain I.21 ( NPV).,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,secara keseluruhan dapat disimpulkan bahwa sistem yang di kembangan memiliki tingkat akurasi yang cukup baik dalam melakukan diagnosa.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Tingkat kemungkinan terjadi kesalahan dalam diagnosa masih cukup tinggi yaitu di atas 10%.,OTHERS,0,3. HASIL dan PEMBAHASAN
+116-185-1-PB.txt,Berdasarkan hasil pengujian sistem case - based reasoning untuk mendiagnosa penyakit kardiovaskuler dapat ditarik beberapa kesimpulan sebagai berikut: 1. Sistem case - based reasoning dengan menggunakan metode simple matching coefficient dapat diimplementasikan untuk melakukan diagnosa awal penyakit cardiovascular berdasarkan kondisi ( gejala dan faktor resiko) seorang pasien.,CONCLUSION,1,4.KESIMPULAN
+116-185-1-PB.txt,2. Sistem memberikan diagnosa penyakit berdasarkan kemiripan antara kasus lama dan kasus baru.,OTHERS,0,4.KESIMPULAN
+116-185-1-PB.txt,Diagnosa dianggap benar jika nilai similarity 0.8.,OTHERS,0,4.KESIMPULAN
+116-185-1-PB.txt,"3. Hasil pengujian sistem menunjukkan nilai sensitivitas dan spesifisitas masing - masing adalah 97,06% dan 64,29%.",RESULT,1,4.KESIMPULAN
+116-185-1-PB.txt,"Nilai PPV 86,84% dan NPV 90,00%, dengan tingkat akurasi sebesar 87,50% serta tingkat kesalahan ( error rate) sebesar 12,50%.",RESULT,1,4.KESIMPULAN

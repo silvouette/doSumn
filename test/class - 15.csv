@@ -1,0 +1,105 @@
+filename,sentence,labels,abstract,heading
+3051-5219-1-SM.txt,"Pada 2025 diperkirakan 12,4 juta orang yang mengidap Diabetes Melitus ( DM) di Indonesia.",OTHERS,0,Abstrak
+3051-5219-1-SM.txt,Perencanaan makan merupakan salah satu pilar dalam pengelolaan DM.,BACKGROUND,1,Abstrak
+3051-5219-1-SM.txt,Sistem pakar dapat berfungsi sebagai konsultan yang memberi saran kepada pengguna sekaligus sebagai asisten bagi pakar.,BACKGROUND,1,Abstrak
+3051-5219-1-SM.txt,"Logika fuzzy fleksibel, memiliki kemampuan dalam proses penalaran secara bahasa dan memodelkan fungsi - fungsi matematika yang kompleks.",OTHERS,0,Abstrak
+3051-5219-1-SM.txt,Penelitian ini bertujuan menerapkan metode ketidakpastian logika fuzzy pada purwarupa sistem pakar untuk menentukan menu harian.,TOPIC,1,Abstrak
+3051-5219-1-SM.txt,Manfaat penelitian ini adalah untuk mengetahui keakuratan mesin inferensi Mamdani Product.,OTHERS,0,Abstrak
+3051-5219-1-SM.txt,Pendekatan basis pengetahuan yang digunakan pada sistem pakar ini adalah dengan Rule - Based Reasoning.,METHOD,1,Abstrak
+3051-5219-1-SM.txt,Proses inferensi pada sistem pakar menggunakan logika fuzzy dengan mesin inferensi Mamdani Product.,METHOD,1,Abstrak
+3051-5219-1-SM.txt,Fuzzifier yang digunakan adalah Singleton sedangkan defuzzifier yang digunakan adalah Rata - Rata Terpusat.,METHOD,1,Abstrak
+3051-5219-1-SM.txt,"Penggunaan kombinasi Singleton fuzzifier, mesin inferensi Product dan defuzzifier Rata - Rata Terpusat yang digunakan pada sistem pakar dapat diterapkan untuk domain permasalahan yang dibahas.",OTHERS,0,Abstrak
+3051-5219-1-SM.txt,"Meskipun demikian, terdapat kemungkinan Singleton fuzzifier tidak dapat memicu beberapa atau semua aturan.",OTHERS,0,Abstrak
+3051-5219-1-SM.txt,Jika semua aturan tidak dapat dipicu maka tidak dapat disimpulkan kebutuhan kalori hariannya.,OTHERS,0,Abstrak
+3051-5219-1-SM.txt,"Di Indonesia, pada tahun 1995, ada 4,5 juta orang yang mengidap DM, nomor tujuh terbanyak di dunia.",OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,"Pada tahun 2007, angka ini meningkat sampai 8,4 juta dan diperkirakan pada 2025 akan menjadi 12,4 juta orang, atau urutan kelima terbanyak di dunia [1].",OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,Perencanaan makan merupakan salah satu pilar dalam pengelolaan Diabetes Melitus ( DM) yang dapat membantu mencegah komplikasi dan memperbaiki kualitas hidup penderita DM [2].,BACKGROUND,1,1. PENDAHULUAN
+3051-5219-1-SM.txt,"Penderita DM tidak dapat mengkonsumsi semua jenis makanan, pola makan penderita harus selalu teratur berdasarkan kebutuhan kalori hariannya [3].",BACKGROUND,1,1. PENDAHULUAN
+3051-5219-1-SM.txt,Sistem pakar dapat berfungsi sebagai konsultan yang memberi saran atau nasihat kepada pengguna sekaligus sebagai rekan kerja atau asisten bagi pakar [4].,BACKGROUND,1,1. PENDAHULUAN
+3051-5219-1-SM.txt,Penelitian [5] menunjukkan bahwa sistem pakar dapat dibangun dengan bahasa pemrograman secara independen dan database merupakan elemen penting untuk mendukung aplikasi sistem pakar.,OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,"Penelitian [6],[7] menggunakan metode ketidakpastian dan menyimpulkan bahwa sistem pakar yang dibangun dapat memberikan hasil beserta tingkat kebenaran dan keakuratannya.",OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,"Dari penelitian - penelitian [8],[9] dan [10] dapat disimpulkan bahwa logika fuzzy terbukti dapat digunakan untuk menyelesaikan beberapa macam kasus sehingga peneliti tertarik untuk membangun purwarupa sistem pakar dengan metode ketidakpastian yang berbeda yaitu logika fuzzy.",OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,"Logika fuzzy sangat fleksibel, memiliki toleransi terhadap data - data yang tidak tepat, memiliki kemampuan dalam proses penalaran secara bahasa dan memodelkan fungsi - fungsi matematika yang sangat kompleks [4].",OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,Logika fuzzy juga menyediakan kerangka yang digunakan untuk menggabungkan aturan - aturan yang bersumber dari pengalaman pakar [11].,OTHERS,0,1. PENDAHULUAN
+3051-5219-1-SM.txt,Sistem pakar menggunakan mesin inferensi Mamdani Product untuk menentukan menu harian penderita DM adalah sistem pakar yang dapat menentukan menu harian penderita DM berdasarkan kebutuhan kalori hariannya.,METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Sedangkan menu harian yang diberikan mencangkup menu makan pagi, siang, malam beserta selingannya.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Sesuai dengan struktur sistem pakar menurut [12], model sistem pakar menggunakan mesin inferensi Mamdani Product untuk menentukan menu harian penderita DM terlihat pada Gambar 1.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"secara garis besar, sistem pakar yang akan dibangun memiliki fasilitas penjelasan untuk penderita DM dan fasilitas akuisisi pengetahuan untuk ahli gizi.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Penderita DM akan diminta untuk memasukkan data personal yang berupa jenis kelamin, umur, berat badan, tinggi badan dan jenis aktivitas.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Kemudian data tersebut akan diolah oleh mesin inferensi berdasarkan basis pengetahuan yang diperoleh dari ahli gizi.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Hasil inferensi akan diberikan kepada penderita DM disertai dengan penjelasannya.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Ahli gizi dapat memodifikasi basis pengetahuan.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Basis pengetahuan tersebut disimpan pada basis data dan akan digunakan untuk kepentingan proses inferensi.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Adapun admin, yang dapat memodifikasi data ahli gizi.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Sistem pakar yang dibuat diharapkan memiliki kemampuan sebagai berikut: a. Sistem dapat digunakan oleh penderita DM, ahli gizi dan admin.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"b. Sistem dapat digunakan ahli gizi untuk menambah, merubah dan menghapus data seperti rencana menu, jenis makanan, jenis aktivitas, batas himpunan dan aturan.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"c. Sistem dapat digunakan admin untuk menambah, merubah dan menghapus data ahli gizi.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"d. untuk menambah, merubah dan menghapus data, ahli gizi maupun admin harus melewati proses otentifikasi.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"e. Sistem dapat menyimpulkan status gizi, berat badan ideal, total kalori aktivitas, kebutuhan kalori harian, kategori kebutuhan kalori, nilai kebenaran dan rekomendasi jenis menu harian penderita DM.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,f. Sistem dapat memberikan rekomendasi jenis menu harian berdasarkan jenis makanan yang diinginkan oleh penderita DM.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Sistem fuzzy terdiri dari 4 komponen yaitu basis aturan fuzzy, mesin inferensi fuzzy, pembuat fuzzy ( fuzzifier), dan penegasan ( defuzzifier) [11].",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Proses pada sistem fuzzy yaitu dari input yang berupa data real diubah oleh fuzzifier ( tahap fuzzifikasi) menjadi nilai fuzzy di U kemudian diolah oleh mesin inferensi fuzzy dengan aturan dasar fuzzy yang selanjutnya ditegaskan kembali dengan defuzzifier ( tahap defuzifikasi) menjadi nilai tegas ( output).,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Basis aturan fuzzy terdiri atas aturan - aturan fuzzy JIKA - MAKA: llnnl11 ( l)B adalah y MAKA A adalah x dan ... dan A adalah JIKA x :Ru ( 1) dengan liA dan lB berturut - turut adalah himpunan fuzzy di RUi ( untuk i=1, 2, , n) dan RV, sedangkan U)x,...,x, ( xxTn21 dan Vy berturut - turut adalah varibel input dan variabel output dari suatu sistem fuzzy.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Fuzzifier merupakan pemetaan nilai real n*RUx ke himpunan fuzzy U di Al.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Singleton Fuzzifier memetakan nilai tegas Ux* ke fuzzy singleton U di A', dengan derajat keanggotaan 1 untuk *x, dan 0 untuk nilai lainnya di U.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Mesin inferensi product menggunakan dasar inferensi individual dengan kombinasi gabungan, implikasi product Mamdani, algebraic product untuk semua operator T - norm dan max untuk semua operator S - norm: ( 3) Jika himpunan fuzzy A' merupakan fuzzifier singleton ( 2), maka mesin inferensi product dapat disederhanakan menjadi: ( 4)",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Defuzzifier didefinisikan sebagai suatu pemetaan dari himpunan fuzzy di RVB' ke suatu titik bernilai real Vy.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Jika himpunan fuzzy B' di semesta R merupakan gabungan atau irisan dari M buah himpunan fuzzy, maka B' diubah menjadi bilangan real *y yang merupakan rata - rata terbobot dari pusat - pusat M buah himpunan fuzzy tersebut , dengan tinggi masing - masing himpunan fuzzy itu sebagai bobotnya.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Jika ly merupakan pusat dari himpunan fuzzy ke - l, dan lw adalah tingginya, maka defuzzifier rata - rata terpusat dinyatakan sebagai: ( 5)",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Representasi dilakukan setelah proses akuisisi pengetahuan dilakukan.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Tujuan representasi adalah untuk mengembangkan suatu struktur yang akan membantu pengkodean pengetahuan ke dalam program.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Representasi pengetahuan menggunakan aturan produksi.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Pada sistem pakar untuk menentukan menu harian penderita DM, tabel keputusan yang digunakan terlihat pada Tabel 1.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Aturan - aturan yang dapat dibentuk berdasarkan tabel keputusan adalah sebanyak 17 aturan, antara lain: 1. Jika umur MUDA dan status gizi KURUS dan aktivitas SEDANG maka kebutuhan kalori TINGGI 2. Jika umur MUDA dan status gizi NORMAL dan aktivitas SEDANG maka kebutuhan kalori TINGGI.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Himpunan fuzzy menggambarkan derajat atau nilai perbedaan pada suatu variabel linguistik pada himpunan nilai linguistik variabel tersebut .,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Derajat atau nilai tersebut disebut grades of membership [13].,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Pada sistem ini grades of membership mempunyai nilai antara 0 sampai dengan 1.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Grades of membership ini selanjutnya akan menjadi fungsi keanggotaan ( membership function) yang digunakan dalam proses fuzzifikasi data personal user.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt," untuk pembuatan sistem pakar ini, pertama kali akan dibuat fungsi keanggotaan untuk variabel input, yaitu umur, status gizi dan jenis aktivitas.",METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Sedangkan variabel outputnya adalah kebutuhan kalori.,METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Fungsi keanggotaan tersebut didefinisikan berdasarkan rentang nilai dan derajat keanggotaan.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Dalam penelitian ini digunakan fungsi keanggotaan bentuk segitiga dan trapesium untuk mendefinisikan derajat keanggotaan dari setiap variabel.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Himpunan fuzzy beserta fungsi keanggotaan dari variabel umur direpresentasikan sebagai berikut: ( ) dimana sumbu horizontal merupakan nilai input dari variabel umur, sedangkan sumbu vertikal merupakan nilai derajat keanggotaan dari nilai input.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt, dengan fungsi keanggotaan adalah sebagai berikut: ( 9).,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Pada sistem ini inferensi dilakukan untuk menentukan menu harian berdasarkan pada hasil fuzzifikasi input data personal yang dimasukkan oleh user.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Fuzzifikasi merupakan proses untuk mengubah data real menjadi nilai fuzzy.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Fuzzifier yang digunakan adalah Singleton fuzzifier ( 2).,METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Kemudian dilakukan inferensi fuzzy berdasarkan basis aturan fuzzy menggunakan Mesin Inferensi Product ( 3).,METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Inferensi diimplementasikan untuk masing - masing aturan.,OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Dalam inferensi, nilai kebenaran premis dari aturan - aturan yang terpicu digunakan untuk menentukan nilai kebenaran bagian dari kesimpulan dari aturan yang terpicu.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt," dengan demikian input untuk proses inferensi adalah nilai yang diberikan oleh premis, dan output adalah suatu himpunan fuzzy.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Dalam metode inferensi product, fungsi keanggotaan output diberi skala sesuai dengan nilai kebenaran dari premis.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Selanjutnya dilakukan defuzzifikasi yaitu menegaskan kembali hasil inferensi menjadi nilai tegas ( output).,METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Defuzzifier yeng digunakan adalah Rata - Rata Terpusat ( 5).,METHOD,1,2. METODE PENELITIAN
+3051-5219-1-SM.txt," dengan mensubstitusikan aturan basis fuzzy ( 1), mesin inferensi product ( 3), fuzzifier singleton ( 2) dan defuzzifier rata - rata terpusat ( 5), maka diperoleh fungsi dengan bentuk: ( 10) dengan nRUx sebagai input, dan RVf ( x) merupakan output dari sistem fuzzy.",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,"Bukti: dengan mensubstitusikan fuzzifier singleton ( 2) pada mesin inferensi product ( 3), diperoleh: ( 4) Selama input yang diberikan *ix, maka pusat ke - l dari himpunan fuzzy ( y)B' pada ( 10) adalah pusat dari lB, dapat dilihat bahwa ly pada defuzzifier rata - rata terpusat ( 5) sama dengan ly pada ( 10).",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Selama lB normal ( tinggi dari lB sama dengan 1) maka lw ( tinggi) himpunan fuzzy ( y)B' pada ( 4) yaitu : ( 11),OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt," dengan menggunakan defuzzifier rata - rata terpusat ( 5) pada himpunan fuzzy ( 1), diperoleh: ( 12) dengan mengganti x*=x dan y*=y, maka ( 12) akan menjadi ( 10).",OTHERS,0,2. METODE PENELITIAN
+3051-5219-1-SM.txt,Pembahasan dilakukan terhadap 10 kasus dengan input yang berbeda.,DATASET,1,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Pembahasan meliputi perbandingan output dari 10 kasus yang telah diuji melalui sistem dengan perhitungan manualnya.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Kasus pertama yang diuji melalui sistem terlihat pada Gambar 4.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Dari Gambar 4 terlihat pada kasus pertama penderita DM memberikan input berupa data personal:Umur: 58Berat badan : 56 Tinggi badan : 160 Aktivitas harian :Tidur atau berbaring saja : 8 jam Duduk tenang : 5 jam Pekerjaan kantor: 8 jam Pekerjaan rumah ( berat): 2 jam Badminton : 1 jam.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Kemudian dilakukan proses inferensi terhadap input tersebut untuk menghasilkan besarnya kebutuhan kalori harian.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Nilai derajat keanggotaan yang diperoleh dari fuzzifikasi input data adalah : a. Umur ( U) b. Status gizi ( SG),OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt, dengan demikian aturan fuzzy yang terpicu dengan premis - premisnya adalah : Premis R1: umur PAROBAYA dan status gizi NORMAL dan aktivitas SEDANGPremis R2: umur PAROBAYA dan status gizi GEMUK dan aktivitas SEDANG Premis R3: umur TUA dan status gizi NORMAL dan aktivitas SEDANGPremis R4: umur TUA dan status gizi NORMAL dan aktivitas BERATPremis R5: umur TUA dan status gizi GEMUK dan aktivitas SEDANG.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt, dengan mengaplikasikan operator algebraic product diperoleh nilai kebenaran premis sebagai berikut.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt, dengan menggunakan aturan untuk menentukan kebutuhan kalori harian diperoleh aturan - aturan sebagai berikut: R1: Jika umur PAROBAYA dan status gizi NORMAL dan aktivitas SEDANG maka kebutuhan kalori SEDANG R2: Jika umur PAROBAYA dan status gizi GEMUK dan aktivitas SEDANG maka kebutuhan kalori SEDANG R3: Jika umur TUA dan status gizi NORMAL dan aktivitas SEDANG maka kebutuhan kalori SEDANG R4: Jika umur TUA dan status gizi NORMAL dan aktivitas BERAT maka kebutuhan kalori TINGGI R5: Jika umur TUA dan status gizi GEMUK dan aktivitas SEDANG maka kebutuhan kalori RENDAH.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,"Pusat dari himpunan fuzzy R1, R2, R3, R4, R5 berturut - turut adalah 18001y, 18002y, 18003y, 23004y, 13005y.",OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,"Dan tingginya berturut - turut adalah 1356.0w1, 0469.0w2, 0756.0w3, 1121.0w4, 0262.0w5.",OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Kemudian ditentukan kebutuhan kalori harian menggunakan center average defuzzifier ( 5) sebagai berikut: ( ),OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Nilai derajat keanggotaan yang diperoleh berdasarkan kebutuhan kalori harian adalah : 0)3501 ( 1908. KalRendah 1)3501 ( 1908. KalSedang 0)3501 ( 1908. KalTinggi.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Dari fungsi keanggotaan kebutuhan kalori harian diperoleh bahwa 3501.1908y* termasuk ke dalam kategori kebutuhan kalori harian SEDANG dengan nilai kebenaran 1.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,"Hasil perhitungan manual kebutuhan kalori harian, kategori kebutuhan kalori dan nilai kebenaran pada kasus pertama sesuai dengan hasil yang diberikan oleh sistem.",OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Tabel 2 merupakan rincian input dan hasil perhitungan kebutuhan kalori harian dari 10 kasus yang telah diuji melalui sistem dan perhitungan manual.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,Hasil perhitungan kebutuhan kalori harian oleh sistem pakar terhadap 10 kasus tersebut sesuai dengan hasil perhitungan manualnya.,OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,"Pada kasus ke - 8, sistem pakar memberikan hasil NaN ( Not a Number) dan perhitungan manual memberikan hasil nol.",OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,"Hal ini terjadi karena tidak ada satupun aturan di basis pengetahuan yang terpicu oleh premis - premisnya berdasarkan data personal penderita DM yang telah dimasukkan, sehingga tidak dapat ditentukan kebutuhan kalori hariannya.",OTHERS,0,3. HASIL dan PEMBAHASAN
+3051-5219-1-SM.txt,1. Purwarupa sistem pakar dengan mesin inferensi Mamdani Product yang telah dibangun dapat digunakan untuk menentukan menu harian penderita DM karena hasil perhitungan kebutuhan kalori harian yang dihasilkan oleh sistem pakar sama dengan hasil perhitungan secara manual dengan menggunakan teori mesin inferensi Mamdani Product.,CONCLUSION,1,4. KESIMPULAN
+3051-5219-1-SM.txt,"2. Penggunaan kombinasi Singleton fuzzifier, mesin inferensi Product dan defuzzifier Rata - Rata Terpusat yang digunakan pada sistem pakar dapat diterapkan untuk domain permasalahan yang dibahas.",CONCLUSION,1,4. KESIMPULAN
+3051-5219-1-SM.txt,"Meskipun demikian, terdapat kemungkinan Singleton fuzzifier tidak dapat memicu beberapa atau semua aturan.",CONCLUSION,1,4. KESIMPULAN
+3051-5219-1-SM.txt,Jika semua aturan tidak dapat dipicu maka tidak dapat disimpulkan kebutuhan kalori hariannya.,CONCLUSION,1,4. KESIMPULAN
+3051-5219-1-SM.txt,3. Pendekatan basis pengetahuan dengan Rule - Based Reasoning dapat diterapkan pada sistem pakar untuk menentukan menu harian penderita DM.,CONCLUSION,1,4. KESIMPULAN
+3051-5219-1-SM.txt,"1. Penelitian lebih lanjut dapat menggunakan komposisi fuzzifier, mesin inferensi dan defuzzifier yang berbeda.",SUGGESTION,1,5. SARAN
+3051-5219-1-SM.txt,2. Input data personal penderita DM dirancang secara lebih akurat.,SUGGESTION,1,5. SARAN
+3051-5219-1-SM.txt,Penderita DM dapat mengisi jenis aktivitas sebanyak yang diinginkan.,OTHERS,0,5. SARAN
+3051-5219-1-SM.txt,3. Penelitian lebih lanjut diharapkan dapat mengembangkan model sistem pakar yang lebih interaktif dan dinamis seperti sistem berbasis web.,SUGGESTION,1,5. SARAN

@@ -1,0 +1,148 @@
+filename,sentence,labels,abstract,heading
+1937-5080-1-PB.txt,Kanker payudara merupakan jenis kanker yang sering ditemukan oleh kebanyakan wanita.,OTHERS,0,Abstrak
+1937-5080-1-PB.txt,Di Indonesia Kanker payudara menempati urutan pertama pada pasien rawat inap di seluruh rumah sakit.,OTHERS,0,Abstrak
+1937-5080-1-PB.txt,Diagnosis dini pada payudara merupakan salah satu upaya untuk meminimumkan kanker malignant ( ganas) yaitu dengan cara melakukan pemeriksaan mamografi.,BACKGROUND,1,Abstrak
+1937-5080-1-PB.txt,Pada penelitian ini akan dilakukan pengklasifikasian diagnosis keadaan pasien kanker payudara benign ( jinak) dan malignant ( ganas) berdasarkan hasil mamografi dan melakukan analisis faktor - faktor apa saja yang mempengaruhi kanker payudara menggunakan metode regresi logistik dan support vector machine ( SVM).,TOPIC,1,Abstrak
+1937-5080-1-PB.txt,"Pengklasifikasian menggunakan regresi logistik biner menghasilkan ketepatan klasifikasi sebesar 88,72% dimana terdapat dua faktor yang berpengaruh terhadap kanker payudara malignant yaitu intermediate findings dan BIRADS.",RESULT,1,Abstrak
+1937-5080-1-PB.txt,"Sedangkan dengan menggunakan seleksi variabel L1 - Norm SVM, semua variabel prediktor yang digunakan berpengaruh terhadap kanker payudara malignant dengan kontribusi terbesar adalah intermediate findings, kemudian BIRADS, suspicious for malignancy, letak abnormal, dan usia dengan ketepatan klasifikasi sebesar 94,34%.",RESULT,1,Abstrak
+1937-5080-1-PB.txt,kANKER payudara adalah suatu penyakit dimana terjadipertumbuhan berlebihan atau perkembangan tidak terkontrol dari sel - sel jaringan payudara.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Kanker payudara merupakan jenis kanker yang sering ditemukan oleh kebanyakan wanita.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Menurut WHO pada tahun 2005 dilaporkan sebanyak 506.000 wanita meninggal disebabkan oleh kanker payudara [1].,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Sedangkan di Indonesia menurut profil kesehatan Departemen Kesehatan Republik Indonesia Tahun 2007 kanker tertinggi yang diderita wanita Indonesia adalah kanker payudara dengan angka kejadian 26 per 100.000 perempuan [2].,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Deteksi dini kanker payudara melalui mamografi dapat meningkatkan kesempatan untuk bertahan hidup [3].,BACKGROUND,1,I. PENDAHULUAN
+1937-5080-1-PB.txt,Mamografi dapat mengidentifikasi kanker untuk beberapa tahun dan merupakan metode pemeriksaan kanker payudara yang paling efektif saat ini.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Penelitian tentang kanker payudara berdasarkan faktor resiko dengan menggunakan regresi logistik pernah dilakukan oleh Purwantaka [4].,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Penelitian tersebut yang diklasifikasikan adalah penderita dan non penderita kanker payudara.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Ketepatan klasifikasi yang didapatkan dari model regresi logistik pada kasus ini hanya sebesar 37%.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Selain itu telah dilakukan beberapa penelitian tentang diagnosis kanker payudara berbasis Support Vector Machine [5] - [7].,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Penelitian - penelitian tersebut menunjukkan Support Vector Machine memberikan ketepatan klasifikasi di atas 95%.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Hal ini menunjukkan keunggulan metode Support Vector Machine yang menghasilkan akurasi yang tinggi.,OTHERS,0,I. PENDAHULUAN
+1937-5080-1-PB.txt,Maka dari itu pada penelitian ini akan dilakukan analisis perbandingan antara metode regresi logistik dan SVM dengan data mamografi pada pasien kanker payudara di rumah sakit X Surabaya pada tahun 2011 dimana dilakukan perbandingan ketepatan klasifikasi dari kedua metode dan memperoleh faktor - faktor yang menggambarkan kanker payudara benign ( jinak) dan malignant ( ganas) pada kanker payudara.,TOPIC,1,I. PENDAHULUAN
+1937-5080-1-PB.txt,Sehingga nantinya diharapkan dapat dijadikan sebagai bahan pertimbangan dokter untuk pemeriksaan lebih lanjut.,TOPIC,1,I. PENDAHULUAN
+1937-5080-1-PB.txt,Kanker payudara adalah pertumbuhan sel yang abnormal pada jaringan payudara seseorang.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Payudara wanita terdiri dari lobulus ( kelenjar susu), duktus ( saluran susu), lemak dan jaringan ikat, pembuluh darah dan limfe.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Sebagian besar kanker payudara bermula pada sel - sel yang melapisi duktus ( kanker duktal), beberapa bermula di lobulus ( kanker lobular), serta sebagian kecil bermula di jaringan lain [8].",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Mamografi adalah foto payudara dengan sinar X dosis rendah.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Pada mammografi dapat dilihat gambaran payudara secara keseluruhan.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Mamografi merupakan alat yang terbaik untuk deteksi dini kanker payudara, karena sinar X pada mamografi mempunyai kemampuan menembus jaringan payudara yang mengalami kelainan berupa tumor dan menunjukkan kelainan dalam payudara tersebut secara memuaskan.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Faktor - faktor yang dilihat pada saat pemeriksaan mamografi antara lain: 1. Intermediate Findings,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Variabel yang menjelaskan keadaan sel atau jaringan yang terdapat dalam payudara, dimana variabel ini terdiri dari lima indikator yaitu well defined, developing, architectural, skin thickening, dan asymetry.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Seorang wanita yang melakukan pemeriksaan mamografi memungkinkan untuk memiliki lebih dari satu indikator atau tidak sama sekali pada variabel ini.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,2. Suspicious for Malignancy,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Variabel yang menjelaskan bentuk tumor yang terdapat dalam payudara atau tanda - tanda keganasan yang terlihat pada payudara, dimana variabel ini terdiri dari tiga indikator yaitu mass, calcification, dan speculated sign.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,3. BIRADS Category,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Breast Imaging Reporting and Data System ( BIRADS) digunakan untuk memprediksi tingkat keganasan pasien kanker payudara dalam skrining mamografi.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,4. Letak abnormal,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Akan dilihat letak dimana ada perubahan yang tidak wajar pada payudara kanan atau payudara kiri.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Prediksi malignansi dapat dipermudah dengan menerapkan kategori BIRADS ( Breast Imaging Reporting and Data System).,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Adapun kategori BIRADS adalah sebagai berikut [9].,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"C - 0 : perlu pemeriksaan lanjut C - 1 : normal C - 2: kelainan jinak C - 3: kelainan yang mungkin jinak, disarankan untuk evaluasi ketat C - 4: kelainan yang mungkin mengarah keganasan C - 5 : sangat mungkin ganas.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Regresi logistik merupakan suatu metode analisis data yang mendeskripsikan antara variabel respon dengan satu atau lebih variabel prediktor.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Regresi logistik biner variabel responnya yang bersifat dikotomus yang terdiri dari dua kategori yaitu 0 dan 1, sehingga variabel respon akan mengikuti distribusi Bernoulli dengan fungsi probabilitas sebagai berikut [10].",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Berdasarkan [10] model regresi logistik adalah sebagai berikut.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Persamaan ( 1) tersebut kemudian ditransformasi yang dikenal dengan tranformasi logit x untuk memperoleh fungsi g ( x) yang linear dalam parameternya, sehingga mempermudah pendugaan parameter regresi yang dirumuskan sebagai berikut: ( ).",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Metode Maximum Likelihood Estimator ( MLE) adalah metode yang digunakan untuk menduga parameter - parameter yang terdapat dalam model regresi logistik.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Metode ini menduga dengan meterbesarkan fungsi likelihood.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Fungsi likelihood yang diterbesarkan adalah ( ).,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Persamaan ( 2) dideferensialkan terhadap , setelah dideferensialkan terhadap kemudian disamakan dengan nol, namun cara ini sering kali diperoleh hasil yang implisit sehingga dilakukan metode iterasi Newton Rhapson untuk meterbesarkan fungsi likelihood [11].",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Pengujian parameter dalam regresi logistik biner dilakukan baik secara serentak maupun individu.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Statistik uji yang digunakan dalam uji serentak adalah statistik uji G atau likelihood ratio test.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Sedangkan statistik uji yang digunakan dalam uji parsial adalah statistik uji Wald [10].,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Salah satu ukuran yang digunakan untuk menginterpretasi koefisien variabel prediktor adalah Odds ratio.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Odds ratio menunjukkan perbandingan peluang munculnya suatu kejadian dengan peluang tidak munculnya kejadian tersebut .,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Jika nilai odds ratio < 1, maka antara variabel prediktor dan variabel respon terdapat hubungan negatif setiap kali perubahan nilai variabel prediktor ( X) dan jika nilai odds ratio>1, maka antara variabel prediktor dan variabel respon terdapat hubungan positif setiap kali perubahan nilai variabel prediktor ( X).",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Statistik uji yang dipakai untuk uji kesesuaian model adalah statistik Hosmer - Lemeshow Test ( C).,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,SVM dapat digunakan untuk melakukan pemilihan variabel sekaligus melakukan tugas klasifikasi.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,SVM yang digunakan adalah L1 - norm.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Misalkan data berdimensi p, maka kelas dari suatu titik baru x ditentukan dengan memasukkan x ke dalam hyperplane atau fungsi z=wx+b yang didapatkan selama training.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Hyperplane z didefinisikan sebagai berikut [12].,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Jika nilai dari elemen vektor bobot 0pw, maka variabel ke - p dalam vektor input tidak menentukan kelas dari x dalam penentuan kelas x.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Jadi hanya variabel - variabel dimana 0pw yang mempunyai kontribusi dalam penentuan kelas suatu data.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Dalam kasus dimana masalah klasifikasinya adalah infeasible atau beberapa data tidak bisa diklasifikasikan secara tepat, maka perlu menambah variabel slack ti.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Formulasi persamaan ( 4) dapat diubah ke dalam bentuk L1 - norm dengan mendefinisikan variabel baru ppuv' dimana 'pppvuwsehingga 'pppvuw.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Jadi L1 - norm dari pippvuvu11w.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Formulasi problem optimasi dari SVM dalam persamaan ( 5) menjadi sebagai berikut: ( ) dengan batasan: ( 1) ( 3) ( 4) ( 5) ( 6) ( 2) dimana nilai C ditentukan oleh peneliti.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Pada seleksi variabel ini bekerja dalam primal space dan tidak memerlukan kernel - map seperti dalam SVM regular [12].,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Support vector machine ( SVM) pertama kali dikenalkan oleh Vapnik pada tahun 1992 pada saat dipresentasikan di Annual Workshop on Computational Learning Theory [13].,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Prinsip dasar SVM adalah linier classifier, yaitu kasus klasifikasi yang secara linier dapat dipisahkan.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Misalkan diberikan himpunan dinyatakan sebagai kelas positif jika f ( x)0 dan yang lainnya termasuk ke dalam kelas negatif.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"SVM melakukan klasifikasi himpunan vektor training berupa set data berpasangan dari dua kelas, [14].",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Pemisahan hyperplane dengan bentuk canonical mengikuti constraint atau batasan berikut, ( ).",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Hyperplane yang optimal diperoleh dengan meterbesarkan w2 atau meminimumkan 221ww.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Kemudian permasalahan optimasi ini dapat diselesaikan dengan menggunakan Fungsi Lagrange berikut ( ) dimana i adalah pengganda fungsi Lagrange.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Persamaan ( 9) merupakan primal space sehingga perlu ditransformasi menjadi dual space agar lebih mudah dan efisien untuk diselesaikan.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Sehingga dual problemnya menjadi seperti berikut ( ) dengan batasan, nii,,1,0 dan niiiy10.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Pada kasus non - separabel beberapa data mungkin tidak bisa dikelompokkan secara benar atau terjadi misclassification.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Sehingga fungsi obyektif maupun kendala dimodifikasi dengan mengikutsertakan variabel slack> 0.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Formulasinya menjadi sebagai berikut [14] dengan kendala nibyiiTi,,2,1,1xw.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Pada kasus separabel dan kasus non - separabel perbedaan keduanya hanya terletak dengan adanya penambahan kendala Ci0pada masalah non - separabel.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Pada kasus non - linier optimasi persamaan ( 10) menjadi sebagai berikut [15] ( ) dengan batasan ( ) adalah fungsi kernel yang digunakan untuk mengatasi data non - linier.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Berdasarkan langkah langkah yang telah dijelaskan dalam kasus linier, diperoleh fungsi sebagai berikut ( ) dengan fungsi sign semua nilai xf< 0 diberi label - 1 dan nilai xf> 0 diberi label +1.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Fungsi kernel yang biasanya digunakan dalam literatur SVM [12]: 1. Kernel Linier 2. Kernel Polinomial 3. Kernel RBF.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Evaluasi performansi model yang digunakan pada penelitian ini adalah classification accuracy, sensitivity, dan specificity [5].",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Classification accuracy merupakan ketepatan klasifikasi yang diperoleh.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Sensitivity merupakan ukuran ketepatan dari suatu kejadian yang diinginkan.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Specificity merupakan suatu ukuran yang menyatakan persentase kejadian - kejadian yang tidak diinginkan.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,"Classification accuracy, sensitivity, dan specificity dapat ditentukan menggunakan nilai yang terdapat dalam confusion matrix.",OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Confusion matrix adalah klasifikasi tentang aktual dan prediksi yang dilakukan dengan sistem klasifikasi.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Confusion matrix ditunjukkan pada Tabel 1.,OTHERS,0,II. LANDASAN TEORI
+1937-5080-1-PB.txt,Data yang digunakan dalam penelitian ini adalah data sekunder pasien kanker payudara yang diperoleh dari Rumah Sakit X Surabaya tahun 2011 sebanyak 267 data dengan jumlah pasien kanker payudara benign sebanyak 100 data dan jumlah pasien kanker payudara malignant sebanyak 167 data.,DATASET,1,III. METODOLOGI
+1937-5080-1-PB.txt,Data tersebut adalah data pasien yang melakukan pemeriksaan mamografi dengan kategori BIRADS C - 2 sampai dengan C - 5.,DATASET,1,III. METODOLOGI
+1937-5080-1-PB.txt,Variabel respon ( Y) dalam penelitian terdiri dari dua kategori yaitu kategori 1 adalah pasien kanker payudara didiagnosis kanker ( benign) dan kategori 2 adalah kanker payudara ( malignant) .,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,Sedangkan variabel prediktor ( X) pada penelitian ini ditunjukkan pada Tabel 2.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,"Langkah - langkah analisis yang dilakukan pada penelitian ini adalah sebagai berikut: 1. Melakukan pengumpulan data sekunder, yaitu data pasien kanker yang melakukan mamografi di Rumah Sakit X Surabaya tahun 2011.",OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,2. Melakukan pengkodingan terhadap data sekunder Melakukan analisis statistika deskriptif untuk mengetahui karakteristik pasien kanker payudara.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,"3. Membagi data menjadi data training dan testing dengan beberapa persentase partisi yaitu 50:50, 70:30, dan 80:20.",OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,4. Memodelkan menggunakan analisis regresi logistik untuk mengetahui faktor - faktor yang mempengaruhi pasien kanker payudara dalam pengklasifikasian kanker jinak atau ganas dengan langkah sebagai berikut : a) Melakukan analisis regresi logistik secara serentak terhadap a data training b) Melakukan analisis regrsei logistik secara parsial terhadap data training c) Membentuk model regresi logistik menggunakan metode Enter d) Menginterpretasi odds ratio untuk mengetahui besarnya pengaruh masing - masing variabel yang signifikan berpengaruh dari data training e) Melakukan uji kesesuain model yang diperoleh dari data training f) Menghitung ketepatan klasifikasi dari data testing.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,5. Melakukan seleksi variabel dari data training dengan menggunakan L1 - norm.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,6. Melakukan pengklasifikasian pasien kanker payudara dengan menggunakan metode SVM.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,Berikut adalah algoritma dari metode SVM.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,a) Melakukan transformasi data sesuai dengan format software SVM yang akan digunakan b) Menentukan fungsi kernel untuk permodelan c) Menentukan nilai - nilai parameter kernel dan parameter cost untuk optimasi d) Memilih nilai parameter terbaik untuk optimasi data training untuk klasifikasi data testing e) Menghitung ketepatan klasifikasi.,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,7. Membandingkan ketepatan klasifikasi yang diperoleh dari metode regresi logistik dengan SVM,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,8. Membuat kesimpulan dan saran,OTHERS,0,III. METODOLOGI
+1937-5080-1-PB.txt,Analisis tabulasi silang digunakan untuk menyajikan data kualitatif dalam bentuk tabulasi yang mempunyai hubungan secara deskriptif sebagai berikut.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Dari analisis tabulasi silang yang telah dilakukan menunjukkan bahwa pada variabel intermediate findings pada kategori 1 dari 53,2% wanita yang melakukan mamografi, wanita yang tidak terdeteksi memiliki tanda sel didiagnosis kanker payudara malignant sebesar 46,8% dan sebesar 6,4% hasil diagnosisnya benign.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Wanita dengan hasil diagnosis malignant mayoritas terdekteksi memiliki kategori BIRADS C - 5 yaitu sebesar 42,7%.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Wanita yang memiliki ciri keganasan kategori 8 ( mass, calcification, dan speculated sign) didiagnosis malignant sebesar 19,5%.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Dari 47,6% wanita yang memiliki letak abnormal payudara sebelah kiri, 31,8% didiagnosis malignant.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Usia wanita yang melakukan pemeriksaan mamografi pada tahun 2011 di rumah sakit X rata - rata berumur 48 tahun dengan usia paling muda adalah 19 tahun dan usia paling tua adalah 87 tahun.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Analisis regresi logistik biner data dibagi menjadi training dan testing dengan beberapa persentase partisi yaitu 50:50, 70:30, dan 80:20.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Berikut merupakan analisis regresi logistik biner pada tiap - tiap partisi yang memberikan ketepatan klasifikasi terbesar.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Dari ketiga data partisi yang telah dilakukan uji serentak diketahui bahwa P - value=0,000.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Sehingga tolak H0 karena P - value< yang berarti secara serentak terdapat satu atau lebih faktor pasien kanker payudara yang berpengaruh signifikan terhadap diagnosis kanker payudara.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Analisis regresi logistik parsial dengan menggunakan data partisi 50:50 , menunjukkan bahwa parameter dari kelima variabel prediktor yang digunakan yaitu intermediate findings ( X1), kategori BIRADS ( X2),suspicious for malignancy ( X3),usia ( X4) dan letak abnormal ( X5) signifikan terhadap model secara parsial karena P - value < .",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Sedangkan analisis regresi logistik parsial untuk data partisi 70:30 dan 80:20 hanya parameter variabel letak abnormal ( X5) yang tidak signifikan terhadap model secara parsial.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Metode yang digunakan dalam pembentukan model adalah metode Enter dengan memasukkan semua variabel prediktor.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt, dengan menggunakan partisi data training dan testing 50:50 diagnosis malignant pada kanker payudara dipengaruhi oleh intermediate findings dan BIRADS.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Model logit adalah sebagai berikut. 221211X793,2X059,4X948,2297,1xg.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Sedangkan dengan menggunakan partisi data 70:30, diagnosis malignant pada kanker payudara dipengaruhi oleh intermediate findings, BIRADS, dan usia.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Model logit yang diperoleh sebagai berikut 4221211X096,0X402,5X157,4X625,2537,2xg dengan menggunakan partisi 80:20 terdapat tiga variabel yang berpengaruh yaitu faktor intermediate findings, BIRADS, suspicious for malignancy, dan usia dengan ketepatan klasifikasi sebesar 84,9%.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Sehingga model logitnya adalah 463233222122111X043,3X043,3X043,3X721,2X043,3X098,5X624,2X428,449,2xg.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Berikut merupakan interpretasi koefisien parameter berdasarkan nilai odds ratio dengan menggunakan partisi data training dan testing 50:50 a) Intermediate findings Pasien kanker payudara dengan intermediate findings yang tidak terdeteksi tanda apapun cenderung memiliki diagnosis malignant 19,065 kali dibandingkan dengan yang memiliki lebih dari 1 tanda pada sel payudaranya.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"b) Kategori BIRADS Pasien kanker payudara yang terdeteksi C - 2 dalam pemeriksaan mamografi cenderung akan memiliki diagnosis malignant 0,017 kali dibandingkan dengan pasien yang terdeteksi C - 5.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Sedangkan pasien kanker payudara yang terdeteksi C - 3 cenderung memiliki diagnosis malignant 0,061 kali dibandingkan dengan pasien yang terdeteksi C - 5.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Interpretasi yang sama juga dilakukan pada partisi data training testing 70:30 dan 80:20.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Tabel 3 merupakan nilai odds ratio yang diperoleh dari training testing 70:30 dan 80:20.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Pada uji kesesuaian model diketahui bahwa artinya dari ketiga data partisi tersebut model yang diperoleh sesuai atau tidak terdapat perbedaan nyata antara observasi dengan prediksi model.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Hal ini ditunjukkan karena nilai P - value dari ketiga data partisi > ( 5%).,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Setelah dilakukan uji kesesuaian model, maka dilakukan pengukuran ketepatan kalsifikasi model dengan menggunakan Tabel confusion matrix, sehingga diperoleh classification accuracy.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Berdasarkan Tabel 4 dapat diketahui bahwa classification accuracy terbesar diberikan oleh partisi data training dan testing 50:50 yaitu sebesar 88,72%, kemudian diikuti partisi 70:30, 80:20 yaitu masing - masing sebesar 86,4 dan 84,90.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Seleksi Variabel menggunakan SVM L1 - norm Hasil seleksi variabel menunjukkan bahwa SVM memilih semua variabel prediktor untuk masuk ke dalam proses klasifikasi yang ditunjukkan pada Tabel 5.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Berdasarkan Tabel 5 dapat diketahui bahwa dengan menggunakan partisi data training testing 50:50, 70:30, dan 80:20 kelima variabel berpengaruh karena nilai w0, dimana nilai w meupakan vektor bobot dan nilai b merupakan bias.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"w1 merupakan vektor bobot yang dihasilkan oleh variabel intermediate findings, begitu juga untuk w1,w2, w3, w4, w5 adalah BIRADS, suspicious for malignancy, usia, dan letak abnormal.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Variabel prediktor yang memberikan pengaruh paling kuat adalah variabel yang menghasilkan vektor bobot wi paling besar yaitu intermediate findings, kemudian diikuti kategori BIRADS, suspicious for malignancy, letak abnormal dan usia.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Perbandingan seleksi variabel antara SVM dan regresi logistik diketahui bahwa variabel yang selalu ada pada tiap partisi adalah variabel intermediate findings dan BIRADS.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Klasifikasi SVM pada penelitian ini menggunakan fungsi kernel linear, polynomial, dan Radial Basis Function ( RBF) yang ditunjukkan pada Tabel 6.",METHOD,1,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Data training dan testing dipartisi menjadi beberapa bagian yaitu 50:50, 70:30, dan 80:20, nilai parameter kernel dan nilai C berdasarkan trial and error.",OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Ketepatan klasifikasi terbesar yang dihasilkan oleh metode SVM dari partisi data training dan testing 80:20 yaitu sebesar 94,34% dengan menggunakan fungsi kernel RBF dimana nilai C=100 dan =35.",RESULT,1,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt," untuk partisi data traing dan testing 70:30 ketepatan klasifikasi terbesar yang diperoleh sebesar 88,89% dengan fungsi kernel linier dan nilai C=10 atau C=100.",RESULT,1,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Sedangkan untuk partisi data training dan testing 50:50 ketepatan klasifikasi yang terbesar sebesar 92,48 dengan menggunakan fungsi kernel RBF dimana nilai C=100 dan =35.",RESULT,1,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Tabel 7 menujukkan perbandingan akurasi klasifikasi yang diperoleh dari regresi logistik biner dan SVM.,OTHERS,0,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Berdasarkan Tabel 7 dapat diketahui performansi akurasi klasifikasi terbaik dimiliki oleh SVM yaitu untuk partisi data training dan testing 50:50 sebesar 92,48%, partisi data training dan testing 70:30 sebesar 88,89%, dan untuk partisi data training dan testing 80:20 sebesar 94,34% dengan rata - rata ketepatan klasifikasi sebesar 91,9%.",RESULT,1,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,Hal ini menunjukkan akurasi klasifikasi dengan menggunakan SVM lebih baik daripada regresi logistik.,CONCLUSION,1,IV. ANALISIS dan PEMBAHASAN
+1937-5080-1-PB.txt,"Berdasarkan hasil dan pembahasan yang telah dilakukan, dapat disimpulkan bahwa performansi akurasi klasifikasi terbaik dimiliki oleh SVM yaitu sebesar 94,34% sedangkan regresi logistik sebesar 84,90% dengan menggunakan partisi 80:80.",CONCLUSION,1,V. KESIMPULAN dan SARAN
+1937-5080-1-PB.txt,"Pada regresi logistik biner, kanker payudara malignant dipengaruhi oleh faktor intermediate findings BIRADS, Suspicious for malignancy, dan usia.",CONCLUSION,1,V. KESIMPULAN dan SARAN
+1937-5080-1-PB.txt,"Sedangkan pada metode SVM, kanker payudara malignant dipengaruhi oleh semua variabel prediktor.",CONCLUSION,1,V. KESIMPULAN dan SARAN
+1937-5080-1-PB.txt,"Data pada intermediate findings dan suspicious for malignancy terdapat beberapa data yang missing value, oleh karena itu disarankan kepada pihak rumah sakit X memperhatikan data - data missing value sehingga diharapkan nantinya akan diperoleh analisis yang lebih tepat.",SUGGESTION,1,V. KESIMPULAN dan SARAN
+1937-5080-1-PB.txt,Selain itu untuk metode Support Vector Machine dalam penentuan parameter SVM sebaiknya tidak menggunakan trial and error agar efisien dan menghasilkan akurasi yang optimum.,SUGGESTION,1,V. KESIMPULAN dan SARAN
+1937-5080-1-PB.txt,Namun apabila data missing value tersebut tidak dapat dihindarkan maka untuk penelitian selanjutnya dapat dilakukan pengembangan metode SVM untuk data missing value dan penentuan parameter SVM tanpa trial and error yang diharapkan nantinya akan memberikan akurasi yang lebih tinggi.,SUGGESTION,1,V. KESIMPULAN dan SARAN

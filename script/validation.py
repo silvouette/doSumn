@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import re
 
 def validate(x_test,y_test,y_pred):
     TP, FP, TN, FN = 0, 0, 0, 0
@@ -11,29 +12,20 @@ def validate(x_test,y_test,y_pred):
                 TP += 1
             else:
                 FN += 1
-                fn.append(x_test['sentence'].iloc[i])
+                fn.append(x_test['sentence_x'].iloc[i])
         else:
             if y_pred[i] == 0:
                 TN += 1
             else:
                 FP += 1
-                fp.append(x_test['sentence'].iloc[i])
-    
-    out = open("fpc.txt","w+")
-    out.write("\n".join(fp))
-    out.close()
-                
-    out = open("fnc.txt","w+")
-    out.write("\n".join(fn))
-    out.close()
+                fp.append(x_test['sentence_x'].iloc[i])
                 
     return TP, TN, FP, FN
 
 def validate_more(data):
-    bg, tp, mt, dt, rs, cc, sg = 0, 0, 0, 0, 0, 0, 0
     abg, atp, amt, adt, ars, acc, asg= [],[],[],[],[],[],[]
 
-    for index, row in data.iterrows():
+    for index,row in data.iterrows():
         if row['pred'] == 'BACKGROUND':
             abg.append(row['sentence'])
         elif row['pred'] == 'TOPIC':
@@ -48,14 +40,14 @@ def validate_more(data):
             acc.append(row['sentence'])
         else:
             asg.append(row['sentence'])
-        
-        
-    print(len(abg), len(atp), len(amt), len(adt), len(ars), len(acc), len(asg))
-    print("\nabg\n", abg)
-    print("\natp\n", atp)
-    print("\namt\n", amt)
-    print("\nadt\n", adt)
-    print("\nars\n", ars)
-    print("\nacc\n", acc)
-    print("\nasg\n", asg)
-    # return bg, tp, mt, dt, rs, cc, sg, no
+    
+    regex = re.compile(r',\s*\d{4}\)')
+    atp = [i for i in atp if not regex.search(i)]
+      
+    # print(abg,atp,amt,adt,ars,acc,asg)
+
+    arr = [abg,atp,amt,adt,ars,acc,asg]
+    
+    for i in arr:
+        if len(i) > 5:
+            print("summ!")

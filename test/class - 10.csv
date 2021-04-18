@@ -1,0 +1,130 @@
+filename,sentence,labels,abstract,heading
+183-480-1-PB.txt,"Ilmuwan biologi terutama di bidang biodifersitas, terus melakukan penelitian tentang spesies hewan yang ada di dunia.",OTHERS,0,Abstrak
+183-480-1-PB.txt,salah satu hewan yang spesiesnya memiliki banyak variasi adalah burung.,OTHERS,0,Abstrak
+183-480-1-PB.txt,"Tiap jenis burung memiliki perbedaan - perbedaan, mulai dari bentuk anggota tubuhnya, prilakunya, makanannya hingga suaranya.",BACKGROUND,1,Abstrak
+183-480-1-PB.txt,Ilmuwan sering juga mengalami kesulitan untuk melakukan pengamatan di alam.,BACKGROUND,1,Abstrak
+183-480-1-PB.txt,"Misalnya, untuk mengetahui spesies burung apa saja yang ada di suatu daerah, mereka harus hadir di suatu wilayah, dan menelusuri setiap pelosok.",BACKGROUND,1,Abstrak
+183-480-1-PB.txt,"Kadang kala kehadiran mereka di tempat tersebut dalam jangka waktu lama, malah mengusik burung yang ada, dan burung - burung malah pergi meninggalkan tempat, sebelum berhasil diamati.",BACKGROUND,1,Abstrak
+183-480-1-PB.txt,"Salah satu cara untuk mendeteksi burung apa saja yang ada di suatu wilayah, tanpa harus mengusik keberadaan burung adalah dengan menggunakan alat bantu.",BACKGROUND,1,Abstrak
+183-480-1-PB.txt,"Bisa dengan menggunakan kamera video untuk mengambil gambar lingkungan sekitar, atau dengan perekam suara, untuk merekam suara burung yang ada di sana.",BACKGROUND,1,Abstrak
+183-480-1-PB.txt, untuk itu penelitian ini ditujukan untuk membuat sebuah pengklasifikasi suara burung secara otomatis.,TOPIC,1,Abstrak
+183-480-1-PB.txt,"Fitur yang digunakan adalah rhythm, pitch, mean, varian, min, max, dan delta dari suara burungnya.",METHOD,1,Abstrak
+183-480-1-PB.txt,Metode klasifikasi yang digunakan adalah Ekstreme learning Machine ( ELM).,METHOD,1,Abstrak
+183-480-1-PB.txt,"Dari hasil klasifikasi 4 jenis burung, didapatkan hasil rata - rata akurasi terbaik sebesar 88.82%.",RESULT,1,Abstrak
+183-480-1-PB.txt,"Ilmuwan biologi terutama di bidang biodifersitas, terus melakukan penelitian tentang spesies hewan yang ada di dunia.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,salah satu hewan yang spesiesnya memiliki banyak variasi adalah burung.,BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,"Tiap jenis burung memiliki perbedaan - perbedaan, mulai dari bentuk anggota tubuhnya, prilakunya, makanannya hingga suaranya.",BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,Ilmuwan sering juga mengalami kesulitan untuk melakukan pengamatan di alam.,BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,"Misalnya, untuk mengetahui spesies burung apa saja yang ada di suatu daerah, mereka harus hadir di suatu wilayah, dan menelusuri setiap pelosok.",BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,"kadang kala kehadiran mereka di tempat tersebut dalam jangka waktu lama, malah mengusik burung yang ada, dan burung - burung malah pergi meninggalkan tempat, sebelum berhasil diamati.",BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,"Salah satu cara untuk mendeteksi burung apa saja yang ada di suatu wilayah, tanpa harus mengusik keberadaan burung adalah dengan menggunakan alat bantu.",BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,"Bisa dengan menggunakan kamera video untuk mengambil gambar lingkungan sekitar, atau dengan perekam suara, untuk merekam suara burung yang ada di sana.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Permasalahan selanjutnya adalah , jika kita menggunakan perekam suara, maka sistem yang kita pasang juga harus bisa mengenali bahwa suatu suara kicauan burung adalah milik burung spesies tertentu.",BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt," untuk itu perlu dibuat sebuah sistem dengan menggunakan algoritma tertentu, untuk mengenali suara kicauan burung dengan baik.",BACKGROUND,1,1. Pendahuluan
+183-480-1-PB.txt,"Penelitian sebelumnya sudah pernah dilakukan, misalnya: Somervuo ( 2004) menggunakan analisishistogram pada syllable ( suku kata) dari kicauan burung.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Pada tahun 2011, Wei Chu menganalisa syllable kicauan burung dengan menggunakan Hidden Markov Model.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Dan di tahun 2013, Sha - sha Chen menganalisa tekstur dari frekuensi berbasis waktu dari syllable kicauan burung.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Dari beberapa penelitian yang sudah dilakukan, sebagian besar menggunakan syllable untuk dianalisis.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Penelitian ini akan menggunakan analisis frekuensi dari setiap syllable kicauan burung, menganalisa jarak antara gelombang pada syllable, serta keberadaan perubahan pitch dari jenis burung tertentu.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Pengamatan dan analisis ini ditekankan pada penggunaan fitur - fitur, yaitu rhythm, pitch, mean,varian,max, min, dan delta.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,Penelitian ini diharapkan menjadi langkah awal dalam membuat tool otomatis untuk dapat mendeteksi jenis burung.,OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,"Dari latar belakang tersebut , dapat dirumuskan rumusan masalah sebagai berikut: 1.",OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,Fitur apa saja yang digunkan untuk dapat membedakan jenis burung melalui pengenalan suaranya.,OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,2. Seberapa baik akurasi yang dihasilkan dengan menggunakan kombinasi fitur dan metode tersebut .,OTHERS,0,1. Pendahuluan
+183-480-1-PB.txt,Studi dan penelitian mengenai pengenalan suara burung sudah banyak dilakukan.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,Metode yang digunakan juga bervariasi.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,Sebagian besar meneliti suara burung berdasarkan Syllable.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt, untuk memecah suara burung menjadi syllable dilakukan segemntasi.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Cara yang pertama untuk memisahkan syllable ini dengan menggunakan change piont detectionyang melihat perubahan bentuk gelombang dari suara burung ( Wang et al., 2013).",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,Cara lainnya dengan menggunakan time - frequency segmentation pada lingkungan suara dengan banyak noise.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"metode ini menrubah gelombang suara burung ke dalam bentuk spektogram dengan Short - time FFT dan kemudian melakukan segmentasi untuk memisahkan noise dan suara burung ( Neal et al., 2011).",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Dari Syllable yang didapatkan, kemudian dilakukan analisis dengan berbagai metode.",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Salah satunya adalah dengan menggunakan metode pengenalan kata dari suara manusia, yaitu dengan menggunakan Hidden Markov Model ( Chu & Blumstein, 2011).",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"dari penelitian tersebut diperoleh nilai Presition terbesar yaitu 75,2% dan recall terbesar yaitu 76%.",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,Metode lain yang digunakan yaitu dengan menganalisis tekstur dari spektogram tiap syllable.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Akurasi yang diperoleh sebesar 96,5% dari 10 spesies burung yang dipelajari ( Chen & Li, 2013).",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Di tahun 2004 syllable yang didapatkan dianalisis dengan menggunakan histogramnya, dan menghasilkan akurasi terbesar yaitu 80% ( Somervuo & Harma, 2004).",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Penelitian kali ini akan metode untuk mengambil syllable akan menggunakan metode change point detection ( Wang et al., 2013).",METHOD,1,2. Kajian Pustaka
+183-480-1-PB.txt,Dan analisis syllable - nya menggunakan analisis tekstur.,METHOD,1,2. Kajian Pustaka
+183-480-1-PB.txt," untuk meningkatkan akurasi, akan diamati pula fitur lainnya, yaitu ritme suara burung.",METHOD,1,2. Kajian Pustaka
+183-480-1-PB.txt,Hal ini dilakukan dengan mengamati tempo.,OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Selain itu juga akan mengamati tinggi rendahnya nada ( pitch), pengulangan syllable dan nadanya.",OTHERS,0,2. Kajian Pustaka
+183-480-1-PB.txt,"Jika didengarkan, variasi suara burung lebih sederhana jika dibandingkan dengan suara manusia.",OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,"Namun demikian, suara burung juga dibagi menjadi beberapa bagian, yaitu frasa, suku kata ( syllable) dan elemen ( Catchpole & Slater, 1995).",OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,Frasa adalah kumpulan syllable yang biasanya muncul membentuk pola tertentu.,OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,Setiap burung memiliki bentuk kumpulan syllable dan frasa yang berbeda.,OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,"Syllable adalah suara yang dikeluarkan oleh burung dalam satu kali tiupan udara dari paru - parunya ( Somervuo et al., 2006).",OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,Syllableini yang biasa didengarkan sebagai satu siulan.,OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,"Jika digambarkan dalam gelombang, syllabele bisa dilihat seperti pada gambar 1.",OTHERS,0,3. Suara Burung
+183-480-1-PB.txt,Ritme menggambarkan tempo ketukan dari suara burung.,OTHERS,0,4. Ritme
+183-480-1-PB.txt,"Ada yang bertempo cepat, dan ada yang bertempo lambat.",OTHERS,0,4. Ritme
+183-480-1-PB.txt,Ritme dapat diartikan waktu yang dibutuhkan untuk membunyikan 1 sylablle.,OTHERS,0,4. Ritme
+183-480-1-PB.txt,Ritme diukur dengan menghitung rasio waktu dengan jumlah sylable yang muncul pada saat itu.,OTHERS,0,4. Ritme
+183-480-1-PB.txt,Beberapa jenis burung memiliki pitch yang khas.,OTHERS,0,5. Pitch
+183-480-1-PB.txt,ada yang memiliki pitch sangat tinggi sampai yang sangat rendah.,OTHERS,0,5. Pitch
+183-480-1-PB.txt,"Ada jenis burung yang pitch - nya rata / datar, dan bahkan ada jenis burung, yang pitch - nya berubah - ubah dalam satu kali siulan.",OTHERS,0,5. Pitch
+183-480-1-PB.txt," untuk mengambil nilai pitch, digunkaan metode Harmonic Product Spectrum ( HPS).",OTHERS,0,5. Pitch
+183-480-1-PB.txt,"Prinsip kerja HPS adalah : 1. Masukan yang berupa sample suara, dibagi menjadi beberapa window.",OTHERS,0,5. Pitch
+183-480-1-PB.txt,"Pada penelitian ini, isi dari tiap window adalah syllable.",OTHERS,0,5. Pitch
+183-480-1-PB.txt,"2. Tiap window, ditranformasi dengan menggunakan Fast Fourier Transform ( FFT) untuk mencari frequensi penyusun gelombang suara tiap window.",OTHERS,0,5. Pitch
+183-480-1-PB.txt,"3. Tiap window, hasil FFT tadi dilakukan downsampling 2 kali, dan 3 kali 4.",OTHERS,0,5. Pitch
+183-480-1-PB.txt,"Mengalikan magnitude dari setiap frekuensi yang bersesuaian antara hasil FFT awal, hasil downsapling 2 kali, dan hasil downsampling 3 kali.",OTHERS,0,5. Pitch
+183-480-1-PB.txt,Ilustrasinya bisa dilihat pada gambar 2.,OTHERS,0,5. Pitch
+183-480-1-PB.txt,"Bagian kiri adalah masukan yang ditranformasi dengan menggunakan FFT, bagian tengah adalah proses downsampling dan perkalian magnitude dari frequensi yang bersesuaian, dan bagian kanan adalah hasilnya.",OTHERS,0,5. Pitch
+183-480-1-PB.txt,Dari contoh didapatkan magnitude tertinggi sebesar 109200 yaitu terletak pada frequensi 40 Hz.,OTHERS,0,5. Pitch
+183-480-1-PB.txt, dengan demikian pitchnya adalah 40 Hz.,OTHERS,0,5. Pitch
+183-480-1-PB.txt,Metode ELM ini pertama kali diperkenalkan oleh Huang ( 2004).,OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"ELM merupakan jaringan syaraf tiruan ( JST) feedforward dengan single hidden layer atau disebut dengan Single Hidden Layer Feedforward Neural Networks ( SLFNs) ( Sun et al., 2008).",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"Metode pembelajaran ELM dibuat untuk mengatasi beberapa kelemahan dari jaringan syaraf tiruan feedforward, terutama dalam hal learning speed.",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"Menurut Huang ( 2004), JST feedforward masih memiliki kelemahan dalam learning speed karena: 1. menggunakan slow gradient based learning untuk melakukan training 2. Semua parameter pada jaringan ditentukan secara iteratif dengan menggunakan metode pembelajaran satu persatu untuk setiap data.",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"Pada proses pembelajaran JST, semua parameternya harus ditentukan secara manual ( Huang et al., 2005), yaitu input weight dan hidden bias yang menghubungkan antara layer yang satu dengan yang lain untuk setiap data training, sehingga membutuhkan learning speed yang lama.",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"Sedangkan pada ELM parameter - parameter tersebut dipilih secara acak, sehingga ELM memiliki learning speed yang cepat dan mampu menghasilkan good generalization performance.",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,Hal itu menjadikan ELM cepat dari algoritma feedforward BP.,OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,Struktur ELM dapat dilihat pada gambar 3.,OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"Berikut model matematis dari ELM pada data ( xi,yi).",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,"Persamaan ( 1) dapat disederhanakan menjadi persamaan ( 2), yang kemudian menggunakan Moore - Penrose ( MPinv ( HT)) = ( inv ( ( HT*H))* HT) sebagai generalized inverse.",OTHERS,0,6. Extreme Learning Machine ( ELM)
+183-480-1-PB.txt,Penelitian ini dilakukan dengan beberapa tahapan.,OTHERS,0,7. Metode Penelitian
+183-480-1-PB.txt,"Dimulai dari pengumpulan data, hingga proses uji coba.",OTHERS,0,7. Metode Penelitian
+183-480-1-PB.txt,Diagramnya dapat dilihat pada Gambar 4.,OTHERS,0,7. Metode Penelitian
+183-480-1-PB.txt,Hasil dari preprosesing adalah dapat menemukan bagian - bagian dari gelombang yang merupakan syllable.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Pada gambar 5, bentuk gelombang asli di bagian atas diproses dengan proses smoothing dengan menggunakan metode robust lowest yang menggunakan regresi linier.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Hasil Preprosesing,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Setelah itu, sinyal hasil smoothing gelombang dengan simpangan tertentu dijadikan syllable.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Hasilnya dapat dilihat pada gambar 6.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.3.1. Fitur RitmeSetelah syllable terdeteksi, memungkinkan untuk menghitung jumlah syllable yang muncul dan ritmenya.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Hasilnya bisa dilihat pada gambar 7.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,8.3.2. Fitur Pitch,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt," untuk mendapatkan fitur pitch, gelombang suara ditranformasi dahuluke dalam domain frekuensi menggunakan transformasi FFT.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Hasilnya bisa dilihat pada gambar 8.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Setelah ditransformasi, dilakukan downsampling sebanyak 4 kali.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Kemudian hasil downsampling dan hasil FFT dikalikan semua, untuk mendapatkan Harmonic Product Spectrum ( HPS).",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Nilai Frekuensi terbesar dalam HPS ini yang kemudian dijadikan nilai pitch.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,grafik HPSnya bisa dilihat pada gambar 9.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Dari situ, didapatkan nilai pitch berupa frekuensi dengan nilai HPS tertinggi .",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.4. Lingkungan Uji Coba Pada penelitian ini, data suara yang digunakan berupa file ( .wav).",DATASET,1,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Data diunduh dari internet ( youtube) dengan panjang 13129 sample.,DATASET,1,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Data yang digunakan sebanyak 175 file *.wav dengan 4 kelas ( Burung Blackthroat, Celilin, Cendet, dan Kutilang).",DATASET,1,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Spesifikasi dari perangkat keras yang digunakan dalam implementasi perangkat lunak terdiri dari prosesor berjenis Intel ( R) Core ( TM) i7, memori berkapasitas 4 GB dan kapasitas harddisk 750 GB.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Sedangkan untuk spesifikasi perangkat lunak yang digunakan dalam implementasi perangkat lunak yakni Matlab 2009.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.5.1. Pengujian Akurasi terhadap K - Fold ( K=2, Fold Ke - 1)",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Pengujian akurasi digunakan untuk mengetahui performa dari sistem klasifikasi suara burung menggunakan algoritma Extreme Learning Machine ( ELM).,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Pengujian ini dilakukan dengan cara membandingkan kelas aktual dengan kelas prediksi.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Data hasil dari nilai rata - rata akurasi dari keseluruhan pengujian dan jumlah iterasinya dapat dilihat pada grafik Gambar 10 dan 11.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Berdasarkan hasil pengujian akurasi pada Gambar 5.14 menggunakan K=2 Fold Ke - 1 memiliki nilai akurasi ratarata yakni 88.12%.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Dari hasil ini disimpulkan bahwa algoritma ELM mampu melakukan klasifikasi dengan baik.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.5.2. Pengujian Akurasi terhadap K - Fold ( K=2, Fold Ke - 2)",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"Data hasil dari nilai rata - rata akurasi dari keseluruhan pengujian dan jumlah iterasinya, dapat dilihat pada Gambar 12 dan 13.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Didapatkan nilai akurasi ratarata sebesar 86.01%.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.5.3. Pengujian Akurasi terhadap K - Fold ( K=3, Fold Ke - 1) Data hasil dari nilai rata - rata akurasi dari keseluruhan pengujian ini dan rata - rata iterasinya dapat dilihat pada Gambar 14 dan Gambar 15.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Berdasarkan hasil pengujian akurasi pada Gambar 5.18 memiliki nilai akurasi ratarata yakni 88.82%.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.5.4. Pengujian Akurasi terhadap K - Fold ( K=3, Fold Ke - 2) Gambar 16 menunjukkan grafik hasil dari nilai rata - rata akurasi dari keseluruhan pengujian.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Dan gambar 17 menunjukkan rata - rata iterasi yang dilakukan.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Berdasarkan hasil pengujian akurasi pada Gambar 5.20 memiliki nilai akurasi ratarata yakni 86.07%.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Dari hasil ini disimpulkan bahwa algoritma ELM mampu melakukan klasifikasi dengan baik.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"8.5.5. Pengujian Akurasi terhadap K - Fold ( K=3, Fold Ke - 3) Gambar 18 menunjukkan grafik hasil dari nilai rata - rata akurasi dari keseluruhan pengujian, dan gambar 19 menunjukkan rata - rata iterasinya.",OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Berdasarkan hasil pengujian ini diketahui nilai akurasi ratarata yakni 85.96%.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,Dari hasil ini disimpulkan bahwa algoritma ELM mampu melakukan klasifikasi dengan baik.,OTHERS,0,8. Hasil dan Pembahasan
+183-480-1-PB.txt,"1. Implementasi Extreme Learning Machine ( ELM) dapat digunakan untuk mengklasifikasikan suara burung dengan melakukan proses ekstraksi fitur dari ritme, pitch, mean, varian, min, max dan delta.",CONCLUSION,1,9. Kesimpulan
+183-480-1-PB.txt,Hasil ekstraksi fitur tersebut kemudian dilakukan proses pelatihan dan pengujian terhadap dataset yang sudah disediakan.,OTHERS,0,9. Kesimpulan
+183-480-1-PB.txt,"2. Hasil rata - rata akurasi terbaik dari klasifikasi suara burung dengan menggunakan ELM sebesar 88,82% dari 3 - Fold ke - 1 dengan banyaknya iterasi yang dibutuhkan sebesar 6 iterasi.",RESULT,1,9. Kesimpulan
+183-480-1-PB.txt,Kemudian sistem sempat mampu menghasilkan nilai akurasi tertinggi 100% saat beberapa percobaan pada 3 - Fold ke - 1 dan pada 3 - Fold ke - 3.,RESULT,1,9. Kesimpulan
