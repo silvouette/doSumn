@@ -1,6 +1,6 @@
-import os
 import numpy as np
 import re
+import rank
 
 def validate(x_test,y_test,y_pred):
     TP, FP, TN, FN = 0, 0, 0, 0
@@ -23,31 +23,24 @@ def validate(x_test,y_test,y_pred):
     return TP, TN, FP, FN
 
 def validate_more(data):
-    abg, atp, amt, adt, ars, acc, asg= [],[],[],[],[],[],[]
+    # regex = re.compile(r',\s*\d{4}\)')
+    # atp = [i for i in atp if not regex.search(i)]
 
-    for index,row in data.iterrows():
-        if row['pred'] == 'BACKGROUND':
-            abg.append(row['sentence'])
-        elif row['pred'] == 'TOPIC':
-            atp.append(row['sentence'])
-        elif row['pred'] == 'METHOD':
-            amt.append(row['sentence'])
-        elif row['pred'] == 'DATASET':
-            adt.append(row['sentence'])
-        elif row['pred'] == 'RESULT':
-            ars.append(row['sentence'])
-        elif row['pred'] == 'CONCLUSION':
-            acc.append(row['sentence'])
+    sets = ['BACKGROUND','TOPIC','METHOD','DATASET','RESULT','CONCLUSION','SUGGESTION']
+    res = []
+    test = {}
+    for cat in sets:
+        print(cat+"\n")
+        mask = data.loc[data['pred']== cat]
+        if len(mask)>=10:
+            summ = rank.generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.4))
+        elif len(mask)>=2:
+            summ = rank.generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.5))
         else:
-            asg.append(row['sentence'])
-    
-    regex = re.compile(r',\s*\d{4}\)')
-    atp = [i for i in atp if not regex.search(i)]
-      
-    # print(abg,atp,amt,adt,ars,acc,asg)
+            summ = data.loc[data['pred']== cat,'sentence'].values
 
-    arr = [abg,atp,amt,adt,ars,acc,asg]
-    
-    for i in arr:
-        if len(i) > 5:
-            print("summ!")
+        res.append(summ)
+        test[cat] = summ
+    return test
+
+

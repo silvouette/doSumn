@@ -13,8 +13,9 @@ def summ():
     if request.method == 'POST':
         if request.files:
             input = request.files['input']
-    result = main.dosumn(input.filename)
-    return render_template("index.html", data = result)
+    doc = input.filename
+    result = main.dosumn(doc)
+    return render_template("index.html", result = result, name = doc)
 
 if __name__ == '__main__':
     app.run()

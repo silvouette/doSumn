@@ -14,11 +14,14 @@
                 </div>
             </form>
         </div>
-    {% if data %}
+    {% if result %}
         <div class="container">
-            Filename summary:
+            <span>{{ name }} summary:</span>
             <div>
-                {{ data }}
+                {% for key, value in result.items() %}
+                    <h4>{{ key }}</h4>
+                    <p>{{' '.join(value)}}</p>
+                {% endfor %}
             </div>
             <button type="button" class="btn btn-primary">Details</button>
         </div>

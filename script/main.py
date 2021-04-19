@@ -64,8 +64,8 @@ def classify(df_train, df_test):
     prediction['labels'] = y_test
     prediction['pred'] = y_pred
 
-    validation.validate_more(prediction)
-    return accuracy
+    result = validation.validate_more(prediction)
+    return result
 
 def dosumn(filename):
     #part 1: sentence removal, pick only summary-worthy sentence
@@ -77,15 +77,14 @@ def dosumn(filename):
       test[column+"_x"] = test[column].apply(preprocess.clean)
 
     test['summary_worth'] = try_knn(train, test)
-    text = " ".join(test.loc[test['summary_worth']== 1,'sentence'])
+    # text = " ".join(test.loc[test['summary_worth']== 1,'sentence'])
     #part 2: labelling
     c_train = train[train['abstract'] == 1].copy()
     c_test = test[test['summary_worth'] == 1].copy()
     
     res = classify(c_train, c_test)
-    # print(res)
 
-    return text
+    return res
 
 # if __name__ == "__main__":  
-#     dosumn()
+#     dosumn("class - 1.csv")
