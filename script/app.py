@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, url_for
+import pandas as pd
 import main
 import os
 app = Flask(__name__)
@@ -15,7 +16,8 @@ def summ():
             input = request.files['input']
     doc = input.filename
     result, wordcount, removal, classed, rm_acc, cl_acc = main.dosumn(doc)
-    return render_template("summary.html", result = result, total = wordcount, name = doc)
+
+    return render_template("summary.html", result = result, total = wordcount, name = doc,  tables_1=[removal.to_html(classes='data table table-borderless')], tables_2=[classed.to_html(classes='data table table-borderless')], rm = rm_acc, cl = cl_acc)
 
 if __name__ == '__main__':
     app.run()

@@ -2,6 +2,16 @@ body{
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
 }
+table{
+    border: 0px!important;
+}
+thead{
+    background: #b7b7bd;
+}
+thead th{
+    text-align: center;
+    font-weight: bold;
+}
 
 #doc-title{
     margin-top: 5px;

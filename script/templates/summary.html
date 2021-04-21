@@ -3,7 +3,7 @@
     {% if result %}
         <div class="container summary">
             <p id="doc-title">{{ name }} summary</p>
-            <span id="wordcount">{{ total }} words</span>
+            <span id="wordcount">{{ total }} words <a href="#div_removal">sent.removal</a></span>
             <div id="div-summary">
                 {% for key, value in result.items() %}
                 {% if value|length > 0 %}
@@ -14,4 +14,20 @@
             </div>
         </div>
     {% endif %}
+        <div id="div_removal">
+        {% for table in tables_1 %}
+            {{ table|safe }}
+        {% endfor %}
+        </div>
+        <div id="div_labelling">
+            {% for table in tables_2 %}
+                {{ table|safe }}
+            {% endfor %}
+        </div>
+<script type='text/javascript'>
+    window.onload = function() {
+        const thead = document.querySelectorAll('.table > thead');
+        thead.forEach(e => e.classList.add('thead-dark'));
+    }
+</script>
 {% endblock %}
