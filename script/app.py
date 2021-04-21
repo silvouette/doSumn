@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template("index.html")
+    return render_template("home.html")
 
 @app.route("/summary", methods=["GET", "POST"])
 def summ():
@@ -14,8 +14,8 @@ def summ():
         if request.files:
             input = request.files['input']
     doc = input.filename
-    result = main.dosumn(doc)
-    return render_template("index.html", result = result, name = doc)
+    result, wordcount, removal, classed, rm_acc, cl_acc = main.dosumn(doc)
+    return render_template("summary.html", result = result, total = wordcount, name = doc)
 
 if __name__ == '__main__':
     app.run()

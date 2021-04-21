@@ -14,16 +14,4 @@
                 </div>
             </form>
         </div>
-    {% if result %}
-        <div class="container">
-            <span>{{ name }} summary:</span>
-            <div>
-                {% for key, value in result.items() %}
-                    <h4>{{ key }}</h4>
-                    <p>{{' '.join(value)}}</p>
-                {% endfor %}
-            </div>
-            <button type="button" class="btn btn-primary">Details</button>
-        </div>
-    {% endif %}
 {% endblock %}

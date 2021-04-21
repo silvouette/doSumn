@@ -58,18 +58,19 @@ def generate_summary(data, top_n):
     summarize_text = []
     sentences = []
 
-    # Step 1 - Read text anc split it
+    # step 1 - read and split text
     sentencex_col =  data.loc[:,'sentence_x']
     sentences = sentencex_col.values
     sentences =  read_sent(sentences)
 
     sentence_col =  data.loc[:,'sentence']
-    real_sentences_pre = sentence_col.values
+    real_sentences_pre = sentence_col.values 
     real_sentences = []
-    real_sentences =  read_sent(real_sentences_pre)
-    # Step 2 - Generate Similary Martix across sentences
+    real_sentences =  read_sent(sentence_col.values) #for comparison later
+
+    # step 2 - Generate Similary Martix across sentences
     sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)
-    # # Step 3 - Rank sentences in similarity martix
+    # step 3 - Rank sentences in similarity martix
     sentence_similarity_graph = nx.from_numpy_array(sentence_similarity_martix)
     scores = nx.pagerank(sentence_similarity_graph)
 

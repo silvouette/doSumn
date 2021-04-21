@@ -1,6 +1,7 @@
 import numpy as np
 import re
 import rank
+from collections import defaultdict
 
 def validate(x_test,y_test,y_pred):
     TP, FP, TN, FN = 0, 0, 0, 0
@@ -18,19 +19,16 @@ def validate(x_test,y_test,y_pred):
                 TN += 1
             else:
                 FP += 1
-                fp.append(x_test['sentence_x'].iloc[i])
-                
+                fp.append(x_test['sentence_x'].iloc[i])        
     return TP, TN, FP, FN
 
 def validate_more(data):
     # regex = re.compile(r',\s*\d{4}\)')
     # atp = [i for i in atp if not regex.search(i)]
-
     sets = ['BACKGROUND','TOPIC','METHOD','DATASET','RESULT','CONCLUSION','SUGGESTION']
     res = []
-    test = {}
+    summ_collection = {}
     for cat in sets:
-        print(cat+"\n")
         mask = data.loc[data['pred']== cat]
         if len(mask)>=10:
             summ = rank.generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.4))
@@ -40,7 +38,8 @@ def validate_more(data):
             summ = data.loc[data['pred']== cat,'sentence'].values
 
         res.append(summ)
-        test[cat] = summ
-    return test
+        summ_collection[cat] = summ
+
+    return summ_collection
 
 

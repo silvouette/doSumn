@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if result %}
+        <div class="container summary">
+            <p id="doc-title">{{ name }} summary</p>
+            <span id="wordcount">{{ total }} words</span>
+            <div id="div-summary">
+                {% for key, value in result.items() %}
+                {% if value|length > 0 %}
+                    <!-- <h3>{{ key }}</h3> -->
+                    <p><span id="span-cat">{{ key }}&nbsp&nbsp</span> {{' '.join(value)}}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

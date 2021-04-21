@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOSUMN summarizer</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Ubuntu&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Ubuntu:wght@400;600&family=Ubuntu+Mono&family=Noto+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
     >
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
@@ -24,7 +24,7 @@
                     <div class="container-fluid">
                       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                          <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
                           <a class="nav-link" href="#">Git</a>
                           <a class="nav-link" href="#">Details</a>
                         </div>

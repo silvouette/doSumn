@@ -1,18 +1,13 @@
-import os
-import nltk
-import numpy as np
 import util
-import validation
-import preprocess
+import middleman
 import sys
+import numpy as np
 import pandas as pd
 from sklearn import metrics, svm
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.model_selection import cross_val_score, cross_val_predict
-from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
-np.set_printoptions(threshold=sys.maxsize)
 
 def try_knn(train, test):
     x_train, y_train = train[['sentence_x','heading_x']], train[['abstract']]
@@ -34,10 +29,10 @@ def try_knn(train, test):
                     ])
     pipe.fit(x_train, y_train.values.ravel())
     y_pred = pipe.predict(x_test)
-    # acc = metrics.accuracy_score(y_test, y_pred)
-    # print(str(acc * 100) + '%')
-    # print(validation.validate(x_test,y_test,y_pred))
-    return y_pred
+    acc = metrics.accuracy_score(y_test, y_pred)
+    accuracy = str(acc * 100) + '%'
+
+    return y_pred, accuracy
 
 def classify(df_train, df_test):
     x_train, y_train = df_train[['sentence','sentence_x','heading_x']], df_train[['labels']]
@@ -59,32 +54,36 @@ def classify(df_train, df_test):
     pipe.fit(x_train, y_train.values.ravel())
     y_pred = pipe.predict(x_test)
     acc = metrics.accuracy_score(y_test, y_pred)
-    accuracy = acc * 100
+    accuracy = str(acc * 100) + '%'
     prediction = x_test
     prediction['labels'] = y_test
     prediction['pred'] = y_pred
 
-    result = validation.validate_more(prediction)
-    return result
+    result = middleman.validate_more(prediction)
+    return result, prediction, accuracy
 
 def dosumn(filename):
-    #part 1: sentence removal, pick only summary-worthy sentence
+    # data prep & clean
     train = util.get_parser_data("train_set.csv")
     test = util.get_parser_data("test/"+filename)
 
     for column in ["sentence","heading"]:
-      train[column+"_x"] = train[column].apply(preprocess.clean)
-      test[column+"_x"] = test[column].apply(preprocess.clean)
+      train[column+"_x"] = train[column].apply(util.clean)
+      test[column+"_x"] = test[column].apply(util.clean)
 
-    test['summary_worth'] = try_knn(train, test)
-    # text = " ".join(test.loc[test['summary_worth']== 1,'sentence'])
+    # part 1: sentence removal, pick only summary-worthy sentence
+    test['summary_worth'], rm_acc = try_knn(train, test)
+
     #part 2: labelling
     c_train = train[train['abstract'] == 1].copy()
     c_test = test[test['summary_worth'] == 1].copy()
     
-    res = classify(c_train, c_test)
+    res, classed, cl_acc = classify(c_train, c_test)
+    removal = test[['sentence_x','heading_x','labels','abstract','summary_worth']]
+    
+    word_count = util.wordcount(res)
 
-    return res
+    return res, word_count, removal, classed, rm_acc, cl_acc
 
 # if __name__ == "__main__":  
 #     dosumn("class - 1.csv")

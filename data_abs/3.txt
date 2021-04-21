@@ -1,8 +1,0 @@
-Informasi tingkat kelulusan dari mahasiswa Universitas Multimedia Nusantara sangat penting untuk meningkatkan pelayanan yang dapat membuat mahasiswa nyaman dan bisa lulus tepat waktu.
-Pada penelitian ini peneliti menggunakan algoritma C4.5 dalam menentukan prediksi kelulusan berdasarkan attribute jenis kelamin, asal sekolah SMA dan IPS semester satu sampai dengan semester enam.
-Data training yang akan digunakan oleh peneliti adalah data alumni mahasiswa program studi Teknik Informatika Universitas Multimedia Nusantara angkatan 2007 dan 2008, sedangkan untuk data testing akan digunakan data alumni angkatan 2009.
-Pada tahap uji coba ini, peneliti mendapatkan tingkat akurasi aplikasi dari hasil prediksi kelulusan terhadap data testing sebesar 87.5%.
-Berdasarkan hasil implementasi dan uji coba aplikasi, peneliti dapat menyimpulkan bahwa: 1. Data mining dengan algoritma C4.5 dapat diimplementasikan untuk memprediksi tingkat kelulusan mahasiswa dengan empat kategori yaitu lulus cepat, lulus tepat, lulus terlambat dan drop out.
-Attribute yang paling berpengaruh dalam hasil prediksi adalah IPS semester enam.
-2. Aplikasi desktop berhasil memprediksi kelulusan mahasiswa dengan presentase 87.5% dari enam puluh data training dan empat puluh data testing.
-3. Hasil prediksi kelulusan dari aplikasi penelitian ini dapat membantu bagian program studi untuk mengetahui status kelulusan mahasiswa.
