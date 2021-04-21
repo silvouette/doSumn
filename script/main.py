@@ -1,12 +1,8 @@
 import util
-import middleman
-import sys
-import numpy as np
-import pandas as pd
+import rank
 from sklearn import metrics, svm
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.model_selection import cross_val_score, cross_val_predict
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def try_knn(train, test):
@@ -56,10 +52,9 @@ def classify(df_train, df_test):
     acc = metrics.accuracy_score(y_test, y_pred)
     accuracy = str(acc * 100) + '%'
     prediction = x_test
-    prediction['labels'] = y_test
-    prediction['pred'] = y_pred
+    prediction['labels'], prediction['pred'] = y_test, y_pred
 
-    result = middleman.validate_more(prediction)
+    result = rank.ranker(prediction)
     return result, prediction, accuracy
 
 def dosumn(filename):
@@ -73,17 +68,15 @@ def dosumn(filename):
 
     # part 1: sentence removal, pick only summary-worthy sentence
     test['summary_worth'], rm_acc = try_knn(train, test)
-
     #part 2: labelling
     c_train = train[train['abstract'] == 1].copy()
     c_test = test[test['summary_worth'] == 1].copy()
-    
-    res, classed, cl_acc = classify(c_train, c_test)
-    removal = test[['sentence_x','heading_x','labels','abstract','summary_worth']]
-    
+    res, classed, cl_acc = classify(c_train, c_test) #here
+
+    removal = test[['sentence_x','heading_x','labels','abstract','summary_worth']]    
     word_count = util.wordcount(res)
 
     return res, word_count, removal, classed, rm_acc, cl_acc
 
-# if __name__ == "__main__":  
-#     dosumn("class - 1.csv")
+if __name__ == "__main__":  
+    dosumn("class - 1.csv")

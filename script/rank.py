@@ -3,15 +3,27 @@ from nltk.cluster.util import cosine_distance
 import numpy as np
 import networkx as nx
 import difflib
-import itertools
  
-def read_sent(sents):
-    sentences = []
+def ranker(data):
+    sets = ['BACKGROUND','TOPIC','METHOD','DATASET','RESULT','CONCLUSION','SUGGESTION']
+    summ_collection = {}
 
-    for sentence in sents:
-        sentences.append(sentence.replace("[^a-zA-Z]", " ").split(" "))
-    sentences.pop() 
-    
+    for cat in sets:
+        mask = data.loc[data['pred']== cat]
+        if len(mask)>=10:
+            summ = generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.4))
+        elif len(mask)>=2:
+            summ = generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.5))
+        else:
+            summ = data.loc[data['pred']== cat,'sentence'].values
+
+        summ_collection[cat] = summ
+        
+    return summ_collection
+
+def read_sent(sents):
+    sentences = [sentence.replace("[^a-zA-Z]", " ").split(" ") for sentence in sents]
+    # sentences.pop()
     return sentences
 
 def sentence_similarity(sent1, sent2, stopwords=None):
@@ -52,20 +64,15 @@ def build_similarity_matrix(sentences, stop_words):
 
     return similarity_matrix
 
-
 def generate_summary(data, top_n):
-    stop_words = stopwords.words('english')
-    summarize_text = []
-    sentences = []
+    stop_words = stopwords.words('indonesian')
 
     # step 1 - read and split text
     sentencex_col =  data.loc[:,'sentence_x']
-    sentences = sentencex_col.values
-    sentences =  read_sent(sentences)
+    sentences = read_sent(sentencex_col.values)
 
     sentence_col =  data.loc[:,'sentence']
     real_sentences_pre = sentence_col.values 
-    real_sentences = []
     real_sentences =  read_sent(sentence_col.values) #for comparison later
 
     # step 2 - Generate Similary Martix across sentences
@@ -73,13 +80,10 @@ def generate_summary(data, top_n):
     # step 3 - Rank sentences in similarity martix
     sentence_similarity_graph = nx.from_numpy_array(sentence_similarity_martix)
     scores = nx.pagerank(sentence_similarity_graph)
+    # step 4 - Sort the rank and pick top sentences
+    ranked_sentence = sorted(((scores[i],s) for i,s in enumerate(real_sentences)), reverse=True)   #indexes of top ranked sentences  
 
-    # # Step 4 - Sort the rank and pick top sentences
-    ranked_sentence = sorted(((scores[i],s) for i,s in enumerate(real_sentences)), reverse=True)    
-    # print("Indexes of top ranked_sentence order are ", ranked_sentence)    
-
-    for i in range(top_n):
-      summarize_text.append(" ".join(ranked_sentence[i][1]))
+    summarize_text = [" ".join(ranked_sentence[i][1]) for i in range(top_n)]
 
     check = summarize_text
     rid = []
@@ -91,11 +95,5 @@ def generate_summary(data, top_n):
         if len(diff)>0:
             rid = ",".join(diff)
 
-    out = real_sentences_pre
-
-    chosen = []
-    for i in out:
-        if i in summarize_text and i not in rid:
-            chosen.append(i)
-    
+    chosen = [x for x in real_sentences_pre if x in summarize_text and x not in rid]
     return chosen
