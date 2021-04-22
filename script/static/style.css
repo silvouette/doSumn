@@ -18,13 +18,32 @@ thead th{
     font-weight: bold;
 }
 #doc-title{
-    margin-top: 5px;
+    margin: 5px auto 2px auto;
+    /* margin-top: 5px;
+    margin-bottom: 2px; */
+    text-align: center;
+    color:#b7b7bd;
+    font-weight: 600;
+    font-size: 1.5em;
+    font-family: 'Ubuntu', serif;
+}
+.doc-clsres{
+    margin-top: 100px;
     margin-bottom: 2px;
     text-align: center;
     color:#b7b7bd;
     font-weight: 600;
     font-size: 1.5em;
     font-family: 'Ubuntu', serif;
+}
+.simple-nav{
+    float:right;
+    position: sticky;
+    top: 0;
+    right: 45px;
+}
+.simple-nav a{
+    color: #a1a1a1;
 }
 .res-table{
     width: 80%;
@@ -33,11 +52,16 @@ thead th{
 a{
     color: #006400;
 }
+a:hover{
+    text-decoration: none;
+    color: #66a766;
+}
 #wordcount{
     float:right;
+    position: sticky;
     color: #b7b7bd;
-    margin-right: 7.7%;
-    margin-top: 2%;
+    top:0;
+    margin-right:2%;
 }
 #header{
     background: #E6E6FA;
@@ -89,7 +113,19 @@ li{
     padding-right: 5px;
 }
 #command{
-    margin-top: 10%;
+    margin-top: 12%;
     text-align: center;
-    padding-top: 1%;
+    padding: 1% 0 2% 0;
+    border: solid #b7b7bd 2px;
+    border-radius: 10px;
+    width: 50%;
+    background: #dfdfdf;
+}
+footer{
+    background: #E6E6FA;
+    color: #66a766;
+    padding: 3px 1% 3px 0;
+    text-align: right;
+    overflow: hidden;
+    font-family: 'Ubuntu Mono', monospace;
 }

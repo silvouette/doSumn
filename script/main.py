@@ -74,6 +74,8 @@ def dosumn(filename):
     res, classed, cl_acc = classify(c_train, c_test) #classed is dataset to display in flask as result of 2nd classifiction. cl_acc is 2nd classification accuracy
 
     removal = test[['sentence_x','heading_x','labels','abstract','summary_worth']] #dataset to display in flask for first classification result   
+    removal.rename(columns = {'labels' : 'r_role','abstract' : 'expected', 'summary_worth' : 'predicted'}, inplace = True) #renaming for better display
+    classed.rename(columns = {'sentence' : 'sentence_ori', 'labels' : 'expected', 'pred' : 'predicted'}, inplace = True)
     word_count = util.wordcount(res) #wordcount to display in flask. refer to util.py
 
     return res, word_count, removal, classed, rm_acc, cl_acc
