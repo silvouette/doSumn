@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
+        <div id="wordcount">
+            <p>{{ total }} words</p>
+            <p><a href="#div_removal">sent.removal</a></p>
+            <p><a href="#div_labelling">sent.labelling</a></p>
+        </div>
     {% if result %}
         <div class="container summary">
             <p id="doc-title">{{ name }} summary</p>
-            <span id="wordcount">{{ total }} words <a href="#div_removal">sent.removal</a></span>
             <div id="div-summary">
                 {% for key, value in result.items() %}
                 {% if value|length > 0 %}
@@ -15,11 +19,17 @@
         </div>
     {% endif %}
         <div id="div_removal">
+            <p id="doc-title">Sentence Removal</p>
+            <p class="acc_display">accuracy: {{rm}}</p>
+            <span><a href="#">top </a><a href="#div_labelling">next</a></span>
         {% for table in tables_1 %}
             {{ table|safe }}
         {% endfor %}
         </div>
         <div id="div_labelling">
+            <p id="doc-title">Sentence Labelling</p>
+            <p class="acc_display">accuracy: {{cl}}</p>
+            <span><a href="#">top </a><a href="#div_removal">previous</a></span>
             {% for table in tables_2 %}
                 {{ table|safe }}
             {% endfor %}

@@ -12,7 +12,11 @@ thead th{
     text-align: center;
     font-weight: bold;
 }
-
+.acc_display{
+    text-align: center;
+    color:#a1a1a1;
+    font-weight: bold;
+}
 #doc-title{
     margin-top: 5px;
     margin-bottom: 2px;
@@ -22,10 +26,18 @@ thead th{
     font-size: 1.5em;
     font-family: 'Ubuntu', serif;
 }
+.res-table{
+    width: 80%;
+    margin: 0 auto;
+}
+a{
+    color: #006400;
+}
 #wordcount{
-    float: right;
+    float:right;
     color: #b7b7bd;
     margin-right: 7.7%;
+    margin-top: 2%;
 }
 #header{
     background: #E6E6FA;
@@ -77,6 +89,7 @@ li{
     padding-right: 5px;
 }
 #command{
+    margin-top: 10%;
     text-align: center;
     padding-top: 1%;
 }

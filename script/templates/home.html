@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
         <div  class="container"  id="command">
-            <p>Please select a file to summarize</p>
+            <p id="doc-title" style="color: #979797; margin-bottom: 2%;">Please select a file to summarize</p>
             <form action="/summary" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-md-3"></div>
                     <input type="file" accept=".csv" class="form-control-file col-md-4" id="file-select" name="input">
-                    <button type="submit" class="btn btn-primary col-md-2" style="margin-left:2%">Summarize!</button>
+                    <button type="submit" class="btn btn-primary col-md-2" style="margin-left:2%; background: #006400; border: #979797;">Summarize!</button>
                     <div class="col-md-3"></div> 
                 </div>
             </form>

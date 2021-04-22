@@ -4,7 +4,7 @@ import numpy as np
 import networkx as nx
 import difflib
  
-def ranker(data):
+def ranker(data): #sets parameter of how much to cut from each category
     sets = ['BACKGROUND','TOPIC','METHOD','DATASET','RESULT','CONCLUSION','SUGGESTION']
     summ_collection = {}
 
@@ -84,7 +84,7 @@ def generate_summary(data, top_n):
     ranked_sentence = sorted(((scores[i],s) for i,s in enumerate(real_sentences)), reverse=True)   #indexes of top ranked sentences  
 
     summarize_text = [" ".join(ranked_sentence[i][1]) for i in range(top_n)]
-
+    #sometimes similar sentences are still filtered as important after textrank, so remove similar sentences with difflib.
     check = summarize_text
     rid = []
     for index, sent in enumerate(check[:-1]):
@@ -95,5 +95,5 @@ def generate_summary(data, top_n):
         if len(diff)>0:
             rid = ",".join(diff)
 
-    chosen = [x for x in real_sentences_pre if x in summarize_text and x not in rid]
+    chosen = [x for x in real_sentences_pre if x in summarize_text and x not in rid] #final selected sentences
     return chosen
