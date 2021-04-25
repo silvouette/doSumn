@@ -12,7 +12,7 @@ def ranker(data): #sets parameter of how much to cut from each category
         mask = data.loc[data['pred']== cat]
         if len(mask)>=10:
             summ = generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.4))
-        elif len(mask)>=2:
+        elif len(mask)>2:
             summ = generate_summary(data.loc[data['pred']== cat], int(len(mask)*0.5))
         else:
             summ = data.loc[data['pred']== cat,'sentence'].values
@@ -65,7 +65,7 @@ def build_similarity_matrix(sentences, stop_words):
     return similarity_matrix
 
 def generate_summary(data, top_n):
-    stop_words = stopwords.words('indonesian')
+    stop_words = stopwords.words('english')
 
     # step 1 - read and split text
     sentencex_col =  data.loc[:,'sentence_x']

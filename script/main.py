@@ -21,7 +21,7 @@ def try_knn(train, test): #classifying sentences to class 1 if summary-worthy, e
 
     pipe = Pipeline(steps=[ #Pipeline includes TF-IDF and classifier. Binary SVM classifier used.
                     ('tfidf', transformer),
-                    ('classifier', svm.SVC(class_weight='balanced', kernel='linear', C=10))
+                    ('classifier', svm.SVC(class_weight='balanced', kernel='rbf', C=100))
                     ])
     pipe.fit(x_train, y_train.values.ravel()) #data fitting
     y_pred = pipe.predict(x_test) #predict labels
@@ -38,14 +38,14 @@ def classify(df_train, df_test): #classifying sentences into rhetorical roles [b
                 ('sentence_tfidf', 
                   Pipeline([('extract_field',
                               FunctionTransformer(lambda x: x['sentence_x'], validate=False)),
-                            ('tfidf', TfidfVectorizer(ngram_range=[1,3], max_features=2000))])),
+                            ('tfidf', TfidfVectorizer(ngram_range=[1,2]))])),
                 ('heading_tfidf', 
                   Pipeline([('extract_field', 
                               FunctionTransformer(lambda x: x['heading_x'], validate=False)),
                             ('tfidf', TfidfVectorizer())]))]) 
     pipe = Pipeline(steps=[ #Pipeline includes TF-IDF and classifier. Multiclass one-vs-rest SVM classifier used. Other parameters shown.
                     ('tfidf', transformer),
-                    ('classifier', svm.SVC(class_weight='balanced', kernel='poly', decision_function_shape='ovr',  gamma=10, C=0.1))
+                    ('classifier', svm.SVC(class_weight='balanced', kernel='rbf', decision_function_shape='ovr',  gamma=0.005, C=1000))
                     ])
     pipe.fit(x_train, y_train.values.ravel()) #data fitting
     y_pred = pipe.predict(x_test) #predict labels
@@ -69,7 +69,8 @@ def dosumn(filename):
     # part 1: sentence removal, pick only summary-worthy sentence
     test['summary_worth'], rm_acc = try_knn(train, test)
     #part 2: labelling
-    c_train = train[train['abstract'] == 1].copy()
+    # c_train = train[train['abstract'] == 1].copy()
+    c_train = train.copy()
     c_test = test[test['summary_worth'] == 1].copy()
     res, classed, cl_acc = classify(c_train, c_test) #classed is dataset to display in flask as result of 2nd classifiction. cl_acc is 2nd classification accuracy
 
