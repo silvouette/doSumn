@@ -5,7 +5,7 @@ from sklearn.preprocessing import FunctionTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-def try_knn(train, test): #classifying sentences to class 1 if summary-worthy, else 0
+def removes(train, test): #classifying sentences to class 1 if summary-worthy, else 0
     x_train, y_train = train[['sentence_x','heading_x']], train[['abstract']]
     x_test, y_test = test[['sentence_x','heading_x']], test[['abstract']]
 
@@ -67,7 +67,7 @@ def dosumn(filename):
       test[column+"_x"] = test[column].apply(util.clean)
 
     # part 1: sentence removal, pick only summary-worthy sentence
-    test['summary_worth'], rm_acc = try_knn(train, test)
+    test['summary_worth'], rm_acc = removes(train, test)
     #part 2: labelling
     # c_train = train[train['abstract'] == 1].copy()
     c_train = train.copy()

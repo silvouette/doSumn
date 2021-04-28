@@ -20,6 +20,8 @@ def dosumn(filename):
     cl_acc = metrics.accuracy_score(y_test, y_pred)*100
 
     res = rank.ranker(cl)
+
+    print(cl.shape)
     
     removal = rm[['sentence_x','heading_x','labels','abstract','summary_worth']] #dataset to display in flask for first classification result   
     removal.rename(columns = {'labels' : 'r_role','abstract' : 'expected', 'summary_worth' : 'predicted'}, inplace = True) #renaming for better display

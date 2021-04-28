@@ -57,7 +57,8 @@ def try_knn(test): #classifying sentences to class 1 if summary-worthy, else 0
 
 def classify(df_test): #classifying sentences into rhetorical roles [background, topic, method, dataset, result, conclusion, suggestion]
     x_test, y_test = df_test[['sentence','sentence_x','heading_x']], df_test[['labels']] #assigning test set
-    y_pred = pipe.predict(x_test)
+    y_pred = pipec.predict(x_test)
+    print (y_pred)
     prediction = x_test
     prediction['labels'], prediction['pred'] = y_test, y_pred #new dataframe to include test expected value and predicted value
 
