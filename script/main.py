@@ -1,3 +1,4 @@
+# this code equals to control.py except control.py runs training and testing all at once (for fast display only)
 import util
 import rank
 from sklearn import metrics, svm

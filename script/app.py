@@ -1,8 +1,6 @@
-from flask import Flask, render_template, request, url_for
-import pandas as pd
+from flask import Flask, render_template, request
 # import main
 import show
-import os
 app = Flask(__name__)
 
 @app.route('/')
@@ -14,7 +12,7 @@ def index():
 def summ():
     if request.method == 'POST':
         if request.files:
-            input = request.files['input']
+            input = request.files['input'] #get file address
     doc = input.filename
     # result, wordcount, removal, classed, rm_acc, cl_acc = main.dosumn(doc)
     result, wordcount, removal, classed, rm_acc, cl_acc = show.dosumn(doc)

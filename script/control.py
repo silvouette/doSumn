@@ -1,8 +1,6 @@
 import util
-import rank
 import os
-import pandas as pd
-from sklearn import metrics, svm
+from sklearn import svm
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -53,8 +51,6 @@ pipec.fit(xc_train, yc_train.values.ravel()) #data fitting
 def removes(test): #classifying sentences to class 1 if summary-worthy, else 0
     x_test = test[['sentence_x','heading_x']]
     y_pred = pipe.predict(x_test) #predict labels
-    # accuracy = metrics.accuracy_score(test['abstract'].values, y_pred)*100
-    # print(accuracy,",")
     return y_pred
 
 def classify(df_test): #classifying sentences into rhetorical roles [background, topic, method, dataset, result, conclusion, suggestion]
@@ -63,8 +59,6 @@ def classify(df_test): #classifying sentences into rhetorical roles [background,
     prediction = x_test
     prediction['labels'], prediction['pred'] = y_test, y_pred #new dataframe to include test expected value and predicted value
 
-    accuracy = metrics.accuracy_score(y_test, y_pred)*100
-    print(accuracy,",")
     return prediction
 
 def dosumn(filename):
@@ -77,7 +71,7 @@ def dosumn(filename):
     # part 1: sentence removal, pick only summary-worthy sentence
     test['summary_worth']= removes(test)
     name = os.path.splitext(filename)[0]
-    test.to_json(rm_path+name+".json")
+    test.to_json(rm_path+name+".json") #directory must exist first bc this func wont create dirs!
 
     #part 2: labelling
     c_test = test[test['summary_worth'] == 1].copy()
@@ -86,4 +80,5 @@ def dosumn(filename):
 
 if __name__ == "__main__":  
   for filename in os.listdir('../test'):
+    print(filename)
     dosumn(filename)
